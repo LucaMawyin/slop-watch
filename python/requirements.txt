@@ -1,4 +1,4 @@
-sportsipy
+sportsdataverse
 pandas
 numpy
 scikit-learn
