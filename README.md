@@ -151,7 +151,7 @@ The goal is to make it easy for users to keep track of games they have been warn
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/LucaMawyin/slop-watch
 cd slop-watch
 ```
 
