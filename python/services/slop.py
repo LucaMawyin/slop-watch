@@ -131,9 +131,17 @@ def get_slop():
     # ACTUAL SLOP
     # ---------------------------------
 
+    games["scoring_weight"] = (
+        0.2 + 0.4 * games["team_badness"]
+    )
+
+    games["team_weight"] = (
+        1 - games["scoring_weight"]
+    )
+
     games["actual_slop"] = (
-        0.6 * games["team_badness"] +
-        0.4 * games["scoring_badness"]
+        games["team_weight"] * games["team_badness"] +
+        games["scoring_weight"] * games["scoring_badness"]
     )
 
     # Sort games by date and reset index

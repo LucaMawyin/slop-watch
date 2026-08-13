@@ -4,16 +4,10 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
-from games import get_performance
 from slop import get_slop
 
 def train_model():
 
-    # ---------------------------------
-    # GET DATA
-    # ---------------------------------
-
-    performance = get_performance()
     actual_slop = get_slop()
 
     # ---------------------------------
