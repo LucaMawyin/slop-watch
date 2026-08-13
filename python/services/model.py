@@ -27,54 +27,6 @@ def train_model():
     # FEATURES
     # ---------------------------------
 
-    home_features = performance[
-        [
-            "game_id",
-            "team",
-            "win_pct",
-            "point_diff_avg",
-            "recent_win_pct",
-            "recent_point_diff",            
-        ]
-    ].rename(
-        columns={
-            "team": "home_name",
-            "win_pct": "home_win_pct",
-            "point_diff_avg": "home_point_diff",
-            "recent_win_pct": "home_recent_win_pct",
-            "recent_point_diff": "home_recent_point_diff",
-        }
-    )
-
-    away_features = performance[
-        [
-            "game_id",
-            "team",
-            "win_pct",
-            "point_diff_avg",
-            "recent_win_pct",
-            "recent_point_diff",            
-        ]
-    ].rename(
-        columns={
-            "team": "away_name",
-            "win_pct": "away_win_pct",
-            "point_diff_avg": "away_point_diff",
-            "recent_win_pct": "away_recent_win_pct",
-            "recent_point_diff": "away_recent_point_diff",
-        }
-    )
-
-    actual_slop = actual_slop.merge(
-        home_features, 
-        on=["game_id", "home_name"], 
-        how="left"
-    ).merge(
-        away_features, 
-        on=["game_id", "away_name"], 
-        how="left"
-    )
-
     features = [
         "home_win_pct",
         "away_win_pct",
