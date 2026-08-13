@@ -16,69 +16,96 @@ def normalize_badness(value, min_value, max_value):
     return 1 - normalized.clip(0, 1)
 
 def get_slop():
+
     games = get_games()
     performance = get_performance()
 
-    # Full season team performance
-    team_stats = performance.groupby("team").agg(
-        win_pct=("win", "mean"),
-        point_diff_avg=("point_diff", "mean"),
-    ).reset_index()
+    # ---------------------------------
+    # GET PRE-GAME HOME TEAM STATS
+    # ---------------------------------
+    home_features = performance[
+        [
+            "game_id",
+            "team",
+            "win_pct",
+            "point_diff_avg",
+            "recent_win_pct",
+            "recent_point_diff",            
+        ]
+    ].rename(
+        columns={
+            "team": "home_name",
+            "win_pct": "home_win_pct",
+            "point_diff_avg": "home_point_diff",
+            "recent_win_pct": "home_recent_win_pct",
+            "recent_point_diff": "home_recent_point_diff",
+        }
+    )
+
+    # ---------------------------------
+    # GET PRE-GAME AWAY TEAM STATS
+    # ---------------------------------
+    away_features = performance[
+        [
+            "game_id",
+            "team",
+            "win_pct",
+            "point_diff_avg",
+            "recent_win_pct",
+            "recent_point_diff",            
+        ]
+    ].rename(
+        columns={
+            "team": "away_name",
+            "win_pct": "away_win_pct",
+            "point_diff_avg": "away_point_diff",
+            "recent_win_pct": "away_recent_win_pct",
+            "recent_point_diff": "away_recent_point_diff",
+        }
+    )
+
+    # ---------------------------------
+    # ATTACH PRE-GAME STATS TO GAMES
+    # ---------------------------------
+
+    games = games.merge(
+        home_features, 
+        on=["game_id", "home_name"], 
+        how="left"
+    ).merge(
+        away_features, 
+        on=["game_id", "away_name"], 
+        how="left"
+    )
 
     # ---------------------------------
     # TEAM BADNESS
     # ---------------------------------
 
-    team_stats["win_pct_badness"] = (
-        1 - team_stats["win_pct"]
-    )
+    games["home_win_badness"] = 1 - games["home_win_pct"]
+    games["away_win_badness"] = 1 - games["away_win_pct"]
 
-    team_stats["point_diff_badness"] = normalize_badness(
-        team_stats["point_diff_avg"],
+    games["home_point_diff_badness"] = normalize_badness(
+        games["home_point_diff"],
         POINT_DIFF_MIN,
         POINT_DIFF_MAX,
     )
 
-    team_stats["actual_badness"] = (
-        team_stats["win_pct_badness"] +
-        team_stats["point_diff_badness"]
+    games["away_point_diff_badness"] = normalize_badness(
+        games["away_point_diff"],
+        POINT_DIFF_MIN,
+        POINT_DIFF_MAX,
+    )
+
+    games["home_badness"] = (
+        games["home_win_badness"] +
+        games["home_point_diff_badness"]
     ) / 2
 
-    # ---------------------------------
-    # ATTACH BADNESS TO GAMES
-    # ---------------------------------
-
-    home_badness = team_stats[
-        ["team", "actual_badness"]
-    ].rename(
-        columns={
-            "team": "home_name",
-            "actual_badness": "home_badness",
-        }
-    )
-
-    away_badness = team_stats[
-        ["team", "actual_badness"]
-    ].rename(
-        columns={
-            "team": "away_name",
-            "actual_badness": "away_badness",
-        }
-    )
-
-    games = games.merge(
-        home_badness, 
-        on="home_name",
-        how="left"
-    ).merge(
-        away_badness, 
-        on="away_name",
-        how="left"
-    )
-
-    # ---------------------------------
-    # TEAM BADNESS COMPONENT
-    # ---------------------------------
+    games["away_badness"] = (
+        games["away_win_badness"] +
+        games["away_point_diff_badness"]
+    ) / 2
 
     games["team_badness"] = (
         games["home_badness"] +
@@ -131,4 +158,3 @@ def get_slop():
     )
 
     return games
-    
