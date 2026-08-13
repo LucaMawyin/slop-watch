@@ -1,4 +1,3 @@
-import pandas as pd
 from games import get_games, get_performance
 
 # Function to normalize badness values between 0 and 1

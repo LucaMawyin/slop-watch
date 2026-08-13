@@ -15,17 +15,21 @@ slop-watch/
 ├── src/                    # React frontend
 │
 ├── python/                 # Flask backend and ML code
-│   ├── .venv/              # Python virtual environment
-│   ├── app.py              # Flask application
-│   ├── requirements.txt    # Python dependencies
+│   ├── .venv/             # Python virtual environment
+│   ├── app.py             # Flask application
+│   ├── requirements.txt   # Python dependencies
 │   │
 │   ├── data/
-│   │   ├── raw/            # Raw data collected from Sportsipy
-│   │   └── processed/      # Cleaned data used for ML
+│   │   ├── raw/           # Raw historical sports data
+│   │   └── processed/     # Processed data used by the application
 │   │
-│   ├── models/             # Trained ML models
+│   ├── models/            # Trained ML models
 │   │
-│   └── services/           # Data collection, processing, and prediction logic
+│   └── services/
+│       ├── data.py        # Loads and converts raw CSV data into DataFrames
+│       ├── games.py       # Provides game data and team performance data
+│       ├── slop.py        # Calculates the actual slop of completed games
+│       └── predict.py     # Predicts slop using pre-game team performance
 │
 ├── package.json            # React dependencies
 └── .gitignore
@@ -69,25 +73,27 @@ Slop Watch follows a pipeline from historical data to predictions:
 ```text
 Historical Sports Data
         ↓
-     Sportsipy
+      data.py
         ↓
-   Raw Game Data
+    games.py
         ↓
-      Pandas
-        ↓
- Feature Engineering
-        ↓
-  Machine Learning
-        ↓
- Game Predictions
-        ↓
-   Slop Score
-        ↓
-     Flask API
-        ↓
-   React Frontend
-        ↓
- Calendar Integration
+ ┌───────────────┬────────────────┐
+ ↓               ↓                ↓
+slop.py       predict.py       ML Model
+ ↓               ↓                ↓
+Actual Slop   Predicted Slop
+        \       /
+         \     /
+          ↓   ↓
+    Prediction Error
+          ↓
+   Future Predictions
+          ↓
+      Flask API
+          ↓
+    React Frontend
+          ↓
+  Calendar Integration
 ```
 
 The model learns from historical games and uses information available **before a game is played** to predict how likely an upcoming matchup is to be slop.
@@ -269,12 +275,15 @@ This is particularly important when training and testing the model. A model that
 
 🚧 **Early Development**
 
-- [ ] Set up the Python backend
-- [ ] Collect historical data with Sportsipy
-- [ ] Build the initial Pandas dataset
-- [ ] Clean and process the data
-- [ ] Develop game-quality features
-- [ ] Define the Slop Score
+- [x] Set up the Python backend
+- [x] Collect historical NBA data
+- [x] Build the initial Pandas dataset
+- [x] Create game and team performance processing
+- [x] Define an initial Slop Score
+- [x] Calculate actual game slop
+- [x] Calculate predicted game slop
+- [ ] Compare predicted slop against actual slop
+- [ ] Measure prediction error
 - [ ] Train an initial ML model
 - [ ] Evaluate model performance
 - [ ] Create the Flask API

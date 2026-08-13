@@ -1,4 +1,3 @@
-import pandas as pd
 from games import get_games, get_performance
 
 def get_slop():
