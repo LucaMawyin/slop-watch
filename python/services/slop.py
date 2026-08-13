@@ -173,6 +173,7 @@ def get_slop():
                 "actual_slop",
             ]
         ]
+        .sort_values("actual_slop", ascending=False)
         .head(100)
         .to_string()
     )

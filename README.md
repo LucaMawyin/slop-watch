@@ -24,12 +24,14 @@ slop-watch/
 │   │   └── processed/     # Processed data used by the application
 │   │
 │   ├── models/            # Trained ML models
+│   |   └── slop_model.pkl
 │   │
 │   └── services/
-│       ├── data.py        # Loads and converts raw CSV data into DataFrames
-│       ├── games.py       # Provides game data and team performance data
-│       ├── slop.py        # Calculates the actual slop of completed games
-│       └── predict.py     # Predicts slop using pre-game team performance
+│       ├── data.py        # Loads and converts raw sports data into DataFrames
+│       ├── games.py       # Provides game data and pre-game team performance
+│       ├── slop.py        # Calculates the actual Slop Score for completed games
+│       ├── model.py       # Trains and saves the Slop Score model
+│       └── predict.py     # Predicts Slop Score using pre-game team performance
 │
 ├── package.json            # React dependencies
 └── .gitignore
@@ -50,7 +52,7 @@ slop-watch/
 
 ### Data & Machine Learning
 
-- Sportsipy — sports data collection
+- Sportsdataverse — sports data collection
 - Pandas — data processing
 - NumPy — numerical operations
 - Scikit-learn — machine learning
@@ -73,27 +75,29 @@ Slop Watch follows a pipeline from historical data to predictions:
 ```text
 Historical Sports Data
         ↓
-      data.py
+     data.py
         ↓
-    games.py
+     games.py
         ↓
- ┌───────────────┬────────────────┐
- ↓               ↓                ↓
-slop.py       predict.py       ML Model
- ↓               ↓                ↓
-Actual Slop   Predicted Slop
-        \       /
-         \     /
-          ↓   ↓
-    Prediction Error
-          ↓
-   Future Predictions
-          ↓
-      Flask API
-          ↓
-    React Frontend
-          ↓
-  Calendar Integration
+     slop.py
+        ↓
+   Actual Slop
+        ↓
+    model.py
+        ↓
+ Random Forest Model
+        ↓
+ slop_model.pkl
+        ↓
+    predict.py
+        ↓
+ Predicted Slop
+        ↓
+     Flask API
+        ↓
+ React Frontend
+        ↓
+Calendar Integration
 ```
 
 The model learns from historical games and uses information available **before a game is played** to predict how likely an upcoming matchup is to be slop.
@@ -206,13 +210,13 @@ The Flask backend will provide the API that the React frontend will eventually u
 The backend currently uses:
 
 ```text
-sportsipy
 pandas
 numpy
 scikit-learn
 flask
 flask-cors
 joblib
+sportsdataverse
 ```
 
 Install them with:
@@ -241,18 +245,30 @@ Raw datasets should remain unchanged. Data cleaning and feature engineering shou
 
 ## Machine Learning
 
-The initial model will predict characteristics of upcoming games such as:
+Slop Watch currently uses a Random Forest regression model to predict the
+Slop Score of upcoming games.
 
-- Expected home score
-- Expected away score
-- Expected margin
-- Probability of a close game
-- Expected competitiveness
-- Overall game quality
+The model uses statistics that are available before a game is played,
+including:
 
-These predictions can then be used to calculate the game's **Slop Score**.
+- Home team win percentage
+- Away team win percentage
+- Home team point differential
+- Away team point differential
+- Home team recent win percentage
+- Away team recent win percentage
+- Home team recent point differential
+- Away team recent point differential
 
-The model will eventually be evaluated against historical seasons to determine how accurately it can identify bad games before they happen.
+The model is trained on historical games using the actual Slop Score
+calculated by `slop.py` as the target.
+
+The trained model is saved as:
+
+python/models/slop_model.pkl
+
+`predict.py` loads this model and uses current pre-game team performance
+to estimate the Slop Score of upcoming games.
 
 ## Avoiding Data Leakage
 
@@ -283,8 +299,8 @@ This is particularly important when training and testing the model. A model that
 - [x] Calculate actual game slop
 - [x] Calculate predicted game slop
 - [ ] Compare predicted slop against actual slop
-- [ ] Measure prediction error
-- [ ] Train an initial ML model
+- [x] Measure prediction error
+- [x] Train an initial ML model
 - [ ] Evaluate model performance
 - [ ] Create the Flask API
 - [ ] Connect the React frontend

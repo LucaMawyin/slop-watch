@@ -5,7 +5,7 @@ import pandas as pd
 from sportsdataverse.nba import espn_nba_schedule
 
 # Fixed time range (temp)
-START_DATE = date(2024, 10, 22)
+START_DATE = date(2020, 12, 22)
 END_DATE = date(2025, 4, 13)
 
 games = []
