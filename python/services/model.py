@@ -16,7 +16,6 @@ def train_model():
 
     actual_slop = actual_slop.sort_values("date").reset_index(drop=True)
 
-
     # ---------------------------------
     # FEATURES
     # ---------------------------------

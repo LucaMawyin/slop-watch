@@ -99,13 +99,25 @@ def get_slop():
 
     games["home_badness"] = (
         games["home_win_badness"] +
-        games["home_point_diff_badness"]
-    ) / 2
+        games["home_point_diff_badness"] + 
+        (1 - games["home_recent_win_pct"]) +
+        normalize_badness(
+            games["home_recent_point_diff"],
+            POINT_DIFF_MIN,
+            POINT_DIFF_MAX
+        )
+    ) / 4
 
     games["away_badness"] = (
         games["away_win_badness"] +
-        games["away_point_diff_badness"]
-    ) / 2
+        games["away_point_diff_badness"] + 
+        (1 - games["away_recent_win_pct"]) +
+        normalize_badness(
+            games["away_recent_point_diff"],
+            POINT_DIFF_MIN,
+            POINT_DIFF_MAX
+        )
+    ) / 4
 
     games["team_badness"] = (
         games["home_badness"] +
@@ -132,7 +144,7 @@ def get_slop():
     # ---------------------------------
 
     games["scoring_weight"] = (
-        0.2 + 0.4 * games["team_badness"]
+        0.1 + 0.2 * games["team_badness"]
     )
 
     games["team_weight"] = (
