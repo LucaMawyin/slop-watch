@@ -1,4 +1,7 @@
+from datetime import timezone, datetime
 import pandas as pd
+from sportsdataverse.nba import espn_nba_schedule
+
 pd.set_option("display.max_rows", None)
 
 def get_games(league="nba"):
@@ -108,3 +111,52 @@ def get_performance():
     )
 
     return performance
+
+def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
+
+    if prediction_date is None:
+        prediction_date = pd.Timestamp.now(tz="UTC")
+
+    prediction_date = pd.Timestamp(prediction_date)
+
+    if prediction_date.tzinfo is None:
+        prediction_date = prediction_date.tz_localize("UTC")
+    else:
+        prediction_date = prediction_date.tz_convert("UTC")
+
+    end_date = prediction_date + pd.Timedelta(days=days_ahead)
+
+    games = []
+
+    current_date = prediction_date.normalize()
+    while current_date <= end_date:
+
+        df = espn_nba_schedule(
+            dates=current_date.strftime("%Y%m%d"),
+            return_as_pandas=True,
+            limit=50
+        )
+
+        if not df.empty:
+            games.append(df)
+
+        current_date += pd.Timedelta(days=1)
+
+    if not games:
+        return pd.DataFrame()
+
+    df = pd.concat(games, ignore_index=True)
+
+    df["date"] = pd.to_datetime(df["date"], utc=True)
+
+    future_games = df[
+        (df["season_type"] == 2) &
+        (df["date"] >= prediction_date) 
+    ].copy()
+
+    # Remove duplicates
+    future_games = future_games.drop_duplicates(
+        subset=["game_id"]
+    )
+
+    return future_games
