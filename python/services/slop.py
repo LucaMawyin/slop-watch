@@ -1,11 +1,27 @@
 from games import get_games, get_performance
 
-POINT_DIFF_MIN = -20
-POINT_DIFF_MAX = 20
+SPORT_CONFIG = {
+    "nba": {
+        "point_diff_min": -20,
+        "point_diff_max": 20,
+        "total_points_min": 180,
+        "total_points_max": 260,
+    },
 
-TOTAL_POINTS_MIN = 180
-TOTAL_POINTS_MAX = 260
+    "nfl": {
+        "point_diff_min": -30,
+        "point_diff_max": 30,
+        "total_points_min": 20,
+        "total_points_max": 70,
+    },
 
+    "nhl": {
+        "point_diff_min": -5,
+        "point_diff_max": 5,
+        "total_points_min": 3,
+        "total_points_max": 10,
+    },
+}
 
 def normalize_badness(value, min_value, max_value):
     normalized = (
@@ -15,10 +31,11 @@ def normalize_badness(value, min_value, max_value):
 
     return 1 - normalized.clip(0, 1)
 
-def get_slop():
+def get_slop(sport="nba"):
 
     games = get_games()
     performance = get_performance()
+    config=SPORT_CONFIG[sport]
 
     # ---------------------------------
     # GET PRE-GAME HOME TEAM STATS
@@ -87,14 +104,14 @@ def get_slop():
 
     games["home_point_diff_badness"] = normalize_badness(
         games["home_point_diff"],
-        POINT_DIFF_MIN,
-        POINT_DIFF_MAX,
+        config["point_diff_min"],
+        config["point_diff_max"],
     )
 
     games["away_point_diff_badness"] = normalize_badness(
         games["away_point_diff"],
-        POINT_DIFF_MIN,
-        POINT_DIFF_MAX,
+        config["point_diff_min"],
+        config["point_diff_max"],
     )
 
     games["home_badness"] = (
@@ -103,8 +120,8 @@ def get_slop():
         (1 - games["home_recent_win_pct"]) +
         normalize_badness(
             games["home_recent_point_diff"],
-            POINT_DIFF_MIN,
-            POINT_DIFF_MAX
+            config["point_diff_min"],
+            config["point_diff_max"],
         )
     ) / 4
 
@@ -114,8 +131,8 @@ def get_slop():
         (1 - games["away_recent_win_pct"]) +
         normalize_badness(
             games["away_recent_point_diff"],
-            POINT_DIFF_MIN,
-            POINT_DIFF_MAX
+            config["point_diff_min"],
+            config["point_diff_max"],
         )
     ) / 4
 
@@ -135,8 +152,8 @@ def get_slop():
 
     games["scoring_badness"] = normalize_badness(
         games["total_points"],
-        TOTAL_POINTS_MIN,
-        TOTAL_POINTS_MAX,
+        config["total_points_min"],
+        config["total_points_max"],
     )
 
     # ---------------------------------
