@@ -4,10 +4,10 @@ import { addToGoogleCalendar, addToICS, addToOutlook } from "@/lib/calendar";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game } from "@/lib/types";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Games() {
+function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -338,4 +338,18 @@ export default function Games() {
     );
 }
 
-
+export default function Games() {
+    return (
+        <Suspense
+            fallback={
+                <main className="min-h-screen bg-zinc-950 p-6 text-white">
+                    <div className="text-zinc-400">
+                        Loading games...
+                    </div>
+                </main>
+            }
+        >
+            <GamesContent />
+        </Suspense>
+    );
+}
