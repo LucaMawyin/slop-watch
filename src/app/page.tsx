@@ -29,8 +29,17 @@ export default function Home() {
                     text-center
                 ">
 
+                    <h1 className="
+                        text-6xl 
+                        font-bold 
+                        tracking-tight 
+                        sm:text-7xl
+                    ">
+                        Slop Watch
+                    </h1>
+
                     <div className="
-                        mb-6 
+                        mt-8 
                         rounded-full 
                         border 
                         border-zinc-800 
@@ -43,17 +52,8 @@ export default function Home() {
                         AI-powered sports analytics
                     </div>
 
-                    <h1 className="
-                        text-6xl 
-                        font-bold 
-                        tracking-tight 
-                        sm:text-7xl
-                    ">
-                        Slop Watch
-                    </h1>
-
                     <p className="
-                        mt-6 
+                        mt-4 
                         max-w-2xl 
                         text-lg 
                         leading-8 
@@ -65,9 +65,26 @@ export default function Home() {
                         terrible the matchup looks.
                     </p>
 
+                    <a
+                        href="https://github.com/LucaMawyin/slop-watch"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                            mt-4
+                            text-sm
+                            text-zinc-500
+                            underline
+                            underline-offset-4
+                            transition
+                            hover:text-zinc-300
+                        "
+                    >
+                        View source code →
+                    </a>
+
                     {/* Controls */}
                     <div className="
-                        mt-10 
+                        mt-8
                         flex 
                         items-center 
                         gap-3
