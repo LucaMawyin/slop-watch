@@ -14,6 +14,7 @@ function GamesContent() {
     const [error, setError] = useState<string | null>(null);
     const [calendarGame, setCalendarGame] = useState<Game | null>(null);
     const [sortBy, setSortBy] = useState<"slop" | "date">("date");    
+    const [visibleCount, setVisibleCount] = useState(9);
 
     const searchParams = useSearchParams();
     const league = searchParams.get("league") || "nba";
@@ -22,6 +23,7 @@ function GamesContent() {
 
     useEffect(() => {
         setLoading(true);
+        setVisibleCount(9);
 
         const params = new URLSearchParams();
 
@@ -39,8 +41,6 @@ function GamesContent() {
             `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`
         )
             .then((res) => {
-                console.log(res);
-
                 if (!res.ok) {
                     throw new Error("Failed to fetch games");
                 }
@@ -48,8 +48,6 @@ function GamesContent() {
                 return res.json();
             })
             .then((data) => {
-                console.log("Flask response:", data);
-
                 setGames(data as Game[]);
                 setLoading(false);
             })
@@ -188,111 +186,136 @@ function GamesContent() {
                     </Link>
                 </div>
 
-            ) : (
-                <div className="
-                    mt-8 
-                    grid 
-                    auto-rows-fr
-                    grid-cols-1 
-                    gap-4 
-                    sm:grid-cols-2 
-                    lg:grid-cols-3
-                ">
-                    {sortedGames.map((game) => {
-                        const badge = getSlopBadge(game.predicted_slop);
+            ) : ( 
+                <>
+                    <div className="
+                        mt-8 
+                        grid 
+                        auto-rows-fr
+                        grid-cols-1 
+                        gap-4 
+                        sm:grid-cols-2 
+                        lg:grid-cols-3
+                    ">
+                        {sortedGames.slice(0, visibleCount).map((game) => {
+                            const badge = getSlopBadge(game.predicted_slop);
 
-                        return (
-                            <div
-                                key={game.game_id}
+                            return (
+                                <div
+                                    key={game.game_id}
+                                    className="
+                                        rounded-xl 
+                                        border 
+                                        border-zinc-800
+                                        bg-zinc-900 p-5
+                                    "
+                                >
+                                    <div className="flex items-start justify-between pb-2">
+                                        <div className="text-sm text-zinc-400">
+                                            {new Date(game.date).toLocaleString([], {
+                                                weekday: "short",
+                                                month: "short",
+                                                day: "numeric",
+                                                hour: "numeric",
+                                                minute: "2-digit",
+                                            })}
+                                        </div>
+
+                                        <div
+                                            className={`
+                                                rounded-full
+                                                border 
+                                                px-3 
+                                                py-1 
+                                                text-xs 
+                                                font-medium 
+                                                ${badge.className}
+                                            `}
+                                        >
+                                            {badge.title}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-between">
+                                        <div>
+                                            <div className="mb-1 text-xs text-zinc-500">
+                                                HOME
+                                            </div>
+                                            <div className="text-xl font-semibold">
+                                                {game.home_name}
+                                            </div>
+                                        </div>
+
+                                        <div className="text-right">
+                                            <div className="mb-1 text-xs text-zinc-500">
+                                                AWAY
+                                            </div>
+                                            <div className="text-xl font-semibold">
+                                                {game.away_name}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-5 border-t border-zinc-800 pt-4 text-center">
+                                        <div className="text-xs text-zinc-500">
+                                            SLOP SCORE
+                                        </div>
+
+                                        <div className="text-2xl font-bold">
+                                            {(game.predicted_slop * 100).toFixed(1)}%
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <button
+                                            onClick={() => setCalendarGame(game)}
+                                            className="
+                                                mt-4
+                                                w-full
+                                                rounded-lg
+                                                border
+                                                border-zinc-700
+                                                bg-zinc-800
+                                                px-4
+                                                py-2
+                                                text-sm
+                                                font-medium
+                                                text-zinc-200
+                                                transition
+                                                hover:bg-zinc-700
+                                            "
+                                        >
+                                            Add to Calendar
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            )
+                        })}
+                    </div>
+                    {visibleCount < sortedGames.length && (
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                onClick={() => setVisibleCount((count) => count + 9)}
                                 className="
-                                    rounded-xl 
-                                    border 
+                                    rounded-lg
+                                    border
                                     border-zinc-800
-                                    bg-zinc-900 p-5
+                                    bg-zinc-900
+                                    px-5
+                                    py-2.5
+                                    text-sm
+                                    font-medium
+                                    text-zinc-200
+                                    transition
+                                    hover:border-zinc-700
+                                    hover:bg-zinc-800
                                 "
                             >
-                                <div className="flex items-start justify-between pb-2">
-                                    <div className="text-sm text-zinc-400">
-                                        {new Date(game.date).toLocaleString([], {
-                                            weekday: "short",
-                                            month: "short",
-                                            day: "numeric",
-                                            hour: "numeric",
-                                            minute: "2-digit",
-                                        })}
-                                    </div>
-
-                                    <div
-                                        className={`
-                                            rounded-full
-                                            border 
-                                            px-3 
-                                            py-1 
-                                            text-xs 
-                                            font-medium 
-                                            ${badge.className}
-                                        `}
-                                    >
-                                        {badge.title}
-                                    </div>
-                                </div>
-
-                                <div className="flex justify-between">
-                                    <div>
-                                        <div className="mb-1 text-xs text-zinc-500">
-                                            HOME
-                                        </div>
-                                        <div className="text-2xl font-semibold">
-                                            {game.home_name}
-                                        </div>
-                                    </div>
-
-                                    <div className="text-right">
-                                        <div className="mb-1 text-xs text-zinc-500">
-                                            AWAY
-                                        </div>
-                                        <div className="text-2xl font-semibold">
-                                            {game.away_name}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="mt-5 border-t border-zinc-800 pt-4 text-center">
-                                    <div className="text-xs text-zinc-500">
-                                        SLOP SCORE
-                                    </div>
-
-                                    <div className="text-2xl font-bold">
-                                        {(game.predicted_slop * 100).toFixed(1)}%
-                                    </div>
-                                </div>
-
-                                <div className="mt-4">
-                                    <button
-                                        onClick={() => setCalendarGame(game)}
-                                        className="
-                                            mt-4
-                                            w-full
-                                            rounded-lg
-                                            border
-                                            border-zinc-700
-                                            bg-zinc-800
-                                            px-4
-                                            py-2
-                                            text-sm
-                                            font-medium
-                                            text-zinc-200
-                                            transition
-                                            hover:bg-zinc-700
-                                        "
-                                    >
-                                        Add to Calendar
-                                    </button>
-                                </div>
-                                
-                            </div>
-                        )
-                    })}
-                </div>
+                                Show More
+                            </button>
+                        </div>
+                    )}
+                </>
             )}
 
             {/* ADD TO CALENDAR POPUP */}

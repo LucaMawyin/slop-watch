@@ -8,7 +8,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 90) {
+    if (percentage >= 87.5) {
         return {
             title: "Historic Slop",
             className: "border-rose-500/40 bg-rose-500/15 text-rose-400",
@@ -22,23 +22,30 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 70) {
+    if (percentage >= 72.5) {
         return {
             title: "Grade-A Slop",
             className: "border-amber-500/40 bg-amber-500/15 text-amber-400",
         };
     }
 
-    if (percentage >= 60) {
+    if (percentage >= 65) {
         return {
             title: "Certified Slop",
             className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
         };
     }
 
-    if (percentage >= 50) {
+    if (percentage >= 57.5) {
         return {
             title: "Suspicious",
+            className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
+        };
+    }
+
+    if (percentage >= 50) {
+        return {
+            title: "Mild",
             className: "border-lime-500/40 bg-lime-500/15 text-lime-400",
         };
     }

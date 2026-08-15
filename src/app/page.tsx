@@ -88,43 +88,52 @@ export default function Home() {
                     {/* Controls */}
                     <div className="
                         mt-8
-                        flex 
-                        items-center 
-                        gap-3
+                        flex
+                        flex-col
+                        items-center
+                        gap-6
                     ">
-                        <select
-                            value={league}
-                            onChange={(e) => setLeague(e.target.value)}
-                            className="
-                                rounded-lg 
-                                border 
-                                border-zinc-700 
-                                bg-zinc-900 
-                                px-4 py-3 
-                                text-sm 
-                                outline-none 
-                                transition 
-                                focus:border-zinc-500
-                            "
-                        >
-                            <option value="nba">NBA</option>
-                            <option value="nfl">NFL</option>
-                            <option value="nhl">NHL</option>
-                            <option value="mlb">MLB</option>
-                        </select>
+                        {/* Filters */}
+                        <div className="
+                            flex
+                            items-center
+                            gap-3
+                        ">
+                            <select
+                                value={league}
+                                onChange={(e) => setLeague(e.target.value)}
+                                className="
+                                    rounded-lg
+                                    border
+                                    border-zinc-700
+                                    bg-zinc-900
+                                    px-4 py-3
+                                    text-sm
+                                    outline-none
+                                    transition
+                                    focus:border-zinc-500
+                                "
+                            >
+                                <option value="nba">NBA</option>
+                                <option value="nfl">NFL</option>
+                                <option value="nhl">NHL</option>
+                                <option value="mlb">MLB</option>
+                            </select>
 
-                        <DayPickerClient onChange={setDateRange} />
+                            <DayPickerClient onChange={setDateRange} />
+                        </div>
 
+                        {/* Button */}
                         <button
                             className="
-                                rounded-lg 
+                                rounded-lg
                                 bg-white
-                                px-5 
-                                py-3 
-                                text-sm 
-                                font-semibold 
-                                text-black 
-                                transition 
+                                px-5
+                                py-3
+                                text-sm
+                                font-semibold
+                                text-black
+                                transition
                                 hover:bg-zinc-200
                             "
                             onClick={() => {
