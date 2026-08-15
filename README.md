@@ -10,7 +10,7 @@ When Slop Watch identifies a game worth avoiding, users can also **add the game 
 
 ## Website
 
-**[Try Slop Watch](https://slop-watch.worker-runtime.workers.dev)** — Try Slop Watch and see which upcoming games are predicted to be the sloppiest.
+**[Try Slop Watch](https://slopwatchsports.vercel.app/)** — Try Slop Watch and see which upcoming games are predicted to be the sloppiest.
 
 ## Project Structure
 
