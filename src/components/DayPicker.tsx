@@ -6,18 +6,17 @@ import "react-day-picker/style.css";
 
 type DayPickerClientProps = {
     onChange: (range: DateRange | undefined) => void;
+    initialRange?: DateRange;
 };
 
 export default function DayPickerClient({
     onChange,
+    initialRange,
 }: DayPickerClientProps) {
-    const [range, setRange] = useState<DateRange | undefined>();
+    const [range, setRange] = useState<DateRange | undefined>(
+        initialRange
+    );
     const [open, setOpen] = useState(false);
-
-    const handleSelect = (newRange: DateRange | undefined) => {
-        setRange(newRange);
-        onChange(newRange);
-    };
 
     const dateLabel = range?.from
         ? range.to
@@ -25,11 +24,18 @@ export default function DayPickerClient({
             : range.from.toLocaleDateString()
         : "Select dates";
 
+    const handleApply = () => {
+        if (!range?.from || !range?.to) return;
+
+        onChange(range);
+        setOpen(false);
+    };
+
     return (
         <div className="relative">
             <button
                 type="button"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpen(true)}
                 className="
                     rounded-lg
                     border
@@ -74,30 +80,31 @@ export default function DayPickerClient({
                         <DayPicker
                             mode="range"
                             selected={range}
-                            onSelect={handleSelect}
+                            onSelect={setRange}
                         />
 
-                        {range?.from && range?.to && (
-                            <button
-                                type="button"
-                                onClick={() => setOpen(false)}
-                                className="
-                                    mt-2
-                                    w-full
-                                    rounded-lg
-                                    bg-white
-                                    px-4
-                                    py-2
-                                    text-sm
-                                    font-semibold
-                                    text-black
-                                    transition
-                                    hover:bg-zinc-200
-                                "
-                            >
-                                Apply dates
-                            </button>
-                        )}
+                        <button
+                            type="button"
+                            disabled={!range?.from || !range?.to}
+                            onClick={handleApply}
+                            className="
+                                mt-2
+                                w-full
+                                rounded-lg
+                                bg-white
+                                px-4
+                                py-2
+                                text-sm
+                                font-semibold
+                                text-black
+                                transition
+                                hover:bg-zinc-200
+                                disabled:cursor-not-allowed
+                                disabled:opacity-40
+                            "
+                        >
+                            Apply dates
+                        </button>
                     </div>
                 </>
             )}

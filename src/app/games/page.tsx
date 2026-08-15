@@ -6,6 +6,7 @@ import { Game } from "@/lib/types";
 import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import DayPickerClient from "@/components/DayPicker";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -87,33 +88,83 @@ function GamesContent() {
     return (
         <main className="min-h-screen bg-zinc-950 p-6 text-white">
 
-            <div className="flex items-center justify-between">
-                <h1 className="text-4xl font-bold">
+            <div className="
+                flex
+                flex-wrap
+                items-center
+                justify-between
+                gap-4
+            ">
+                <h1 className="
+                    w-full
+                    text-center
+                    text-4xl
+                    font-bold
+                    sm:w-auto
+                    sm:text-left
+                ">
                     Upcoming Games
                 </h1>
 
-                <select
-                    value={sortBy}
-                    onChange={(e) =>
-                        setSortBy(e.target.value as "slop" | "date")
-                    }
-                    className="
-                        rounded-lg
-                        border
-                        border-zinc-800
-                        bg-zinc-900
-                        px-3
-                        py-2
-                        text-sm
-                        text-zinc-200
-                        outline-none
-                    "
-                >
-                    <option value="slop">Sort by Slop</option>
-                    <option value="date">Sort by Date</option>
-                </select>
-            </div>
+                <div className="
+                    flex
+                    w-full
+                    flex-wrap
+                    items-center
+                    justify-between
+                    gap-3
+                    sm:w-auto
+                ">
+                    <DayPickerClient
+                        initialRange={
+                            start && end
+                                ? {
+                                    from: new Date(`${start}T00:00:00`),
+                                    to: new Date(`${end}T00:00:00`),
+                                }
+                                : undefined
+                        }
+                        onChange={(range) => {
+                            if (!range?.from || !range?.to) return;
 
+                            const params = new URLSearchParams(searchParams.toString());
+
+                            params.set(
+                                "start",
+                                range.from.toISOString().split("T")[0]
+                            );
+
+                            params.set(
+                                "end",
+                                range.to.toISOString().split("T")[0]
+                            );
+
+                            window.location.href = `/games?${params.toString()}`;
+                        }}
+                    />
+
+                    <select
+                        value={sortBy}
+                        onChange={(e) =>
+                            setSortBy(e.target.value as "slop" | "date")
+                        }
+                        className="
+                            rounded-lg
+                            border
+                            border-zinc-800
+                            bg-zinc-900
+                            px-3
+                            py-2
+                            text-sm
+                            text-zinc-200
+                            outline-none
+                        "
+                    >
+                        <option value="slop">Sort by Slop</option>
+                        <option value="date">Sort by Date</option>
+                    </select>
+                </div>
+            </div>
             {games.length === 0 ? (
                 <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
                     <p className="text-lg font-semibold">
