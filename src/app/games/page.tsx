@@ -20,7 +20,7 @@ function GamesContent() {
     useEffect(() => {
         setLoading(true);
 
-        fetch(`https://api.lucamawyin.com/slop/api/games?league=${league}`)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}`)
             .then((res) => {
                 console.log(res)
                 if (!res.ok) {
