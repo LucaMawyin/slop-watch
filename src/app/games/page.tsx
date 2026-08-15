@@ -1,22 +1,24 @@
 "use client";
 
-import { addToCalendar } from "@/lib/addToCalendar";
 import { addToGoogleCalendar, addToICS, addToOutlook } from "@/lib/calendar";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game } from "@/lib/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Games() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [calendarGame, setCalendarGame] = useState<Game | null>(null);
-    const [sortBy, setSortBy] = useState<"slop" | "date">("slop");
+    const [sortBy, setSortBy] = useState<"slop" | "date">("slop");    
+
+    const searchParams = useSearchParams();
+    const league = searchParams.get("league") || "nba";
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const league = params.get("league") || "nba";
+        setLoading(true);
 
         fetch(`http://127.0.0.1:5000/api/games?league=${league}`)
             .then((res) => {
@@ -28,16 +30,15 @@ export default function Games() {
             })
             .then((data) => {
                 console.log("Flask response:", data);
-                const games = data as Game[];
 
-                setGames(games);
+                setGames(data as Game[]);
                 setLoading(false);
             })
             .catch(() => {
                 setError("Unable to load games.");
                 setLoading(false);
             });
-    }, []);
+    }, [league]);
 
     if (loading) {
         return (
