@@ -8,6 +8,10 @@ Using historical sports data and machine learning, Slop Watch analyzes upcoming 
 
 When Slop Watch identifies a game worth avoiding, users can also **add the game to their calendar** so they know exactly when the slop is coming.
 
+## Website
+
+**[Try Slop Watch](https://slop-watch.worker-runtime.workers.dev)** — Try Slop Watch and see which upcoming games are predicted to be the sloppiest.
+
 ## Project Structure
 
 ```text
@@ -287,31 +291,56 @@ It must not use information from games that have not happened yet.
 
 This is particularly important when training and testing the model. A model that accidentally sees future information can appear extremely accurate while being useless in practice.
 
+### Current Status
+
+Replace your current checklist with:
+
 ## Current Status
 
-🚧 **Early Development**
+🚧 **Active Development**
+
+### Data & Machine Learning
 
 - [x] Set up the Python backend
-- [x] Collect historical NBA data
+- [x] Collect historical sport data
 - [x] Build the initial Pandas dataset
 - [x] Create game and team performance processing
 - [x] Define an initial Slop Score
 - [x] Calculate actual game slop
 - [x] Calculate predicted game slop
-- [ ] Compare predicted slop against actual slop
 - [x] Measure prediction error
-- [x] Train an initial ML model
-- [ ] Evaluate model performance
-- [ ] Create the Flask API
-- [ ] Connect the React frontend
-- [ ] Implement calendar integration
-- [ ] Support multiple calendar providers
-- [ ] Support multiple sports
+- [x] Train an initial Random Forest model
+- [ ] Perform more comprehensive model evaluation
+- [ ] Improve the Slop Score definition
+- [ ] Add additional predictive features
+- [ ] Account for important player availability
+
+### API & Frontend
+
+- [x] Create Flask API
+- [x] Expose upcoming game predictions
+- [x] Connect the React frontend to the API
+- [ ] Add prediction explanations
+- [ ] Add confidence estimates
+
+### Calendar
+
+- [x] Add games to calendar
+- [x] Support Google Calendar
+- [x] Support Apple Calendar
+- [x] Support Microsoft Outlook
+
+### Sports
+
+- [x] Initial NBA support
+- [x] Support MLB
+- [x] Support NFL
+- [x] Support NHL
+- [ ] Develop sport-specific Slop Scores
 
 ## Future Goals
 
 - Predict the sloppiest game of an entire season
-- Support multiple sports and leagues
 - Explain why a game is predicted to be slop
 - Display confidence scores
 - Compare predictions with actual game results
@@ -319,8 +348,6 @@ This is particularly important when training and testing the model. A model that
 - Build a historical database of the worst games
 - Develop sport-specific Slop Scores
 - Improve predictions with additional data sources
-- Allow users to add slop games directly to their calendar
-- Support Google Calendar, Apple Calendar, and Outlook
 - Provide personalized slop recommendations
 
 ## The Goal
@@ -330,3 +357,7 @@ Sports are full of great games.
 Slop Watch exists to find the ones you should **not** watch.
 
 And if you're brave enough to watch them anyway, **put them on your calendar.**
+
+```
+
+```
