@@ -122,7 +122,12 @@ function GamesContent() {
                                     from: new Date(`${start}T00:00:00`),
                                     to: new Date(`${end}T00:00:00`),
                                 }
-                                : undefined
+                                : {
+                                    from: new Date(),
+                                    to: new Date(
+                                        new Date().setDate(new Date().getDate() + 7)
+                                    ),
+                            }
                         }
                         onChange={(range) => {
                             if (!range?.from || !range?.to) return;
