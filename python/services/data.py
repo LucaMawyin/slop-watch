@@ -1,31 +1,13 @@
 from datetime import date, timedelta
+
 from pathlib import Path
 
 import pandas as pd
-from sportsdataverse.nba import espn_nba_schedule
-from sportsdataverse.nfl import espn_nfl_schedule
-from sportsdataverse.nhl import espn_nhl_schedule
+from config.sports import SPORT_CONFIG
 
-SPORT_CONFIG = {
-    "nba": {
-        "schedule_function": espn_nba_schedule,
-        "output": "data/raw/nba_games.csv",
-    },
-
-    "nfl": {
-        "schedule_function": espn_nfl_schedule,
-        "output": "data/raw/nfl_games.csv",
-    },
-
-    "nhl": {
-        "schedule_function": espn_nhl_schedule,
-        "output": "data/raw/nhl_games.csv",
-    },
-}
-
-# Fixed time range (temp)
-START_DATE = date(2020, 12, 22)
-END_DATE = date(2025, 4, 13)
+# 3 years of data
+END_DATE = date.today()
+START_DATE = END_DATE - timedelta(days=3 * 365)
 
 def collect_games(sport):
     config = SPORT_CONFIG[sport]
@@ -43,6 +25,10 @@ def collect_games(sport):
             return_as_pandas=True,
             limit=50
         )
+        
+        if df is None:
+            current_date += timedelta(days=1)
+            continue
 
         if not df.empty:
             games.append(df)
@@ -71,3 +57,6 @@ def collect_games(sport):
     print(f"Saved {len(all_games)} games to {output_path}")
 
 collect_games("nhl")
+collect_games("nba")
+collect_games("nfl")
+collect_games("mlb")

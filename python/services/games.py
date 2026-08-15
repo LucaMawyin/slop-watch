@@ -1,6 +1,6 @@
-from datetime import timezone, datetime
+
 import pandas as pd
-from sportsdataverse.nba import espn_nba_schedule
+from config.sports import SPORT_CONFIG
 
 pd.set_option("display.max_rows", None)
 
@@ -13,14 +13,25 @@ def get_games(league="nba"):
     df["home_score"] = pd.to_numeric(df["home_score"], errors="coerce")
     df["away_score"] = pd.to_numeric(df["away_score"], errors="coerce")
 
-    # Sort the DataFrame by date and reset the index
+    # Sort by date
     df = df.sort_values("date").reset_index(drop=True)
 
-    # Filter for completed regular season games
-    df = df[
-            (df["season_type"] == 2) & 
+    # Filter completed regular season games
+    if league in ["nba", "nfl", "nhl"]:
+        df = df[
+            (df["season_type"] == 2) &
             (df["status_type_name"] == "STATUS_FINAL")
         ].copy()
+
+    elif league == "mlb":
+        df = df[
+            (df["season_type"] == 2) &
+            (df["status_type_completed"] == True)
+        ].copy()
+
+    else:
+        raise ValueError(f"Unsupported league: {league}")
+    
     df = df.dropna(subset=["home_score", "away_score"])
 
     # Reduce dataframe to the columns needed
@@ -39,9 +50,9 @@ def get_games(league="nba"):
 
     return games
 
-def get_performance():
+def get_performance(league="nba"):
 
-    games = get_games()
+    games = get_games(league=league)
 
     # Performance per team per game
     performance = pd.concat([
@@ -114,6 +125,11 @@ def get_performance():
 
 def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
 
+    if league not in SPORT_CONFIG:
+        raise ValueError(f"Unsupported league: {league}")
+
+    schedule_function = SPORT_CONFIG[league]["schedule_function"]
+
     if prediction_date is None:
         prediction_date = pd.Timestamp.now(tz="UTC")
 
@@ -131,7 +147,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     current_date = prediction_date.normalize()
     while current_date <= end_date:
 
-        df = espn_nba_schedule(
+        df = schedule_function(
             dates=current_date.strftime("%Y%m%d"),
             return_as_pandas=True,
             limit=50

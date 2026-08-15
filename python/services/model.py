@@ -4,11 +4,13 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
-from slop import get_slop
+from services.slop import get_slop
 
-def train_model():
+LEAGUE="nfl"
 
-    actual_slop = get_slop()
+def train_model(league="nba"):
+
+    actual_slop = get_slop(league=league)
 
     # ---------------------------------
     # SORT DATA BY DATE
@@ -79,11 +81,11 @@ def train_model():
     # ---------------------------------
     joblib.dump(
         model,
-        "models/slop_model.pkl",
+        f"models/{league}_slop_model.pkl",
     )
 
-    print("Model saved.")
+    print(f"{league.upper()} model saved.")
 
 
 if __name__ == "__main__":
-    train_model()
+    train_model(league=LEAGUE)

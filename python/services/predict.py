@@ -1,10 +1,7 @@
 import joblib
 import pandas as pd
 
-from games import get_future_games, get_performance
-
-MODEL_PATH = "models/slop_model.pkl"
-
+from services.games import get_future_games, get_performance
 
 FEATURES = [
     "home_win_pct",
@@ -17,7 +14,7 @@ FEATURES = [
     "away_recent_point_diff",
 ]
 
-def predict_slop(prediction_date=None):
+def predict_slop(prediction_date=None, league="nba", days_ahead=7):
 
     if prediction_date is None:
         prediction_date = pd.Timestamp.now(tz="UTC")
@@ -29,13 +26,18 @@ def predict_slop(prediction_date=None):
     else:
         prediction_date = prediction_date.tz_convert("UTC")
 
+    model_path = f"models/{league}_slop_model.pkl"
+    model = joblib.load(model_path)
 
-    model = joblib.load(MODEL_PATH)
     games = get_future_games(
-        prediction_date=prediction_date
+        prediction_date=prediction_date,
+        days_ahead=days_ahead,
+        league=league,
     )
 
-    performance = get_performance()
+    performance = get_performance(
+        league=league,
+    )
 
     if games.empty:
         print("No NBA games found for the prediction date.")
@@ -137,6 +139,6 @@ if __name__ == "__main__":
                     "predicted_slop",
                 ]
             ]
-            .head(100)
+            .tail(100)
             .to_string(index=False)
         )

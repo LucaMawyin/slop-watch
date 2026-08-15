@@ -1,4 +1,4 @@
-from games import get_games, get_performance
+from services.games import get_games, get_performance
 
 SPORT_CONFIG = {
     "nba": {
@@ -21,6 +21,13 @@ SPORT_CONFIG = {
         "total_points_min": 3,
         "total_points_max": 10,
     },
+
+    "mlb": {
+        "point_diff_min": -5,
+        "point_diff_max": 5,
+        "total_points_min": 3,
+        "total_points_max": 12,
+    },
 }
 
 def normalize_badness(value, min_value, max_value):
@@ -31,11 +38,11 @@ def normalize_badness(value, min_value, max_value):
 
     return 1 - normalized.clip(0, 1)
 
-def get_slop(sport="nba"):
+def get_slop(league="nba"):
 
-    games = get_games()
-    performance = get_performance()
-    config=SPORT_CONFIG[sport]
+    games = get_games(league=league)
+    performance = get_performance(league=league)
+    config=SPORT_CONFIG[league]
 
     # ---------------------------------
     # GET PRE-GAME HOME TEAM STATS
