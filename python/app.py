@@ -10,13 +10,33 @@ CORS(app)
 @app.route("/api/games",methods=["GET"])
 def games():
 
-    league = request.args.get("league","nba")
-    prediction_date = pd.Timestamp.now(tz="UTC")
+    league = request.args.get("league", "nba")
+    start_date = request.args.get("start")
+    end_date = request.args.get("end")
+
+    print("Search params:")
+    print("league:", league)
+    print("start:", start_date)
+    print("end:", end_date)
+    
+    if start_date:
+        prediction_date = pd.Timestamp(start_date, tz="UTC")
+    else:
+        prediction_date = pd.Timestamp.now(tz="UTC")
+
+    if end_date:
+        end_date = pd.Timestamp(end_date, tz="UTC")
+
+        days_ahead = (
+            end_date.normalize() - prediction_date.normalize()
+        ).days
+    else:
+        days_ahead = 7
 
     predictions = predict_slop(
-        prediction_date=None,
+        prediction_date=prediction_date,
         league=league,
-        days_ahead=7,
+        days_ahead=days_ahead,
     )
 
     if predictions.empty:

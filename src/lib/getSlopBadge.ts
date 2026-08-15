@@ -38,20 +38,20 @@ export function getSlopBadge(score: number) {
 
     if (percentage >= 50) {
         return {
-            title: "Potential Slop",
+            title: "Suspicious",
             className: "border-lime-500/40 bg-lime-500/15 text-lime-400",
         };
     }
 
     if (percentage >= 40) {
         return {
-            title: "Mediocre",
+            title: "Some Slop Signals",
             className: "border-blue-500/40 bg-blue-500/15 text-blue-400",
         };
     }
 
     return {
-        title: "Not Slop",
+        title: "Low Slop Risk",
         className: "border-emerald-500/40 bg-emerald-500/15 text-emerald-400",
     };
 }

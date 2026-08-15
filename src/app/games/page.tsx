@@ -12,17 +12,34 @@ function GamesContent() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [calendarGame, setCalendarGame] = useState<Game | null>(null);
-    const [sortBy, setSortBy] = useState<"slop" | "date">("slop");    
+    const [sortBy, setSortBy] = useState<"slop" | "date">("date");    
 
     const searchParams = useSearchParams();
     const league = searchParams.get("league") || "nba";
+    const start = searchParams.get("start");
+    const end = searchParams.get("end");
 
     useEffect(() => {
         setLoading(true);
 
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}`)
+        const params = new URLSearchParams();
+
+        params.set("league", league);
+
+        if (start) {
+            params.set("start", start);
+        }
+
+        if (end) {
+            params.set("end", end);
+        }
+
+        fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`
+        )
             .then((res) => {
-                console.log(res)
+                console.log(res);
+
                 if (!res.ok) {
                     throw new Error("Failed to fetch games");
                 }
@@ -39,7 +56,7 @@ function GamesContent() {
                 setError("Unable to load games.");
                 setLoading(false);
             });
-    }, [league]);
+    }, [league, start, end]);
 
     if (loading) {
         return (

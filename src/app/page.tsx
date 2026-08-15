@@ -1,9 +1,12 @@
 "use client";
 
+import DayPickerClient from "@/components/DayPicker";
 import { useState } from "react";
+import { DateRange } from "react-day-picker";
 
 export default function Home() {
     const [league, setLeague] = useState("nba");
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
     return (
         <main className="flex flex-1 bg-zinc-950 text-white">
@@ -110,10 +113,9 @@ export default function Home() {
                             <option value="mlb">MLB</option>
                         </select>
 
+                        <DayPickerClient onChange={setDateRange} />
+
                         <button
-                            onClick={() => {
-                                window.location.href = `/games?league=${league}`;
-                            }}
                             className="
                                 rounded-lg 
                                 bg-white
@@ -125,6 +127,27 @@ export default function Home() {
                                 transition 
                                 hover:bg-zinc-200
                             "
+                            onClick={() => {
+                                const params = new URLSearchParams();
+
+                                params.set("league", league);
+
+                                if (dateRange?.from) {
+                                    params.set(
+                                        "start",
+                                        dateRange.from.toISOString().split("T")[0]
+                                    );
+                                }
+
+                                if (dateRange?.to) {
+                                    params.set(
+                                        "end",
+                                        dateRange.to.toISOString().split("T")[0]
+                                    );
+                                }
+
+                                window.location.href = `/games?${params.toString()}`;
+                            }}
                         >
                             View upcoming games
                         </button>
