@@ -3,3 +3,7 @@
 :root{
     user-select: none;
 }
+
+button,option,select{
+    cursor: pointer;
+}

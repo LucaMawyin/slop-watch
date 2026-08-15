@@ -6,14 +6,13 @@ export default function Home() {
     const [league, setLeague] = useState("nba");
 
     return (
-        <main className="min-h-screen bg-zinc-950 text-white">
+        <main className="flex flex-1 bg-zinc-950 text-white">
             <div className="
                 mx-auto 
                 flex 
                 flex-col 
                 items-center 
                 justify-center
-                min-h-screen 
                 max-w-5xl  
                 p-6 
                 gap-6
@@ -86,8 +85,6 @@ export default function Home() {
                                 outline-none 
                                 transition 
                                 focus:border-zinc-500
-                                hover:cursor-pointer
-                                option:hover:cursor-pointer
                             "
                         >
                             <option value="nba">NBA</option>
@@ -110,7 +107,6 @@ export default function Home() {
                                 text-black 
                                 transition 
                                 hover:bg-zinc-200
-                                hover:cursor-pointer
                             "
                         >
                             View upcoming games
