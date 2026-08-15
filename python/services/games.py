@@ -153,7 +153,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
             limit=50
         )
 
-        if not df.empty:
+        if df is not None and not df.empty:
             games.append(df)
 
         current_date += pd.Timedelta(days=1)

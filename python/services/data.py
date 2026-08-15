@@ -30,7 +30,7 @@ def collect_games(sport):
             current_date += timedelta(days=1)
             continue
 
-        if not df.empty:
+        if df is not None and not df.empty:
             games.append(df)
             print(
                 f"{sport.upper()} {date_string}: "
