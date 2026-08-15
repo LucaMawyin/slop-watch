@@ -1,62 +1,157 @@
 <svg
-    width="52"
-    height="52"
-    viewBox="0 0 52 52"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+  width="512"
+  height="512"
+  viewBox="0 0 512 512"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
 >
-    {/* Watch strap */}
-    <rect
-        x="18"
-        y="2"
-        width="16"
-        height="48"
-        rx="8"
-        fill="#3F3F46"
-    />
+  <!-- White outer trace -->
+  <rect
+    x="72"
+    y="92"
+    width="368"
+    height="348"
+    rx="42"
+    fill="white"
+    stroke="white"
+    stroke-width="22"
+  />
 
-    {/* Watch face */}
-    <circle
-        cx="26"
-        cy="26"
-        r="17"
-        fill="#18181B"
-        stroke="#A3E635"
-        strokeWidth="5"
-    />
+  <!-- Calendar -->
+  <rect
+    x="72"
+    y="92"
+    width="368"
+    height="348"
+    rx="42"
+    fill="white"
+    stroke="#18181B"
+    stroke-width="14"
+  />
 
-    {/* Clock hands */}
-    <path
-        d="M26 12V26L36 32"
-        stroke="#A3E635"
-        strokeWidth="5.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    />
+  <!-- White traces for calendar binding -->
+  <rect
+    x="130"
+    y="53"
+    width="44"
+    height="92"
+    rx="22"
+    fill="white"
+  />
 
-    {/* Center */}
-    <circle
-        cx="26"
-        cy="26"
-        r="3.5"
-        fill="#FACC15"
-    />
+  <rect
+    x="338"
+    y="53"
+    width="44"
+    height="92"
+    rx="22"
+    fill="white"
+  />
 
-    {/* Slop indicator */}
-    <circle
-        cx="38"
-        cy="38"
-        r="7.5"
-        fill="#F97316"
-        stroke="#18181B"
-        strokeWidth="3"
-    />
+  <!-- Calendar binding -->
+  <rect
+    x="135"
+    y="58"
+    width="34"
+    height="82"
+    rx="17"
+    fill="#18181B"
+  />
 
-    {/* X mark */}
-    <path
-        d="M35 35L41 41M41 35L35 41"
-        stroke="white"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-    />
+  <rect
+    x="343"
+    y="58"
+    width="34"
+    height="82"
+    rx="17"
+    fill="#18181B"
+  />
+
+  <!-- Header divider -->
+  <path
+    d="M79 174H433"
+    stroke="#18181B"
+    stroke-width="14"
+  />
+
+  <!-- SLOP -->
+  <text
+    x="256"
+    y="153"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="42"
+    font-weight="900"
+    letter-spacing="4"
+    fill="#18181B"
+  >
+    SLOP
+  </text>
+
+  <!-- Calendar grid -->
+  <g
+    stroke="#18181B"
+    stroke-width="5"
+    stroke-linecap="round"
+  >
+    <path d="M121 192V420"/>
+    <path d="M169 192V420"/>
+    <path d="M217 192V420"/>
+    <path d="M265 192V420"/>
+    <path d="M313 192V420"/>
+    <path d="M361 192V420"/>
+
+    <path d="M91 238H421"/>
+    <path d="M91 284H421"/>
+    <path d="M91 330H421"/>
+    <path d="M91 376H421"/>
+  </g>
+
+  <!-- Poop -->
+  <path
+    d="
+      M286 419
+      C274 412 268 401 269 389
+      C270 375 279 365 293 360
+      C284 351 283 339 287 328
+      C292 315 304 308 318 309
+      C314 300 316 289 323 281
+      C330 272 341 268 352 270
+      C355 257 367 248 381 247
+      C398 246 413 258 416 273
+      C418 284 414 294 407 301
+      C422 305 432 317 433 331
+      C434 344 428 355 419 362
+      C434 368 443 380 443 394
+      C443 414 427 429 408 430
+      L312 430
+      C302 430 293 426 286 419
+      Z
+    "
+    fill="#A16207"
+    stroke="#18181B"
+    stroke-width="14"
+    stroke-linejoin="round"
+  />
+
+  <!-- Poop ridge lines -->
+  <g
+    stroke="#18181B"
+    stroke-width="7"
+    stroke-linecap="round"
+    fill="none"
+  >
+    <path d="M323 310C333 316 347 317 359 312"/>
+    <path d="M288 359C301 367 316 368 329 363"/>
+    <path d="M419 362C408 369 394 371 382 367"/>
+  </g>
+
+  <!-- Poop swirl -->
+  <path
+    d="M349 273C348 280 352 286 359 288C367 290 374 286 378 280"
+    stroke="#18181B"
+    stroke-width="8"
+    stroke-linecap="round"
+    fill="none"
+  />
 </svg>
