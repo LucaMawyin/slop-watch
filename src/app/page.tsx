@@ -39,7 +39,7 @@ export default function Home() {
                     </h1>
 
                     <div className="
-                        mt-8 
+                        mt-6
                         rounded-full 
                         border 
                         border-zinc-800 
