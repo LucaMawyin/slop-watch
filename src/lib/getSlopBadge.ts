@@ -43,14 +43,14 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 50) {
+    if (percentage >= 52.5) {
         return {
             title: "Some Slop Signals",
             className: "border-blue-300/40 bg-blue-600/15 text-blue-300",
         };
     }
 
-    if (percentage >= 40) {
+    if (percentage >= 45) {
         return {
             title: "Mild",
             className: "border-lime-500/40 bg-lime-500/15 text-lime-400",
