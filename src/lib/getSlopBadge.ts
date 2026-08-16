@@ -22,14 +22,14 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 72.5) {
+    if (percentage >= 70) {
         return {
             title: "Grade-A Slop",
             className: "border-amber-500/40 bg-amber-500/15 text-amber-400",
         };
     }
 
-    if (percentage >= 65) {
+    if (percentage >= 62.5) {
         return {
             title: "Certified Slop",
             className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
