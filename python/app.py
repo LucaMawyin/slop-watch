@@ -16,6 +16,11 @@ import os
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
 
+print("ROOT_DIR:", ROOT_DIR)
+print("ENV EXISTS:", (ROOT_DIR / ".env.local").exists())
+print("UPDATE_KEY loaded:", os.environ.get("UPDATE_KEY") is not None)
+print("UPDATE_KEY length:", len(os.environ.get("UPDATE_KEY", "")))
+
 app = Flask(__name__)
 CORS(app)
 
