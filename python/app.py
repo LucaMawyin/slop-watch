@@ -34,21 +34,13 @@ def update():
 
     try: 
 
-        print("=== UPDATE STARTED ===")
-
         # Fetch new data for each league
         for league in SPORT_CONFIG:
-            print(f"Updating {league.upper()} data...")
             update_data(league=league)
-            print(f"{league.upper()} data update complete.")
 
         # Retrain each model using updated data
         for league in SPORT_CONFIG:
-            print(f"Training {league.upper()} model...")
             train_model(league=league)
-            print(f"{league.upper()} model training complete.")
-
-        print("=== UPDATE COMPLETED ===")
 
         # Success
         return jsonify({
@@ -73,11 +65,6 @@ def games():
     league = request.args.get("league", "nba")
     start_date = request.args.get("start")
     end_date = request.args.get("end")
-
-    print("Search params:")
-    print("league:", league)
-    print("start:", start_date)
-    print("end:", end_date)
     
     if start_date:
         prediction_date = pd.Timestamp(start_date, tz="UTC")
