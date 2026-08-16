@@ -16,11 +16,6 @@ import os
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
 
-print("ROOT_DIR:", ROOT_DIR)
-print("ENV EXISTS:", (ROOT_DIR / ".env.local").exists())
-print("UPDATE_KEY loaded:", os.environ.get("UPDATE_KEY") is not None)
-print("UPDATE_KEY length:", len(os.environ.get("UPDATE_KEY", "")))
-
 app = Flask(__name__)
 CORS(app)
 
@@ -39,13 +34,21 @@ def update():
 
     try: 
 
+        print("=== UPDATE STARTED ===")
+
         # Fetch new data for each league
         for league in SPORT_CONFIG:
+            print(f"Updating {league.upper()} data...")
             update_data(league=league)
+            print(f"{league.upper()} data update complete.")
 
         # Retrain each model using updated data
         for league in SPORT_CONFIG:
+            print(f"Training {league.upper()} model...")
             train_model(league=league)
+            print(f"{league.upper()} model training complete.")
+
+        print("=== UPDATE COMPLETED ===")
 
         # Success
         return jsonify({
