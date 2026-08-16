@@ -5,8 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
 from services.slop import get_slop
-
-LEAGUE="nfl"
+from config.sports import SPORT_CONFIG
 
 def train_model(league="nba"):
 
@@ -88,4 +87,6 @@ def train_model(league="nba"):
 
 
 if __name__ == "__main__":
-    train_model(league=LEAGUE)
+    for league in SPORT_CONFIG:
+        print(f"\nTraining {league.upper()} model...")
+        train_model(league=league)

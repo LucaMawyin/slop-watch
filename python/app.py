@@ -1,11 +1,56 @@
+import os
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
 
 from services.predict import predict_slop
+from config.sports import SPORT_CONFIG
+from services.update_data import update_data
+from services.model import train_model
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/api/update", methods=["POST"])
+def update():
+
+    # Authenticate request
+    provided_secret = request.headers.get("X-Update-Secret")
+    expected_secret = os.environ.get("UPDATE_KEY")
+
+    if not expected_secret or provided_secret != expected_secret:
+        return jsonify({
+            "success": False,
+            "error": "Unauthorized"
+        }), 401
+
+    try: 
+
+        # Fetch new data for each league
+        for league in SPORT_CONFIG:
+            update_data(league=league)
+
+        # Retrain each model using updated data
+        for league in SPORT_CONFIG:
+            train_model(league=league)
+
+        # Success
+        return jsonify({
+            "success": True,
+            "message": "Data updated and models retrained."
+        }), 200
+
+    # Error
+    except Exception as e:
+        print(f"Update failed: {e}")
+
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
+
+
 
 @app.route("/api/games",methods=["GET"])
 def games():
