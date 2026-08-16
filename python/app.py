@@ -9,6 +9,13 @@ from config.sports import SPORT_CONFIG
 from services.update_data import update_data
 from services.model import train_model
 
+from dotenv import load_dotenv
+from pathlib import Path
+import os
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT_DIR / ".env.local")
+
 app = Flask(__name__)
 CORS(app)
 

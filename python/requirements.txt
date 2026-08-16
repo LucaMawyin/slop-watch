@@ -5,3 +5,4 @@ scikit-learn
 flask
 flask-cors
 joblib
+python-dotenv
