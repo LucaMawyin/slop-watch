@@ -29,24 +29,31 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 62.5) {
+    if (percentage >= 65) {
         return {
             title: "Certified Slop",
             className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
         };
     }
 
-    if (percentage >= 52.5) {
+    if (percentage >= 57.5) {
         return {
             title: "Suspicious",
-            className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
+            className: "border-purple-300/40 bg-purple-600/15 text-purple-300",
+        };
+    }
+
+    if (percentage >= 52.5) {
+        return {
+            title: "Traces of Slop",
+            className: "border-blue-300/40 bg-blue-600/15 text-blue-300",
         };
     }
 
     if (percentage >= 45) {
         return {
-            title: "Traces of Slop",
-            className: "border-blue-300/40 bg-blue-600/15 text-blue-300",
+            title: "Slop Potential",
+            className: "border-lime-500/40 bg-lime-500/15 text-lime-400",
         };
     }
 
