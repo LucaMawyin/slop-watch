@@ -157,7 +157,7 @@ export default function Home() {
                                 window.location.href = `/games?${params.toString()}`;
                             }}
                         >
-                            Show Me The Slop &gt;
+                            Show Me The Slop
                         </button>
                     </div>
 
