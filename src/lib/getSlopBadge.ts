@@ -36,14 +36,14 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 57.5) {
+    if (percentage >= 55) {
         return {
             title: "Suspicious",
             className: "border-purple-300/40 bg-purple-600/15 text-purple-300",
         };
     }
 
-    if (percentage >= 52.5) {
+    if (percentage >= 50) {
         return {
             title: "Traces of Slop",
             className: "border-blue-300/40 bg-blue-600/15 text-blue-300",

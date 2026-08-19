@@ -59,17 +59,17 @@ function GamesContent() {
 
     if (loading) {
         return (
-            <main className="flex-1 bg-zinc-950 p-6 text-white">
-                <div className="text-zinc-400">
+            <main className="p-6 text-white">
+                <p className="">
                     Loading games...
-                </div>
+                </p>
             </main>
         );
     }
 
     if (error) {
         return (
-            <main className="flex-1 bg-zinc-950 p-6 text-white">
+            <main className="p-6 text-white">
                 <p className="text-red-400">{error}</p>
             </main>
         );
@@ -84,7 +84,7 @@ function GamesContent() {
     });
 
     return (
-        <main className="flex-1 bg-zinc-950 p-6 text-white">
+        <main className="p-6 text-white">
 
             <div className="
                 flex
@@ -170,9 +170,9 @@ function GamesContent() {
             </div>
             {games.length === 0 ? (
                 <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
-                    <p className="text-lg font-semibold">
+                    <h2 className="text-lg font-semibold">
                         No games found
-                    </p>
+                    </h2>
 
                     <p className="mt-2 text-sm text-zinc-500">
                         There are no upcoming games for this league.
@@ -439,7 +439,7 @@ export default function Games() {
     return (
         <Suspense
             fallback={
-                <main className="min-h-screen bg-zinc-950 p-6 text-white">
+                <main className="p-6 text-white">
                     <div className="text-zinc-400">
                         Loading games...
                     </div>

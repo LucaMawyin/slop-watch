@@ -9,7 +9,10 @@ export default function Home() {
     const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
     return (
-        <main className="flex flex-1 bg-zinc-950 text-white">
+        <main className="
+            flex 
+            text-white
+        ">
             <div className="
                 mx-auto 
                 flex 
@@ -41,31 +44,27 @@ export default function Home() {
                         Slop Watch
                     </h1>
 
-                    <div className="
-                        mt-6
-                        rounded-full 
-                        border 
-                        border-zinc-800 
-                        bg-zinc-900 
-                        px-4 
-                        py-1.5 
-                        text-sm 
-                        text-zinc-400
-                    ">
-                        AI-powered sports analytics
-                    </div>
-
                     <p className="
+                        text-zinc-300!
                         mt-4 
                         max-w-2xl 
                         text-lg 
                         leading-8 
-                        text-zinc-400
                     ">
-                        Find the games you probably shouldn't watch.
+                        Some games are worth watching.
                         <br />
-                        Slop Watch ranks upcoming games based on how
-                        terrible the matchup looks.
+                        Some games are <b>pure slop</b>.
+                    </p>
+
+                    <p className="
+                        mt-6
+                        text-xs
+                        font-medium
+                        uppercase
+                        tracking-[0.2em]
+                        text-zinc-500
+                    ">
+                        AI-powered sports analytics
                     </p>
 
                     <a
@@ -73,7 +72,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="
-                            mt-4
+                            mt-6
                             text-sm
                             text-zinc-500
                             underline
@@ -158,7 +157,7 @@ export default function Home() {
                                 window.location.href = `/games?${params.toString()}`;
                             }}
                         >
-                            View upcoming games
+                            Show Me The Slop &gt;
                         </button>
                     </div>
 

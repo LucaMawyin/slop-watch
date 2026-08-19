@@ -3,7 +3,6 @@ export default function Footer() {
         <footer className="
             border-t
             border-zinc-800
-            bg-zinc-950
         ">
             <div className="
                 flex
@@ -14,7 +13,6 @@ export default function Footer() {
                 px-6
                 py-6
                 text-sm
-                text-zinc-400
                 sm:flex-row
             ">
                 <p>© {new Date().getFullYear()} Slop Watch by Luca Mawyin</p>

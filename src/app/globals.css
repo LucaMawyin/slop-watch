@@ -2,8 +2,21 @@
 
 :root{
     user-select: none;
+    --text-colour: rgb(161, 161, 170);
+}
+
+p {
+    color: var(--text-colour);
 }
 
 button,option,select{
     cursor: pointer;
+}
+
+nav, main, footer{
+    background-color: rgb(9, 9, 11);
+}
+
+main{
+    flex: 1;
 }
