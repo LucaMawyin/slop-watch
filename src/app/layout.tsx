@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const description = "Find the sloppiest upcoming sports games. Slop Watch ranks games based on how bad the matchup looks.";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
 			<body className="flex min-h-screen flex-col">
                 <Navbar/>
                 {children}
+                <Footer/>
             </body>
 		</html>
 	);

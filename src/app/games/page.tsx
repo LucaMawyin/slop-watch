@@ -59,7 +59,7 @@ function GamesContent() {
 
     if (loading) {
         return (
-            <main className="min-h-screen bg-zinc-950 p-6 text-white">
+            <main className="flex-1 bg-zinc-950 p-6 text-white">
                 <div className="text-zinc-400">
                     Loading games...
                 </div>
@@ -69,7 +69,7 @@ function GamesContent() {
 
     if (error) {
         return (
-            <main className="min-h-screen bg-zinc-950 p-6 text-white">
+            <main className="flex-1 bg-zinc-950 p-6 text-white">
                 <p className="text-red-400">{error}</p>
             </main>
         );
@@ -84,7 +84,7 @@ function GamesContent() {
     });
 
     return (
-        <main className="min-h-screen bg-zinc-950 p-6 text-white">
+        <main className="flex-1 bg-zinc-950 p-6 text-white">
 
             <div className="
                 flex
