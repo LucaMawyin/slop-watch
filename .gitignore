@@ -59,3 +59,6 @@ next-env.d.ts
 python/models/*.pkl
 
 python/data/raw/*.csv
+**/__pycache__/
+*.pyc
+deploy.sh
