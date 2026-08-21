@@ -1,21 +1,4 @@
 game_id,date,season_year,season_type,status_type_state,status_type_completed,status_type_description,venue_id,venue_full_name,venue_city,venue_state,home_id,home_name,home_abbreviation,home_display_name,home_score,home_winner,away_id,away_name,away_abbreviation,away_display_name,away_score,away_winner
-401472870,2023-08-20T00:10Z,2023,2,post,True,Final,27,Coors Field,Denver,Colorado,27,Rockies,COL,Colorado Rockies,11,True,4,White Sox,CHW,Chicago White Sox,5,False
-401472871,2023-08-20T00:40Z,2023,2,post,True,Final,85,Petco Park,San Diego,California,25,Padres,SD,San Diego Padres,1,False,29,Diamondbacks,ARI,Arizona Diamondbacks,8,True
-401472857,2023-08-20T01:07Z,2023,2,post,True,Final,3867,Oakland Coliseum,Oakland,California,11,Athletics,OAK,Oakland Athletics,2,False,1,Orioles,BAL,Baltimore Orioles,7,True
-401472868,2023-08-20T01:07Z,2023,2,post,True,Final,3,Angel Stadium,Anaheim,California,3,Angels,LAA,Los Angeles Angels,4,False,30,Rays,TB,Tampa Bay Rays,18,True
-401472861,2023-08-20T01:10Z,2023,2,post,True,Final,19,Dodger Stadium,Los Angeles,California,19,Dodgers,LAD,Los Angeles Dodgers,3,True,28,Marlins,MIA,Miami Marlins,1,False
-401472881,2023-08-20T17:05Z,2023,2,post,True,Final,44,Daikin Park,Houston,Texas,18,Astros,HOU,Houston Astros,6,False,12,Mariners,SEA,Seattle Mariners,7,True
-401472873,2023-08-20T17:35Z,2023,2,post,True,Final,208,Yankee Stadium,Bronx,New York,10,Yankees,NYY,New York Yankees,5,False,2,Red Sox,BOS,Boston Red Sox,6,True
-401472882,2023-08-20T17:35Z,2023,2,post,True,Final,218,Truist Park,Atlanta,Georgia,15,Braves,ATL,Atlanta Braves,3,False,26,Giants,SF,San Francisco Giants,4,True
-401472874,2023-08-20T17:40Z,2023,2,post,True,Final,5,Progressive Field,Cleveland,Ohio,5,Guardians,CLE,Cleveland Guardians,1,False,6,Tigers,DET,Detroit Tigers,4,True
-401472884,2023-08-20T17:40Z,2023,2,post,True,Final,83,Great American Ball Park,Cincinnati,Ohio,17,Reds,CIN,Cincinnati Reds,3,False,14,Blue Jays,TOR,Toronto Blue Jays,10,True
-401472880,2023-08-20T18:10Z,2023,2,post,True,Final,210,Target Field,Minneapolis,Minnesota,9,Twins,MIN,Minnesota Twins,2,True,23,Pirates,PIT,Pittsburgh Pirates,0,False
-401472878,2023-08-20T18:15Z,2023,2,post,True,Final,87,Busch Stadium,St. Louis,Missouri,24,Cardinals,STL,St. Louis Cardinals,7,True,21,Mets,NYM,New York Mets,3,False
-401472875,2023-08-20T18:20Z,2023,2,post,True,Final,16,Wrigley Field,Chicago,Illinois,16,Cubs,CHC,Chicago Cubs,4,True,7,Royals,KC,Kansas City Royals,3,False
-401472877,2023-08-20T18:35Z,2023,2,post,True,Final,231,Globe Life Field,Arlington,Texas,13,Rangers,TEX,Texas Rangers,2,False,8,Brewers,MIL,Milwaukee Brewers,6,True
-401472885,2023-08-20T19:10Z,2023,2,post,True,Final,27,Coors Field,Denver,Colorado,27,Rockies,COL,Colorado Rockies,5,False,4,White Sox,CHW,Chicago White Sox,10,True
-401472872,2023-08-20T20:07Z,2023,2,post,True,Final,3867,Oakland Coliseum,Oakland,California,11,Athletics,OAK,Oakland Athletics,1,False,1,Orioles,BAL,Baltimore Orioles,12,True
-401472879,2023-08-20T23:00Z,2023,2,post,True,Final,223,Journey Bank Ballpark at Historic Bowman Field,Williamsport,Pennsylvania,20,Nationals,WSH,Washington Nationals,4,True,22,Phillies,PHI,Philadelphia Phillies,3,False
 401472888,2023-08-21T22:40Z,2023,2,post,True,Final,45,Comerica Park,Detroit,Michigan,6,Tigers,DET,Detroit Tigers,6,False,16,Cubs,CHC,Chicago Cubs,7,True
 401472893,2023-08-21T22:40Z,2023,2,post,True,Final,84,Citizens Bank Park,Philadelphia,Pennsylvania,22,Phillies,PHI,Philadelphia Phillies,10,True,26,Giants,SF,San Francisco Giants,4,False
 401472895,2023-08-21T23:05Z,2023,2,post,True,Final,47,PNC Park,Pittsburgh,Pennsylvania,23,Pirates,PIT,Pittsburgh Pirates,11,True,24,Cardinals,STL,St. Louis Cardinals,1,False
@@ -8980,6 +8963,21 @@ game_id,date,season_year,season_type,status_type_state,status_type_completed,sta
 401816624,2026-08-22T02:10Z,2026,2,pre,False,Scheduled,19,Dodger Stadium,Los Angeles,California,19,Dodgers,LAD,Los Angeles Dodgers,0,,23,Pirates,PIT,Pittsburgh Pirates,0,
 401816617,2026-08-21T20:10Z,2026,2,post,True,Final,4242,American Family Field,Milwaukee,Wisconsin,8,Brewers,MIL,Milwaukee Brewers,2,True,15,Braves,ATL,Atlanta Braves,1,False
 401816611,2026-08-21T22:40Z,2026,2,pre,False,Scheduled,84,Citizens Bank Park,Philadelphia,Pennsylvania,22,Phillies,PHI,Philadelphia Phillies,0,,24,Cardinals,STL,St. Louis Cardinals,0,
+401816613,2026-08-21T23:05Z,2026,2,pre,False,Scheduled,208,Yankee Stadium,Bronx,New York,10,Yankees,NYY,New York Yankees,0,,14,Blue Jays,TOR,Toronto Blue Jays,0,
+401816610,2026-08-21T23:10Z,2026,2,pre,False,Scheduled,2,Fenway Park,Boston,Massachusetts,2,Red Sox,BOS,Boston Red Sox,0,,26,Giants,SF,San Francisco Giants,0,
+401816614,2026-08-21T23:10Z,2026,2,pre,False,Scheduled,4223,loanDepot park,Miami,Florida,28,Marlins,MIA,Miami Marlins,0,,20,Nationals,WSH,Washington Nationals,0,
+401816612,2026-08-21T23:15Z,2026,2,pre,False,Scheduled,1,Oriole Park at Camden Yards,Baltimore,Maryland,1,Orioles,BAL,Baltimore Orioles,0,,30,Rays,TB,Tampa Bay Rays,0,
+401816619,2026-08-21T23:40Z,2026,2,pre,False,Scheduled,4,Rate Field,Chicago,Illinois,4,White Sox,CHW,Chicago White Sox,0,,21,Mets,NYM,New York Mets,0,
+401816616,2026-08-22T00:10Z,2026,2,pre,False,Scheduled,44,Daikin Park,Houston,Texas,18,Astros,HOU,Houston Astros,0,,11,Athletics,ATH,Athletics,0,
+401816618,2026-08-22T00:10Z,2026,2,pre,False,Scheduled,7,Kauffman Stadium,Kansas City,Missouri,7,Royals,KC,Kansas City Royals,0,,6,Tigers,DET,Detroit Tigers,0,
+401816615,2026-08-22T00:15Z,2026,2,pre,False,Scheduled,231,Globe Life Field,Arlington,Texas,13,Rangers,TEX,Texas Rangers,0,,3,Angels,LAA,Los Angeles Angels,0,
+401816620,2026-08-22T00:40Z,2026,2,pre,False,Scheduled,27,Coors Field,Denver,Colorado,27,Rockies,COL,Colorado Rockies,0,,5,Guardians,CLE,Cleveland Guardians,0,
+401816622,2026-08-22T01:40Z,2026,2,pre,False,Scheduled,30,Chase Field,Phoenix,Arizona,29,Diamondbacks,ARI,Arizona Diamondbacks,0,,17,Reds,CIN,Cincinnati Reds,0,
+401816623,2026-08-22T01:40Z,2026,2,pre,False,Scheduled,85,Petco Park,San Diego,California,25,Padres,SD,San Diego Padres,0,,9,Twins,MIN,Minnesota Twins,0,
+401816621,2026-08-22T02:10Z,2026,2,pre,False,Scheduled,41,T-Mobile Park,Seattle,Washington,12,Mariners,SEA,Seattle Mariners,0,,16,Cubs,CHC,Chicago Cubs,0,
+401816624,2026-08-22T02:10Z,2026,2,pre,False,Scheduled,19,Dodger Stadium,Los Angeles,California,19,Dodgers,LAD,Los Angeles Dodgers,0,,23,Pirates,PIT,Pittsburgh Pirates,0,
+401816617,2026-08-21T20:10Z,2026,2,post,True,Final,4242,American Family Field,Milwaukee,Wisconsin,8,Brewers,MIL,Milwaukee Brewers,2,True,15,Braves,ATL,Atlanta Braves,1,False
+401816611,2026-08-21T22:40Z,2026,2,in,False,In Progress,84,Citizens Bank Park,Philadelphia,Pennsylvania,22,Phillies,PHI,Philadelphia Phillies,0,,24,Cardinals,STL,St. Louis Cardinals,2,
 401816613,2026-08-21T23:05Z,2026,2,pre,False,Scheduled,208,Yankee Stadium,Bronx,New York,10,Yankees,NYY,New York Yankees,0,,14,Blue Jays,TOR,Toronto Blue Jays,0,
 401816610,2026-08-21T23:10Z,2026,2,pre,False,Scheduled,2,Fenway Park,Boston,Massachusetts,2,Red Sox,BOS,Boston Red Sox,0,,26,Giants,SF,San Francisco Giants,0,
 401816614,2026-08-21T23:10Z,2026,2,pre,False,Scheduled,4223,loanDepot park,Miami,Florida,28,Marlins,MIA,Miami Marlins,0,,20,Nationals,WSH,Washington Nationals,0,
