@@ -58,7 +58,6 @@ next-env.d.ts
 !.vscode/settings.json
 python/models/*.pkl
 
-python/data/raw/*.csv
 **/__pycache__/
 *.pyc
 deploy.sh
