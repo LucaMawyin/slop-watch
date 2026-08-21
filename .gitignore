@@ -57,3 +57,5 @@ next-env.d.ts
 .vscode/*
 !.vscode/settings.json
 python/models/*.pkl
+
+python/data/raw/*.csv
