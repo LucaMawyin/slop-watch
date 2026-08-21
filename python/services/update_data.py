@@ -3,6 +3,8 @@ from pathlib import Path
 import pandas as pd
 from datetime import date
 
+from services.model import train_model
+
 def update_data(league="nba"):
 
     # Initial data
@@ -37,6 +39,10 @@ def update_data(league="nba"):
             f"{league.upper()}: removed {oldest_date}, "
             f"added {len(new_games)} games for {today}"
         )
+
+        # Retrain model with updated data
+        print(f"Retraining {league.upper()} model...")
+        train_model(league=league)
 
     else:
         print(f"{league.upper()}: no games found for {today}")

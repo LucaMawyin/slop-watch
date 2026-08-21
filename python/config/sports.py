@@ -1,12 +1,24 @@
-from sportsdataverse.nba import espn_nba_schedule
-from sportsdataverse.nfl import espn_nfl_schedule
-from sportsdataverse.nhl import espn_nhl_schedule
-from sportsdataverse.mlb import espn_mlb_schedule
-
+from sportsdataverse.nba import (
+    espn_nba_schedule,
+    espn_nba_game_team_statistics,
+)
+from sportsdataverse.nfl import (
+    espn_nfl_schedule,
+    espn_nfl_game_team_statistics,
+)
+from sportsdataverse.nhl import (
+    espn_nhl_schedule,
+    espn_nhl_game_team_statistics,
+)
+from sportsdataverse.mlb import (
+    espn_mlb_schedule,
+    espn_mlb_game_team_statistics,
+)
 
 SPORT_CONFIG = {
     "nba": {
         "schedule_function": espn_nba_schedule,
+        "statistics_function": espn_nba_game_team_statistics,
         "output": "data/raw/nba_games.csv",
         "extra_features": [
             "field_goal_pct",
@@ -24,13 +36,12 @@ SPORT_CONFIG = {
             "points_in_paint",
             "fouls",
             "largest_lead",
-            "lead_changes",
-            "percent_led",
         ],
     },
 
     "nfl": {
         "schedule_function": espn_nfl_schedule,
+        "statistics_function": espn_nfl_game_team_statistics,
         "output": "data/raw/nfl_games.csv",
         "extra_features": [
             "first_downs",
@@ -44,7 +55,6 @@ SPORT_CONFIG = {
             "rushing_yards",
             "yards_per_pass",
             "yards_per_rush",
-            "turnovers",
             "interceptions",
             "fumbles_lost",
             "sacks",
@@ -53,48 +63,49 @@ SPORT_CONFIG = {
             "penalty_yards",
             "time_of_possession",
             "total_plays",
-            "yards_per_play",
             "red_zone_efficiency",
         ],
     },
 
     "nhl": {
         "schedule_function": espn_nhl_schedule,
+        "statistics_function": espn_nhl_game_team_statistics,
         "output": "data/raw/nhl_games.csv",
         "extra_features": [
-            "blocked_shots",
+            "blockedShots",
             "hits",
             "takeaways",
-            "shots_total",
-            "power_play_goals",
-            "power_play_opportunities",
-            "power_play_pct",
-            "short_handed_goals",
-            "shootout_goals",
-            "faceoffs_won",
-            "faceoff_percent",
+            "shotsTotal",
+            "powerPlayGoals",
+            "powerPlayOpportunities",
+            "powerPlayPct",
+            "shortHandedGoals",
+            "shootoutGoals",
+            "faceoffsWon",
+            "faceoffPercent",
             "giveaways",
             "penalties",
-            "penalty_minutes",
+            "penaltyMinutes",
         ],
     },
 
     
     "mlb": {
         "schedule_function": espn_mlb_schedule,
+        "statistics_function": espn_mlb_game_team_statistics,
         "output": "data/raw/mlb_games.csv",
         "extra_features": [
             "runs",
             "hits",
-            "rb_is",
-            "home_runs",
+            "RBIs",
+            "homeRuns",
             "walks",
             "strikeouts",
             "avg",
-            "on_base_pct",
-            "slug_avg",
-            "earned_runs",
-            "era",
+            "onBasePct",
+            "slugAvg",
+            "earnedRuns",
+            "ERA",
         ],
     },
 }
