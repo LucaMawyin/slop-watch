@@ -2,6 +2,7 @@ from config.sports import SPORT_CONFIG
 from pathlib import Path
 import pandas as pd
 from datetime import date
+import os
 
 def update_data(league="nba"):
 
@@ -31,7 +32,9 @@ def update_data(league="nba"):
 
         df = pd.concat([df, new_games], ignore_index=True)
 
-        df.to_csv(output_path,index=False)
+        temp_path = output_path.with_suffix(".tmp")
+        df.to_csv(temp_path,index=False)
+        os.replace(temp_path,output_path)
 
         print(
             f"{league.upper()}: removed {oldest_date}, "

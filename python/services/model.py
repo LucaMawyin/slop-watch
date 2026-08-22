@@ -1,5 +1,6 @@
-import pandas as pd
 import joblib
+from pathlib import Path
+import os
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
@@ -78,9 +79,16 @@ def train_model(league="nba"):
     # ---------------------------------
     # SAVE MODEL
     # ---------------------------------
+    model_path = Path(f"models/{league}_slop_model.pkl")
+    temp_path = Path(f"models/{league}_slop_model.pkl.tmp")
     joblib.dump(
         model,
-        f"models/{league}_slop_model.pkl",
+        temp_path
+    )
+
+    os.replace(
+        temp_path,
+        model_path
     )
 
     print(f"{league.upper()} model saved.")

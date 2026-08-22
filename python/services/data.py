@@ -1,8 +1,7 @@
 from datetime import date, timedelta
-
 from pathlib import Path
-
 import pandas as pd
+import os
 from config.sports import SPORT_CONFIG
 
 # 3 years of data
@@ -52,7 +51,9 @@ def collect_games(sport):
     output_path = Path(config["output"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    all_games.to_csv(output_path, index=False)
+    temp_path = output_path.with_suffix(".tmp")
+    all_games.to_csv(temp_path, index=False)
+    os.replace(temp_path,output_path)
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
