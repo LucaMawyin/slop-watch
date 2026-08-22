@@ -13,7 +13,7 @@ button,option,select{
     cursor: pointer;
 }
 
-nav, main, footer, footer a{
+nav, main, footer{
     background-color: rgb(9, 9, 11);
 }
 
