@@ -15,6 +15,7 @@ export function addToICS(game: Game) {
         `DTSTART:${formatDate(start)}`,
         `DTEND:${formatDate(end)}`,
         `SUMMARY:${game.away_name} @ ${game.home_name}`,
+        `LOCATION:${game.venue_full_name}`,
         `DESCRIPTION:Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`,
         "END:VEVENT",
         "END:VCALENDAR",
@@ -53,6 +54,10 @@ export function addToGoogleCalendar(game: Game) {
         `${formatDate(start)}/${formatDate(end)}`
     );
     url.searchParams.set(
+        "location",
+        game.venue_full_name
+    );
+    url.searchParams.set(
         "details",
         `Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`
     );
@@ -75,6 +80,7 @@ export function addToOutlook(game: Game) {
     );
     url.searchParams.set("startdt", start.toISOString());
     url.searchParams.set("enddt", end.toISOString());
+    url.searchParams.set("location", game.venue_full_name);
     url.searchParams.set(
         "body",
         `Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`

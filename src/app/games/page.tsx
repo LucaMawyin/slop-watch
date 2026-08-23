@@ -255,6 +255,11 @@ function GamesContent() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className="mt-3 text-center text-sm text-zinc-500">
+                                        {game.venue_full_name}
+                                    </div>
+
                                     <div className="mt-5 border-t border-zinc-800 pt-4 text-center">
                                         <div className="text-xs text-zinc-500">
                                             SLOP SCORE

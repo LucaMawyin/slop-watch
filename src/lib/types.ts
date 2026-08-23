@@ -1,6 +1,7 @@
 export type Game = {
     game_id: string;
     date: string;
+    venue_full_name: string;
 
     home_name: string;
     away_name: string;

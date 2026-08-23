@@ -96,6 +96,7 @@ def games():
             "date",
             "home_name",
             "away_name",
+            "venue_full_name",
 
             # Prediction
             "predicted_slop",
@@ -115,6 +116,8 @@ def games():
     ].copy()
 
     games["date"] = games["date"].astype(str)
+
+    print(games.tail(100))
 
     return jsonify(
         games.to_dict(orient="records")
