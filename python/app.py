@@ -117,8 +117,6 @@ def games():
 
     games["date"] = games["date"].astype(str)
 
-    print(games.tail(100))
-
     return jsonify(
         games.to_dict(orient="records")
     )
