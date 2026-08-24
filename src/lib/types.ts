@@ -7,6 +7,7 @@ export type Game = {
     away_name: string;
 
     predicted_slop: number;
+    actual_slop:number | null;
 
     home_win_pct: number;
     away_win_pct: number;

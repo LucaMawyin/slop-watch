@@ -8,6 +8,7 @@ from services.predict import predict_slop
 from config.sports import SPORT_CONFIG
 from services.update_data import update_data
 from services.model import train_model
+from services.slop import get_slop
 
 from dotenv import load_dotenv
 from pathlib import Path
@@ -80,10 +81,20 @@ def games():
     else:
         days_ahead = 7
 
+    actual_slop = get_slop(league=league)
     predictions = predict_slop(
         prediction_date=prediction_date,
         league=league,
         days_ahead=days_ahead,
+    )
+
+    predictions["game_id"] = predictions["game_id"].astype(str)
+    actual_slop["game_id"] = actual_slop["game_id"].astype(str)
+
+    predictions = predictions.merge(
+        actual_slop[["game_id", "actual_slop"]],
+        on="game_id",
+        how="left",
     )
 
     if predictions.empty:
@@ -100,6 +111,7 @@ def games():
 
             # Prediction
             "predicted_slop",
+            "actual_slop",
 
             # Season performance
             "home_win_pct",
@@ -116,6 +128,7 @@ def games():
     ].copy()
 
     games["date"] = games["date"].astype(str)
+    games = games.astype(object).where(pd.notna(games), None)
 
     return jsonify(
         games.to_dict(orient="records")

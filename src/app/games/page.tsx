@@ -77,7 +77,10 @@ function GamesContent() {
 
     const sortedGames = [...games].sort((a, b) => {
         if (sortBy === "slop") {
-            return b.predicted_slop - a.predicted_slop;
+            const aSlop = a.actual_slop ?? a.predicted_slop;
+            const bSlop = b.actual_slop ?? b.predicted_slop;
+
+            return bSlop - aSlop;
         }
 
         return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -198,7 +201,8 @@ function GamesContent() {
                         lg:grid-cols-3
                     ">
                         {sortedGames.slice(0, visibleCount).map((game) => {
-                            const badge = getSlopBadge(game.predicted_slop);
+                            const slop = game.actual_slop ?? game.predicted_slop;
+                            const badge = getSlopBadge(slop);
 
                             return (
                                 <div
@@ -266,7 +270,7 @@ function GamesContent() {
                                         </div>
 
                                         <div className="text-2xl font-bold">
-                                            {(game.predicted_slop * 100).toFixed(1)}%
+                                            {(slop * 100).toFixed(1)}%
                                         </div>
                                     </div>
 

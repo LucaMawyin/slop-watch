@@ -183,23 +183,4 @@ def get_slop(league="nba"):
     # Sort games by date and reset index
     games = games.sort_values("date").reset_index(drop=True)
 
-    print(
-        games[
-            [
-                "date",
-                "home_name",
-                "away_name",
-                "home_badness",
-                "away_badness",
-                "team_badness",
-                "total_points",
-                "scoring_badness",
-                "actual_slop",
-            ]
-        ]
-        .sort_values("actual_slop", ascending=False)
-        .head(100)
-        .to_string()
-    )
-
     return games
