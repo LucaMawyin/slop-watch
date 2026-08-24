@@ -265,6 +265,27 @@ function GamesContent() {
                                     </div>
 
                                     <div className="mt-5 border-t border-zinc-800 pt-4 text-center">
+                                        
+                                        {game.actual_slop !== null && (
+                                            <div
+                                                className="
+                                                    mb-3
+                                                    inline-flex
+                                                    rounded-full
+                                                    border
+                                                    border-yellow-800
+                                                    bg-yellow-950
+                                                    px-3
+                                                    py-1
+                                                    text-xs
+                                                    font-medium
+                                                    text-yellow-400
+                                                "
+                                            >
+                                                COMPLETED
+                                            </div>
+                                        )}
+
                                         <div className="text-xs text-zinc-500">
                                             SLOP SCORE
                                         </div>
