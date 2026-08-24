@@ -4,61 +4,79 @@ export function getSlopBadge(score: number) {
     if (percentage >= 95) {
         return {
             title: "Hall of Fame Slop",
-            className: "border-red-500/40 bg-red-500/15 text-red-400",
+            borderColour: "border-red-500/40",
+            bgColour: "bg-red-500/15",
+            textColour: "text-red-400",
         };
     }
 
     if (percentage >= 87.5) {
         return {
             title: "Historic Slop",
-            className: "border-rose-500/40 bg-rose-500/15 text-rose-400",
+            borderColour: "border-rose-500/40",
+            bgColour: "bg-rose-500/15",
+            textColour: "text-rose-400",
         };
     }
 
     if (percentage >= 80) {
         return {
             title: "Slop Supreme",
-            className: "border-orange-500/40 bg-orange-500/15 text-orange-400",
+            borderColour: "border-orange-500/40",
+            bgColour: "bg-orange-500/15",
+            textColour: "text-orange-400",
         };
     }
 
     if (percentage >= 72.5) {
         return {
             title: "Grade-A Slop",
-            className: "border-amber-500/40 bg-amber-500/15 text-amber-400",
+            borderColour: "border-amber-500/40",
+            bgColour: "bg-amber-500/15",
+            textColour: "text-amber-400",
         };
     }
 
     if (percentage >= 65) {
         return {
             title: "Certified Slop",
-            className: "border-yellow-500/40 bg-yellow-500/15 text-yellow-400",
+            borderColour: "border-yellow-500/40",
+            bgColour: "bg-yellow-500/15",
+            textColour: "text-yellow-400",
         };
     }
 
     if (percentage >= 55) {
         return {
             title: "Suspicious",
-            className: "border-purple-300/40 bg-purple-600/15 text-purple-300",
+            borderColour: "border-purple-300/40",
+            bgColour: "bg-purple-600/15",
+            textColour: "text-purple-300",
         };
     }
 
     if (percentage >= 50) {
         return {
             title: "Traces of Slop",
-            className: "border-blue-300/40 bg-blue-600/15 text-blue-300",
+            borderColour: "border-blue-300/40",
+            bgColour: "bg-blue-600/15",
+            textColour: "text-blue-300",
         };
     }
 
     if (percentage >= 45) {
         return {
             title: "Slop Potential",
-            className: "border-lime-500/40 bg-lime-500/15 text-lime-400",
+            borderColour: "border-lime-500/40",
+            bgColour: "bg-lime-500/15",
+            textColour: "text-lime-400",
         };
     }
 
     return {
         title: "Low Slop Risk",
-        className: "border-emerald-500/40 bg-emerald-500/15 text-emerald-400",
+        borderColour: "border-emerald-500/40",
+        bgColour: "bg-emerald-500/15",
+        textColour: "text-emerald-400",
     };
 }

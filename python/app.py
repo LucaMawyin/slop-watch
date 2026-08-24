@@ -88,17 +88,20 @@ def games():
         days_ahead=days_ahead,
     )
 
+    if predictions.empty:
+        return jsonify([])
+
     predictions["game_id"] = predictions["game_id"].astype(str)
     actual_slop["game_id"] = actual_slop["game_id"].astype(str)
 
     predictions = predictions.merge(
-        actual_slop[["game_id", "actual_slop"]],
+        actual_slop[[
+            "game_id", 
+            "actual_slop",
+        ]],
         on="game_id",
         how="left",
     )
-
-    if predictions.empty:
-        return jsonify([])
 
     games = predictions[
         [
@@ -108,6 +111,10 @@ def games():
             "home_name",
             "away_name",
             "venue_full_name",
+
+            # Score
+            "home_score",
+            "away_score",
 
             # Prediction
             "predicted_slop",

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
+import Badge from "@/components/Badge";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -225,19 +226,14 @@ function GamesContent() {
                                             })}
                                         </div>
 
-                                        <div
-                                            className={`
-                                                rounded-full
-                                                border 
-                                                px-3 
-                                                py-1 
-                                                text-xs 
-                                                font-medium 
-                                                ${badge.className}
-                                            `}
-                                        >
-                                            {badge.title}
-                                        </div>
+                                        <Badge
+                                            title={badge.title}
+                                            x={3}
+                                            y={1}
+                                            borderColour={badge.borderColour}
+                                            bgColour={badge.bgColour}
+                                            textColour={badge.textColour}
+                                        />
                                     </div>
 
                                     <div className="flex justify-between">
@@ -260,31 +256,36 @@ function GamesContent() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-3 text-center text-sm text-zinc-500">
+                                    {game.actual_slop !== null && (
+                                        <div className="
+                                            mt-4 
+                                            py-4
+                                            flex                                  
+                                            justify-between
+                                            items-center
+                                        ">
+                                            <div className="text-3xl font-semibold">
+                                                {game.home_score}
+                                            </div>
+                                            <Badge
+                                                title="FINAL"
+                                                x={3}
+                                                y={1}
+                                                borderColour="border-yellow-800"
+                                                bgColour="bg-yellow-950"
+                                                textColour="text-yellow-400"
+                                            />
+                                            <div className="text-3xl font-semibold">
+                                                {game.away_score}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="my-3 text-center text-sm text-zinc-500">
                                         {game.venue_full_name}
                                     </div>
 
-                                    <div className="mt-5 border-t border-zinc-800 pt-4 text-center">
-                                        
-                                        {game.actual_slop !== null && (
-                                            <div
-                                                className="
-                                                    mb-3
-                                                    inline-flex
-                                                    rounded-full
-                                                    border
-                                                    border-yellow-800
-                                                    bg-yellow-950
-                                                    px-3
-                                                    py-1
-                                                    text-xs
-                                                    font-medium
-                                                    text-yellow-400
-                                                "
-                                            >
-                                                COMPLETED
-                                            </div>
-                                        )}
+                                    <div className="border-t border-zinc-800 pt-4 text-center">
 
                                         <div className="text-xs text-zinc-500">
                                             SLOP SCORE
@@ -295,29 +296,30 @@ function GamesContent() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-4">
-                                        <button
-                                            onClick={() => setCalendarGame(game)}
-                                            className="
-                                                mt-4
-                                                w-full
-                                                rounded-lg
-                                                border
-                                                border-zinc-700
-                                                bg-zinc-800
-                                                px-4
-                                                py-2
-                                                text-sm
-                                                font-medium
-                                                text-zinc-200
-                                                transition
-                                                hover:bg-zinc-700
-                                            "
-                                        >
-                                            Add to Calendar
-                                        </button>
-                                    </div>
-                                    
+                                    {game.actual_slop === null && (
+                                        <div className="mt-4">
+                                            <button
+                                                onClick={() => setCalendarGame(game)}
+                                                className="
+                                                    mt-4
+                                                    w-full
+                                                    rounded-lg
+                                                    border
+                                                    border-zinc-700
+                                                    bg-zinc-800
+                                                    px-4
+                                                    py-2
+                                                    text-sm
+                                                    font-medium
+                                                    text-zinc-200
+                                                    transition
+                                                    hover:bg-zinc-700
+                                                "
+                                            >
+                                                Add to Calendar
+                                            </button>
+                                        </div>                                        
+                                    )}  
                                 </div>
                             )
                         })}
