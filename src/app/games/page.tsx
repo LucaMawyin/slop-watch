@@ -202,7 +202,7 @@ function GamesContent() {
                         lg:grid-cols-3
                     ">
                         {sortedGames.slice(0, visibleCount).map((game) => {
-                            const slop = game.actual_slop ?? game.predicted_slop;
+                            const slop = game.slop_percentile;
                             const badge = getSlopBadge(slop);
 
                             return (

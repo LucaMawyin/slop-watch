@@ -1,34 +1,6 @@
+import numpy as np
 from services.games import get_games, get_performance
-
-SPORT_CONFIG = {
-    "nba": {
-        "point_diff_min": -20,
-        "point_diff_max": 20,
-        "total_points_min": 180,
-        "total_points_max": 260,
-    },
-
-    "nfl": {
-        "point_diff_min": -30,
-        "point_diff_max": 30,
-        "total_points_min": 20,
-        "total_points_max": 70,
-    },
-
-    "nhl": {
-        "point_diff_min": -5,
-        "point_diff_max": 5,
-        "total_points_min": 3,
-        "total_points_max": 10,
-    },
-
-    "mlb": {
-        "point_diff_min": -5,
-        "point_diff_max": 5,
-        "total_points_min": 3,
-        "total_points_max": 12,
-    },
-}
+from config.sports import SPORT_CONFIG
 
 def normalize_badness(value, min_value, max_value):
     normalized = (
@@ -47,6 +19,7 @@ def get_slop(league="nba"):
     # ---------------------------------
     # GET PRE-GAME HOME TEAM STATS
     # ---------------------------------
+
     home_features = performance[
         [
             "game_id",
@@ -69,6 +42,7 @@ def get_slop(league="nba"):
     # ---------------------------------
     # GET PRE-GAME AWAY TEAM STATS
     # ---------------------------------
+
     away_features = performance[
         [
             "game_id",
@@ -149,7 +123,51 @@ def get_slop(league="nba"):
     ) / 2
 
     # ---------------------------------
-    # ACTUAL GAME SCORING
+    # UNCOMPETITIVENESS
+    # ---------------------------------
+
+    games["expected_margin"] = (
+        0.6 * (
+            games["home_point_diff"] - 
+            games["away_point_diff"]
+        )
+        +
+        0.4 * (
+            games["home_recent_point_diff"] - 
+            games["away_recent_point_diff"]
+        )
+    )
+
+    games["actual_margin"] = (
+        games["home_score"] -
+        games["away_score"]
+    )
+
+    games["margin_error"] = (
+        games["actual_margin"] -
+        games["expected_margin"]
+    )
+
+    games = games.sort_values("date").reset_index(drop=True)
+
+    games["margin_std"] = (
+        games["margin_error"]
+        .expanding(min_periods=100)
+        .std()
+        .shift(1)
+    )
+
+    # Normal distribution distance function
+    games["uncompetitiveness"] = (
+        1 - np.exp(
+            -(games["margin_error"] ** 2)
+            /
+            (2 * games["margin_std"] ** 2)
+        )
+    )
+
+    # ---------------------------------
+    # LOW SCORING
     # ---------------------------------
 
     games["total_points"] = (
@@ -168,16 +186,40 @@ def get_slop(league="nba"):
     # ---------------------------------
 
     games["scoring_weight"] = (
-        0.1 + 0.2 * games["team_badness"]
+        0.10 + 0.15 * games["team_badness"]
+    )
+
+    games["uncompetitiveness_weight"] = (
+        0.25 + 0.10 * games["team_badness"]
     )
 
     games["team_weight"] = (
-        1 - games["scoring_weight"]
+        1 
+        - games["scoring_weight"]
+        - games["uncompetitiveness_weight"]
     )
 
     games["actual_slop"] = (
-        games["team_weight"] * games["team_badness"] +
-        games["scoring_weight"] * games["scoring_badness"]
+        games["team_weight"] * 
+        games["team_badness"] 
+        +
+        games["scoring_weight"] * 
+        games["scoring_badness"]
+        +
+        games["uncompetitiveness_weight"] * 
+        games["uncompetitiveness"]
+    )
+
+    games["slop_percentile"] = (
+        games["actual_slop"]
+        .expanding(min_periods=100)
+        .apply(
+            lambda x: (
+                (x.iloc[:-1] < x.iloc[-1]).mean()
+                if len(x) > 1
+                else np.nan
+            )
+        )
     )
 
     # Sort games by date and reset index

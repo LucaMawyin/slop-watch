@@ -14,6 +14,7 @@ export type Game = {
     // Slop
     predicted_slop: number;
     actual_slop:number | null;
+    slop_percentile: number;
 
     // Season performance
     home_win_pct: number;

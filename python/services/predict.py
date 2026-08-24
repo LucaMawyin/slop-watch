@@ -1,7 +1,9 @@
 import joblib
 import pandas as pd
+import numpy as np
 
 from services.games import get_future_games, get_performance
+from services.slop import get_slop
 
 FEATURES = [
     "home_win_pct",
@@ -118,9 +120,31 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     games["predicted_slop"] = model.predict(games[FEATURES])
 
     # ---------------------------------
+    # SLOP PERCENTILE
+    # ---------------------------------
+
+    historical_slop = get_slop(league=league)
+
+    historical_slop = historical_slop[
+        historical_slop["date"] < prediction_date
+    ]["actual_slop"].dropna()
+
+    games["slop_percentile"] = games["predicted_slop"].apply(
+        lambda score: (
+            (historical_slop < score).mean()
+            if len(historical_slop) > 0
+            else np.nan
+        )
+    )
+
+    # ---------------------------------
     # SORT BY SLOP
     # ---------------------------------
-    games = games.sort_values("predicted_slop", ascending=False)
+
+    games = games.sort_values(
+        "predicted_slop", 
+        ascending=False
+    )
 
     return games
 

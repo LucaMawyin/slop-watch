@@ -98,9 +98,19 @@ def games():
         actual_slop[[
             "game_id", 
             "actual_slop",
-        ]],
+            "slop_percentile",
+        ]].rename(
+            columns={
+                "slop_percentile": "actual_slop_percentile",
+            }
+        ),
         on="game_id",
         how="left",
+    )
+
+    predictions["slop_percentile"] = (
+        predictions["actual_slop_percentile"]
+        .fillna(predictions["slop_percentile"])
     )
 
     games = predictions[
@@ -119,6 +129,7 @@ def games():
             # Prediction
             "predicted_slop",
             "actual_slop",
+            "slop_percentile",
 
             # Season performance
             "home_win_pct",

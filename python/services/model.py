@@ -37,7 +37,10 @@ def train_model(league="nba"):
     Y = actual_slop["actual_slop"]
 
     # Remove games where pre-game statistics are unavailable
-    valid = X.notna().all(axis=1)
+    valid = (
+        X.notna().all(axis=1) &
+        Y.notna()
+    )
 
     X = X[valid].reset_index(drop=True)
     Y = Y[valid].reset_index(drop=True)

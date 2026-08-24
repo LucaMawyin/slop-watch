@@ -53,6 +53,7 @@ def get_games(league="nba"):
 def get_performance(league="nba"):
 
     games = get_games(league=league)
+    window = SPORT_CONFIG[league]["performance_window"]
 
     # Performance per team per game
     performance = pd.concat([
@@ -78,46 +79,63 @@ def get_performance(league="nba"):
         }),
     ], ignore_index=True)
 
-    # Number of games before current game
-    performance["games_before"] = (
-        performance.groupby("team").cumcount()
+    # Sort by date
+    performance = (
+        performance
+        .sort_values("date")
+        .reset_index(drop=True)
     )
 
-    # Number of wins before current game
-    performance["wins_before"] = (
-        performance.groupby("team")["win"]
-        .transform(lambda x: x.astype(int).cumsum().shift(1))
-    )
+    group = performance.groupby("team")
 
-    # Point differential before current game
-    performance["point_diff_before"] = (
-        performance.groupby("team")["point_diff"]
-        .transform(lambda x: x.cumsum().shift(1))
-    )
-
-    # Win pct before current game
+    # ---------------------------------
+    # LAST 2 SEASONS
+    # ---------------------------------
     performance["win_pct"] = (
-        performance["wins_before"] / performance["games_before"]
-    )
-
-    # Average point differential before current game
-    performance["point_diff_avg"] = (
-        performance["point_diff_before"] / performance["games_before"]
-    )
-
-    # Win pct for last 10 games
-    performance["recent_win_pct"] = (
-        performance.groupby("team")["win"]
+        group["win"]
         .transform(
-            lambda x: x.shift(1).rolling(10, min_periods=1).mean()
+            lambda x: (
+                x.shift(1)
+                .rolling(window, min_periods=1)
+                .mean()
+            )
         )
     )
 
-    # Point diff for last 10 games
-    performance["recent_point_diff"] = (
-        performance.groupby("team")["point_diff"]
+    performance["point_diff_avg"] = (
+        group["point_diff"]
         .transform(
-            lambda x: x.shift(1).rolling(10, min_periods=1).mean()
+            lambda x: (
+                x.shift(1)
+                .rolling(window, min_periods=1)
+                .mean()
+            )
+        )
+    )
+
+    # ---------------------------------
+    # LAST 10 GAMES
+    # ---------------------------------
+
+    performance["recent_win_pct"] = (
+        group["win"]
+        .transform(
+            lambda x: (
+                x.shift(1)
+                .rolling(10, min_periods=1)
+                .mean()
+            )
+        )
+    )
+
+    performance["recent_point_diff"] = (
+        group["point_diff"]
+        .transform(
+            lambda x: (
+                x.shift(1)
+                .rolling(10, min_periods=1)
+                .mean()
+            )
         )
     )
 

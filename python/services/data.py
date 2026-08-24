@@ -4,9 +4,9 @@ import pandas as pd
 import os
 from config.sports import SPORT_CONFIG
 
-# 3 years of data
+# 5 years of data
 END_DATE = date.today()
-START_DATE = END_DATE - timedelta(days=3 * 365)
+START_DATE = END_DATE - timedelta(days=5 * 365)
 
 def collect_games(sport):
     config = SPORT_CONFIG[sport]

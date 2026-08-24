@@ -17,6 +17,7 @@ from sportsdataverse.mlb import (
 
 SPORT_CONFIG = {
     "nba": {
+        # Data
         "schedule_function": espn_nba_schedule,
         "statistics_function": espn_nba_game_team_statistics,
         "output": "data/raw/nba_games.csv",
@@ -37,9 +38,19 @@ SPORT_CONFIG = {
             "fouls",
             "largest_lead",
         ],
+        "performance_window" : 164,
+
+        # Slop config
+        "point_diff_min": -20,
+        "point_diff_max": 20,
+        "total_points_min": 180,
+        "total_points_max": 260,
+        "margin_max": 30,
     },
 
     "nfl": {
+
+        # Data
         "schedule_function": espn_nfl_schedule,
         "statistics_function": espn_nfl_game_team_statistics,
         "output": "data/raw/nfl_games.csv",
@@ -65,9 +76,19 @@ SPORT_CONFIG = {
             "total_plays",
             "red_zone_efficiency",
         ],
+        "performance_window" : 34,
+
+        # Slop config
+        "point_diff_min": -30,
+        "point_diff_max": 30,
+        "total_points_min": 20,
+        "total_points_max": 70,
+        "margin_max": 21,
     },
 
     "nhl": {
+
+        # Data
         "schedule_function": espn_nhl_schedule,
         "statistics_function": espn_nhl_game_team_statistics,
         "output": "data/raw/nhl_games.csv",
@@ -87,10 +108,20 @@ SPORT_CONFIG = {
             "penalties",
             "penaltyMinutes",
         ],
+        "performance_window" : 164,
+
+        # Slop config
+        "point_diff_min": -5,
+        "point_diff_max": 5,
+        "total_points_min": 3,
+        "total_points_max": 10,
+        "margin_max": 4,
     },
 
     
     "mlb": {
+
+        # Data
         "schedule_function": espn_mlb_schedule,
         "statistics_function": espn_mlb_game_team_statistics,
         "output": "data/raw/mlb_games.csv",
@@ -107,5 +138,13 @@ SPORT_CONFIG = {
             "earnedRuns",
             "ERA",
         ],
+        "performance_window" : 324,
+
+        # Slop config
+        "point_diff_min": -5,
+        "point_diff_max": 5,
+        "total_points_min": 3,
+        "total_points_max": 12,
+        "margin_max": 5,
     },
 }
