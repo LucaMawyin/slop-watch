@@ -1,11 +1,23 @@
 import { Game } from "./types";
 
+function getGameEnd(game: Game) {
+    const start = new Date(game.date);
+
+    return new Date(
+        start.getTime() + 3 * 60 * 60 * 1000
+    );
+}
+
+function formatDate(date: Date) {
+    return date
+        .toISOString()
+        .replace(/[-:]/g, "")
+        .replace(/\.\d{3}/, "");
+}
+
 export function addToICS(game: Game) {
     const start = new Date(game.date);
-    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
-
-    const formatDate = (date: Date) =>
-        date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+    const end = getGameEnd(game);
 
     const event = [
         "BEGIN:VCALENDAR",
@@ -16,7 +28,7 @@ export function addToICS(game: Game) {
         `DTEND:${formatDate(end)}`,
         `SUMMARY:${game.away_name} @ ${game.home_name}`,
         `LOCATION:${game.venue_full_name}`,
-        `DESCRIPTION:Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`,
+        `DESCRIPTION:Slop Score: ${(game.slop_percentile * 100).toFixed(1)}%`,
         "END:VEVENT",
         "END:VCALENDAR",
     ].join("\r\n");
@@ -37,54 +49,38 @@ export function addToICS(game: Game) {
 
 export function addToGoogleCalendar(game: Game) {
     const start = new Date(game.date);
-    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+    const end = getGameEnd(game);
 
-    const formatDate = (date: Date) =>
-        date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+    const params = new URLSearchParams({
+        action: "TEMPLATE",
+        text: `${game.away_name} @ ${game.home_name}`,
+        dates: `${formatDate(start)}/${formatDate(end)}`,
+        location: game.venue_full_name,
+        details: `Slop Score: ${(game.slop_percentile * 100).toFixed(1)}%`,
+    });
 
-    const url = new URL("https://calendar.google.com/calendar/render");
-
-    url.searchParams.set("action", "TEMPLATE");
-    url.searchParams.set(
-        "text",
-        `${game.away_name} @ ${game.home_name}`
+    window.open(
+        `https://calendar.google.com/calendar/render?${params}`,
+        "_blank"
     );
-    url.searchParams.set(
-        "dates",
-        `${formatDate(start)}/${formatDate(end)}`
-    );
-    url.searchParams.set(
-        "location",
-        game.venue_full_name
-    );
-    url.searchParams.set(
-        "details",
-        `Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`
-    );
-
-    window.open(url.toString(), "_blank");
 }
 
 export function addToOutlook(game: Game) {
     const start = new Date(game.date);
-    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+    const end = getGameEnd(game);
 
-    const url = new URL(
-        "https://outlook.live.com/calendar/0/deeplink/compose"
-    );
+    const params = new URLSearchParams({
+        subject: `${game.away_name} @ ${game.home_name}`,
+        body: `Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`,
+        location: game.venue_full_name,
+        startdt: start.toISOString(),
+        enddt: end.toISOString(),
+        path: "/calendar/action/compose",
+        rru: "addevent",
+    });
 
-    url.searchParams.set("path", "/calendar/action/compose");
-    url.searchParams.set(
-        "subject",
-        `${game.away_name} @ ${game.home_name}`
-    );
-    url.searchParams.set("startdt", start.toISOString());
-    url.searchParams.set("enddt", end.toISOString());
-    url.searchParams.set("location", game.venue_full_name);
-    url.searchParams.set(
-        "body",
-        `Slop Score: ${(game.predicted_slop * 100).toFixed(1)}%`
-    );
+    const url =
+        `https://outlook.live.com/calendar/0/action/compose?${params.toString()}`;
 
-    window.open(url.toString(), "_blank");
+    window.open(url, "_blank");
 }

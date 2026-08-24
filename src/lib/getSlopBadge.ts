@@ -1,7 +1,7 @@
 export function getSlopBadge(score: number) {
     const percentage = score * 100;
 
-    if (percentage >= 95) {
+    if (percentage >= 97.5) {
         return {
             title: "Hall of Fame Slop",
             borderColour: "border-red-500/40",
@@ -10,7 +10,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 87.5) {
+    if (percentage >= 90) {
         return {
             title: "Historic Slop",
             borderColour: "border-rose-500/40",
@@ -28,7 +28,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 72.5) {
+    if (percentage >= 70) {
         return {
             title: "Grade-A Slop",
             borderColour: "border-amber-500/40",
@@ -37,7 +37,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 65) {
+    if (percentage >= 60) {
         return {
             title: "Certified Slop",
             borderColour: "border-yellow-500/40",
@@ -46,7 +46,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 55) {
+    if (percentage >= 50) {
         return {
             title: "Suspicious",
             borderColour: "border-purple-300/40",
@@ -55,7 +55,7 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 50) {
+    if (percentage >= 35) {
         return {
             title: "Traces of Slop",
             borderColour: "border-blue-300/40",
@@ -64,9 +64,9 @@ export function getSlopBadge(score: number) {
         };
     }
 
-    if (percentage >= 45) {
+    if (percentage >= 20) {
         return {
-            title: "Slop Potential",
+            title: "Barely Sloppy",
             borderColour: "border-lime-500/40",
             bgColour: "bg-lime-500/15",
             textColour: "text-lime-400",
@@ -74,7 +74,7 @@ export function getSlopBadge(score: number) {
     }
 
     return {
-        title: "Low Slop Risk",
+        title: "Worth Watching",
         borderColour: "border-emerald-500/40",
         bgColour: "bg-emerald-500/15",
         textColour: "text-emerald-400",
