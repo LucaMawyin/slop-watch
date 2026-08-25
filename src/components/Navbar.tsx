@@ -9,7 +9,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openSport, setOpenSport] = useState<string | null>(null);
 
-    const sports = [...new Set(leagues.map((league) => league.sport))];
+    const sports = [...new Set(leagues.sort((a,b) => a.sport.localeCompare(b.sport)).map((league) => league.sport))];
 
     return (
         <nav className={`sticky top-0 z-50 border-b border-zinc-800`}>
@@ -24,7 +24,7 @@ export default function Navbar() {
                 {/* Desktop */}
                 <div className="hidden md:flex items-center gap-6">
                     {sports.map((sport) => (
-                        <div key={sport} className="flex items-center gap-4">
+                        <div key={sport} className="flex items-center gap-6">
                             {leagues
                                 .filter((league) => league.sport === sport)
                                 .map((league) => (

@@ -57,7 +57,7 @@ export function getSlopBadge(score: number) {
 
     if (percentage >= 35) {
         return {
-            title: "Traces of Slop",
+            title: "A Little Sloppy",
             borderColour: "border-blue-300/40",
             bgColour: "bg-blue-600/15",
             textColour: "text-blue-300",
@@ -66,7 +66,7 @@ export function getSlopBadge(score: number) {
 
     if (percentage >= 20) {
         return {
-            title: "Barely Sloppy",
+            title: "Traces of Slop",
             borderColour: "border-lime-500/40",
             bgColour: "bg-lime-500/15",
             textColour: "text-lime-400",

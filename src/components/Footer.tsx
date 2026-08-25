@@ -3,6 +3,8 @@ export default function Footer() {
         <footer className="
             border-t
             border-zinc-800
+            relative
+            bottom-0
         ">
             <div className="
                 flex

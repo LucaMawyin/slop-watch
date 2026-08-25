@@ -1,12 +1,14 @@
 "use client";
 
 import DayPickerClient from "@/components/DayPicker";
+import { leagues } from "@/lib/leagues";
 import { useState } from "react";
 import { DateRange } from "react-day-picker";
 
 export default function Home() {
     const [league, setLeague] = useState("nba");
     const [dateRange, setDateRange] = useState<DateRange | undefined>();
+    const sports = [...new Set(leagues.map((league) => league.sport))];
 
     return (
         <main className="
@@ -112,11 +114,22 @@ export default function Home() {
                                     transition
                                     focus:border-zinc-500
                                 "
-                            >
-                                <option value="nba">NBA</option>
-                                <option value="nfl">NFL</option>
-                                <option value="nhl">NHL</option>
-                                <option value="mlb">MLB</option>
+                            >   
+
+                                {
+                                    [...leagues]
+                                    .sort((a,b) => a.sport.localeCompare(b.sport))
+                                    .map(
+                                        (league,i) => (
+                                            <option
+                                                key={i}
+                                                value={league.id}
+                                            >
+                                                {league.name}
+                                            </option>
+                                        )
+                                    )
+                                }
                             </select>
 
                             <DayPickerClient onChange={setDateRange} />
