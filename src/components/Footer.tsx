@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="
             border-t
             border-zinc-800
-            relative
+            sticky
             bottom-0
         ">
             <div className="
