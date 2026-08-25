@@ -7,8 +7,6 @@ pd.set_option("display.max_rows", None)
 def get_games(league="nba"):
 
     df = pd.read_csv(f"data/raw/{league}_games.csv")
-    if league == "pwhl":
-        print(df["game_status"].unique())
 
     # Convert the date column to datetime and ensure scores are numeric
     df["date"] = pd.to_datetime(df["date"], utc=True)

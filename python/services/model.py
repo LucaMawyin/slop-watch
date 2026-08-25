@@ -36,19 +36,6 @@ def train_model(league="nba"):
     X = actual_slop[features]
     Y = actual_slop["actual_slop"]
 
-    print(f"\n{league.upper()} total rows: {len(actual_slop)}")
-
-    for feature in features:
-        print(
-            f"{feature}: "
-            f"{actual_slop[feature].notna().sum()} / {len(actual_slop)}"
-        )
-
-    print(
-        "actual_slop:",
-        actual_slop["actual_slop"].notna().sum(),
-    )
-
     # Remove games where pre-game statistics are unavailable
     valid = (
         X.notna().all(axis=1) &
