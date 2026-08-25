@@ -3,9 +3,17 @@
 :root{
     user-select: none;
     --text-colour: rgb(161, 161, 170);
+    background-color: rgb(9, 9, 11);
 }
 
-p, footer a {
+html,
+body {
+    min-height: 100dvh;
+    background-color: rgb(9, 9, 11);
+}
+
+p, 
+footer a {
     color: var(--text-colour);
 }
 
@@ -13,9 +21,7 @@ button,option,select{
     cursor: pointer;
 }
 
-nav, main, footer{
-    background-color: rgb(9, 9, 11);
-}
+
 
 main{
     flex: 1;
