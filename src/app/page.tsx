@@ -2,6 +2,7 @@
 
 import DayPickerClient from "@/components/DayPicker";
 import { leagues } from "@/lib/leagues";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { DateRange } from "react-day-picker";
 
@@ -89,46 +90,61 @@ export default function Home() {
                     items-center
                     gap-6
                 ">
-                    {/* Filters */}
-                    <div className="
-                        flex
-                        items-center
-                        gap-3
-                    ">
+                {/* Filters */}
+                <div className="
+                    flex
+                    items-center
+                    gap-3
+                ">
+                    <div className="relative">
                         <select
                             value={league}
                             onChange={(e) => setLeague(e.target.value)}
                             className="
+                                appearance-none
                                 rounded-lg
                                 border
                                 border-zinc-700
                                 bg-zinc-900
-                                px-4 py-3
+                                px-3
+                                py-2
+                                pr-9
                                 text-sm
                                 outline-none
                                 transition
                                 focus:border-zinc-500
+                                truncate
+                                w-30
                             "
-                        >   
-
-                            {
-                                [...leagues]
-                                .sort((a,b) => a.sport.localeCompare(b.sport))
-                                .map(
-                                    (league,i) => (
-                                        <option
-                                            key={i}
-                                            value={league.id}
-                                        >
-                                            {league.name}
-                                        </option>
-                                    )
-                                )
-                            }
+                        >
+                            {[...leagues]
+                                .sort((a, b) => a.sport.localeCompare(b.sport))
+                                .map((league) => (
+                                    <option
+                                        key={league.id}
+                                        value={league.id}
+                                        className=""
+                                    >
+                                        {league.name}
+                                    </option>
+                                ))}
                         </select>
 
-                        <DayPickerClient onChange={setDateRange} />
+                        <ChevronDown
+                            size={16}
+                            className="
+                                pointer-events-none
+                                absolute
+                                right-3
+                                top-1/2
+                                -translate-y-1/2
+                                text-zinc-400
+                            "
+                        />
                     </div>
+
+                    <DayPickerClient onChange={setDateRange} />
+                </div>
 
                     {/* Button */}
                     <button

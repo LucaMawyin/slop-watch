@@ -18,10 +18,15 @@ export default function DayPickerClient({
     );
     const [open, setOpen] = useState(false);
 
+    const formatDate = (date: Date) =>
+        `${String(date.getDate()).padStart(2, "0")}/${String(
+            date.getMonth() + 1
+        ).padStart(2, "0")}/${date.getFullYear()}`;
+
     const dateLabel = range?.from
         ? range.to
-            ? `${range.from.toLocaleDateString()} – ${range.to.toLocaleDateString()}`
-            : range.from.toLocaleDateString()
+            ? `${formatDate(range.from)} – ${formatDate(range.to)}`
+            : formatDate(range.from)
         : "Select dates";
 
     const handleApply = () => {
@@ -41,8 +46,8 @@ export default function DayPickerClient({
                     border
                     border-zinc-700
                     bg-zinc-900
-                    px-4
-                    py-3
+                    px-3
+                    py-2
                     text-sm
                     text-white
                     outline-none

@@ -29,3 +29,46 @@ footer{
 main{
     flex: 1;
 }
+
+@keyframes loading-dots {
+    0%,
+    33.33% {
+        content: ".";
+    }
+
+    33.34%,
+    66.66% {
+        content: "..";
+    }
+
+    66.67%,
+    100% {
+        content: "...";
+    }
+}
+
+.loading-dots::after {
+    content: ".";
+    animation: loading-dots 1.5s steps(1, end) infinite;
+}
+
+@keyframes skeleton-glow {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton-glow {
+    background: linear-gradient(
+        90deg,
+        rgb(39 39 42) 0%,
+        rgb(63 63 70) 50%,
+        rgb(39 39 42) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-glow 1.8s ease-in-out infinite;
+}

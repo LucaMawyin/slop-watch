@@ -8,6 +8,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import Badge from "@/components/Badge";
+import GamesSkeleton from "@/components/GamesSkeleton";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -58,24 +59,6 @@ function GamesContent() {
             });
     }, [league, start, end]);
 
-    if (loading) {
-        return (
-            <main className="p-6 text-white">
-                <p className="">
-                    Loading games...
-                </p>
-            </main>
-        );
-    }
-
-    if (error) {
-        return (
-            <main className="p-6 text-white">
-                <p className="text-red-400">{error}</p>
-            </main>
-        );
-    }
-
     const sortedGames = [...games].sort((a, b) => {
         if (sortBy === "slop") {
             const aSlop = a.actual_slop ?? a.predicted_slop;
@@ -90,6 +73,7 @@ function GamesContent() {
     return (
         <main className="p-6 text-white">
 
+            {/* HEADER */}
             <div className="
                 flex
                 flex-wrap
@@ -172,7 +156,12 @@ function GamesContent() {
                     </select>
                 </div>
             </div>
-            {games.length === 0 ? (
+
+            {loading ? (
+                <GamesSkeleton />
+            ) : error ? (
+                <p className="text-red-400!">{error}</p>
+            ) : games.length === 0 ? (
                 <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
                     <h2 className="text-lg font-semibold">
                         No games found
@@ -189,7 +178,6 @@ function GamesContent() {
                         &lt; Return to Home
                     </Link>
                 </div>
-
             ) : ( 
                 <>
                     <div className="
