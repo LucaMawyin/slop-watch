@@ -27,6 +27,6 @@ export const leagues = [
     {
         id: "wnba",
         name: "WNBA",
-        sport: "Hockey",
+        sport: "Basketball",
     },
 ];
