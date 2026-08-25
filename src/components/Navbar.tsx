@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 
@@ -11,8 +11,46 @@ export default function Navbar() {
 
     const sports = [...new Set(leagues.sort((a,b) => a.sport.localeCompare(b.sport)).map((league) => league.sport))];
 
+    // Navbar click off
+    const navRef = useRef<HTMLElement>(null);
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Node;
+
+            // Desktop dropdown
+            if (
+                window.innerWidth >= 768 &&
+                navRef.current &&
+                !navRef.current.contains(target)
+            ) {
+                setOpenSport(null);
+            }
+
+            // Mobile drawer
+            if (
+                window.innerWidth < 768 &&
+                mobileMenuRef.current &&
+                !mobileMenuRef.current.contains(target)
+            ) {
+                setOpenSport(null);
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
-        <nav className={`sticky top-0 z-50 border-b border-zinc-800`}>
+        <nav 
+            ref={navRef}
+            className={`sticky top-0 z-50 border-b border-zinc-800`}
+        >
             <div className="flex items-center justify-between px-6 py-4">
                 <Link
                     href="/"
@@ -29,7 +67,15 @@ export default function Navbar() {
                         );
 
                         return (
-                            <div key={sport} className="relative group">
+                            <div 
+                                key={sport} 
+                                className="relative group"
+                                onMouseEnter={() => {
+                                    if (openSport !== null && openSport !== sport) {
+                                        setOpenSport(null);
+                                    }
+                                }}
+                            >
                                 <button
                                     type="button"
                                     onClick={() =>
@@ -46,10 +92,14 @@ export default function Navbar() {
                                     -right-2
                                     top-full
                                     z-50
-                                    hidden
                                     pt-2
-                                    group-hover:block
-                                     ${openSport === sport ? "block" : "hidden"}
+                                    opacity-0
+                                    pointer-events-none
+                                    group-hover:opacity-100
+                                    group-hover:pointer-events-auto
+                                    ${openSport === sport
+                                        ? "opacity-100 pointer-events-auto"
+                                        : ""}
                                 `}>
                                     <div className="
                                         min-w-32
@@ -106,12 +156,16 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
+                ref={mobileMenuRef}
                 className={`
                     fixed
                     left-0
                     right-0
                     top-14
                     z-40
+                    max-h-[calc(100vh-3.5rem)]
+                    overflow-y-auto
+                    overscroll-contain
                     border-b
                     border-zinc-800
                     bg-zinc-950

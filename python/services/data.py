@@ -44,6 +44,41 @@ def collect_games(sport):
                     f"{len(df)} games"
                 )
 
+    # Soccer
+    elif "league" in config:
+
+        current_date = START_DATE
+
+        while current_date <= END_DATE:
+            date_string = current_date.strftime("%Y%m%d")
+
+            df = schedule_function(
+                league=config["league"],
+                dates=date_string,
+                return_as_pandas=True,
+                limit=500
+            )
+
+            if df is not None and not df.empty:
+
+                df = df.rename(columns={
+                    "event_id": "game_id",
+                    "home_team": "home_name",
+                    "home_team_id": "home_id",
+                    "away_team": "away_name",
+                    "away_team_id": "away_id",
+                    "venue": "venue_full_name",
+                })
+
+                games.append(df)
+
+                print(
+                    f"{sport.upper()} {date_string}: "
+                    f"{len(df)} games"
+                )
+
+            current_date += timedelta(days=1)
+
 
     # ESPN schedule
     else:

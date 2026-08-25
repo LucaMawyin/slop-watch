@@ -40,6 +40,26 @@ def update_data(league="nba"):
             if new_games is not None and not new_games.empty:
                 games.append(new_games)
 
+    # Soccer
+    elif "league" in config:
+
+        dates = [
+            (today - timedelta(days=i)).strftime("%Y%m%d")
+            for i in reversed(range(3))
+        ]
+
+        for game_date in dates:
+
+            new_games = config["schedule_function"](
+                league=config["league"],
+                dates=game_date,
+                return_as_pandas=True,
+                limit=500,
+            )
+
+            if new_games is not None and not new_games.empty:
+                games.append(new_games)
+
 
     # ESPN
     else:
@@ -65,10 +85,43 @@ def update_data(league="nba"):
         return
 
     new_games = pd.concat(games, ignore_index=True)
-    new_games["game_id"] = new_games["game_id"].astype(str)
 
+    # ---------------------------------
+    # SOCCER
+    # ---------------------------------
+
+    if "league" in config:
+
+        new_games = new_games.rename(
+            columns={
+                "event_id": "game_id",
+                "home_team": "home_name",
+                "home_team_id": "home_id",
+                "away_team": "away_name",
+                "away_team_id": "away_id",
+                "venue": "venue_full_name",
+            }
+        )
+
+        new_games = new_games[
+            [
+                "game_id",
+                "date",
+                "status",
+                "home_name",
+                "home_id",
+                "home_score",
+                "away_name",
+                "away_id",
+                "away_score",
+                "venue_full_name",
+            ]
+        ].copy()
+
+    # ---------------------------------
     # PWHL
-    if league == "pwhl":
+    # ---------------------------------
+    elif league == "pwhl":
 
         new_games = new_games.rename(
             columns={
@@ -97,6 +150,9 @@ def update_data(league="nba"):
                 "game_type",
             ]
         ].copy()
+
+    # Game id as string
+    new_games["game_id"] = new_games["game_id"].astype(str)
 
     # Keep the latest version of each game
     new_games = new_games.drop_duplicates(
