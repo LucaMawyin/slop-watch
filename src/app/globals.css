@@ -21,7 +21,10 @@ button,option,select{
     cursor: pointer;
 }
 
-
+nav, 
+footer{
+    background-color: rgb(9, 9, 11);
+}
 
 main{
     flex: 1;
