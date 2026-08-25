@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import Badge from "@/components/Badge";
 import GamesSkeleton from "@/components/GamesSkeleton";
+import { ChevronDown } from "lucide-react";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -134,26 +135,47 @@ function GamesContent() {
                         }}
                     />
 
-                    <select
-                        value={sortBy}
-                        onChange={(e) =>
-                            setSortBy(e.target.value as "slop" | "date")
-                        }
-                        className="
-                            rounded-lg
-                            border
-                            border-zinc-800
-                            bg-zinc-900
-                            px-3
-                            py-2
-                            text-sm
-                            text-zinc-200
-                            outline-none
-                        "
-                    >
-                        <option value="slop">Sort by Slop</option>
-                        <option value="date">Sort by Date</option>
-                    </select>
+                    <div className="relative">
+                        <select
+                            value={sortBy}
+                            onChange={(e) =>
+                                setSortBy(e.target.value as "slop" | "date")
+                            }
+                            className="
+                                appearance-none
+                                rounded-lg
+                                px-3
+                                py-2
+                                pr-9
+                                text-sm
+                                outline-none
+                                transition
+                                border
+                                border-zinc-700
+                                text-zinc-200
+                                bg-zinc-900
+                                hover:border-zinc-600
+                                focus:border-zinc-500
+                            "
+                        >
+                            <option value="slop">Sort by Slop</option>
+                            <option value="date">Sort by Date</option>
+
+                        </select>
+                        <ChevronDown
+                            size={16}
+                            className="
+                                pointer-events-none
+                                absolute
+                                right-3
+                                top-1/2
+                                -translate-y-1/2
+                                text-zinc-400
+                            "
+                        />
+                    </div>
+
+
                 </div>
             </div>
 

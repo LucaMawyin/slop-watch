@@ -103,18 +103,20 @@ export default function Home() {
                             className="
                                 appearance-none
                                 rounded-lg
-                                border
-                                border-zinc-700
-                                bg-zinc-900
                                 px-3
                                 py-2
                                 pr-9
                                 text-sm
                                 outline-none
                                 transition
-                                focus:border-zinc-500
                                 truncate
                                 w-30
+                                border
+                                border-zinc-700
+                                text-zinc-200
+                                bg-zinc-900
+                                hover:border-zinc-600
+                                focus:border-zinc-500
                             "
                         >
                             {[...leagues]

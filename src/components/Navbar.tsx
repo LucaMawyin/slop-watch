@@ -100,6 +100,7 @@ export default function Navbar() {
                                     ${openSport === sport
                                         ? "opacity-100 pointer-events-auto"
                                         : ""}
+                                    text-nowrap
                                 `}>
                                     <div className="
                                         min-w-32
