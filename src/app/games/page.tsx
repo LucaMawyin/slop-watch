@@ -237,7 +237,7 @@ function GamesContent() {
                                     </div>
 
                                     <div className="flex justify-between">
-                                        <div>
+                                        <div className="max-w-[50%]">
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 HOME
                                             </div>
@@ -246,7 +246,7 @@ function GamesContent() {
                                             </div>
                                         </div>
 
-                                        <div className="text-right">
+                                        <div className="text-right max-w-[50%]">
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 AWAY
                                             </div>
