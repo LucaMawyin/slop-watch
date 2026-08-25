@@ -22,23 +22,43 @@ def update_data(league="nba"):
     # Getting today's games
     today = date.today()
 
-    # Get last 3 days so Scheduled games become Final
-    dates = [
-        (today - timedelta(days=i)).strftime("%Y%m%d")
-        for i in reversed(range(3))
-    ]
-
     games = []
 
-    for game_date in dates:
+    # PWHL
+    if league == "pwhl":
 
-        new_games = config["schedule_function"](
-            dates=game_date,
-            return_as_pandas=True,
-        )
+        for season in range(today.year - 1, today.year + 1):
 
-        if new_games is not None and not new_games.empty:
-            games.append(new_games)
+            try:
+                new_games = config["schedule_function"](
+                    season=season,
+                    return_as_pandas=True,
+                )
+            except ValueError:
+                continue
+
+            if new_games is not None and not new_games.empty:
+                games.append(new_games)
+
+
+    # ESPN
+    else:
+
+        # Get last 3 days so Scheduled games become Final
+        dates = [
+            (today - timedelta(days=i)).strftime("%Y%m%d")
+            for i in reversed(range(3))
+        ]
+
+        for game_date in dates:
+
+            new_games = config["schedule_function"](
+                dates=game_date,
+                return_as_pandas=True,
+            )
+
+            if new_games is not None and not new_games.empty:
+                games.append(new_games)
 
     if not games:
         print(f"{league.upper()}: no games found")
@@ -46,6 +66,37 @@ def update_data(league="nba"):
 
     new_games = pd.concat(games, ignore_index=True)
     new_games["game_id"] = new_games["game_id"].astype(str)
+
+    # PWHL
+    if league == "pwhl":
+
+        new_games = new_games.rename(
+            columns={
+                "game_date": "date",
+                "home_team": "home_name",
+                "home_team_id": "home_id",
+                "away_team": "away_name",
+                "away_team_id": "away_id",
+                "venue": "venue_full_name",
+            }
+        )
+
+        new_games = new_games[
+            [
+                "game_id",
+                "date",
+                "game_status",
+                "home_name",
+                "home_id",
+                "home_score",
+                "away_name",
+                "away_id",
+                "away_score",
+                "venue_full_name",
+                "season_id",
+                "game_type",
+            ]
+        ].copy()
 
     # Keep the latest version of each game
     new_games = new_games.drop_duplicates(
@@ -63,16 +114,27 @@ def update_data(league="nba"):
     )
 
     # Remove oldest date
-    df["_date"] = pd.to_datetime(df["date"]).dt.date
-    oldest_date = df["_date"].min()
+    df["_date"] = pd.to_datetime(
+        df["date"],
+        utc=True,
+        errors="coerce"
+    )
 
-    df = df[df["_date"] != oldest_date]
+    df = df.dropna(subset=["_date"])
+
+    oldest_date = df["_date"].dt.normalize().min()
+
+    df = df[
+        df["_date"].dt.normalize() != oldest_date
+    ]
+
     df = df.drop(columns="_date")
 
     df = df.drop_duplicates(
         subset="game_id",
         keep="last"
     )
+
     df = df.sort_values("date").reset_index(drop=True)
 
     # Write to csv
@@ -81,6 +143,6 @@ def update_data(league="nba"):
     os.replace(temp_path, output_path)
 
     print(
-        f"{league.upper()}: refreshed {len(new_games)} games "
-        f"across the last 3 days, removed {oldest_date}"
+        f"{league.upper()}: refreshed {len(new_games)} games, "
+        f"removed {oldest_date.date()}"
     )

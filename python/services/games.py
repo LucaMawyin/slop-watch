@@ -7,6 +7,8 @@ pd.set_option("display.max_rows", None)
 def get_games(league="nba"):
 
     df = pd.read_csv(f"data/raw/{league}_games.csv")
+    if league == "pwhl":
+        print(df["game_status"].unique())
 
     # Convert the date column to datetime and ensure scores are numeric
     df["date"] = pd.to_datetime(df["date"], utc=True)
@@ -30,14 +32,8 @@ def get_games(league="nba"):
         ].copy()
 
     elif league == "pwhl":
-        df["season_id"] = pd.to_numeric(
-            df["season_id"],
-            errors="coerce"
-        )
-
         df = df[
-            (df["season_id"] % 3 == 2) &
-            df["game_status"].str.startswith("Final")
+            df["game_status"].str.startswith("Final", na=False)
         ].copy()
 
     else:
@@ -209,7 +205,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
                 )
 
                 # Regular season only
-                df = df[df["season_id"] % 3 == 2]
+                df = df[df["season_id"] % 3 == 1]
                 
                 games.append(df)
 
