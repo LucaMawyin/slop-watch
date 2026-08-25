@@ -15,6 +15,16 @@ from sportsdataverse.mlb import (
     espn_mlb_game_team_statistics,
 )
 
+from sportsdataverse.pwhl import (
+    pwhl_schedule,
+    pwhl_game_summary,
+)
+
+from sportsdataverse.wnba import (
+    espn_wnba_schedule,
+    espn_wnba_game_team_statistics,
+)
+
 SPORT_CONFIG = {
     "nba": {
         # Data
@@ -146,5 +156,65 @@ SPORT_CONFIG = {
         "total_points_min": 3,
         "total_points_max": 12,
         "margin_max": 5,
+    },
+
+    "pwhl": {
+        # Data
+        "schedule_function": pwhl_schedule,
+        "statistics_function": pwhl_game_summary,
+        "output": "data/raw/pwhl_games.csv",
+        "schedule_type": "season",
+        "extra_features": [
+            "shots_on_goal",
+            "blocked_shots",
+            "hits",
+            "faceoffs_won",
+            "faceoff_pct",
+            "power_play_goals",
+            "power_play_opportunities",
+            "penalty_minutes",
+            "giveaways",
+            "takeaways",
+        ],
+        "performance_window": 60,
+
+        # Slop config
+        "point_diff_min": -5,
+        "point_diff_max": 5,
+        "total_points_min": 3,
+        "total_points_max": 10,
+        "margin_max": 4,
+    },
+
+    "wnba": {
+        # Data
+        "schedule_function": espn_wnba_schedule,
+        "statistics_function": espn_wnba_game_team_statistics,
+        "output": "data/raw/wnba_games.csv",
+        "extra_features": [
+            "field_goal_pct",
+            "three_point_pct",
+            "free_throw_pct",
+            "rebounds",
+            "offensive_rebounds",
+            "defensive_rebounds",
+            "assists",
+            "steals",
+            "blocks",
+            "turnovers",
+            "points_conceded_off_turnovers",
+            "fast_break_points",
+            "points_in_paint",
+            "fouls",
+            "largest_lead",
+        ],
+        "performance_window": 40,
+
+        # Slop config
+        "point_diff_min": -20,
+        "point_diff_max": 20,
+        "total_points_min": 130,
+        "total_points_max": 190,
+        "margin_max": 30,
     },
 }

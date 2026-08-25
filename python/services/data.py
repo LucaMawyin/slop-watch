@@ -14,29 +14,60 @@ def collect_games(sport):
 
     games = []
 
-    # Loop through each date in the range and fetch the NBA schedule
-    current_date = START_DATE
-    while current_date <= END_DATE:
-        date_string = current_date.strftime("%Y%m%d")
+    # PWHL schedule
+    if config.get("schedule_type") == "season":
 
-        df = schedule_function(
-            dates=date_string,
-            return_as_pandas=True,
-            limit=50
-        )
-        
-        if df is None:
-            current_date += timedelta(days=1)
-            continue
-
-        if df is not None and not df.empty:
-            games.append(df)
-            print(
-                f"{sport.upper()} {date_string}: "
-                f"{len(df)} games"
+        for season in range(
+            2024,
+            END_DATE.year + 1
+        ):
+            df = schedule_function(
+                season=season,
+                return_as_pandas=True
             )
 
-        current_date += timedelta(days=1)
+            if df is not None and not df.empty:
+
+                df = df.rename(columns={
+                    "game_date": "date",
+                    "home_team_id": "home_id",
+                    "home_team": "home_name",
+                    "away_team_id": "away_id",
+                    "away_team": "away_name",
+                    "venue":"venue_full_name",
+                })
+
+                games.append(df)
+
+                print(
+                    f"{sport.upper()} {season}: "
+                    f"{len(df)} games"
+                )
+
+
+    # ESPN schedule
+    else:
+        
+        current_date = START_DATE
+
+        while current_date <= END_DATE:
+            date_string = current_date.strftime("%Y%m%d")
+
+            df = schedule_function(
+                dates=date_string,
+                return_as_pandas=True,
+                limit=50
+            )
+
+            if df is not None and not df.empty:
+                games.append(df)
+
+                print(
+                    f"{sport.upper()} {date_string}: "
+                    f"{len(df)} games"
+                )
+
+            current_date += timedelta(days=1)
 
         
     if not games:
@@ -47,7 +78,7 @@ def collect_games(sport):
     # Concatenate all the DataFrames into a single DataFrame
     all_games = pd.concat(games, ignore_index=True)
 
-    # Create the output directory if it doesn't exist
+    # Create the output directory if it doesnt exist
     output_path = Path(config["output"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -57,7 +88,10 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-collect_games("nhl")
-collect_games("nba")
-collect_games("nfl")
-collect_games("mlb")
+for sport in SPORT_CONFIG:
+    print()
+    print("="*50)
+    print(f"Collecting {sport.upper()}")
+    print("="*50)
+
+    collect_games(sport)
