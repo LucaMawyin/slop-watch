@@ -23,21 +23,67 @@ export default function Navbar() {
 
                 {/* Desktop */}
                 <div className="hidden md:flex items-center gap-6">
-                    {sports.map((sport) => (
-                        <div key={sport} className="flex items-center gap-6">
-                            {leagues
-                                .filter((league) => league.sport === sport)
-                                .map((league) => (
-                                    <Link
-                                        key={league.id}
-                                        href={`/games?league=${league.id}`}
-                                        className="text-sm text-zinc-300 hover:text-white"
-                                    >
-                                        {league.name}
-                                    </Link>
-                                ))}
-                        </div>
-                    ))}
+                    {sports.map((sport) => {
+                        const sportLeagues = leagues.filter(
+                            (league) => league.sport === sport
+                        );
+
+                        return (
+                            <div key={sport} className="relative group">
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setOpenSport(
+                                            openSport === sport ? null : sport
+                                        )
+                                    }
+                                    className="text-sm text-zinc-300 hover:text-white"
+                                >
+                                    {sport}
+                                </button>
+                                <div className={`
+                                    absolute
+                                    -right-2
+                                    top-full
+                                    z-50
+                                    hidden
+                                    pt-2
+                                    group-hover:block
+                                     ${openSport === sport ? "block" : "hidden"}
+                                `}>
+                                    <div className="
+                                        min-w-32
+                                        rounded-md
+                                        border
+                                        border-zinc-800
+                                        bg-zinc-950
+                                        py-1
+                                        shadow-lg
+                                    ">
+                                        {sportLeagues.map((league) => (
+                                            <Link
+                                                key={league.id}
+                                                href={`/games?league=${league.id}`}
+                                                onClick={() => setOpenSport(null)}
+                                                className="
+                                                    block
+                                                    px-4
+                                                    py-2
+                                                    text-sm
+                                                    text-zinc-300
+                                                    hover:bg-zinc-900
+                                                    hover:text-white
+                                                "
+                                            >
+                                                {league.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+
+                    })}
                 </div>
 
                 {/* Mobile */}
