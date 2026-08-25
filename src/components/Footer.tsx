@@ -5,7 +5,6 @@ export default function Footer() {
             border-zinc-800
             relative
             bottom-0
-            flex-1
         ">
             <div className="
                 flex
