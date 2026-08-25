@@ -3,6 +3,7 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
+import fcntl
 
 from services.predict import predict_slop
 from config.sports import SPORT_CONFIG
@@ -33,15 +34,30 @@ def update():
             "error": "Unauthorized"
         }), 401
 
+    lock_path = "/tmp/slop-watch-update.lock"
+
     try: 
 
-        # Fetch new data for each league
-        for league in SPORT_CONFIG:
-            update_data(league=league)
+        with open(lock_path, "w") as lock_file:
 
-        # Retrain each model using updated data
-        for league in SPORT_CONFIG:
-            train_model(league=league)
+            # Wait for deployment/update to finish
+            fcntl.flock(
+                lock_file,
+                fcntl.LOCK_EX
+            )
+
+            # Fetch new data for each league
+            for league in SPORT_CONFIG:
+                update_data(league=league)
+
+            # Retrain each model using updated data
+            for league in SPORT_CONFIG:
+                train_model(league=league)
+
+            fcntl.flock(
+                lock_file,
+                fcntl.LOCK_UN
+            )
 
         # Success
         return jsonify({
