@@ -42,7 +42,9 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     )
 
     if games.empty:
-        print("No NBA games found for the prediction date.")
+        print(
+            f"No {league.upper()} games found for the prediction date."
+        )
         return games
 
     # Only use performance available before prediction date
@@ -111,6 +113,9 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     )
 
     valid = games[FEATURES].notna().all(axis=1)
+    if not valid.any():
+        return games.iloc[0:0].copy()
+
     games = games[valid].copy()
 
     # ---------------------------------
