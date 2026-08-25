@@ -12,7 +12,7 @@ export default function Navbar() {
     const sports = [...new Set(leagues.map((league) => league.sport))];
 
     return (
-        <nav className="border-b border-zinc-800">
+        <nav className={`sticky top-0 z-50 border-b border-zinc-800`}>
             <div className="flex items-center justify-between px-6 py-4">
                 <Link
                     href="/"
@@ -43,7 +43,10 @@ export default function Navbar() {
                 {/* Mobile */}
                 <button
                     type="button"
-                    onClick={() => setMenuOpen(!menuOpen)}
+                    onClick={() => {
+                        setMenuOpen(!menuOpen);
+                        setOpenSport(null);
+                    }}
                     className="md:hidden text-zinc-300 hover:text-white"
                     aria-label="Toggle menu"
                 >
@@ -56,87 +59,102 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {menuOpen && (
-                <div className="
-                    absolute
+            <div
+                className={`
+                    fixed
                     left-0
                     right-0
-                    z-50
-                    border-t
+                    top-14
+                    z-40
+                    border-b
                     border-zinc-800
                     bg-zinc-950
                     px-6
                     py-2
                     shadow-lg
                     md:hidden
-                ">
-                    {sports.map((sport) => {
-                        const isOpen = openSport === sport;
+                    transition-transform
+                    duration-200
+                    ease-out
+                    ${
+                        menuOpen
+                            ? "translate-y-0"
+                            : "-translate-y-[calc(100%+60px)] pointer-events-none"
+                    }
+                `}
+            >
+                {sports.map((sport) => {
+                    const isOpen = openSport === sport;
 
-                        return (
-                            <div key={sport}>
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setOpenSport(
-                                            isOpen ? null : sport
+                    return (
+                        <div key={sport}>
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setOpenSport(
+                                        isOpen ? null : sport
+                                    )
+                                }
+                                className="
+                                    flex
+                                    w-full
+                                    items-center
+                                    justify-between
+                                    py-4
+                                    text-sm
+                                    font-medium
+                                    text-zinc-300
+                                "
+                            >
+                                <span>{sport}</span>
+
+                                <ChevronDown
+                                    size={16}
+                                    className={`
+                                        transition-transform
+                                        ${isOpen ? "rotate-180" : ""}
+                                    `}
+                                />
+                            </button>
+
+                            {isOpen && (
+                                <div className="
+                                    ml-3
+                                    mb-2
+                                    border-l
+                                    border-zinc-700
+                                    pl-4
+                                ">
+                                    {leagues
+                                        .filter(
+                                            (league) =>
+                                                league.sport === sport
                                         )
-                                    }
-                                    className="
-                                        flex
-                                        w-full
-                                        items-center
-                                        justify-between
-                                        py-4
-                                        text-sm
-                                        font-medium
-                                        text-zinc-300
-                                    "
-                                >
-                                    <span>{sport}</span>
-
-                                    <ChevronDown
-                                        size={16}
-                                        className={`
-                                            transition-transform
-                                            ${isOpen ? "rotate-180" : ""}
-                                        `}
-                                    />
-                                </button>
-
-                                {isOpen && (
-                                    <div className="border-t border-zinc-800">
-                                        {leagues
-                                            .filter(
-                                                (league) =>
-                                                    league.sport === sport
-                                            )
-                                            .map((league) => (
-                                                <Link
-                                                    key={league.id}
-                                                    href={`/games?league=${league.id}`}
-                                                    onClick={() =>
-                                                        setMenuOpen(false)
-                                                    }
-                                                    className="
-                                                        block
-                                                        py-3
-                                                        pl-4
-                                                        text-sm
-                                                        text-zinc-400
-                                                        hover:text-white
-                                                    "
-                                                >
-                                                    {league.name}
-                                                </Link>
-                                            ))}
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
+                                        .map((league) => (
+                                            <Link
+                                                key={league.id}
+                                                href={`/games?league=${league.id}`}
+                                                onClick={() =>{
+                                                    setOpenSport(null);
+                                                    setMenuOpen(false);
+                                                }}
+                                                className="
+                                                    block
+                                                    py-2
+                                                    text-sm
+                                                    text-zinc-400
+                                                    hover:text-white
+                                                "
+                                            >
+                                                {league.name}
+                                            </Link>
+                                        ))}
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
         </nav>
     );
 }
