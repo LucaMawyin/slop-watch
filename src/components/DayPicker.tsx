@@ -70,10 +70,9 @@ export default function DayPickerClient({
                         className="
                             fixed
                             left-1/2
-                            top-1/2
+                            top-1/4
                             z-50
                             -translate-x-1/2
-                            -translate-y-1/2
                             rounded-xl
                             border
                             border-zinc-800
