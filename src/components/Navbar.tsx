@@ -72,7 +72,7 @@ export default function Navbar() {
                         return (
                             <div 
                                 key={sport} 
-                                className="relative group"
+                                className="relative group cursor-pointer hover:**:text-white"
                                 onMouseEnter={() => {
                                     if (window.matchMedia("(hover: hover)").matches) {
                                         setOpenSport(sport);
@@ -90,7 +90,7 @@ export default function Navbar() {
                                 >
                                     <Link 
                                         href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
-                                        className="text-sm text-zinc-300 hover:text-white"
+                                        className="text-sm text-zinc-300 "
                                     >
                                         {sport}
                                     </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
                                         onClick={() =>
                                             setOpenSport(isOpen ? null : sport)
                                         }
-                                        className="ml-1 p-1 text-zinc-400 hover:text-white"
+                                        className="ml-1 p-1 text-zinc-400 "
                                         aria-label={`Show ${sport} leagues`}
                                         aria-expanded={isOpen}
                                     >
