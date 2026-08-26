@@ -60,7 +60,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden md:flex flex-1 justify-evenly items-center gap-6">
                     {sports.map((sport) => {
                         const sportLeagues = leagues.filter(
                             (league) => league.sport === sport
@@ -87,6 +87,7 @@ export default function Navbar() {
                                 >
                                     {sport}
                                 </button>
+                                
                                 <div className={`
                                     absolute
                                     -right-2
@@ -256,6 +257,8 @@ export default function Navbar() {
                     );
                 })}
             </div>
+
+
         </nav>
     );
 }

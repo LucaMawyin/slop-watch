@@ -68,6 +68,11 @@ def games():
     league = request.args.get("league", "nba")
     start_date = request.args.get("start")
     end_date = request.args.get("end")
+
+    if league not in SPORT_CONFIG:
+        return jsonify({
+            "error": f"Unknown league: {league}"
+        }), 400
     
     if start_date:
         prediction_date = pd.Timestamp(start_date, tz="UTC")

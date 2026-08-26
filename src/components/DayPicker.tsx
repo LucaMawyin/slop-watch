@@ -7,11 +7,13 @@ import "react-day-picker/style.css";
 type DayPickerClientProps = {
     onChange: (range: DateRange | undefined) => void;
     initialRange?: DateRange;
+    initialMonth?: Date;
 };
 
 export default function DayPickerClient({
     onChange,
     initialRange,
+    initialMonth,
 }: DayPickerClientProps) {
     const [range, setRange] = useState<DateRange | undefined>(
         initialRange
@@ -25,7 +27,7 @@ export default function DayPickerClient({
 
     const dateLabel = range?.from
         ? range.to
-            ? `${formatDate(range.from)} – ${formatDate(range.to)}`
+            ? `${formatDate(range.from)} - ${formatDate(range.to)}`
             : formatDate(range.from)
         : "Select dates";
 
@@ -85,6 +87,7 @@ export default function DayPickerClient({
                             mode="range"
                             selected={range}
                             onSelect={setRange}
+                            defaultMonth={initialMonth}
                         />
 
                         <button
