@@ -118,7 +118,8 @@ export default function Navbar() {
                                 {/* DROPDOWN */}
                                 <div className={`
                                     absolute
-                                    -right-2
+                                    left-1/2
+                                    -translate-x-1/2
                                     top-full
                                     z-50
                                     pt-2
