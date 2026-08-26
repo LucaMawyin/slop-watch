@@ -7,9 +7,8 @@ import { useState } from "react";
 import { DateRange } from "react-day-picker";
 
 export default function Home() {
-    const [league, setLeague] = useState("nba");
+    const [league, setLeague] = useState("");
     const [dateRange, setDateRange] = useState<DateRange | undefined>();
-    const sports = [...new Set(leagues.map((league) => league.sport))];
 
     return (
 
@@ -119,6 +118,9 @@ export default function Home() {
                                 focus:border-zinc-500
                             "
                         >
+                            <option value="">
+                                All Leagues
+                            </option>
                             {[...leagues]
                                 .sort((a, b) => a.sport.localeCompare(b.sport))
                                 .map((league) => (
@@ -164,7 +166,7 @@ export default function Home() {
                         onClick={() => {
                             const params = new URLSearchParams();
 
-                            params.set("league", league);
+                            league && params.set("league", league);
 
                             if (dateRange?.from) {
                                 params.set(

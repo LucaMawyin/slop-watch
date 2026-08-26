@@ -42,9 +42,6 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     )
 
     if games.empty:
-        print(
-            f"No {league.upper()} games found for the prediction date."
-        )
         return games
 
     # Only use performance available before prediction date

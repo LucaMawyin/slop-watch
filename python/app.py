@@ -70,8 +70,6 @@ def games():
     start_date = request.args.get("start")
     end_date = request.args.get("end")
 
-    print(sport)
-
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
     # ---------------------------------
