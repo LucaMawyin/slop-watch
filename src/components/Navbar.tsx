@@ -62,46 +62,77 @@ export default function Navbar() {
                 {/* Desktop */}
                 <div className="hidden md:flex flex-1 justify-evenly items-center gap-6">
                     {sports.map((sport) => {
+
                         const sportLeagues = leagues.filter(
                             (league) => league.sport === sport
                         );
+
+                        const isOpen = openSport === sport;
 
                         return (
                             <div 
                                 key={sport} 
                                 className="relative group"
                                 onMouseEnter={() => {
-                                    if (openSport !== null && openSport !== sport) {
+                                    if (window.matchMedia("(hover: hover)").matches) {
+                                        setOpenSport(sport);
+                                    }
+                                }}
+                                onMouseLeave={() => {
+                                    // Only desktop hover behavior
+                                    if (window.matchMedia("(hover: hover)").matches) {
                                         setOpenSport(null);
                                     }
                                 }}
-                            >
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setOpenSport(
-                                            openSport === sport ? null : sport
-                                        )
-                                    }
-                                    className="text-sm text-zinc-300 hover:text-white"
+                            >   
+                                <div
+                                    className="flex items-center"
                                 >
-                                    {sport}
-                                </button>
+                                    <Link 
+                                        href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
+                                        className="text-sm text-zinc-300 hover:text-white"
+                                    >
+                                        {sport}
+                                    </Link>
+
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setOpenSport(isOpen ? null : sport)
+                                        }
+                                        className="ml-1 p-1 text-zinc-400 hover:text-white"
+                                        aria-label={`Show ${sport} leagues`}
+                                        aria-expanded={isOpen}
+                                    >
+                                        <ChevronDown
+                                            size={14}
+                                            className={`
+                                                transition-transform
+                                                ${isOpen ? "rotate-180" : ""}
+                                            `}
+                                        />
+                                    </button>
+                                </div>
+
                                 
+                                {/* DROPDOWN */}
                                 <div className={`
                                     absolute
                                     -right-2
                                     top-full
                                     z-50
                                     pt-2
+                                    text-nowrap
+
                                     opacity-0
                                     pointer-events-none
+                                    
                                     group-hover:opacity-100
                                     group-hover:pointer-events-auto
+
                                     ${openSport === sport
                                         ? "opacity-100 pointer-events-auto"
                                         : ""}
-                                    text-nowrap
                                 `}>
                                     <div className="
                                         min-w-32

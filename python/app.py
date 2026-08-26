@@ -7,7 +7,7 @@ import pandas as pd
 from lock import lock
 
 from services.predict import predict_slop
-from config.sports import SPORT_CONFIG
+from config.sports import SPORT_CONFIG, SPORT_LEAGUES
 from services.update_data import update_data
 from services.model import train_model
 from services.slop import get_slop
@@ -65,14 +65,39 @@ def update():
 @app.route("/api/games",methods=["GET"])
 def games():
 
-    league = request.args.get("league", "nba")
+    league = request.args.get("league")
+    sport = request.args.get("sport")
     start_date = request.args.get("start")
     end_date = request.args.get("end")
 
-    if league not in SPORT_CONFIG:
-        return jsonify({
-            "error": f"Unknown league: {league}"
-        }), 400
+    print(sport)
+
+    # ---------------------------------
+    # GETTING SPORT OR LEAGUE
+    # ---------------------------------
+    if sport:
+        leagues = SPORT_LEAGUES.get(sport.lower())
+
+        if leagues is None:
+            return jsonify({
+                "error": f"Unknown sport: {sport}"
+            }), 400
+
+    elif league:
+
+        if league not in SPORT_CONFIG:
+            return jsonify({
+                "error": f"Unknown league: {league}"
+            }), 400
+
+        leagues = [league]
+
+    else:
+        leagues = list(SPORT_CONFIG.keys())
+
+    # ---------------------------------
+    # TIMEFRAME
+    # ---------------------------------
     
     if start_date:
         prediction_date = pd.Timestamp(start_date, tz="UTC")
@@ -88,69 +113,82 @@ def games():
     else:
         days_ahead = 7
 
-    actual_slop = get_slop(league=league)
-    predictions = predict_slop(
-        prediction_date=prediction_date,
-        league=league,
-        days_ahead=days_ahead,
-    )
+    all_games = []
 
-    if predictions.empty:
+    for league in leagues:
+
+        actual_slop = get_slop(league=league)
+        predictions = predict_slop(
+            prediction_date=prediction_date,
+            league=league,
+            days_ahead=days_ahead,
+        )
+
+        if predictions.empty:
+            continue
+
+        predictions["game_id"] = predictions["game_id"].astype(str)
+        actual_slop["game_id"] = actual_slop["game_id"].astype(str)
+
+        predictions = predictions.merge(
+            actual_slop[[
+                "game_id", 
+                "actual_slop",
+                "slop_percentile",
+            ]].rename(
+                columns={
+                    "slop_percentile": "actual_slop_percentile",
+                }
+            ),
+            on="game_id",
+            how="left",
+        )
+
+        predictions["slop_percentile"] = (
+            predictions["actual_slop_percentile"]
+            .fillna(predictions["slop_percentile"])
+        )
+
+        league_games = predictions[
+            [
+                # Game information
+                "game_id",
+                "date",
+                "home_name",
+                "away_name",
+                "venue_full_name",
+
+                # Score
+                "home_score",
+                "away_score",
+
+                # Prediction
+                "predicted_slop",
+                "actual_slop",
+                "slop_percentile",
+
+                # Season performance
+                "home_win_pct",
+                "away_win_pct",
+                "home_point_diff",
+                "away_point_diff",
+
+                # Recent performance
+                "home_recent_win_pct",
+                "away_recent_win_pct",
+                "home_recent_point_diff",
+                "away_recent_point_diff",
+            ]
+        ].copy()
+
+        league_games["league"] = league
+
+        all_games.append(league_games)
+
+    if not all_games:
         return jsonify([])
 
-    predictions["game_id"] = predictions["game_id"].astype(str)
-    actual_slop["game_id"] = actual_slop["game_id"].astype(str)
-
-    predictions = predictions.merge(
-        actual_slop[[
-            "game_id", 
-            "actual_slop",
-            "slop_percentile",
-        ]].rename(
-            columns={
-                "slop_percentile": "actual_slop_percentile",
-            }
-        ),
-        on="game_id",
-        how="left",
-    )
-
-    predictions["slop_percentile"] = (
-        predictions["actual_slop_percentile"]
-        .fillna(predictions["slop_percentile"])
-    )
-
-    games = predictions[
-        [
-            # Game information
-            "game_id",
-            "date",
-            "home_name",
-            "away_name",
-            "venue_full_name",
-
-            # Score
-            "home_score",
-            "away_score",
-
-            # Prediction
-            "predicted_slop",
-            "actual_slop",
-            "slop_percentile",
-
-            # Season performance
-            "home_win_pct",
-            "away_win_pct",
-            "home_point_diff",
-            "away_point_diff",
-
-            # Recent performance
-            "home_recent_win_pct",
-            "away_recent_win_pct",
-            "home_recent_point_diff",
-            "away_recent_point_diff",
-        ]
-    ].copy()
+    games = pd.concat(all_games, ignore_index=True)
 
     games["date"] = games["date"].astype(str)
     games = games.astype(object).where(pd.notna(games), None)

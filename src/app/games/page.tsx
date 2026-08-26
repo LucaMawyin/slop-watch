@@ -23,10 +23,22 @@ function GamesContent() {
     const [ sortDirection, setSortDirection ] = useState("asc");
 
     const searchParams = useSearchParams();
-    const league = searchParams.get("league") || "nba";
-    const leagueName = leagues.find((item) => item.id === league)?.name;
+    const sport = searchParams.get("sport")?.toLowerCase();
+    const league = searchParams.get("league");
+    const displayName = leagues.find((item) => item.id === league)?.name || sport;
+
     const start = searchParams.get("start");
     const end = searchParams.get("end");
+
+    const DEFAULT_LEAGUE_DAYS = 7;
+    const DEFAULT_SPORT_DAYS = 3;
+    const DEFAULT_ALL_DAYS = 2;
+
+    const defaultDays = sport
+        ? DEFAULT_SPORT_DAYS - 1
+        : league
+            ? DEFAULT_LEAGUE_DAYS - 1
+            : DEFAULT_ALL_DAYS - 1;
 
     useEffect(() => {
         setLoading(true);
@@ -35,14 +47,36 @@ function GamesContent() {
 
         const params = new URLSearchParams();
 
-        params.set("league", league);
+        // Fetching sport or league
+        if (sport) {
+            params.set("sport", sport)
+        } 
+        
+        else if (league) {
+            params.set("league", league);
+        }
 
+        
+        // Time frame 
         if (start) {
             params.set("start", start);
         }
 
         if (end) {
             params.set("end", end);
+        }   else {
+            const defaultEnd = new Date();
+
+            defaultEnd.setDate(
+                defaultEnd.getDate() + defaultDays
+            );
+
+            console.log(defaultEnd)
+
+            params.set(
+                "end",
+                defaultEnd.toISOString().split("T")[0]
+            );
         }
 
         fetch(
@@ -69,7 +103,7 @@ function GamesContent() {
                 setError(err.message);
                 setLoading(false);
             });
-    }, [league, start, end]);
+    }, [league, sport, start, end, defaultDays]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
@@ -111,7 +145,10 @@ function GamesContent() {
                     sm:w-auto
                     sm:text-left
                 ">
-                    Upcoming {leagueName} Games
+                    {displayName
+                        ? `Upcoming ${displayName.charAt(0).toUpperCase() + displayName.slice(1)} Games`
+                        : "All Upcoming Games"
+                    }
                 </h1>
 
                 {/* FILTERS */}
@@ -127,7 +164,11 @@ function GamesContent() {
 
                     {/* DATE RANGE */}
                     <DayPickerClient
-                        initialMonth={start ? new Date(`${start}T00:00:00`) : new Date()}
+                        initialMonth={
+                            start 
+                                ? new Date(`${start}T00:00:00`) 
+                                : new Date()
+                        }
                         initialRange={
                             start && end
                                 ? {
@@ -137,9 +178,11 @@ function GamesContent() {
                                 : {
                                     from: new Date(),
                                     to: new Date(
-                                        new Date().setDate(new Date().getDate() + 7)
+                                        new Date().setDate(
+                                            new Date().getDate() + defaultDays
+                                        )
                                     ),
-                            }
+                                }
                         }
                         onChange={(range) => {
                             if (!range?.from || !range?.to) return;
@@ -251,7 +294,7 @@ function GamesContent() {
             </div>
 
             {loading ? (
-                <GamesSkeleton />
+                <GamesSkeleton showLeague={!!sport}/>
             ) : error ? (
                 <p className="mt-4 text-red-400!">{error}</p>
             ) : games.length === 0 ? (
@@ -297,7 +340,7 @@ function GamesContent() {
                                         bg-zinc-900 p-5
                                     "
                                 >
-                                    <div className="flex items-start justify-between pb-2">
+                                    <div className="flex items-center justify-between pb-2">
                                         <div className="text-sm text-zinc-400">
                                             {new Date(game.date).toLocaleString([], {
                                                 weekday: "short",
@@ -317,6 +360,12 @@ function GamesContent() {
                                             textColour={badge.textColour}
                                         />
                                     </div>
+
+                                    {sport && (
+                                        <div className="mb-3 text-lg font-semibold text-white">
+                                            {leagues.find((item) => item.id === game.league)?.name}
+                                        </div>
+                                    )}
 
                                     <div className="flex justify-between">
                                         <div className="max-w-[50%]">

@@ -58,6 +58,21 @@ from sportsdataverse.soccer.seriea import espn_seriea_summary
 from sportsdataverse.soccer.bundesliga import espn_bundesliga_summary
 from sportsdataverse.soccer.ligue1 import espn_ligue1_summary
 
+SPORT_LEAGUES = {
+    "basketball": ["nba", "wnba"],
+    "football": ["nfl"],
+    "hockey": ["nhl", "pwhl"],
+    "baseball": ["mlb"],
+    "soccer": [
+        "mls",
+        "epl",
+        "laliga",
+        "serie_a",
+        "bundesliga",
+        "ligue_1",
+    ],
+}
+
 SPORT_CONFIG = {
 
     # ---------------------------------

@@ -2,6 +2,7 @@ export type Game = {
 
     // Game information
     game_id: string;
+    league: string;
     date: string;
     home_name: string;
     away_name: string;
@@ -13,7 +14,7 @@ export type Game = {
 
     // Slop
     predicted_slop: number;
-    actual_slop:number | null;
+    actual_slop: number | null;
     slop_percentile: number;
 
     // Season performance

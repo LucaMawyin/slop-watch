@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DayPicker, DateRange } from "react-day-picker";
 import "react-day-picker/style.css";
 
@@ -18,6 +18,11 @@ export default function DayPickerClient({
     const [range, setRange] = useState<DateRange | undefined>(
         initialRange
     );
+    
+    useEffect(() => {
+        setRange(initialRange);
+    }, [initialRange]);
+
     const [open, setOpen] = useState(false);
 
     const formatDate = (date: Date) =>
