@@ -41,6 +41,9 @@ function GamesContent() {
             : DEFAULT_ALL_DAYS - 1;
 
     useEffect(() => {
+
+        const controller = new AbortController();
+
         setLoading(true);
         setVisibleCount(9);
         setError(null);
@@ -80,7 +83,10 @@ function GamesContent() {
         }
 
         fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`
+            `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`,
+            {
+                signal: controller.signal,
+            }
         )
             .then(async (res) => {
                 const data: { error?: string } | Game[] = await res.json();
@@ -100,9 +106,17 @@ function GamesContent() {
                 setLoading(false);
             })
             .catch((err) => {
+                // Ignore intentionally aborted requests
+                if (err.name === "AbortError") {
+                    return;
+                }
+
                 setError(err.message);
                 setLoading(false);
             });
+        return () => {
+            controller.abort();
+        };
     }, [league, sport, start, end, defaultDays]);
 
     const sortedGames = [...games].sort((a, b) => {

@@ -43,6 +43,8 @@ export default function DayPickerClient({
         setOpen(false);
     };
 
+    const today = new Date();
+
     return (
         <div className="relative">
             <button
@@ -93,6 +95,15 @@ export default function DayPickerClient({
                             selected={range}
                             onSelect={setRange}
                             defaultMonth={initialMonth}
+                            captionLayout="dropdown"
+                            startMonth={new Date(today.getFullYear() - 5, today.getMonth(), 1)}
+                            endMonth={new Date(today.getFullYear() + 1, today.getMonth(), 1)}
+                            classNames={{
+                                dropdown:
+                                    "rounded-md border border-zinc-700 bg-zinc-900 px-2 py-1 text-white",
+                                dropdowns: "flex gap-2",
+                                caption_label: "hidden",
+                            }}
                         />
 
                         <button
