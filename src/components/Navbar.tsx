@@ -221,34 +221,50 @@ export default function Navbar() {
 
                     return (
                         <div key={sport}>
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setOpenSport(
-                                        isOpen ? null : sport
-                                    )
-                                }
-                                className="
-                                    flex
-                                    w-full
-                                    items-center
-                                    justify-between
-                                    py-4
-                                    text-sm
-                                    font-medium
-                                    text-zinc-300
-                                "
-                            >
-                                <span>{sport}</span>
+                            <div className="
+                                flex 
+                                items-center 
+                                justify-between 
+                                py-4
+                            ">
+                                <Link
+                                    href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
+                                    className="
+                                        text-sm
+                                        font-medium
+                                        text-zinc-300
+                                        hover:text-white
+                                    "
+                                    onClick={() =>{
+                                        setOpenSport(null);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    {sport}
+                                </Link>
 
-                                <ChevronDown
-                                    size={16}
-                                    className={`
-                                        transition-transform
-                                        ${isOpen ? "rotate-180" : ""}
-                                    `}
-                                />
-                            </button>
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setOpenSport(
+                                            isOpen ? null : sport
+                                        )
+                                    }
+                                    className="flex-1 p-2 text-zinc-400 hover:text-white"
+                                    aria-label={`Show ${sport} leagues`}
+                                    aria-expanded={isOpen}
+                                >
+                                    <ChevronDown
+                                        size={16}
+                                        className={`
+                                            ml-auto
+                                            transition-transform
+                                            ${isOpen ? "rotate-180" : ""}
+                                        `}
+                                    />
+                                </button>                                
+                            </div>
+
 
                             {isOpen && (
                                 <div className="

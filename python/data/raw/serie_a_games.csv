@@ -1,6 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
-614915,2021-08-27T16:30Z,Venezia at Udinese,VEN @ UDI,Udinese,118,3,Venezia,17530,0,STATUS_FULL_TIME,Bluenergy Stadium
-614909,2021-08-27T18:45Z,Internazionale at Hellas Verona,INT @ VER,Hellas Verona,119,1,Internazionale,110,3,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi
 614906,2021-08-28T16:30Z,Bologna at Atalanta,BOL @ ATA,Atalanta,105,0,Bologna,107,0,STATUS_FULL_TIME,New Balance Arena
 614913,2021-08-28T16:30Z,Spezia at Lazio,SPE @ LAZ,Lazio,112,6,Spezia,4056,1,STATUS_FULL_TIME,Stadio Olimpico
 614914,2021-08-28T18:45Z,Torino at Fiorentina,TOR @ FIO,Fiorentina,109,2,Torino,239,1,STATUS_FULL_TIME,Artemio Franchi
@@ -1898,5 +1896,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401874946,2026-08-23T16:30Z,Lecce at Venezia,LEC @ VEN,Venezia,17530,0,Lecce,113,2,STATUS_FULL_TIME,Stadio Pier Luigi Penzo
 401874748,2026-08-23T18:45Z,Sassuolo at Atalanta,SAS @ ATA,Atalanta,105,2,Sassuolo,3997,1,STATUS_FULL_TIME,New Balance Arena
 401874932,2026-08-23T18:45Z,AC Milan at Torino,MIL @ TOR,Torino,239,1,AC Milan,103,2,STATUS_FULL_TIME,Stadio Olimpico Grande Torino
-401874927,2026-08-24T16:30Z,Lazio at Bologna,LAZ @ BOL,Bologna,107,0,Lazio,112,1,STATUS_FULL_TIME,Renato Dall'Ara
-401874928,2026-08-24T18:45Z,Fiorentina at AS Roma,FIO @ ROMA,AS Roma,104,4,Fiorentina,109,0,STATUS_FULL_TIME,Olimpico
+401874927,2026-08-24T16:30Z,,,Bologna,107,0,Lazio,112,1,STATUS_FULL_TIME,Renato Dall'Ara
+401874928,2026-08-24T18:45Z,,,AS Roma,104,4,Fiorentina,109,0,STATUS_FULL_TIME,Olimpico

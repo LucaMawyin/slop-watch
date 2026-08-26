@@ -5,6 +5,7 @@ export default function Badge(props: {
     borderColour?:string;
     bgColour?:string;
     textColour?:string;
+    colour?: string;
     className?:string;
 }){
     return (
@@ -14,6 +15,11 @@ export default function Badge(props: {
                 paddingRight: `${props.x * 0.25}rem`,
                 paddingTop: `${props.y * 0.25}rem`,
                 paddingBottom: `${props.y * 0.25}rem`,
+                ...(props.colour && {
+                    borderColor: props.colour,
+                    color: props.colour,
+                    backgroundColor: `color-mix(in srgb, ${props.colour} 15%, transparent)`,
+                }),
             }}
             className={`
                 inline-flex

@@ -369,9 +369,7 @@ function GamesContent() {
                                             title={badge.title}
                                             x={3}
                                             y={1}
-                                            borderColour={badge.borderColour}
-                                            bgColour={badge.bgColour}
-                                            textColour={badge.textColour}
+                                            colour={slopColour}
                                         />
                                     </div>
 
@@ -416,9 +414,9 @@ function GamesContent() {
                                                 title="FINAL"
                                                 x={3}
                                                 y={1}
-                                                borderColour="border-yellow-800"
-                                                bgColour="bg-yellow-950"
-                                                textColour="text-yellow-400"
+                                                borderColour="border-sky-700"
+                                                bgColour="bg-sky-950"
+                                                textColour="text-sky-400"
                                             />
                                             <div className="text-3xl font-semibold">
                                                 {game.away_score}

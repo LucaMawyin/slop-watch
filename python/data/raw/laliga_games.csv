@@ -1,6 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
-610742,2021-08-27T18:00Z,Espanyol at Mallorca,ESP @ MLL,Mallorca,84,1,Espanyol,88,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix
-610740,2021-08-27T20:15Z,Alavés at Valencia,ALA @ VAL,Valencia,94,3,Alavés,96,0,STATUS_FULL_TIME,Mestalla
 610741,2021-08-28T15:00Z,Athletic Club at Celta Vigo,ATH @ CEL,Celta Vigo,85,0,Athletic Club,93,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos
 610748,2021-08-28T17:30Z,Sevilla at Elche,SEV @ ELC,Elche,3751,1,Sevilla,243,1,STATUS_FULL_TIME,Martínez Valero
 610745,2021-08-28T17:30Z,Levante at Real Sociedad,LEV @ RSO,Real Sociedad,89,1,Levante,1538,0,STATUS_FULL_TIME,Estadio Municipal de Anoeta
@@ -1893,6 +1891,7 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401882915,2026-08-23T15:00Z,Villarreal at Atlético Madrid,VIL @ ATM,Atlético Madrid,1068,2,Villarreal,102,2,STATUS_FULL_TIME,Riyadh Air Metropolitano
 401882911,2026-08-23T17:30Z,Racing Santander at Getafe,RAC @ GET,Getafe,2922,1,Racing Santander,87,0,STATUS_FULL_TIME,Estadio Coliseum
 401882913,2026-08-23T19:30Z,Barcelona at Elche,BAR @ ELC,Elche,3751,0,Barcelona,83,5,STATUS_FULL_TIME,Estadio Martínez Valero
-401882909,2026-08-24T17:30Z,Levante at Osasuna,LEV @ OSA,Osasuna,97,0,Levante,1538,0,STATUS_FULL_TIME,El Sadar
-401882910,2026-08-24T19:30Z,Deportivo at Málaga,DEP @ MCF,Málaga,99,1,Deportivo,90,1,STATUS_FULL_TIME,La Rosaleda
-401882917,2026-08-25T19:00Z,Real Betis at Valencia,BET @ VAL,Valencia,94,0,Real Betis,244,0,STATUS_SCHEDULED,Mestalla Stadium
+401882909,2026-08-24T17:30Z,,,Osasuna,97,0,Levante,1538,0,STATUS_FULL_TIME,El Sadar
+401882910,2026-08-24T19:30Z,,,Málaga,99,1,Deportivo,90,1,STATUS_FULL_TIME,La Rosaleda
+401882917,2026-08-25T19:00Z,,,Valencia,94,0,Real Betis,244,1,STATUS_FULL_TIME,Mestalla Stadium
+401882919,2026-08-26T19:00Z,,,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
