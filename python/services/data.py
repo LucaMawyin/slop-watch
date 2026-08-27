@@ -51,14 +51,13 @@ def collect_games(sport):
 
         while current_date <= END_DATE:
             date_string = current_date.strftime("%Y%m%d")
-
             df = schedule_function(
                 league=config["league"],
                 dates=date_string,
                 return_as_pandas=True,
-                limit=500
+                limit=50
             )
-
+            
             if df is not None and not df.empty:
 
                 df = df.rename(columns={
@@ -99,7 +98,8 @@ def collect_games(sport):
 
                 print(
                     f"{sport.upper()} {date_string}: "
-                    f"{len(df)} games"
+                    f"{len(df)} games",
+                    flush=True
                 )
 
             current_date += timedelta(days=1)
@@ -123,10 +123,10 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-for sport in SPORT_CONFIG:
+for sport in ["laliga", "serie_a", "bundesliga", "ligue_1"]:
     print()
-    print("="*50)
+    print("=" * 50)
     print(f"Collecting {sport.upper()}")
-    print("="*50)
+    print("=" * 50)
 
     collect_games(sport)

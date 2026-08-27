@@ -169,7 +169,10 @@ def update_data(league="nba"):
         ignore_index=True
     )
 
-    # Remove oldest date
+    # ---------------------------------
+    # REMOVE GAMES OLDER THAN 5 YEARS
+    # ---------------------------------
+
     df["_date"] = pd.to_datetime(
         df["date"],
         utc=True,
@@ -178,11 +181,18 @@ def update_data(league="nba"):
 
     df = df.dropna(subset=["_date"])
 
-    oldest_date = df["_date"].dt.normalize().min()
+    cutoff_date = (
+        pd.Timestamp.now(tz="UTC")
+        - pd.DateOffset(years=5)
+    )
+
+    before_count = len(df)
 
     df = df[
-        df["_date"].dt.normalize() != oldest_date
+        df["_date"] >= cutoff_date
     ]
+
+    removed_count = before_count - len(df)
 
     df = df.drop(columns="_date")
 
@@ -200,5 +210,5 @@ def update_data(league="nba"):
 
     print(
         f"{league.upper()}: refreshed {len(new_games)} games, "
-        f"removed {oldest_date.date()}"
+        f"removed {removed_count} games before {cutoff_date.date()}"
     )

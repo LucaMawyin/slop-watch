@@ -67,6 +67,7 @@ def get_games(league="nba"):
             "away_id",
             "away_name",
             "away_score",
+            "venue_full_name",
         ]
     ].copy()
 

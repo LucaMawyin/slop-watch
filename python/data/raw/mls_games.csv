@@ -1,7 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
-597968,2021-08-27T22:30Z,FC Cincinnati at Columbus Crew,CIN @ CLB,Columbus Crew,183,3,FC Cincinnati,18267,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field
-597969,2021-08-27T23:30Z,Toronto FC at CF Montréal,TOR @ MTL,CF Montréal,9720,3,Toronto FC,7318,1,STATUS_FULL_TIME,Stade Saputo
-597970,2021-08-28T00:30Z,Inter Miami CF at Orlando City SC,MIA @ ORL,Orlando City SC,12011,0,Inter Miami CF,20232,0,STATUS_FULL_TIME,Inter&Co Stadium
 597971,2021-08-28T19:30Z,Nashville SC at Atlanta United FC,NSH @ ATL,Atlanta United FC,18418,0,Nashville SC,18986,2,STATUS_FULL_TIME,Mercedes-Benz Stadium
 597972,2021-08-28T22:00Z,Chicago Fire FC at Red Bull New York,CHI @ RBNY,Red Bull New York,190,0,Chicago Fire FC,182,1,STATUS_FULL_TIME,Sports Illustrated Stadium
 597975,2021-08-28T23:00Z,LA Galaxy at LAFC,LA @ LAFC,LAFC,18966,3,LA Galaxy,187,3,STATUS_FULL_TIME,BMO Stadium
