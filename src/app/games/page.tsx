@@ -123,8 +123,8 @@ function GamesContent() {
         let comparison: number;
 
         if (sortBy === "slop") {
-            const aSlop = a.actual_slop ?? a.predicted_slop;
-            const bSlop = b.actual_slop ?? b.predicted_slop;
+            const aSlop = a.slop_percentile;
+            const bSlop = b.slop_percentile;
 
             comparison = aSlop - bSlop;
         }
