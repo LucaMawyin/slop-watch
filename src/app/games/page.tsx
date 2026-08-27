@@ -12,6 +12,7 @@ import GamesSkeleton from "@/components/GamesSkeleton";
 import { ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 import { getHeatColour } from "@/lib/getHeatColour";
+import SlopCircle from "@/components/SlopCircle";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -344,6 +345,7 @@ function GamesContent() {
                             const badge = getSlopBadge(slop);
                             const slopColour = getHeatColour(slop);
 
+
                             return (
                                 <div
                                     key={game.game_id}
@@ -436,35 +438,10 @@ function GamesContent() {
 
                                         
                                         <div className="relative mx-auto mt-3 h-24 w-24">
-                                            <svg
-                                                className="h-full w-full -rotate-90"
-                                                viewBox="0 0 100 100"
-                                            >
-                                                {/* Background circle */}
-                                                <circle
-                                                    cx="50"
-                                                    cy="50"
-                                                    r="42"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeWidth="8"
-                                                    className="text-zinc-800"
-                                                />
-
-                                                {/* Progress circle */}
-                                                <circle
-                                                    cx="50"
-                                                    cy="50"
-                                                    r="42"
-                                                    fill="none"
-                                                    stroke={slopColour}
-                                                    strokeWidth="8"
-                                                    strokeLinecap="round"
-                                                    className="text-white"
-                                                    strokeDasharray={`${2 * Math.PI * 42}`}
-                                                    strokeDashoffset={`${2 * Math.PI * 42 * (1 - slop)}`}
-                                                />
-                                            </svg>
+                                            <SlopCircle
+                                                slop={slop}
+                                                slopColour={slopColour}
+                                            />
 
                                             <div 
                                                 className="
