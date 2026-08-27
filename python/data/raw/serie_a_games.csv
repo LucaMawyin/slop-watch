@@ -1896,5 +1896,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401874946,2026-08-23T16:30Z,Lecce at Venezia,LEC @ VEN,Venezia,17530,0,Lecce,113,2,STATUS_FULL_TIME,Stadio Pier Luigi Penzo
 401874748,2026-08-23T18:45Z,Sassuolo at Atalanta,SAS @ ATA,Atalanta,105,2,Sassuolo,3997,1,STATUS_FULL_TIME,New Balance Arena
 401874932,2026-08-23T18:45Z,AC Milan at Torino,MIL @ TOR,Torino,239,1,AC Milan,103,2,STATUS_FULL_TIME,Stadio Olimpico Grande Torino
-401874927,2026-08-24T16:30Z,,,Bologna,107,0,Lazio,112,1,STATUS_FULL_TIME,Renato Dall'Ara
-401874928,2026-08-24T18:45Z,,,AS Roma,104,4,Fiorentina,109,0,STATUS_FULL_TIME,Olimpico
+401874927,2026-08-24T16:30Z,Lazio at Bologna,LAZ @ BOL,Bologna,107,0,Lazio,112,1,STATUS_FULL_TIME,Renato Dall'Ara
+401874928,2026-08-24T18:45Z,Fiorentina at AS Roma,FIO @ ROMA,AS Roma,104,4,Fiorentina,109,0,STATUS_FULL_TIME,Olimpico

@@ -1,5 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
-609495,2021-08-27T19:00Z,Lyon at Nantes,LYON @ NAN,Nantes,165,0,Lyon,167,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau
 609492,2021-08-28T15:00Z,Bordeaux at Nice,BOR @ NICE,Nice,2502,4,Bordeaux,159,0,STATUS_FULL_TIME,Allianz Riviera
 609499,2021-08-28T19:00Z,Saint-Étienne at Marseille,ASSE @ OLM,Marseille,176,3,Saint-Étienne,178,1,STATUS_FULL_TIME,Orange Vélodrome
 609491,2021-08-29T11:00Z,AS Monaco at Troyes,MON @ TRY,Troyes,170,1,AS Monaco,174,2,STATUS_FULL_TIME,Stade de l'Aube

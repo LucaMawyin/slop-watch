@@ -1,4 +1,11 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
+606009,2021-08-28T11:30Z,Arsenal at Manchester City,ARS @ MNC,Manchester City,382,5,Arsenal,359,0,STATUS_FULL_TIME,Etihad Stadium
+606010,2021-08-28T14:00Z,Brentford at Aston Villa,BRE @ AVL,Aston Villa,362,1,Brentford,337,1,STATUS_FULL_TIME,Villa Park
+606013,2021-08-28T14:00Z,Everton at Brighton & Hove Albion,EVE @ BHA,Brighton & Hove Albion,331,0,Everton,368,2,STATUS_FULL_TIME,American Express Stadium
+606017,2021-08-28T14:00Z,Southampton at Newcastle United,SOU @ NEW,Newcastle United,361,2,Southampton,376,2,STATUS_FULL_TIME,St. James' Park
+606015,2021-08-28T14:00Z,Leicester City at Norwich City,LEI @ NOR,Norwich City,381,1,Leicester City,375,2,STATUS_FULL_TIME,Carrow Road
+606012,2021-08-28T14:00Z,Crystal Palace at West Ham United,CRY @ WHU,West Ham United,371,2,Crystal Palace,384,2,STATUS_FULL_TIME,London Stadium
+606011,2021-08-28T16:30Z,Chelsea at Liverpool,CHE @ LIV,Liverpool,364,1,Chelsea,363,1,STATUS_FULL_TIME,Anfield
 606014,2021-08-29T13:00Z,Leeds United at Burnley,LEE @ BUR,Burnley,379,1,Leeds United,357,1,STATUS_FULL_TIME,Turf Moor
 606018,2021-08-29T13:00Z,Watford at Tottenham Hotspur,WAT @ TOT,Tottenham Hotspur,367,1,Watford,395,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium
 606016,2021-08-29T15:30Z,Manchester United at Wolverhampton Wanderers,MAN @ WOL,Wolverhampton Wanderers,380,0,Manchester United,360,1,STATUS_FULL_TIME,Molineux Stadium
@@ -1881,4 +1888,4 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401879297,2026-08-23T13:00Z,Aston Villa at Brighton & Hove Albion,AVL @ BHA,Brighton & Hove Albion,331,4,Aston Villa,362,0,STATUS_FULL_TIME,American Express Stadium
 401879320,2026-08-23T13:00Z,AFC Bournemouth at Manchester City,BOU @ MNC,Manchester City,382,2,AFC Bournemouth,349,1,STATUS_FULL_TIME,Etihad Stadium
 401879319,2026-08-23T15:30Z,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,2,Liverpool,364,2,STATUS_FULL_TIME,St. James' Park
-401879318,2026-08-24T19:00Z,,,Fulham,370,2,Chelsea,363,3,STATUS_FULL_TIME,Craven Cottage
+401879318,2026-08-24T19:00Z,Chelsea at Fulham,CHE @ FUL,Fulham,370,2,Chelsea,363,3,STATUS_FULL_TIME,Craven Cottage

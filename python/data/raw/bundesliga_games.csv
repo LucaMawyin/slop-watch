@@ -1,5 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name
-608560,2021-08-27T18:30Z,TSG Hoffenheim at Borussia Dortmund,TSG @ DOR,Borussia Dortmund,124,3,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK
 608564,2021-08-28T13:30Z,Eintracht Frankfurt at Arminia Bielefeld,SGE @ DSC,Arminia Bielefeld,2506,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,SchücoArena
 608563,2021-08-28T13:30Z,Bayer Leverkusen at FC Augsburg,B04 @ FCA,FC Augsburg,3841,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,WWK Arena
 608557,2021-08-28T13:30Z,VfL Bochum at FC Cologne,BOC @ KOE,FC Cologne,122,2,VfL Bochum,121,1,STATUS_FULL_TIME,RheinEnergieStadion

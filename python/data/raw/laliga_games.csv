@@ -1673,6 +1673,140 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 748317,2026-01-03T15:15Z,Athletic Club at Osasuna,ATH @ OSA,Osasuna,97,1,Athletic Club,93,1,STATUS_FULL_TIME,El Sadar
 748320,2026-01-03T17:30Z,Villarreal at Elche,VIL @ ELC,Elche,3751,1,Villarreal,102,3,STATUS_FULL_TIME,Estadio Martínez Valero
 748319,2026-01-03T20:00Z,Barcelona at Espanyol,BAR @ ESP,Espanyol,88,0,Barcelona,83,2,STATUS_FULL_TIME,RCDE Stadium
+748323,2026-01-04T13:00Z,Levante at Sevilla,LEV @ SEV,Sevilla,243,0,Levante,1538,3,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748315,2026-01-04T15:15Z,Real Betis at Real Madrid,BET @ RMA,Real Madrid,86,5,Real Betis,244,1,STATUS_FULL_TIME,Santiago Bernabéu
+748322,2026-01-04T17:30Z,Real Oviedo at Alavés,OVI @ ALA,Alavés,96,1,Real Oviedo,92,1,STATUS_FULL_TIME,Mendizorrotza
+748318,2026-01-04T17:30Z,Girona at Mallorca,GIR @ MLL,Mallorca,84,1,Girona,9812,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748314,2026-01-04T20:00Z,Atlético Madrid at Real Sociedad,ATM @ RSO,Real Sociedad,89,1,Atlético Madrid,1068,1,STATUS_FULL_TIME,Reale Arena
+748330,2026-01-09T20:00Z,Real Sociedad at Getafe,RSO @ GET,Getafe,2922,1,Real Sociedad,89,2,STATUS_FULL_TIME,Estadio Coliseum
+748326,2026-01-10T13:00Z,Real Betis at Real Oviedo,BET @ OVI,Real Oviedo,92,1,Real Betis,244,1,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748333,2026-01-10T15:15Z,Alavés at Villarreal,ALA @ VIL,Villarreal,102,3,Alavés,96,1,STATUS_FULL_TIME,Estadio de la Cerámica
+748329,2026-01-10T17:30Z,Osasuna at Girona,OSA @ GIR,Girona,9812,1,Osasuna,97,0,STATUS_FULL_TIME,Estadi Montilivi
+748324,2026-01-10T20:00Z,Elche at Valencia,ELC @ VAL,Valencia,94,1,Elche,3751,1,STATUS_FULL_TIME,Mestalla Stadium
+748327,2026-01-11T13:00Z,Mallorca at Rayo Vallecano,MLL @ RAY,Rayo Vallecano,101,2,Mallorca,84,1,STATUS_FULL_TIME,Estadio de Vallecas
+748328,2026-01-11T15:15Z,Espanyol at Levante,ESP @ LEV,Levante,1538,1,Espanyol,88,1,STATUS_FULL_TIME,Estadi Ciutat de València
+748325,2026-01-12T20:00Z,Celta Vigo at Sevilla,CEL @ SEV,Sevilla,243,0,Celta Vigo,85,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748337,2026-01-16T20:00Z,Girona at Espanyol,GIR @ ESP,Espanyol,88,0,Girona,9812,2,STATUS_FULL_TIME,RCDE Stadium
+748342,2026-01-17T13:00Z,Levante at Real Madrid,LEV @ RMA,Real Madrid,86,2,Levante,1538,0,STATUS_FULL_TIME,Santiago Bernabéu
+748339,2026-01-17T15:15Z,Athletic Club at Mallorca,ATH @ MLL,Mallorca,84,3,Athletic Club,93,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748340,2026-01-17T17:30Z,Real Oviedo at Osasuna,OVI @ OSA,Osasuna,97,3,Real Oviedo,92,2,STATUS_FULL_TIME,El Sadar
+748341,2026-01-17T20:00Z,Villarreal at Real Betis,VIL @ BET,Real Betis,244,2,Villarreal,102,0,STATUS_FULL_TIME,Estadio La Cartuja
+748338,2026-01-18T13:00Z,Valencia at Getafe,VAL @ GET,Getafe,2922,0,Valencia,94,1,STATUS_FULL_TIME,Estadio Coliseum
+748334,2026-01-18T15:15Z,Alavés at Atlético Madrid,ALA @ ATM,Atlético Madrid,1068,1,Alavés,96,0,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748335,2026-01-18T17:30Z,Rayo Vallecano at Celta Vigo,RAY @ CEL,Celta Vigo,85,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Balaidos
+748343,2026-01-18T20:00Z,Barcelona at Real Sociedad,BAR @ RSO,Real Sociedad,89,2,Barcelona,83,1,STATUS_FULL_TIME,Reale Arena
+748336,2026-01-19T20:00Z,Sevilla at Elche,SEV @ ELC,Elche,3751,2,Sevilla,243,2,STATUS_FULL_TIME,Estadio Martínez Valero
+748353,2026-01-23T20:00Z,Elche at Levante,ELC @ LEV,Levante,1538,3,Elche,3751,2,STATUS_FULL_TIME,Estadi Ciutat de València
+748348,2026-01-24T13:00Z,Osasuna at Rayo Vallecano,OSA @ RAY,Rayo Vallecano,101,1,Osasuna,97,3,STATUS_FULL_TIME,Estadio de Vallecas
+748352,2026-01-24T15:15Z,Espanyol at Valencia,ESP @ VAL,Valencia,94,3,Espanyol,88,2,STATUS_FULL_TIME,Mestalla Stadium
+748351,2026-01-24T17:30Z,Athletic Club at Sevilla,ATH @ SEV,Sevilla,243,2,Athletic Club,93,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748349,2026-01-24T20:00Z,Real Madrid at Villarreal,RMA @ VIL,Villarreal,102,0,Real Madrid,86,2,STATUS_FULL_TIME,Estadio de la Cerámica
+748345,2026-01-25T13:00Z,Mallorca at Atlético Madrid,MLL @ ATM,Atlético Madrid,1068,3,Mallorca,84,0,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748346,2026-01-25T15:15Z,Real Oviedo at Barcelona,OVI @ BAR,Barcelona,83,3,Real Oviedo,92,0,STATUS_FULL_TIME,Spotify Camp Nou
+748350,2026-01-25T17:30Z,Celta Vigo at Real Sociedad,CEL @ RSO,Real Sociedad,89,3,Celta Vigo,85,1,STATUS_FULL_TIME,Reale Arena
+748344,2026-01-25T20:00Z,Real Betis at Alavés,BET @ ALA,Alavés,96,2,Real Betis,244,1,STATUS_FULL_TIME,Mendizorrotza
+748347,2026-01-26T20:00Z,Getafe at Girona,GET @ GIR,Girona,9812,1,Getafe,2922,1,STATUS_FULL_TIME,Estadi Montilivi
+748355,2026-01-30T20:00Z,Alavés at Espanyol,ALA @ ESP,Espanyol,88,1,Alavés,96,2,STATUS_FULL_TIME,RCDE Stadium
+748362,2026-01-31T13:00Z,Girona at Real Oviedo,GIR @ OVI,Real Oviedo,92,1,Girona,9812,0,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748359,2026-01-31T15:15Z,Villarreal at Osasuna,VIL @ OSA,Osasuna,97,2,Villarreal,102,2,STATUS_FULL_TIME,El Sadar
+748357,2026-01-31T17:30Z,Atlético Madrid at Levante,ATM @ LEV,Levante,1538,0,Atlético Madrid,1068,0,STATUS_FULL_TIME,Estadi Ciutat de València
+748354,2026-01-31T20:00Z,Barcelona at Elche,BAR @ ELC,Elche,3751,1,Barcelona,83,3,STATUS_FULL_TIME,Estadio Martínez Valero
+748356,2026-02-01T13:00Z,Rayo Vallecano at Real Madrid,RAY @ RMA,Real Madrid,86,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Santiago Bernabéu
+748360,2026-02-01T15:15Z,Valencia at Real Betis,VAL @ BET,Real Betis,244,2,Valencia,94,1,STATUS_FULL_TIME,Estadio La Cartuja
+748361,2026-02-01T17:30Z,Celta Vigo at Getafe,CEL @ GET,Getafe,2922,0,Celta Vigo,85,0,STATUS_FULL_TIME,Estadio Coliseum
+748358,2026-02-01T20:00Z,Real Sociedad at Athletic Club,RSO @ ATH,Athletic Club,93,1,Real Sociedad,89,1,STATUS_FULL_TIME,San Mamés
+748363,2026-02-02T20:00Z,Sevilla at Mallorca,SEV @ MLL,Mallorca,84,4,Sevilla,243,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748371,2026-02-06T20:00Z,Osasuna at Celta Vigo,OSA @ CEL,Celta Vigo,85,1,Osasuna,97,2,STATUS_FULL_TIME,Balaidos
+748370,2026-02-07T15:15Z,Mallorca at Barcelona,MLL @ BAR,Barcelona,83,3,Mallorca,84,0,STATUS_FULL_TIME,Spotify Camp Nou
+748366,2026-02-07T20:00Z,Elche at Real Sociedad,ELC @ RSO,Real Sociedad,89,3,Elche,3751,1,STATUS_FULL_TIME,Reale Arena
+748367,2026-02-08T13:00Z,Getafe at Alavés,GET @ ALA,Alavés,96,0,Getafe,2922,2,STATUS_FULL_TIME,Mendizorrotza
+748373,2026-02-08T15:15Z,Levante at Athletic Club,LEV @ ATH,Athletic Club,93,4,Levante,1538,2,STATUS_FULL_TIME,San Mamés
+748365,2026-02-08T15:15Z,Girona at Sevilla,GIR @ SEV,Sevilla,243,1,Girona,9812,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748369,2026-02-08T17:30Z,Real Betis at Atlético Madrid,BET @ ATM,Atlético Madrid,1068,0,Real Betis,244,1,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748364,2026-02-08T20:00Z,Real Madrid at Valencia,RMA @ VAL,Valencia,94,0,Real Madrid,86,2,STATUS_FULL_TIME,Mestalla Stadium
+748368,2026-02-09T20:00Z,Espanyol at Villarreal,ESP @ VIL,Villarreal,102,4,Espanyol,88,1,STATUS_FULL_TIME,Estadio de la Cerámica
+748376,2026-02-13T20:00Z,Osasuna at Elche,OSA @ ELC,Elche,3751,0,Osasuna,97,0,STATUS_FULL_TIME,Estadio Martínez Valero
+748377,2026-02-14T13:00Z,Celta Vigo at Espanyol,CEL @ ESP,Espanyol,88,2,Celta Vigo,85,2,STATUS_FULL_TIME,RCDE Stadium
+748378,2026-02-14T15:15Z,Villarreal at Getafe,VIL @ GET,Getafe,2922,2,Villarreal,102,1,STATUS_FULL_TIME,Estadio Coliseum
+748374,2026-02-14T17:30Z,Alavés at Sevilla,ALA @ SEV,Sevilla,243,1,Alavés,96,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748383,2026-02-14T20:00Z,Real Sociedad at Real Madrid,RSO @ RMA,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
+748375,2026-02-15T13:00Z,Athletic Club at Real Oviedo,ATH @ OVI,Real Oviedo,92,1,Athletic Club,93,2,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748382,2026-02-15T15:15Z,Atlético Madrid at Rayo Vallecano,ATM @ RAY,Rayo Vallecano,101,3,Atlético Madrid,1068,0,STATUS_FULL_TIME,Estadio Municipal de Butarque
+748380,2026-02-15T17:30Z,Valencia at Levante,VAL @ LEV,Levante,1538,0,Valencia,94,2,STATUS_FULL_TIME,Estadi Ciutat de València
+748379,2026-02-15T20:00Z,Real Betis at Mallorca,BET @ MLL,Mallorca,84,1,Real Betis,244,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748381,2026-02-16T20:00Z,Barcelona at Girona,BAR @ GIR,Girona,9812,2,Barcelona,83,1,STATUS_FULL_TIME,Estadi Montilivi
+748302,2026-02-18T19:00Z,Villarreal at Levante,VIL @ LEV,Levante,1538,0,Villarreal,102,1,STATUS_FULL_TIME,Estadi Ciutat de València
+748388,2026-02-20T20:00Z,Elche at Athletic Club,ELC @ ATH,Athletic Club,93,2,Elche,3751,1,STATUS_FULL_TIME,San Mamés
+748385,2026-02-21T13:00Z,Real Oviedo at Real Sociedad,OVI @ RSO,Real Sociedad,89,3,Real Oviedo,92,3,STATUS_FULL_TIME,Reale Arena
+748386,2026-02-21T15:15Z,Rayo Vallecano at Real Betis,RAY @ BET,Real Betis,244,1,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadio La Cartuja
+748387,2026-02-21T17:30Z,Real Madrid at Osasuna,RMA @ OSA,Osasuna,97,2,Real Madrid,86,1,STATUS_FULL_TIME,El Sadar
+748390,2026-02-21T20:00Z,Espanyol at Atlético Madrid,ESP @ ATM,Atlético Madrid,1068,4,Espanyol,88,2,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748384,2026-02-22T13:00Z,Sevilla at Getafe,SEV @ GET,Getafe,2922,0,Sevilla,243,1,STATUS_FULL_TIME,Estadio Coliseum
+748391,2026-02-22T15:15Z,Levante at Barcelona,LEV @ BAR,Barcelona,83,3,Levante,1538,0,STATUS_FULL_TIME,Spotify Camp Nou
+748392,2026-02-22T17:30Z,Mallorca at Celta Vigo,MLL @ CEL,Celta Vigo,85,2,Mallorca,84,0,STATUS_FULL_TIME,Balaidos
+748389,2026-02-22T20:00Z,Valencia at Villarreal,VAL @ VIL,Villarreal,102,2,Valencia,94,1,STATUS_FULL_TIME,Estadio de la Cerámica
+748393,2026-02-23T20:00Z,Girona at Alavés,GIR @ ALA,Alavés,96,2,Girona,9812,2,STATUS_FULL_TIME,Mendizorrotza
+748399,2026-02-27T20:00Z,Alavés at Levante,ALA @ LEV,Levante,1538,2,Alavés,96,0,STATUS_FULL_TIME,Estadi Ciutat de València
+748397,2026-02-28T13:00Z,Athletic Club at Rayo Vallecano,ATH @ RAY,Rayo Vallecano,101,1,Athletic Club,93,1,STATUS_FULL_TIME,Estadio de Vallecas
+748402,2026-02-28T15:15Z,Villarreal at Barcelona,VIL @ BAR,Barcelona,83,4,Villarreal,102,1,STATUS_FULL_TIME,Spotify Camp Nou
+748403,2026-02-28T17:30Z,Real Sociedad at Mallorca,RSO @ MLL,Mallorca,84,0,Real Sociedad,89,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748394,2026-02-28T20:00Z,Atlético Madrid at Real Oviedo,ATM @ OVI,Real Oviedo,92,0,Atlético Madrid,1068,1,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748401,2026-03-01T13:00Z,Espanyol at Elche,ESP @ ELC,Elche,3751,2,Espanyol,88,2,STATUS_FULL_TIME,Estadio Martínez Valero
+748398,2026-03-01T15:15Z,Osasuna at Valencia,OSA @ VAL,Valencia,94,1,Osasuna,97,0,STATUS_FULL_TIME,Mestalla Stadium
+748396,2026-03-01T17:30Z,Sevilla at Real Betis,SEV @ BET,Real Betis,244,2,Sevilla,243,2,STATUS_FULL_TIME,Estadio La Cartuja
+748400,2026-03-01T20:00Z,Celta Vigo at Girona,CEL @ GIR,Girona,9812,1,Celta Vigo,85,2,STATUS_FULL_TIME,Estadi Montilivi
+748395,2026-03-02T20:00Z,Getafe at Real Madrid,GET @ RMA,Real Madrid,86,0,Getafe,2922,1,STATUS_FULL_TIME,Santiago Bernabéu
+748372,2026-03-04T18:00Z,Real Oviedo at Rayo Vallecano,OVI @ RAY,Rayo Vallecano,101,3,Real Oviedo,92,0,STATUS_FULL_TIME,Estadio de Vallecas
+748411,2026-03-06T20:00Z,Real Madrid at Celta Vigo,RMA @ CEL,Celta Vigo,85,1,Real Madrid,86,2,STATUS_FULL_TIME,Balaidos
+748406,2026-03-07T13:00Z,Mallorca at Osasuna,MLL @ OSA,Osasuna,97,2,Mallorca,84,2,STATUS_FULL_TIME,El Sadar
+748407,2026-03-07T15:15Z,Girona at Levante,GIR @ LEV,Levante,1538,1,Girona,9812,1,STATUS_FULL_TIME,Estadi Ciutat de València
+748410,2026-03-07T17:30Z,Real Sociedad at Atlético Madrid,RSO @ ATM,Atlético Madrid,1068,3,Real Sociedad,89,2,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748409,2026-03-07T20:00Z,Barcelona at Athletic Club,BAR @ ATH,Athletic Club,93,0,Barcelona,83,1,STATUS_FULL_TIME,San Mamés
+748408,2026-03-08T13:00Z,Elche at Villarreal,ELC @ VIL,Villarreal,102,2,Elche,3751,1,STATUS_FULL_TIME,Estadio de la Cerámica
+748413,2026-03-08T15:15Z,Real Betis at Getafe,BET @ GET,Getafe,2922,2,Real Betis,244,0,STATUS_FULL_TIME,Estadio Coliseum
+748405,2026-03-08T17:30Z,Rayo Vallecano at Sevilla,RAY @ SEV,Sevilla,243,1,Rayo Vallecano,101,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748404,2026-03-08T20:00Z,Alavés at Valencia,ALA @ VAL,Valencia,94,3,Alavés,96,2,STATUS_FULL_TIME,Mestalla Stadium
+748412,2026-03-09T20:00Z,Real Oviedo at Espanyol,OVI @ ESP,Espanyol,88,1,Real Oviedo,92,1,STATUS_FULL_TIME,RCDE Stadium
+748422,2026-03-13T20:00Z,Villarreal at Alavés,VIL @ ALA,Alavés,96,1,Villarreal,102,1,STATUS_FULL_TIME,Mendizorrotza
+748414,2026-03-14T13:00Z,Athletic Club at Girona,ATH @ GIR,Girona,9812,3,Athletic Club,93,0,STATUS_FULL_TIME,Estadi Montilivi
+748423,2026-03-14T15:15Z,Getafe at Atlético Madrid,GET @ ATM,Atlético Madrid,1068,1,Getafe,2922,0,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748419,2026-03-14T17:30Z,Valencia at Real Oviedo,VAL @ OVI,Real Oviedo,92,1,Valencia,94,0,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748418,2026-03-14T20:00Z,Elche at Real Madrid,ELC @ RMA,Real Madrid,86,4,Elche,3751,1,STATUS_FULL_TIME,Santiago Bernabéu
+748421,2026-03-15T13:00Z,Espanyol at Mallorca,ESP @ MLL,Mallorca,84,2,Espanyol,88,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748415,2026-03-15T15:15Z,Sevilla at Barcelona,SEV @ BAR,Barcelona,83,5,Sevilla,243,2,STATUS_FULL_TIME,Spotify Camp Nou
+748417,2026-03-15T17:30Z,Celta Vigo at Real Betis,CEL @ BET,Real Betis,244,1,Celta Vigo,85,1,STATUS_FULL_TIME,Estadio La Cartuja
+748420,2026-03-15T20:00Z,Osasuna at Real Sociedad,OSA @ RSO,Real Sociedad,89,3,Osasuna,97,1,STATUS_FULL_TIME,Reale Arena
+748416,2026-03-16T20:00Z,Levante at Rayo Vallecano,LEV @ RAY,Rayo Vallecano,101,1,Levante,1538,1,STATUS_FULL_TIME,Estadio de Vallecas
+748429,2026-03-20T20:00Z,Real Sociedad at Villarreal,RSO @ VIL,Villarreal,102,3,Real Sociedad,89,1,STATUS_FULL_TIME,Estadio de la Cerámica
+748430,2026-03-21T13:00Z,Mallorca at Elche,MLL @ ELC,Elche,3751,2,Mallorca,84,1,STATUS_FULL_TIME,Estadio Martínez Valero
+748425,2026-03-21T15:15Z,Getafe at Espanyol,GET @ ESP,Espanyol,88,1,Getafe,2922,2,STATUS_FULL_TIME,RCDE Stadium
+748426,2026-03-21T17:30Z,Real Oviedo at Levante,OVI @ LEV,Levante,1538,4,Real Oviedo,92,2,STATUS_FULL_TIME,Estadi Ciutat de València
+748427,2026-03-21T17:30Z,Girona at Osasuna,GIR @ OSA,Osasuna,97,1,Girona,9812,0,STATUS_FULL_TIME,El Sadar
+748428,2026-03-21T20:00Z,Valencia at Sevilla,VAL @ SEV,Sevilla,243,0,Valencia,94,2,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748432,2026-03-22T13:00Z,Rayo Vallecano at Barcelona,RAY @ BAR,Barcelona,83,1,Rayo Vallecano,101,0,STATUS_FULL_TIME,Spotify Camp Nou
+748431,2026-03-22T15:15Z,Alavés at Celta Vigo,ALA @ CEL,Celta Vigo,85,3,Alavés,96,4,STATUS_FULL_TIME,Balaidos
+748424,2026-03-22T17:30Z,Real Betis at Athletic Club,BET @ ATH,Athletic Club,93,2,Real Betis,244,1,STATUS_FULL_TIME,San Mamés
+748433,2026-03-22T20:00Z,Atlético Madrid at Real Madrid,ATM @ RMA,Real Madrid,86,3,Atlético Madrid,1068,2,STATUS_FULL_TIME,Santiago Bernabéu
+748443,2026-04-03T19:00Z,Elche at Rayo Vallecano,ELC @ RAY,Rayo Vallecano,101,1,Elche,3751,0,STATUS_FULL_TIME,Estadio de Vallecas
+748442,2026-04-04T12:00Z,Levante at Real Sociedad,LEV @ RSO,Real Sociedad,89,2,Levante,1538,0,STATUS_FULL_TIME,Reale Arena
+748437,2026-04-04T14:15Z,Real Madrid at Mallorca,RMA @ MLL,Mallorca,84,2,Real Madrid,86,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748439,2026-04-04T16:30Z,Espanyol at Real Betis,ESP @ BET,Real Betis,244,0,Espanyol,88,0,STATUS_FULL_TIME,Estadio La Cartuja
+748434,2026-04-04T19:00Z,Barcelona at Atlético Madrid,BAR @ ATM,Atlético Madrid,1068,1,Barcelona,83,2,STATUS_FULL_TIME,Riyadh Air Metropolitano
+748435,2026-04-05T12:00Z,Athletic Club at Getafe,ATH @ GET,Getafe,2922,2,Athletic Club,93,0,STATUS_FULL_TIME,Estadio Coliseum
+748440,2026-04-05T14:15Z,Celta Vigo at Valencia,CEL @ VAL,Valencia,94,2,Celta Vigo,85,3,STATUS_FULL_TIME,Mestalla Stadium
+748441,2026-04-05T16:30Z,Sevilla at Real Oviedo,SEV @ OVI,Real Oviedo,92,1,Sevilla,243,0,STATUS_FULL_TIME,Estadio Carlos Tartiere
+748438,2026-04-05T19:00Z,Osasuna at Alavés,OSA @ ALA,Alavés,96,2,Osasuna,97,2,STATUS_FULL_TIME,Mendizorrotza
+748436,2026-04-06T19:00Z,Villarreal at Girona,VIL @ GIR,Girona,9812,1,Villarreal,102,0,STATUS_FULL_TIME,Estadi Montilivi
+748453,2026-04-10T19:00Z,Girona at Real Madrid,GIR @ RMA,Real Madrid,86,1,Girona,9812,1,STATUS_FULL_TIME,Santiago Bernabéu
+748452,2026-04-11T12:00Z,Alavés at Real Sociedad,ALA @ RSO,Real Sociedad,89,3,Alavés,96,3,STATUS_FULL_TIME,Reale Arena
+748447,2026-04-11T14:15Z,Valencia at Elche,VAL @ ELC,Elche,3751,1,Valencia,94,0,STATUS_FULL_TIME,Estadio Martínez Valero
+748449,2026-04-11T16:30Z,Espanyol at Barcelona,ESP @ BAR,Barcelona,83,4,Espanyol,88,1,STATUS_FULL_TIME,Spotify Camp Nou
+748450,2026-04-11T19:00Z,Atlético Madrid at Sevilla,ATM @ SEV,Sevilla,243,2,Atlético Madrid,1068,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium
+748444,2026-04-12T12:00Z,Real Betis at Osasuna,BET @ OSA,Osasuna,97,1,Real Betis,244,1,STATUS_FULL_TIME,El Sadar
+748445,2026-04-12T14:15Z,Rayo Vallecano at Mallorca,RAY @ MLL,Mallorca,84,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix
+748448,2026-04-12T16:30Z,Real Oviedo at Celta Vigo,OVI @ CEL,Celta Vigo,85,0,Real Oviedo,92,3,STATUS_FULL_TIME,Balaidos
+748451,2026-04-12T19:00Z,Villarreal at Athletic Club,VIL @ ATH,Athletic Club,93,1,Villarreal,102,2,STATUS_FULL_TIME,San Mamés
+748446,2026-04-13T19:00Z,Getafe at Levante,GET @ LEV,Levante,1538,1,Getafe,2922,0,STATUS_FULL_TIME,Estadi Ciutat de València
 748469,2026-04-21T17:00Z,Osasuna at Athletic Club,OSA @ ATH,Athletic Club,93,1,Osasuna,97,0,STATUS_FULL_TIME,San Mamés
 748468,2026-04-21T17:00Z,Valencia at Mallorca,VAL @ MLL,Mallorca,84,1,Valencia,94,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix
 748467,2026-04-21T19:30Z,Real Betis at Girona,BET @ GIR,Girona,9812,2,Real Betis,244,3,STATUS_FULL_TIME,Estadi Montilivi
@@ -1761,5 +1895,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401882910,2026-08-24T19:30Z,Deportivo at Málaga,DEP @ MCF,Málaga,99,1,Deportivo,90,1,STATUS_FULL_TIME,La Rosaleda
 401882917,2026-08-25T19:00Z,,,Valencia,94,0,Real Betis,244,1,STATUS_FULL_TIME,Mestalla Stadium
 401882919,2026-08-26T19:00Z,,,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
-401882924,2026-08-27T18:30Z,,,Celta Vigo,85,1,Osasuna,97,2,STATUS_SECOND_HALF,Balaidos
-401882921,2026-08-27T19:00Z,,,Barcelona,83,1,Athletic Club,93,0,STATUS_HALFTIME,Spotify Camp Nou
+401882924,2026-08-27T18:30Z,,,Celta Vigo,85,1,Osasuna,97,2,STATUS_FULL_TIME,Balaidos
+401882921,2026-08-27T19:00Z,,,Barcelona,83,2,Athletic Club,93,0,STATUS_FULL_TIME,Spotify Camp Nou
