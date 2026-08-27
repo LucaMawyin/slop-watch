@@ -216,7 +216,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
                 )
 
                 # Regular season only
-                df = df[df["season_id"] % 3 == 1]
+                df = df[df["season_id"] % 3 != 0]
                 
                 games.append(df)
                 

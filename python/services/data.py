@@ -123,7 +123,7 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-for sport in ["laliga", "serie_a", "bundesliga", "ligue_1"]:
+for sport in SPORT_CONFIG:
     print()
     print("=" * 50)
     print(f"Collecting {sport.upper()}")

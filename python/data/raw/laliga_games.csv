@@ -1761,5 +1761,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401882910,2026-08-24T19:30Z,Deportivo at Málaga,DEP @ MCF,Málaga,99,1,Deportivo,90,1,STATUS_FULL_TIME,La Rosaleda
 401882917,2026-08-25T19:00Z,,,Valencia,94,0,Real Betis,244,1,STATUS_FULL_TIME,Mestalla Stadium
 401882919,2026-08-26T19:00Z,,,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
-401882924,2026-08-27T18:30Z,,,Celta Vigo,85,1,Osasuna,97,0,STATUS_FIRST_HALF,Balaidos
-401882921,2026-08-27T19:00Z,,,Barcelona,83,0,Athletic Club,93,0,STATUS_SCHEDULED,Spotify Camp Nou
+401882924,2026-08-27T18:30Z,,,Celta Vigo,85,1,Osasuna,97,2,STATUS_SECOND_HALF,Balaidos
+401882921,2026-08-27T19:00Z,,,Barcelona,83,1,Athletic Club,93,0,STATUS_HALFTIME,Spotify Camp Nou
