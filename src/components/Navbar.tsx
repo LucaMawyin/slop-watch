@@ -54,13 +54,22 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-6 py-4">
                 <Link
                     href="/"
-                    className="text-xl font-bold text-white"
+                    className="text-xl font-bold text-white pr-4"
                 >
                     Slop Watch
                 </Link>
 
                 {/* Desktop */}
-                <div className="hidden md:flex flex-1 justify-evenly items-center gap-6">
+                <div className="hidden md:flex flex-1 justify-evenly items-center gap-4">
+
+                    <Link
+                        href={`/games`}
+                        onClick={() => setOpenSport(null)}
+                        className="text-sm text-zinc-300 hover:text-white"
+                    >
+                        All Leagues
+                    </Link>
+
                     {sports.map((sport) => {
 
                         const sportLeagues = leagues.filter(
@@ -169,13 +178,6 @@ export default function Navbar() {
                         )
 
                     })}
-                    <Link
-                        href={`/games`}
-                        onClick={() => setOpenSport(null)}
-                        className="text-sm text-zinc-300 hover:text-white"
-                    >
-                        All Leagues
-                    </Link>
                 </div>
 
                 {/* Mobile */}
@@ -225,6 +227,25 @@ export default function Navbar() {
                     }
                 `}
             >
+
+                <div className="border-b border-zinc-800 py-4">
+                    <Link
+                        href="/games"
+                        onClick={() => {
+                            setOpenSport(null);
+                            setMenuOpen(false);
+                        }}
+                        className="
+                            block
+                            text-sm
+                            font-medium
+                            text-zinc-300
+                            hover:text-white
+                        "
+                    >
+                        All Leagues
+                    </Link>
+                </div>
                 {sports.map((sport) => {
                     const isOpen = openSport === sport;
 
@@ -312,26 +333,7 @@ export default function Navbar() {
                         </div>
                     );
                 })}
-                <div className="
-                    flex 
-                    items-center 
-                    justify-between 
-                    py-4
-                ">
-                    <Link
-                        href={`/games`}
-                        onClick={() => setOpenSport(null)}
-                        className="
-                            text-sm
-                            w-full
-                            font-medium
-                            text-zinc-300
-                            hover:text-white
-                        "
-                    >
-                        All Leagues
-                    </Link>
-                </div>
+
 
 
             </div>
