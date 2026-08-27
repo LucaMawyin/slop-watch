@@ -150,12 +150,16 @@ def get_slop(league="nba"):
 
     games = games.sort_values("date").reset_index(drop=True)
 
-    games["margin_std"] = (
+    expanding_std = (
         games["margin_error"]
-        .expanding(min_periods=100)
+        .expanding(min_periods=2)
         .std()
         .shift(1)
     )
+
+    league_std = games["margin_error"].std()
+
+    games["margin_std"] = expanding_std.fillna(league_std)
 
     # Normal distribution distance function
     games["uncompetitiveness"] = (
