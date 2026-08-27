@@ -60,35 +60,69 @@ export default function GamesSkeleton({
                     </div>
 
                     {/* Slop score */}
-                    <div className="border-t border-zinc-800 pt-4 -pb-1 text-center">
-                        <div className="mx-auto mb-4 h-3 w-20 rounded bg-zinc-800 skeleton-glow" />
+                    <div className="flex flex-row justify-evenly border-t border-zinc-800 pt-4 -pb-1 text-center">
+                        <div>
+                            <div className="mx-auto mb-4 h-3 w-20 rounded bg-zinc-800 skeleton-glow" />
 
-                        <div className="relative mx-auto h-22 w-22 mb-2 mt-1">
-                            {/* Circle */}
-                            <div className="
-                                h-full
-                                w-full
-                                rounded-full
-                                border-8
-                                border-zinc-800
-                                skeleton-glow
-                            " />
-
-                            {/* Number */}
-                            <div className="
-                                absolute
-                                inset-0
-                                flex
-                                items-center
-                                justify-center
-                            ">
+                            <div className="relative mx-auto h-22 w-22 mb-2 mt-1">
+                                {/* Circle */}
                                 <div className="
-                                    h-5
-                                    w-14
-                                    rounded
-                                    bg-zinc-800
+                                    h-full
+                                    w-full
+                                    rounded-full
+                                    border-8
+                                    border-zinc-800
                                     skeleton-glow
                                 " />
+
+                                {/* Number */}
+                                <div className="
+                                    absolute
+                                    inset-0
+                                    flex
+                                    items-center
+                                    justify-center
+                                ">
+                                    <div className="
+                                        h-5
+                                        w-14
+                                        rounded
+                                        bg-zinc-800
+                                        skeleton-glow
+                                    " />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="mx-auto mb-4 h-3 w-20 rounded bg-zinc-800 skeleton-glow" />
+
+                            <div className="relative mx-auto h-22 w-22 mb-2 mt-1">
+                                {/* Circle */}
+                                <div className="
+                                    h-full
+                                    w-full
+                                    rounded-full
+                                    border-8
+                                    border-zinc-800
+                                    skeleton-glow
+                                " />
+
+                                {/* Number */}
+                                <div className="
+                                    absolute
+                                    inset-0
+                                    flex
+                                    items-center
+                                    justify-center
+                                ">
+                                    <div className="
+                                        h-5
+                                        w-14
+                                        rounded
+                                        bg-zinc-800
+                                        skeleton-glow
+                                    " />
+                                </div>
                             </div>
                         </div>
                     </div>
