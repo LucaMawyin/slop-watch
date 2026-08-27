@@ -17,6 +17,11 @@ export type Game = {
     actual_slop: number | null;
     slop_percentile: number;
 
+    // Watchability
+    predicted_watchability: number;
+    actual_watchability: number | null;
+    watchability_percentile: number;
+
     // Season performance
     home_win_pct: number;
     away_win_pct: number;

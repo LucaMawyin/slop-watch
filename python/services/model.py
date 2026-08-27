@@ -33,13 +33,18 @@ def train_model(league="nba"):
         "away_recent_point_diff",
     ]
 
+    targets = [
+        "actual_slop",
+        "actual_watchability",
+    ]
+
     X = actual_slop[features]
-    Y = actual_slop["actual_slop"]
+    Y = actual_slop[targets]
 
     # Remove games where pre-game statistics are unavailable
     valid = (
         X.notna().all(axis=1) &
-        Y.notna()
+        Y.notna().all(axis=1)
     )
 
     X = X[valid].reset_index(drop=True)
@@ -48,6 +53,7 @@ def train_model(league="nba"):
     # ---------------------------------
     # TRAIN / TEST SPLIT
     # ---------------------------------
+
     split_index = int(len(X) * 0.8)
     X_train = X.iloc[:split_index]
     Y_train = Y.iloc[:split_index]
@@ -72,18 +78,32 @@ def train_model(league="nba"):
     # TEST MODEL
     # ---------------------------------
     predictions = model.predict(X_test)
-    error = mean_absolute_error(
-        Y_test, 
-        predictions,
+
+    slop_error = mean_absolute_error(
+        Y_test["actual_slop"],
+        predictions[:, 0],
     )
 
-    print(f"Mean Absolute Error: {error:.4f}")
+    watchability_error = mean_absolute_error(
+        Y_test["actual_watchability"],
+        predictions[:, 1],
+    )
+
+    print(
+        f"Slop MAE: {slop_error:.4f}"
+    )
+
+    print(
+        f"Watchability MAE: {watchability_error:.4f}"
+    )
 
     # ---------------------------------
     # SAVE MODEL
     # ---------------------------------
+
     model_path = Path(f"models/{league}_slop_model.pkl")
     temp_path = Path(f"models/{league}_slop_model.pkl.tmp")
+
     joblib.dump(
         model,
         temp_path

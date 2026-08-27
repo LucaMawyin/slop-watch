@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
-export default function SlopCircle(props: {slop : number, slopColour: string}){
+export default function ProgressCircle(props: {progress : number, progressColour: string}){
 
     const circumference = 2 * Math.PI * 42;
     const [offset, setOffset] = useState(circumference);
 
     useEffect(() => {
         requestAnimationFrame(() => {
-            setOffset(circumference * (1 - props.slop));
+            setOffset(circumference * (1 - props.progress));
         });
-    }, [props.slop, circumference]);
+    }, [props.progress, circumference]);
 
     return (
         <svg
@@ -33,7 +33,7 @@ export default function SlopCircle(props: {slop : number, slopColour: string}){
                 cy="50"
                 r="42"
                 fill="none"
-                stroke={props.slopColour}
+                stroke={props.progressColour}
                 strokeWidth="8"
                 strokeLinecap="round"
                 strokeDasharray={circumference}

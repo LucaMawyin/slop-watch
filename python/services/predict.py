@@ -119,22 +119,51 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     # PREDICT SLOP
     # ---------------------------------
 
-    games["predicted_slop"] = model.predict(games[FEATURES])
+    predictions = model.predict(games[FEATURES])
+
+    games["predicted_slop"] = predictions [:, 0]
+    games["predicted_watchability"] = predictions [:, 1]
+
+    # ---------------------------------
+    # HISTORICAL METRICS
+    # ---------------------------------
+
+    historical = get_slop(league=league)
+
+    historical = historical[
+        historical["date"] < prediction_date
+    ]
 
     # ---------------------------------
     # SLOP PERCENTILE
     # ---------------------------------
 
-    historical_slop = get_slop(league=league)
-
-    historical_slop = historical_slop[
-        historical_slop["date"] < prediction_date
-    ]["actual_slop"].dropna()
+    historical_slop = (
+        historical["actual_slop"]
+        .dropna()
+    )
 
     games["slop_percentile"] = games["predicted_slop"].apply(
         lambda score: (
             (historical_slop < score).mean()
             if len(historical_slop) > 0
+            else np.nan
+        )
+    )
+
+    # ---------------------------------
+    # WATCHABILITY PERCENTILE
+    # ---------------------------------
+
+    historical_watchability = (
+        historical["actual_watchability"]
+        .dropna()
+    )
+
+    games["watchability_percentile"] = games["predicted_watchability"].apply(
+        lambda score: (
+            (historical_watchability < score).mean()
+            if len(historical_watchability) > 0
             else np.nan
         )
     )

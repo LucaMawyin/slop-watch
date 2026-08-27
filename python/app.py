@@ -115,7 +115,7 @@ def games():
 
     for league in leagues:
 
-        actual_slop = get_slop(league=league)
+        historical = get_slop(league=league)
         predictions = predict_slop(
             prediction_date=prediction_date,
             league=league,
@@ -126,16 +126,19 @@ def games():
             continue
 
         predictions["game_id"] = predictions["game_id"].astype(str)
-        actual_slop["game_id"] = actual_slop["game_id"].astype(str)
+        historical["game_id"] = historical["game_id"].astype(str)
 
         predictions = predictions.merge(
-            actual_slop[[
+            historical[[
                 "game_id", 
                 "actual_slop",
                 "slop_percentile",
+                "actual_watchability",
+                "watchability_percentile"
             ]].rename(
                 columns={
                     "slop_percentile": "actual_slop_percentile",
+                    "watchability_percentile": "actual_watchability_percentile",
                 }
             ),
             on="game_id",
@@ -145,6 +148,11 @@ def games():
         predictions["slop_percentile"] = (
             predictions["actual_slop_percentile"]
             .fillna(predictions["slop_percentile"])
+        )
+
+        predictions["watchability_percentile"] = (
+            predictions["actual_watchability_percentile"]
+            .fillna(predictions["watchability_percentile"])
         )
 
         league_games = predictions[
@@ -160,10 +168,15 @@ def games():
                 "home_score",
                 "away_score",
 
-                # Prediction
+                # Slop
                 "predicted_slop",
                 "actual_slop",
                 "slop_percentile",
+
+                # Watchability
+                "predicted_watchability",
+                "actual_watchability",
+                "watchability_percentile",
 
                 # Season performance
                 "home_win_pct",

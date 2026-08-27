@@ -12,14 +12,14 @@ import GamesSkeleton from "@/components/GamesSkeleton";
 import { ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 import { getHeatColour } from "@/lib/getHeatColour";
-import SlopCircle from "@/components/SlopCircle";
+import ProgressCircle from "@/components/ProgressCircle";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [calendarGame, setCalendarGame] = useState<Game | null>(null);
-    const [sortBy, setSortBy] = useState<"slop" | "date">("date");    
+    const [sortBy, setSortBy] = useState<"slop" | "date" | "watchability">("date");    
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
 
@@ -40,6 +40,12 @@ function GamesContent() {
         : league
             ? DEFAULT_LEAGUE_DAYS - 1
             : DEFAULT_ALL_DAYS - 1;
+
+    // Reset filters on reload
+    useEffect(() => {
+        setSortBy("date");
+        setSortDirection("asc");
+    }, [sport, league]);
 
     useEffect(() => {
 
@@ -128,6 +134,13 @@ function GamesContent() {
             const bSlop = b.slop_percentile;
 
             comparison = aSlop - bSlop;
+        }
+
+        else if (sortBy === "watchability") {
+            const aWatchability = a.watchability_percentile;
+            const bWatchability = b.watchability_percentile;
+
+            comparison = aWatchability - bWatchability;
         }
 
         else {
@@ -219,12 +232,12 @@ function GamesContent() {
                     />
 
                     <div className="flex relative gap-3">
-                        {/* SLOP | DATE */}
+                        {/* SLOP | DATE | WATCHABILITY */}
                         <div className="relative">
                             <select
                                 value={sortBy}
                                 onChange={(e) =>{
-                                    const value = e.target.value as "slop" | "date";
+                                    const value = e.target.value as "slop" | "date" | "watchability";
 
                                     setSortBy(value);
                                     setSortDirection(value === "slop" ? "desc" : "asc");
@@ -247,6 +260,7 @@ function GamesContent() {
                                 "
                             >
                                 <option value="slop">Sort by Slop</option>
+                                <option value="watchability">Sort by Watchability</option>
                                 <option value="date">Sort by Date</option>
 
                             </select>
@@ -345,6 +359,10 @@ function GamesContent() {
                             const badge = getSlopBadge(slop);
                             const slopColour = getHeatColour(slop);
 
+                            const watchability = game.watchability_percentile;
+                            const watchabilityBadge = getSlopBadge(watchability);
+                            const watchabilityColour = getHeatColour(1-watchability);
+
 
                             return (
                                 <div
@@ -430,33 +448,61 @@ function GamesContent() {
                                         {game.venue_full_name}
                                     </div>
 
-                                    <div className="border-t border-zinc-800 pt-4 text-center">
+                                    <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center">
+                                        <div>
+                                            <div className="text-xs text-zinc-500">
+                                                SLOP SCORE
+                                            </div>
 
-                                        <div className="text-xs text-zinc-500">
-                                            SLOP SCORE
+                                            <div className="relative mx-auto mt-3 h-24 w-24">
+                                                <ProgressCircle
+                                                    progress={slop}
+                                                    progressColour={slopColour}
+                                                />
+
+                                                <div 
+                                                    className="
+                                                        absolute
+                                                        inset-0
+                                                        flex
+                                                        items-center
+                                                        justify-center
+                                                        text-xl
+                                                        font-bold
+                                                    "
+                                                    style={{ color: slopColour }}
+                                                >
+                                                    {(slop * 100).toFixed(1)}%
+                                                </div>
+                                            </div>                                            
                                         </div>
 
-                                        
-                                        <div className="relative mx-auto mt-3 h-24 w-24">
-                                            <SlopCircle
-                                                slop={slop}
-                                                slopColour={slopColour}
-                                            />
-
-                                            <div 
-                                                className="
-                                                    absolute
-                                                    inset-0
-                                                    flex
-                                                    items-center
-                                                    justify-center
-                                                    text-xl
-                                                    font-bold
-                                                "
-                                                style={{ color: slopColour }}
-                                            >
-                                                {(slop * 100).toFixed(1)}%
+                                        <div>
+                                            <div className="text-xs text-zinc-500">
+                                                WATCHABILITY
                                             </div>
+
+                                            <div className="relative mx-auto mt-3 h-24 w-24">
+                                                <ProgressCircle
+                                                    progress={watchability}
+                                                    progressColour={watchabilityColour}
+                                                />
+
+                                                <div 
+                                                    className="
+                                                        absolute
+                                                        inset-0
+                                                        flex
+                                                        items-center
+                                                        justify-center
+                                                        text-xl
+                                                        font-bold
+                                                    "
+                                                    style={{ color: watchabilityColour }}
+                                                >
+                                                    {(watchability * 100).toFixed(1)}%
+                                                </div>
+                                            </div>                                            
                                         </div>
                                     </div>
 

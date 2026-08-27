@@ -186,6 +186,23 @@ def get_slop(league="nba"):
     )
 
     # ---------------------------------
+    # WATCHABILITY
+    # ---------------------------------
+
+    games["team_quality"] = (
+        1 - games["team_badness"]
+    )
+
+    games["scoring_quality"] = (
+        1 - games["scoring_badness"]
+    )
+
+    games["actual_watchability"] = (
+        0.35 * games["team_quality"] +
+        0.65 * games["scoring_quality"]
+    )
+
+    # ---------------------------------
     # ACTUAL SLOP
     # ---------------------------------
 
@@ -216,6 +233,18 @@ def get_slop(league="nba"):
 
     games["slop_percentile"] = (
         games["actual_slop"]
+        .expanding(min_periods=100)
+        .apply(
+            lambda x: (
+                (x.iloc[:-1] < x.iloc[-1]).mean()
+                if len(x) > 1
+                else np.nan
+            )
+        )
+    )
+
+    games["watchability_percentile"] = (
+        games["actual_watchability"]
         .expanding(min_periods=100)
         .apply(
             lambda x: (

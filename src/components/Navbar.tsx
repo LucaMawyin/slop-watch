@@ -112,6 +112,7 @@ export default function Navbar() {
                                             `}
                                         />
                                     </button>
+
                                 </div>
 
                                 
@@ -168,6 +169,13 @@ export default function Navbar() {
                         )
 
                     })}
+                    <Link
+                        href={`/games`}
+                        onClick={() => setOpenSport(null)}
+                        className="text-sm text-zinc-300 hover:text-white"
+                    >
+                        All Leagues
+                    </Link>
                 </div>
 
                 {/* Mobile */}
@@ -304,6 +312,28 @@ export default function Navbar() {
                         </div>
                     );
                 })}
+                <div className="
+                    flex 
+                    items-center 
+                    justify-between 
+                    py-4
+                ">
+                    <Link
+                        href={`/games`}
+                        onClick={() => setOpenSport(null)}
+                        className="
+                            text-sm
+                            w-full
+                            font-medium
+                            text-zinc-300
+                            hover:text-white
+                        "
+                    >
+                        All Leagues
+                    </Link>
+                </div>
+
+
             </div>
 
 

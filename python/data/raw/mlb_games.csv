@@ -14759,8 +14759,8 @@ game_id,date,season_year,season_type,status_type_state,status_type_completed,sta
 401816688,2026-08-26T23:40Z,2026,2,post,True,Final,4,Rate Field,Chicago,Illinois,4,White Sox,CHW,Chicago White Sox,10,True,13,Rangers,TEX,Texas Rangers,4,False
 401816687,2026-08-26T23:45Z,2026,2,post,True,Final,87,Busch Stadium,St. Louis,Missouri,24,Cardinals,STL,St. Louis Cardinals,7,False,1,Orioles,BAL,Baltimore Orioles,8,True
 401816692,2026-08-27T01:05Z,2026,2,post,True,Final,7109,Sutter Health Park,Sacramento,California,11,Athletics,ATH,Athletics,7,True,9,Twins,MIN,Minnesota Twins,4,False
-401816695,2026-08-27T17:05Z,2026,2,pre,False,Scheduled,89,Nationals Park,Washington,District of Columbia,20,Nationals,WSH,Washington Nationals,0,,27,Rockies,COL,Colorado Rockies,0,
-401816700,2026-08-27T18:15Z,2026,2,pre,False,Scheduled,87,Busch Stadium,St. Louis,Missouri,24,Cardinals,STL,St. Louis Cardinals,0,,1,Orioles,BAL,Baltimore Orioles,0,
+401816695,2026-08-27T17:05Z,2026,2,in,False,In Progress,89,Nationals Park,Washington,District of Columbia,20,Nationals,WSH,Washington Nationals,4,,27,Rockies,COL,Colorado Rockies,1,
+401816700,2026-08-27T18:15Z,2026,2,in,False,In Progress,87,Busch Stadium,St. Louis,Missouri,24,Cardinals,STL,St. Louis Cardinals,3,,1,Orioles,BAL,Baltimore Orioles,0,
 401816696,2026-08-27T23:05Z,2026,2,pre,False,Scheduled,208,Yankee Stadium,Bronx,New York,10,Yankees,NYY,New York Yankees,0,,18,Astros,HOU,Houston Astros,0,
 401816697,2026-08-27T23:07Z,2026,2,pre,False,Scheduled,14,Rogers Centre,Toronto,Ontario,14,Blue Jays,TOR,Toronto Blue Jays,0,,7,Royals,KC,Kansas City Royals,0,
 401816699,2026-08-27T23:10Z,2026,2,pre,False,Scheduled,209,Citi Field,Queens,New York,21,Mets,NYM,New York Mets,0,,8,Brewers,MIL,Milwaukee Brewers,0,

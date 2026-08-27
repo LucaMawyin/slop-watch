@@ -1759,7 +1759,7 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401882913,2026-08-23T19:30Z,Barcelona at Elche,BAR @ ELC,Elche,3751,0,Barcelona,83,5,STATUS_FULL_TIME,Estadio Martínez Valero
 401882909,2026-08-24T17:30Z,Levante at Osasuna,LEV @ OSA,Osasuna,97,0,Levante,1538,0,STATUS_FULL_TIME,El Sadar
 401882910,2026-08-24T19:30Z,Deportivo at Málaga,DEP @ MCF,Málaga,99,1,Deportivo,90,1,STATUS_FULL_TIME,La Rosaleda
-401882917,2026-08-25T19:00Z,Real Betis at Valencia,BET @ VAL,Valencia,94,0,Real Betis,244,1,STATUS_FULL_TIME,Mestalla Stadium
-401882919,2026-08-26T19:00Z,Real Sociedad at Real Madrid,RSO @ RMA,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
-401882924,2026-08-27T18:30Z,Osasuna at Celta Vigo,OSA @ CEL,Celta Vigo,85,0,Osasuna,97,0,STATUS_SCHEDULED,Balaidos
-401882921,2026-08-27T19:00Z,Athletic Club at Barcelona,ATH @ BAR,Barcelona,83,0,Athletic Club,93,0,STATUS_SCHEDULED,Spotify Camp Nou
+401882917,2026-08-25T19:00Z,,,Valencia,94,0,Real Betis,244,1,STATUS_FULL_TIME,Mestalla Stadium
+401882919,2026-08-26T19:00Z,,,Real Madrid,86,4,Real Sociedad,89,1,STATUS_FULL_TIME,Santiago Bernabéu
+401882924,2026-08-27T18:30Z,,,Celta Vigo,85,1,Osasuna,97,0,STATUS_FIRST_HALF,Balaidos
+401882921,2026-08-27T19:00Z,,,Barcelona,83,0,Athletic Club,93,0,STATUS_SCHEDULED,Spotify Camp Nou
