@@ -19,7 +19,7 @@ function GamesContent() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [calendarGame, setCalendarGame] = useState<Game | null>(null);
-    const [sortBy, setSortBy] = useState<"slop" | "date" | "watchability">("date");    
+    const [sortBy, setSortBy] = useState<"slop" | "date" | "watchability" | "overall">("date");    
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
 
@@ -141,6 +141,13 @@ function GamesContent() {
             comparison = aWatchability - bWatchability;
         }
 
+        else if (sortBy === "overall") {
+            const aOverall = a.slop_percentile * a.watchability_percentile;
+            const bOverall = b.slop_percentile * b.watchability_percentile;
+
+            comparison = aOverall - bOverall;
+        }
+
         else {
             comparison = 
                 new Date(a.date).getTime() - 
@@ -235,10 +242,10 @@ function GamesContent() {
                             <select
                                 value={sortBy}
                                 onChange={(e) =>{
-                                    const value = e.target.value as "slop" | "date" | "watchability";
+                                    const value = e.target.value as "slop" | "date" | "watchability" | "overall";
 
                                     setSortBy(value);
-                                    setSortDirection(value === "slop" ? "desc" : "asc");
+                                    setSortDirection(value === "slop" || value === "overall" ? "desc" : "asc");
                                 }}
                                 className="
                                     appearance-none
@@ -259,6 +266,7 @@ function GamesContent() {
                             >
                                 <option value="slop">Sort by Slop</option>
                                 <option value="watchability">Sort by Watchability</option>
+                                <option value="overall">Sort by Overall</option>
                                 <option value="date">Sort by Date</option>
 
                             </select>
