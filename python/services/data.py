@@ -113,6 +113,16 @@ def collect_games(sport):
     # Concatenate all the DataFrames into a single DataFrame
     all_games = pd.concat(games, ignore_index=True)
 
+    all_games["date"] = pd.to_datetime(
+        all_games["date"],
+        utc=True,
+        errors="coerce"
+    )
+
+    all_games["month"] = all_games["date"].dt.month
+    all_games["day"] = all_games["date"].dt.day
+    all_games["year"] = all_games["date"].dt.year
+
     # Create the output directory if it doesnt exist
     output_path = Path(config["output"])
     output_path.parent.mkdir(parents=True, exist_ok=True)

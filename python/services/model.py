@@ -31,6 +31,9 @@ def train_model(league="nba"):
         "away_recent_win_pct",
         "home_recent_point_diff",
         "away_recent_point_diff",
+        "month",
+        "day",
+        "year",
     ]
 
     targets = [

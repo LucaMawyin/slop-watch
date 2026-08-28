@@ -10,6 +10,10 @@ def get_games(league="nba"):
 
     # Convert the date column to datetime and ensure scores are numeric
     df["date"] = pd.to_datetime(df["date"], utc=True)
+    df["month"] = df["date"].dt.month
+    df["day"] = df["date"].dt.day
+    df["year"] = df["date"].dt.year
+
     df["home_score"] = pd.to_numeric(df["home_score"], errors="coerce")
     df["away_score"] = pd.to_numeric(df["away_score"], errors="coerce")
 
@@ -61,6 +65,9 @@ def get_games(league="nba"):
         [
             "game_id",
             "date",
+            "month",
+            "day",
+            "year",
             "home_id",
             "home_name",
             "home_score",
@@ -271,6 +278,9 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     df = pd.concat(games, ignore_index=True)
 
     df["date"] = pd.to_datetime(df["date"], utc=True)
+    df["month"] = df["date"].dt.month
+    df["day"] = df["date"].dt.day
+    df["year"] = df["date"].dt.year
 
     if league == "pwhl":
         future_games = df[

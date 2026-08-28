@@ -81,8 +81,6 @@ function GamesContent() {
                 defaultEnd.getDate() + defaultDays
             );
 
-            console.log(defaultEnd)
-
             params.set(
                 "end",
                 defaultEnd.toISOString().split("T")[0]
@@ -355,13 +353,14 @@ function GamesContent() {
                         lg:grid-cols-3
                     ">
                         {sortedGames.slice(0, visibleCount).map((game) => {
+
                             const slop = game.slop_percentile;
-                            const badge = getSlopBadge(slop);
                             const slopColour = getHeatColour(slop);
 
                             const watchability = game.watchability_percentile;
-                            const watchabilityBadge = getSlopBadge(watchability);
                             const watchabilityColour = getHeatColour(1-watchability);
+
+                            const badge = getSlopBadge(slop, watchability);
 
 
                             return (

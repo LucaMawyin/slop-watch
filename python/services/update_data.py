@@ -203,6 +203,16 @@ def update_data(league="nba"):
 
     df = df.sort_values("date").reset_index(drop=True)
 
+    df["date"] = pd.to_datetime(
+        df["date"],
+        utc=True,
+        errors="coerce"
+    )
+
+    df["month"] = df["date"].dt.month
+    df["day"] = df["date"].dt.day
+    df["year"] = df["date"].dt.year
+
     # Write to csv
     temp_path = output_path.with_suffix(".tmp")
     df.to_csv(temp_path, index=False)

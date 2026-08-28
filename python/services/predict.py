@@ -14,6 +14,9 @@ FEATURES = [
     "away_recent_win_pct",
     "home_recent_point_diff",
     "away_recent_point_diff",
+    "month",
+    "day",
+    "year",
 ]
 
 def predict_slop(prediction_date=None, league="nba", days_ahead=7):

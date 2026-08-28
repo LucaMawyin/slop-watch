@@ -1,82 +1,90 @@
-export function getSlopBadge(score: number) {
-    const percentage = score * 100;
+import { getHeatColour } from "./getHeatColour";
 
-    if (percentage >= 97.5) {
-        return {
-            title: "Hall of Fame Slop",
-            borderColour: "border-red-500/40",
-            bgColour: "bg-red-500/15",
-            textColour: "text-red-400",
-        };
+export function getSlopBadge(sloppiness: number, watchability: number) {
+    
+    const combinedScore = (sloppiness + watchability) / 2;
+    const colour = getHeatColour(combinedScore);
+
+    // Exceptional watchability
+    if (watchability >= 0.9) {
+        if (sloppiness >= 0.9) {
+            return { title: "Hall of Fame Slop", colour };
+        }
+
+        if (sloppiness >= 0.75) {
+            return { title: "Legendary Slop", colour };
+        }
+
+        if (sloppiness >= 0.5) {
+            return { title: "Elite Slop", colour };
+        }
+
+        return { title: "Instant Classic", colour };
     }
 
-    if (percentage >= 90) {
-        return {
-            title: "Historic Slop",
-            borderColour: "border-rose-500/40",
-            bgColour: "bg-rose-500/15",
-            textColour: "text-rose-400",
-        };
+    // High watchability
+    if (watchability >= 0.75) {
+        if (sloppiness >= 0.9) {
+            return { title: "Premium Slop", colour };
+        }
+
+        if (sloppiness >= 0.75) {
+            return { title: "Good Slop", colour };
+        }
+
+        if (sloppiness >= 0.5) {
+            return { title: "Fun Slop", colour };
+        }
+
+        return { title: "Slopless Banger", colour };
     }
 
-    if (percentage >= 80) {
-        return {
-            title: "Slop Supreme",
-            borderColour: "border-orange-500/40",
-            bgColour: "bg-orange-500/15",
-            textColour: "text-orange-400",
-        };
+    // Above average watchability
+    if (watchability >= 0.6) {
+        if (sloppiness >= 0.9) {
+            return { title: "Great Slop", colour };
+        }
+
+        if (sloppiness >= 0.75) {
+            return { title: "Good Slop", colour };
+        }
+
+        if (sloppiness >= 0.5) {
+            return { title: "Entertaining Slop", colour };
+        }
+
+        return { title: "Worth Watching", colour };
     }
 
-    if (percentage >= 70) {
-        return {
-            title: "Grade-A Slop",
-            borderColour: "border-amber-500/40",
-            bgColour: "bg-amber-500/15",
-            textColour: "text-amber-400",
-        };
+    // Average watchability
+    if (watchability >= 0.4) {
+        if (sloppiness >= 0.9) {
+            return { title: "Chaotic Slop", colour };
+        }
+
+        if (sloppiness >= 0.75) {
+            return { title: "Decent Slop", colour };
+        }
+
+        if (sloppiness >= 0.5) {
+            return { title: "Some Slop", colour };
+        }
+
+        return { title: "Mildly Interesting", colour };
     }
 
-    if (percentage >= 60) {
-        return {
-            title: "Certified Slop",
-            borderColour: "border-yellow-500/40",
-            bgColour: "bg-yellow-500/15",
-            textColour: "text-yellow-400",
-        };
+    // Low watchability
+    if (sloppiness >= 0.9) {
+        return { title: "Historic Disaster", colour };
     }
 
-    if (percentage >= 50) {
-        return {
-            title: "Suspicious",
-            borderColour: "border-purple-300/40",
-            bgColour: "bg-purple-600/15",
-            textColour: "text-purple-300",
-        };
+    if (sloppiness >= 0.75) {
+        return { title: "Bad Slop", colour };
     }
 
-    if (percentage >= 35) {
-        return {
-            title: "A Little Sloppy",
-            borderColour: "border-blue-300/40",
-            bgColour: "bg-blue-600/15",
-            textColour: "text-blue-300",
-        };
+    if (sloppiness >= 0.5) {
+        return { title: "Forgettable Slop", colour };
     }
 
-    if (percentage >= 20) {
-        return {
-            title: "Traces of Slop",
-            borderColour: "border-lime-500/40",
-            bgColour: "bg-lime-500/15",
-            textColour: "text-lime-400",
-        };
-    }
-
-    return {
-        title: "Worth Watching",
-        borderColour: "border-emerald-500/40",
-        bgColour: "bg-emerald-500/15",
-        textColour: "text-emerald-400",
-    };
+    return { title: "Skip It", colour };
 }
