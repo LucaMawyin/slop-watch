@@ -142,8 +142,8 @@ function GamesContent() {
         }
 
         else if (sortBy === "overall") {
-            const aOverall = a.slop_percentile * a.watchability_percentile;
-            const bOverall = b.slop_percentile * b.watchability_percentile;
+            const aOverall = 1 - (a.slop_percentile * (1 - a.watchability_percentile));
+            const bOverall = 1- (b.slop_percentile * (1 - b.watchability_percentile));
 
             comparison = aOverall - bOverall;
         }
