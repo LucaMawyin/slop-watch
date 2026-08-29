@@ -1,7 +1,4 @@
 game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away_score,status,venue_full_name,month,day,year
-606014,2021-08-29 13:00:00+00:00,Leeds United at Burnley,LEE @ BUR,Burnley,379,1,Leeds United,357,1,STATUS_FULL_TIME,Turf Moor,8,29,2021
-606018,2021-08-29 13:00:00+00:00,Watford at Tottenham Hotspur,WAT @ TOT,Tottenham Hotspur,367,1,Watford,395,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,8,29,2021
-606016,2021-08-29 15:30:00+00:00,Manchester United at Wolverhampton Wanderers,MAN @ WOL,Wolverhampton Wanderers,380,0,Manchester United,360,1,STATUS_FULL_TIME,Molineux Stadium,8,29,2021
 606006,2021-09-11 11:30:00+00:00,Tottenham Hotspur at Crystal Palace,TOT @ CRY,Crystal Palace,384,3,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Selhurst Park,9,11,2021
 606005,2021-09-11 14:00:00+00:00,Norwich City at Arsenal,NOR @ ARS,Arsenal,359,1,Norwich City,381,0,STATUS_FULL_TIME,Emirates Stadium,9,11,2021
 606000,2021-09-11 14:00:00+00:00,Brighton & Hove Albion at Brentford,BHA @ BRE,Brentford,337,0,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Gtech Community Stadium,9,11,2021
@@ -14,10 +11,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 606001,2021-09-13 19:00:00+00:00,Burnley at Everton,BUR @ EVE,Everton,368,3,Burnley,379,1,STATUS_FULL_TIME,Goodison Park,9,13,2021
 605994,2021-09-17 19:00:00+00:00,Leeds United at Newcastle United,LEE @ NEW,Newcastle United,361,1,Leeds United,357,1,STATUS_FULL_TIME,St. James' Park,9,17,2021
 605990,2021-09-18 11:30:00+00:00,Brentford at Wolverhampton Wanderers,BRE @ WOL,Wolverhampton Wanderers,380,0,Brentford,337,2,STATUS_FULL_TIME,Molineux Stadium,9,18,2021
-605989,2021-09-18 14:00:00+00:00,Arsenal at Burnley,ARS @ BUR,Burnley,379,0,Arsenal,359,1,STATUS_FULL_TIME,Turf Moor,9,18,2021
-605992,2021-09-18 14:00:00+00:00,Crystal Palace at Liverpool,CRY @ LIV,Liverpool,364,3,Crystal Palace,384,0,STATUS_FULL_TIME,Anfield,9,18,2021
-605997,2021-09-18 14:00:00+00:00,Southampton at Manchester City,SOU @ MNC,Manchester City,382,0,Southampton,376,0,STATUS_FULL_TIME,Etihad Stadium,9,18,2021
 605998,2021-09-18 14:00:00+00:00,Watford at Norwich City,WAT @ NOR,Norwich City,381,1,Watford,395,3,STATUS_FULL_TIME,Carrow Road,9,18,2021
+605997,2021-09-18 14:00:00+00:00,Southampton at Manchester City,SOU @ MNC,Manchester City,382,0,Southampton,376,0,STATUS_FULL_TIME,Etihad Stadium,9,18,2021
+605992,2021-09-18 14:00:00+00:00,Crystal Palace at Liverpool,CRY @ LIV,Liverpool,364,3,Crystal Palace,384,0,STATUS_FULL_TIME,Anfield,9,18,2021
+605989,2021-09-18 14:00:00+00:00,Arsenal at Burnley,ARS @ BUR,Burnley,379,0,Arsenal,359,1,STATUS_FULL_TIME,Turf Moor,9,18,2021
 605993,2021-09-18 16:30:00+00:00,Everton at Aston Villa,EVE @ AVL,Aston Villa,362,3,Everton,368,0,STATUS_FULL_TIME,Villa Park,9,18,2021
 605995,2021-09-19 13:00:00+00:00,Leicester City at Brighton & Hove Albion,LEI @ BHA,Brighton & Hove Albion,331,2,Leicester City,375,1,STATUS_FULL_TIME,American Express Stadium,9,19,2021
 605996,2021-09-19 13:00:00+00:00,Manchester United at West Ham United,MAN @ WHU,West Ham United,371,1,Manchester United,360,2,STATUS_FULL_TIME,London Stadium,9,19,2021
@@ -43,11 +40,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605971,2021-10-03 13:00:00+00:00,Brentford at West Ham United,BRE @ WHU,West Ham United,371,1,Brentford,337,2,STATUS_FULL_TIME,London Stadium,10,3,2021
 605974,2021-10-03 15:30:00+00:00,Manchester City at Liverpool,MNC @ LIV,Liverpool,364,2,Manchester City,382,2,STATUS_FULL_TIME,Anfield,10,3,2021
 605964,2021-10-16 11:30:00+00:00,Liverpool at Watford,LIV @ WAT,Watford,395,0,Liverpool,364,5,STATUS_FULL_TIME,Vicarage Road,10,16,2021
-605968,2021-10-16 14:00:00+00:00,Wolverhampton Wanderers at Aston Villa,WOL @ AVL,Aston Villa,362,2,Wolverhampton Wanderers,380,3,STATUS_FULL_TIME,Villa Park,10,16,2021
-605965,2021-10-16 14:00:00+00:00,Manchester United at Leicester City,MAN @ LEI,Leicester City,375,4,Manchester United,360,2,STATUS_FULL_TIME,King Power Stadium,10,16,2021
-605960,2021-10-16 14:00:00+00:00,Burnley at Manchester City,BUR @ MNC,Manchester City,382,2,Burnley,379,0,STATUS_FULL_TIME,Etihad Stadium,10,16,2021
-605959,2021-10-16 14:00:00+00:00,Brighton & Hove Albion at Norwich City,BHA @ NOR,Norwich City,381,0,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Carrow Road,10,16,2021
 605963,2021-10-16 14:00:00+00:00,Leeds United at Southampton,LEE @ SOU,Southampton,376,1,Leeds United,357,0,STATUS_FULL_TIME,St. Mary's Stadium,10,16,2021
+605959,2021-10-16 14:00:00+00:00,Brighton & Hove Albion at Norwich City,BHA @ NOR,Norwich City,381,0,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Carrow Road,10,16,2021
+605960,2021-10-16 14:00:00+00:00,Burnley at Manchester City,BUR @ MNC,Manchester City,382,2,Burnley,379,0,STATUS_FULL_TIME,Etihad Stadium,10,16,2021
+605965,2021-10-16 14:00:00+00:00,Manchester United at Leicester City,MAN @ LEI,Leicester City,375,4,Manchester United,360,2,STATUS_FULL_TIME,King Power Stadium,10,16,2021
+605968,2021-10-16 14:00:00+00:00,Wolverhampton Wanderers at Aston Villa,WOL @ AVL,Aston Villa,362,2,Wolverhampton Wanderers,380,3,STATUS_FULL_TIME,Villa Park,10,16,2021
 605961,2021-10-16 16:30:00+00:00,Chelsea at Brentford,CHE @ BRE,Brentford,337,0,Chelsea,363,1,STATUS_FULL_TIME,Gtech Community Stadium,10,16,2021
 605967,2021-10-17 13:00:00+00:00,West Ham United at Everton,WHU @ EVE,Everton,368,0,West Ham United,371,1,STATUS_FULL_TIME,Goodison Park,10,17,2021
 605966,2021-10-17 15:30:00+00:00,Tottenham Hotspur at Newcastle United,TOT @ NEW,Newcastle United,361,2,Tottenham Hotspur,367,3,STATUS_FULL_TIME,St. James' Park,10,17,2021
@@ -59,8 +56,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605958,2021-10-23 14:00:00+00:00,Wolverhampton Wanderers at Leeds United,WOL @ LEE,Leeds United,357,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Elland Road,10,23,2021
 605950,2021-10-23 14:00:00+00:00,Burnley at Southampton,BUR @ SOU,Southampton,376,2,Burnley,379,2,STATUS_FULL_TIME,St. Mary's Stadium,10,23,2021
 605953,2021-10-23 16:30:00+00:00,Manchester City at Brighton & Hove Albion,MNC @ BHA,Brighton & Hove Albion,331,1,Manchester City,382,4,STATUS_FULL_TIME,American Express Stadium,10,23,2021
-605951,2021-10-24 13:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,1,Leicester City,375,2,STATUS_FULL_TIME,Gtech Community Stadium,10,24,2021
 605956,2021-10-24 13:00:00+00:00,Tottenham Hotspur at West Ham United,TOT @ WHU,West Ham United,371,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,London Stadium,10,24,2021
+605951,2021-10-24 13:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,1,Leicester City,375,2,STATUS_FULL_TIME,Gtech Community Stadium,10,24,2021
 605952,2021-10-24 15:30:00+00:00,Liverpool at Manchester United,LIV @ MAN,Manchester United,360,0,Liverpool,364,5,STATUS_FULL_TIME,Old Trafford,10,24,2021
 605939,2021-10-30 11:30:00+00:00,Arsenal at Leicester City,ARS @ LEI,Leicester City,375,0,Arsenal,359,2,STATUS_FULL_TIME,King Power Stadium,10,30,2021
 605940,2021-10-30 14:00:00+00:00,Brentford at Burnley,BRE @ BUR,Burnley,379,3,Brentford,337,1,STATUS_FULL_TIME,Turf Moor,10,30,2021
@@ -83,12 +80,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605931,2021-11-07 14:00:00+00:00,Leicester City at Leeds United,LEI @ LEE,Leeds United,357,1,Leicester City,375,1,STATUS_FULL_TIME,Elland Road,11,7,2021
 605932,2021-11-07 16:30:00+00:00,Liverpool at West Ham United,LIV @ WHU,West Ham United,371,3,Liverpool,364,2,STATUS_FULL_TIME,London Stadium,11,7,2021
 605922,2021-11-20 12:30:00+00:00,Chelsea at Leicester City,CHE @ LEI,Leicester City,375,0,Chelsea,363,3,STATUS_FULL_TIME,King Power Stadium,11,20,2021
-605921,2021-11-20 15:00:00+00:00,Brighton & Hove Albion at Aston Villa,BHA @ AVL,Aston Villa,362,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Villa Park,11,20,2021
-605923,2021-11-20 15:00:00+00:00,Crystal Palace at Burnley,CRY @ BUR,Burnley,379,3,Crystal Palace,384,3,STATUS_FULL_TIME,Turf Moor,11,20,2021
-605920,2021-11-20 15:00:00+00:00,Brentford at Newcastle United,BRE @ NEW,Newcastle United,361,3,Brentford,337,3,STATUS_FULL_TIME,St. James' Park,11,20,2021
-605927,2021-11-20 15:00:00+00:00,Southampton at Norwich City,SOU @ NOR,Norwich City,381,2,Southampton,376,1,STATUS_FULL_TIME,Carrow Road,11,20,2021
 605926,2021-11-20 15:00:00+00:00,Manchester United at Watford,MAN @ WAT,Watford,395,4,Manchester United,360,1,STATUS_FULL_TIME,Vicarage Road,11,20,2021
+605927,2021-11-20 15:00:00+00:00,Southampton at Norwich City,SOU @ NOR,Norwich City,381,2,Southampton,376,1,STATUS_FULL_TIME,Carrow Road,11,20,2021
 605928,2021-11-20 15:00:00+00:00,West Ham United at Wolverhampton Wanderers,WHU @ WOL,Wolverhampton Wanderers,380,1,West Ham United,371,0,STATUS_FULL_TIME,Molineux Stadium,11,20,2021
+605923,2021-11-20 15:00:00+00:00,Crystal Palace at Burnley,CRY @ BUR,Burnley,379,3,Crystal Palace,384,3,STATUS_FULL_TIME,Turf Moor,11,20,2021
+605921,2021-11-20 15:00:00+00:00,Brighton & Hove Albion at Aston Villa,BHA @ AVL,Aston Villa,362,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Villa Park,11,20,2021
+605920,2021-11-20 15:00:00+00:00,Brentford at Newcastle United,BRE @ NEW,Newcastle United,361,3,Brentford,337,3,STATUS_FULL_TIME,St. James' Park,11,20,2021
 605919,2021-11-20 17:30:00+00:00,Arsenal at Liverpool,ARS @ LIV,Liverpool,364,4,Arsenal,359,0,STATUS_FULL_TIME,Anfield,11,20,2021
 605924,2021-11-21 14:00:00+00:00,Everton at Manchester City,EVE @ MNC,Manchester City,382,3,Everton,368,0,STATUS_FULL_TIME,Etihad Stadium,11,21,2021
 605925,2021-11-21 16:30:00+00:00,Leeds United at Tottenham Hotspur,LEE @ TOT,Tottenham Hotspur,367,2,Leeds United,357,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,11,21,2021
@@ -171,8 +168,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605823,2022-01-15 15:00:00+00:00,Everton at Norwich City,EVE @ NOR,Norwich City,381,2,Everton,368,1,STATUS_FULL_TIME,Carrow Road,1,15,2022
 605827,2022-01-15 15:00:00+00:00,Southampton at Wolverhampton Wanderers,SOU @ WOL,Wolverhampton Wanderers,380,3,Southampton,376,1,STATUS_FULL_TIME,Molineux Stadium,1,15,2022
 605826,2022-01-15 17:30:00+00:00,Manchester United at Aston Villa,MAN @ AVL,Aston Villa,362,2,Manchester United,360,2,STATUS_FULL_TIME,Villa Park,1,15,2022
-605820,2022-01-16 14:00:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,3,Brentford,337,0,STATUS_FULL_TIME,Anfield,1,16,2022
 605824,2022-01-16 14:00:00+00:00,Leeds United at West Ham United,LEE @ WHU,West Ham United,371,2,Leeds United,357,3,STATUS_FULL_TIME,London Stadium,1,16,2022
+605820,2022-01-16 14:00:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,3,Brentford,337,0,STATUS_FULL_TIME,Anfield,1,16,2022
 605804,2022-01-18 20:00:00+00:00,Chelsea at Brighton & Hove Albion,CHE @ BHA,Brighton & Hove Albion,331,1,Chelsea,363,1,STATUS_FULL_TIME,American Express Stadium,1,18,2022
 605875,2022-01-19 19:30:00+00:00,Tottenham Hotspur at Leicester City,TOT @ LEI,Leicester City,375,2,Tottenham Hotspur,367,3,STATUS_FULL_TIME,King Power Stadium,1,19,2022
 605874,2022-01-19 20:00:00+00:00,Manchester United at Brentford,MAN @ BRE,Brentford,337,1,Manchester United,360,3,STATUS_FULL_TIME,Gtech Community Stadium,1,19,2022
@@ -201,8 +198,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605793,2022-02-12 15:00:00+00:00,Leeds United at Everton,LEE @ EVE,Everton,368,3,Leeds United,357,0,STATUS_FULL_TIME,Goodison Park,2,12,2022
 605791,2022-02-12 15:00:00+00:00,Brighton & Hove Albion at Watford,BHA @ WAT,Watford,395,0,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Vicarage Road,2,12,2022
 605795,2022-02-12 17:30:00+00:00,Manchester City at Norwich City,MNC @ NOR,Norwich City,381,0,Manchester City,382,4,STATUS_FULL_TIME,Carrow Road,2,12,2022
-605794,2022-02-13 14:00:00+00:00,Liverpool at Burnley,LIV @ BUR,Burnley,379,0,Liverpool,364,1,STATUS_FULL_TIME,Turf Moor,2,13,2022
 605790,2022-02-13 14:00:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,1,Aston Villa,362,0,STATUS_FULL_TIME,St. James' Park,2,13,2022
+605794,2022-02-13 14:00:00+00:00,Liverpool at Burnley,LIV @ BUR,Burnley,379,0,Liverpool,364,1,STATUS_FULL_TIME,Turf Moor,2,13,2022
 605798,2022-02-13 14:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,0,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,13,2022
 605797,2022-02-13 16:30:00+00:00,West Ham United at Leicester City,WHU @ LEI,Leicester City,375,2,West Ham United,371,2,STATUS_FULL_TIME,King Power Stadium,2,13,2022
 605861,2022-02-15 20:15:00+00:00,Brighton & Hove Albion at Manchester United,BHA @ MAN,Manchester United,360,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Old Trafford,2,15,2022
@@ -230,10 +227,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605778,2022-02-27 14:00:00+00:00,Wolverhampton Wanderers at West Ham United,WOL @ WHU,West Ham United,371,1,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,London Stadium,2,27,2022
 605825,2022-03-01 19:45:00+00:00,Leicester City at Burnley,LEI @ BUR,Burnley,379,0,Leicester City,375,2,STATUS_FULL_TIME,Turf Moor,3,1,2022
 605765,2022-03-05 12:30:00+00:00,Leeds United at Leicester City,LEE @ LEI,Leicester City,375,1,Leeds United,357,0,STATUS_FULL_TIME,King Power Stadium,3,5,2022
-605767,2022-03-05 15:00:00+00:00,Southampton at Aston Villa,SOU @ AVL,Aston Villa,362,4,Southampton,376,0,STATUS_FULL_TIME,Villa Park,3,5,2022
+605760,2022-03-05 15:00:00+00:00,Brentford at Norwich City,BRE @ NOR,Norwich City,381,1,Brentford,337,3,STATUS_FULL_TIME,Carrow Road,3,5,2022
 605762,2022-03-05 15:00:00+00:00,Chelsea at Burnley,CHE @ BUR,Burnley,379,0,Chelsea,363,4,STATUS_FULL_TIME,Turf Moor,3,5,2022
 605761,2022-03-05 15:00:00+00:00,Brighton & Hove Albion at Newcastle United,BHA @ NEW,Newcastle United,361,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,St. James' Park,3,5,2022
-605760,2022-03-05 15:00:00+00:00,Brentford at Norwich City,BRE @ NOR,Norwich City,381,1,Brentford,337,3,STATUS_FULL_TIME,Carrow Road,3,5,2022
+605767,2022-03-05 15:00:00+00:00,Southampton at Aston Villa,SOU @ AVL,Aston Villa,362,4,Southampton,376,0,STATUS_FULL_TIME,Villa Park,3,5,2022
 605763,2022-03-05 15:00:00+00:00,Crystal Palace at Wolverhampton Wanderers,CRY @ WOL,Wolverhampton Wanderers,380,0,Crystal Palace,384,2,STATUS_FULL_TIME,Molineux Stadium,3,5,2022
 605768,2022-03-05 17:30:00+00:00,West Ham United at Liverpool,WHU @ LIV,Liverpool,364,1,West Ham United,371,0,STATUS_FULL_TIME,Anfield,3,5,2022
 605759,2022-03-06 14:00:00+00:00,Arsenal at Watford,ARS @ WAT,Watford,395,2,Arsenal,359,3,STATUS_FULL_TIME,Vicarage Road,3,6,2022
@@ -246,11 +243,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605752,2022-03-12 12:30:00+00:00,Liverpool at Brighton & Hove Albion,LIV @ BHA,Brighton & Hove Albion,331,0,Liverpool,364,2,STATUS_FULL_TIME,American Express Stadium,3,12,2022
 605750,2022-03-12 15:00:00+00:00,Burnley at Brentford,BUR @ BRE,Brentford,337,2,Burnley,379,0,STATUS_FULL_TIME,Gtech Community Stadium,3,12,2022
 605756,2022-03-12 17:30:00+00:00,Tottenham Hotspur at Manchester United,TOT @ MAN,Manchester United,360,3,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Old Trafford,3,12,2022
-605754,2022-03-13 14:00:00+00:00,Newcastle United at Chelsea,NEW @ CHE,Chelsea,363,1,Newcastle United,361,0,STATUS_FULL_TIME,Stamford Bridge,3,13,2022
-605758,2022-03-13 14:00:00+00:00,Wolverhampton Wanderers at Everton,WOL @ EVE,Everton,368,0,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Goodison Park,3,13,2022
 605755,2022-03-13 14:00:00+00:00,Norwich City at Leeds United,NOR @ LEE,Leeds United,357,2,Norwich City,381,1,STATUS_FULL_TIME,Elland Road,3,13,2022
-605757,2022-03-13 14:00:00+00:00,Watford at Southampton,WAT @ SOU,Southampton,376,1,Watford,395,2,STATUS_FULL_TIME,St. Mary's Stadium,3,13,2022
+605754,2022-03-13 14:00:00+00:00,Newcastle United at Chelsea,NEW @ CHE,Chelsea,363,1,Newcastle United,361,0,STATUS_FULL_TIME,Stamford Bridge,3,13,2022
 605749,2022-03-13 14:00:00+00:00,Aston Villa at West Ham United,AVL @ WHU,West Ham United,371,2,Aston Villa,362,1,STATUS_FULL_TIME,London Stadium,3,13,2022
+605758,2022-03-13 14:00:00+00:00,Wolverhampton Wanderers at Everton,WOL @ EVE,Everton,368,0,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Goodison Park,3,13,2022
+605757,2022-03-13 14:00:00+00:00,Watford at Southampton,WAT @ SOU,Southampton,376,1,Watford,395,2,STATUS_FULL_TIME,St. Mary's Stadium,3,13,2022
 605751,2022-03-13 16:30:00+00:00,Leicester City at Arsenal,LEI @ ARS,Arsenal,359,2,Leicester City,375,0,STATUS_FULL_TIME,Emirates Stadium,3,13,2022
 605753,2022-03-14 20:00:00+00:00,Manchester City at Crystal Palace,MNC @ CRY,Crystal Palace,384,0,Manchester City,382,0,STATUS_FULL_TIME,Selhurst Park,3,14,2022
 605885,2022-03-16 19:30:00+00:00,Tottenham Hotspur at Brighton & Hove Albion,TOT @ BHA,Brighton & Hove Albion,331,0,Tottenham Hotspur,367,2,STATUS_FULL_TIME,American Express Stadium,3,16,2022
@@ -261,10 +258,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605740,2022-03-20 14:00:00+00:00,Brentford at Leicester City,BRE @ LEI,Leicester City,375,2,Brentford,337,1,STATUS_FULL_TIME,King Power Stadium,3,20,2022
 605748,2022-03-20 16:30:00+00:00,West Ham United at Tottenham Hotspur,WHU @ TOT,Tottenham Hotspur,367,3,West Ham United,371,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,3,20,2022
 605738,2022-04-02 11:30:00+00:00,Watford at Liverpool,WAT @ LIV,Liverpool,364,2,Watford,395,0,STATUS_FULL_TIME,Anfield,4,2,2022
-605736,2022-04-02 14:00:00+00:00,Norwich City at Brighton & Hove Albion,NOR @ BHA,Brighton & Hove Albion,331,0,Norwich City,381,0,STATUS_FULL_TIME,American Express Stadium,4,2,2022
+605737,2022-04-02 14:00:00+00:00,Southampton at Leeds United,SOU @ LEE,Leeds United,357,1,Southampton,376,1,STATUS_FULL_TIME,Elland Road,4,2,2022
 605734,2022-04-02 14:00:00+00:00,Manchester City at Burnley,MNC @ BUR,Burnley,379,0,Manchester City,382,2,STATUS_FULL_TIME,Turf Moor,4,2,2022
 605731,2022-04-02 14:00:00+00:00,Brentford at Chelsea,BRE @ CHE,Chelsea,363,1,Brentford,337,4,STATUS_FULL_TIME,Stamford Bridge,4,2,2022
-605737,2022-04-02 14:00:00+00:00,Southampton at Leeds United,SOU @ LEE,Leeds United,357,1,Southampton,376,1,STATUS_FULL_TIME,Elland Road,4,2,2022
+605736,2022-04-02 14:00:00+00:00,Norwich City at Brighton & Hove Albion,NOR @ BHA,Brighton & Hove Albion,331,0,Norwich City,381,0,STATUS_FULL_TIME,American Express Stadium,4,2,2022
 605730,2022-04-02 14:00:00+00:00,Aston Villa at Wolverhampton Wanderers,AVL @ WOL,Wolverhampton Wanderers,380,2,Aston Villa,362,1,STATUS_FULL_TIME,Molineux Stadium,4,2,2022
 605733,2022-04-02 16:30:00+00:00,Leicester City at Manchester United,LEI @ MAN,Manchester United,360,1,Leicester City,375,1,STATUS_FULL_TIME,Old Trafford,4,2,2022
 605732,2022-04-03 13:00:00+00:00,Everton at West Ham United,EVE @ WHU,West Ham United,371,2,Everton,368,1,STATUS_FULL_TIME,London Stadium,4,3,2022
@@ -305,10 +302,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605701,2022-04-25 19:00:00+00:00,Leeds United at Crystal Palace,LEE @ CRY,Crystal Palace,384,0,Leeds United,357,0,STATUS_FULL_TIME,Selhurst Park,4,25,2022
 605673,2022-04-28 18:45:00+00:00,Chelsea at Manchester United,CHE @ MAN,Manchester United,360,1,Chelsea,363,1,STATUS_FULL_TIME,Old Trafford,4,28,2022
 605696,2022-04-30 11:30:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,0,Liverpool,364,1,STATUS_FULL_TIME,St. James' Park,4,30,2022
-605698,2022-04-30 14:00:00+00:00,Norwich City at Aston Villa,NOR @ AVL,Aston Villa,362,2,Norwich City,381,0,STATUS_FULL_TIME,Villa Park,4,30,2022
-605694,2022-04-30 14:00:00+00:00,Crystal Palace at Southampton,CRY @ SOU,Southampton,376,1,Crystal Palace,384,2,STATUS_FULL_TIME,St. Mary's Stadium,4,30,2022
 605692,2022-04-30 14:00:00+00:00,Burnley at Watford,BUR @ WAT,Watford,395,1,Burnley,379,2,STATUS_FULL_TIME,Vicarage Road,4,30,2022
 605691,2022-04-30 14:00:00+00:00,Brighton & Hove Albion at Wolverhampton Wanderers,BHA @ WOL,Wolverhampton Wanderers,380,0,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Molineux Stadium,4,30,2022
+605698,2022-04-30 14:00:00+00:00,Norwich City at Aston Villa,NOR @ AVL,Aston Villa,362,2,Norwich City,381,0,STATUS_FULL_TIME,Villa Park,4,30,2022
+605694,2022-04-30 14:00:00+00:00,Crystal Palace at Southampton,CRY @ SOU,Southampton,376,1,Crystal Palace,384,2,STATUS_FULL_TIME,St. Mary's Stadium,4,30,2022
 605697,2022-04-30 16:30:00+00:00,Manchester City at Leeds United,MNC @ LEE,Leeds United,357,0,Manchester City,382,4,STATUS_FULL_TIME,Elland Road,4,30,2022
 605693,2022-05-01 13:00:00+00:00,Chelsea at Everton,CHE @ EVE,Everton,368,1,Chelsea,363,0,STATUS_FULL_TIME,Goodison Park,5,1,2022
 605695,2022-05-01 13:00:00+00:00,Leicester City at Tottenham Hotspur,LEI @ TOT,Tottenham Hotspur,367,3,Leicester City,375,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,1,2022
@@ -320,8 +317,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605686,2022-05-07 14:00:00+00:00,Watford at Crystal Palace,WAT @ CRY,Crystal Palace,384,1,Watford,395,0,STATUS_FULL_TIME,Selhurst Park,5,7,2022
 605682,2022-05-07 16:30:00+00:00,Manchester United at Brighton & Hove Albion,MAN @ BHA,Brighton & Hove Albion,331,4,Manchester United,360,0,STATUS_FULL_TIME,American Express Stadium,5,7,2022
 605685,2022-05-07 18:45:00+00:00,Tottenham Hotspur at Liverpool,TOT @ LIV,Liverpool,364,1,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Anfield,5,7,2022
-605681,2022-05-08 13:00:00+00:00,Leeds United at Arsenal,LEE @ ARS,Arsenal,359,2,Leeds United,357,1,STATUS_FULL_TIME,Emirates Stadium,5,8,2022
 605680,2022-05-08 13:00:00+00:00,Everton at Leicester City,EVE @ LEI,Leicester City,375,1,Everton,368,2,STATUS_FULL_TIME,King Power Stadium,5,8,2022
+605681,2022-05-08 13:00:00+00:00,Leeds United at Arsenal,LEE @ ARS,Arsenal,359,2,Leeds United,357,1,STATUS_FULL_TIME,Emirates Stadium,5,8,2022
 605687,2022-05-08 13:00:00+00:00,West Ham United at Norwich City,WHU @ NOR,Norwich City,381,0,West Ham United,371,4,STATUS_FULL_TIME,Carrow Road,5,8,2022
 605683,2022-05-08 15:30:00+00:00,Newcastle United at Manchester City,NEW @ MNC,Manchester City,382,5,Newcastle United,361,0,STATUS_FULL_TIME,Etihad Stadium,5,8,2022
 605716,2022-05-10 19:00:00+00:00,Liverpool at Aston Villa,LIV @ AVL,Aston Villa,362,1,Liverpool,364,2,STATUS_FULL_TIME,Villa Park,5,10,2022
@@ -331,10 +328,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605717,2022-05-11 19:15:00+00:00,Manchester City at Wolverhampton Wanderers,MNC @ WOL,Wolverhampton Wanderers,380,1,Manchester City,382,5,STATUS_FULL_TIME,Molineux Stadium,5,11,2022
 605819,2022-05-12 18:45:00+00:00,Arsenal at Tottenham Hotspur,ARS @ TOT,Tottenham Hotspur,367,3,Arsenal,359,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,12,2022
 605672,2022-05-15 11:00:00+00:00,Burnley at Tottenham Hotspur,BUR @ TOT,Tottenham Hotspur,367,1,Burnley,379,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,15,2022
-605674,2022-05-15 13:00:00+00:00,Crystal Palace at Aston Villa,CRY @ AVL,Aston Villa,362,1,Crystal Palace,384,1,STATUS_FULL_TIME,Villa Park,5,15,2022
+605677,2022-05-15 13:00:00+00:00,Manchester City at West Ham United,MNC @ WHU,West Ham United,371,2,Manchester City,382,2,STATUS_FULL_TIME,London Stadium,5,15,2022
 605671,2022-05-15 13:00:00+00:00,Brighton & Hove Albion at Leeds United,BHA @ LEE,Leeds United,357,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Elland Road,5,15,2022
 605675,2022-05-15 13:00:00+00:00,Leicester City at Watford,LEI @ WAT,Watford,395,1,Leicester City,375,5,STATUS_FULL_TIME,Vicarage Road,5,15,2022
-605677,2022-05-15 13:00:00+00:00,Manchester City at West Ham United,MNC @ WHU,West Ham United,371,2,Manchester City,382,2,STATUS_FULL_TIME,London Stadium,5,15,2022
+605674,2022-05-15 13:00:00+00:00,Crystal Palace at Aston Villa,CRY @ AVL,Aston Villa,362,1,Crystal Palace,384,1,STATUS_FULL_TIME,Villa Park,5,15,2022
 605678,2022-05-15 13:00:00+00:00,Norwich City at Wolverhampton Wanderers,NOR @ WOL,Wolverhampton Wanderers,380,1,Norwich City,381,1,STATUS_FULL_TIME,Molineux Stadium,5,15,2022
 605670,2022-05-15 15:30:00+00:00,Brentford at Everton,BRE @ EVE,Everton,368,2,Brentford,337,3,STATUS_FULL_TIME,Goodison Park,5,15,2022
 605669,2022-05-16 19:00:00+00:00,Arsenal at Newcastle United,ARS @ NEW,Newcastle United,361,2,Arsenal,359,0,STATUS_FULL_TIME,St. James' Park,5,16,2022
@@ -342,16 +339,16 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 605714,2022-05-19 18:45:00+00:00,Crystal Palace at Everton,CRY @ EVE,Everton,368,3,Crystal Palace,384,2,STATUS_FULL_TIME,Goodison Park,5,19,2022
 605862,2022-05-19 19:00:00+00:00,Burnley at Aston Villa,BUR @ AVL,Aston Villa,362,1,Burnley,379,1,STATUS_FULL_TIME,Villa Park,5,19,2022
 605771,2022-05-19 19:00:00+00:00,Leicester City at Chelsea,LEI @ CHE,Chelsea,363,1,Leicester City,375,1,STATUS_FULL_TIME,Stamford Bridge,5,19,2022
-605660,2022-05-22 15:00:00+00:00,Everton at Arsenal,EVE @ ARS,Arsenal,359,5,Everton,368,1,STATUS_FULL_TIME,Emirates Stadium,5,22,2022
-605661,2022-05-22 15:00:00+00:00,Leeds United at Brentford,LEE @ BRE,Brentford,337,1,Leeds United,357,2,STATUS_FULL_TIME,Gtech Community Stadium,5,22,2022
-605667,2022-05-22 15:00:00+00:00,West Ham United at Brighton & Hove Albion,WHU @ BHA,Brighton & Hove Albion,331,3,West Ham United,371,1,STATUS_FULL_TIME,American Express Stadium,5,22,2022
-605663,2022-05-22 15:00:00+00:00,Newcastle United at Burnley,NEW @ BUR,Burnley,379,1,Newcastle United,361,2,STATUS_FULL_TIME,Turf Moor,5,22,2022
-605666,2022-05-22 15:00:00+00:00,Watford at Chelsea,WAT @ CHE,Chelsea,363,2,Watford,395,1,STATUS_FULL_TIME,Stamford Bridge,5,22,2022
-605662,2022-05-22 15:00:00+00:00,Manchester United at Crystal Palace,MAN @ CRY,Crystal Palace,384,1,Manchester United,360,0,STATUS_FULL_TIME,Selhurst Park,5,22,2022
-605664,2022-05-22 15:00:00+00:00,Southampton at Leicester City,SOU @ LEI,Leicester City,375,4,Southampton,376,1,STATUS_FULL_TIME,King Power Stadium,5,22,2022
 605668,2022-05-22 15:00:00+00:00,Wolverhampton Wanderers at Liverpool,WOL @ LIV,Liverpool,364,3,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Anfield,5,22,2022
+605664,2022-05-22 15:00:00+00:00,Southampton at Leicester City,SOU @ LEI,Leicester City,375,4,Southampton,376,1,STATUS_FULL_TIME,King Power Stadium,5,22,2022
 605659,2022-05-22 15:00:00+00:00,Aston Villa at Manchester City,AVL @ MNC,Manchester City,382,3,Aston Villa,362,2,STATUS_FULL_TIME,Etihad Stadium,5,22,2022
+605662,2022-05-22 15:00:00+00:00,Manchester United at Crystal Palace,MAN @ CRY,Crystal Palace,384,1,Manchester United,360,0,STATUS_FULL_TIME,Selhurst Park,5,22,2022
 605665,2022-05-22 15:00:00+00:00,Tottenham Hotspur at Norwich City,TOT @ NOR,Norwich City,381,0,Tottenham Hotspur,367,5,STATUS_FULL_TIME,Carrow Road,5,22,2022
+605663,2022-05-22 15:00:00+00:00,Newcastle United at Burnley,NEW @ BUR,Burnley,379,1,Newcastle United,361,2,STATUS_FULL_TIME,Turf Moor,5,22,2022
+605661,2022-05-22 15:00:00+00:00,Leeds United at Brentford,LEE @ BRE,Brentford,337,1,Leeds United,357,2,STATUS_FULL_TIME,Gtech Community Stadium,5,22,2022
+605660,2022-05-22 15:00:00+00:00,Everton at Arsenal,EVE @ ARS,Arsenal,359,5,Everton,368,1,STATUS_FULL_TIME,Emirates Stadium,5,22,2022
+605667,2022-05-22 15:00:00+00:00,West Ham United at Brighton & Hove Albion,WHU @ BHA,Brighton & Hove Albion,331,3,West Ham United,371,1,STATUS_FULL_TIME,American Express Stadium,5,22,2022
+605666,2022-05-22 15:00:00+00:00,Watford at Chelsea,WAT @ CHE,Chelsea,363,2,Watford,395,1,STATUS_FULL_TIME,Stamford Bridge,5,22,2022
 638199,2022-08-05 19:00:00+00:00,Arsenal at Crystal Palace,ARS @ CRY,Crystal Palace,384,0,Arsenal,359,2,STATUS_FULL_TIME,Selhurst Park,8,5,2022
 638200,2022-08-06 11:30:00+00:00,Liverpool at Fulham,LIV @ FUL,Fulham,370,2,Liverpool,364,2,STATUS_FULL_TIME,Craven Cottage,8,6,2022
 638201,2022-08-06 14:00:00+00:00,Aston Villa at AFC Bournemouth,AVL @ BOU,AFC Bournemouth,349,2,Aston Villa,362,0,STATUS_FULL_TIME,Vitality Stadium,8,6,2022
@@ -384,9 +381,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638225,2022-08-22 19:00:00+00:00,Liverpool at Manchester United,LIV @ MAN,Manchester United,360,2,Liverpool,364,1,STATUS_FULL_TIME,Old Trafford,8,22,2022
 638237,2022-08-27 11:30:00+00:00,Manchester United at Southampton,MAN @ SOU,Southampton,376,0,Manchester United,360,1,STATUS_FULL_TIME,St. Mary's Stadium,8,27,2022
 638231,2022-08-27 14:00:00+00:00,Everton at Brentford,EVE @ BRE,Brentford,337,1,Everton,368,1,STATUS_FULL_TIME,Gtech Community Stadium,8,27,2022
-638232,2022-08-27 14:00:00+00:00,Leeds United at Brighton & Hove Albion,LEE @ BHA,Brighton & Hove Albion,331,1,Leeds United,357,0,STATUS_FULL_TIME,American Express Stadium,8,27,2022
-638233,2022-08-27 14:00:00+00:00,Leicester City at Chelsea,LEI @ CHE,Chelsea,363,2,Leicester City,375,1,STATUS_FULL_TIME,Stamford Bridge,8,27,2022
 638234,2022-08-27 14:00:00+00:00,AFC Bournemouth at Liverpool,BOU @ LIV,Liverpool,364,9,AFC Bournemouth,349,0,STATUS_FULL_TIME,Anfield,8,27,2022
+638233,2022-08-27 14:00:00+00:00,Leicester City at Chelsea,LEI @ CHE,Chelsea,363,2,Leicester City,375,1,STATUS_FULL_TIME,Stamford Bridge,8,27,2022
+638232,2022-08-27 14:00:00+00:00,Leeds United at Brighton & Hove Albion,LEE @ BHA,Brighton & Hove Albion,331,1,Leeds United,357,0,STATUS_FULL_TIME,American Express Stadium,8,27,2022
 638235,2022-08-27 14:00:00+00:00,Crystal Palace at Manchester City,CRY @ MNC,Manchester City,382,4,Crystal Palace,384,2,STATUS_FULL_TIME,Etihad Stadium,8,27,2022
 638229,2022-08-27 16:30:00+00:00,Fulham at Arsenal,FUL @ ARS,Arsenal,359,2,Fulham,370,1,STATUS_FULL_TIME,Emirates Stadium,8,27,2022
 638230,2022-08-28 13:00:00+00:00,West Ham United at Aston Villa,WHU @ AVL,Aston Villa,362,0,West Ham United,371,1,STATUS_FULL_TIME,Villa Park,8,28,2022
@@ -412,8 +409,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638249,2022-09-03 16:30:00+00:00,Manchester City at Aston Villa,MNC @ AVL,Aston Villa,362,1,Manchester City,382,1,STATUS_FULL_TIME,Villa Park,9,3,2022
 638251,2022-09-04 13:00:00+00:00,Leicester City at Brighton & Hove Albion,LEI @ BHA,Brighton & Hove Albion,331,5,Leicester City,375,2,STATUS_FULL_TIME,American Express Stadium,9,4,2022
 638254,2022-09-04 15:30:00+00:00,Arsenal at Manchester United,ARS @ MAN,Manchester United,360,3,Arsenal,359,1,STATUS_FULL_TIME,Old Trafford,9,4,2022
-637894,2022-09-16 19:00:00+00:00,Southampton at Aston Villa,SOU @ AVL,Aston Villa,362,1,Southampton,376,0,STATUS_FULL_TIME,Villa Park,9,16,2022
 637896,2022-09-16 19:00:00+00:00,Fulham at Nottingham Forest,FUL @ NFO,Nottingham Forest,393,2,Fulham,370,3,STATUS_FULL_TIME,The City Ground,9,16,2022
+637894,2022-09-16 19:00:00+00:00,Southampton at Aston Villa,SOU @ AVL,Aston Villa,362,1,Southampton,376,0,STATUS_FULL_TIME,Villa Park,9,16,2022
 637893,2022-09-17 11:30:00+00:00,Manchester City at Wolverhampton Wanderers,MNC @ WOL,Wolverhampton Wanderers,380,0,Manchester City,382,3,STATUS_FULL_TIME,Molineux Stadium,9,17,2022
 637895,2022-09-17 14:00:00+00:00,AFC Bournemouth at Newcastle United,BOU @ NEW,Newcastle United,361,1,AFC Bournemouth,349,1,STATUS_FULL_TIME,St. James' Park,9,17,2022
 637897,2022-09-17 16:30:00+00:00,Leicester City at Tottenham Hotspur,LEI @ TOT,Tottenham Hotspur,367,6,Leicester City,375,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,9,17,2022
@@ -441,8 +438,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 637910,2022-10-10 19:00:00+00:00,Aston Villa at Nottingham Forest,AVL @ NFO,Nottingham Forest,393,1,Aston Villa,362,1,STATUS_FULL_TIME,The City Ground,10,10,2022
 637920,2022-10-14 19:00:00+00:00,Brighton & Hove Albion at Brentford,BHA @ BRE,Brentford,337,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Gtech Community Stadium,10,14,2022
 637923,2022-10-15 11:30:00+00:00,Crystal Palace at Leicester City,CRY @ LEI,Leicester City,375,0,Crystal Palace,384,0,STATUS_FULL_TIME,King Power Stadium,10,15,2022
-637921,2022-10-15 14:00:00+00:00,AFC Bournemouth at Fulham,BOU @ FUL,Fulham,370,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Craven Cottage,10,15,2022
 637928,2022-10-15 14:00:00+00:00,Nottingham Forest at Wolverhampton Wanderers,NFO @ WOL,Wolverhampton Wanderers,380,1,Nottingham Forest,393,0,STATUS_FULL_TIME,Molineux Stadium,10,15,2022
+637921,2022-10-15 14:00:00+00:00,AFC Bournemouth at Fulham,BOU @ FUL,Fulham,370,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Craven Cottage,10,15,2022
 637927,2022-10-15 16:30:00+00:00,Everton at Tottenham Hotspur,EVE @ TOT,Tottenham Hotspur,367,2,Everton,368,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,10,15,2022
 637919,2022-10-16 13:00:00+00:00,Chelsea at Aston Villa,CHE @ AVL,Aston Villa,362,0,Chelsea,363,2,STATUS_FULL_TIME,Villa Park,10,16,2022
 637922,2022-10-16 13:00:00+00:00,Arsenal at Leeds United,ARS @ LEE,Leeds United,357,0,Arsenal,359,1,STATUS_FULL_TIME,Elland Road,10,16,2022
@@ -469,11 +466,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 637939,2022-10-23 15:30:00+00:00,Newcastle United at Tottenham Hotspur,NEW @ TOT,Tottenham Hotspur,367,1,Newcastle United,361,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,10,23,2022
 637940,2022-10-24 19:00:00+00:00,AFC Bournemouth at West Ham United,BOU @ WHU,West Ham United,371,2,AFC Bournemouth,349,0,STATUS_FULL_TIME,London Stadium,10,24,2022
 637955,2022-10-29 11:30:00+00:00,Manchester City at Leicester City,MNC @ LEI,Leicester City,375,0,Manchester City,382,1,STATUS_FULL_TIME,King Power Stadium,10,29,2022
-637949,2022-10-29 14:00:00+00:00,Tottenham Hotspur at AFC Bournemouth,TOT @ BOU,AFC Bournemouth,349,2,Tottenham Hotspur,367,3,STATUS_FULL_TIME,Vitality Stadium,10,29,2022
-637951,2022-10-29 14:00:00+00:00,Wolverhampton Wanderers at Brentford,WOL @ BRE,Brentford,337,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Gtech Community Stadium,10,29,2022
-637952,2022-10-29 14:00:00+00:00,Chelsea at Brighton & Hove Albion,CHE @ BHA,Brighton & Hove Albion,331,4,Chelsea,363,1,STATUS_FULL_TIME,American Express Stadium,10,29,2022
-637958,2022-10-29 14:00:00+00:00,Southampton at Crystal Palace,SOU @ CRY,Crystal Palace,384,1,Southampton,376,0,STATUS_FULL_TIME,Selhurst Park,10,29,2022
 637953,2022-10-29 14:00:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,4,Aston Villa,362,0,STATUS_FULL_TIME,St. James' Park,10,29,2022
+637951,2022-10-29 14:00:00+00:00,Wolverhampton Wanderers at Brentford,WOL @ BRE,Brentford,337,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Gtech Community Stadium,10,29,2022
+637958,2022-10-29 14:00:00+00:00,Southampton at Crystal Palace,SOU @ CRY,Crystal Palace,384,1,Southampton,376,0,STATUS_FULL_TIME,Selhurst Park,10,29,2022
+637952,2022-10-29 14:00:00+00:00,Chelsea at Brighton & Hove Albion,CHE @ BHA,Brighton & Hove Albion,331,4,Chelsea,363,1,STATUS_FULL_TIME,American Express Stadium,10,29,2022
+637949,2022-10-29 14:00:00+00:00,Tottenham Hotspur at AFC Bournemouth,TOT @ BOU,AFC Bournemouth,349,2,Tottenham Hotspur,367,3,STATUS_FULL_TIME,Vitality Stadium,10,29,2022
 637954,2022-10-29 16:30:00+00:00,Everton at Fulham,EVE @ FUL,Fulham,370,0,Everton,368,0,STATUS_FULL_TIME,Craven Cottage,10,29,2022
 637956,2022-10-29 18:45:00+00:00,Leeds United at Liverpool,LEE @ LIV,Liverpool,364,1,Leeds United,357,2,STATUS_FULL_TIME,Anfield,10,29,2022
 637950,2022-10-30 14:00:00+00:00,Nottingham Forest at Arsenal,NFO @ ARS,Arsenal,359,5,Nottingham Forest,393,0,STATUS_FULL_TIME,Emirates Stadium,10,30,2022
@@ -499,10 +496,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 637977,2022-11-13 14:00:00+00:00,Aston Villa at Brighton & Hove Albion,AVL @ BHA,Brighton & Hove Albion,331,1,Aston Villa,362,2,STATUS_FULL_TIME,American Express Stadium,11,13,2022
 637976,2022-11-13 16:30:00+00:00,Manchester United at Fulham,MAN @ FUL,Fulham,370,1,Manchester United,360,2,STATUS_FULL_TIME,Craven Cottage,11,13,2022
 637988,2022-12-26 12:30:00+00:00,Tottenham Hotspur at Brentford,TOT @ BRE,Brentford,337,2,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Gtech Community Stadium,12,26,2022
-637986,2022-12-26 15:00:00+00:00,Fulham at Crystal Palace,FUL @ CRY,Crystal Palace,384,0,Fulham,370,3,STATUS_FULL_TIME,Selhurst Park,12,26,2022
-637985,2022-12-26 15:00:00+00:00,Wolverhampton Wanderers at Everton,WOL @ EVE,Everton,368,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Goodison Park,12,26,2022
-637983,2022-12-26 15:00:00+00:00,Newcastle United at Leicester City,NEW @ LEI,Leicester City,375,0,Newcastle United,361,3,STATUS_FULL_TIME,King Power Stadium,12,26,2022
 637981,2022-12-26 15:00:00+00:00,Brighton & Hove Albion at Southampton,BHA @ SOU,Southampton,376,1,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,St. Mary's Stadium,12,26,2022
+637983,2022-12-26 15:00:00+00:00,Newcastle United at Leicester City,NEW @ LEI,Leicester City,375,0,Newcastle United,361,3,STATUS_FULL_TIME,King Power Stadium,12,26,2022
+637985,2022-12-26 15:00:00+00:00,Wolverhampton Wanderers at Everton,WOL @ EVE,Everton,368,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Goodison Park,12,26,2022
+637986,2022-12-26 15:00:00+00:00,Fulham at Crystal Palace,FUL @ CRY,Crystal Palace,384,0,Fulham,370,3,STATUS_FULL_TIME,Selhurst Park,12,26,2022
 637980,2022-12-26 17:30:00+00:00,Liverpool at Aston Villa,LIV @ AVL,Aston Villa,362,1,Liverpool,364,3,STATUS_FULL_TIME,Villa Park,12,26,2022
 637979,2022-12-26 20:00:00+00:00,West Ham United at Arsenal,WHU @ ARS,Arsenal,359,3,West Ham United,371,1,STATUS_FULL_TIME,Emirates Stadium,12,26,2022
 637987,2022-12-27 17:30:00+00:00,AFC Bournemouth at Chelsea,BOU @ CHE,Chelsea,363,2,AFC Bournemouth,349,0,STATUS_FULL_TIME,Stamford Bridge,12,27,2022
@@ -542,10 +539,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 637886,2023-01-18 20:00:00+00:00,Manchester United at Crystal Palace,MAN @ CRY,Crystal Palace,384,1,Manchester United,360,1,STATUS_FULL_TIME,Selhurst Park,1,18,2023
 638263,2023-01-19 20:00:00+00:00,Tottenham Hotspur at Manchester City,TOT @ MNC,Manchester City,382,4,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Etihad Stadium,1,19,2023
 638022,2023-01-21 12:30:00+00:00,Chelsea at Liverpool,CHE @ LIV,Liverpool,364,0,Chelsea,363,0,STATUS_FULL_TIME,Anfield,1,21,2023
-638027,2023-01-21 15:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Vitality Stadium,1,21,2023
-638028,2023-01-21 15:00:00+00:00,Brighton & Hove Albion at Leicester City,BHA @ LEI,Leicester City,375,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,King Power Stadium,1,21,2023
 638020,2023-01-21 15:00:00+00:00,Aston Villa at Southampton,AVL @ SOU,Southampton,376,0,Aston Villa,362,1,STATUS_FULL_TIME,St. Mary's Stadium,1,21,2023
 638023,2023-01-21 15:00:00+00:00,Everton at West Ham United,EVE @ WHU,West Ham United,371,2,Everton,368,0,STATUS_FULL_TIME,London Stadium,1,21,2023
+638027,2023-01-21 15:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Vitality Stadium,1,21,2023
+638028,2023-01-21 15:00:00+00:00,Brighton & Hove Albion at Leicester City,BHA @ LEI,Leicester City,375,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,King Power Stadium,1,21,2023
 638026,2023-01-21 17:30:00+00:00,Newcastle United at Crystal Palace,NEW @ CRY,Crystal Palace,384,0,Newcastle United,361,0,STATUS_FULL_TIME,Selhurst Park,1,21,2023
 638024,2023-01-22 14:00:00+00:00,Brentford at Leeds United,BRE @ LEE,Leeds United,357,0,Brentford,337,0,STATUS_FULL_TIME,Elland Road,1,22,2023
 638021,2023-01-22 14:00:00+00:00,Wolverhampton Wanderers at Manchester City,WOL @ MNC,Manchester City,382,3,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Etihad Stadium,1,22,2023
@@ -553,11 +550,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638025,2023-01-23 20:15:00+00:00,Tottenham Hotspur at Fulham,TOT @ FUL,Fulham,370,0,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Craven Cottage,1,23,2023
 638034,2023-02-03 20:00:00+00:00,Fulham at Chelsea,FUL @ CHE,Chelsea,363,0,Fulham,370,0,STATUS_FULL_TIME,Stamford Bridge,2,3,2023
 638038,2023-02-04 12:30:00+00:00,Arsenal at Everton,ARS @ EVE,Everton,368,1,Arsenal,359,0,STATUS_FULL_TIME,Goodison Park,2,4,2023
+638032,2023-02-04 15:00:00+00:00,Crystal Palace at Manchester United,CRY @ MAN,Manchester United,360,2,Crystal Palace,384,1,STATUS_FULL_TIME,Old Trafford,2,4,2023
+638033,2023-02-04 15:00:00+00:00,Liverpool at Wolverhampton Wanderers,LIV @ WOL,Wolverhampton Wanderers,380,3,Liverpool,364,0,STATUS_FULL_TIME,Molineux Stadium,2,4,2023
 638037,2023-02-04 15:00:00+00:00,Leicester City at Aston Villa,LEI @ AVL,Aston Villa,362,2,Leicester City,375,4,STATUS_FULL_TIME,Villa Park,2,4,2023
 638036,2023-02-04 15:00:00+00:00,Southampton at Brentford,SOU @ BRE,Brentford,337,3,Southampton,376,0,STATUS_FULL_TIME,Gtech Community Stadium,2,4,2023
 638035,2023-02-04 15:00:00+00:00,AFC Bournemouth at Brighton & Hove Albion,BOU @ BHA,Brighton & Hove Albion,331,1,AFC Bournemouth,349,0,STATUS_FULL_TIME,American Express Stadium,2,4,2023
-638032,2023-02-04 15:00:00+00:00,Crystal Palace at Manchester United,CRY @ MAN,Manchester United,360,2,Crystal Palace,384,1,STATUS_FULL_TIME,Old Trafford,2,4,2023
-638033,2023-02-04 15:00:00+00:00,Liverpool at Wolverhampton Wanderers,LIV @ WOL,Wolverhampton Wanderers,380,3,Liverpool,364,0,STATUS_FULL_TIME,Molineux Stadium,2,4,2023
 638031,2023-02-04 17:30:00+00:00,West Ham United at Newcastle United,WHU @ NEW,Newcastle United,361,1,West Ham United,371,1,STATUS_FULL_TIME,St. James' Park,2,4,2023
 638030,2023-02-05 14:00:00+00:00,Leeds United at Nottingham Forest,LEE @ NFO,Nottingham Forest,393,1,Leeds United,357,0,STATUS_FULL_TIME,The City Ground,2,5,2023
 638029,2023-02-05 16:30:00+00:00,Manchester City at Tottenham Hotspur,MNC @ TOT,Tottenham Hotspur,367,1,Manchester City,382,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,5,2023
@@ -574,20 +571,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638041,2023-02-13 20:00:00+00:00,Everton at Liverpool,EVE @ LIV,Liverpool,364,2,Everton,368,0,STATUS_FULL_TIME,Anfield,2,13,2023
 637931,2023-02-15 19:30:00+00:00,Manchester City at Arsenal,MNC @ ARS,Arsenal,359,1,Manchester City,382,3,STATUS_FULL_TIME,Emirates Stadium,2,15,2023
 638049,2023-02-18 12:30:00+00:00,Arsenal at Aston Villa,ARS @ AVL,Aston Villa,362,2,Arsenal,359,4,STATUS_FULL_TIME,Villa Park,2,18,2023
-638050,2023-02-18 15:00:00+00:00,Crystal Palace at Brentford,CRY @ BRE,Brentford,337,1,Crystal Palace,384,1,STATUS_FULL_TIME,Gtech Community Stadium,2,18,2023
-638058,2023-02-18 15:00:00+00:00,Fulham at Brighton & Hove Albion,FUL @ BHA,Brighton & Hove Albion,331,0,Fulham,370,1,STATUS_FULL_TIME,American Express Stadium,2,18,2023
 638057,2023-02-18 15:00:00+00:00,Southampton at Chelsea,SOU @ CHE,Chelsea,363,0,Southampton,376,1,STATUS_FULL_TIME,Stamford Bridge,2,18,2023
-638056,2023-02-18 15:00:00+00:00,Leeds United at Everton,LEE @ EVE,Everton,368,1,Leeds United,357,0,STATUS_FULL_TIME,Goodison Park,2,18,2023
-638053,2023-02-18 15:00:00+00:00,Manchester City at Nottingham Forest,MNC @ NFO,Nottingham Forest,393,1,Manchester City,382,1,STATUS_FULL_TIME,The City Ground,2,18,2023
+638058,2023-02-18 15:00:00+00:00,Fulham at Brighton & Hove Albion,FUL @ BHA,Brighton & Hove Albion,331,0,Fulham,370,1,STATUS_FULL_TIME,American Express Stadium,2,18,2023
+638050,2023-02-18 15:00:00+00:00,Crystal Palace at Brentford,CRY @ BRE,Brentford,337,1,Crystal Palace,384,1,STATUS_FULL_TIME,Gtech Community Stadium,2,18,2023
 638051,2023-02-18 15:00:00+00:00,AFC Bournemouth at Wolverhampton Wanderers,BOU @ WOL,Wolverhampton Wanderers,380,0,AFC Bournemouth,349,1,STATUS_FULL_TIME,Molineux Stadium,2,18,2023
+638053,2023-02-18 15:00:00+00:00,Manchester City at Nottingham Forest,MNC @ NFO,Nottingham Forest,393,1,Manchester City,382,1,STATUS_FULL_TIME,The City Ground,2,18,2023
+638056,2023-02-18 15:00:00+00:00,Leeds United at Everton,LEE @ EVE,Everton,368,1,Leeds United,357,0,STATUS_FULL_TIME,Goodison Park,2,18,2023
 638054,2023-02-18 17:30:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,0,Liverpool,364,2,STATUS_FULL_TIME,St. James' Park,2,18,2023
 638055,2023-02-19 14:00:00+00:00,Leicester City at Manchester United,LEI @ MAN,Manchester United,360,3,Leicester City,375,0,STATUS_FULL_TIME,Old Trafford,2,19,2023
 638052,2023-02-19 16:30:00+00:00,West Ham United at Tottenham Hotspur,WHU @ TOT,Tottenham Hotspur,367,2,West Ham United,371,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,19,2023
 638065,2023-02-24 20:00:00+00:00,Wolverhampton Wanderers at Fulham,WOL @ FUL,Fulham,370,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Craven Cottage,2,24,2023
-638066,2023-02-25 15:00:00+00:00,Aston Villa at Everton,AVL @ EVE,Everton,368,0,Aston Villa,362,2,STATUS_FULL_TIME,Goodison Park,2,25,2023
-638064,2023-02-25 15:00:00+00:00,Southampton at Leeds United,SOU @ LEE,Leeds United,357,1,Southampton,376,0,STATUS_FULL_TIME,Elland Road,2,25,2023
 638068,2023-02-25 15:00:00+00:00,Arsenal at Leicester City,ARS @ LEI,Leicester City,375,0,Arsenal,359,1,STATUS_FULL_TIME,King Power Stadium,2,25,2023
 638063,2023-02-25 15:00:00+00:00,Nottingham Forest at West Ham United,NFO @ WHU,West Ham United,371,4,Nottingham Forest,393,0,STATUS_FULL_TIME,London Stadium,2,25,2023
+638066,2023-02-25 15:00:00+00:00,Aston Villa at Everton,AVL @ EVE,Everton,368,0,Aston Villa,362,2,STATUS_FULL_TIME,Goodison Park,2,25,2023
+638064,2023-02-25 15:00:00+00:00,Southampton at Leeds United,SOU @ LEE,Leeds United,357,1,Southampton,376,0,STATUS_FULL_TIME,Elland Road,2,25,2023
 638059,2023-02-25 17:30:00+00:00,Manchester City at AFC Bournemouth,MNC @ BOU,AFC Bournemouth,349,1,Manchester City,382,4,STATUS_FULL_TIME,Vitality Stadium,2,25,2023
 638067,2023-02-25 19:45:00+00:00,Liverpool at Crystal Palace,LIV @ CRY,Crystal Palace,384,0,Liverpool,364,0,STATUS_FULL_TIME,Selhurst Park,2,25,2023
 638060,2023-02-26 13:30:00+00:00,Chelsea at Tottenham Hotspur,CHE @ TOT,Tottenham Hotspur,367,2,Chelsea,363,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,26,2023
@@ -616,10 +613,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 637892,2023-03-15 19:30:00+00:00,Crystal Palace at Brighton & Hove Albion,CRY @ BHA,Brighton & Hove Albion,331,1,Crystal Palace,384,0,STATUS_FULL_TIME,American Express Stadium,3,15,2023
 638264,2023-03-15 19:30:00+00:00,Brentford at Southampton,BRE @ SOU,Southampton,376,0,Brentford,337,2,STATUS_FULL_TIME,St. Mary's Stadium,3,15,2023
 638094,2023-03-17 20:00:00+00:00,Newcastle United at Nottingham Forest,NEW @ NFO,Nottingham Forest,393,1,Newcastle United,361,2,STATUS_FULL_TIME,The City Ground,3,17,2023
-638090,2023-03-18 15:00:00+00:00,AFC Bournemouth at Aston Villa,BOU @ AVL,Aston Villa,362,3,AFC Bournemouth,349,0,STATUS_FULL_TIME,Villa Park,3,18,2023
-638091,2023-03-18 15:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,1,Leicester City,375,1,STATUS_FULL_TIME,Gtech Community Stadium,3,18,2023
 638098,2023-03-18 15:00:00+00:00,Tottenham Hotspur at Southampton,TOT @ SOU,Southampton,376,3,Tottenham Hotspur,367,3,STATUS_FULL_TIME,St. Mary's Stadium,3,18,2023
 638093,2023-03-18 15:00:00+00:00,Leeds United at Wolverhampton Wanderers,LEE @ WOL,Wolverhampton Wanderers,380,2,Leeds United,357,4,STATUS_FULL_TIME,Molineux Stadium,3,18,2023
+638090,2023-03-18 15:00:00+00:00,AFC Bournemouth at Aston Villa,BOU @ AVL,Aston Villa,362,3,AFC Bournemouth,349,0,STATUS_FULL_TIME,Villa Park,3,18,2023
+638091,2023-03-18 15:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,1,Leicester City,375,1,STATUS_FULL_TIME,Gtech Community Stadium,3,18,2023
 638097,2023-03-18 17:30:00+00:00,Everton at Chelsea,EVE @ CHE,Chelsea,363,2,Everton,368,2,STATUS_FULL_TIME,Stamford Bridge,3,18,2023
 638089,2023-03-19 14:00:00+00:00,Crystal Palace at Arsenal,CRY @ ARS,Arsenal,359,4,Crystal Palace,384,1,STATUS_FULL_TIME,Emirates Stadium,3,19,2023
 638108,2023-04-01 11:30:00+00:00,Liverpool at Manchester City,LIV @ MNC,Manchester City,382,4,Liverpool,364,1,STATUS_FULL_TIME,Etihad Stadium,4,1,2023
@@ -639,12 +636,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638062,2023-04-05 19:00:00+00:00,Brentford at Manchester United,BRE @ MAN,Manchester United,360,1,Brentford,337,0,STATUS_FULL_TIME,Old Trafford,4,5,2023
 638265,2023-04-05 19:00:00+00:00,Newcastle United at West Ham United,NEW @ WHU,West Ham United,371,1,Newcastle United,361,5,STATUS_FULL_TIME,London Stadium,4,5,2023
 638112,2023-04-08 11:30:00+00:00,Everton at Manchester United,EVE @ MAN,Manchester United,360,2,Everton,368,0,STATUS_FULL_TIME,Old Trafford,4,8,2023
-638109,2023-04-08 14:00:00+00:00,Nottingham Forest at Aston Villa,NFO @ AVL,Aston Villa,362,2,Nottingham Forest,393,0,STATUS_FULL_TIME,Villa Park,4,8,2023
-638117,2023-04-08 14:00:00+00:00,Newcastle United at Brentford,NEW @ BRE,Brentford,337,1,Newcastle United,361,2,STATUS_FULL_TIME,Gtech Community Stadium,4,8,2023
-638116,2023-04-08 14:00:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,0,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,4,8,2023
 638114,2023-04-08 14:00:00+00:00,AFC Bournemouth at Leicester City,BOU @ LEI,Leicester City,375,0,AFC Bournemouth,349,1,STATUS_FULL_TIME,King Power Stadium,4,8,2023
 638110,2023-04-08 14:00:00+00:00,Brighton & Hove Albion at Tottenham Hotspur,BHA @ TOT,Tottenham Hotspur,367,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,4,8,2023
 638113,2023-04-08 14:00:00+00:00,Chelsea at Wolverhampton Wanderers,CHE @ WOL,Wolverhampton Wanderers,380,1,Chelsea,363,0,STATUS_FULL_TIME,Molineux Stadium,4,8,2023
+638109,2023-04-08 14:00:00+00:00,Nottingham Forest at Aston Villa,NFO @ AVL,Aston Villa,362,2,Nottingham Forest,393,0,STATUS_FULL_TIME,Villa Park,4,8,2023
+638117,2023-04-08 14:00:00+00:00,Newcastle United at Brentford,NEW @ BRE,Brentford,337,1,Newcastle United,361,2,STATUS_FULL_TIME,Gtech Community Stadium,4,8,2023
+638116,2023-04-08 14:00:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,0,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,4,8,2023
 638111,2023-04-08 16:30:00+00:00,Manchester City at Southampton,MNC @ SOU,Southampton,376,1,Manchester City,382,4,STATUS_FULL_TIME,St. Mary's Stadium,4,8,2023
 638115,2023-04-09 13:00:00+00:00,Crystal Palace at Leeds United,CRY @ LEE,Leeds United,357,1,Crystal Palace,384,5,STATUS_FULL_TIME,Elland Road,4,9,2023
 638118,2023-04-09 15:30:00+00:00,Arsenal at Liverpool,ARS @ LIV,Liverpool,364,2,Arsenal,359,2,STATUS_FULL_TIME,Anfield,4,9,2023
@@ -660,10 +657,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638124,2023-04-17 19:00:00+00:00,Liverpool at Leeds United,LIV @ LEE,Leeds United,357,1,Liverpool,364,6,STATUS_FULL_TIME,Elland Road,4,17,2023
 638129,2023-04-21 19:00:00+00:00,Southampton at Arsenal,SOU @ ARS,Arsenal,359,3,Southampton,376,3,STATUS_FULL_TIME,Emirates Stadium,4,21,2023
 638134,2023-04-22 11:30:00+00:00,Leeds United at Fulham,LEE @ FUL,Fulham,370,2,Leeds United,357,1,STATUS_FULL_TIME,Craven Cottage,4,22,2023
+638136,2023-04-22 14:00:00+00:00,Nottingham Forest at Liverpool,NFO @ LIV,Liverpool,364,3,Nottingham Forest,393,2,STATUS_FULL_TIME,Anfield,4,22,2023
+638135,2023-04-22 14:00:00+00:00,Wolverhampton Wanderers at Leicester City,WOL @ LEI,Leicester City,375,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,King Power Stadium,4,22,2023
 638131,2023-04-22 14:00:00+00:00,Aston Villa at Brentford,AVL @ BRE,Brentford,337,1,Aston Villa,362,1,STATUS_FULL_TIME,Gtech Community Stadium,4,22,2023
 638138,2023-04-22 14:00:00+00:00,Everton at Crystal Palace,EVE @ CRY,Crystal Palace,384,0,Everton,368,0,STATUS_FULL_TIME,Selhurst Park,4,22,2023
-638135,2023-04-22 14:00:00+00:00,Wolverhampton Wanderers at Leicester City,WOL @ LEI,Leicester City,375,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,King Power Stadium,4,22,2023
-638136,2023-04-22 14:00:00+00:00,Nottingham Forest at Liverpool,NFO @ LIV,Liverpool,364,3,Nottingham Forest,393,2,STATUS_FULL_TIME,Anfield,4,22,2023
 638130,2023-04-23 13:00:00+00:00,West Ham United at AFC Bournemouth,WHU @ BOU,AFC Bournemouth,349,0,West Ham United,371,4,STATUS_FULL_TIME,Vitality Stadium,4,23,2023
 638133,2023-04-23 13:00:00+00:00,Tottenham Hotspur at Newcastle United,TOT @ NEW,Newcastle United,361,6,Tottenham Hotspur,367,1,STATUS_FULL_TIME,St. James' Park,4,23,2023
 638140,2023-04-25 18:30:00+00:00,Crystal Palace at Wolverhampton Wanderers,CRY @ WOL,Wolverhampton Wanderers,380,2,Crystal Palace,384,0,STATUS_FULL_TIME,Molineux Stadium,4,25,2023
@@ -689,10 +686,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638096,2023-05-03 19:00:00+00:00,Fulham at Liverpool,FUL @ LIV,Liverpool,364,1,Fulham,370,0,STATUS_FULL_TIME,Anfield,5,3,2023
 638095,2023-05-03 19:00:00+00:00,West Ham United at Manchester City,WHU @ MNC,Manchester City,382,3,West Ham United,371,0,STATUS_FULL_TIME,Etihad Stadium,5,3,2023
 638092,2023-05-04 19:00:00+00:00,Manchester United at Brighton & Hove Albion,MAN @ BHA,Brighton & Hove Albion,331,1,Manchester United,360,0,STATUS_FULL_TIME,American Express Stadium,5,4,2023
-638167,2023-05-06 14:00:00+00:00,Chelsea at AFC Bournemouth,CHE @ BOU,AFC Bournemouth,349,1,Chelsea,363,3,STATUS_FULL_TIME,Vitality Stadium,5,6,2023
-638168,2023-05-06 14:00:00+00:00,Leeds United at Manchester City,LEE @ MNC,Manchester City,382,2,Leeds United,357,1,STATUS_FULL_TIME,Etihad Stadium,5,6,2023
-638160,2023-05-06 14:00:00+00:00,Crystal Palace at Tottenham Hotspur,CRY @ TOT,Tottenham Hotspur,367,1,Crystal Palace,384,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,6,2023
 638163,2023-05-06 14:00:00+00:00,Aston Villa at Wolverhampton Wanderers,AVL @ WOL,Wolverhampton Wanderers,380,1,Aston Villa,362,0,STATUS_FULL_TIME,Molineux Stadium,5,6,2023
+638160,2023-05-06 14:00:00+00:00,Crystal Palace at Tottenham Hotspur,CRY @ TOT,Tottenham Hotspur,367,1,Crystal Palace,384,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,6,2023
+638168,2023-05-06 14:00:00+00:00,Leeds United at Manchester City,LEE @ MNC,Manchester City,382,2,Leeds United,357,1,STATUS_FULL_TIME,Etihad Stadium,5,6,2023
+638167,2023-05-06 14:00:00+00:00,Chelsea at AFC Bournemouth,CHE @ BOU,AFC Bournemouth,349,1,Chelsea,363,3,STATUS_FULL_TIME,Vitality Stadium,5,6,2023
 638164,2023-05-06 16:30:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,1,Brentford,337,0,STATUS_FULL_TIME,Anfield,5,6,2023
 638162,2023-05-07 15:30:00+00:00,Arsenal at Newcastle United,ARS @ NEW,Newcastle United,361,0,Arsenal,359,2,STATUS_FULL_TIME,St. James' Park,5,7,2023
 638159,2023-05-07 18:00:00+00:00,Manchester United at West Ham United,MAN @ WHU,West Ham United,371,1,Manchester United,360,0,STATUS_FULL_TIME,London Stadium,5,7,2023
@@ -705,8 +702,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638173,2023-05-13 14:00:00+00:00,AFC Bournemouth at Crystal Palace,BOU @ CRY,Crystal Palace,384,2,AFC Bournemouth,349,0,STATUS_FULL_TIME,Selhurst Park,5,13,2023
 638169,2023-05-13 14:00:00+00:00,Wolverhampton Wanderers at Manchester United,WOL @ MAN,Manchester United,360,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Old Trafford,5,13,2023
 638178,2023-05-13 14:00:00+00:00,Fulham at Southampton,FUL @ SOU,Southampton,376,0,Fulham,370,2,STATUS_FULL_TIME,St. Mary's Stadium,5,13,2023
-638175,2023-05-14 13:00:00+00:00,West Ham United at Brentford,WHU @ BRE,Brentford,337,2,West Ham United,371,0,STATUS_FULL_TIME,Gtech Community Stadium,5,14,2023
 638172,2023-05-14 13:00:00+00:00,Manchester City at Everton,MNC @ EVE,Everton,368,0,Manchester City,382,3,STATUS_FULL_TIME,Goodison Park,5,14,2023
+638175,2023-05-14 13:00:00+00:00,West Ham United at Brentford,WHU @ BRE,Brentford,337,2,West Ham United,371,0,STATUS_FULL_TIME,Gtech Community Stadium,5,14,2023
 638177,2023-05-14 15:30:00+00:00,Brighton & Hove Albion at Arsenal,BHA @ ARS,Arsenal,359,0,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Emirates Stadium,5,14,2023
 638170,2023-05-15 19:00:00+00:00,Liverpool at Leicester City,LIV @ LEI,Leicester City,375,0,Liverpool,364,3,STATUS_FULL_TIME,King Power Stadium,5,15,2023
 638061,2023-05-18 18:30:00+00:00,Brighton & Hove Albion at Newcastle United,BHA @ NEW,Newcastle United,361,4,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,St. James' Park,5,18,2023
@@ -734,10 +731,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638193,2023-05-28 15:30:00+00:00,Liverpool at Southampton,LIV @ SOU,Southampton,376,4,Liverpool,364,4,STATUS_FULL_TIME,St. Mary's Stadium,5,28,2023
 671031,2023-08-11 19:00:00+00:00,Manchester City at Burnley,MNC @ BUR,Burnley,379,0,Manchester City,382,3,STATUS_FULL_TIME,Turf Moor,8,11,2023
 671032,2023-08-12 12:00:00+00:00,Nottingham Forest at Arsenal,NFO @ ARS,Arsenal,359,2,Nottingham Forest,393,1,STATUS_FULL_TIME,Emirates Stadium,8,12,2023
-671033,2023-08-12 14:00:00+00:00,West Ham United at AFC Bournemouth,WHU @ BOU,AFC Bournemouth,349,1,West Ham United,371,1,STATUS_FULL_TIME,Vitality Stadium,8,12,2023
-671034,2023-08-12 14:00:00+00:00,Luton Town at Brighton & Hove Albion,LTN @ BHA,Brighton & Hove Albion,331,4,Luton Town,301,1,STATUS_FULL_TIME,American Express Stadium,8,12,2023
-671035,2023-08-12 14:00:00+00:00,Fulham at Everton,FUL @ EVE,Everton,368,0,Fulham,370,1,STATUS_FULL_TIME,Goodison Park,8,12,2023
 671036,2023-08-12 14:00:00+00:00,Crystal Palace at Sheffield United,CRY @ SHU,Sheffield United,398,0,Crystal Palace,384,1,STATUS_FULL_TIME,Bramall Lane,8,12,2023
+671035,2023-08-12 14:00:00+00:00,Fulham at Everton,FUL @ EVE,Everton,368,0,Fulham,370,1,STATUS_FULL_TIME,Goodison Park,8,12,2023
+671034,2023-08-12 14:00:00+00:00,Luton Town at Brighton & Hove Albion,LTN @ BHA,Brighton & Hove Albion,331,4,Luton Town,301,1,STATUS_FULL_TIME,American Express Stadium,8,12,2023
+671033,2023-08-12 14:00:00+00:00,West Ham United at AFC Bournemouth,WHU @ BOU,AFC Bournemouth,349,1,West Ham United,371,1,STATUS_FULL_TIME,Vitality Stadium,8,12,2023
 671037,2023-08-12 16:30:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,5,Aston Villa,362,1,STATUS_FULL_TIME,St. James' Park,8,12,2023
 671038,2023-08-13 13:00:00+00:00,Tottenham Hotspur at Brentford,TOT @ BRE,Brentford,337,2,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Gtech Community Stadium,8,13,2023
 671039,2023-08-13 15:30:00+00:00,Liverpool at Chelsea,LIV @ CHE,Chelsea,363,1,Liverpool,364,1,STATUS_FULL_TIME,Stamford Bridge,8,13,2023
@@ -763,10 +760,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671055,2023-08-27 15:30:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,1,Liverpool,364,2,STATUS_FULL_TIME,St. James' Park,8,27,2023
 671070,2023-09-01 19:00:00+00:00,West Ham United at Luton Town,WHU @ LTN,Luton Town,301,1,West Ham United,371,2,STATUS_FULL_TIME,Kenilworth Road,9,1,2023
 671067,2023-09-02 11:30:00+00:00,Everton at Sheffield United,EVE @ SHU,Sheffield United,398,2,Everton,368,2,STATUS_FULL_TIME,Bramall Lane,9,2,2023
-671068,2023-09-02 14:00:00+00:00,AFC Bournemouth at Brentford,BOU @ BRE,Brentford,337,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Gtech Community Stadium,9,2,2023
-671061,2023-09-02 14:00:00+00:00,Tottenham Hotspur at Burnley,TOT @ BUR,Burnley,379,2,Tottenham Hotspur,367,5,STATUS_FULL_TIME,Turf Moor,9,2,2023
-671062,2023-09-02 14:00:00+00:00,Nottingham Forest at Chelsea,NFO @ CHE,Chelsea,363,0,Nottingham Forest,393,1,STATUS_FULL_TIME,Stamford Bridge,9,2,2023
 671066,2023-09-02 14:00:00+00:00,Fulham at Manchester City,FUL @ MNC,Manchester City,382,5,Fulham,370,1,STATUS_FULL_TIME,Etihad Stadium,9,2,2023
+671062,2023-09-02 14:00:00+00:00,Nottingham Forest at Chelsea,NFO @ CHE,Chelsea,363,0,Nottingham Forest,393,1,STATUS_FULL_TIME,Stamford Bridge,9,2,2023
+671061,2023-09-02 14:00:00+00:00,Tottenham Hotspur at Burnley,TOT @ BUR,Burnley,379,2,Tottenham Hotspur,367,5,STATUS_FULL_TIME,Turf Moor,9,2,2023
+671068,2023-09-02 14:00:00+00:00,AFC Bournemouth at Brentford,BOU @ BRE,Brentford,337,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Gtech Community Stadium,9,2,2023
 671069,2023-09-02 16:30:00+00:00,Newcastle United at Brighton & Hove Albion,NEW @ BHA,Brighton & Hove Albion,331,3,Newcastle United,361,1,STATUS_FULL_TIME,American Express Stadium,9,2,2023
 671063,2023-09-03 13:00:00+00:00,Wolverhampton Wanderers at Crystal Palace,WOL @ CRY,Crystal Palace,384,3,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Selhurst Park,9,3,2023
 671064,2023-09-03 13:00:00+00:00,Aston Villa at Liverpool,AVL @ LIV,Liverpool,364,3,Aston Villa,362,0,STATUS_FULL_TIME,Anfield,9,3,2023
@@ -792,12 +789,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671090,2023-09-24 13:00:00+00:00,West Ham United at Liverpool,WHU @ LIV,Liverpool,364,3,West Ham United,371,1,STATUS_FULL_TIME,Anfield,9,24,2023
 671084,2023-09-24 15:30:00+00:00,Newcastle United at Sheffield United,NEW @ SHU,Sheffield United,398,0,Newcastle United,361,8,STATUS_FULL_TIME,Bramall Lane,9,24,2023
 671098,2023-09-30 11:30:00+00:00,Brighton & Hove Albion at Aston Villa,BHA @ AVL,Aston Villa,362,6,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Villa Park,9,30,2023
-671099,2023-09-30 14:00:00+00:00,Arsenal at AFC Bournemouth,ARS @ BOU,AFC Bournemouth,349,0,Arsenal,359,4,STATUS_FULL_TIME,Vitality Stadium,9,30,2023
-671091,2023-09-30 14:00:00+00:00,Luton Town at Everton,LTN @ EVE,Everton,368,1,Luton Town,301,2,STATUS_FULL_TIME,Goodison Park,9,30,2023
-671092,2023-09-30 14:00:00+00:00,Crystal Palace at Manchester United,CRY @ MAN,Manchester United,360,0,Crystal Palace,384,1,STATUS_FULL_TIME,Old Trafford,9,30,2023
-671095,2023-09-30 14:00:00+00:00,Burnley at Newcastle United,BUR @ NEW,Newcastle United,361,2,Burnley,379,0,STATUS_FULL_TIME,St. James' Park,9,30,2023
 671096,2023-09-30 14:00:00+00:00,Sheffield United at West Ham United,SHU @ WHU,West Ham United,371,2,Sheffield United,398,0,STATUS_FULL_TIME,London Stadium,9,30,2023
 671097,2023-09-30 14:00:00+00:00,Manchester City at Wolverhampton Wanderers,MNC @ WOL,Wolverhampton Wanderers,380,2,Manchester City,382,1,STATUS_FULL_TIME,Molineux Stadium,9,30,2023
+671095,2023-09-30 14:00:00+00:00,Burnley at Newcastle United,BUR @ NEW,Newcastle United,361,2,Burnley,379,0,STATUS_FULL_TIME,St. James' Park,9,30,2023
+671092,2023-09-30 14:00:00+00:00,Crystal Palace at Manchester United,CRY @ MAN,Manchester United,360,0,Crystal Palace,384,1,STATUS_FULL_TIME,Old Trafford,9,30,2023
+671099,2023-09-30 14:00:00+00:00,Arsenal at AFC Bournemouth,ARS @ BOU,AFC Bournemouth,349,0,Arsenal,359,4,STATUS_FULL_TIME,Vitality Stadium,9,30,2023
+671091,2023-09-30 14:00:00+00:00,Luton Town at Everton,LTN @ EVE,Everton,368,1,Luton Town,301,2,STATUS_FULL_TIME,Goodison Park,9,30,2023
 671100,2023-09-30 16:30:00+00:00,Liverpool at Tottenham Hotspur,LIV @ TOT,Tottenham Hotspur,367,2,Liverpool,364,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,9,30,2023
 671094,2023-10-01 13:00:00+00:00,Brentford at Nottingham Forest,BRE @ NFO,Nottingham Forest,393,1,Brentford,337,1,STATUS_FULL_TIME,The City Ground,10,1,2023
 671093,2023-10-02 19:00:00+00:00,Chelsea at Fulham,CHE @ FUL,Fulham,370,0,Chelsea,363,2,STATUS_FULL_TIME,Craven Cottage,10,2,2023
@@ -809,8 +806,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671108,2023-10-07 14:00:00+00:00,Brentford at Manchester United,BRE @ MAN,Manchester United,360,2,Brentford,337,1,STATUS_FULL_TIME,Old Trafford,10,7,2023
 671104,2023-10-07 16:30:00+00:00,Nottingham Forest at Crystal Palace,NFO @ CRY,Crystal Palace,384,0,Nottingham Forest,393,0,STATUS_FULL_TIME,Selhurst Park,10,7,2023
 671102,2023-10-08 13:00:00+00:00,Liverpool at Brighton & Hove Albion,LIV @ BHA,Brighton & Hove Albion,331,2,Liverpool,364,2,STATUS_FULL_TIME,American Express Stadium,10,8,2023
-671109,2023-10-08 13:00:00+00:00,Newcastle United at West Ham United,NEW @ WHU,West Ham United,371,2,Newcastle United,361,2,STATUS_FULL_TIME,London Stadium,10,8,2023
 671105,2023-10-08 13:00:00+00:00,Aston Villa at Wolverhampton Wanderers,AVL @ WOL,Wolverhampton Wanderers,380,1,Aston Villa,362,1,STATUS_FULL_TIME,Molineux Stadium,10,8,2023
+671109,2023-10-08 13:00:00+00:00,Newcastle United at West Ham United,NEW @ WHU,West Ham United,371,2,Newcastle United,361,2,STATUS_FULL_TIME,London Stadium,10,8,2023
 671101,2023-10-08 15:30:00+00:00,Manchester City at Arsenal,MNC @ ARS,Arsenal,359,1,Manchester City,382,0,STATUS_FULL_TIME,Emirates Stadium,10,8,2023
 671115,2023-10-21 11:30:00+00:00,Everton at Liverpool,EVE @ LIV,Liverpool,364,2,Everton,368,0,STATUS_FULL_TIME,Anfield,10,21,2023
 671112,2023-10-21 14:00:00+00:00,Wolverhampton Wanderers at AFC Bournemouth,WOL @ BOU,AFC Bournemouth,349,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Vitality Stadium,10,21,2023
@@ -833,11 +830,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671127,2023-10-29 14:00:00+00:00,Nottingham Forest at Liverpool,NFO @ LIV,Liverpool,364,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Anfield,10,29,2023
 671128,2023-10-29 15:30:00+00:00,Manchester City at Manchester United,MNC @ MAN,Manchester United,360,0,Manchester City,382,3,STATUS_FULL_TIME,Old Trafford,10,29,2023
 671131,2023-11-04 12:30:00+00:00,Manchester United at Fulham,MAN @ FUL,Fulham,370,0,Manchester United,360,1,STATUS_FULL_TIME,Craven Cottage,11,4,2023
+671136,2023-11-04 15:00:00+00:00,AFC Bournemouth at Manchester City,BOU @ MNC,Manchester City,382,6,AFC Bournemouth,349,1,STATUS_FULL_TIME,Etihad Stadium,11,4,2023
+671132,2023-11-04 15:00:00+00:00,Brighton & Hove Albion at Everton,BHA @ EVE,Everton,368,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Goodison Park,11,4,2023
+671140,2023-11-04 15:00:00+00:00,Wolverhampton Wanderers at Sheffield United,WOL @ SHU,Sheffield United,398,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Bramall Lane,11,4,2023
 671134,2023-11-04 15:00:00+00:00,West Ham United at Brentford,WHU @ BRE,Brentford,337,3,West Ham United,371,2,STATUS_FULL_TIME,Gtech Community Stadium,11,4,2023
 671133,2023-11-04 15:00:00+00:00,Crystal Palace at Burnley,CRY @ BUR,Burnley,379,0,Crystal Palace,384,2,STATUS_FULL_TIME,Turf Moor,11,4,2023
-671132,2023-11-04 15:00:00+00:00,Brighton & Hove Albion at Everton,BHA @ EVE,Everton,368,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Goodison Park,11,4,2023
-671136,2023-11-04 15:00:00+00:00,AFC Bournemouth at Manchester City,BOU @ MNC,Manchester City,382,6,AFC Bournemouth,349,1,STATUS_FULL_TIME,Etihad Stadium,11,4,2023
-671140,2023-11-04 15:00:00+00:00,Wolverhampton Wanderers at Sheffield United,WOL @ SHU,Sheffield United,398,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Bramall Lane,11,4,2023
 671137,2023-11-04 17:30:00+00:00,Arsenal at Newcastle United,ARS @ NEW,Newcastle United,361,1,Arsenal,359,0,STATUS_FULL_TIME,St. James' Park,11,4,2023
 671138,2023-11-05 14:00:00+00:00,Aston Villa at Nottingham Forest,AVL @ NFO,Nottingham Forest,393,2,Aston Villa,362,0,STATUS_FULL_TIME,The City Ground,11,5,2023
 671135,2023-11-05 16:30:00+00:00,Liverpool at Luton Town,LIV @ LTN,Luton Town,301,1,Liverpool,364,1,STATUS_FULL_TIME,Kenilworth Road,11,5,2023
@@ -847,10 +844,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671145,2023-11-11 15:00:00+00:00,Everton at Crystal Palace,EVE @ CRY,Crystal Palace,384,2,Everton,368,3,STATUS_FULL_TIME,Selhurst Park,11,11,2023
 671142,2023-11-11 15:00:00+00:00,Luton Town at Manchester United,LTN @ MAN,Manchester United,360,1,Luton Town,301,0,STATUS_FULL_TIME,Old Trafford,11,11,2023
 671148,2023-11-11 17:30:00+00:00,Newcastle United at AFC Bournemouth,NEW @ BOU,AFC Bournemouth,349,2,Newcastle United,361,0,STATUS_FULL_TIME,Vitality Stadium,11,11,2023
+671143,2023-11-12 14:00:00+00:00,Nottingham Forest at West Ham United,NFO @ WHU,West Ham United,371,3,Nottingham Forest,393,2,STATUS_FULL_TIME,London Stadium,11,12,2023
 671147,2023-11-12 14:00:00+00:00,Fulham at Aston Villa,FUL @ AVL,Aston Villa,362,3,Fulham,370,1,STATUS_FULL_TIME,Villa Park,11,12,2023
 671149,2023-11-12 14:00:00+00:00,Sheffield United at Brighton & Hove Albion,SHU @ BHA,Brighton & Hove Albion,331,1,Sheffield United,398,1,STATUS_FULL_TIME,American Express Stadium,11,12,2023
 671141,2023-11-12 14:00:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,3,Brentford,337,0,STATUS_FULL_TIME,Anfield,11,12,2023
-671143,2023-11-12 14:00:00+00:00,Nottingham Forest at West Ham United,NFO @ WHU,West Ham United,371,3,Nottingham Forest,393,2,STATUS_FULL_TIME,London Stadium,11,12,2023
 671150,2023-11-12 16:30:00+00:00,Manchester City at Chelsea,MNC @ CHE,Chelsea,363,4,Manchester City,382,4,STATUS_FULL_TIME,Stamford Bridge,11,12,2023
 671154,2023-11-25 12:30:00+00:00,Liverpool at Manchester City,LIV @ MNC,Manchester City,382,1,Liverpool,364,1,STATUS_FULL_TIME,Etihad Stadium,11,25,2023
 671156,2023-11-25 15:00:00+00:00,West Ham United at Burnley,WHU @ BUR,Burnley,379,1,West Ham United,371,2,STATUS_FULL_TIME,Turf Moor,11,25,2023
@@ -883,23 +880,23 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671174,2023-12-07 19:30:00+00:00,Newcastle United at Everton,NEW @ EVE,Everton,368,3,Newcastle United,361,0,STATUS_FULL_TIME,Goodison Park,12,7,2023
 671176,2023-12-07 20:15:00+00:00,West Ham United at Tottenham Hotspur,WHU @ TOT,Tottenham Hotspur,367,1,West Ham United,371,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,7,2023
 671182,2023-12-09 12:30:00+00:00,Liverpool at Crystal Palace,LIV @ CRY,Crystal Palace,384,1,Liverpool,364,2,STATUS_FULL_TIME,Selhurst Park,12,9,2023
-671181,2023-12-09 15:00:00+00:00,Burnley at Brighton & Hove Albion,BUR @ BHA,Brighton & Hove Albion,331,1,Burnley,379,1,STATUS_FULL_TIME,American Express Stadium,12,9,2023
 671184,2023-12-09 15:00:00+00:00,AFC Bournemouth at Manchester United,BOU @ MAN,Manchester United,360,0,AFC Bournemouth,349,3,STATUS_FULL_TIME,Old Trafford,12,9,2023
-671183,2023-12-09 15:00:00+00:00,Brentford at Sheffield United,BRE @ SHU,Sheffield United,398,1,Brentford,337,0,STATUS_FULL_TIME,Bramall Lane,12,9,2023
+671181,2023-12-09 15:00:00+00:00,Burnley at Brighton & Hove Albion,BUR @ BHA,Brighton & Hove Albion,331,1,Burnley,379,1,STATUS_FULL_TIME,American Express Stadium,12,9,2023
 671186,2023-12-09 15:00:00+00:00,Nottingham Forest at Wolverhampton Wanderers,NFO @ WOL,Wolverhampton Wanderers,380,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Molineux Stadium,12,9,2023
+671183,2023-12-09 15:00:00+00:00,Brentford at Sheffield United,BRE @ SHU,Sheffield United,398,1,Brentford,337,0,STATUS_FULL_TIME,Bramall Lane,12,9,2023
 671188,2023-12-09 17:30:00+00:00,Arsenal at Aston Villa,ARS @ AVL,Aston Villa,362,1,Arsenal,359,0,STATUS_FULL_TIME,Villa Park,12,9,2023
 671190,2023-12-10 14:00:00+00:00,Chelsea at Everton,CHE @ EVE,Everton,368,2,Chelsea,363,0,STATUS_FULL_TIME,Goodison Park,12,10,2023
 671187,2023-12-10 14:00:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,5,West Ham United,371,0,STATUS_FULL_TIME,Craven Cottage,12,10,2023
 671185,2023-12-10 14:00:00+00:00,Manchester City at Luton Town,MNC @ LTN,Luton Town,301,1,Manchester City,382,2,STATUS_FULL_TIME,Kenilworth Road,12,10,2023
 671189,2023-12-10 16:30:00+00:00,Newcastle United at Tottenham Hotspur,NEW @ TOT,Tottenham Hotspur,367,4,Newcastle United,361,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,10,2023
 671197,2023-12-15 20:00:00+00:00,Tottenham Hotspur at Nottingham Forest,TOT @ NFO,Nottingham Forest,393,0,Tottenham Hotspur,367,2,STATUS_FULL_TIME,The City Ground,12,15,2023
-671191,2023-12-16 15:00:00+00:00,Sheffield United at Chelsea,SHU @ CHE,Chelsea,363,2,Sheffield United,398,0,STATUS_FULL_TIME,Stamford Bridge,12,16,2023
 671199,2023-12-16 15:00:00+00:00,Crystal Palace at Manchester City,CRY @ MNC,Manchester City,382,2,Crystal Palace,384,2,STATUS_FULL_TIME,Etihad Stadium,12,16,2023
 671198,2023-12-16 15:00:00+00:00,Fulham at Newcastle United,FUL @ NEW,Newcastle United,361,3,Fulham,370,0,STATUS_FULL_TIME,St. James' Park,12,16,2023
+671191,2023-12-16 15:00:00+00:00,Sheffield United at Chelsea,SHU @ CHE,Chelsea,363,2,Sheffield United,398,0,STATUS_FULL_TIME,Stamford Bridge,12,16,2023
 671192,2023-12-16 17:30:00+00:00,Everton at Burnley,EVE @ BUR,Burnley,379,0,Everton,368,2,STATUS_FULL_TIME,Turf Moor,12,16,2023
+671196,2023-12-17 14:00:00+00:00,Wolverhampton Wanderers at West Ham United,WOL @ WHU,West Ham United,371,3,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,London Stadium,12,17,2023
 671200,2023-12-17 14:00:00+00:00,Brighton & Hove Albion at Arsenal,BHA @ ARS,Arsenal,359,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Emirates Stadium,12,17,2023
 671193,2023-12-17 14:00:00+00:00,Aston Villa at Brentford,AVL @ BRE,Brentford,337,1,Aston Villa,362,2,STATUS_FULL_TIME,Gtech Community Stadium,12,17,2023
-671196,2023-12-17 14:00:00+00:00,Wolverhampton Wanderers at West Ham United,WOL @ WHU,West Ham United,371,3,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,London Stadium,12,17,2023
 671195,2023-12-17 16:30:00+00:00,Manchester United at Liverpool,MAN @ LIV,Liverpool,364,0,Manchester United,360,0,STATUS_FULL_TIME,Anfield,12,17,2023
 671208,2023-12-21 20:00:00+00:00,Brighton & Hove Albion at Crystal Palace,BHA @ CRY,Crystal Palace,384,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Selhurst Park,12,21,2023
 671209,2023-12-22 20:00:00+00:00,Sheffield United at Aston Villa,SHU @ AVL,Aston Villa,362,1,Sheffield United,398,1,STATUS_FULL_TIME,Villa Park,12,22,2023
@@ -941,8 +938,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671232,2024-01-21 16:30:00+00:00,Liverpool at AFC Bournemouth,LIV @ BOU,AFC Bournemouth,349,0,Liverpool,364,4,STATUS_FULL_TIME,Vitality Stadium,1,21,2024
 671234,2024-01-22 19:45:00+00:00,Wolverhampton Wanderers at Brighton & Hove Albion,WOL @ BHA,Brighton & Hove Albion,331,0,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,American Express Stadium,1,22,2024
 671245,2024-01-30 19:30:00+00:00,Arsenal at Nottingham Forest,ARS @ NFO,Nottingham Forest,393,1,Arsenal,359,2,STATUS_FULL_TIME,The City Ground,1,30,2024
-671244,2024-01-30 19:45:00+00:00,Everton at Fulham,EVE @ FUL,Fulham,370,0,Everton,368,0,STATUS_FULL_TIME,Craven Cottage,1,30,2024
 671247,2024-01-30 19:45:00+00:00,Brighton & Hove Albion at Luton Town,BHA @ LTN,Luton Town,301,4,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Kenilworth Road,1,30,2024
+671244,2024-01-30 19:45:00+00:00,Everton at Fulham,EVE @ FUL,Fulham,370,0,Everton,368,0,STATUS_FULL_TIME,Craven Cottage,1,30,2024
 671248,2024-01-30 20:00:00+00:00,Sheffield United at Crystal Palace,SHU @ CRY,Crystal Palace,384,3,Sheffield United,398,2,STATUS_FULL_TIME,Selhurst Park,1,30,2024
 671241,2024-01-30 20:15:00+00:00,Newcastle United at Aston Villa,NEW @ AVL,Aston Villa,362,1,Newcastle United,361,3,STATUS_FULL_TIME,Villa Park,1,30,2024
 671250,2024-01-31 19:30:00+00:00,Burnley at Manchester City,BUR @ MNC,Manchester City,382,3,Burnley,379,1,STATUS_FULL_TIME,Etihad Stadium,1,31,2024
@@ -955,9 +952,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671260,2024-02-03 15:00:00+00:00,Fulham at Burnley,FUL @ BUR,Burnley,379,2,Fulham,370,2,STATUS_FULL_TIME,Turf Moor,2,3,2024
 671251,2024-02-03 15:00:00+00:00,Luton Town at Newcastle United,LTN @ NEW,Newcastle United,361,4,Luton Town,301,4,STATUS_FULL_TIME,St. James' Park,2,3,2024
 671255,2024-02-03 17:30:00+00:00,Aston Villa at Sheffield United,AVL @ SHU,Sheffield United,398,0,Aston Villa,362,5,STATUS_FULL_TIME,Bramall Lane,2,3,2024
-671258,2024-02-04 14:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Vitality Stadium,2,4,2024
 671254,2024-02-04 14:00:00+00:00,Wolverhampton Wanderers at Chelsea,WOL @ CHE,Chelsea,363,2,Wolverhampton Wanderers,380,4,STATUS_FULL_TIME,Stamford Bridge,2,4,2024
 671252,2024-02-04 14:00:00+00:00,West Ham United at Manchester United,WHU @ MAN,Manchester United,360,3,West Ham United,371,0,STATUS_FULL_TIME,Old Trafford,2,4,2024
+671258,2024-02-04 14:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Vitality Stadium,2,4,2024
 671259,2024-02-04 16:30:00+00:00,Liverpool at Arsenal,LIV @ ARS,Arsenal,359,3,Liverpool,364,1,STATUS_FULL_TIME,Emirates Stadium,2,4,2024
 671257,2024-02-05 20:00:00+00:00,Manchester City at Brentford,MNC @ BRE,Brentford,337,1,Manchester City,382,3,STATUS_FULL_TIME,Gtech Community Stadium,2,5,2024
 671264,2024-02-10 12:30:00+00:00,Everton at Manchester City,EVE @ MNC,Manchester City,382,2,Everton,368,0,STATUS_FULL_TIME,Etihad Stadium,2,10,2024
@@ -971,11 +968,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671266,2024-02-11 16:30:00+00:00,Manchester United at Aston Villa,MAN @ AVL,Aston Villa,362,1,Manchester United,360,2,STATUS_FULL_TIME,Villa Park,2,11,2024
 671267,2024-02-12 20:00:00+00:00,Chelsea at Crystal Palace,CHE @ CRY,Crystal Palace,384,1,Chelsea,363,3,STATUS_FULL_TIME,Selhurst Park,2,12,2024
 671279,2024-02-17 12:30:00+00:00,Liverpool at Brentford,LIV @ BRE,Brentford,337,1,Liverpool,364,4,STATUS_FULL_TIME,Gtech Community Stadium,2,17,2024
+671277,2024-02-17 15:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,17,2024
+671275,2024-02-17 15:00:00+00:00,West Ham United at Nottingham Forest,WHU @ NFO,Nottingham Forest,393,2,West Ham United,371,0,STATUS_FULL_TIME,The City Ground,2,17,2024
 671280,2024-02-17 15:00:00+00:00,Arsenal at Burnley,ARS @ BUR,Burnley,379,0,Arsenal,359,5,STATUS_FULL_TIME,Turf Moor,2,17,2024
 671271,2024-02-17 15:00:00+00:00,Aston Villa at Fulham,AVL @ FUL,Fulham,370,1,Aston Villa,362,2,STATUS_FULL_TIME,Craven Cottage,2,17,2024
 671274,2024-02-17 15:00:00+00:00,AFC Bournemouth at Newcastle United,BOU @ NEW,Newcastle United,361,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,St. James' Park,2,17,2024
-671275,2024-02-17 15:00:00+00:00,West Ham United at Nottingham Forest,WHU @ NFO,Nottingham Forest,393,2,West Ham United,371,0,STATUS_FULL_TIME,The City Ground,2,17,2024
-671277,2024-02-17 15:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,2,17,2024
 671273,2024-02-17 17:30:00+00:00,Chelsea at Manchester City,CHE @ MNC,Manchester City,382,1,Chelsea,363,1,STATUS_FULL_TIME,Etihad Stadium,2,17,2024
 671276,2024-02-18 14:00:00+00:00,Brighton & Hove Albion at Sheffield United,BHA @ SHU,Sheffield United,398,0,Brighton & Hove Albion,331,5,STATUS_FULL_TIME,Bramall Lane,2,18,2024
 671278,2024-02-18 16:30:00+00:00,Manchester United at Luton Town,MAN @ LTN,Luton Town,301,1,Manchester United,360,2,STATUS_FULL_TIME,Kenilworth Road,2,18,2024
@@ -1001,9 +998,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671292,2024-03-03 15:30:00+00:00,Manchester United at Manchester City,MAN @ MNC,Manchester City,382,3,Manchester United,360,1,STATUS_FULL_TIME,Etihad Stadium,3,3,2024
 671300,2024-03-04 20:00:00+00:00,Arsenal at Sheffield United,ARS @ SHU,Sheffield United,398,0,Arsenal,359,6,STATUS_FULL_TIME,Bramall Lane,3,4,2024
 671308,2024-03-09 12:30:00+00:00,Everton at Manchester United,EVE @ MAN,Manchester United,360,2,Everton,368,0,STATUS_FULL_TIME,Old Trafford,3,9,2024
+671306,2024-03-09 15:00:00+00:00,Fulham at Wolverhampton Wanderers,FUL @ WOL,Wolverhampton Wanderers,380,2,Fulham,370,1,STATUS_FULL_TIME,Molineux Stadium,3,9,2024
 671303,2024-03-09 15:00:00+00:00,Sheffield United at AFC Bournemouth,SHU @ BOU,AFC Bournemouth,349,2,Sheffield United,398,2,STATUS_FULL_TIME,Vitality Stadium,3,9,2024
 671310,2024-03-09 15:00:00+00:00,Luton Town at Crystal Palace,LTN @ CRY,Crystal Palace,384,1,Luton Town,301,1,STATUS_FULL_TIME,Selhurst Park,3,9,2024
-671306,2024-03-09 15:00:00+00:00,Fulham at Wolverhampton Wanderers,FUL @ WOL,Wolverhampton Wanderers,380,2,Fulham,370,1,STATUS_FULL_TIME,Molineux Stadium,3,9,2024
 671305,2024-03-09 17:30:00+00:00,Brentford at Arsenal,BRE @ ARS,Arsenal,359,2,Brentford,337,1,STATUS_FULL_TIME,Emirates Stadium,3,9,2024
 671304,2024-03-10 13:00:00+00:00,Tottenham Hotspur at Aston Villa,TOT @ AVL,Aston Villa,362,0,Tottenham Hotspur,367,4,STATUS_FULL_TIME,Villa Park,3,10,2024
 671307,2024-03-10 14:00:00+00:00,Nottingham Forest at Brighton & Hove Albion,NFO @ BHA,Brighton & Hove Albion,331,1,Nottingham Forest,393,0,STATUS_FULL_TIME,American Express Stadium,3,10,2024
@@ -1016,11 +1013,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671313,2024-03-16 17:30:00+00:00,Tottenham Hotspur at Fulham,TOT @ FUL,Fulham,370,3,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Craven Cottage,3,16,2024
 671320,2024-03-17 14:00:00+00:00,Aston Villa at West Ham United,AVL @ WHU,West Ham United,371,1,Aston Villa,362,1,STATUS_FULL_TIME,London Stadium,3,17,2024
 671327,2024-03-30 12:30:00+00:00,West Ham United at Newcastle United,WHU @ NEW,Newcastle United,361,4,West Ham United,371,3,STATUS_FULL_TIME,St. James' Park,3,30,2024
+671321,2024-03-30 15:00:00+00:00,Luton Town at Tottenham Hotspur,LTN @ TOT,Tottenham Hotspur,367,2,Luton Town,301,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,3,30,2024
+671328,2024-03-30 15:00:00+00:00,Crystal Palace at Nottingham Forest,CRY @ NFO,Nottingham Forest,393,1,Crystal Palace,384,1,STATUS_FULL_TIME,The City Ground,3,30,2024
 671330,2024-03-30 15:00:00+00:00,Everton at AFC Bournemouth,EVE @ BOU,AFC Bournemouth,349,2,Everton,368,1,STATUS_FULL_TIME,Vitality Stadium,3,30,2024
 671323,2024-03-30 15:00:00+00:00,Burnley at Chelsea,BUR @ CHE,Chelsea,363,2,Burnley,379,2,STATUS_FULL_TIME,Stamford Bridge,3,30,2024
-671328,2024-03-30 15:00:00+00:00,Crystal Palace at Nottingham Forest,CRY @ NFO,Nottingham Forest,393,1,Crystal Palace,384,1,STATUS_FULL_TIME,The City Ground,3,30,2024
 671329,2024-03-30 15:00:00+00:00,Fulham at Sheffield United,FUL @ SHU,Sheffield United,398,3,Fulham,370,3,STATUS_FULL_TIME,Bramall Lane,3,30,2024
-671321,2024-03-30 15:00:00+00:00,Luton Town at Tottenham Hotspur,LTN @ TOT,Tottenham Hotspur,367,2,Luton Town,301,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,3,30,2024
 671325,2024-03-30 17:30:00+00:00,Wolverhampton Wanderers at Aston Villa,WOL @ AVL,Aston Villa,362,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Villa Park,3,30,2024
 671324,2024-03-30 20:00:00+00:00,Manchester United at Brentford,MAN @ BRE,Brentford,337,1,Manchester United,360,1,STATUS_FULL_TIME,Gtech Community Stadium,3,30,2024
 671322,2024-03-31 13:00:00+00:00,Brighton & Hove Albion at Liverpool,BHA @ LIV,Liverpool,364,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Anfield,3,31,2024
@@ -1069,10 +1066,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671311,2024-04-24 19:00:00+00:00,Sheffield United at Manchester United,SHU @ MAN,Manchester United,360,4,Sheffield United,398,2,STATUS_FULL_TIME,Old Trafford,4,24,2024
 671318,2024-04-25 19:00:00+00:00,Manchester City at Brighton & Hove Albion,MNC @ BHA,Brighton & Hove Albion,331,0,Manchester City,382,4,STATUS_FULL_TIME,American Express Stadium,4,25,2024
 671377,2024-04-27 11:30:00+00:00,Liverpool at West Ham United,LIV @ WHU,West Ham United,371,2,Liverpool,364,2,STATUS_FULL_TIME,London Stadium,4,27,2024
+671374,2024-04-27 14:00:00+00:00,Luton Town at Wolverhampton Wanderers,LTN @ WOL,Wolverhampton Wanderers,380,2,Luton Town,301,1,STATUS_FULL_TIME,Molineux Stadium,4,27,2024
+671372,2024-04-27 14:00:00+00:00,Sheffield United at Newcastle United,SHU @ NEW,Newcastle United,361,5,Sheffield United,398,1,STATUS_FULL_TIME,St. James' Park,4,27,2024
 671375,2024-04-27 14:00:00+00:00,Crystal Palace at Fulham,CRY @ FUL,Fulham,370,1,Crystal Palace,384,1,STATUS_FULL_TIME,Craven Cottage,4,27,2024
 671371,2024-04-27 14:00:00+00:00,Burnley at Manchester United,BUR @ MAN,Manchester United,360,1,Burnley,379,1,STATUS_FULL_TIME,Old Trafford,4,27,2024
-671372,2024-04-27 14:00:00+00:00,Sheffield United at Newcastle United,SHU @ NEW,Newcastle United,361,5,Sheffield United,398,1,STATUS_FULL_TIME,St. James' Park,4,27,2024
-671374,2024-04-27 14:00:00+00:00,Luton Town at Wolverhampton Wanderers,LTN @ WOL,Wolverhampton Wanderers,380,2,Luton Town,301,1,STATUS_FULL_TIME,Molineux Stadium,4,27,2024
 671376,2024-04-27 16:30:00+00:00,Brentford at Everton,BRE @ EVE,Everton,368,1,Brentford,337,0,STATUS_FULL_TIME,Goodison Park,4,27,2024
 671380,2024-04-27 19:00:00+00:00,Chelsea at Aston Villa,CHE @ AVL,Aston Villa,362,2,Chelsea,363,2,STATUS_FULL_TIME,Villa Park,4,27,2024
 671379,2024-04-28 13:00:00+00:00,Brighton & Hove Albion at AFC Bournemouth,BHA @ BOU,AFC Bournemouth,349,3,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Vitality Stadium,4,28,2024
@@ -1081,43 +1078,43 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 671282,2024-05-02 18:30:00+00:00,Tottenham Hotspur at Chelsea,TOT @ CHE,Chelsea,363,2,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Stamford Bridge,5,2,2024
 671388,2024-05-03 19:00:00+00:00,Everton at Luton Town,EVE @ LTN,Luton Town,301,1,Everton,368,1,STATUS_FULL_TIME,Kenilworth Road,5,3,2024
 671381,2024-05-04 11:30:00+00:00,AFC Bournemouth at Arsenal,BOU @ ARS,Arsenal,359,3,AFC Bournemouth,349,0,STATUS_FULL_TIME,Emirates Stadium,5,4,2024
+671390,2024-05-04 14:00:00+00:00,Nottingham Forest at Sheffield United,NFO @ SHU,Sheffield United,398,1,Nottingham Forest,393,3,STATUS_FULL_TIME,Bramall Lane,5,4,2024
 671382,2024-05-04 14:00:00+00:00,Fulham at Brentford,FUL @ BRE,Brentford,337,0,Fulham,370,0,STATUS_FULL_TIME,Gtech Community Stadium,5,4,2024
 671384,2024-05-04 14:00:00+00:00,Newcastle United at Burnley,NEW @ BUR,Burnley,379,1,Newcastle United,361,4,STATUS_FULL_TIME,Turf Moor,5,4,2024
-671390,2024-05-04 14:00:00+00:00,Nottingham Forest at Sheffield United,NFO @ SHU,Sheffield United,398,1,Nottingham Forest,393,3,STATUS_FULL_TIME,Bramall Lane,5,4,2024
 671389,2024-05-04 16:30:00+00:00,Wolverhampton Wanderers at Manchester City,WOL @ MNC,Manchester City,382,5,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Etihad Stadium,5,4,2024
-671383,2024-05-05 13:00:00+00:00,Aston Villa at Brighton & Hove Albion,AVL @ BHA,Brighton & Hove Albion,331,1,Aston Villa,362,0,STATUS_FULL_TIME,American Express Stadium,5,5,2024
 671385,2024-05-05 13:00:00+00:00,West Ham United at Chelsea,WHU @ CHE,Chelsea,363,5,West Ham United,371,0,STATUS_FULL_TIME,Stamford Bridge,5,5,2024
+671383,2024-05-05 13:00:00+00:00,Aston Villa at Brighton & Hove Albion,AVL @ BHA,Brighton & Hove Albion,331,1,Aston Villa,362,0,STATUS_FULL_TIME,American Express Stadium,5,5,2024
 671387,2024-05-05 15:30:00+00:00,Tottenham Hotspur at Liverpool,TOT @ LIV,Liverpool,364,4,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Anfield,5,5,2024
 671386,2024-05-06 19:00:00+00:00,Manchester United at Crystal Palace,MAN @ CRY,Crystal Palace,384,4,Manchester United,360,0,STATUS_FULL_TIME,Selhurst Park,5,6,2024
 671394,2024-05-11 11:30:00+00:00,Manchester City at Fulham,MNC @ FUL,Fulham,370,0,Manchester City,382,4,STATUS_FULL_TIME,Craven Cottage,5,11,2024
+671396,2024-05-11 14:00:00+00:00,Brighton & Hove Albion at Newcastle United,BHA @ NEW,Newcastle United,361,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,St. James' Park,5,11,2024
 671392,2024-05-11 14:00:00+00:00,Brentford at AFC Bournemouth,BRE @ BOU,AFC Bournemouth,349,1,Brentford,337,2,STATUS_FULL_TIME,Vitality Stadium,5,11,2024
 671393,2024-05-11 14:00:00+00:00,Sheffield United at Everton,SHU @ EVE,Everton,368,1,Sheffield United,398,0,STATUS_FULL_TIME,Goodison Park,5,11,2024
-671396,2024-05-11 14:00:00+00:00,Brighton & Hove Albion at Newcastle United,BHA @ NEW,Newcastle United,361,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,St. James' Park,5,11,2024
-671398,2024-05-11 14:00:00+00:00,Burnley at Tottenham Hotspur,BUR @ TOT,Tottenham Hotspur,367,2,Burnley,379,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,11,2024
 671399,2024-05-11 14:00:00+00:00,Luton Town at West Ham United,LTN @ WHU,West Ham United,371,3,Luton Town,301,1,STATUS_FULL_TIME,London Stadium,5,11,2024
 671400,2024-05-11 14:00:00+00:00,Crystal Palace at Wolverhampton Wanderers,CRY @ WOL,Wolverhampton Wanderers,380,1,Crystal Palace,384,3,STATUS_FULL_TIME,Molineux Stadium,5,11,2024
+671398,2024-05-11 14:00:00+00:00,Burnley at Tottenham Hotspur,BUR @ TOT,Tottenham Hotspur,367,2,Burnley,379,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,11,2024
 671397,2024-05-11 16:30:00+00:00,Chelsea at Nottingham Forest,CHE @ NFO,Nottingham Forest,393,2,Chelsea,363,3,STATUS_FULL_TIME,The City Ground,5,11,2024
 671395,2024-05-12 15:30:00+00:00,Arsenal at Manchester United,ARS @ MAN,Manchester United,360,0,Arsenal,359,1,STATUS_FULL_TIME,Old Trafford,5,12,2024
 671391,2024-05-13 19:00:00+00:00,Liverpool at Aston Villa,LIV @ AVL,Aston Villa,362,3,Liverpool,364,3,STATUS_FULL_TIME,Villa Park,5,13,2024
 671365,2024-05-14 19:00:00+00:00,Manchester City at Tottenham Hotspur,MNC @ TOT,Tottenham Hotspur,367,0,Manchester City,382,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,14,2024
 671367,2024-05-15 18:45:00+00:00,Chelsea at Brighton & Hove Albion,CHE @ BHA,Brighton & Hove Albion,331,1,Chelsea,363,2,STATUS_FULL_TIME,American Express Stadium,5,15,2024
 671362,2024-05-15 19:00:00+00:00,Newcastle United at Manchester United,NEW @ MAN,Manchester United,360,3,Newcastle United,361,2,STATUS_FULL_TIME,Old Trafford,5,15,2024
+671410,2024-05-19 15:00:00+00:00,AFC Bournemouth at Chelsea,BOU @ CHE,Chelsea,363,2,AFC Bournemouth,349,1,STATUS_FULL_TIME,Stamford Bridge,5,19,2024
 671401,2024-05-19 15:00:00+00:00,Everton at Arsenal,EVE @ ARS,Arsenal,359,2,Everton,368,1,STATUS_FULL_TIME,Emirates Stadium,5,19,2024
 671402,2024-05-19 15:00:00+00:00,Newcastle United at Brentford,NEW @ BRE,Brentford,337,2,Newcastle United,361,4,STATUS_FULL_TIME,Gtech Community Stadium,5,19,2024
 671403,2024-05-19 15:00:00+00:00,Manchester United at Brighton & Hove Albion,MAN @ BHA,Brighton & Hove Albion,331,0,Manchester United,360,2,STATUS_FULL_TIME,American Express Stadium,5,19,2024
 671404,2024-05-19 15:00:00+00:00,Nottingham Forest at Burnley,NFO @ BUR,Burnley,379,1,Nottingham Forest,393,2,STATUS_FULL_TIME,Turf Moor,5,19,2024
-671410,2024-05-19 15:00:00+00:00,AFC Bournemouth at Chelsea,BOU @ CHE,Chelsea,363,2,AFC Bournemouth,349,1,STATUS_FULL_TIME,Stamford Bridge,5,19,2024
-671406,2024-05-19 15:00:00+00:00,Aston Villa at Crystal Palace,AVL @ CRY,Crystal Palace,384,5,Aston Villa,362,0,STATUS_FULL_TIME,Selhurst Park,5,19,2024
 671407,2024-05-19 15:00:00+00:00,Wolverhampton Wanderers at Liverpool,WOL @ LIV,Liverpool,364,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Anfield,5,19,2024
 671408,2024-05-19 15:00:00+00:00,Fulham at Luton Town,FUL @ LTN,Luton Town,301,2,Fulham,370,4,STATUS_FULL_TIME,Kenilworth Road,5,19,2024
 671405,2024-05-19 15:00:00+00:00,West Ham United at Manchester City,WHU @ MNC,Manchester City,382,3,West Ham United,371,1,STATUS_FULL_TIME,Etihad Stadium,5,19,2024
 671409,2024-05-19 15:00:00+00:00,Tottenham Hotspur at Sheffield United,TOT @ SHU,Sheffield United,398,0,Tottenham Hotspur,367,3,STATUS_FULL_TIME,Bramall Lane,5,19,2024
+671406,2024-05-19 15:00:00+00:00,Aston Villa at Crystal Palace,AVL @ CRY,Crystal Palace,384,5,Aston Villa,362,0,STATUS_FULL_TIME,Selhurst Park,5,19,2024
 704279,2024-08-16 19:00:00+00:00,Fulham at Manchester United,FUL @ MAN,Manchester United,360,1,Fulham,370,0,STATUS_FULL_TIME,Old Trafford,8,16,2024
 704280,2024-08-17 11:30:00+00:00,Liverpool at Ipswich Town,LIV @ IPS,Ipswich Town,373,0,Liverpool,364,2,STATUS_FULL_TIME,Portman Road,8,17,2024
-704281,2024-08-17 14:00:00+00:00,Wolverhampton Wanderers at Arsenal,WOL @ ARS,Arsenal,359,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Emirates Stadium,8,17,2024
-704282,2024-08-17 14:00:00+00:00,Brighton & Hove Albion at Everton,BHA @ EVE,Everton,368,0,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Goodison Park,8,17,2024
-704283,2024-08-17 14:00:00+00:00,Southampton at Newcastle United,SOU @ NEW,Newcastle United,361,1,Southampton,376,0,STATUS_FULL_TIME,St. James' Park,8,17,2024
 704284,2024-08-17 14:00:00+00:00,AFC Bournemouth at Nottingham Forest,BOU @ NFO,Nottingham Forest,393,1,AFC Bournemouth,349,1,STATUS_FULL_TIME,The City Ground,8,17,2024
+704283,2024-08-17 14:00:00+00:00,Southampton at Newcastle United,SOU @ NEW,Newcastle United,361,1,Southampton,376,0,STATUS_FULL_TIME,St. James' Park,8,17,2024
+704282,2024-08-17 14:00:00+00:00,Brighton & Hove Albion at Everton,BHA @ EVE,Everton,368,0,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Goodison Park,8,17,2024
+704281,2024-08-17 14:00:00+00:00,Wolverhampton Wanderers at Arsenal,WOL @ ARS,Arsenal,359,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Emirates Stadium,8,17,2024
 704285,2024-08-17 16:30:00+00:00,Aston Villa at West Ham United,AVL @ WHU,West Ham United,371,1,Aston Villa,362,2,STATUS_FULL_TIME,London Stadium,8,17,2024
 704286,2024-08-18 13:00:00+00:00,Crystal Palace at Brentford,CRY @ BRE,Brentford,337,2,Crystal Palace,384,1,STATUS_FULL_TIME,Gtech Community Stadium,8,18,2024
 704287,2024-08-18 15:30:00+00:00,Manchester City at Chelsea,MNC @ CHE,Chelsea,363,0,Manchester City,382,2,STATUS_FULL_TIME,Stamford Bridge,8,18,2024
@@ -1129,8 +1126,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704296,2024-08-24 14:00:00+00:00,Nottingham Forest at Southampton,NFO @ SOU,Southampton,376,0,Nottingham Forest,393,1,STATUS_FULL_TIME,St. Mary's Stadium,8,24,2024
 704297,2024-08-24 14:00:00+00:00,Everton at Tottenham Hotspur,EVE @ TOT,Tottenham Hotspur,367,4,Everton,368,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,8,24,2024
 704289,2024-08-24 16:30:00+00:00,Arsenal at Aston Villa,ARS @ AVL,Aston Villa,362,0,Arsenal,359,2,STATUS_FULL_TIME,Villa Park,8,24,2024
-704290,2024-08-25 13:00:00+00:00,Newcastle United at AFC Bournemouth,NEW @ BOU,AFC Bournemouth,349,1,Newcastle United,361,1,STATUS_FULL_TIME,Vitality Stadium,8,25,2024
 704298,2024-08-25 13:00:00+00:00,Chelsea at Wolverhampton Wanderers,CHE @ WOL,Wolverhampton Wanderers,380,2,Chelsea,363,6,STATUS_FULL_TIME,Molineux Stadium,8,25,2024
+704290,2024-08-25 13:00:00+00:00,Newcastle United at AFC Bournemouth,NEW @ BOU,AFC Bournemouth,349,1,Newcastle United,361,1,STATUS_FULL_TIME,Vitality Stadium,8,25,2024
 704294,2024-08-25 15:30:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,2,Brentford,337,0,STATUS_FULL_TIME,Anfield,8,25,2024
 704299,2024-08-31 11:30:00+00:00,Brighton & Hove Albion at Arsenal,BHA @ ARS,Arsenal,359,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Emirates Stadium,8,31,2024
 704300,2024-08-31 14:00:00+00:00,Southampton at Brentford,SOU @ BRE,Brentford,337,3,Southampton,376,1,STATUS_FULL_TIME,Gtech Community Stadium,8,31,2024
@@ -1143,11 +1140,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704306,2024-09-01 12:30:00+00:00,Tottenham Hotspur at Newcastle United,TOT @ NEW,Newcastle United,361,2,Tottenham Hotspur,367,1,STATUS_FULL_TIME,St. James' Park,9,1,2024
 704305,2024-09-01 15:00:00+00:00,Liverpool at Manchester United,LIV @ MAN,Manchester United,360,0,Liverpool,364,3,STATUS_FULL_TIME,Old Trafford,9,1,2024
 704316,2024-09-14 11:30:00+00:00,Manchester United at Southampton,MAN @ SOU,Southampton,376,0,Manchester United,360,3,STATUS_FULL_TIME,St. Mary's Stadium,9,14,2024
-704311,2024-09-14 14:00:00+00:00,Ipswich Town at Brighton & Hove Albion,IPS @ BHA,Brighton & Hove Albion,331,0,Ipswich Town,373,0,STATUS_FULL_TIME,American Express Stadium,9,14,2024
-704312,2024-09-14 14:00:00+00:00,Leicester City at Crystal Palace,LEI @ CRY,Crystal Palace,384,2,Leicester City,375,2,STATUS_FULL_TIME,Selhurst Park,9,14,2024
-704313,2024-09-14 14:00:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,1,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,9,14,2024
 704314,2024-09-14 14:00:00+00:00,Nottingham Forest at Liverpool,NFO @ LIV,Liverpool,364,0,Nottingham Forest,393,1,STATUS_FULL_TIME,Anfield,9,14,2024
 704315,2024-09-14 14:00:00+00:00,Brentford at Manchester City,BRE @ MNC,Manchester City,382,2,Brentford,337,1,STATUS_FULL_TIME,Etihad Stadium,9,14,2024
+704313,2024-09-14 14:00:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,1,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,9,14,2024
+704312,2024-09-14 14:00:00+00:00,Leicester City at Crystal Palace,LEI @ CRY,Crystal Palace,384,2,Leicester City,375,2,STATUS_FULL_TIME,Selhurst Park,9,14,2024
+704311,2024-09-14 14:00:00+00:00,Ipswich Town at Brighton & Hove Albion,IPS @ BHA,Brighton & Hove Albion,331,0,Ipswich Town,373,0,STATUS_FULL_TIME,American Express Stadium,9,14,2024
 704309,2024-09-14 16:30:00+00:00,Everton at Aston Villa,EVE @ AVL,Aston Villa,362,3,Everton,368,2,STATUS_FULL_TIME,Villa Park,9,14,2024
 704310,2024-09-14 19:00:00+00:00,Chelsea at AFC Bournemouth,CHE @ BOU,AFC Bournemouth,349,0,Chelsea,363,1,STATUS_FULL_TIME,Vitality Stadium,9,14,2024
 704317,2024-09-15 13:00:00+00:00,Arsenal at Tottenham Hotspur,ARS @ TOT,Tottenham Hotspur,367,0,Arsenal,359,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,9,15,2024
@@ -1173,11 +1170,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704335,2024-09-29 15:30:00+00:00,Tottenham Hotspur at Manchester United,TOT @ MAN,Manchester United,360,0,Tottenham Hotspur,367,3,STATUS_FULL_TIME,Old Trafford,9,29,2024
 704330,2024-09-30 19:00:00+00:00,Southampton at AFC Bournemouth,SOU @ BOU,AFC Bournemouth,349,3,Southampton,376,1,STATUS_FULL_TIME,Vitality Stadium,9,30,2024
 704345,2024-10-05 11:30:00+00:00,Liverpool at Crystal Palace,LIV @ CRY,Crystal Palace,384,0,Liverpool,364,1,STATUS_FULL_TIME,Selhurst Park,10,5,2024
+704348,2024-10-05 14:00:00+00:00,Fulham at Manchester City,FUL @ MNC,Manchester City,382,3,Fulham,370,2,STATUS_FULL_TIME,Etihad Stadium,10,5,2024
+704339,2024-10-05 14:00:00+00:00,AFC Bournemouth at Leicester City,BOU @ LEI,Leicester City,375,1,AFC Bournemouth,349,0,STATUS_FULL_TIME,King Power Stadium,10,5,2024
+704344,2024-10-05 14:00:00+00:00,Ipswich Town at West Ham United,IPS @ WHU,West Ham United,371,4,Ipswich Town,373,1,STATUS_FULL_TIME,London Stadium,10,5,2024
 704343,2024-10-05 14:00:00+00:00,Southampton at Arsenal,SOU @ ARS,Arsenal,359,3,Southampton,376,1,STATUS_FULL_TIME,Emirates Stadium,10,5,2024
 704346,2024-10-05 14:00:00+00:00,Wolverhampton Wanderers at Brentford,WOL @ BRE,Brentford,337,5,Wolverhampton Wanderers,380,3,STATUS_FULL_TIME,Gtech Community Stadium,10,5,2024
-704339,2024-10-05 14:00:00+00:00,AFC Bournemouth at Leicester City,BOU @ LEI,Leicester City,375,1,AFC Bournemouth,349,0,STATUS_FULL_TIME,King Power Stadium,10,5,2024
-704348,2024-10-05 14:00:00+00:00,Fulham at Manchester City,FUL @ MNC,Manchester City,382,3,Fulham,370,2,STATUS_FULL_TIME,Etihad Stadium,10,5,2024
-704344,2024-10-05 14:00:00+00:00,Ipswich Town at West Ham United,IPS @ WHU,West Ham United,371,4,Ipswich Town,373,1,STATUS_FULL_TIME,London Stadium,10,5,2024
 704340,2024-10-05 16:30:00+00:00,Newcastle United at Everton,NEW @ EVE,Everton,368,0,Newcastle United,361,0,STATUS_FULL_TIME,Goodison Park,10,5,2024
 704347,2024-10-06 13:00:00+00:00,Manchester United at Aston Villa,MAN @ AVL,Aston Villa,362,0,Manchester United,360,0,STATUS_FULL_TIME,Villa Park,10,6,2024
 704342,2024-10-06 13:00:00+00:00,Nottingham Forest at Chelsea,NFO @ CHE,Chelsea,363,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Stamford Bridge,10,6,2024
@@ -1203,11 +1200,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704366,2024-10-27 14:00:00+00:00,Manchester United at West Ham United,MAN @ WHU,West Ham United,371,2,Manchester United,360,1,STATUS_FULL_TIME,London Stadium,10,27,2024
 704367,2024-10-27 16:30:00+00:00,Liverpool at Arsenal,LIV @ ARS,Arsenal,359,2,Liverpool,364,2,STATUS_FULL_TIME,Emirates Stadium,10,27,2024
 704372,2024-11-02 12:30:00+00:00,Arsenal at Newcastle United,ARS @ NEW,Newcastle United,361,1,Arsenal,359,0,STATUS_FULL_TIME,St. James' Park,11,2,2024
-704377,2024-11-02 15:00:00+00:00,Manchester City at AFC Bournemouth,MNC @ BOU,AFC Bournemouth,349,2,Manchester City,382,1,STATUS_FULL_TIME,Vitality Stadium,11,2,2024
-704375,2024-11-02 15:00:00+00:00,Leicester City at Ipswich Town,LEI @ IPS,Ipswich Town,373,1,Leicester City,375,1,STATUS_FULL_TIME,Portman Road,11,2,2024
-704374,2024-11-02 15:00:00+00:00,Brighton & Hove Albion at Liverpool,BHA @ LIV,Liverpool,364,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Anfield,11,2,2024
-704371,2024-11-02 15:00:00+00:00,West Ham United at Nottingham Forest,WHU @ NFO,Nottingham Forest,393,3,West Ham United,371,0,STATUS_FULL_TIME,The City Ground,11,2,2024
 704370,2024-11-02 15:00:00+00:00,Everton at Southampton,EVE @ SOU,Southampton,376,1,Everton,368,0,STATUS_FULL_TIME,St. Mary's Stadium,11,2,2024
+704371,2024-11-02 15:00:00+00:00,West Ham United at Nottingham Forest,WHU @ NFO,Nottingham Forest,393,3,West Ham United,371,0,STATUS_FULL_TIME,The City Ground,11,2,2024
+704374,2024-11-02 15:00:00+00:00,Brighton & Hove Albion at Liverpool,BHA @ LIV,Liverpool,364,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Anfield,11,2,2024
+704375,2024-11-02 15:00:00+00:00,Leicester City at Ipswich Town,LEI @ IPS,Ipswich Town,373,1,Leicester City,375,1,STATUS_FULL_TIME,Portman Road,11,2,2024
+704377,2024-11-02 15:00:00+00:00,Manchester City at AFC Bournemouth,MNC @ BOU,AFC Bournemouth,349,2,Manchester City,382,1,STATUS_FULL_TIME,Vitality Stadium,11,2,2024
 704373,2024-11-02 17:30:00+00:00,Crystal Palace at Wolverhampton Wanderers,CRY @ WOL,Wolverhampton Wanderers,380,2,Crystal Palace,384,2,STATUS_FULL_TIME,Molineux Stadium,11,2,2024
 704369,2024-11-03 14:00:00+00:00,Aston Villa at Tottenham Hotspur,AVL @ TOT,Tottenham Hotspur,367,4,Aston Villa,362,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,11,3,2024
 704378,2024-11-03 16:30:00+00:00,Chelsea at Manchester United,CHE @ MAN,Manchester United,360,1,Chelsea,363,1,STATUS_FULL_TIME,Old Trafford,11,3,2024
@@ -1218,25 +1215,25 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704385,2024-11-09 15:00:00+00:00,Southampton at Wolverhampton Wanderers,SOU @ WOL,Wolverhampton Wanderers,380,2,Southampton,376,0,STATUS_FULL_TIME,Molineux Stadium,11,9,2024
 704381,2024-11-09 17:30:00+00:00,Manchester City at Brighton & Hove Albion,MNC @ BHA,Brighton & Hove Albion,331,2,Manchester City,382,1,STATUS_FULL_TIME,American Express Stadium,11,9,2024
 704388,2024-11-09 20:00:00+00:00,Aston Villa at Liverpool,AVL @ LIV,Liverpool,364,2,Aston Villa,362,0,STATUS_FULL_TIME,Anfield,11,9,2024
-704386,2024-11-10 14:00:00+00:00,Leicester City at Manchester United,LEI @ MAN,Manchester United,360,3,Leicester City,375,0,STATUS_FULL_TIME,Old Trafford,11,10,2024
-704387,2024-11-10 14:00:00+00:00,Newcastle United at Nottingham Forest,NEW @ NFO,Nottingham Forest,393,1,Newcastle United,361,3,STATUS_FULL_TIME,The City Ground,11,10,2024
 704383,2024-11-10 14:00:00+00:00,Ipswich Town at Tottenham Hotspur,IPS @ TOT,Tottenham Hotspur,367,1,Ipswich Town,373,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,11,10,2024
+704387,2024-11-10 14:00:00+00:00,Newcastle United at Nottingham Forest,NEW @ NFO,Nottingham Forest,393,1,Newcastle United,361,3,STATUS_FULL_TIME,The City Ground,11,10,2024
+704386,2024-11-10 14:00:00+00:00,Leicester City at Manchester United,LEI @ MAN,Manchester United,360,3,Leicester City,375,0,STATUS_FULL_TIME,Old Trafford,11,10,2024
 704380,2024-11-10 16:30:00+00:00,Arsenal at Chelsea,ARS @ CHE,Chelsea,363,1,Arsenal,359,1,STATUS_FULL_TIME,Stamford Bridge,11,10,2024
 704392,2024-11-23 12:30:00+00:00,Chelsea at Leicester City,CHE @ LEI,Leicester City,375,1,Chelsea,363,2,STATUS_FULL_TIME,King Power Stadium,11,23,2024
-704395,2024-11-23 15:00:00+00:00,Brighton & Hove Albion at AFC Bournemouth,BHA @ BOU,AFC Bournemouth,349,1,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Vitality Stadium,11,23,2024
-704393,2024-11-23 15:00:00+00:00,Nottingham Forest at Arsenal,NFO @ ARS,Arsenal,359,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Emirates Stadium,11,23,2024
 704394,2024-11-23 15:00:00+00:00,Crystal Palace at Aston Villa,CRY @ AVL,Aston Villa,362,2,Crystal Palace,384,2,STATUS_FULL_TIME,Villa Park,11,23,2024
+704395,2024-11-23 15:00:00+00:00,Brighton & Hove Albion at AFC Bournemouth,BHA @ BOU,AFC Bournemouth,349,1,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Vitality Stadium,11,23,2024
 704391,2024-11-23 15:00:00+00:00,Brentford at Everton,BRE @ EVE,Everton,368,0,Brentford,337,0,STATUS_FULL_TIME,Goodison Park,11,23,2024
 704390,2024-11-23 15:00:00+00:00,Wolverhampton Wanderers at Fulham,WOL @ FUL,Fulham,370,1,Wolverhampton Wanderers,380,4,STATUS_FULL_TIME,Craven Cottage,11,23,2024
+704393,2024-11-23 15:00:00+00:00,Nottingham Forest at Arsenal,NFO @ ARS,Arsenal,359,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Emirates Stadium,11,23,2024
 704396,2024-11-23 17:30:00+00:00,Tottenham Hotspur at Manchester City,TOT @ MNC,Manchester City,382,0,Tottenham Hotspur,367,4,STATUS_FULL_TIME,Etihad Stadium,11,23,2024
 704397,2024-11-24 14:00:00+00:00,Liverpool at Southampton,LIV @ SOU,Southampton,376,2,Liverpool,364,3,STATUS_FULL_TIME,St. Mary's Stadium,11,24,2024
 704389,2024-11-24 16:30:00+00:00,Manchester United at Ipswich Town,MAN @ IPS,Ipswich Town,373,1,Manchester United,360,1,STATUS_FULL_TIME,Portman Road,11,24,2024
 704398,2024-11-25 20:00:00+00:00,West Ham United at Newcastle United,WHU @ NEW,Newcastle United,361,0,West Ham United,371,2,STATUS_FULL_TIME,St. James' Park,11,25,2024
 704408,2024-11-29 20:00:00+00:00,Southampton at Brighton & Hove Albion,SOU @ BHA,Brighton & Hove Albion,331,1,Southampton,376,1,STATUS_FULL_TIME,American Express Stadium,11,29,2024
-704402,2024-11-30 15:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,4,Leicester City,375,1,STATUS_FULL_TIME,Gtech Community Stadium,11,30,2024
-704405,2024-11-30 15:00:00+00:00,Newcastle United at Crystal Palace,NEW @ CRY,Crystal Palace,384,1,Newcastle United,361,1,STATUS_FULL_TIME,Selhurst Park,11,30,2024
-704399,2024-11-30 15:00:00+00:00,Ipswich Town at Nottingham Forest,IPS @ NFO,Nottingham Forest,393,1,Ipswich Town,373,0,STATUS_FULL_TIME,The City Ground,11,30,2024
 704403,2024-11-30 15:00:00+00:00,AFC Bournemouth at Wolverhampton Wanderers,BOU @ WOL,Wolverhampton Wanderers,380,2,AFC Bournemouth,349,4,STATUS_FULL_TIME,Molineux Stadium,11,30,2024
+704399,2024-11-30 15:00:00+00:00,Ipswich Town at Nottingham Forest,IPS @ NFO,Nottingham Forest,393,1,Ipswich Town,373,0,STATUS_FULL_TIME,The City Ground,11,30,2024
+704405,2024-11-30 15:00:00+00:00,Newcastle United at Crystal Palace,NEW @ CRY,Crystal Palace,384,1,Newcastle United,361,1,STATUS_FULL_TIME,Selhurst Park,11,30,2024
+704402,2024-11-30 15:00:00+00:00,Leicester City at Brentford,LEI @ BRE,Brentford,337,4,Leicester City,375,1,STATUS_FULL_TIME,Gtech Community Stadium,11,30,2024
 704400,2024-11-30 17:30:00+00:00,Arsenal at West Ham United,ARS @ WHU,West Ham United,371,2,Arsenal,359,5,STATUS_FULL_TIME,London Stadium,11,30,2024
 704404,2024-12-01 13:30:00+00:00,Aston Villa at Chelsea,AVL @ CHE,Chelsea,363,3,Aston Villa,362,0,STATUS_FULL_TIME,Stamford Bridge,12,1,2024
 704407,2024-12-01 13:30:00+00:00,Everton at Manchester United,EVE @ MAN,Manchester United,360,4,Everton,368,0,STATUS_FULL_TIME,Old Trafford,12,1,2024
@@ -1248,23 +1245,23 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704416,2024-12-04 19:30:00+00:00,Nottingham Forest at Manchester City,NFO @ MNC,Manchester City,382,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Etihad Stadium,12,4,2024
 704417,2024-12-04 19:30:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,3,Liverpool,364,3,STATUS_FULL_TIME,St. James' Park,12,4,2024
 704418,2024-12-04 19:30:00+00:00,Chelsea at Southampton,CHE @ SOU,Southampton,376,1,Chelsea,363,5,STATUS_FULL_TIME,St. Mary's Stadium,12,4,2024
-704410,2024-12-04 20:15:00+00:00,Manchester United at Arsenal,MAN @ ARS,Arsenal,359,2,Manchester United,360,0,STATUS_FULL_TIME,Emirates Stadium,12,4,2024
 704409,2024-12-04 20:15:00+00:00,Brentford at Aston Villa,BRE @ AVL,Aston Villa,362,3,Brentford,337,1,STATUS_FULL_TIME,Villa Park,12,4,2024
+704410,2024-12-04 20:15:00+00:00,Manchester United at Arsenal,MAN @ ARS,Arsenal,359,2,Manchester United,360,0,STATUS_FULL_TIME,Emirates Stadium,12,4,2024
 704413,2024-12-05 19:30:00+00:00,Brighton & Hove Albion at Fulham,BHA @ FUL,Fulham,370,3,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Craven Cottage,12,5,2024
 704414,2024-12-05 20:15:00+00:00,Tottenham Hotspur at AFC Bournemouth,TOT @ BOU,AFC Bournemouth,349,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Vitality Stadium,12,5,2024
+704424,2024-12-07 15:00:00+00:00,Manchester City at Crystal Palace,MNC @ CRY,Crystal Palace,384,2,Manchester City,382,2,STATUS_FULL_TIME,Selhurst Park,12,7,2024
 704422,2024-12-07 15:00:00+00:00,Southampton at Aston Villa,SOU @ AVL,Aston Villa,362,1,Southampton,376,0,STATUS_FULL_TIME,Villa Park,12,7,2024
 704423,2024-12-07 15:00:00+00:00,Newcastle United at Brentford,NEW @ BRE,Brentford,337,4,Newcastle United,361,2,STATUS_FULL_TIME,Gtech Community Stadium,12,7,2024
-704424,2024-12-07 15:00:00+00:00,Manchester City at Crystal Palace,MNC @ CRY,Crystal Palace,384,2,Manchester City,382,2,STATUS_FULL_TIME,Selhurst Park,12,7,2024
 704419,2024-12-07 17:30:00+00:00,Nottingham Forest at Manchester United,NFO @ MAN,Manchester United,360,2,Nottingham Forest,393,3,STATUS_FULL_TIME,Old Trafford,12,7,2024
 704421,2024-12-08 14:00:00+00:00,Arsenal at Fulham,ARS @ FUL,Fulham,370,1,Arsenal,359,1,STATUS_FULL_TIME,Craven Cottage,12,8,2024
 704427,2024-12-08 14:00:00+00:00,AFC Bournemouth at Ipswich Town,BOU @ IPS,Ipswich Town,373,1,AFC Bournemouth,349,2,STATUS_FULL_TIME,Portman Road,12,8,2024
 704428,2024-12-08 14:00:00+00:00,Brighton & Hove Albion at Leicester City,BHA @ LEI,Leicester City,375,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,King Power Stadium,12,8,2024
 704420,2024-12-08 16:30:00+00:00,Chelsea at Tottenham Hotspur,CHE @ TOT,Tottenham Hotspur,367,3,Chelsea,363,4,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,8,2024
 704426,2024-12-09 20:00:00+00:00,Wolverhampton Wanderers at West Ham United,WOL @ WHU,West Ham United,371,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,London Stadium,12,9,2024
+704433,2024-12-14 15:00:00+00:00,Ipswich Town at Wolverhampton Wanderers,IPS @ WOL,Wolverhampton Wanderers,380,1,Ipswich Town,373,2,STATUS_FULL_TIME,Molineux Stadium,12,14,2024
+704435,2024-12-14 15:00:00+00:00,Leicester City at Newcastle United,LEI @ NEW,Newcastle United,361,4,Leicester City,375,0,STATUS_FULL_TIME,St. James' Park,12,14,2024
 704429,2024-12-14 15:00:00+00:00,Everton at Arsenal,EVE @ ARS,Arsenal,359,0,Everton,368,0,STATUS_FULL_TIME,Emirates Stadium,12,14,2024
 704438,2024-12-14 15:00:00+00:00,Fulham at Liverpool,FUL @ LIV,Liverpool,364,2,Fulham,370,2,STATUS_FULL_TIME,Anfield,12,14,2024
-704435,2024-12-14 15:00:00+00:00,Leicester City at Newcastle United,LEI @ NEW,Newcastle United,361,4,Leicester City,375,0,STATUS_FULL_TIME,St. James' Park,12,14,2024
-704433,2024-12-14 15:00:00+00:00,Ipswich Town at Wolverhampton Wanderers,IPS @ WOL,Wolverhampton Wanderers,380,1,Ipswich Town,373,2,STATUS_FULL_TIME,Molineux Stadium,12,14,2024
 704436,2024-12-14 17:30:00+00:00,Aston Villa at Nottingham Forest,AVL @ NFO,Nottingham Forest,393,2,Aston Villa,362,1,STATUS_FULL_TIME,The City Ground,12,14,2024
 704431,2024-12-15 14:00:00+00:00,Crystal Palace at Brighton & Hove Albion,CRY @ BHA,Brighton & Hove Albion,331,1,Crystal Palace,384,3,STATUS_FULL_TIME,American Express Stadium,12,15,2024
 704434,2024-12-15 16:30:00+00:00,Manchester United at Manchester City,MAN @ MNC,Manchester City,382,1,Manchester United,360,2,STATUS_FULL_TIME,Etihad Stadium,12,15,2024
@@ -1276,26 +1273,26 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704442,2024-12-21 15:00:00+00:00,Newcastle United at Ipswich Town,NEW @ IPS,Ipswich Town,373,0,Newcastle United,361,4,STATUS_FULL_TIME,Portman Road,12,21,2024
 704443,2024-12-21 15:00:00+00:00,Brighton & Hove Albion at West Ham United,BHA @ WHU,West Ham United,371,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,London Stadium,12,21,2024
 704446,2024-12-21 17:30:00+00:00,Arsenal at Crystal Palace,ARS @ CRY,Crystal Palace,384,1,Arsenal,359,5,STATUS_FULL_TIME,Selhurst Park,12,21,2024
-704447,2024-12-22 14:00:00+00:00,Chelsea at Everton,CHE @ EVE,Everton,368,0,Chelsea,363,0,STATUS_FULL_TIME,Goodison Park,12,22,2024
 704448,2024-12-22 14:00:00+00:00,Southampton at Fulham,SOU @ FUL,Fulham,370,0,Southampton,376,0,STATUS_FULL_TIME,Craven Cottage,12,22,2024
-704441,2024-12-22 14:00:00+00:00,Wolverhampton Wanderers at Leicester City,WOL @ LEI,Leicester City,375,0,Wolverhampton Wanderers,380,3,STATUS_FULL_TIME,King Power Stadium,12,22,2024
 704440,2024-12-22 14:00:00+00:00,AFC Bournemouth at Manchester United,BOU @ MAN,Manchester United,360,0,AFC Bournemouth,349,3,STATUS_FULL_TIME,Old Trafford,12,22,2024
+704447,2024-12-22 14:00:00+00:00,Chelsea at Everton,CHE @ EVE,Everton,368,0,Chelsea,363,0,STATUS_FULL_TIME,Goodison Park,12,22,2024
+704441,2024-12-22 14:00:00+00:00,Wolverhampton Wanderers at Leicester City,WOL @ LEI,Leicester City,375,0,Wolverhampton Wanderers,380,3,STATUS_FULL_TIME,King Power Stadium,12,22,2024
 704439,2024-12-22 16:30:00+00:00,Liverpool at Tottenham Hotspur,LIV @ TOT,Tottenham Hotspur,367,3,Liverpool,364,6,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,22,2024
 704451,2024-12-26 12:30:00+00:00,Everton at Manchester City,EVE @ MNC,Manchester City,382,1,Everton,368,1,STATUS_FULL_TIME,Etihad Stadium,12,26,2024
-704458,2024-12-26 15:00:00+00:00,Crystal Palace at AFC Bournemouth,CRY @ BOU,AFC Bournemouth,349,0,Crystal Palace,384,0,STATUS_FULL_TIME,Vitality Stadium,12,26,2024
-704449,2024-12-26 15:00:00+00:00,Fulham at Chelsea,FUL @ CHE,Chelsea,363,1,Fulham,370,2,STATUS_FULL_TIME,Stamford Bridge,12,26,2024
 704452,2024-12-26 15:00:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,3,Aston Villa,362,0,STATUS_FULL_TIME,St. James' Park,12,26,2024
+704458,2024-12-26 15:00:00+00:00,Crystal Palace at AFC Bournemouth,CRY @ BOU,AFC Bournemouth,349,0,Crystal Palace,384,0,STATUS_FULL_TIME,Vitality Stadium,12,26,2024
 704453,2024-12-26 15:00:00+00:00,Tottenham Hotspur at Nottingham Forest,TOT @ NFO,Nottingham Forest,393,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,The City Ground,12,26,2024
 704454,2024-12-26 15:00:00+00:00,West Ham United at Southampton,WHU @ SOU,Southampton,376,0,West Ham United,371,1,STATUS_FULL_TIME,St. Mary's Stadium,12,26,2024
+704449,2024-12-26 15:00:00+00:00,Fulham at Chelsea,FUL @ CHE,Chelsea,363,1,Fulham,370,2,STATUS_FULL_TIME,Stamford Bridge,12,26,2024
 704455,2024-12-26 17:30:00+00:00,Manchester United at Wolverhampton Wanderers,MAN @ WOL,Wolverhampton Wanderers,380,2,Manchester United,360,0,STATUS_FULL_TIME,Molineux Stadium,12,26,2024
 704456,2024-12-26 20:00:00+00:00,Leicester City at Liverpool,LEI @ LIV,Liverpool,364,3,Leicester City,375,1,STATUS_FULL_TIME,Anfield,12,26,2024
 704450,2024-12-27 19:30:00+00:00,Brentford at Brighton & Hove Albion,BRE @ BHA,Brighton & Hove Albion,331,0,Brentford,337,0,STATUS_FULL_TIME,American Express Stadium,12,27,2024
 704457,2024-12-27 20:15:00+00:00,Ipswich Town at Arsenal,IPS @ ARS,Arsenal,359,1,Ipswich Town,373,0,STATUS_FULL_TIME,Emirates Stadium,12,27,2024
 704462,2024-12-29 14:30:00+00:00,Manchester City at Leicester City,MNC @ LEI,Leicester City,375,0,Manchester City,382,2,STATUS_FULL_TIME,King Power Stadium,12,29,2024
+704463,2024-12-29 15:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,2,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,29,2024
+704460,2024-12-29 15:00:00+00:00,AFC Bournemouth at Fulham,BOU @ FUL,Fulham,370,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Craven Cottage,12,29,2024
 704466,2024-12-29 15:00:00+00:00,Southampton at Crystal Palace,SOU @ CRY,Crystal Palace,384,2,Southampton,376,1,STATUS_FULL_TIME,Selhurst Park,12,29,2024
 704465,2024-12-29 15:00:00+00:00,Nottingham Forest at Everton,NFO @ EVE,Everton,368,0,Nottingham Forest,393,2,STATUS_FULL_TIME,Goodison Park,12,29,2024
-704460,2024-12-29 15:00:00+00:00,AFC Bournemouth at Fulham,BOU @ FUL,Fulham,370,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Craven Cottage,12,29,2024
-704463,2024-12-29 15:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,2,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,29,2024
 704464,2024-12-29 17:15:00+00:00,Liverpool at West Ham United,LIV @ WHU,West Ham United,371,0,Liverpool,364,5,STATUS_FULL_TIME,London Stadium,12,29,2024
 704459,2024-12-30 19:45:00+00:00,Brighton & Hove Albion at Aston Villa,BHA @ AVL,Aston Villa,362,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Villa Park,12,30,2024
 704461,2024-12-30 19:45:00+00:00,Chelsea at Ipswich Town,CHE @ IPS,Ipswich Town,373,2,Chelsea,363,0,STATUS_FULL_TIME,Portman Road,12,30,2024
@@ -1322,9 +1319,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704480,2025-01-16 19:30:00+00:00,Brighton & Hove Albion at Ipswich Town,BHA @ IPS,Ipswich Town,373,0,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Portman Road,1,16,2025
 704488,2025-01-16 20:00:00+00:00,Southampton at Manchester United,SOU @ MAN,Manchester United,360,3,Southampton,376,1,STATUS_FULL_TIME,Old Trafford,1,16,2025
 704496,2025-01-18 12:30:00+00:00,AFC Bournemouth at Newcastle United,BOU @ NEW,Newcastle United,361,1,AFC Bournemouth,349,4,STATUS_FULL_TIME,St. James' Park,1,18,2025
-704494,2025-01-18 15:00:00+00:00,Liverpool at Brentford,LIV @ BRE,Brentford,337,0,Liverpool,364,2,STATUS_FULL_TIME,Gtech Community Stadium,1,18,2025
-704498,2025-01-18 15:00:00+00:00,Fulham at Leicester City,FUL @ LEI,Leicester City,375,0,Fulham,370,2,STATUS_FULL_TIME,King Power Stadium,1,18,2025
 704491,2025-01-18 15:00:00+00:00,Crystal Palace at West Ham United,CRY @ WHU,West Ham United,371,0,Crystal Palace,384,2,STATUS_FULL_TIME,London Stadium,1,18,2025
+704498,2025-01-18 15:00:00+00:00,Fulham at Leicester City,FUL @ LEI,Leicester City,375,0,Fulham,370,2,STATUS_FULL_TIME,King Power Stadium,1,18,2025
+704494,2025-01-18 15:00:00+00:00,Liverpool at Brentford,LIV @ BRE,Brentford,337,0,Liverpool,364,2,STATUS_FULL_TIME,Gtech Community Stadium,1,18,2025
 704493,2025-01-18 17:30:00+00:00,Aston Villa at Arsenal,AVL @ ARS,Arsenal,359,2,Aston Villa,362,2,STATUS_FULL_TIME,Emirates Stadium,1,18,2025
 704489,2025-01-19 14:00:00+00:00,Tottenham Hotspur at Everton,TOT @ EVE,Everton,368,3,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Goodison Park,1,19,2025
 704497,2025-01-19 14:00:00+00:00,Brighton & Hove Albion at Manchester United,BHA @ MAN,Manchester United,360,1,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Old Trafford,1,19,2025
@@ -1337,8 +1334,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704501,2025-01-25 15:00:00+00:00,Newcastle United at Southampton,NEW @ SOU,Southampton,376,1,Newcastle United,361,3,STATUS_FULL_TIME,St. Mary's Stadium,1,25,2025
 704504,2025-01-25 15:00:00+00:00,Arsenal at Wolverhampton Wanderers,ARS @ WOL,Wolverhampton Wanderers,380,0,Arsenal,359,1,STATUS_FULL_TIME,Molineux Stadium,1,25,2025
 704502,2025-01-25 17:30:00+00:00,Chelsea at Manchester City,CHE @ MNC,Manchester City,382,3,Chelsea,363,1,STATUS_FULL_TIME,Etihad Stadium,1,25,2025
-704505,2025-01-26 14:00:00+00:00,Brentford at Crystal Palace,BRE @ CRY,Crystal Palace,384,1,Brentford,337,2,STATUS_FULL_TIME,Selhurst Park,1,26,2025
 704500,2025-01-26 14:00:00+00:00,Leicester City at Tottenham Hotspur,LEI @ TOT,Tottenham Hotspur,367,1,Leicester City,375,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,1,26,2025
+704505,2025-01-26 14:00:00+00:00,Brentford at Crystal Palace,BRE @ CRY,Crystal Palace,384,1,Brentford,337,2,STATUS_FULL_TIME,Selhurst Park,1,26,2025
 704499,2025-01-26 16:30:00+00:00,West Ham United at Aston Villa,WHU @ AVL,Aston Villa,362,1,West Ham United,371,1,STATUS_FULL_TIME,Villa Park,1,26,2025
 704503,2025-01-26 19:00:00+00:00,Manchester United at Fulham,MAN @ FUL,Fulham,370,0,Manchester United,360,1,STATUS_FULL_TIME,Craven Cottage,1,26,2025
 704518,2025-02-01 12:30:00+00:00,Brighton & Hove Albion at Nottingham Forest,BHA @ NFO,Nottingham Forest,393,7,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,The City Ground,2,1,2025
@@ -1365,11 +1362,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704567,2025-02-19 19:30:00+00:00,Liverpool at Aston Villa,LIV @ AVL,Aston Villa,362,2,Liverpool,364,2,STATUS_FULL_TIME,Villa Park,2,19,2025
 704535,2025-02-21 20:00:00+00:00,Brentford at Leicester City,BRE @ LEI,Leicester City,375,0,Brentford,337,4,STATUS_FULL_TIME,King Power Stadium,2,21,2025
 704530,2025-02-22 12:30:00+00:00,Manchester United at Everton,MAN @ EVE,Everton,368,2,Manchester United,360,2,STATUS_FULL_TIME,Goodison Park,2,22,2025
-704529,2025-02-22 15:00:00+00:00,Wolverhampton Wanderers at AFC Bournemouth,WOL @ BOU,AFC Bournemouth,349,0,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Vitality Stadium,2,22,2025
-704538,2025-02-22 15:00:00+00:00,West Ham United at Arsenal,WHU @ ARS,Arsenal,359,0,West Ham United,371,1,STATUS_FULL_TIME,Emirates Stadium,2,22,2025
+704536,2025-02-22 15:00:00+00:00,Brighton & Hove Albion at Southampton,BHA @ SOU,Southampton,376,0,Brighton & Hove Albion,331,4,STATUS_FULL_TIME,St. Mary's Stadium,2,22,2025
 704531,2025-02-22 15:00:00+00:00,Crystal Palace at Fulham,CRY @ FUL,Fulham,370,0,Crystal Palace,384,2,STATUS_FULL_TIME,Craven Cottage,2,22,2025
 704532,2025-02-22 15:00:00+00:00,Tottenham Hotspur at Ipswich Town,TOT @ IPS,Ipswich Town,373,1,Tottenham Hotspur,367,4,STATUS_FULL_TIME,Portman Road,2,22,2025
-704536,2025-02-22 15:00:00+00:00,Brighton & Hove Albion at Southampton,BHA @ SOU,Southampton,376,0,Brighton & Hove Albion,331,4,STATUS_FULL_TIME,St. Mary's Stadium,2,22,2025
+704529,2025-02-22 15:00:00+00:00,Wolverhampton Wanderers at AFC Bournemouth,WOL @ BOU,AFC Bournemouth,349,0,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Vitality Stadium,2,22,2025
+704538,2025-02-22 15:00:00+00:00,West Ham United at Arsenal,WHU @ ARS,Arsenal,359,0,West Ham United,371,1,STATUS_FULL_TIME,Emirates Stadium,2,22,2025
 704537,2025-02-22 17:30:00+00:00,Chelsea at Aston Villa,CHE @ AVL,Aston Villa,362,2,Chelsea,363,1,STATUS_FULL_TIME,Villa Park,2,22,2025
 704533,2025-02-23 14:00:00+00:00,Nottingham Forest at Newcastle United,NFO @ NEW,Newcastle United,361,4,Nottingham Forest,393,3,STATUS_FULL_TIME,St. James' Park,2,23,2025
 704534,2025-02-23 16:30:00+00:00,Liverpool at Manchester City,LIV @ MNC,Manchester City,382,0,Liverpool,364,2,STATUS_FULL_TIME,Etihad Stadium,2,23,2025
@@ -1398,8 +1395,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704561,2025-03-15 15:00:00+00:00,Brighton & Hove Albion at Manchester City,BHA @ MNC,Manchester City,382,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Etihad Stadium,3,15,2025
 704563,2025-03-15 15:00:00+00:00,Wolverhampton Wanderers at Southampton,WOL @ SOU,Southampton,376,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,St. Mary's Stadium,3,15,2025
 704566,2025-03-15 17:30:00+00:00,Brentford at AFC Bournemouth,BRE @ BOU,AFC Bournemouth,349,1,Brentford,337,2,STATUS_FULL_TIME,Vitality Stadium,3,15,2025
-704559,2025-03-16 13:30:00+00:00,Chelsea at Arsenal,CHE @ ARS,Arsenal,359,1,Chelsea,363,0,STATUS_FULL_TIME,Emirates Stadium,3,16,2025
 704564,2025-03-16 13:30:00+00:00,Tottenham Hotspur at Fulham,TOT @ FUL,Fulham,370,2,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Craven Cottage,3,16,2025
+704559,2025-03-16 13:30:00+00:00,Chelsea at Arsenal,CHE @ ARS,Arsenal,359,1,Chelsea,363,0,STATUS_FULL_TIME,Emirates Stadium,3,16,2025
 704562,2025-03-16 19:00:00+00:00,Manchester United at Leicester City,MAN @ LEI,Leicester City,375,0,Manchester United,360,3,STATUS_FULL_TIME,King Power Stadium,3,16,2025
 704572,2025-04-01 18:45:00+00:00,Fulham at Arsenal,FUL @ ARS,Arsenal,359,2,Fulham,370,1,STATUS_FULL_TIME,Emirates Stadium,4,1,2025
 704573,2025-04-01 18:45:00+00:00,West Ham United at Wolverhampton Wanderers,WHU @ WOL,Wolverhampton Wanderers,380,1,West Ham United,371,0,STATUS_FULL_TIME,Molineux Stadium,4,1,2025
@@ -1412,9 +1409,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704575,2025-04-02 19:00:00+00:00,Everton at Liverpool,EVE @ LIV,Liverpool,364,1,Everton,368,0,STATUS_FULL_TIME,Anfield,4,2,2025
 704576,2025-04-03 19:00:00+00:00,Tottenham Hotspur at Chelsea,TOT @ CHE,Chelsea,363,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Stamford Bridge,4,3,2025
 704584,2025-04-05 11:30:00+00:00,Arsenal at Everton,ARS @ EVE,Everton,368,1,Arsenal,359,1,STATUS_FULL_TIME,Goodison Park,4,5,2025
+704582,2025-04-05 14:00:00+00:00,AFC Bournemouth at West Ham United,BOU @ WHU,West Ham United,371,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,London Stadium,4,5,2025
 704583,2025-04-05 14:00:00+00:00,Brighton & Hove Albion at Crystal Palace,BHA @ CRY,Crystal Palace,384,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Selhurst Park,4,5,2025
 704585,2025-04-05 14:00:00+00:00,Wolverhampton Wanderers at Ipswich Town,WOL @ IPS,Ipswich Town,373,1,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Portman Road,4,5,2025
-704582,2025-04-05 14:00:00+00:00,AFC Bournemouth at West Ham United,BOU @ WHU,West Ham United,371,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,London Stadium,4,5,2025
 704580,2025-04-05 16:30:00+00:00,Nottingham Forest at Aston Villa,NFO @ AVL,Aston Villa,362,2,Nottingham Forest,393,1,STATUS_FULL_TIME,Villa Park,4,5,2025
 704579,2025-04-06 13:00:00+00:00,Chelsea at Brentford,CHE @ BRE,Brentford,337,0,Chelsea,363,0,STATUS_FULL_TIME,Gtech Community Stadium,4,6,2025
 704586,2025-04-06 13:00:00+00:00,Liverpool at Fulham,LIV @ FUL,Fulham,370,3,Liverpool,364,2,STATUS_FULL_TIME,Craven Cottage,4,6,2025
@@ -1426,9 +1423,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704589,2025-04-12 14:00:00+00:00,Everton at Nottingham Forest,EVE @ NFO,Nottingham Forest,393,0,Everton,368,1,STATUS_FULL_TIME,The City Ground,4,12,2025
 704592,2025-04-12 14:00:00+00:00,Aston Villa at Southampton,AVL @ SOU,Southampton,376,0,Aston Villa,362,3,STATUS_FULL_TIME,St. Mary's Stadium,4,12,2025
 704595,2025-04-12 16:30:00+00:00,Brentford at Arsenal,BRE @ ARS,Arsenal,359,1,Brentford,337,1,STATUS_FULL_TIME,Emirates Stadium,4,12,2025
-704598,2025-04-13 13:00:00+00:00,Ipswich Town at Chelsea,IPS @ CHE,Chelsea,363,2,Ipswich Town,373,2,STATUS_FULL_TIME,Stamford Bridge,4,13,2025
-704594,2025-04-13 13:00:00+00:00,West Ham United at Liverpool,WHU @ LIV,Liverpool,364,2,West Ham United,371,1,STATUS_FULL_TIME,Anfield,4,13,2025
 704593,2025-04-13 13:00:00+00:00,Tottenham Hotspur at Wolverhampton Wanderers,TOT @ WOL,Wolverhampton Wanderers,380,4,Tottenham Hotspur,367,2,STATUS_FULL_TIME,Molineux Stadium,4,13,2025
+704594,2025-04-13 13:00:00+00:00,West Ham United at Liverpool,WHU @ LIV,Liverpool,364,2,West Ham United,371,1,STATUS_FULL_TIME,Anfield,4,13,2025
+704598,2025-04-13 13:00:00+00:00,Ipswich Town at Chelsea,IPS @ CHE,Chelsea,363,2,Ipswich Town,373,2,STATUS_FULL_TIME,Stamford Bridge,4,13,2025
 704590,2025-04-13 15:30:00+00:00,Manchester United at Newcastle United,MAN @ NEW,Newcastle United,361,4,Manchester United,360,1,STATUS_FULL_TIME,St. James' Park,4,13,2025
 704596,2025-04-14 19:00:00+00:00,Fulham at AFC Bournemouth,FUL @ BOU,AFC Bournemouth,349,1,Fulham,370,0,STATUS_FULL_TIME,Vitality Stadium,4,14,2025
 704560,2025-04-16 18:30:00+00:00,Crystal Palace at Newcastle United,CRY @ NEW,Newcastle United,361,5,Crystal Palace,384,0,STATUS_FULL_TIME,St. James' Park,4,16,2025
@@ -1445,10 +1442,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704615,2025-04-22 19:00:00+00:00,Aston Villa at Manchester City,AVL @ MNC,Manchester City,382,2,Aston Villa,362,1,STATUS_FULL_TIME,Etihad Stadium,4,22,2025
 704618,2025-04-23 19:00:00+00:00,Crystal Palace at Arsenal,CRY @ ARS,Arsenal,359,2,Crystal Palace,384,2,STATUS_FULL_TIME,Emirates Stadium,4,23,2025
 704611,2025-04-26 11:30:00+00:00,Everton at Chelsea,EVE @ CHE,Chelsea,363,1,Everton,368,0,STATUS_FULL_TIME,Stamford Bridge,4,26,2025
-704610,2025-04-26 14:00:00+00:00,West Ham United at Brighton & Hove Albion,WHU @ BHA,Brighton & Hove Albion,331,3,West Ham United,371,2,STATUS_FULL_TIME,American Express Stadium,4,26,2025
 704614,2025-04-26 14:00:00+00:00,Ipswich Town at Newcastle United,IPS @ NEW,Newcastle United,361,3,Ipswich Town,373,0,STATUS_FULL_TIME,St. James' Park,4,26,2025
-704612,2025-04-26 14:00:00+00:00,Fulham at Southampton,FUL @ SOU,Southampton,376,1,Fulham,370,2,STATUS_FULL_TIME,St. Mary's Stadium,4,26,2025
+704610,2025-04-26 14:00:00+00:00,West Ham United at Brighton & Hove Albion,WHU @ BHA,Brighton & Hove Albion,331,3,West Ham United,371,2,STATUS_FULL_TIME,American Express Stadium,4,26,2025
 704613,2025-04-26 14:00:00+00:00,Leicester City at Wolverhampton Wanderers,LEI @ WOL,Wolverhampton Wanderers,380,3,Leicester City,375,0,STATUS_FULL_TIME,Molineux Stadium,4,26,2025
+704612,2025-04-26 14:00:00+00:00,Fulham at Southampton,FUL @ SOU,Southampton,376,1,Fulham,370,2,STATUS_FULL_TIME,St. Mary's Stadium,4,26,2025
 704609,2025-04-27 13:00:00+00:00,Manchester United at AFC Bournemouth,MAN @ BOU,AFC Bournemouth,349,1,Manchester United,360,1,STATUS_FULL_TIME,Vitality Stadium,4,27,2025
 704617,2025-04-27 15:30:00+00:00,Tottenham Hotspur at Liverpool,TOT @ LIV,Liverpool,364,5,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Anfield,4,27,2025
 704616,2025-05-01 18:30:00+00:00,Brentford at Nottingham Forest,BRE @ NFO,Nottingham Forest,393,0,Brentford,337,2,STATUS_FULL_TIME,The City Ground,5,1,2025
@@ -1482,16 +1479,16 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704642,2025-05-19 19:00:00+00:00,Liverpool at Brighton & Hove Albion,LIV @ BHA,Brighton & Hove Albion,331,3,Liverpool,364,2,STATUS_FULL_TIME,American Express Stadium,5,19,2025
 704644,2025-05-20 19:00:00+00:00,Wolverhampton Wanderers at Crystal Palace,WOL @ CRY,Crystal Palace,384,4,Wolverhampton Wanderers,380,2,STATUS_FULL_TIME,Selhurst Park,5,20,2025
 704647,2025-05-20 19:00:00+00:00,AFC Bournemouth at Manchester City,BOU @ MNC,Manchester City,382,3,AFC Bournemouth,349,1,STATUS_FULL_TIME,Etihad Stadium,5,20,2025
-704649,2025-05-25 15:00:00+00:00,Leicester City at AFC Bournemouth,LEI @ BOU,AFC Bournemouth,349,2,Leicester City,375,0,STATUS_FULL_TIME,Vitality Stadium,5,25,2025
-704650,2025-05-25 15:00:00+00:00,Manchester City at Fulham,MNC @ FUL,Fulham,370,0,Manchester City,382,2,STATUS_FULL_TIME,Craven Cottage,5,25,2025
-704651,2025-05-25 15:00:00+00:00,West Ham United at Ipswich Town,WHU @ IPS,Ipswich Town,373,1,West Ham United,371,3,STATUS_FULL_TIME,Portman Road,5,25,2025
-704652,2025-05-25 15:00:00+00:00,Crystal Palace at Liverpool,CRY @ LIV,Liverpool,364,1,Crystal Palace,384,1,STATUS_FULL_TIME,Anfield,5,25,2025
-704658,2025-05-25 15:00:00+00:00,Aston Villa at Manchester United,AVL @ MAN,Manchester United,360,2,Aston Villa,362,0,STATUS_FULL_TIME,Old Trafford,5,25,2025
 704653,2025-05-25 15:00:00+00:00,Everton at Newcastle United,EVE @ NEW,Newcastle United,361,0,Everton,368,1,STATUS_FULL_TIME,St. James' Park,5,25,2025
-704655,2025-05-25 15:00:00+00:00,Chelsea at Nottingham Forest,CHE @ NFO,Nottingham Forest,393,0,Chelsea,363,1,STATUS_FULL_TIME,The City Ground,5,25,2025
-704656,2025-05-25 15:00:00+00:00,Arsenal at Southampton,ARS @ SOU,Southampton,376,1,Arsenal,359,2,STATUS_FULL_TIME,St. Mary's Stadium,5,25,2025
 704657,2025-05-25 15:00:00+00:00,Brighton & Hove Albion at Tottenham Hotspur,BHA @ TOT,Tottenham Hotspur,367,1,Brighton & Hove Albion,331,4,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,25,2025
+704656,2025-05-25 15:00:00+00:00,Arsenal at Southampton,ARS @ SOU,Southampton,376,1,Arsenal,359,2,STATUS_FULL_TIME,St. Mary's Stadium,5,25,2025
+704655,2025-05-25 15:00:00+00:00,Chelsea at Nottingham Forest,CHE @ NFO,Nottingham Forest,393,0,Chelsea,363,1,STATUS_FULL_TIME,The City Ground,5,25,2025
 704654,2025-05-25 15:00:00+00:00,Brentford at Wolverhampton Wanderers,BRE @ WOL,Wolverhampton Wanderers,380,1,Brentford,337,1,STATUS_FULL_TIME,Molineux Stadium,5,25,2025
+704652,2025-05-25 15:00:00+00:00,Crystal Palace at Liverpool,CRY @ LIV,Liverpool,364,1,Crystal Palace,384,1,STATUS_FULL_TIME,Anfield,5,25,2025
+704651,2025-05-25 15:00:00+00:00,West Ham United at Ipswich Town,WHU @ IPS,Ipswich Town,373,1,West Ham United,371,3,STATUS_FULL_TIME,Portman Road,5,25,2025
+704650,2025-05-25 15:00:00+00:00,Manchester City at Fulham,MNC @ FUL,Fulham,370,0,Manchester City,382,2,STATUS_FULL_TIME,Craven Cottage,5,25,2025
+704658,2025-05-25 15:00:00+00:00,Aston Villa at Manchester United,AVL @ MAN,Manchester United,360,2,Aston Villa,362,0,STATUS_FULL_TIME,Old Trafford,5,25,2025
+704649,2025-05-25 15:00:00+00:00,Leicester City at AFC Bournemouth,LEI @ BOU,AFC Bournemouth,349,2,Leicester City,375,0,STATUS_FULL_TIME,Vitality Stadium,5,25,2025
 740596,2025-08-15 19:00:00+00:00,AFC Bournemouth at Liverpool,BOU @ LIV,Liverpool,364,4,AFC Bournemouth,349,2,STATUS_FULL_TIME,Anfield,8,15,2025
 740597,2025-08-16 11:30:00+00:00,Newcastle United at Aston Villa,NEW @ AVL,Aston Villa,362,0,Newcastle United,361,0,STATUS_FULL_TIME,Villa Park,8,16,2025
 740598,2025-08-16 14:00:00+00:00,Fulham at Brighton & Hove Albion,FUL @ BHA,Brighton & Hove Albion,331,1,Fulham,370,1,STATUS_FULL_TIME,American Express Stadium,8,16,2025
@@ -1513,10 +1510,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740612,2025-08-24 15:30:00+00:00,Manchester United at Fulham,MAN @ FUL,Fulham,370,1,Manchester United,360,1,STATUS_FULL_TIME,Craven Cottage,8,24,2025
 740614,2025-08-25 19:00:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,2,Liverpool,364,3,STATUS_FULL_TIME,St. James' Park,8,25,2025
 740618,2025-08-30 11:30:00+00:00,Fulham at Chelsea,FUL @ CHE,Chelsea,363,2,Fulham,370,0,STATUS_FULL_TIME,Stamford Bridge,8,30,2025
+740624,2025-08-30 14:00:00+00:00,Everton at Wolverhampton Wanderers,EVE @ WOL,Wolverhampton Wanderers,380,2,Everton,368,3,STATUS_FULL_TIME,Molineux Stadium,8,30,2025
+740620,2025-08-30 14:00:00+00:00,AFC Bournemouth at Tottenham Hotspur,BOU @ TOT,Tottenham Hotspur,367,0,AFC Bournemouth,349,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,8,30,2025
 740621,2025-08-30 14:00:00+00:00,Burnley at Manchester United,BUR @ MAN,Manchester United,360,3,Burnley,379,2,STATUS_FULL_TIME,Old Trafford,8,30,2025
 740623,2025-08-30 14:00:00+00:00,Brentford at Sunderland,BRE @ SUN,Sunderland,366,2,Brentford,337,1,STATUS_FULL_TIME,Stadium of Light,8,30,2025
-740620,2025-08-30 14:00:00+00:00,AFC Bournemouth at Tottenham Hotspur,BOU @ TOT,Tottenham Hotspur,367,0,AFC Bournemouth,349,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,8,30,2025
-740624,2025-08-30 14:00:00+00:00,Everton at Wolverhampton Wanderers,EVE @ WOL,Wolverhampton Wanderers,380,2,Everton,368,3,STATUS_FULL_TIME,Molineux Stadium,8,30,2025
 740619,2025-08-30 16:30:00+00:00,Newcastle United at Leeds United,NEW @ LEE,Leeds United,357,0,Newcastle United,361,0,STATUS_FULL_TIME,Elland Road,8,30,2025
 740617,2025-08-31 13:00:00+00:00,Manchester City at Brighton & Hove Albion,MNC @ BHA,Brighton & Hove Albion,331,2,Manchester City,382,1,STATUS_FULL_TIME,American Express Stadium,8,31,2025
 740622,2025-08-31 13:00:00+00:00,West Ham United at Nottingham Forest,WHU @ NFO,Nottingham Forest,393,0,West Ham United,371,3,STATUS_FULL_TIME,The City Ground,8,31,2025
@@ -1533,20 +1530,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740633,2025-09-14 13:00:00+00:00,Liverpool at Burnley,LIV @ BUR,Burnley,379,0,Liverpool,364,1,STATUS_FULL_TIME,Turf Moor,9,14,2025
 740630,2025-09-14 15:30:00+00:00,Manchester United at Manchester City,MAN @ MNC,Manchester City,382,3,Manchester United,360,0,STATUS_FULL_TIME,Etihad Stadium,9,14,2025
 740641,2025-09-20 11:30:00+00:00,Everton at Liverpool,EVE @ LIV,Liverpool,364,2,Everton,368,1,STATUS_FULL_TIME,Anfield,9,20,2025
-740636,2025-09-20 14:00:00+00:00,Tottenham Hotspur at Brighton & Hove Albion,TOT @ BHA,Brighton & Hove Albion,331,2,Tottenham Hotspur,367,2,STATUS_FULL_TIME,American Express Stadium,9,20,2025
 740637,2025-09-20 14:00:00+00:00,Nottingham Forest at Burnley,NFO @ BUR,Burnley,379,1,Nottingham Forest,393,1,STATUS_FULL_TIME,Turf Moor,9,20,2025
-740638,2025-09-20 14:00:00+00:00,Crystal Palace at West Ham United,CRY @ WHU,West Ham United,371,1,Crystal Palace,384,2,STATUS_FULL_TIME,London Stadium,9,20,2025
+740636,2025-09-20 14:00:00+00:00,Tottenham Hotspur at Brighton & Hove Albion,TOT @ BHA,Brighton & Hove Albion,331,2,Tottenham Hotspur,367,2,STATUS_FULL_TIME,American Express Stadium,9,20,2025
 740640,2025-09-20 14:00:00+00:00,Leeds United at Wolverhampton Wanderers,LEE @ WOL,Wolverhampton Wanderers,380,1,Leeds United,357,3,STATUS_FULL_TIME,Molineux Stadium,9,20,2025
+740638,2025-09-20 14:00:00+00:00,Crystal Palace at West Ham United,CRY @ WHU,West Ham United,371,1,Crystal Palace,384,2,STATUS_FULL_TIME,London Stadium,9,20,2025
 740645,2025-09-20 16:30:00+00:00,Chelsea at Manchester United,CHE @ MAN,Manchester United,360,2,Chelsea,363,1,STATUS_FULL_TIME,Old Trafford,9,20,2025
 740642,2025-09-20 19:00:00+00:00,Brentford at Fulham,BRE @ FUL,Fulham,370,3,Brentford,337,1,STATUS_FULL_TIME,Craven Cottage,9,20,2025
 740644,2025-09-21 13:00:00+00:00,Newcastle United at AFC Bournemouth,NEW @ BOU,AFC Bournemouth,349,0,Newcastle United,361,0,STATUS_FULL_TIME,Vitality Stadium,9,21,2025
 740639,2025-09-21 13:00:00+00:00,Aston Villa at Sunderland,AVL @ SUN,Sunderland,366,1,Aston Villa,362,1,STATUS_FULL_TIME,Stadium of Light,9,21,2025
 740643,2025-09-21 15:30:00+00:00,Manchester City at Arsenal,MNC @ ARS,Arsenal,359,1,Manchester City,382,1,STATUS_FULL_TIME,Emirates Stadium,9,21,2025
 740649,2025-09-27 11:30:00+00:00,Manchester United at Brentford,MAN @ BRE,Brentford,337,3,Manchester United,360,1,STATUS_FULL_TIME,Gtech Community Stadium,9,27,2025
-740648,2025-09-27 14:00:00+00:00,Brighton & Hove Albion at Chelsea,BHA @ CHE,Chelsea,363,1,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Stamford Bridge,9,27,2025
-740647,2025-09-27 14:00:00+00:00,Liverpool at Crystal Palace,LIV @ CRY,Crystal Palace,384,2,Liverpool,364,1,STATUS_FULL_TIME,Selhurst Park,9,27,2025
-740655,2025-09-27 14:00:00+00:00,AFC Bournemouth at Leeds United,BOU @ LEE,Leeds United,357,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Elland Road,9,27,2025
 740654,2025-09-27 14:00:00+00:00,Burnley at Manchester City,BUR @ MNC,Manchester City,382,5,Burnley,379,1,STATUS_FULL_TIME,Etihad Stadium,9,27,2025
+740655,2025-09-27 14:00:00+00:00,AFC Bournemouth at Leeds United,BOU @ LEE,Leeds United,357,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Elland Road,9,27,2025
+740647,2025-09-27 14:00:00+00:00,Liverpool at Crystal Palace,LIV @ CRY,Crystal Palace,384,2,Liverpool,364,1,STATUS_FULL_TIME,Selhurst Park,9,27,2025
+740648,2025-09-27 14:00:00+00:00,Brighton & Hove Albion at Chelsea,BHA @ CHE,Chelsea,363,1,Brighton & Hove Albion,331,3,STATUS_FULL_TIME,Stamford Bridge,9,27,2025
 740651,2025-09-27 16:30:00+00:00,Sunderland at Nottingham Forest,SUN @ NFO,Nottingham Forest,393,0,Sunderland,366,1,STATUS_FULL_TIME,The City Ground,9,27,2025
 740646,2025-09-27 19:00:00+00:00,Wolverhampton Wanderers at Tottenham Hotspur,WOL @ TOT,Tottenham Hotspur,367,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Tottenham Hotspur Stadium,9,27,2025
 740650,2025-09-28 13:00:00+00:00,Fulham at Aston Villa,FUL @ AVL,Aston Villa,362,3,Fulham,370,1,STATUS_FULL_TIME,Villa Park,9,28,2025
@@ -1557,30 +1554,30 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740656,2025-10-04 14:00:00+00:00,West Ham United at Arsenal,WHU @ ARS,Arsenal,359,2,West Ham United,371,0,STATUS_FULL_TIME,Emirates Stadium,10,4,2025
 740663,2025-10-04 14:00:00+00:00,Sunderland at Manchester United,SUN @ MAN,Manchester United,360,2,Sunderland,366,0,STATUS_FULL_TIME,Old Trafford,10,4,2025
 740660,2025-10-04 16:30:00+00:00,Liverpool at Chelsea,LIV @ CHE,Chelsea,363,2,Liverpool,364,1,STATUS_FULL_TIME,Stamford Bridge,10,4,2025
+740665,2025-10-05 13:00:00+00:00,Brighton & Hove Albion at Wolverhampton Wanderers,BHA @ WOL,Wolverhampton Wanderers,380,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Molineux Stadium,10,5,2025
+740664,2025-10-05 13:00:00+00:00,Nottingham Forest at Newcastle United,NFO @ NEW,Newcastle United,361,2,Nottingham Forest,393,0,STATUS_FULL_TIME,St. James' Park,10,5,2025
 740657,2025-10-05 13:00:00+00:00,Burnley at Aston Villa,BUR @ AVL,Aston Villa,362,2,Burnley,379,1,STATUS_FULL_TIME,Villa Park,10,5,2025
 740661,2025-10-05 13:00:00+00:00,Crystal Palace at Everton,CRY @ EVE,Everton,368,2,Crystal Palace,384,1,STATUS_FULL_TIME,Hill Dickinson Stadium,10,5,2025
-740664,2025-10-05 13:00:00+00:00,Nottingham Forest at Newcastle United,NFO @ NEW,Newcastle United,361,2,Nottingham Forest,393,0,STATUS_FULL_TIME,St. James' Park,10,5,2025
-740665,2025-10-05 13:00:00+00:00,Brighton & Hove Albion at Wolverhampton Wanderers,BHA @ WOL,Wolverhampton Wanderers,380,1,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Molineux Stadium,10,5,2025
 740659,2025-10-05 15:30:00+00:00,Manchester City at Brentford,MNC @ BRE,Brentford,337,0,Manchester City,382,1,STATUS_FULL_TIME,Gtech Community Stadium,10,5,2025
 740672,2025-10-18 11:30:00+00:00,Chelsea at Nottingham Forest,CHE @ NFO,Nottingham Forest,393,0,Chelsea,363,3,STATUS_FULL_TIME,The City Ground,10,18,2025
-740666,2025-10-18 14:00:00+00:00,Newcastle United at Brighton & Hove Albion,NEW @ BHA,Brighton & Hove Albion,331,2,Newcastle United,361,1,STATUS_FULL_TIME,American Express Stadium,10,18,2025
-740667,2025-10-18 14:00:00+00:00,Leeds United at Burnley,LEE @ BUR,Burnley,379,2,Leeds United,357,0,STATUS_FULL_TIME,Turf Moor,10,18,2025
 740668,2025-10-18 14:00:00+00:00,AFC Bournemouth at Crystal Palace,BOU @ CRY,Crystal Palace,384,3,AFC Bournemouth,349,3,STATUS_FULL_TIME,Selhurst Park,10,18,2025
+740666,2025-10-18 14:00:00+00:00,Newcastle United at Brighton & Hove Albion,NEW @ BHA,Brighton & Hove Albion,331,2,Newcastle United,361,1,STATUS_FULL_TIME,American Express Stadium,10,18,2025
 740671,2025-10-18 14:00:00+00:00,Everton at Manchester City,EVE @ MNC,Manchester City,382,2,Everton,368,0,STATUS_FULL_TIME,Etihad Stadium,10,18,2025
 740673,2025-10-18 14:00:00+00:00,Wolverhampton Wanderers at Sunderland,WOL @ SUN,Sunderland,366,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Stadium of Light,10,18,2025
+740667,2025-10-18 14:00:00+00:00,Leeds United at Burnley,LEE @ BUR,Burnley,379,2,Leeds United,357,0,STATUS_FULL_TIME,Turf Moor,10,18,2025
 740669,2025-10-18 16:30:00+00:00,Arsenal at Fulham,ARS @ FUL,Fulham,370,0,Arsenal,359,1,STATUS_FULL_TIME,Craven Cottage,10,18,2025
 740674,2025-10-19 13:00:00+00:00,Aston Villa at Tottenham Hotspur,AVL @ TOT,Tottenham Hotspur,367,1,Aston Villa,362,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,10,19,2025
 740670,2025-10-19 15:30:00+00:00,Manchester United at Liverpool,MAN @ LIV,Liverpool,364,1,Manchester United,360,2,STATUS_FULL_TIME,Anfield,10,19,2025
 740675,2025-10-20 19:00:00+00:00,Brentford at West Ham United,BRE @ WHU,West Ham United,371,0,Brentford,337,2,STATUS_FULL_TIME,London Stadium,10,20,2025
 740682,2025-10-24 19:00:00+00:00,West Ham United at Leeds United,WHU @ LEE,Leeds United,357,2,West Ham United,371,1,STATUS_FULL_TIME,Elland Road,10,24,2025
-740685,2025-10-25 14:00:00+00:00,Sunderland at Chelsea,SUN @ CHE,Chelsea,363,1,Sunderland,366,2,STATUS_FULL_TIME,Stamford Bridge,10,25,2025
 740680,2025-10-25 14:00:00+00:00,Fulham at Newcastle United,FUL @ NEW,Newcastle United,361,2,Fulham,370,1,STATUS_FULL_TIME,St. James' Park,10,25,2025
+740685,2025-10-25 14:00:00+00:00,Sunderland at Chelsea,SUN @ CHE,Chelsea,363,1,Sunderland,366,2,STATUS_FULL_TIME,Stamford Bridge,10,25,2025
 740683,2025-10-25 16:30:00+00:00,Brighton & Hove Albion at Manchester United,BHA @ MAN,Manchester United,360,4,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Old Trafford,10,25,2025
 740679,2025-10-25 19:00:00+00:00,Liverpool at Brentford,LIV @ BRE,Brentford,337,3,Liverpool,364,2,STATUS_FULL_TIME,Gtech Community Stadium,10,25,2025
-740678,2025-10-26 14:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,2,Nottingham Forest,393,0,STATUS_FULL_TIME,Vitality Stadium,10,26,2025
 740676,2025-10-26 14:00:00+00:00,Crystal Palace at Arsenal,CRY @ ARS,Arsenal,359,1,Crystal Palace,384,0,STATUS_FULL_TIME,Emirates Stadium,10,26,2025
-740677,2025-10-26 14:00:00+00:00,Manchester City at Aston Villa,MNC @ AVL,Aston Villa,362,1,Manchester City,382,0,STATUS_FULL_TIME,Villa Park,10,26,2025
+740678,2025-10-26 14:00:00+00:00,Nottingham Forest at AFC Bournemouth,NFO @ BOU,AFC Bournemouth,349,2,Nottingham Forest,393,0,STATUS_FULL_TIME,Vitality Stadium,10,26,2025
 740684,2025-10-26 14:00:00+00:00,Burnley at Wolverhampton Wanderers,BUR @ WOL,Wolverhampton Wanderers,380,2,Burnley,379,3,STATUS_FULL_TIME,Molineux Stadium,10,26,2025
+740677,2025-10-26 14:00:00+00:00,Manchester City at Aston Villa,MNC @ AVL,Aston Villa,362,1,Manchester City,382,0,STATUS_FULL_TIME,Villa Park,10,26,2025
 740681,2025-10-26 16:30:00+00:00,Tottenham Hotspur at Everton,TOT @ EVE,Everton,368,0,Tottenham Hotspur,367,3,STATUS_FULL_TIME,Hill Dickinson Stadium,10,26,2025
 740686,2025-11-01 15:00:00+00:00,Leeds United at Brighton & Hove Albion,LEE @ BHA,Brighton & Hove Albion,331,3,Leeds United,357,0,STATUS_FULL_TIME,American Express Stadium,11,1,2025
 740687,2025-11-01 15:00:00+00:00,Arsenal at Burnley,ARS @ BUR,Burnley,379,0,Arsenal,359,2,STATUS_FULL_TIME,Turf Moor,11,1,2025
@@ -1603,11 +1600,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740703,2025-11-09 14:00:00+00:00,Leeds United at Nottingham Forest,LEE @ NFO,Nottingham Forest,393,3,Leeds United,357,1,STATUS_FULL_TIME,The City Ground,11,9,2025
 740702,2025-11-09 16:30:00+00:00,Liverpool at Manchester City,LIV @ MNC,Manchester City,382,3,Liverpool,364,0,STATUS_FULL_TIME,Etihad Stadium,11,9,2025
 740707,2025-11-22 12:30:00+00:00,Chelsea at Burnley,CHE @ BUR,Burnley,379,0,Chelsea,363,2,STATUS_FULL_TIME,Turf Moor,11,22,2025
-740715,2025-11-22 15:00:00+00:00,West Ham United at AFC Bournemouth,WHU @ BOU,AFC Bournemouth,349,2,West Ham United,371,2,STATUS_FULL_TIME,Vitality Stadium,11,22,2025
-740706,2025-11-22 15:00:00+00:00,Brentford at Brighton & Hove Albion,BRE @ BHA,Brighton & Hove Albion,331,2,Brentford,337,1,STATUS_FULL_TIME,American Express Stadium,11,22,2025
-740708,2025-11-22 15:00:00+00:00,Sunderland at Fulham,SUN @ FUL,Fulham,370,1,Sunderland,366,0,STATUS_FULL_TIME,Craven Cottage,11,22,2025
 740710,2025-11-22 15:00:00+00:00,Nottingham Forest at Liverpool,NFO @ LIV,Liverpool,364,0,Nottingham Forest,393,3,STATUS_FULL_TIME,Anfield,11,22,2025
+740715,2025-11-22 15:00:00+00:00,West Ham United at AFC Bournemouth,WHU @ BOU,AFC Bournemouth,349,2,West Ham United,371,2,STATUS_FULL_TIME,Vitality Stadium,11,22,2025
 740713,2025-11-22 15:00:00+00:00,Crystal Palace at Wolverhampton Wanderers,CRY @ WOL,Wolverhampton Wanderers,380,0,Crystal Palace,384,2,STATUS_FULL_TIME,Molineux Stadium,11,22,2025
+740708,2025-11-22 15:00:00+00:00,Sunderland at Fulham,SUN @ FUL,Fulham,370,1,Sunderland,366,0,STATUS_FULL_TIME,Craven Cottage,11,22,2025
+740706,2025-11-22 15:00:00+00:00,Brentford at Brighton & Hove Albion,BRE @ BHA,Brighton & Hove Albion,331,2,Brentford,337,1,STATUS_FULL_TIME,American Express Stadium,11,22,2025
 740712,2025-11-22 17:30:00+00:00,Manchester City at Newcastle United,MNC @ NEW,Newcastle United,361,2,Manchester City,382,1,STATUS_FULL_TIME,St. James' Park,11,22,2025
 740709,2025-11-23 14:00:00+00:00,Aston Villa at Leeds United,AVL @ LEE,Leeds United,357,1,Aston Villa,362,2,STATUS_FULL_TIME,Elland Road,11,23,2025
 740714,2025-11-23 16:30:00+00:00,Tottenham Hotspur at Arsenal,TOT @ ARS,Arsenal,359,4,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Emirates Stadium,11,23,2025
@@ -1618,9 +1615,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740721,2025-11-29 17:30:00+00:00,Newcastle United at Everton,NEW @ EVE,Everton,368,1,Newcastle United,361,4,STATUS_FULL_TIME,Hill Dickinson Stadium,11,29,2025
 740720,2025-11-29 20:00:00+00:00,Fulham at Tottenham Hotspur,FUL @ TOT,Tottenham Hotspur,367,1,Fulham,370,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,11,29,2025
 740725,2025-11-30 12:00:00+00:00,Manchester United at Crystal Palace,MAN @ CRY,Crystal Palace,384,1,Manchester United,360,2,STATUS_FULL_TIME,Selhurst Park,11,30,2025
-740716,2025-11-30 14:05:00+00:00,Wolverhampton Wanderers at Aston Villa,WOL @ AVL,Aston Villa,362,1,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Villa Park,11,30,2025
 740723,2025-11-30 14:05:00+00:00,Brighton & Hove Albion at Nottingham Forest,BHA @ NFO,Nottingham Forest,393,0,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,The City Ground,11,30,2025
 740722,2025-11-30 14:05:00+00:00,Liverpool at West Ham United,LIV @ WHU,West Ham United,371,0,Liverpool,364,2,STATUS_FULL_TIME,London Stadium,11,30,2025
+740716,2025-11-30 14:05:00+00:00,Wolverhampton Wanderers at Aston Villa,WOL @ AVL,Aston Villa,362,1,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Villa Park,11,30,2025
 740719,2025-11-30 16:30:00+00:00,Arsenal at Chelsea,ARS @ CHE,Chelsea,363,1,Arsenal,359,1,STATUS_FULL_TIME,Stamford Bridge,11,30,2025
 740733,2025-12-02 19:30:00+00:00,Everton at AFC Bournemouth,EVE @ BOU,AFC Bournemouth,349,0,Everton,368,1,STATUS_FULL_TIME,Vitality Stadium,12,2,2025
 740730,2025-12-02 19:30:00+00:00,Manchester City at Fulham,MNC @ FUL,Fulham,370,4,Manchester City,382,5,STATUS_FULL_TIME,Craven Cottage,12,2,2025
@@ -1634,9 +1631,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740735,2025-12-04 20:00:00+00:00,West Ham United at Manchester United,WHU @ MAN,Manchester United,360,1,West Ham United,371,1,STATUS_FULL_TIME,Old Trafford,12,4,2025
 740745,2025-12-06 12:30:00+00:00,Arsenal at Aston Villa,ARS @ AVL,Aston Villa,362,2,Arsenal,359,1,STATUS_FULL_TIME,Villa Park,12,6,2025
 740743,2025-12-06 15:00:00+00:00,Chelsea at AFC Bournemouth,CHE @ BOU,AFC Bournemouth,349,0,Chelsea,363,0,STATUS_FULL_TIME,Vitality Stadium,12,6,2025
-740739,2025-12-06 15:00:00+00:00,Nottingham Forest at Everton,NFO @ EVE,Everton,368,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Hill Dickinson Stadium,12,6,2025
-740736,2025-12-06 15:00:00+00:00,Sunderland at Manchester City,SUN @ MNC,Manchester City,382,3,Sunderland,366,0,STATUS_FULL_TIME,Etihad Stadium,12,6,2025
 740741,2025-12-06 15:00:00+00:00,Burnley at Newcastle United,BUR @ NEW,Newcastle United,361,2,Burnley,379,1,STATUS_FULL_TIME,St. James' Park,12,6,2025
+740736,2025-12-06 15:00:00+00:00,Sunderland at Manchester City,SUN @ MNC,Manchester City,382,3,Sunderland,366,0,STATUS_FULL_TIME,Etihad Stadium,12,6,2025
+740739,2025-12-06 15:00:00+00:00,Nottingham Forest at Everton,NFO @ EVE,Everton,368,3,Nottingham Forest,393,0,STATUS_FULL_TIME,Hill Dickinson Stadium,12,6,2025
 740744,2025-12-06 15:00:00+00:00,Brentford at Tottenham Hotspur,BRE @ TOT,Tottenham Hotspur,367,2,Brentford,337,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,12,6,2025
 740742,2025-12-06 17:30:00+00:00,Liverpool at Leeds United,LIV @ LEE,Leeds United,357,3,Liverpool,364,3,STATUS_FULL_TIME,Elland Road,12,6,2025
 740740,2025-12-07 14:00:00+00:00,West Ham United at Brighton & Hove Albion,WHU @ BHA,Brighton & Hove Albion,331,1,West Ham United,371,1,STATUS_FULL_TIME,American Express Stadium,12,7,2025
@@ -1646,10 +1643,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740752,2025-12-13 15:00:00+00:00,Brighton & Hove Albion at Liverpool,BHA @ LIV,Liverpool,364,2,Brighton & Hove Albion,331,0,STATUS_FULL_TIME,Anfield,12,13,2025
 740754,2025-12-13 17:30:00+00:00,Fulham at Burnley,FUL @ BUR,Burnley,379,2,Fulham,370,3,STATUS_FULL_TIME,Turf Moor,12,13,2025
 740746,2025-12-13 20:00:00+00:00,Wolverhampton Wanderers at Arsenal,WOL @ ARS,Arsenal,359,2,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Emirates Stadium,12,13,2025
-740747,2025-12-14 14:00:00+00:00,Manchester City at Crystal Palace,MNC @ CRY,Crystal Palace,384,0,Manchester City,382,3,STATUS_FULL_TIME,Selhurst Park,12,14,2025
-740755,2025-12-14 14:00:00+00:00,Tottenham Hotspur at Nottingham Forest,TOT @ NFO,Nottingham Forest,393,3,Tottenham Hotspur,367,0,STATUS_FULL_TIME,The City Ground,12,14,2025
-740749,2025-12-14 14:00:00+00:00,Newcastle United at Sunderland,NEW @ SUN,Sunderland,366,1,Newcastle United,361,0,STATUS_FULL_TIME,Stadium of Light,12,14,2025
 740748,2025-12-14 14:00:00+00:00,Aston Villa at West Ham United,AVL @ WHU,West Ham United,371,2,Aston Villa,362,3,STATUS_FULL_TIME,London Stadium,12,14,2025
+740755,2025-12-14 14:00:00+00:00,Tottenham Hotspur at Nottingham Forest,TOT @ NFO,Nottingham Forest,393,3,Tottenham Hotspur,367,0,STATUS_FULL_TIME,The City Ground,12,14,2025
+740747,2025-12-14 14:00:00+00:00,Manchester City at Crystal Palace,MNC @ CRY,Crystal Palace,384,0,Manchester City,382,3,STATUS_FULL_TIME,Selhurst Park,12,14,2025
+740749,2025-12-14 14:00:00+00:00,Newcastle United at Sunderland,NEW @ SUN,Sunderland,366,1,Newcastle United,361,0,STATUS_FULL_TIME,Stadium of Light,12,14,2025
 740753,2025-12-14 16:30:00+00:00,Leeds United at Brentford,LEE @ BRE,Brentford,337,1,Leeds United,357,1,STATUS_FULL_TIME,Gtech Community Stadium,12,14,2025
 740751,2025-12-15 20:00:00+00:00,AFC Bournemouth at Manchester United,BOU @ MAN,Manchester United,360,4,AFC Bournemouth,349,4,STATUS_FULL_TIME,Old Trafford,12,15,2025
 740763,2025-12-20 12:30:00+00:00,Chelsea at Newcastle United,CHE @ NEW,Newcastle United,361,2,Chelsea,363,2,STATUS_FULL_TIME,St. James' Park,12,20,2025
@@ -1676,8 +1673,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740779,2025-12-30 19:30:00+00:00,AFC Bournemouth at Chelsea,BOU @ CHE,Chelsea,363,2,AFC Bournemouth,349,2,STATUS_FULL_TIME,Stamford Bridge,12,30,2025
 740783,2025-12-30 19:30:00+00:00,Everton at Nottingham Forest,EVE @ NFO,Nottingham Forest,393,0,Everton,368,2,STATUS_FULL_TIME,The City Ground,12,30,2025
 740785,2025-12-30 19:30:00+00:00,Brighton & Hove Albion at West Ham United,BHA @ WHU,West Ham United,371,2,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,London Stadium,12,30,2025
-740776,2025-12-30 20:15:00+00:00,Aston Villa at Arsenal,AVL @ ARS,Arsenal,359,4,Aston Villa,362,1,STATUS_FULL_TIME,Emirates Stadium,12,30,2025
 740782,2025-12-30 20:15:00+00:00,Wolverhampton Wanderers at Manchester United,WOL @ MAN,Manchester United,360,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Old Trafford,12,30,2025
+740776,2025-12-30 20:15:00+00:00,Aston Villa at Arsenal,AVL @ ARS,Arsenal,359,4,Aston Villa,362,1,STATUS_FULL_TIME,Emirates Stadium,12,30,2025
 740780,2026-01-01 17:30:00+00:00,Fulham at Crystal Palace,FUL @ CRY,Crystal Palace,384,1,Fulham,370,1,STATUS_FULL_TIME,Selhurst Park,1,1,2026
 740781,2026-01-01 17:30:00+00:00,Leeds United at Liverpool,LEE @ LIV,Liverpool,364,0,Leeds United,357,0,STATUS_FULL_TIME,Anfield,1,1,2026
 740777,2026-01-01 20:00:00+00:00,Tottenham Hotspur at Brentford,TOT @ BRE,Brentford,337,0,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Gtech Community Stadium,1,1,2026
@@ -1703,11 +1700,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740804,2026-01-07 20:15:00+00:00,Leeds United at Newcastle United,LEE @ NEW,Newcastle United,361,4,Leeds United,357,3,STATUS_FULL_TIME,St. James' Park,1,7,2026
 740796,2026-01-08 20:00:00+00:00,Liverpool at Arsenal,LIV @ ARS,Arsenal,359,0,Liverpool,364,0,STATUS_FULL_TIME,Emirates Stadium,1,8,2026
 740811,2026-01-17 12:30:00+00:00,Manchester City at Manchester United,MNC @ MAN,Manchester United,360,2,Manchester City,382,0,STATUS_FULL_TIME,Old Trafford,1,17,2026
-740808,2026-01-17 15:00:00+00:00,Brentford at Chelsea,BRE @ CHE,Chelsea,363,2,Brentford,337,0,STATUS_FULL_TIME,Stamford Bridge,1,17,2026
-740809,2026-01-17 15:00:00+00:00,Fulham at Leeds United,FUL @ LEE,Leeds United,357,1,Fulham,370,0,STATUS_FULL_TIME,Elland Road,1,17,2026
+740814,2026-01-17 15:00:00+00:00,West Ham United at Tottenham Hotspur,WHU @ TOT,Tottenham Hotspur,367,1,West Ham United,371,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,1,17,2026
 740810,2026-01-17 15:00:00+00:00,Burnley at Liverpool,BUR @ LIV,Liverpool,364,1,Burnley,379,1,STATUS_FULL_TIME,Anfield,1,17,2026
 740813,2026-01-17 15:00:00+00:00,Crystal Palace at Sunderland,CRY @ SUN,Sunderland,366,2,Crystal Palace,384,1,STATUS_FULL_TIME,Stadium of Light,1,17,2026
-740814,2026-01-17 15:00:00+00:00,West Ham United at Tottenham Hotspur,WHU @ TOT,Tottenham Hotspur,367,1,West Ham United,371,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,1,17,2026
+740808,2026-01-17 15:00:00+00:00,Brentford at Chelsea,BRE @ CHE,Chelsea,363,2,Brentford,337,0,STATUS_FULL_TIME,Stamford Bridge,1,17,2026
+740809,2026-01-17 15:00:00+00:00,Fulham at Leeds United,FUL @ LEE,Leeds United,357,1,Fulham,370,0,STATUS_FULL_TIME,Elland Road,1,17,2026
 740812,2026-01-17 17:30:00+00:00,Arsenal at Nottingham Forest,ARS @ NFO,Nottingham Forest,393,0,Arsenal,359,0,STATUS_FULL_TIME,The City Ground,1,17,2026
 740815,2026-01-18 14:00:00+00:00,Newcastle United at Wolverhampton Wanderers,NEW @ WOL,Wolverhampton Wanderers,380,0,Newcastle United,361,0,STATUS_FULL_TIME,Molineux Stadium,1,18,2026
 740806,2026-01-18 16:30:00+00:00,Everton at Aston Villa,EVE @ AVL,Aston Villa,362,0,Everton,368,1,STATUS_FULL_TIME,Villa Park,1,18,2026
@@ -1717,9 +1714,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740822,2026-01-24 15:00:00+00:00,Brighton & Hove Albion at Fulham,BHA @ FUL,Fulham,370,2,Brighton & Hove Albion,331,1,STATUS_FULL_TIME,Craven Cottage,1,24,2026
 740823,2026-01-24 15:00:00+00:00,Wolverhampton Wanderers at Manchester City,WOL @ MNC,Manchester City,382,2,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Etihad Stadium,1,24,2026
 740817,2026-01-24 17:30:00+00:00,Liverpool at AFC Bournemouth,LIV @ BOU,AFC Bournemouth,349,3,Liverpool,364,2,STATUS_FULL_TIME,Vitality Stadium,1,24,2026
+740824,2026-01-25 14:00:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,0,Aston Villa,362,2,STATUS_FULL_TIME,St. James' Park,1,25,2026
 740818,2026-01-25 14:00:00+00:00,Nottingham Forest at Brentford,NFO @ BRE,Brentford,337,0,Nottingham Forest,393,2,STATUS_FULL_TIME,Gtech Community Stadium,1,25,2026
 740820,2026-01-25 14:00:00+00:00,Chelsea at Crystal Palace,CHE @ CRY,Crystal Palace,384,1,Chelsea,363,3,STATUS_FULL_TIME,Selhurst Park,1,25,2026
-740824,2026-01-25 14:00:00+00:00,Aston Villa at Newcastle United,AVL @ NEW,Newcastle United,361,0,Aston Villa,362,2,STATUS_FULL_TIME,St. James' Park,1,25,2026
 740816,2026-01-25 16:30:00+00:00,Manchester United at Arsenal,MAN @ ARS,Arsenal,359,2,Manchester United,360,3,STATUS_FULL_TIME,Emirates Stadium,1,25,2026
 740821,2026-01-26 20:00:00+00:00,Leeds United at Everton,LEE @ EVE,Everton,368,1,Leeds United,357,1,STATUS_FULL_TIME,Hill Dickinson Stadium,1,26,2026
 740831,2026-01-31 15:00:00+00:00,Everton at Brighton & Hove Albion,EVE @ BHA,Brighton & Hove Albion,331,1,Everton,368,1,STATUS_FULL_TIME,American Express Stadium,1,31,2026
@@ -1734,11 +1731,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740830,2026-02-02 20:00:00+00:00,Burnley at Sunderland,BUR @ SUN,Sunderland,366,3,Burnley,379,0,STATUS_FULL_TIME,Stadium of Light,2,2,2026
 740841,2026-02-06 20:00:00+00:00,Nottingham Forest at Leeds United,NFO @ LEE,Leeds United,357,3,Nottingham Forest,393,1,STATUS_FULL_TIME,Elland Road,2,6,2026
 740843,2026-02-07 12:30:00+00:00,Tottenham Hotspur at Manchester United,TOT @ MAN,Manchester United,360,2,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Old Trafford,2,7,2026
+740840,2026-02-07 15:00:00+00:00,Chelsea at Wolverhampton Wanderers,CHE @ WOL,Wolverhampton Wanderers,380,1,Chelsea,363,3,STATUS_FULL_TIME,Molineux Stadium,2,7,2026
+740842,2026-02-07 15:00:00+00:00,Everton at Fulham,EVE @ FUL,Fulham,370,1,Everton,368,2,STATUS_FULL_TIME,Craven Cottage,2,7,2026
 740837,2026-02-07 15:00:00+00:00,Aston Villa at AFC Bournemouth,AVL @ BOU,AFC Bournemouth,349,1,Aston Villa,362,1,STATUS_FULL_TIME,Vitality Stadium,2,7,2026
 740836,2026-02-07 15:00:00+00:00,Sunderland at Arsenal,SUN @ ARS,Arsenal,359,3,Sunderland,366,0,STATUS_FULL_TIME,Emirates Stadium,2,7,2026
 740839,2026-02-07 15:00:00+00:00,West Ham United at Burnley,WHU @ BUR,Burnley,379,0,West Ham United,371,2,STATUS_FULL_TIME,Turf Moor,2,7,2026
-740842,2026-02-07 15:00:00+00:00,Everton at Fulham,EVE @ FUL,Fulham,370,1,Everton,368,2,STATUS_FULL_TIME,Craven Cottage,2,7,2026
-740840,2026-02-07 15:00:00+00:00,Chelsea at Wolverhampton Wanderers,CHE @ WOL,Wolverhampton Wanderers,380,1,Chelsea,363,3,STATUS_FULL_TIME,Molineux Stadium,2,7,2026
 740844,2026-02-07 17:30:00+00:00,Brentford at Newcastle United,BRE @ NEW,Newcastle United,361,2,Brentford,337,3,STATUS_FULL_TIME,St. James' Park,2,7,2026
 740838,2026-02-08 14:00:00+00:00,Crystal Palace at Brighton & Hove Albion,CRY @ BHA,Brighton & Hove Albion,331,0,Crystal Palace,384,1,STATUS_FULL_TIME,American Express Stadium,2,8,2026
 740845,2026-02-08 16:30:00+00:00,Manchester City at Liverpool,MNC @ LIV,Liverpool,364,1,Manchester City,382,2,STATUS_FULL_TIME,Anfield,2,8,2026
@@ -1753,9 +1750,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740853,2026-02-11 20:15:00+00:00,Liverpool at Sunderland,LIV @ SUN,Sunderland,366,0,Liverpool,364,1,STATUS_FULL_TIME,Stadium of Light,2,11,2026
 740847,2026-02-12 20:00:00+00:00,Arsenal at Brentford,ARS @ BRE,Brentford,337,1,Arsenal,359,1,STATUS_FULL_TIME,Gtech Community Stadium,2,12,2026
 740901,2026-02-18 20:00:00+00:00,Arsenal at Wolverhampton Wanderers,ARS @ WOL,Wolverhampton Wanderers,380,2,Arsenal,359,2,STATUS_FULL_TIME,Molineux Stadium,2,18,2026
+740864,2026-02-21 15:00:00+00:00,Burnley at Chelsea,BUR @ CHE,Chelsea,363,1,Burnley,379,1,STATUS_FULL_TIME,Stamford Bridge,2,21,2026
 740862,2026-02-21 15:00:00+00:00,Leeds United at Aston Villa,LEE @ AVL,Aston Villa,362,1,Leeds United,357,1,STATUS_FULL_TIME,Villa Park,2,21,2026
 740858,2026-02-21 15:00:00+00:00,Brighton & Hove Albion at Brentford,BHA @ BRE,Brentford,337,0,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Gtech Community Stadium,2,21,2026
-740864,2026-02-21 15:00:00+00:00,Burnley at Chelsea,BUR @ CHE,Chelsea,363,1,Burnley,379,1,STATUS_FULL_TIME,Stamford Bridge,2,21,2026
 740861,2026-02-21 17:30:00+00:00,AFC Bournemouth at West Ham United,BOU @ WHU,West Ham United,371,0,AFC Bournemouth,349,0,STATUS_FULL_TIME,London Stadium,2,21,2026
 740857,2026-02-21 20:00:00+00:00,Newcastle United at Manchester City,NEW @ MNC,Manchester City,382,2,Newcastle United,361,1,STATUS_FULL_TIME,Etihad Stadium,2,21,2026
 740860,2026-02-22 14:00:00+00:00,Wolverhampton Wanderers at Crystal Palace,WOL @ CRY,Crystal Palace,384,1,Wolverhampton Wanderers,380,0,STATUS_FULL_TIME,Selhurst Park,2,22,2026
@@ -1769,18 +1766,18 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740872,2026-02-28 15:00:00+00:00,West Ham United at Liverpool,WHU @ LIV,Liverpool,364,5,West Ham United,371,2,STATUS_FULL_TIME,Anfield,2,28,2026
 740874,2026-02-28 15:00:00+00:00,Everton at Newcastle United,EVE @ NEW,Newcastle United,361,2,Everton,368,3,STATUS_FULL_TIME,St. James' Park,2,28,2026
 740869,2026-02-28 17:30:00+00:00,Manchester City at Leeds United,MNC @ LEE,Leeds United,357,0,Manchester City,382,1,STATUS_FULL_TIME,Elland Road,2,28,2026
-740866,2026-03-01 14:00:00+00:00,Nottingham Forest at Brighton & Hove Albion,NFO @ BHA,Brighton & Hove Albion,331,2,Nottingham Forest,393,1,STATUS_FULL_TIME,American Express Stadium,3,1,2026
 740870,2026-03-01 14:00:00+00:00,Tottenham Hotspur at Fulham,TOT @ FUL,Fulham,370,2,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Craven Cottage,3,1,2026
 740875,2026-03-01 14:00:00+00:00,Crystal Palace at Manchester United,CRY @ MAN,Manchester United,360,2,Crystal Palace,384,1,STATUS_FULL_TIME,Old Trafford,3,1,2026
+740866,2026-03-01 14:00:00+00:00,Nottingham Forest at Brighton & Hove Albion,NFO @ BHA,Brighton & Hove Albion,331,2,Nottingham Forest,393,1,STATUS_FULL_TIME,American Express Stadium,3,1,2026
 740871,2026-03-01 16:30:00+00:00,Chelsea at Arsenal,CHE @ ARS,Arsenal,359,2,Chelsea,363,1,STATUS_FULL_TIME,Emirates Stadium,3,1,2026
 740877,2026-03-03 19:30:00+00:00,Brentford at AFC Bournemouth,BRE @ BOU,AFC Bournemouth,349,0,Brentford,337,0,STATUS_FULL_TIME,Vitality Stadium,3,3,2026
 740879,2026-03-03 19:30:00+00:00,Burnley at Everton,BUR @ EVE,Everton,368,2,Burnley,379,0,STATUS_FULL_TIME,Hill Dickinson Stadium,3,3,2026
 740881,2026-03-03 19:30:00+00:00,Sunderland at Leeds United,SUN @ LEE,Leeds United,357,0,Sunderland,366,1,STATUS_FULL_TIME,Elland Road,3,3,2026
 740885,2026-03-03 20:15:00+00:00,Liverpool at Wolverhampton Wanderers,LIV @ WOL,Wolverhampton Wanderers,380,2,Liverpool,364,1,STATUS_FULL_TIME,Molineux Stadium,3,3,2026
-740876,2026-03-04 19:30:00+00:00,Chelsea at Aston Villa,CHE @ AVL,Aston Villa,362,1,Chelsea,363,4,STATUS_FULL_TIME,Villa Park,3,4,2026
-740878,2026-03-04 19:30:00+00:00,Arsenal at Brighton & Hove Albion,ARS @ BHA,Brighton & Hove Albion,331,0,Arsenal,359,1,STATUS_FULL_TIME,American Express Stadium,3,4,2026
-740880,2026-03-04 19:30:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,0,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,3,4,2026
 740882,2026-03-04 19:30:00+00:00,Nottingham Forest at Manchester City,NFO @ MNC,Manchester City,382,2,Nottingham Forest,393,2,STATUS_FULL_TIME,Etihad Stadium,3,4,2026
+740880,2026-03-04 19:30:00+00:00,West Ham United at Fulham,WHU @ FUL,Fulham,370,0,West Ham United,371,1,STATUS_FULL_TIME,Craven Cottage,3,4,2026
+740878,2026-03-04 19:30:00+00:00,Arsenal at Brighton & Hove Albion,ARS @ BHA,Brighton & Hove Albion,331,0,Arsenal,359,1,STATUS_FULL_TIME,American Express Stadium,3,4,2026
+740876,2026-03-04 19:30:00+00:00,Chelsea at Aston Villa,CHE @ AVL,Aston Villa,362,1,Chelsea,363,4,STATUS_FULL_TIME,Villa Park,3,4,2026
 740883,2026-03-04 20:15:00+00:00,Manchester United at Newcastle United,MAN @ NEW,Newcastle United,361,2,Manchester United,360,1,STATUS_FULL_TIME,St. James' Park,3,4,2026
 740884,2026-03-05 20:00:00+00:00,Crystal Palace at Tottenham Hotspur,CRY @ TOT,Tottenham Hotspur,367,1,Crystal Palace,384,3,STATUS_FULL_TIME,Tottenham Hotspur Stadium,3,5,2026
 740888,2026-03-14 15:00:00+00:00,AFC Bournemouth at Burnley,BOU @ BUR,Burnley,379,0,AFC Bournemouth,349,0,STATUS_FULL_TIME,Turf Moor,3,14,2026
@@ -1806,9 +1803,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740906,2026-04-11 14:00:00+00:00,Everton at Brentford,EVE @ BRE,Brentford,337,2,Everton,368,2,STATUS_FULL_TIME,Gtech Community Stadium,4,11,2026
 740907,2026-04-11 14:00:00+00:00,Brighton & Hove Albion at Burnley,BHA @ BUR,Burnley,379,0,Brighton & Hove Albion,331,2,STATUS_FULL_TIME,Turf Moor,4,11,2026
 740911,2026-04-11 16:30:00+00:00,Fulham at Liverpool,FUL @ LIV,Liverpool,364,2,Fulham,370,0,STATUS_FULL_TIME,Anfield,4,11,2026
+740915,2026-04-12 13:00:00+00:00,Tottenham Hotspur at Sunderland,TOT @ SUN,Sunderland,366,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Stadium of Light,4,12,2026
 740910,2026-04-12 13:00:00+00:00,Newcastle United at Crystal Palace,NEW @ CRY,Crystal Palace,384,2,Newcastle United,361,1,STATUS_FULL_TIME,Selhurst Park,4,12,2026
 740914,2026-04-12 13:00:00+00:00,Aston Villa at Nottingham Forest,AVL @ NFO,Nottingham Forest,393,1,Aston Villa,362,1,STATUS_FULL_TIME,The City Ground,4,12,2026
-740915,2026-04-12 13:00:00+00:00,Tottenham Hotspur at Sunderland,TOT @ SUN,Sunderland,366,1,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Stadium of Light,4,12,2026
 740909,2026-04-12 15:30:00+00:00,Manchester City at Chelsea,MNC @ CHE,Chelsea,363,0,Manchester City,382,3,STATUS_FULL_TIME,Stamford Bridge,4,12,2026
 740912,2026-04-13 19:00:00+00:00,Leeds United at Manchester United,LEE @ MAN,Manchester United,360,1,Leeds United,357,2,STATUS_FULL_TIME,Old Trafford,4,13,2026
 740921,2026-04-18 11:30:00+00:00,Fulham at Brentford,FUL @ BRE,Brentford,337,0,Fulham,370,0,STATUS_FULL_TIME,Gtech Community Stadium,4,18,2026
@@ -1862,23 +1859,28 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 740956,2026-05-18 19:00:00+00:00,Burnley at Arsenal,BUR @ ARS,Arsenal,359,1,Burnley,379,0,STATUS_FULL_TIME,Emirates Stadium,5,18,2026
 740958,2026-05-19 18:30:00+00:00,Manchester City at AFC Bournemouth,MNC @ BOU,AFC Bournemouth,349,1,Manchester City,382,1,STATUS_FULL_TIME,Vitality Stadium,5,19,2026
 740960,2026-05-19 19:15:00+00:00,Tottenham Hotspur at Chelsea,TOT @ CHE,Chelsea,363,2,Tottenham Hotspur,367,1,STATUS_FULL_TIME,Stamford Bridge,5,19,2026
-740966,2026-05-24 15:00:00+00:00,Manchester United at Brighton & Hove Albion,MAN @ BHA,Brighton & Hove Albion,331,0,Manchester United,360,3,STATUS_FULL_TIME,American Express Stadium,5,24,2026
-740967,2026-05-24 15:00:00+00:00,Wolverhampton Wanderers at Burnley,WOL @ BUR,Burnley,379,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Turf Moor,5,24,2026
-740968,2026-05-24 15:00:00+00:00,Arsenal at Crystal Palace,ARS @ CRY,Crystal Palace,384,1,Arsenal,359,2,STATUS_FULL_TIME,Selhurst Park,5,24,2026
-740969,2026-05-24 15:00:00+00:00,Newcastle United at Fulham,NEW @ FUL,Fulham,370,2,Newcastle United,361,0,STATUS_FULL_TIME,Craven Cottage,5,24,2026
-740975,2026-05-24 15:00:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,1,Brentford,337,1,STATUS_FULL_TIME,Anfield,5,24,2026
 740970,2026-05-24 15:00:00+00:00,Aston Villa at Manchester City,AVL @ MNC,Manchester City,382,1,Aston Villa,362,2,STATUS_FULL_TIME,Etihad Stadium,5,24,2026
-740972,2026-05-24 15:00:00+00:00,AFC Bournemouth at Nottingham Forest,BOU @ NFO,Nottingham Forest,393,1,AFC Bournemouth,349,1,STATUS_FULL_TIME,The City Ground,5,24,2026
-740973,2026-05-24 15:00:00+00:00,Chelsea at Sunderland,CHE @ SUN,Sunderland,366,2,Chelsea,363,1,STATUS_FULL_TIME,Stadium of Light,5,24,2026
 740974,2026-05-24 15:00:00+00:00,Everton at Tottenham Hotspur,EVE @ TOT,Tottenham Hotspur,367,1,Everton,368,0,STATUS_FULL_TIME,Tottenham Hotspur Stadium,5,24,2026
+740973,2026-05-24 15:00:00+00:00,Chelsea at Sunderland,CHE @ SUN,Sunderland,366,2,Chelsea,363,1,STATUS_FULL_TIME,Stadium of Light,5,24,2026
+740972,2026-05-24 15:00:00+00:00,AFC Bournemouth at Nottingham Forest,BOU @ NFO,Nottingham Forest,393,1,AFC Bournemouth,349,1,STATUS_FULL_TIME,The City Ground,5,24,2026
 740971,2026-05-24 15:00:00+00:00,Leeds United at West Ham United,LEE @ WHU,West Ham United,371,3,Leeds United,357,0,STATUS_FULL_TIME,London Stadium,5,24,2026
+740967,2026-05-24 15:00:00+00:00,Wolverhampton Wanderers at Burnley,WOL @ BUR,Burnley,379,1,Wolverhampton Wanderers,380,1,STATUS_FULL_TIME,Turf Moor,5,24,2026
+740969,2026-05-24 15:00:00+00:00,Newcastle United at Fulham,NEW @ FUL,Fulham,370,2,Newcastle United,361,0,STATUS_FULL_TIME,Craven Cottage,5,24,2026
+740968,2026-05-24 15:00:00+00:00,Arsenal at Crystal Palace,ARS @ CRY,Crystal Palace,384,1,Arsenal,359,2,STATUS_FULL_TIME,Selhurst Park,5,24,2026
+740975,2026-05-24 15:00:00+00:00,Brentford at Liverpool,BRE @ LIV,Liverpool,364,1,Brentford,337,1,STATUS_FULL_TIME,Anfield,5,24,2026
+740966,2026-05-24 15:00:00+00:00,Manchester United at Brighton & Hove Albion,MAN @ BHA,Brighton & Hove Albion,331,0,Manchester United,360,3,STATUS_FULL_TIME,American Express Stadium,5,24,2026
 401879301,2026-08-21 19:00:00+00:00,Coventry City at Arsenal,COV @ ARS,Arsenal,359,3,Coventry City,388,0,STATUS_FULL_TIME,Emirates Stadium,8,21,2026
 401879322,2026-08-22 11:30:00+00:00,Manchester United at Hull City,MAN @ HUL,Hull City,306,2,Manchester United,360,0,STATUS_FULL_TIME,The MKM Stadium,8,22,2026
+401879298,2026-08-22 14:00:00+00:00,Leeds United at Nottingham Forest,LEE @ NFO,Nottingham Forest,393,0,Leeds United,357,1,STATUS_FULL_TIME,The City Ground,8,22,2026
 401879300,2026-08-22 14:00:00+00:00,Crystal Palace at Everton,CRY @ EVE,Everton,368,2,Crystal Palace,384,0,STATUS_FULL_TIME,Hill Dickinson Stadium,8,22,2026
 401879299,2026-08-22 14:00:00+00:00,Sunderland at Ipswich Town,SUN @ IPS,Ipswich Town,373,2,Sunderland,366,1,STATUS_FULL_TIME,Portman Road,8,22,2026
-401879298,2026-08-22 14:00:00+00:00,Leeds United at Nottingham Forest,LEE @ NFO,Nottingham Forest,393,0,Leeds United,357,1,STATUS_FULL_TIME,The City Ground,8,22,2026
 401879321,2026-08-22 16:30:00+00:00,Tottenham Hotspur at Brentford,TOT @ BRE,Brentford,337,3,Tottenham Hotspur,367,0,STATUS_FULL_TIME,Gtech Community Stadium,8,22,2026
 401879297,2026-08-23 13:00:00+00:00,Aston Villa at Brighton & Hove Albion,AVL @ BHA,Brighton & Hove Albion,331,4,Aston Villa,362,0,STATUS_FULL_TIME,American Express Stadium,8,23,2026
 401879320,2026-08-23 13:00:00+00:00,AFC Bournemouth at Manchester City,BOU @ MNC,Manchester City,382,2,AFC Bournemouth,349,1,STATUS_FULL_TIME,Etihad Stadium,8,23,2026
 401879319,2026-08-23 15:30:00+00:00,Liverpool at Newcastle United,LIV @ NEW,Newcastle United,361,2,Liverpool,364,2,STATUS_FULL_TIME,St. James' Park,8,23,2026
 401879318,2026-08-24 19:00:00+00:00,Chelsea at Fulham,CHE @ FUL,Fulham,370,2,Chelsea,363,3,STATUS_FULL_TIME,Craven Cottage,8,24,2026
+401879294,2026-08-28 19:00:00+00:00,,,Crystal Palace,384,1,Manchester City,382,4,STATUS_FULL_TIME,Selhurst Park,8,28,2026
+401879314,2026-08-29 11:30:00+00:00,,,Liverpool,364,2,Nottingham Forest,393,2,STATUS_FULL_TIME,Anfield,8,29,2026
+401879316,2026-08-29 14:00:00+00:00,,,Coventry City,388,0,Hull City,306,1,STATUS_FULL_TIME,Coventry Building Society Arena,8,29,2026
+401879296,2026-08-29 14:00:00+00:00,,,AFC Bournemouth,349,1,Everton,368,1,STATUS_FULL_TIME,Vitality Stadium,8,29,2026
+401879312,2026-08-29 16:30:00+00:00,,,Tottenham Hotspur,367,0,Newcastle United,361,2,STATUS_FULL_TIME,Tottenham Hotspur Stadium,8,29,2026

@@ -78,6 +78,8 @@ def update_data(league="nba"):
             )
 
             if new_games is not None and not new_games.empty:
+
+
                 games.append(new_games)
 
     if not games:
@@ -169,22 +171,21 @@ def update_data(league="nba"):
         ignore_index=True
     )
 
-    # ---------------------------------
-    # REMOVE GAMES OLDER THAN 5 YEARS
-    # ---------------------------------
-
-    df["_date"] = pd.to_datetime(
+    df["date"] = pd.to_datetime(
         df["date"],
+        format="mixed",
         utc=True,
         errors="coerce"
     )
-
-    df = df.dropna(subset=["_date"])
 
     cutoff_date = (
         pd.Timestamp.now(tz="UTC")
         - pd.DateOffset(years=5)
     )
+
+    df["_date"] = df["date"]
+
+    df = df.dropna(subset=["_date"])
 
     before_count = len(df)
 
@@ -203,11 +204,6 @@ def update_data(league="nba"):
 
     df = df.sort_values("date").reset_index(drop=True)
 
-    df["date"] = pd.to_datetime(
-        df["date"],
-        utc=True,
-        errors="coerce"
-    )
 
     df["month"] = df["date"].dt.month
     df["day"] = df["date"].dt.day
@@ -220,5 +216,5 @@ def update_data(league="nba"):
 
     print(
         f"{league.upper()}: refreshed {len(new_games)} games, "
-        f"removed {removed_count} games before {cutoff_date.date()}"
+        f"removed {removed_count} games before {cutoff_date.date()}\n"
     )
