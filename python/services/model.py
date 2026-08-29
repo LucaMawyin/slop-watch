@@ -23,6 +23,8 @@ def train_model(league="nba"):
     # ---------------------------------
 
     features = [
+        "home_id",
+        "away_id",
         "home_win_pct",
         "away_win_pct",
         "home_point_diff",

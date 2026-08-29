@@ -6,6 +6,8 @@ from services.games import get_future_games, get_performance
 from services.slop import get_slop
 
 FEATURES = [
+    "home_id",
+    "away_id",
     "home_win_pct",
     "away_win_pct",
     "home_point_diff",

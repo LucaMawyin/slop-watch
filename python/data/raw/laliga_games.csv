@@ -322,30 +322,30 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 610418,2022-05-10 17:00:00+00:00,Real Betis at Valencia,BET @ VAL,Valencia,94,0,Real Betis,244,3,STATUS_FULL_TIME,Mestalla,5,10,2022
 610410,2022-05-10 18:00:00+00:00,Athletic Club at Granada,ATH @ GRA,Granada,3747,1,Athletic Club,93,0,STATUS_FULL_TIME,Nuevo Los Cármenes,5,10,2022
 610413,2022-05-10 19:30:00+00:00,Celta Vigo at Barcelona,CEL @ BAR,Barcelona,83,3,Celta Vigo,85,1,STATUS_FULL_TIME,Spotify Camp Nou,5,10,2022
-610415,2022-05-11 17:00:00+00:00,Getafe at Osasuna,GET @ OSA,Osasuna,97,1,Getafe,2922,1,STATUS_FULL_TIME,El Sadar,5,11,2022
 610414,2022-05-11 17:00:00+00:00,Espanyol at Alavés,ESP @ ALA,Alavés,96,2,Espanyol,88,1,STATUS_FULL_TIME,Mendizorroza,5,11,2022
+610415,2022-05-11 17:00:00+00:00,Getafe at Osasuna,GET @ OSA,Osasuna,97,1,Getafe,2922,1,STATUS_FULL_TIME,El Sadar,5,11,2022
 610417,2022-05-11 18:30:00+00:00,Mallorca at Sevilla,MLL @ SEV,Sevilla,243,0,Mallorca,84,0,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,11,2022
 610411,2022-05-11 19:30:00+00:00,Atlético Madrid at Elche,ATM @ ELC,Elche,3751,0,Atlético Madrid,1068,2,STATUS_FULL_TIME,Martínez Valero,5,11,2022
 610412,2022-05-12 17:00:00+00:00,Cádiz at Real Sociedad,CAD @ RSO,Real Sociedad,89,3,Cádiz,3842,0,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,12,2022
 610419,2022-05-12 18:00:00+00:00,Villarreal at Rayo Vallecano,VIL @ RAY,Rayo Vallecano,101,1,Villarreal,102,5,STATUS_FULL_TIME,Estadio de Vallecas,5,12,2022
 610416,2022-05-12 19:30:00+00:00,Levante at Real Madrid,LEV @ RMA,Real Madrid,86,6,Levante,1538,0,STATUS_FULL_TIME,Estadio Bernabéu,5,12,2022
 610409,2022-05-14 16:30:00+00:00,Valencia at Espanyol,VAL @ ESP,Espanyol,88,1,Valencia,94,1,STATUS_FULL_TIME,RCDE Stadium,5,14,2022
-610401,2022-05-15 17:30:00+00:00,Barcelona at Getafe,BAR @ GET,Getafe,2922,0,Barcelona,83,0,STATUS_FULL_TIME,Estadio Coliseum,5,15,2022
-610405,2022-05-15 17:30:00+00:00,Rayo Vallecano at Mallorca,RAY @ MLL,Mallorca,84,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,15,2022
-610400,2022-05-15 17:30:00+00:00,Alavés at Levante,ALA @ LEV,Levante,1538,3,Alavés,96,1,STATUS_FULL_TIME,Ciutat de Valencia,5,15,2022
-610404,2022-05-15 17:30:00+00:00,Osasuna at Athletic Club,OSA @ ATH,Athletic Club,93,2,Osasuna,97,0,STATUS_FULL_TIME,San Mamés,5,15,2022
-610407,2022-05-15 17:30:00+00:00,Real Sociedad at Villarreal,RSO @ VIL,Villarreal,102,1,Real Sociedad,89,2,STATUS_FULL_TIME,Estadio de la Cerámica,5,15,2022
-610406,2022-05-15 17:30:00+00:00,Real Madrid at Cádiz,RMA @ CAD,Cádiz,3842,1,Real Madrid,86,1,STATUS_FULL_TIME,Nuevo Mirandilla,5,15,2022
-610408,2022-05-15 17:30:00+00:00,Sevilla at Atlético Madrid,SEV @ ATM,Atlético Madrid,1068,1,Sevilla,243,1,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,15,2022
-610402,2022-05-15 17:30:00+00:00,Elche at Celta Vigo,ELC @ CEL,Celta Vigo,85,1,Elche,3751,0,STATUS_FULL_TIME,Estadio Abanca-Balaídos,5,15,2022
 610403,2022-05-15 17:30:00+00:00,Granada at Real Betis,GRA @ BET,Real Betis,244,2,Granada,3747,0,STATUS_FULL_TIME,Benito Villamarín,5,15,2022
+610408,2022-05-15 17:30:00+00:00,Sevilla at Atlético Madrid,SEV @ ATM,Atlético Madrid,1068,1,Sevilla,243,1,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,15,2022
+610406,2022-05-15 17:30:00+00:00,Real Madrid at Cádiz,RMA @ CAD,Cádiz,3842,1,Real Madrid,86,1,STATUS_FULL_TIME,Nuevo Mirandilla,5,15,2022
+610407,2022-05-15 17:30:00+00:00,Real Sociedad at Villarreal,RSO @ VIL,Villarreal,102,1,Real Sociedad,89,2,STATUS_FULL_TIME,Estadio de la Cerámica,5,15,2022
+610402,2022-05-15 17:30:00+00:00,Elche at Celta Vigo,ELC @ CEL,Celta Vigo,85,1,Elche,3751,0,STATUS_FULL_TIME,Estadio Abanca-Balaídos,5,15,2022
+610400,2022-05-15 17:30:00+00:00,Alavés at Levante,ALA @ LEV,Levante,1538,3,Alavés,96,1,STATUS_FULL_TIME,Ciutat de Valencia,5,15,2022
+610405,2022-05-15 17:30:00+00:00,Rayo Vallecano at Mallorca,RAY @ MLL,Mallorca,84,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,15,2022
+610401,2022-05-15 17:30:00+00:00,Barcelona at Getafe,BAR @ GET,Getafe,2922,0,Barcelona,83,0,STATUS_FULL_TIME,Estadio Coliseum,5,15,2022
+610404,2022-05-15 17:30:00+00:00,Osasuna at Athletic Club,OSA @ ATH,Athletic Club,93,2,Osasuna,97,0,STATUS_FULL_TIME,San Mamés,5,15,2022
 610396,2022-05-20 19:00:00+00:00,Levante at Rayo Vallecano,LEV @ RAY,Rayo Vallecano,101,2,Levante,1538,4,STATUS_FULL_TIME,Estadio de Vallecas,5,20,2022
 610398,2022-05-20 19:00:00+00:00,Real Betis at Real Madrid,BET @ RMA,Real Madrid,86,0,Real Betis,244,0,STATUS_FULL_TIME,Estadio Bernabéu,5,20,2022
 610393,2022-05-21 15:30:00+00:00,Celta Vigo at Valencia,CEL @ VAL,Valencia,94,2,Celta Vigo,85,0,STATUS_FULL_TIME,Mestalla,5,21,2022
 610395,2022-05-22 15:30:00+00:00,Getafe at Elche,GET @ ELC,Elche,3751,3,Getafe,2922,1,STATUS_FULL_TIME,Martínez Valero,5,22,2022
+610397,2022-05-22 18:00:00+00:00,Mallorca at Osasuna,MLL @ OSA,Osasuna,97,0,Mallorca,84,2,STATUS_FULL_TIME,El Sadar,5,22,2022
 610392,2022-05-22 18:00:00+00:00,Cádiz at Alavés,CAD @ ALA,Alavés,96,0,Cádiz,3842,1,STATUS_FULL_TIME,Mendizorroza,5,22,2022
 610394,2022-05-22 18:00:00+00:00,Espanyol at Granada,ESP @ GRA,Granada,3747,0,Espanyol,88,0,STATUS_FULL_TIME,Nuevo Los Cármenes,5,22,2022
-610397,2022-05-22 18:00:00+00:00,Mallorca at Osasuna,MLL @ OSA,Osasuna,97,0,Mallorca,84,2,STATUS_FULL_TIME,El Sadar,5,22,2022
 610399,2022-05-22 20:00:00+00:00,Villarreal at Barcelona,VIL @ BAR,Barcelona,83,0,Villarreal,102,2,STATUS_FULL_TIME,Spotify Camp Nou,5,22,2022
 610391,2022-05-22 20:00:00+00:00,Atlético Madrid at Real Sociedad,ATM @ RSO,Real Sociedad,89,1,Atlético Madrid,1068,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,22,2022
 610390,2022-05-22 20:00:00+00:00,Athletic Club at Sevilla,ATH @ SEV,Sevilla,243,1,Athletic Club,93,0,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,22,2022
@@ -455,8 +455,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 643874,2022-10-22 19:00:00+00:00,Sevilla at Real Madrid,SEV @ RMA,Real Madrid,86,3,Sevilla,243,1,STATUS_FULL_TIME,Estadio Bernabéu,10,22,2022
 643871,2022-10-23 12:00:00+00:00,Elche at Espanyol,ELC @ ESP,Espanyol,88,2,Elche,3751,2,STATUS_FULL_TIME,RCDE Stadium,10,23,2022
 643880,2022-10-23 14:15:00+00:00,Atlético Madrid at Real Betis,ATM @ BET,Real Betis,244,1,Atlético Madrid,1068,2,STATUS_FULL_TIME,Benito Villamarín,10,23,2022
-643877,2022-10-23 16:30:00+00:00,Almería at Villarreal,ALM @ VIL,Villarreal,102,2,Almería,6832,1,STATUS_FULL_TIME,Ciutat de Valencia,10,23,2022
 643872,2022-10-23 16:30:00+00:00,Osasuna at Girona,OSA @ GIR,Girona,9812,1,Osasuna,97,1,STATUS_FULL_TIME,Municipal de Montilivi,10,23,2022
+643877,2022-10-23 16:30:00+00:00,Almería at Villarreal,ALM @ VIL,Villarreal,102,2,Almería,6832,1,STATUS_FULL_TIME,Ciutat de Valencia,10,23,2022
 643879,2022-10-23 19:00:00+00:00,Athletic Club at Barcelona,ATH @ BAR,Barcelona,83,4,Athletic Club,93,0,STATUS_FULL_TIME,Spotify Camp Nou,10,23,2022
 643878,2022-10-24 19:00:00+00:00,Getafe at Celta Vigo,GET @ CEL,Celta Vigo,85,1,Getafe,2922,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos,10,24,2022
 643889,2022-10-28 19:00:00+00:00,Espanyol at Mallorca,ESP @ MLL,Mallorca,84,1,Espanyol,88,1,STATUS_FULL_TIME,Estadi Mallorca Son Moix,10,28,2022
@@ -677,8 +677,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644098,2023-05-03 20:00:00+00:00,Celta Vigo at Getafe,CEL @ GET,Getafe,2922,1,Celta Vigo,85,0,STATUS_FULL_TIME,Estadio Coliseum,5,3,2023
 644091,2023-05-04 17:30:00+00:00,Espanyol at Sevilla,ESP @ SEV,Sevilla,243,3,Espanyol,88,2,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,4,2023
 644099,2023-05-04 17:30:00+00:00,Mallorca at Girona,MLL @ GIR,Girona,9812,2,Mallorca,84,1,STATUS_FULL_TIME,Municipal de Montilivi,5,4,2023
-644096,2023-05-04 20:00:00+00:00,Real Betis at Athletic Club,BET @ ATH,Athletic Club,93,0,Real Betis,244,1,STATUS_FULL_TIME,San Mamés,5,4,2023
 644100,2023-05-04 20:00:00+00:00,Real Valladolid at Rayo Vallecano,VLL @ RAY,Rayo Vallecano,101,2,Real Valladolid,95,1,STATUS_FULL_TIME,Estadio de Vallecas,5,4,2023
+644096,2023-05-04 20:00:00+00:00,Real Betis at Athletic Club,BET @ ATH,Athletic Club,93,0,Real Betis,244,1,STATUS_FULL_TIME,San Mamés,5,4,2023
 644107,2023-05-12 19:00:00+00:00,Cádiz at Mallorca,CAD @ MLL,Mallorca,84,1,Cádiz,3842,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,12,2023
 644101,2023-05-13 12:00:00+00:00,Girona at Real Sociedad,GIR @ RSO,Real Sociedad,89,2,Girona,9812,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,13,2023
 644106,2023-05-13 14:15:00+00:00,Almería at Osasuna,ALM @ OSA,Osasuna,97,3,Almería,6832,1,STATUS_FULL_TIME,El Sadar,5,13,2023
@@ -692,8 +692,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644112,2023-05-19 19:00:00+00:00,Real Valladolid at Cádiz,VLL @ CAD,Cádiz,3842,2,Real Valladolid,95,0,STATUS_FULL_TIME,Nuevo Mirandilla,5,19,2023
 644120,2023-05-20 12:00:00+00:00,Villarreal at Girona,VIL @ GIR,Girona,9812,1,Villarreal,102,2,STATUS_FULL_TIME,Municipal de Montilivi,5,20,2023
 644113,2023-05-20 14:15:00+00:00,Celta Vigo at Athletic Club,CEL @ ATH,Athletic Club,93,2,Celta Vigo,85,1,STATUS_FULL_TIME,San Mamés,5,20,2023
-644111,2023-05-20 16:30:00+00:00,Mallorca at Almería,MLL @ ALM,Almería,6832,3,Mallorca,84,0,STATUS_FULL_TIME,UD Almería Stadium,5,20,2023
 644114,2023-05-20 16:30:00+00:00,Elche at Getafe,ELC @ GET,Getafe,2922,1,Elche,3751,1,STATUS_FULL_TIME,Estadio Coliseum,5,20,2023
+644111,2023-05-20 16:30:00+00:00,Mallorca at Almería,MLL @ ALM,Almería,6832,3,Mallorca,84,0,STATUS_FULL_TIME,UD Almería Stadium,5,20,2023
 644119,2023-05-20 19:00:00+00:00,Real Sociedad at Barcelona,RSO @ BAR,Barcelona,83,1,Real Sociedad,89,2,STATUS_FULL_TIME,Spotify Camp Nou,5,20,2023
 644116,2023-05-21 12:00:00+00:00,Espanyol at Rayo Vallecano,ESP @ RAY,Rayo Vallecano,101,1,Espanyol,88,2,STATUS_FULL_TIME,Estadio de Vallecas,5,21,2023
 644115,2023-05-21 14:15:00+00:00,Osasuna at Atlético Madrid,OSA @ ATM,Atlético Madrid,1068,3,Osasuna,97,0,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,21,2023
@@ -705,8 +705,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644128,2023-05-24 17:30:00+00:00,Sevilla at Elche,SEV @ ELC,Elche,3751,1,Sevilla,243,1,STATUS_FULL_TIME,Martínez Valero,5,24,2023
 644125,2023-05-24 17:30:00+00:00,Rayo Vallecano at Real Madrid,RAY @ RMA,Real Madrid,86,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadio Bernabéu,5,24,2023
 644130,2023-05-24 17:30:00+00:00,Cádiz at Villarreal,CAD @ VIL,Villarreal,102,2,Cádiz,3842,0,STATUS_FULL_TIME,Estadio de la Cerámica,5,24,2023
-644124,2023-05-24 20:00:00+00:00,Getafe at Real Betis,GET @ BET,Real Betis,244,0,Getafe,2922,1,STATUS_FULL_TIME,Benito Villamarín,5,24,2023
 644121,2023-05-24 20:00:00+00:00,Atlético Madrid at Espanyol,ATM @ ESP,Espanyol,88,3,Atlético Madrid,1068,3,STATUS_FULL_TIME,RCDE Stadium,5,24,2023
+644124,2023-05-24 20:00:00+00:00,Getafe at Real Betis,GET @ BET,Real Betis,244,0,Getafe,2922,1,STATUS_FULL_TIME,Benito Villamarín,5,24,2023
 644122,2023-05-25 17:30:00+00:00,Valencia at Mallorca,VAL @ MLL,Mallorca,84,1,Valencia,94,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,25,2023
 644123,2023-05-25 19:30:00+00:00,Athletic Club at Osasuna,ATH @ OSA,Osasuna,97,2,Athletic Club,93,0,STATUS_FULL_TIME,El Sadar,5,25,2023
 644138,2023-05-27 17:00:00+00:00,Real Madrid at Sevilla,RMA @ SEV,Sevilla,243,1,Real Madrid,86,2,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,27,2023
@@ -719,11 +719,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644131,2023-05-28 17:00:00+00:00,Real Betis at Girona,BET @ GIR,Girona,9812,1,Real Betis,244,2,STATUS_FULL_TIME,Municipal de Montilivi,5,28,2023
 644140,2023-05-28 17:00:00+00:00,Villarreal at Rayo Vallecano,VIL @ RAY,Rayo Vallecano,101,2,Villarreal,102,1,STATUS_FULL_TIME,Estadio de Vallecas,5,28,2023
 644139,2023-05-28 17:00:00+00:00,Espanyol at Valencia,ESP @ VAL,Valencia,94,2,Espanyol,88,2,STATUS_FULL_TIME,Mestalla,5,28,2023
-644148,2023-06-04 16:30:00+00:00,Sevilla at Real Sociedad,SEV @ RSO,Real Sociedad,89,2,Sevilla,243,1,STATUS_FULL_TIME,Estadio Municipal de Anoeta,6,4,2023
-644145,2023-06-04 16:30:00+00:00,Girona at Osasuna,GIR @ OSA,Osasuna,97,2,Girona,9812,1,STATUS_FULL_TIME,El Sadar,6,4,2023
+644144,2023-06-04 16:30:00+00:00,Rayo Vallecano at Mallorca,RAY @ MLL,Mallorca,84,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,6,4,2023
 644150,2023-06-04 16:30:00+00:00,Atlético Madrid at Villarreal,ATM @ VIL,Villarreal,102,2,Atlético Madrid,1068,2,STATUS_FULL_TIME,Estadio de la Cerámica,6,4,2023
 644147,2023-06-04 16:30:00+00:00,Athletic Club at Real Madrid,ATH @ RMA,Real Madrid,86,1,Athletic Club,93,1,STATUS_FULL_TIME,Estadio Bernabéu,6,4,2023
-644144,2023-06-04 16:30:00+00:00,Rayo Vallecano at Mallorca,RAY @ MLL,Mallorca,84,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,6,4,2023
+644148,2023-06-04 16:30:00+00:00,Sevilla at Real Sociedad,SEV @ RSO,Real Sociedad,89,2,Sevilla,243,1,STATUS_FULL_TIME,Estadio Municipal de Anoeta,6,4,2023
+644145,2023-06-04 16:30:00+00:00,Girona at Osasuna,GIR @ OSA,Osasuna,97,2,Girona,9812,1,STATUS_FULL_TIME,El Sadar,6,4,2023
 644141,2023-06-04 19:00:00+00:00,Barcelona at Celta Vigo,BAR @ CEL,Celta Vigo,85,2,Barcelona,83,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos,6,4,2023
 644142,2023-06-04 19:00:00+00:00,Cádiz at Elche,CAD @ ELC,Elche,3751,1,Cádiz,3842,1,STATUS_FULL_TIME,Martínez Valero,6,4,2023
 644143,2023-06-04 19:00:00+00:00,Almería at Espanyol,ALM @ ESP,Espanyol,88,3,Almería,6832,3,STATUS_FULL_TIME,RCDE Stadium,6,4,2023
@@ -795,8 +795,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 674073,2023-09-27 17:00:00+00:00,Girona at Villarreal,GIR @ VIL,Villarreal,102,1,Girona,9812,2,STATUS_FULL_TIME,Estadio de la Cerámica,9,27,2023
 674072,2023-09-27 19:30:00+00:00,Real Sociedad at Valencia,RSO @ VAL,Valencia,94,0,Real Sociedad,89,1,STATUS_FULL_TIME,Mestalla,9,27,2023
 674076,2023-09-27 19:30:00+00:00,Rayo Vallecano at Cádiz,RAY @ CAD,Cádiz,3842,0,Rayo Vallecano,101,0,STATUS_FULL_TIME,Nuevo Mirandilla,9,27,2023
-674075,2023-09-28 17:00:00+00:00,Alavés at Celta Vigo,ALA @ CEL,Celta Vigo,85,1,Alavés,96,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos,9,28,2023
 674079,2023-09-28 17:00:00+00:00,Real Betis at Granada,BET @ GRA,Granada,3747,1,Real Betis,244,1,STATUS_FULL_TIME,Nuevo Los Cármenes,9,28,2023
+674075,2023-09-28 17:00:00+00:00,Alavés at Celta Vigo,ALA @ CEL,Celta Vigo,85,1,Alavés,96,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos,9,28,2023
 674077,2023-09-28 19:30:00+00:00,Atlético Madrid at Osasuna,ATM @ OSA,Osasuna,97,0,Atlético Madrid,1068,2,STATUS_FULL_TIME,El Sadar,9,28,2023
 674089,2023-09-29 19:00:00+00:00,Sevilla at Barcelona,SEV @ BAR,Barcelona,83,1,Sevilla,243,0,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,9,29,2023
 674085,2023-09-30 12:00:00+00:00,Villarreal at Getafe,VIL @ GET,Getafe,2922,0,Villarreal,102,0,STATUS_FULL_TIME,Estadio Coliseum,9,30,2023
@@ -899,8 +899,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 674177,2023-12-17 20:00:00+00:00,Villarreal at Real Madrid,VIL @ RMA,Real Madrid,86,4,Villarreal,102,1,STATUS_FULL_TIME,Estadio Bernabéu,12,17,2023
 674174,2023-12-18 20:00:00+00:00,Alavés at Girona,ALA @ GIR,Girona,9812,3,Alavés,96,0,STATUS_FULL_TIME,Municipal de Montilivi,12,18,2023
 674188,2023-12-19 18:00:00+00:00,Valencia at Rayo Vallecano,VAL @ RAY,Rayo Vallecano,101,0,Valencia,94,1,STATUS_FULL_TIME,Estadio de Vallecas,12,19,2023
-674183,2023-12-19 20:30:00+00:00,Getafe at Atlético Madrid,GET @ ATM,Atlético Madrid,1068,3,Getafe,2922,3,STATUS_FULL_TIME,Riyadh Air Metropolitano,12,19,2023
 674185,2023-12-19 20:30:00+00:00,Sevilla at Granada,SEV @ GRA,Granada,3747,0,Sevilla,243,3,STATUS_FULL_TIME,Nuevo Los Cármenes,12,19,2023
+674183,2023-12-19 20:30:00+00:00,Getafe at Atlético Madrid,GET @ ATM,Atlético Madrid,1068,3,Getafe,2922,3,STATUS_FULL_TIME,Riyadh Air Metropolitano,12,19,2023
 674184,2023-12-20 18:00:00+00:00,Almería at Barcelona,ALM @ BAR,Barcelona,83,3,Almería,6832,2,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,12,20,2023
 674182,2023-12-20 20:30:00+00:00,Las Palmas at Athletic Club,LPA @ ATH,Athletic Club,93,1,Las Palmas,98,0,STATUS_FULL_TIME,San Mamés,12,20,2023
 674186,2023-12-20 20:30:00+00:00,Celta Vigo at Villarreal,CEL @ VIL,Villarreal,102,3,Celta Vigo,85,2,STATUS_FULL_TIME,Estadio de la Cerámica,12,20,2023
@@ -1090,15 +1090,15 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 674363,2024-05-16 19:30:00+00:00,Barcelona at Almería,BAR @ ALM,Almería,6832,0,Barcelona,83,2,STATUS_FULL_TIME,UD Almería Stadium,5,16,2024
 674366,2024-05-16 20:00:00+00:00,Valencia at Real Sociedad,VAL @ RSO,Real Sociedad,89,1,Valencia,94,0,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,16,2024
 674371,2024-05-18 19:00:00+00:00,Getafe at Alavés,GET @ ALA,Alavés,96,1,Getafe,2922,0,STATUS_FULL_TIME,Mendizorroza,5,18,2024
-674379,2024-05-19 17:00:00+00:00,Sevilla at Athletic Club,SEV @ ATH,Athletic Club,93,2,Sevilla,243,0,STATUS_FULL_TIME,San Mamés,5,19,2024
-674380,2024-05-19 17:00:00+00:00,Osasuna at Atlético Madrid,OSA @ ATM,Atlético Madrid,1068,1,Osasuna,97,4,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,19,2024
+674372,2024-05-19 17:00:00+00:00,Real Madrid at Villarreal,RMA @ VIL,Villarreal,102,4,Real Madrid,86,4,STATUS_FULL_TIME,Estadio de la Cerámica,5,19,2024
+674373,2024-05-19 17:00:00+00:00,Girona at Valencia,GIR @ VAL,Valencia,94,1,Girona,9812,3,STATUS_FULL_TIME,Mestalla,5,19,2024
+674378,2024-05-19 17:00:00+00:00,Rayo Vallecano at Barcelona,RAY @ BAR,Barcelona,83,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,5,19,2024
+674375,2024-05-19 17:00:00+00:00,Almería at Mallorca,ALM @ MLL,Mallorca,84,2,Almería,6832,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,19,2024
 674376,2024-05-19 17:00:00+00:00,Celta Vigo at Granada,CEL @ GRA,Granada,3747,1,Celta Vigo,85,2,STATUS_FULL_TIME,Nuevo Los Cármenes,5,19,2024
 674377,2024-05-19 17:00:00+00:00,Las Palmas at Cádiz,LPA @ CAD,Cádiz,3842,0,Las Palmas,98,0,STATUS_FULL_TIME,Nuevo Mirandilla,5,19,2024
 674374,2024-05-19 17:00:00+00:00,Real Sociedad at Real Betis,RSO @ BET,Real Betis,244,0,Real Sociedad,89,2,STATUS_FULL_TIME,Benito Villamarín,5,19,2024
-674375,2024-05-19 17:00:00+00:00,Almería at Mallorca,ALM @ MLL,Mallorca,84,2,Almería,6832,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,19,2024
-674378,2024-05-19 17:00:00+00:00,Rayo Vallecano at Barcelona,RAY @ BAR,Barcelona,83,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,5,19,2024
-674373,2024-05-19 17:00:00+00:00,Girona at Valencia,GIR @ VAL,Valencia,94,1,Girona,9812,3,STATUS_FULL_TIME,Mestalla,5,19,2024
-674372,2024-05-19 17:00:00+00:00,Real Madrid at Villarreal,RMA @ VIL,Villarreal,102,4,Real Madrid,86,4,STATUS_FULL_TIME,Estadio de la Cerámica,5,19,2024
+674380,2024-05-19 17:00:00+00:00,Osasuna at Atlético Madrid,OSA @ ATM,Atlético Madrid,1068,1,Osasuna,97,4,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,19,2024
+674379,2024-05-19 17:00:00+00:00,Sevilla at Athletic Club,SEV @ ATH,Athletic Club,93,2,Sevilla,243,0,STATUS_FULL_TIME,San Mamés,5,19,2024
 674385,2024-05-24 19:00:00+00:00,Granada at Girona,GRA @ GIR,Girona,9812,7,Granada,3747,0,STATUS_FULL_TIME,Municipal de Montilivi,5,24,2024
 674389,2024-05-25 12:00:00+00:00,Villarreal at Osasuna,VIL @ OSA,Osasuna,97,1,Villarreal,102,1,STATUS_FULL_TIME,El Sadar,5,25,2024
 674386,2024-05-25 14:15:00+00:00,Atlético Madrid at Real Sociedad,ATM @ RSO,Real Sociedad,89,0,Atlético Madrid,1068,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,25,2024
@@ -1373,8 +1373,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704929,2025-03-08 17:30:00+00:00,Real Valladolid at Valencia,VLL @ VAL,Valencia,94,2,Real Valladolid,95,1,STATUS_FULL_TIME,Mestalla,3,8,2025
 704924,2025-03-09 13:00:00+00:00,Atlético Madrid at Getafe,ATM @ GET,Getafe,2922,2,Atlético Madrid,1068,1,STATUS_FULL_TIME,Estadio Coliseum,3,9,2025
 704926,2025-03-09 15:15:00+00:00,Rayo Vallecano at Real Madrid,RAY @ RMA,Real Madrid,86,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadio Bernabéu,3,9,2025
-704921,2025-03-09 17:30:00+00:00,Mallorca at Athletic Club,MLL @ ATH,Athletic Club,93,1,Mallorca,84,1,STATUS_FULL_TIME,San Mamés,3,9,2025
 704925,2025-03-09 17:30:00+00:00,Las Palmas at Real Betis,LPA @ BET,Real Betis,244,1,Las Palmas,98,0,STATUS_FULL_TIME,Benito Villamarín,3,9,2025
+704921,2025-03-09 17:30:00+00:00,Mallorca at Athletic Club,MLL @ ATH,Athletic Club,93,1,Mallorca,84,1,STATUS_FULL_TIME,San Mamés,3,9,2025
 704927,2025-03-09 20:00:00+00:00,Sevilla at Real Sociedad,SEV @ RSO,Real Sociedad,89,0,Sevilla,243,1,STATUS_FULL_TIME,Estadio Municipal de Anoeta,3,9,2025
 704928,2025-03-10 20:00:00+00:00,Girona at Espanyol,GIR @ ESP,Espanyol,88,1,Girona,9812,1,STATUS_FULL_TIME,RCDE Stadium,3,10,2025
 704932,2025-03-14 20:00:00+00:00,Alavés at Las Palmas,ALA @ LPA,Las Palmas,98,2,Alavés,96,2,STATUS_FULL_TIME,Estadio Gran Canaria,3,14,2025
@@ -1432,8 +1432,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 704988,2025-04-22 19:30:00+00:00,Mallorca at Barcelona,MLL @ BAR,Barcelona,83,1,Mallorca,84,0,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,4,22,2025
 704984,2025-04-23 17:00:00+00:00,Las Palmas at Athletic Club,LPA @ ATH,Athletic Club,93,1,Las Palmas,98,0,STATUS_FULL_TIME,San Mamés,4,23,2025
 704987,2025-04-23 17:00:00+00:00,Villarreal at Celta Vigo,VIL @ CEL,Celta Vigo,85,3,Villarreal,102,0,STATUS_FULL_TIME,Estadio Abanca-Balaídos,4,23,2025
-704986,2025-04-23 19:30:00+00:00,Real Sociedad at Alavés,RSO @ ALA,Alavés,96,1,Real Sociedad,89,0,STATUS_FULL_TIME,Mendizorroza,4,23,2025
 704981,2025-04-23 19:30:00+00:00,Real Madrid at Getafe,RMA @ GET,Getafe,2922,0,Real Madrid,86,1,STATUS_FULL_TIME,Estadio Coliseum,4,23,2025
+704986,2025-04-23 19:30:00+00:00,Real Sociedad at Alavés,RSO @ ALA,Alavés,96,1,Real Sociedad,89,0,STATUS_FULL_TIME,Mendizorroza,4,23,2025
 704983,2025-04-24 17:00:00+00:00,Girona at Leganés,GIR @ LEG,Leganés,17534,1,Girona,9812,1,STATUS_FULL_TIME,Estadio Ontime Butarque,4,24,2025
 704989,2025-04-24 17:00:00+00:00,Sevilla at Osasuna,SEV @ OSA,Osasuna,97,1,Sevilla,243,0,STATUS_FULL_TIME,El Sadar,4,24,2025
 704980,2025-04-24 19:30:00+00:00,Rayo Vallecano at Atlético Madrid,RAY @ ATM,Atlético Madrid,1068,3,Rayo Vallecano,101,0,STATUS_FULL_TIME,Riyadh Air Metropolitano,4,24,2025
@@ -1469,16 +1469,16 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 705013,2025-05-15 17:00:00+00:00,Real Betis at Rayo Vallecano,BET @ RAY,Rayo Vallecano,101,2,Real Betis,244,2,STATUS_FULL_TIME,Estadio de Vallecas,5,15,2025
 705018,2025-05-15 19:30:00+00:00,Barcelona at Espanyol,BAR @ ESP,Espanyol,88,0,Barcelona,83,2,STATUS_FULL_TIME,RCDE Stadium,5,15,2025
 705011,2025-05-15 19:30:00+00:00,Athletic Club at Getafe,ATH @ GET,Getafe,2922,0,Athletic Club,93,2,STATUS_FULL_TIME,Estadio Coliseum,5,15,2025
-705029,2025-05-18 17:00:00+00:00,Athletic Club at Valencia,ATH @ VAL,Valencia,94,0,Athletic Club,93,1,STATUS_FULL_TIME,Mestalla,5,18,2025
-705028,2025-05-18 17:00:00+00:00,Real Madrid at Sevilla,RMA @ SEV,Sevilla,243,0,Real Madrid,86,2,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,18,2025
-705027,2025-05-18 17:00:00+00:00,Alavés at Real Valladolid,ALA @ VLL,Real Valladolid,95,0,Alavés,96,1,STATUS_FULL_TIME,José Zorrilla,5,18,2025
-705026,2025-05-18 17:00:00+00:00,Girona at Real Sociedad,GIR @ RSO,Real Sociedad,89,3,Girona,9812,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,18,2025
-705025,2025-05-18 17:00:00+00:00,Espanyol at Osasuna,ESP @ OSA,Osasuna,97,2,Espanyol,88,0,STATUS_FULL_TIME,El Sadar,5,18,2025
-705024,2025-05-18 17:00:00+00:00,Getafe at Mallorca,GET @ MLL,Mallorca,84,1,Getafe,2922,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,18,2025
-705023,2025-05-18 17:00:00+00:00,Leganés at Las Palmas,LEG @ LPA,Las Palmas,98,0,Leganés,17534,1,STATUS_FULL_TIME,Estadio Gran Canaria,5,18,2025
-705022,2025-05-18 17:00:00+00:00,Rayo Vallecano at Celta Vigo,RAY @ CEL,Celta Vigo,85,1,Rayo Vallecano,101,2,STATUS_FULL_TIME,Estadio Abanca-Balaídos,5,18,2025
 705021,2025-05-18 17:00:00+00:00,Villarreal at Barcelona,VIL @ BAR,Barcelona,83,2,Villarreal,102,3,STATUS_FULL_TIME,Estadi Olímpic Lluís Companys,5,18,2025
+705022,2025-05-18 17:00:00+00:00,Rayo Vallecano at Celta Vigo,RAY @ CEL,Celta Vigo,85,1,Rayo Vallecano,101,2,STATUS_FULL_TIME,Estadio Abanca-Balaídos,5,18,2025
+705023,2025-05-18 17:00:00+00:00,Leganés at Las Palmas,LEG @ LPA,Las Palmas,98,0,Leganés,17534,1,STATUS_FULL_TIME,Estadio Gran Canaria,5,18,2025
+705024,2025-05-18 17:00:00+00:00,Getafe at Mallorca,GET @ MLL,Mallorca,84,1,Getafe,2922,2,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,18,2025
 705020,2025-05-18 17:00:00+00:00,Real Betis at Atlético Madrid,BET @ ATM,Atlético Madrid,1068,4,Real Betis,244,1,STATUS_FULL_TIME,Riyadh Air Metropolitano,5,18,2025
+705026,2025-05-18 17:00:00+00:00,Girona at Real Sociedad,GIR @ RSO,Real Sociedad,89,3,Girona,9812,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,5,18,2025
+705027,2025-05-18 17:00:00+00:00,Alavés at Real Valladolid,ALA @ VLL,Real Valladolid,95,0,Alavés,96,1,STATUS_FULL_TIME,José Zorrilla,5,18,2025
+705028,2025-05-18 17:00:00+00:00,Real Madrid at Sevilla,RMA @ SEV,Sevilla,243,0,Real Madrid,86,2,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,5,18,2025
+705029,2025-05-18 17:00:00+00:00,Athletic Club at Valencia,ATH @ VAL,Valencia,94,0,Athletic Club,93,1,STATUS_FULL_TIME,Mestalla,5,18,2025
+705025,2025-05-18 17:00:00+00:00,Espanyol at Osasuna,ESP @ OSA,Osasuna,97,2,Espanyol,88,0,STATUS_FULL_TIME,El Sadar,5,18,2025
 705036,2025-05-23 19:00:00+00:00,Valencia at Real Betis,VAL @ BET,Real Betis,244,1,Valencia,94,1,STATUS_FULL_TIME,Benito Villamarín,5,23,2025
 705034,2025-05-24 14:15:00+00:00,Real Sociedad at Real Madrid,RSO @ RMA,Real Madrid,86,2,Real Sociedad,89,0,STATUS_FULL_TIME,Estadio Bernabéu,5,24,2025
 705032,2025-05-24 16:30:00+00:00,Las Palmas at Espanyol,LPA @ ESP,Espanyol,88,2,Las Palmas,98,0,STATUS_FULL_TIME,RCDE Stadium,5,24,2025
@@ -1504,8 +1504,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 748161,2025-08-23 17:30:00+00:00,Elche at Atlético Madrid,ELC @ ATM,Atlético Madrid,1068,1,Elche,3751,1,STATUS_FULL_TIME,Riyadh Air Metropolitano,8,23,2025
 748162,2025-08-23 19:30:00+00:00,Barcelona at Levante,BAR @ LEV,Levante,1538,2,Barcelona,83,3,STATUS_FULL_TIME,Ciutat de Valencia,8,23,2025
 748159,2025-08-24 15:00:00+00:00,Valencia at Osasuna,VAL @ OSA,Osasuna,97,1,Valencia,94,0,STATUS_FULL_TIME,El Sadar,8,24,2025
-748156,2025-08-24 17:30:00+00:00,Espanyol at Real Sociedad,ESP @ RSO,Real Sociedad,89,2,Espanyol,88,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,8,24,2025
 748163,2025-08-24 17:30:00+00:00,Girona at Villarreal,GIR @ VIL,Villarreal,102,5,Girona,9812,0,STATUS_FULL_TIME,Estadio de la Cerámica,8,24,2025
+748156,2025-08-24 17:30:00+00:00,Espanyol at Real Sociedad,ESP @ RSO,Real Sociedad,89,2,Espanyol,88,2,STATUS_FULL_TIME,Estadio Municipal de Anoeta,8,24,2025
 748155,2025-08-24 19:30:00+00:00,Real Madrid at Real Oviedo,RMA @ OVI,Real Oviedo,92,0,Real Madrid,86,3,STATUS_FULL_TIME,Carlos Tartiere,8,24,2025
 748160,2025-08-25 17:30:00+00:00,Rayo Vallecano at Athletic Club,RAY @ ATH,Athletic Club,93,1,Rayo Vallecano,101,0,STATUS_FULL_TIME,San Mamés,8,25,2025
 748157,2025-08-25 19:30:00+00:00,Getafe at Sevilla,GET @ SEV,Sevilla,243,1,Getafe,2922,2,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,8,25,2025
@@ -1566,8 +1566,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 748214,2025-10-04 19:00:00+00:00,Villarreal at Real Madrid,VIL @ RMA,Real Madrid,86,3,Villarreal,102,1,STATUS_FULL_TIME,Estadio Bernabéu,10,4,2025
 748218,2025-10-05 12:00:00+00:00,Elche at Alavés,ELC @ ALA,Alavés,96,3,Elche,3751,1,STATUS_FULL_TIME,Mendizorroza,10,5,2025
 748215,2025-10-05 14:15:00+00:00,Barcelona at Sevilla,BAR @ SEV,Sevilla,243,4,Barcelona,83,1,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,10,5,2025
-748220,2025-10-05 16:30:00+00:00,Real Betis at Espanyol,BET @ ESP,Espanyol,88,1,Real Betis,244,2,STATUS_FULL_TIME,RCDE Stadium,10,5,2025
 748217,2025-10-05 16:30:00+00:00,Rayo Vallecano at Real Sociedad,RAY @ RSO,Real Sociedad,89,0,Rayo Vallecano,101,1,STATUS_FULL_TIME,Estadio Municipal de Anoeta,10,5,2025
+748220,2025-10-05 16:30:00+00:00,Real Betis at Espanyol,BET @ ESP,Espanyol,88,1,Real Betis,244,2,STATUS_FULL_TIME,RCDE Stadium,10,5,2025
 748221,2025-10-05 19:00:00+00:00,Atlético Madrid at Celta Vigo,ATM @ CEL,Celta Vigo,85,1,Atlético Madrid,1068,1,STATUS_FULL_TIME,Estadio Abanca-Balaídos,10,5,2025
 748229,2025-10-17 19:00:00+00:00,Espanyol at Real Oviedo,ESP @ OVI,Real Oviedo,92,0,Espanyol,88,2,STATUS_FULL_TIME,Carlos Tartiere,10,17,2025
 748227,2025-10-18 12:00:00+00:00,Mallorca at Sevilla,MLL @ SEV,Sevilla,243,1,Mallorca,84,3,STATUS_FULL_TIME,Ramón Sánchez-Pizjuán,10,18,2025
@@ -1859,15 +1859,15 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 748510,2026-05-17 17:00:00+00:00,Mallorca at Levante,MLL @ LEV,Levante,1538,2,Mallorca,84,0,STATUS_FULL_TIME,Estadi Ciutat de València,5,17,2026
 748506,2026-05-17 17:00:00+00:00,Celta Vigo at Athletic Club,CEL @ ATH,Athletic Club,93,1,Celta Vigo,85,1,STATUS_FULL_TIME,San Mamés,5,17,2026
 748508,2026-05-17 19:15:00+00:00,Real Betis at Barcelona,BET @ BAR,Barcelona,83,3,Real Betis,244,1,STATUS_FULL_TIME,Spotify Camp Nou,5,17,2026
-748523,2026-05-23 19:00:00+00:00,Rayo Vallecano at Alavés,RAY @ ALA,Alavés,96,1,Rayo Vallecano,101,2,STATUS_FULL_TIME,Mendizorrotza,5,23,2026
-748517,2026-05-23 19:00:00+00:00,Sevilla at Celta Vigo,SEV @ CEL,Celta Vigo,85,1,Sevilla,243,0,STATUS_FULL_TIME,Balaidos,5,23,2026
-748516,2026-05-23 19:00:00+00:00,Real Sociedad at Espanyol,RSO @ ESP,Espanyol,88,1,Real Sociedad,89,1,STATUS_FULL_TIME,RCDE Stadium,5,23,2026
-748518,2026-05-23 19:00:00+00:00,Osasuna at Getafe,OSA @ GET,Getafe,2922,1,Osasuna,97,0,STATUS_FULL_TIME,Estadio Coliseum,5,23,2026
-748520,2026-05-23 19:00:00+00:00,Elche at Girona,ELC @ GIR,Girona,9812,1,Elche,3751,1,STATUS_FULL_TIME,Estadi Montilivi,5,23,2026
-748521,2026-05-23 19:00:00+00:00,Real Oviedo at Mallorca,OVI @ MLL,Mallorca,84,3,Real Oviedo,92,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,23,2026
-748522,2026-05-23 19:00:00+00:00,Levante at Real Betis,LEV @ BET,Real Betis,244,2,Levante,1538,1,STATUS_FULL_TIME,Estadio La Cartuja,5,23,2026
-748514,2026-05-23 19:00:00+00:00,Athletic Club at Real Madrid,ATH @ RMA,Real Madrid,86,4,Athletic Club,93,2,STATUS_FULL_TIME,Santiago Bernabéu,5,23,2026
 748519,2026-05-23 19:00:00+00:00,Barcelona at Valencia,BAR @ VAL,Valencia,94,3,Barcelona,83,1,STATUS_FULL_TIME,Mestalla Stadium,5,23,2026
+748514,2026-05-23 19:00:00+00:00,Athletic Club at Real Madrid,ATH @ RMA,Real Madrid,86,4,Athletic Club,93,2,STATUS_FULL_TIME,Santiago Bernabéu,5,23,2026
+748522,2026-05-23 19:00:00+00:00,Levante at Real Betis,LEV @ BET,Real Betis,244,2,Levante,1538,1,STATUS_FULL_TIME,Estadio La Cartuja,5,23,2026
+748521,2026-05-23 19:00:00+00:00,Real Oviedo at Mallorca,OVI @ MLL,Mallorca,84,3,Real Oviedo,92,0,STATUS_FULL_TIME,Estadi Mallorca Son Moix,5,23,2026
+748520,2026-05-23 19:00:00+00:00,Elche at Girona,ELC @ GIR,Girona,9812,1,Elche,3751,1,STATUS_FULL_TIME,Estadi Montilivi,5,23,2026
+748518,2026-05-23 19:00:00+00:00,Osasuna at Getafe,OSA @ GET,Getafe,2922,1,Osasuna,97,0,STATUS_FULL_TIME,Estadio Coliseum,5,23,2026
+748516,2026-05-23 19:00:00+00:00,Real Sociedad at Espanyol,RSO @ ESP,Espanyol,88,1,Real Sociedad,89,1,STATUS_FULL_TIME,RCDE Stadium,5,23,2026
+748517,2026-05-23 19:00:00+00:00,Sevilla at Celta Vigo,SEV @ CEL,Celta Vigo,85,1,Sevilla,243,0,STATUS_FULL_TIME,Balaidos,5,23,2026
+748523,2026-05-23 19:00:00+00:00,Rayo Vallecano at Alavés,RAY @ ALA,Alavés,96,1,Rayo Vallecano,101,2,STATUS_FULL_TIME,Mendizorrotza,5,23,2026
 748515,2026-05-24 19:00:00+00:00,Atlético Madrid at Villarreal,ATM @ VIL,Villarreal,102,5,Atlético Madrid,1068,1,STATUS_FULL_TIME,Estadio de la Cerámica,5,24,2026
 401882926,2026-08-15 17:30:00+00:00,Getafe at Alavés,GET @ ALA,Alavés,96,3,Getafe,2922,0,STATUS_FULL_TIME,Mendizorrotza,8,15,2026
 401882918,2026-08-15 19:30:00+00:00,Rayo Vallecano at Sevilla,RAY @ SEV,Sevilla,243,2,Rayo Vallecano,101,1,STATUS_FULL_TIME,Ramón Sánchez Pizjuán Stadium,8,15,2026
@@ -1892,4 +1892,4 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401882906,2026-08-28 19:30:00+00:00,,,Alavés,96,1,Villarreal,102,0,STATUS_FULL_TIME,Mendizorrotza,8,28,2026
 401882902,2026-08-29 15:00:00+00:00,,,Levante,1538,5,Real Betis,244,2,STATUS_FULL_TIME,Estadi Ciutat de València,8,29,2026
 401882898,2026-08-29 17:00:00+00:00,,,Real Sociedad,89,2,Espanyol,88,1,STATUS_FULL_TIME,Reale Arena,8,29,2026
-401882897,2026-08-29 19:30:00+00:00,,,Sevilla,243,0,Atlético Madrid,1068,3,STATUS_HALFTIME,Ramón Sánchez Pizjuán Stadium,8,29,2026
+401882897,2026-08-29 19:30:00+00:00,,,Sevilla,243,0,Atlético Madrid,1068,3,STATUS_SECOND_HALF,Ramón Sánchez Pizjuán Stadium,8,29,2026
