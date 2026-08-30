@@ -4,10 +4,12 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openSport, setOpenSport] = useState<string | null>(null);
+    const router = useRouter();
 
     const sports = [...new Set(leagues.sort((a,b) => a.sport.localeCompare(b.sport)).map((league) => league.sport))];
 
@@ -64,7 +66,10 @@ export default function Navbar() {
 
                     <Link
                         href={`/games`}
-                        onClick={() => setOpenSport(null)}
+                        onClick={() => {
+                            setOpenSport(null);
+                            router.push("/");
+                        }}
                         className="text-sm text-zinc-300 hover:text-white"
                     >
                         All Leagues

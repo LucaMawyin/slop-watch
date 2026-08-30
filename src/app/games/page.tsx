@@ -400,7 +400,7 @@ function GamesContent() {
                                         />
                                     </div>
 
-                                    {sport && (
+                                    {(sport || (!league && !sport))  && (
                                         <div className="mb-3 text-lg font-semibold text-white">
                                             {leagues.find((item) => item.id === game.league)?.name}
                                         </div>
