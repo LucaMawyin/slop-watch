@@ -84,6 +84,19 @@ def train_model(league="nba"):
     # ---------------------------------
     predictions = model.predict(X_test)
 
+    all_predictions = model.predict(X)
+
+    # Save the distribution of historical model predictions
+    prediction_distribution = {
+        "slop": all_predictions[:, 0],
+        "watchability": all_predictions[:, 1],
+    }
+
+    joblib.dump(
+        prediction_distribution,
+        f"models/{league}_prediction_distribution.pkl"
+    )
+
     slop_error = mean_absolute_error(
         Y_test["actual_slop"],
         predictions[:, 0],

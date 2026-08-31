@@ -33,8 +33,13 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     else:
         prediction_date = prediction_date.tz_convert("UTC")
 
-    model_path = f"models/{league}_slop_model.pkl"
-    model = joblib.load(model_path)
+    model = joblib.load(
+        f"models/{league}_slop_model.pkl"
+    )
+
+    prediction_distribution = joblib.load(
+        f"models/{league}_prediction_distribution.pkl"
+    )
 
     games = get_future_games(
         prediction_date=prediction_date,
@@ -143,15 +148,12 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     # SLOP PERCENTILE
     # ---------------------------------
 
-    historical_slop = (
-        historical["actual_slop"]
-        .dropna()
-    )
+    historical_predicted_slop = prediction_distribution["slop"]
 
     games["slop_percentile"] = games["predicted_slop"].apply(
         lambda score: (
-            (historical_slop < score).mean()
-            if len(historical_slop) > 0
+            (historical_predicted_slop < score).mean()
+            if len(historical_predicted_slop) > 0
             else np.nan
         )
     )
@@ -160,15 +162,12 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     # WATCHABILITY PERCENTILE
     # ---------------------------------
 
-    historical_watchability = (
-        historical["actual_watchability"]
-        .dropna()
-    )
+    historical_predicted_watchability = prediction_distribution["watchability"]
 
     games["watchability_percentile"] = games["predicted_watchability"].apply(
         lambda score: (
-            (historical_watchability < score).mean()
-            if len(historical_watchability) > 0
+            (historical_predicted_watchability < score).mean()
+            if len(historical_predicted_watchability) > 0
             else np.nan
         )
     )

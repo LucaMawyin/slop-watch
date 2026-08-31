@@ -17,9 +17,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 597999,2021-09-12 00:00:00+00:00,Nashville SC at CF Montréal,NSH @ MTL,CF Montréal,9720,0,Nashville SC,18986,1,STATUS_FULL_TIME,Stade Saputo,regular_season,9,12,2021
 597995,2021-09-12 00:00:00+00:00,Toronto FC at FC Cincinnati,TOR @ CIN,FC Cincinnati,18267,2,Toronto FC,7318,0,STATUS_FULL_TIME,TQL Stadium,regular_season,9,12,2021
 597990,2021-09-12 00:00:00+00:00,Columbus Crew at Inter Miami CF,CLB @ MIA,Inter Miami CF,20232,1,Columbus Crew,183,0,STATUS_FULL_TIME,Chase Stadium,regular_season,9,12,2021
-597997,2021-09-12 00:30:00+00:00,Chicago Fire FC at Sporting Kansas City,CHI @ SKC,Sporting Kansas City,186,2,Chicago Fire FC,182,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,9,12,2021
 597996,2021-09-12 00:30:00+00:00,San Jose Earthquakes at FC Dallas,SJ @ DAL,FC Dallas,185,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,12,2021
 597998,2021-09-12 00:30:00+00:00,Austin FC at Houston Dynamo FC,ATX @ HOU,Houston Dynamo FC,6077,3,Austin FC,20906,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,9,12,2021
+597997,2021-09-12 00:30:00+00:00,Chicago Fire FC at Sporting Kansas City,CHI @ SKC,Sporting Kansas City,186,2,Chicago Fire FC,182,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,9,12,2021
 598000,2021-09-13 02:30:00+00:00,Real Salt Lake at LAFC,RSL @ LAFC,LAFC,18966,3,Real Salt Lake,4771,2,STATUS_FULL_TIME,BMO Stadium,regular_season,9,13,2021
 598003,2021-09-14 23:30:00+00:00,Red Bull New York at Columbus Crew,RBNY @ CLB,Columbus Crew,183,2,Red Bull New York,190,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,9,14,2021
 598002,2021-09-14 23:30:00+00:00,FC Dallas at New York City FC,DAL @ NYC,New York City FC,17606,3,FC Dallas,185,3,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,14,2021
@@ -262,9 +262,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623243,2022-04-09 22:00:00+00:00,Columbus Crew at Philadelphia Union,CLB @ PHI,Philadelphia Union,10739,1,Columbus Crew,183,0,STATUS_FULL_TIME,Subaru Park,regular_season,4,9,2022
 623242,2022-04-09 23:30:00+00:00,LAFC at LA Galaxy,LAFC @ LA,LA Galaxy,187,2,LAFC,18966,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,4,9,2022
 623244,2022-04-10 00:00:00+00:00,Toronto FC at Real Salt Lake,TOR @ RSL,Real Salt Lake,4771,2,Toronto FC,7318,2,STATUS_FULL_TIME,America First Field,regular_season,4,10,2022
-623247,2022-04-10 00:30:00+00:00,Nashville SC at Sporting Kansas City,NSH @ SKC,Sporting Kansas City,186,1,Nashville SC,18986,2,STATUS_FULL_TIME,Children's Mercy Park,regular_season,4,10,2022
 623245,2022-04-10 00:30:00+00:00,Colorado Rapids at FC Dallas,COL @ DAL,FC Dallas,185,3,Colorado Rapids,184,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,4,10,2022
 623246,2022-04-10 00:30:00+00:00,San Jose Earthquakes at Houston Dynamo FC,SJ @ HOU,Houston Dynamo FC,6077,4,San Jose Earthquakes,191,3,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,4,10,2022
+623247,2022-04-10 00:30:00+00:00,Nashville SC at Sporting Kansas City,NSH @ SKC,Sporting Kansas City,186,1,Nashville SC,18986,2,STATUS_FULL_TIME,Children's Mercy Park,regular_season,4,10,2022
 623248,2022-04-10 02:00:00+00:00,Portland Timbers at Vancouver Whitecaps,POR @ VAN,Vancouver Whitecaps,9727,2,Portland Timbers,9723,3,STATUS_FULL_TIME,BC Place,regular_season,4,10,2022
 623238,2022-04-10 17:30:00+00:00,Atlanta United FC at Charlotte FC,ATL @ CLT,Charlotte FC,21300,1,Atlanta United FC,18418,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,4,10,2022
 623250,2022-04-10 23:30:00+00:00,Minnesota United FC at Austin FC,MIN @ ATX,Austin FC,20906,1,Minnesota United FC,17362,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,4,10,2022
@@ -273,9 +273,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623253,2022-04-16 22:00:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,0,FC Cincinnati,18267,0,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,16,2022
 623254,2022-04-16 22:00:00+00:00,Portland Timbers at Houston Dynamo FC,POR @ HOU,Houston Dynamo FC,6077,0,Portland Timbers,9723,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,4,16,2022
 623255,2022-04-16 23:00:00+00:00,FC Dallas at Red Bull New York,DAL @ RBNY,Red Bull New York,190,0,FC Dallas,185,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,16,2022
-623259,2022-04-16 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,2,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,4,16,2022
 623256,2022-04-16 23:30:00+00:00,Orlando City SC at Columbus Crew,ORL @ CLB,Columbus Crew,183,0,Orlando City SC,12011,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,4,16,2022
 623258,2022-04-16 23:30:00+00:00,Charlotte FC at New England Revolution,CLT @ NE,New England Revolution,189,2,Charlotte FC,21300,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,16,2022
+623259,2022-04-16 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,2,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,4,16,2022
 623260,2022-04-17 00:00:00+00:00,LA Galaxy at Chicago Fire FC,LA @ CHI,Chicago Fire FC,182,0,LA Galaxy,187,0,STATUS_FULL_TIME,Soldier Field,regular_season,4,17,2022
 623257,2022-04-17 00:00:00+00:00,Austin FC at D.C. United,ATX @ DC,D.C. United,193,2,Austin FC,20906,3,STATUS_FULL_TIME,Audi Field,regular_season,4,17,2022
 623261,2022-04-17 00:00:00+00:00,Colorado Rapids at Minnesota United FC,COL @ MIN,Minnesota United FC,17362,3,Colorado Rapids,184,1,STATUS_FULL_TIME,Allianz Field,regular_season,4,17,2022
@@ -363,9 +363,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623341,2022-05-23 00:00:00+00:00,Houston Dynamo FC at LA Galaxy,HOU @ LA,LA Galaxy,187,0,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,5,23,2022
 623344,2022-05-23 02:00:00+00:00,Philadelphia Union at Portland Timbers,PHI @ POR,Portland Timbers,9723,0,Philadelphia Union,10739,2,STATUS_FULL_TIME,Providence Park,regular_season,5,23,2022
 623345,2022-05-28 22:00:00+00:00,San Jose Earthquakes at LAFC,SJ @ LAFC,LAFC,18966,3,San Jose Earthquakes,191,2,STATUS_FULL_TIME,BMO Stadium,regular_season,5,28,2022
-623348,2022-05-28 23:00:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,3,Chicago Fire FC,182,2,STATUS_FULL_TIME,BMO Field,regular_season,5,28,2022
 623347,2022-05-28 23:00:00+00:00,Columbus Crew at Atlanta United FC,CLB @ ATL,Atlanta United FC,18418,1,Columbus Crew,183,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,28,2022
 623346,2022-05-28 23:00:00+00:00,D.C. United at Red Bull New York,DC @ RBNY,Red Bull New York,190,4,D.C. United,193,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,28,2022
+623348,2022-05-28 23:00:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,3,Chicago Fire FC,182,2,STATUS_FULL_TIME,BMO Field,regular_season,5,28,2022
 623349,2022-05-28 23:30:00+00:00,FC Cincinnati at CF Montréal,CIN @ MTL,CF Montréal,9720,4,FC Cincinnati,18267,3,STATUS_FULL_TIME,Stade Saputo,regular_season,5,28,2022
 623350,2022-05-28 23:30:00+00:00,Philadelphia Union at New England Revolution,PHI @ NE,New England Revolution,189,1,Philadelphia Union,10739,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,28,2022
 623351,2022-05-28 23:30:00+00:00,FC Dallas at Orlando City SC,DAL @ ORL,Orlando City SC,12011,1,FC Dallas,185,3,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,28,2022
@@ -413,9 +413,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623394,2022-06-29 23:30:00+00:00,Columbus Crew at Toronto FC,CLB @ TOR,Toronto FC,7318,1,Columbus Crew,183,2,STATUS_FULL_TIME,BMO Field,regular_season,6,29,2022
 623395,2022-06-30 00:00:00+00:00,Philadelphia Union at Chicago Fire FC,PHI @ CHI,Chicago Fire FC,182,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,Soldier Field,regular_season,6,30,2022
 623397,2022-06-30 02:00:00+00:00,CF Montréal at Seattle Sounders FC,MTL @ SEA,Seattle Sounders FC,9726,1,CF Montréal,9720,2,STATUS_FULL_TIME,Lumen Field,regular_season,6,30,2022
-623398,2022-06-30 02:30:00+00:00,Houston Dynamo FC at Portland Timbers,HOU @ POR,Portland Timbers,9723,2,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Providence Park,regular_season,6,30,2022
 623484,2022-06-30 02:30:00+00:00,Minnesota United FC at LA Galaxy,MIN @ LA,LA Galaxy,187,2,Minnesota United FC,17362,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,6,30,2022
 623399,2022-06-30 02:30:00+00:00,FC Dallas at LAFC,DAL @ LAFC,LAFC,18966,3,FC Dallas,185,1,STATUS_FULL_TIME,BMO Stadium,regular_season,6,30,2022
+623398,2022-06-30 02:30:00+00:00,Houston Dynamo FC at Portland Timbers,HOU @ POR,Portland Timbers,9723,2,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Providence Park,regular_season,6,30,2022
 623391,2022-06-30 23:00:00+00:00,Austin FC at Charlotte FC,ATX @ CLT,Charlotte FC,21300,0,Austin FC,20906,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,6,30,2022
 623396,2022-07-01 00:00:00+00:00,Atlanta United FC at Red Bull New York,ATL @ RBNY,Red Bull New York,190,2,Atlanta United FC,18418,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,7,1,2022
 623400,2022-07-02 23:30:00+00:00,Seattle Sounders FC at Toronto FC,SEA @ TOR,Toronto FC,7318,0,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,BMO Field,regular_season,7,2,2022
@@ -567,10 +567,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623547,2022-08-28 23:30:00+00:00,New York City FC at Orlando City SC,NYC @ ORL,Orlando City SC,12011,2,New York City FC,17606,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,28,2022
 623548,2022-08-29 00:00:00+00:00,LA Galaxy at New England Revolution,LA @ NE,New England Revolution,189,1,LA Galaxy,187,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,8,29,2022
 623551,2022-08-31 23:00:00+00:00,Atlanta United FC at Philadelphia Union,ATL @ PHI,Philadelphia Union,10739,4,Atlanta United FC,18418,1,STATUS_FULL_TIME,Subaru Park,regular_season,8,31,2022
-623550,2022-08-31 23:30:00+00:00,LA Galaxy at Toronto FC,LA @ TOR,Toronto FC,7318,2,LA Galaxy,187,2,STATUS_FULL_TIME,BMO Field,regular_season,8,31,2022
 623553,2022-08-31 23:30:00+00:00,Chicago Fire FC at New England Revolution,CHI @ NE,New England Revolution,189,0,Chicago Fire FC,182,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,8,31,2022
-623549,2022-08-31 23:30:00+00:00,Red Bull New York at CF Montréal,RBNY @ MTL,CF Montréal,9720,0,Red Bull New York,190,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,31,2022
+623550,2022-08-31 23:30:00+00:00,LA Galaxy at Toronto FC,LA @ TOR,Toronto FC,7318,2,LA Galaxy,187,2,STATUS_FULL_TIME,BMO Field,regular_season,8,31,2022
 623554,2022-08-31 23:30:00+00:00,Inter Miami CF at Columbus Crew,MIA @ CLB,Columbus Crew,183,1,Inter Miami CF,20232,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,8,31,2022
+623549,2022-08-31 23:30:00+00:00,Red Bull New York at CF Montréal,RBNY @ MTL,CF Montréal,9720,0,Red Bull New York,190,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,31,2022
 623241,2022-09-01 00:00:00+00:00,D.C. United at New York City FC,DC @ NYC,New York City FC,17606,1,D.C. United,193,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,1,2022
 623555,2022-09-01 00:30:00+00:00,LAFC at Houston Dynamo FC,LAFC @ HOU,Houston Dynamo FC,6077,2,LAFC,18966,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,9,1,2022
 623556,2022-09-01 00:30:00+00:00,Colorado Rapids at Nashville SC,COL @ NSH,Nashville SC,18986,4,Colorado Rapids,184,1,STATUS_FULL_TIME,GEODIS Park,regular_season,9,1,2022
@@ -646,20 +646,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 623624,2022-10-03 00:30:00+00:00,Houston Dynamo FC at Nashville SC,HOU @ NSH,Nashville SC,18986,1,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,GEODIS Park,regular_season,10,3,2022
 623471,2022-10-05 23:00:00+00:00,Columbus Crew at Charlotte FC,CLB @ CLT,Charlotte FC,21300,2,Columbus Crew,183,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,10,5,2022
 623567,2022-10-06 00:00:00+00:00,Orlando City SC at Inter Miami CF,ORL @ MIA,Inter Miami CF,20232,4,Orlando City SC,12011,1,STATUS_FULL_TIME,Chase Stadium,regular_season,10,6,2022
-623627,2022-10-09 18:30:00+00:00,Toronto FC at Philadelphia Union,TOR @ PHI,Philadelphia Union,10739,4,Toronto FC,7318,0,STATUS_FULL_TIME,,regular_season,10,9,2022
 623629,2022-10-09 18:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,2,Charlotte FC,21300,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,10,9,2022
+623627,2022-10-09 18:30:00+00:00,Toronto FC at Philadelphia Union,TOR @ PHI,Philadelphia Union,10739,4,Toronto FC,7318,0,STATUS_FULL_TIME,,regular_season,10,9,2022
 623628,2022-10-09 18:30:00+00:00,Columbus Crew at Orlando City SC,CLB @ ORL,Orlando City SC,12011,2,Columbus Crew,183,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,10,9,2022
 623626,2022-10-09 18:30:00+00:00,CF Montréal at Inter Miami CF,MTL @ MIA,Inter Miami CF,20232,1,CF Montréal,9720,3,STATUS_FULL_TIME,Chase Stadium,regular_season,10,9,2022
 623630,2022-10-09 18:30:00+00:00,FC Cincinnati at D.C. United,CIN @ DC,D.C. United,193,2,FC Cincinnati,18267,5,STATUS_FULL_TIME,Audi Field,regular_season,10,9,2022
-623631,2022-10-09 18:30:00+00:00,New England Revolution at Chicago Fire FC,NE @ CHI,Chicago Fire FC,182,1,New England Revolution,189,1,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,10,9,2022
 623625,2022-10-09 18:30:00+00:00,New York City FC at Atlanta United FC,NYC @ ATL,Atlanta United FC,18418,1,New York City FC,17606,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,9,2022
+623631,2022-10-09 18:30:00+00:00,New England Revolution at Chicago Fire FC,NE @ CHI,Chicago Fire FC,182,1,New England Revolution,189,1,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,10,9,2022
 623636,2022-10-09 21:00:00+00:00,Portland Timbers at Real Salt Lake,POR @ RSL,Real Salt Lake,4771,3,Portland Timbers,9723,1,STATUS_FULL_TIME,America First Field,regular_season,10,9,2022
 623637,2022-10-09 21:00:00+00:00,Vancouver Whitecaps at Minnesota United FC,VAN @ MIN,Minnesota United FC,17362,2,Vancouver Whitecaps,9727,0,STATUS_FULL_TIME,Allianz Field,regular_season,10,9,2022
+623634,2022-10-09 21:00:00+00:00,LA Galaxy at Houston Dynamo FC,LA @ HOU,Houston Dynamo FC,6077,1,LA Galaxy,187,3,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,10,9,2022
 623632,2022-10-09 21:00:00+00:00,Nashville SC at LAFC,NSH @ LAFC,LAFC,18966,0,Nashville SC,18986,1,STATUS_FULL_TIME,BMO Stadium,regular_season,10,9,2022
-623633,2022-10-09 21:00:00+00:00,San Jose Earthquakes at Seattle Sounders FC,SJ @ SEA,Seattle Sounders FC,9726,2,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Lumen Field,regular_season,10,9,2022
 623635,2022-10-09 21:00:00+00:00,Sporting Kansas City at FC Dallas,SKC @ DAL,FC Dallas,185,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,10,9,2022
 623638,2022-10-09 21:00:00+00:00,Colorado Rapids at Austin FC,COL @ ATX,Austin FC,20906,1,Colorado Rapids,184,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,10,9,2022
-623634,2022-10-09 21:00:00+00:00,LA Galaxy at Houston Dynamo FC,LA @ HOU,Houston Dynamo FC,6077,1,LA Galaxy,187,3,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,10,9,2022
+623633,2022-10-09 21:00:00+00:00,San Jose Earthquakes at Seattle Sounders FC,SJ @ SEA,Seattle Sounders FC,9726,2,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Lumen Field,regular_season,10,9,2022
 654604,2022-10-15 16:00:00+00:00,FC Cincinnati at Red Bull New York,CIN @ RBNY,Red Bull New York,190,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,10,15,2022
 654605,2022-10-15 19:00:00+00:00,Nashville SC at LA Galaxy,NSH @ LA,LA Galaxy,187,1,Nashville SC,18986,0,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,10,15,2022
 654606,2022-10-16 19:00:00+00:00,Real Salt Lake at Austin FC,RSL @ ATX,Austin FC,20906,2,Real Salt Lake,4771,2,STATUS_FINAL_PEN,Q2 Stadium,regular_season,10,16,2022
@@ -674,13 +674,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 655662,2022-10-31 00:00:00+00:00,New York City FC at Philadelphia Union,NYC @ PHI,Philadelphia Union,10739,3,New York City FC,17606,1,STATUS_FULL_TIME,Subaru Park,regular_season,10,31,2022
 655997,2022-11-05 20:00:00+00:00,Philadelphia Union at LAFC,PHI @ LAFC,LAFC,18966,3,Philadelphia Union,10739,3,STATUS_FINAL_PEN,BMO Stadium,regular_season,11,5,2022
 659576,2023-02-25 21:30:00+00:00,New York City FC at Nashville SC,NYC @ NSH,Nashville SC,18986,2,New York City FC,17606,0,STATUS_FULL_TIME,GEODIS Park,regular_season,2,25,2023
-659579,2023-02-26 00:30:00+00:00,Columbus Crew at Philadelphia Union,CLB @ PHI,Philadelphia Union,10739,4,Columbus Crew,183,1,STATUS_FULL_TIME,Subaru Park,regular_season,2,26,2023
-659578,2023-02-26 00:30:00+00:00,CF Montréal at Inter Miami CF,MTL @ MIA,Inter Miami CF,20232,2,CF Montréal,9720,0,STATUS_FULL_TIME,Chase Stadium,regular_season,2,26,2023
 659577,2023-02-26 00:30:00+00:00,Houston Dynamo FC at FC Cincinnati,HOU @ CIN,FC Cincinnati,18267,2,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,TQL Stadium,regular_season,2,26,2023
-659583,2023-02-26 00:30:00+00:00,Red Bull New York at Orlando City SC,RBNY @ ORL,Orlando City SC,12011,1,Red Bull New York,190,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,2,26,2023
-659581,2023-02-26 00:30:00+00:00,New England Revolution at Charlotte FC,NE @ CLT,Charlotte FC,21300,0,New England Revolution,189,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,2,26,2023
+659578,2023-02-26 00:30:00+00:00,CF Montréal at Inter Miami CF,MTL @ MIA,Inter Miami CF,20232,2,CF Montréal,9720,0,STATUS_FULL_TIME,Chase Stadium,regular_season,2,26,2023
 659582,2023-02-26 00:30:00+00:00,San Jose Earthquakes at Atlanta United FC,SJ @ ATL,Atlanta United FC,18418,2,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,2,26,2023
+659579,2023-02-26 00:30:00+00:00,Columbus Crew at Philadelphia Union,CLB @ PHI,Philadelphia Union,10739,4,Columbus Crew,183,1,STATUS_FULL_TIME,Subaru Park,regular_season,2,26,2023
+659581,2023-02-26 00:30:00+00:00,New England Revolution at Charlotte FC,NE @ CLT,Charlotte FC,21300,0,New England Revolution,189,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,2,26,2023
 659580,2023-02-26 00:30:00+00:00,Toronto FC at D.C. United,TOR @ DC,D.C. United,193,3,Toronto FC,7318,2,STATUS_FULL_TIME,Audi Field,regular_season,2,26,2023
+659583,2023-02-26 00:30:00+00:00,Red Bull New York at Orlando City SC,RBNY @ ORL,Orlando City SC,12011,1,Red Bull New York,190,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,2,26,2023
 659585,2023-02-26 01:30:00+00:00,St. Louis CITY SC at Austin FC,STL @ ATX,Austin FC,20906,2,St. Louis CITY SC,21812,3,STATUS_FULL_TIME,Q2 Stadium,regular_season,2,26,2023
 659584,2023-02-26 01:30:00+00:00,Minnesota United FC at FC Dallas,MIN @ DAL,FC Dallas,185,0,Minnesota United FC,17362,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,2,26,2023
 659587,2023-02-26 03:30:00+00:00,Real Salt Lake at Vancouver Whitecaps,RSL @ VAN,Vancouver Whitecaps,9727,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,BC Place,regular_season,2,26,2023
@@ -715,13 +715,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659616,2023-03-12 03:30:00+00:00,Colorado Rapids at San Jose Earthquakes,COL @ SJ,San Jose Earthquakes,191,1,Colorado Rapids,184,0,STATUS_FULL_TIME,PayPal Park,regular_season,3,12,2023
 659617,2023-03-13 02:30:00+00:00,New England Revolution at LAFC,NE @ LAFC,LAFC,18966,4,New England Revolution,189,0,STATUS_FULL_TIME,BMO Stadium,regular_season,3,13,2023
 659618,2023-03-18 20:00:00+00:00,LAFC at Seattle Sounders FC,LAFC @ SEA,Seattle Sounders FC,9726,0,LAFC,18966,0,STATUS_FULL_TIME,Lumen Field,regular_season,3,18,2023
-659624,2023-03-18 23:30:00+00:00,Inter Miami CF at Toronto FC,MIA @ TOR,Toronto FC,7318,2,Inter Miami CF,20232,0,STATUS_FULL_TIME,BMO Field,regular_season,3,18,2023
-659625,2023-03-18 23:30:00+00:00,Columbus Crew at Red Bull New York,CLB @ RBNY,Red Bull New York,190,2,Columbus Crew,183,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,3,18,2023
 659622,2023-03-18 23:30:00+00:00,D.C. United at New York City FC,DC @ NYC,New York City FC,17606,3,D.C. United,193,2,STATUS_FULL_TIME,Yankee Stadium,regular_season,3,18,2023
-659619,2023-03-18 23:30:00+00:00,Charlotte FC at Orlando City SC,CLT @ ORL,Orlando City SC,12011,1,Charlotte FC,21300,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,3,18,2023
+659624,2023-03-18 23:30:00+00:00,Inter Miami CF at Toronto FC,MIA @ TOR,Toronto FC,7318,2,Inter Miami CF,20232,0,STATUS_FULL_TIME,BMO Field,regular_season,3,18,2023
 659620,2023-03-18 23:30:00+00:00,Philadelphia Union at CF Montréal,PHI @ MTL,CF Montréal,9720,3,Philadelphia Union,10739,2,STATUS_FULL_TIME,Stade Olympique (Montreal),regular_season,3,18,2023
+659625,2023-03-18 23:30:00+00:00,Columbus Crew at Red Bull New York,CLB @ RBNY,Red Bull New York,190,2,Columbus Crew,183,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,3,18,2023
 659623,2023-03-18 23:30:00+00:00,Portland Timbers at Atlanta United FC,POR @ ATL,Atlanta United FC,18418,5,Portland Timbers,9723,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,3,18,2023
 659621,2023-03-18 23:30:00+00:00,Nashville SC at New England Revolution,NSH @ NE,New England Revolution,189,1,Nashville SC,18986,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,3,18,2023
+659619,2023-03-18 23:30:00+00:00,Charlotte FC at Orlando City SC,CLT @ ORL,Orlando City SC,12011,1,Charlotte FC,21300,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,3,18,2023
 659626,2023-03-19 00:30:00+00:00,FC Cincinnati at Chicago Fire FC,CIN @ CHI,Chicago Fire FC,182,3,FC Cincinnati,18267,3,STATUS_FULL_TIME,Soldier Field,regular_season,3,19,2023
 659629,2023-03-19 00:30:00+00:00,Sporting Kansas City at FC Dallas,SKC @ DAL,FC Dallas,185,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,19,2023
 659627,2023-03-19 00:30:00+00:00,Austin FC at Houston Dynamo FC,ATX @ HOU,Houston Dynamo FC,6077,2,Austin FC,20906,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,3,19,2023
@@ -742,27 +742,27 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659643,2023-03-26 01:30:00+00:00,St. Louis CITY SC at Real Salt Lake,STL @ RSL,Real Salt Lake,4771,0,St. Louis CITY SC,21812,4,STATUS_FULL_TIME,America First Field,regular_season,3,26,2023
 659645,2023-03-26 02:30:00+00:00,Toronto FC at San Jose Earthquakes,TOR @ SJ,San Jose Earthquakes,191,0,Toronto FC,7318,0,STATUS_FULL_TIME,PayPal Park,regular_season,3,26,2023
 659644,2023-03-26 02:30:00+00:00,FC Dallas at LAFC,DAL @ LAFC,LAFC,18966,2,FC Dallas,185,1,STATUS_FULL_TIME,BMO Stadium,regular_season,3,26,2023
+659659,2023-04-01 23:30:00+00:00,Nashville SC at Orlando City SC,NSH @ ORL,Orlando City SC,12011,0,Nashville SC,18986,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,1,2023
+659658,2023-04-01 23:30:00+00:00,Sporting Kansas City at Philadelphia Union,SKC @ PHI,Philadelphia Union,10739,0,Sporting Kansas City,186,0,STATUS_FULL_TIME,Subaru Park,regular_season,4,1,2023
 659648,2023-04-01 23:30:00+00:00,Charlotte FC at Toronto FC,CLT @ TOR,Toronto FC,7318,2,Charlotte FC,21300,2,STATUS_FULL_TIME,BMO Field,regular_season,4,1,2023
 659647,2023-04-01 23:30:00+00:00,Red Bull New York at Atlanta United FC,RBNY @ ATL,Atlanta United FC,18418,1,Red Bull New York,190,0,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,1,2023
 659649,2023-04-01 23:30:00+00:00,Real Salt Lake at Columbus Crew,RSL @ CLB,Columbus Crew,183,4,Real Salt Lake,4771,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,4,1,2023
 659650,2023-04-01 23:30:00+00:00,Inter Miami CF at FC Cincinnati,MIA @ CIN,FC Cincinnati,18267,1,Inter Miami CF,20232,0,STATUS_FULL_TIME,TQL Stadium,regular_season,4,1,2023
 659646,2023-04-01 23:30:00+00:00,Seattle Sounders FC at LA Galaxy,SEA @ LA,LA Galaxy,187,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,4,1,2023
 659651,2023-04-01 23:30:00+00:00,New York City FC at New England Revolution,NYC @ NE,New England Revolution,189,1,New York City FC,17606,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,1,2023
-659659,2023-04-01 23:30:00+00:00,Nashville SC at Orlando City SC,NSH @ ORL,Orlando City SC,12011,0,Nashville SC,18986,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,1,2023
-659658,2023-04-01 23:30:00+00:00,Sporting Kansas City at Philadelphia Union,SKC @ PHI,Philadelphia Union,10739,0,Sporting Kansas City,186,0,STATUS_FULL_TIME,Subaru Park,regular_season,4,1,2023
 659654,2023-04-02 00:30:00+00:00,Minnesota United FC at St. Louis CITY SC,MIN @ STL,St. Louis CITY SC,21812,0,Minnesota United FC,17362,1,STATUS_FULL_TIME,Energizer Park,regular_season,4,2,2023
 659652,2023-04-02 00:30:00+00:00,Portland Timbers at FC Dallas,POR @ DAL,FC Dallas,185,1,Portland Timbers,9723,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,4,2,2023
 659653,2023-04-02 00:30:00+00:00,D.C. United at Chicago Fire FC,DC @ CHI,Chicago Fire FC,182,0,D.C. United,193,0,STATUS_FULL_TIME,Soldier Field,regular_season,4,2,2023
 659655,2023-04-02 01:30:00+00:00,LAFC at Colorado Rapids,LAFC @ COL,Colorado Rapids,184,0,LAFC,18966,0,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,4,2,2023
 659657,2023-04-02 02:30:00+00:00,Houston Dynamo FC at San Jose Earthquakes,HOU @ SJ,San Jose Earthquakes,191,2,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,PayPal Park,regular_season,4,2,2023
 659656,2023-04-02 02:30:00+00:00,CF Montréal at Vancouver Whitecaps,MTL @ VAN,Vancouver Whitecaps,9727,5,CF Montréal,9720,0,STATUS_FULL_TIME,BC Place,regular_season,4,2,2023
-659661,2023-04-08 23:30:00+00:00,San Jose Earthquakes at Red Bull New York,SJ @ RBNY,Red Bull New York,190,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,8,2023
-659665,2023-04-08 23:30:00+00:00,CF Montréal at New England Revolution,MTL @ NE,New England Revolution,189,4,CF Montréal,9720,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,8,2023
 659663,2023-04-08 23:30:00+00:00,Austin FC at LAFC,ATX @ LAFC,LAFC,18966,3,Austin FC,20906,0,STATUS_FULL_TIME,BMO Stadium,regular_season,4,8,2023
-659660,2023-04-08 23:30:00+00:00,Atlanta United FC at New York City FC,ATL @ NYC,New York City FC,17606,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,4,8,2023
-659662,2023-04-08 23:30:00+00:00,Philadelphia Union at FC Cincinnati,PHI @ CIN,FC Cincinnati,18267,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,TQL Stadium,regular_season,4,8,2023
+659665,2023-04-08 23:30:00+00:00,CF Montréal at New England Revolution,MTL @ NE,New England Revolution,189,4,CF Montréal,9720,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,8,2023
 659666,2023-04-08 23:30:00+00:00,Columbus Crew at D.C. United,CLB @ DC,D.C. United,193,0,Columbus Crew,183,2,STATUS_FULL_TIME,Audi Field,regular_season,4,8,2023
+659661,2023-04-08 23:30:00+00:00,San Jose Earthquakes at Red Bull New York,SJ @ RBNY,Red Bull New York,190,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,8,2023
+659662,2023-04-08 23:30:00+00:00,Philadelphia Union at FC Cincinnati,PHI @ CIN,FC Cincinnati,18267,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,TQL Stadium,regular_season,4,8,2023
 659664,2023-04-08 23:30:00+00:00,FC Dallas at Inter Miami CF,DAL @ MIA,Inter Miami CF,20232,0,FC Dallas,185,1,STATUS_FULL_TIME,Chase Stadium,regular_season,4,8,2023
+659660,2023-04-08 23:30:00+00:00,Atlanta United FC at New York City FC,ATL @ NYC,New York City FC,17606,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,4,8,2023
 659667,2023-04-09 00:30:00+00:00,Minnesota United FC at Chicago Fire FC,MIN @ CHI,Chicago Fire FC,182,2,Minnesota United FC,17362,1,STATUS_FULL_TIME,Soldier Field,regular_season,4,9,2023
 659669,2023-04-09 00:30:00+00:00,LA Galaxy at Houston Dynamo FC,LA @ HOU,Houston Dynamo FC,6077,3,LA Galaxy,187,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,4,9,2023
 659670,2023-04-09 00:30:00+00:00,Toronto FC at Nashville SC,TOR @ NSH,Nashville SC,18986,0,Toronto FC,7318,0,STATUS_FULL_TIME,GEODIS Park,regular_season,4,9,2023
@@ -804,19 +804,19 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659705,2023-04-29 23:30:00+00:00,FC Cincinnati at New England Revolution,CIN @ NE,New England Revolution,189,1,FC Cincinnati,18267,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,29,2023
 659707,2023-04-29 23:30:00+00:00,LA Galaxy at Orlando City SC,LA @ ORL,Orlando City SC,12011,2,LA Galaxy,187,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,29,2023
 659704,2023-04-29 23:30:00+00:00,New York City FC at Toronto FC,NYC @ TOR,Toronto FC,7318,1,New York City FC,17606,0,STATUS_FULL_TIME,BMO Field,regular_season,4,29,2023
-659710,2023-04-30 00:30:00+00:00,Portland Timbers at St. Louis CITY SC,POR @ STL,St. Louis CITY SC,21812,1,Portland Timbers,9723,2,STATUS_FULL_TIME,Energizer Park,regular_season,4,30,2023
 659708,2023-04-30 00:30:00+00:00,CF Montréal at Sporting Kansas City,MTL @ SKC,Sporting Kansas City,186,0,CF Montréal,9720,2,STATUS_FULL_TIME,Children's Mercy Park,regular_season,4,30,2023
-659709,2023-04-30 00:30:00+00:00,San Jose Earthquakes at Austin FC,SJ @ ATX,Austin FC,20906,2,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,4,30,2023
+659710,2023-04-30 00:30:00+00:00,Portland Timbers at St. Louis CITY SC,POR @ STL,St. Louis CITY SC,21812,1,Portland Timbers,9723,2,STATUS_FULL_TIME,Energizer Park,regular_season,4,30,2023
 659711,2023-04-30 00:30:00+00:00,Red Bull New York at Chicago Fire FC,RBNY @ CHI,Chicago Fire FC,182,1,Red Bull New York,190,1,STATUS_FULL_TIME,Soldier Field,regular_season,4,30,2023
+659709,2023-04-30 00:30:00+00:00,San Jose Earthquakes at Austin FC,SJ @ ATX,Austin FC,20906,2,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,4,30,2023
 659712,2023-04-30 01:30:00+00:00,Seattle Sounders FC at Real Salt Lake,SEA @ RSL,Real Salt Lake,4771,0,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,America First Field,regular_season,4,30,2023
 659714,2023-04-30 02:30:00+00:00,Colorado Rapids at Vancouver Whitecaps,COL @ VAN,Vancouver Whitecaps,9727,0,Colorado Rapids,184,0,STATUS_FULL_TIME,BC Place,regular_season,4,30,2023
 659715,2023-05-01 01:00:00+00:00,FC Dallas at Minnesota United FC,DAL @ MIN,Minnesota United FC,17362,0,FC Dallas,185,0,STATUS_FULL_TIME,Allianz Field,regular_season,5,1,2023
-659720,2023-05-06 23:30:00+00:00,LAFC at San Jose Earthquakes,LAFC @ SJ,San Jose Earthquakes,191,2,LAFC,18966,1,STATUS_FULL_TIME,Levi's Stadium,regular_season,5,6,2023
+659717,2023-05-06 23:30:00+00:00,Orlando City SC at CF Montréal,ORL @ MTL,CF Montréal,9720,2,Orlando City SC,12011,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,6,2023
 659721,2023-05-06 23:30:00+00:00,New England Revolution at Toronto FC,NE @ TOR,Toronto FC,7318,0,New England Revolution,189,2,STATUS_FULL_TIME,BMO Field,regular_season,5,6,2023
 659716,2023-05-06 23:30:00+00:00,Philadelphia Union at Red Bull New York,PHI @ RBNY,Red Bull New York,190,0,Philadelphia Union,10739,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,6,2023
-659717,2023-05-06 23:30:00+00:00,Orlando City SC at CF Montréal,ORL @ MTL,CF Montréal,9720,2,Orlando City SC,12011,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,6,2023
-659719,2023-05-06 23:30:00+00:00,D.C. United at FC Cincinnati,DC @ CIN,FC Cincinnati,18267,2,D.C. United,193,1,STATUS_FULL_TIME,TQL Stadium,regular_season,5,6,2023
 659722,2023-05-06 23:30:00+00:00,Atlanta United FC at Inter Miami CF,ATL @ MIA,Inter Miami CF,20232,2,Atlanta United FC,18418,1,STATUS_FULL_TIME,Chase Stadium,regular_season,5,6,2023
+659719,2023-05-06 23:30:00+00:00,D.C. United at FC Cincinnati,DC @ CIN,FC Cincinnati,18267,2,D.C. United,193,1,STATUS_FULL_TIME,TQL Stadium,regular_season,5,6,2023
+659720,2023-05-06 23:30:00+00:00,LAFC at San Jose Earthquakes,LAFC @ SJ,San Jose Earthquakes,191,2,LAFC,18966,1,STATUS_FULL_TIME,Levi's Stadium,regular_season,5,6,2023
 659718,2023-05-06 23:30:00+00:00,New York City FC at Charlotte FC,NYC @ CLT,Charlotte FC,21300,3,New York City FC,17606,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,6,2023
 659724,2023-05-07 00:30:00+00:00,Real Salt Lake at Houston Dynamo FC,RSL @ HOU,Houston Dynamo FC,6077,0,Real Salt Lake,4771,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,7,2023
 659723,2023-05-07 00:30:00+00:00,Chicago Fire FC at Nashville SC,CHI @ NSH,Nashville SC,18986,3,Chicago Fire FC,182,0,STATUS_FULL_TIME,GEODIS Park,regular_season,5,7,2023
@@ -825,12 +825,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659728,2023-05-07 02:30:00+00:00,Minnesota United FC at Vancouver Whitecaps,MIN @ VAN,Vancouver Whitecaps,9727,3,Minnesota United FC,17362,2,STATUS_FULL_TIME,BC Place,regular_season,5,7,2023
 659729,2023-05-07 20:30:00+00:00,Sporting Kansas City at Seattle Sounders FC,SKC @ SEA,Seattle Sounders FC,9726,1,Sporting Kansas City,186,2,STATUS_FULL_TIME,Lumen Field,regular_season,5,7,2023
 659730,2023-05-13 17:00:00+00:00,St. Louis CITY SC at Chicago Fire FC,STL @ CHI,Chicago Fire FC,182,1,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Soldier Field,regular_season,5,13,2023
-659735,2023-05-13 23:30:00+00:00,New York City FC at Red Bull New York,NYC @ RBNY,Red Bull New York,190,1,New York City FC,17606,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,13,2023
-659733,2023-05-13 23:30:00+00:00,New England Revolution at Inter Miami CF,NE @ MIA,Inter Miami CF,20232,2,New England Revolution,189,1,STATUS_FULL_TIME,Chase Stadium,regular_season,5,13,2023
 659736,2023-05-13 23:30:00+00:00,Nashville SC at D.C. United,NSH @ DC,D.C. United,193,1,Nashville SC,18986,1,STATUS_FULL_TIME,Audi Field,regular_season,5,13,2023
-659731,2023-05-13 23:30:00+00:00,Charlotte FC at Atlanta United FC,CLT @ ATL,Atlanta United FC,18418,1,Charlotte FC,21300,3,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,13,2023
-659734,2023-05-13 23:30:00+00:00,Toronto FC at CF Montréal,TOR @ MTL,CF Montréal,9720,2,Toronto FC,7318,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,13,2023
+659733,2023-05-13 23:30:00+00:00,New England Revolution at Inter Miami CF,NE @ MIA,Inter Miami CF,20232,2,New England Revolution,189,1,STATUS_FULL_TIME,Chase Stadium,regular_season,5,13,2023
+659735,2023-05-13 23:30:00+00:00,New York City FC at Red Bull New York,NYC @ RBNY,Red Bull New York,190,1,New York City FC,17606,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,13,2023
 659732,2023-05-13 23:30:00+00:00,Orlando City SC at Columbus Crew,ORL @ CLB,Columbus Crew,183,2,Orlando City SC,12011,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,5,13,2023
+659734,2023-05-13 23:30:00+00:00,Toronto FC at CF Montréal,TOR @ MTL,CF Montréal,9720,2,Toronto FC,7318,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,13,2023
+659731,2023-05-13 23:30:00+00:00,Charlotte FC at Atlanta United FC,CLT @ ATL,Atlanta United FC,18418,1,Charlotte FC,21300,3,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,13,2023
 659738,2023-05-14 00:30:00+00:00,FC Dallas at Austin FC,DAL @ ATX,Austin FC,20906,0,FC Dallas,185,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,5,14,2023
 659739,2023-05-14 00:30:00+00:00,Seattle Sounders FC at Houston Dynamo FC,SEA @ HOU,Houston Dynamo FC,6077,0,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,14,2023
 659737,2023-05-14 00:30:00+00:00,Minnesota United FC at Sporting Kansas City,MIN @ SKC,Sporting Kansas City,186,3,Minnesota United FC,17362,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,5,14,2023
@@ -851,40 +851,40 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659754,2023-05-18 01:30:00+00:00,Portland Timbers at Real Salt Lake,POR @ RSL,Real Salt Lake,4771,0,Portland Timbers,9723,0,STATUS_FULL_TIME,America First Field,regular_season,5,18,2023
 659755,2023-05-18 02:30:00+00:00,Sporting Kansas City at LAFC,SKC @ LAFC,LAFC,18966,1,Sporting Kansas City,186,1,STATUS_FULL_TIME,BMO Stadium,regular_season,5,18,2023
 659756,2023-05-18 02:30:00+00:00,Austin FC at Seattle Sounders FC,ATX @ SEA,Seattle Sounders FC,9726,1,Austin FC,20906,2,STATUS_FULL_TIME,Lumen Field,regular_season,5,18,2023
+659757,2023-05-20 23:30:00+00:00,Orlando City SC at Inter Miami CF,ORL @ MIA,Inter Miami CF,20232,1,Orlando City SC,12011,3,STATUS_FULL_TIME,Chase Stadium,regular_season,5,20,2023
 659760,2023-05-20 23:30:00+00:00,New England Revolution at Philadelphia Union,NE @ PHI,Philadelphia Union,10739,3,New England Revolution,189,0,STATUS_FULL_TIME,Subaru Park,regular_season,5,20,2023
 659758,2023-05-20 23:30:00+00:00,CF Montréal at Red Bull New York,MTL @ RBNY,Red Bull New York,190,2,CF Montréal,9720,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,20,2023
-659757,2023-05-20 23:30:00+00:00,Orlando City SC at Inter Miami CF,ORL @ MIA,Inter Miami CF,20232,1,Orlando City SC,12011,3,STATUS_FULL_TIME,Chase Stadium,regular_season,5,20,2023
+659759,2023-05-20 23:30:00+00:00,Nashville SC at Charlotte FC,NSH @ CLT,Charlotte FC,21300,1,Nashville SC,18986,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,20,2023
 659761,2023-05-20 23:30:00+00:00,LA Galaxy at D.C. United,LA @ DC,D.C. United,193,3,LA Galaxy,187,0,STATUS_FULL_TIME,Audi Field,regular_season,5,20,2023
 659762,2023-05-20 23:30:00+00:00,Columbus Crew at FC Cincinnati,CLB @ CIN,FC Cincinnati,18267,3,Columbus Crew,183,2,STATUS_FULL_TIME,TQL Stadium,regular_season,5,20,2023
-659759,2023-05-20 23:30:00+00:00,Nashville SC at Charlotte FC,NSH @ CLT,Charlotte FC,21300,1,Nashville SC,18986,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,20,2023
 659765,2023-05-21 00:30:00+00:00,Toronto FC at Austin FC,TOR @ ATX,Austin FC,20906,1,Toronto FC,7318,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,5,21,2023
 659763,2023-05-21 00:30:00+00:00,Atlanta United FC at Chicago Fire FC,ATL @ CHI,Chicago Fire FC,182,3,Atlanta United FC,18418,3,STATUS_FULL_TIME,Soldier Field,regular_season,5,21,2023
 659764,2023-05-21 00:30:00+00:00,Houston Dynamo FC at FC Dallas,HOU @ DAL,FC Dallas,185,1,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,21,2023
 659766,2023-05-21 01:30:00+00:00,Real Salt Lake at Colorado Rapids,RSL @ COL,Colorado Rapids,184,2,Real Salt Lake,4771,3,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,5,21,2023
 659767,2023-05-21 01:30:00+00:00,Sporting Kansas City at St. Louis CITY SC,SKC @ STL,St. Louis CITY SC,21812,4,Sporting Kansas City,186,0,STATUS_FULL_TIME,Energizer Park,regular_season,5,21,2023
-659769,2023-05-21 02:30:00+00:00,Seattle Sounders FC at Vancouver Whitecaps,SEA @ VAN,Vancouver Whitecaps,9727,2,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,BC Place,regular_season,5,21,2023
 659770,2023-05-21 02:30:00+00:00,San Jose Earthquakes at LAFC,SJ @ LAFC,LAFC,18966,2,San Jose Earthquakes,191,1,STATUS_FULL_TIME,BMO Stadium,regular_season,5,21,2023
 659768,2023-05-21 02:30:00+00:00,Minnesota United FC at Portland Timbers,MIN @ POR,Portland Timbers,9723,0,Minnesota United FC,17362,1,STATUS_FULL_TIME,Providence Park,regular_season,5,21,2023
-659775,2023-05-27 23:30:00+00:00,D.C. United at Toronto FC,DC @ TOR,Toronto FC,7318,2,D.C. United,193,1,STATUS_FULL_TIME,BMO Field,regular_season,5,27,2023
-659771,2023-05-27 23:30:00+00:00,Atlanta United FC at Orlando City SC,ATL @ ORL,Orlando City SC,12011,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,27,2023
+659769,2023-05-21 02:30:00+00:00,Seattle Sounders FC at Vancouver Whitecaps,SEA @ VAN,Vancouver Whitecaps,9727,2,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,BC Place,regular_season,5,21,2023
 659774,2023-05-27 23:30:00+00:00,Inter Miami CF at CF Montréal,MIA @ MTL,CF Montréal,9720,1,Inter Miami CF,20232,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,27,2023
-659773,2023-05-27 23:30:00+00:00,Chicago Fire FC at New England Revolution,CHI @ NE,New England Revolution,189,3,Chicago Fire FC,182,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,27,2023
+659771,2023-05-27 23:30:00+00:00,Atlanta United FC at Orlando City SC,ATL @ ORL,Orlando City SC,12011,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,27,2023
 659772,2023-05-27 23:30:00+00:00,Philadelphia Union at New York City FC,PHI @ NYC,New York City FC,17606,1,Philadelphia Union,10739,3,STATUS_FULL_TIME,Citi Field,regular_season,5,27,2023
+659773,2023-05-27 23:30:00+00:00,Chicago Fire FC at New England Revolution,CHI @ NE,New England Revolution,189,3,Chicago Fire FC,182,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,27,2023
+659775,2023-05-27 23:30:00+00:00,D.C. United at Toronto FC,DC @ TOR,Toronto FC,7318,2,D.C. United,193,1,STATUS_FULL_TIME,BMO Field,regular_season,5,27,2023
 659777,2023-05-28 00:30:00+00:00,Austin FC at Houston Dynamo FC,ATX @ HOU,Houston Dynamo FC,6077,2,Austin FC,20906,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,28,2023
 659776,2023-05-28 00:30:00+00:00,Real Salt Lake at Minnesota United FC,RSL @ MIN,Minnesota United FC,17362,1,Real Salt Lake,4771,1,STATUS_FULL_TIME,Allianz Field,regular_season,5,28,2023
 659778,2023-05-28 00:30:00+00:00,Vancouver Whitecaps at St. Louis CITY SC,VAN @ STL,St. Louis CITY SC,21812,3,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Energizer Park,regular_season,5,28,2023
 659779,2023-05-28 01:30:00+00:00,FC Cincinnati at Colorado Rapids,CIN @ COL,Colorado Rapids,184,0,FC Cincinnati,18267,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,5,28,2023
-659781,2023-05-28 02:30:00+00:00,Red Bull New York at Seattle Sounders FC,RBNY @ SEA,Seattle Sounders FC,9726,1,Red Bull New York,190,0,STATUS_FULL_TIME,Lumen Field,regular_season,5,28,2023
 659780,2023-05-28 02:30:00+00:00,Charlotte FC at LA Galaxy,CLT @ LA,LA Galaxy,187,0,Charlotte FC,21300,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,5,28,2023
 659782,2023-05-28 02:30:00+00:00,FC Dallas at San Jose Earthquakes,DAL @ SJ,San Jose Earthquakes,191,1,FC Dallas,185,1,STATUS_FULL_TIME,PayPal Park,regular_season,5,28,2023
+659781,2023-05-28 02:30:00+00:00,Red Bull New York at Seattle Sounders FC,RBNY @ SEA,Seattle Sounders FC,9726,1,Red Bull New York,190,0,STATUS_FULL_TIME,Lumen Field,regular_season,5,28,2023
 659783,2023-05-28 19:00:00+00:00,Portland Timbers at Sporting Kansas City,POR @ SKC,Sporting Kansas City,186,4,Portland Timbers,9723,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,5,28,2023
 659784,2023-05-29 00:30:00+00:00,Columbus Crew at Nashville SC,CLB @ NSH,Nashville SC,18986,3,Columbus Crew,183,1,STATUS_FULL_TIME,GEODIS Park,regular_season,5,29,2023
 659787,2023-05-31 23:00:00+00:00,New England Revolution at Atlanta United FC,NE @ ATL,Atlanta United FC,18418,3,New England Revolution,189,3,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,31,2023
+659786,2023-05-31 23:30:00+00:00,FC Cincinnati at New York City FC,CIN @ NYC,New York City FC,17606,1,FC Cincinnati,18267,3,STATUS_FULL_TIME,Yankee Stadium,regular_season,5,31,2023
+659785,2023-05-31 23:30:00+00:00,Charlotte FC at Philadelphia Union,CLT @ PHI,Philadelphia Union,10739,1,Charlotte FC,21300,0,STATUS_FULL_TIME,Subaru Park,regular_season,5,31,2023
 659788,2023-05-31 23:30:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,0,Chicago Fire FC,182,0,STATUS_FULL_TIME,BMO Field,regular_season,5,31,2023
 659789,2023-05-31 23:30:00+00:00,Colorado Rapids at Columbus Crew,COL @ CLB,Columbus Crew,183,3,Colorado Rapids,184,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,5,31,2023
 659790,2023-05-31 23:30:00+00:00,CF Montréal at D.C. United,MTL @ DC,D.C. United,193,2,CF Montréal,9720,2,STATUS_FULL_TIME,Audi Field,regular_season,5,31,2023
-659786,2023-05-31 23:30:00+00:00,FC Cincinnati at New York City FC,CIN @ NYC,New York City FC,17606,1,FC Cincinnati,18267,3,STATUS_FULL_TIME,Yankee Stadium,regular_season,5,31,2023
-659785,2023-05-31 23:30:00+00:00,Charlotte FC at Philadelphia Union,CLT @ PHI,Philadelphia Union,10739,1,Charlotte FC,21300,0,STATUS_FULL_TIME,Subaru Park,regular_season,5,31,2023
 659791,2023-06-01 00:15:00+00:00,Red Bull New York at Inter Miami CF,RBNY @ MIA,Inter Miami CF,20232,0,Red Bull New York,190,1,STATUS_FULL_TIME,Chase Stadium,regular_season,6,1,2023
 659793,2023-06-01 00:30:00+00:00,Minnesota United FC at Austin FC,MIN @ ATX,Austin FC,20906,2,Minnesota United FC,17362,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,6,1,2023
 659794,2023-06-01 01:30:00+00:00,LA Galaxy at Real Salt Lake,LA @ RSL,Real Salt Lake,4771,2,LA Galaxy,187,3,STATUS_FULL_TIME,America First Field,regular_season,6,1,2023
@@ -893,10 +893,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659796,2023-06-01 02:30:00+00:00,Houston Dynamo FC at Vancouver Whitecaps,HOU @ VAN,Vancouver Whitecaps,9727,6,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,BC Place,regular_season,6,1,2023
 659798,2023-06-03 19:30:00+00:00,New England Revolution at New York City FC,NE @ NYC,New York City FC,17606,0,New England Revolution,189,0,STATUS_FULL_TIME,Yankee Stadium,regular_season,6,3,2023
 659799,2023-06-03 20:30:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,0,Portland Timbers,9723,0,STATUS_FULL_TIME,Lumen Field,regular_season,6,3,2023
-659800,2023-06-03 23:30:00+00:00,Orlando City SC at Red Bull New York,ORL @ RBNY,Red Bull New York,190,0,Orlando City SC,12011,3,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,3,2023
 659804,2023-06-03 23:30:00+00:00,CF Montréal at Philadelphia Union,MTL @ PHI,Philadelphia Union,10739,3,CF Montréal,9720,0,STATUS_FULL_TIME,Subaru Park,regular_season,6,3,2023
-659802,2023-06-03 23:30:00+00:00,Chicago Fire FC at FC Cincinnati,CHI @ CIN,FC Cincinnati,18267,1,Chicago Fire FC,182,0,STATUS_FULL_TIME,TQL Stadium,regular_season,6,3,2023
+659800,2023-06-03 23:30:00+00:00,Orlando City SC at Red Bull New York,ORL @ RBNY,Red Bull New York,190,0,Orlando City SC,12011,3,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,3,2023
 659803,2023-06-03 23:30:00+00:00,D.C. United at Inter Miami CF,DC @ MIA,Inter Miami CF,20232,1,D.C. United,193,2,STATUS_FULL_TIME,Chase Stadium,regular_season,6,3,2023
+659802,2023-06-03 23:30:00+00:00,Chicago Fire FC at FC Cincinnati,CHI @ CIN,FC Cincinnati,18267,1,Chicago Fire FC,182,0,STATUS_FULL_TIME,TQL Stadium,regular_season,6,3,2023
 659801,2023-06-04 00:09:00+00:00,Charlotte FC at Columbus Crew,CLT @ CLB,Columbus Crew,183,4,Charlotte FC,21300,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,6,4,2023
 659805,2023-06-04 00:30:00+00:00,Real Salt Lake at Austin FC,RSL @ ATX,Austin FC,20906,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,6,4,2023
 659808,2023-06-04 00:30:00+00:00,Nashville SC at FC Dallas,NSH @ DAL,FC Dallas,185,1,Nashville SC,18986,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,6,4,2023
@@ -934,9 +934,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659834,2023-06-21 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,2,Charlotte FC,21300,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,21,2023
 659839,2023-06-22 00:30:00+00:00,San Jose Earthquakes at Houston Dynamo FC,SJ @ HOU,Houston Dynamo FC,6077,4,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,6,22,2023
 659840,2023-06-22 00:30:00+00:00,Real Salt Lake at St. Louis CITY SC,RSL @ STL,St. Louis CITY SC,21812,1,Real Salt Lake,4771,3,STATUS_FULL_TIME,Energizer Park,regular_season,6,22,2023
-659843,2023-06-22 02:30:00+00:00,Chicago Fire FC at Portland Timbers,CHI @ POR,Portland Timbers,9723,1,Chicago Fire FC,182,2,STATUS_FULL_TIME,Providence Park,regular_season,6,22,2023
 659844,2023-06-22 02:30:00+00:00,Sporting Kansas City at LA Galaxy,SKC @ LA,LA Galaxy,187,2,Sporting Kansas City,186,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,6,22,2023
 659842,2023-06-22 02:30:00+00:00,Seattle Sounders FC at LAFC,SEA @ LAFC,LAFC,18966,1,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,BMO Stadium,regular_season,6,22,2023
+659843,2023-06-22 02:30:00+00:00,Chicago Fire FC at Portland Timbers,CHI @ POR,Portland Timbers,9723,1,Chicago Fire FC,182,2,STATUS_FULL_TIME,Providence Park,regular_season,6,22,2023
 659837,2023-06-22 03:07:00+00:00,FC Dallas at Austin FC,DAL @ ATX,Austin FC,20906,3,FC Dallas,185,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,6,22,2023
 659846,2023-06-24 23:30:00+00:00,CF Montréal at Charlotte FC,MTL @ CLT,Charlotte FC,21300,0,CF Montréal,9720,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,6,24,2023
 659850,2023-06-24 23:30:00+00:00,Nashville SC at Columbus Crew,NSH @ CLB,Columbus Crew,183,2,Nashville SC,18986,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,6,24,2023
@@ -952,11 +952,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659855,2023-06-25 02:30:00+00:00,New York City FC at Portland Timbers,NYC @ POR,Portland Timbers,9723,1,New York City FC,17606,1,STATUS_FULL_TIME,Providence Park,regular_season,6,25,2023
 659858,2023-06-25 02:30:00+00:00,St. Louis CITY SC at San Jose Earthquakes,STL @ SJ,San Jose Earthquakes,191,1,St. Louis CITY SC,21812,2,STATUS_FULL_TIME,PayPal Park,regular_season,6,25,2023
 659857,2023-06-25 02:30:00+00:00,Orlando City SC at Seattle Sounders FC,ORL @ SEA,Seattle Sounders FC,9726,0,Orlando City SC,12011,0,STATUS_FULL_TIME,Lumen Field,regular_season,6,25,2023
+659859,2023-07-01 23:30:00+00:00,Austin FC at Inter Miami CF,ATX @ MIA,Inter Miami CF,20232,1,Austin FC,20906,1,STATUS_FULL_TIME,Chase Stadium,regular_season,7,1,2023
+659862,2023-07-01 23:30:00+00:00,Chicago Fire FC at Orlando City SC,CHI @ ORL,Orlando City SC,12011,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,7,1,2023
 659860,2023-07-01 23:30:00+00:00,New England Revolution at FC Cincinnati,NE @ CIN,FC Cincinnati,18267,2,New England Revolution,189,2,STATUS_FULL_TIME,TQL Stadium,regular_season,7,1,2023
 659861,2023-07-01 23:30:00+00:00,Real Salt Lake at Toronto FC,RSL @ TOR,Toronto FC,7318,0,Real Salt Lake,4771,1,STATUS_FULL_TIME,BMO Field,regular_season,7,1,2023
-659862,2023-07-01 23:30:00+00:00,Chicago Fire FC at Orlando City SC,CHI @ ORL,Orlando City SC,12011,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,7,1,2023
 659864,2023-07-01 23:30:00+00:00,Red Bull New York at Columbus Crew,RBNY @ CLB,Columbus Crew,183,2,Red Bull New York,190,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,1,2023
-659859,2023-07-01 23:30:00+00:00,Austin FC at Inter Miami CF,ATX @ MIA,Inter Miami CF,20232,1,Austin FC,20906,1,STATUS_FULL_TIME,Chase Stadium,regular_season,7,1,2023
 659866,2023-07-02 00:30:00+00:00,LAFC at FC Dallas,LAFC @ DAL,FC Dallas,185,2,LAFC,18966,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,7,2,2023
 659865,2023-07-02 00:30:00+00:00,Portland Timbers at Minnesota United FC,POR @ MIN,Minnesota United FC,17362,4,Portland Timbers,9723,1,STATUS_FULL_TIME,Allianz Field,regular_season,7,2,2023
 659868,2023-07-02 00:30:00+00:00,D.C. United at Nashville SC,DC @ NSH,Nashville SC,18986,2,D.C. United,193,0,STATUS_FULL_TIME,GEODIS Park,regular_season,7,2,2023
@@ -1003,16 +1003,16 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659907,2023-07-16 00:30:00+00:00,LAFC at Minnesota United FC,LAFC @ MIN,Minnesota United FC,17362,1,LAFC,18966,1,STATUS_FULL_TIME,Allianz Field,regular_season,7,16,2023
 659904,2023-07-16 00:32:00+00:00,Nashville SC at FC Cincinnati,NSH @ CIN,FC Cincinnati,18267,3,Nashville SC,18986,1,STATUS_FULL_TIME,TQL Stadium,regular_season,7,16,2023
 659906,2023-07-16 00:59:00+00:00,Inter Miami CF at St. Louis CITY SC,MIA @ STL,St. Louis CITY SC,21812,3,Inter Miami CF,20232,0,STATUS_FULL_TIME,Energizer Park,regular_season,7,16,2023
-659911,2023-07-16 01:30:00+00:00,Red Bull New York at Real Salt Lake,RBNY @ RSL,Real Salt Lake,4771,3,Red Bull New York,190,1,STATUS_FULL_TIME,America First Field,regular_season,7,16,2023
 659908,2023-07-16 01:30:00+00:00,Sporting Kansas City at Austin FC,SKC @ ATX,Austin FC,20906,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,7,16,2023
 659910,2023-07-16 01:30:00+00:00,Houston Dynamo FC at Colorado Rapids,HOU @ COL,Colorado Rapids,184,0,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,7,16,2023
+659911,2023-07-16 01:30:00+00:00,Red Bull New York at Real Salt Lake,RBNY @ RSL,Real Salt Lake,4771,3,Red Bull New York,190,1,STATUS_FULL_TIME,America First Field,regular_season,7,16,2023
 659914,2023-07-16 02:30:00+00:00,Columbus Crew at Portland Timbers,CLB @ POR,Portland Timbers,9723,3,Columbus Crew,183,2,STATUS_FULL_TIME,Providence Park,regular_season,7,16,2023
 659913,2023-07-16 02:30:00+00:00,FC Dallas at Seattle Sounders FC,DAL @ SEA,Seattle Sounders FC,9726,1,FC Dallas,185,1,STATUS_FULL_TIME,Lumen Field,regular_season,7,16,2023
 659912,2023-07-16 02:30:00+00:00,LA Galaxy at Vancouver Whitecaps,LA @ VAN,Vancouver Whitecaps,9727,4,LA Galaxy,187,2,STATUS_FULL_TIME,BC Place,regular_season,7,16,2023
 660069,2023-07-20 00:30:00+00:00,Arsenal at MLS All-Stars,ARS @ MLS,MLS All-Stars,9817,0,Arsenal,359,5,STATUS_FULL_TIME,Audi Field,regular_season,7,20,2023
-659918,2023-08-20 23:30:00+00:00,D.C. United at Red Bull New York,DC @ RBNY,Red Bull New York,190,1,D.C. United,193,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,8,20,2023
 659916,2023-08-20 23:30:00+00:00,FC Cincinnati at Columbus Crew,CIN @ CLB,Columbus Crew,183,3,FC Cincinnati,18267,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,8,20,2023
 659920,2023-08-20 23:30:00+00:00,Minnesota United FC at New York City FC,MIN @ NYC,New York City FC,17606,0,Minnesota United FC,17362,2,STATUS_FULL_TIME,Citi Field,regular_season,8,20,2023
+659918,2023-08-20 23:30:00+00:00,D.C. United at Red Bull New York,DC @ RBNY,Red Bull New York,190,1,D.C. United,193,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,8,20,2023
 659919,2023-08-20 23:30:00+00:00,CF Montréal at Toronto FC,MTL @ TOR,Toronto FC,7318,2,CF Montréal,9720,3,STATUS_FULL_TIME,BMO Field,regular_season,8,20,2023
 659922,2023-08-21 00:30:00+00:00,Portland Timbers at Houston Dynamo FC,POR @ HOU,Houston Dynamo FC,6077,5,Portland Timbers,9723,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,8,21,2023
 659921,2023-08-21 00:30:00+00:00,Orlando City SC at Chicago Fire FC,ORL @ CHI,Chicago Fire FC,182,1,Orlando City SC,12011,3,STATUS_FULL_TIME,Soldier Field,regular_season,8,21,2023
@@ -1020,14 +1020,14 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659927,2023-08-21 02:30:00+00:00,Atlanta United FC at Seattle Sounders FC,ATL @ SEA,Seattle Sounders FC,9726,0,Atlanta United FC,18418,2,STATUS_FULL_TIME,Lumen Field,regular_season,8,21,2023
 659928,2023-08-21 02:30:00+00:00,San Jose Earthquakes at Vancouver Whitecaps,SJ @ VAN,Vancouver Whitecaps,9727,0,San Jose Earthquakes,191,1,STATUS_FULL_TIME,BC Place,regular_season,8,21,2023
 659926,2023-08-24 02:30:00+00:00,Colorado Rapids at LAFC,COL @ LAFC,LAFC,18966,4,Colorado Rapids,184,0,STATUS_FULL_TIME,BMO Stadium,regular_season,8,24,2023
+659929,2023-08-26 23:30:00+00:00,St. Louis CITY SC at Orlando City SC,STL @ ORL,Orlando City SC,12011,2,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,26,2023
 659931,2023-08-26 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,3,New York City FC,17606,0,STATUS_FULL_TIME,TQL Stadium,regular_season,8,26,2023
 659930,2023-08-26 23:30:00+00:00,Inter Miami CF at Red Bull New York,MIA @ RBNY,Red Bull New York,190,0,Inter Miami CF,20232,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,8,26,2023
-659929,2023-08-26 23:30:00+00:00,St. Louis CITY SC at Orlando City SC,STL @ ORL,Orlando City SC,12011,2,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,26,2023
 659932,2023-08-26 23:30:00+00:00,Philadelphia Union at D.C. United,PHI @ DC,D.C. United,193,1,Philadelphia Union,10739,3,STATUS_FULL_TIME,Audi Field,regular_season,8,26,2023
 659933,2023-08-26 23:30:00+00:00,Toronto FC at Columbus Crew,TOR @ CLB,Columbus Crew,183,2,Toronto FC,7318,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,8,26,2023
-659934,2023-08-26 23:30:00+00:00,LAFC at Charlotte FC,LAFC @ CLT,Charlotte FC,21300,2,LAFC,18966,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,26,2023
 659935,2023-08-26 23:30:00+00:00,New England Revolution at CF Montréal,NE @ MTL,CF Montréal,9720,1,New England Revolution,189,0,STATUS_FULL_TIME,Stade Saputo,regular_season,8,26,2023
 659936,2023-08-26 23:30:00+00:00,Nashville SC at Atlanta United FC,NSH @ ATL,Atlanta United FC,18418,4,Nashville SC,18986,0,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,8,26,2023
+659934,2023-08-26 23:30:00+00:00,LAFC at Charlotte FC,LAFC @ CLT,Charlotte FC,21300,2,LAFC,18966,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,26,2023
 659937,2023-08-27 00:30:00+00:00,Austin FC at FC Dallas,ATX @ DAL,FC Dallas,185,1,Austin FC,20906,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,8,27,2023
 659938,2023-08-27 00:30:00+00:00,San Jose Earthquakes at Sporting Kansas City,SJ @ SKC,Sporting Kansas City,186,3,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,8,27,2023
 659939,2023-08-27 01:30:00+00:00,Houston Dynamo FC at Real Salt Lake,HOU @ RSL,Real Salt Lake,4771,0,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,America First Field,regular_season,8,27,2023
@@ -1035,11 +1035,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659940,2023-08-27 02:30:00+00:00,Vancouver Whitecaps at Portland Timbers,VAN @ POR,Portland Timbers,9723,2,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Providence Park,regular_season,8,27,2023
 659942,2023-08-27 20:30:00+00:00,Seattle Sounders FC at Minnesota United FC,SEA @ MIN,Minnesota United FC,17362,1,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Allianz Field,regular_season,8,27,2023
 659946,2023-08-30 23:30:00+00:00,CF Montréal at New York City FC,MTL @ NYC,New York City FC,17606,2,CF Montréal,9720,0,STATUS_FULL_TIME,Yankee Stadium,regular_season,8,30,2023
-659943,2023-08-30 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,3,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,8,30,2023
 659944,2023-08-30 23:30:00+00:00,Red Bull New York at New England Revolution,RBNY @ NE,New England Revolution,189,1,Red Bull New York,190,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,8,30,2023
-659945,2023-08-30 23:30:00+00:00,Orlando City SC at Charlotte FC,ORL @ CLT,Charlotte FC,21300,1,Orlando City SC,12011,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,30,2023
-659948,2023-08-30 23:30:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,8,30,2023
+659943,2023-08-30 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,3,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,8,30,2023
 659947,2023-08-30 23:30:00+00:00,Nashville SC at Inter Miami CF,NSH @ MIA,Inter Miami CF,20232,0,Nashville SC,18986,0,STATUS_FULL_TIME,Chase Stadium,regular_season,8,30,2023
+659948,2023-08-30 23:30:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,8,30,2023
+659945,2023-08-30 23:30:00+00:00,Orlando City SC at Charlotte FC,ORL @ CLT,Charlotte FC,21300,1,Orlando City SC,12011,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,30,2023
 659950,2023-08-31 00:30:00+00:00,Seattle Sounders FC at Austin FC,SEA @ ATX,Austin FC,20906,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,8,31,2023
 659949,2023-08-31 00:30:00+00:00,Vancouver Whitecaps at Chicago Fire FC,VAN @ CHI,Chicago Fire FC,182,0,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Soldier Field,regular_season,8,31,2023
 659953,2023-08-31 00:30:00+00:00,Columbus Crew at Houston Dynamo FC,CLB @ HOU,Houston Dynamo FC,6077,2,Columbus Crew,183,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,8,31,2023
@@ -1048,17 +1048,17 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659955,2023-08-31 02:30:00+00:00,Real Salt Lake at Portland Timbers,RSL @ POR,Portland Timbers,9723,2,Real Salt Lake,4771,1,STATUS_FULL_TIME,Providence Park,regular_season,8,31,2023
 659954,2023-08-31 02:30:00+00:00,LA Galaxy at San Jose Earthquakes,LA @ SJ,San Jose Earthquakes,191,2,LA Galaxy,187,3,STATUS_FULL_TIME,PayPal Park,regular_season,8,31,2023
 659956,2023-09-02 19:30:00+00:00,Vancouver Whitecaps at New York City FC,VAN @ NYC,New York City FC,17606,1,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,9,2,2023
-659959,2023-09-02 23:30:00+00:00,Austin FC at New England Revolution,ATX @ NE,New England Revolution,189,2,Austin FC,20906,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,9,2,2023
-659957,2023-09-02 23:30:00+00:00,Columbus Crew at CF Montréal,CLB @ MTL,CF Montréal,9720,2,Columbus Crew,183,4,STATUS_FULL_TIME,Stade Saputo,regular_season,9,2,2023
 659960,2023-09-02 23:30:00+00:00,Chicago Fire FC at D.C. United,CHI @ DC,D.C. United,193,4,Chicago Fire FC,182,0,STATUS_FULL_TIME,Audi Field,regular_season,9,2,2023
 659958,2023-09-02 23:30:00+00:00,Orlando City SC at FC Cincinnati,ORL @ CIN,FC Cincinnati,18267,0,Orlando City SC,12011,1,STATUS_FULL_TIME,TQL Stadium,regular_season,9,2,2023
+659959,2023-09-02 23:30:00+00:00,Austin FC at New England Revolution,ATX @ NE,New England Revolution,189,2,Austin FC,20906,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,9,2,2023
+659957,2023-09-02 23:30:00+00:00,Columbus Crew at CF Montréal,CLB @ MTL,CF Montréal,9720,2,Columbus Crew,183,4,STATUS_FULL_TIME,Stade Saputo,regular_season,9,2,2023
+659962,2023-09-03 00:30:00+00:00,Atlanta United FC at FC Dallas,ATL @ DAL,FC Dallas,185,2,Atlanta United FC,18418,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,3,2023
 659961,2023-09-03 00:30:00+00:00,Charlotte FC at Nashville SC,CLT @ NSH,Nashville SC,18986,1,Charlotte FC,21300,1,STATUS_FULL_TIME,GEODIS Park,regular_season,9,3,2023
 659963,2023-09-03 00:30:00+00:00,St. Louis CITY SC at Sporting Kansas City,STL @ SKC,Sporting Kansas City,186,2,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,9,3,2023
-659962,2023-09-03 00:30:00+00:00,Atlanta United FC at FC Dallas,ATL @ DAL,FC Dallas,185,2,Atlanta United FC,18418,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,3,2023
 659964,2023-09-03 01:30:00+00:00,Colorado Rapids at Real Salt Lake,COL @ RSL,Real Salt Lake,4771,2,Colorado Rapids,184,0,STATUS_FULL_TIME,America First Field,regular_season,9,3,2023
-659968,2023-09-03 02:30:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,2,Portland Timbers,9723,2,STATUS_FULL_TIME,Lumen Field,regular_season,9,3,2023
 659967,2023-09-03 02:30:00+00:00,Houston Dynamo FC at LA Galaxy,HOU @ LA,LA Galaxy,187,0,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,9,3,2023
 659965,2023-09-03 02:30:00+00:00,Minnesota United FC at San Jose Earthquakes,MIN @ SJ,San Jose Earthquakes,191,1,Minnesota United FC,17362,1,STATUS_FULL_TIME,PayPal Park,regular_season,9,3,2023
+659968,2023-09-03 02:30:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,2,Portland Timbers,9723,2,STATUS_FULL_TIME,Lumen Field,regular_season,9,3,2023
 659969,2023-09-03 23:30:00+00:00,Red Bull New York at Philadelphia Union,RBNY @ PHI,Philadelphia Union,10739,4,Red Bull New York,190,1,STATUS_FULL_TIME,Subaru Park,regular_season,9,3,2023
 659966,2023-09-04 02:00:00+00:00,Inter Miami CF at LAFC,MIA @ LAFC,LAFC,18966,1,Inter Miami CF,20232,3,STATUS_FULL_TIME,BMO Stadium,regular_season,9,4,2023
 659970,2023-09-09 23:30:00+00:00,San Jose Earthquakes at D.C. United,SJ @ DC,D.C. United,193,0,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Audi Field,regular_season,9,9,2023
@@ -1082,11 +1082,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659986,2023-09-18 00:30:00+00:00,Portland Timbers at Austin FC,POR @ ATX,Austin FC,20906,1,Portland Timbers,9723,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,9,18,2023
 659993,2023-09-20 23:30:00+00:00,Orlando City SC at New York City FC,ORL @ NYC,New York City FC,17606,2,Orlando City SC,12011,0,STATUS_FULL_TIME,Citi Field,regular_season,9,20,2023
 659988,2023-09-20 23:30:00+00:00,Toronto FC at Inter Miami CF,TOR @ MIA,Inter Miami CF,20232,4,Toronto FC,7318,0,STATUS_FULL_TIME,Chase Stadium,regular_season,9,20,2023
+659990,2023-09-20 23:30:00+00:00,Chicago Fire FC at Columbus Crew,CHI @ CLB,Columbus Crew,183,3,Chicago Fire FC,182,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,9,20,2023
 659989,2023-09-20 23:30:00+00:00,Atlanta United FC at D.C. United,ATL @ DC,D.C. United,193,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Audi Field,regular_season,9,20,2023
-659987,2023-09-20 23:30:00+00:00,Austin FC at Red Bull New York,ATX @ RBNY,Red Bull New York,190,1,Austin FC,20906,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,20,2023
 659991,2023-09-20 23:30:00+00:00,Philadelphia Union at Charlotte FC,PHI @ CLT,Charlotte FC,21300,2,Philadelphia Union,10739,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,9,20,2023
 659992,2023-09-20 23:30:00+00:00,FC Cincinnati at CF Montréal,CIN @ MTL,CF Montréal,9720,1,FC Cincinnati,18267,1,STATUS_FULL_TIME,Stade Saputo,regular_season,9,20,2023
-659990,2023-09-20 23:30:00+00:00,Chicago Fire FC at Columbus Crew,CHI @ CLB,Columbus Crew,183,3,Chicago Fire FC,182,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,9,20,2023
+659987,2023-09-20 23:30:00+00:00,Austin FC at Red Bull New York,ATX @ RBNY,Red Bull New York,190,1,Austin FC,20906,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,20,2023
 659995,2023-09-21 00:30:00+00:00,Vancouver Whitecaps at Houston Dynamo FC,VAN @ HOU,Houston Dynamo FC,6077,4,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,9,21,2023
 659994,2023-09-21 00:30:00+00:00,Nashville SC at Sporting Kansas City,NSH @ SKC,Sporting Kansas City,186,0,Nashville SC,18986,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,9,21,2023
 659996,2023-09-21 00:30:00+00:00,LAFC at St. Louis CITY SC,LAFC @ STL,St. Louis CITY SC,21812,0,LAFC,18966,0,STATUS_FULL_TIME,Energizer Park,regular_season,9,21,2023
@@ -1094,10 +1094,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 659998,2023-09-21 01:30:00+00:00,FC Dallas at Real Salt Lake,DAL @ RSL,Real Salt Lake,4771,1,FC Dallas,185,3,STATUS_FULL_TIME,America First Field,regular_season,9,21,2023
 660000,2023-09-21 02:30:00+00:00,Minnesota United FC at LA Galaxy,MIN @ LA,LA Galaxy,187,4,Minnesota United FC,17362,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,9,21,2023
 659999,2023-09-21 02:30:00+00:00,San Jose Earthquakes at Portland Timbers,SJ @ POR,Portland Timbers,9723,2,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Providence Park,regular_season,9,21,2023
-660005,2023-09-23 23:30:00+00:00,LAFC at Philadelphia Union,LAFC @ PHI,Philadelphia Union,10739,0,LAFC,18966,0,STATUS_FULL_TIME,Subaru Park,regular_season,9,23,2023
 660004,2023-09-23 23:30:00+00:00,Charlotte FC at FC Cincinnati,CLT @ CIN,FC Cincinnati,18267,3,Charlotte FC,21300,0,STATUS_FULL_TIME,TQL Stadium,regular_season,9,23,2023
-660002,2023-09-23 23:30:00+00:00,CF Montréal at Atlanta United FC,MTL @ ATL,Atlanta United FC,18418,4,CF Montréal,9720,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,9,23,2023
+660005,2023-09-23 23:30:00+00:00,LAFC at Philadelphia Union,LAFC @ PHI,Philadelphia Union,10739,0,LAFC,18966,0,STATUS_FULL_TIME,Subaru Park,regular_season,9,23,2023
 660001,2023-09-23 23:30:00+00:00,Red Bull New York at D.C. United,RBNY @ DC,D.C. United,193,3,Red Bull New York,190,5,STATUS_FULL_TIME,Audi Field,regular_season,9,23,2023
+660002,2023-09-23 23:30:00+00:00,CF Montréal at Atlanta United FC,MTL @ ATL,Atlanta United FC,18418,4,CF Montréal,9720,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,9,23,2023
 660008,2023-09-24 00:30:00+00:00,New England Revolution at Chicago Fire FC,NE @ CHI,Chicago Fire FC,182,2,New England Revolution,189,2,STATUS_FULL_TIME,Soldier Field,regular_season,9,24,2023
 660009,2023-09-24 00:30:00+00:00,Columbus Crew at FC Dallas,CLB @ DAL,FC Dallas,185,1,Columbus Crew,183,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,24,2023
 660006,2023-09-24 00:30:00+00:00,St. Louis CITY SC at Minnesota United FC,STL @ MIN,Minnesota United FC,17362,1,St. Louis CITY SC,21812,2,STATUS_FULL_TIME,Allianz Field,regular_season,9,24,2023
@@ -1110,12 +1110,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 660014,2023-09-25 04:25:00+00:00,LA Galaxy at Austin FC,LA @ ATX,Austin FC,20906,3,LA Galaxy,187,3,STATUS_FULL_TIME,Q2 Stadium,regular_season,9,25,2023
 659917,2023-09-27 23:30:00+00:00,FC Dallas at Philadelphia Union,DAL @ PHI,Philadelphia Union,10739,1,FC Dallas,185,1,STATUS_FULL_TIME,Subaru Park,regular_season,9,27,2023
 659841,2023-09-28 01:30:00+00:00,Vancouver Whitecaps at Colorado Rapids,VAN @ COL,Colorado Rapids,184,2,Vancouver Whitecaps,9727,2,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,9,28,2023
-660017,2023-09-30 23:30:00+00:00,Chicago Fire FC at Red Bull New York,CHI @ RBNY,Red Bull New York,190,0,Chicago Fire FC,182,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,30,2023
 660019,2023-09-30 23:30:00+00:00,FC Cincinnati at Toronto FC,CIN @ TOR,Toronto FC,7318,2,FC Cincinnati,18267,3,STATUS_FULL_TIME,BMO Field,regular_season,9,30,2023
+660017,2023-09-30 23:30:00+00:00,Chicago Fire FC at Red Bull New York,CHI @ RBNY,Red Bull New York,190,0,Chicago Fire FC,182,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,30,2023
 660015,2023-09-30 23:30:00+00:00,CF Montréal at Orlando City SC,MTL @ ORL,Orlando City SC,12011,3,CF Montréal,9720,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,9,30,2023
 660018,2023-09-30 23:30:00+00:00,Charlotte FC at New England Revolution,CLT @ NE,New England Revolution,189,2,Charlotte FC,21300,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,9,30,2023
-660020,2023-09-30 23:30:00+00:00,New York City FC at Inter Miami CF,NYC @ MIA,Inter Miami CF,20232,1,New York City FC,17606,1,STATUS_FULL_TIME,Chase Stadium,regular_season,9,30,2023
 660016,2023-09-30 23:30:00+00:00,Philadelphia Union at Columbus Crew,PHI @ CLB,Columbus Crew,183,1,Philadelphia Union,10739,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,9,30,2023
+660020,2023-09-30 23:30:00+00:00,New York City FC at Inter Miami CF,NYC @ MIA,Inter Miami CF,20232,1,New York City FC,17606,1,STATUS_FULL_TIME,Chase Stadium,regular_season,9,30,2023
 660022,2023-10-01 00:30:00+00:00,FC Dallas at Houston Dynamo FC,DAL @ HOU,Houston Dynamo FC,6077,0,FC Dallas,185,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,10,1,2023
 660023,2023-10-01 00:30:00+00:00,San Jose Earthquakes at Minnesota United FC,SJ @ MIN,Minnesota United FC,17362,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Allianz Field,regular_season,10,1,2023
 660021,2023-10-01 00:30:00+00:00,Seattle Sounders FC at Nashville SC,SEA @ NSH,Nashville SC,18986,0,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,GEODIS Park,regular_season,10,1,2023
@@ -1135,13 +1135,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 660040,2023-10-05 02:30:00+00:00,LA Galaxy at Seattle Sounders FC,LA @ SEA,Seattle Sounders FC,9726,2,LA Galaxy,187,1,STATUS_FULL_TIME,Lumen Field,regular_season,10,5,2023
 660038,2023-10-05 02:30:00+00:00,Minnesota United FC at LAFC,MIN @ LAFC,LAFC,18966,5,Minnesota United FC,17362,1,STATUS_FULL_TIME,BMO Stadium,regular_season,10,5,2023
 660039,2023-10-05 02:30:00+00:00,St. Louis CITY SC at Vancouver Whitecaps,STL @ VAN,Vancouver Whitecaps,9727,3,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,BC Place,regular_season,10,5,2023
-660041,2023-10-07 23:30:00+00:00,Portland Timbers at CF Montréal,POR @ MTL,CF Montréal,9720,4,Portland Timbers,9723,1,STATUS_FULL_TIME,Stade Saputo,regular_season,10,7,2023
-660046,2023-10-07 23:30:00+00:00,Nashville SC at Philadelphia Union,NSH @ PHI,Philadelphia Union,10739,0,Nashville SC,18986,0,STATUS_FULL_TIME,Subaru Park,regular_season,10,7,2023
+660042,2023-10-07 23:30:00+00:00,New York City FC at D.C. United,NYC @ DC,D.C. United,193,2,New York City FC,17606,0,STATUS_FULL_TIME,Audi Field,regular_season,10,7,2023
 660044,2023-10-07 23:30:00+00:00,Toronto FC at Red Bull New York,TOR @ RBNY,Red Bull New York,190,3,Toronto FC,7318,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,10,7,2023
 660043,2023-10-07 23:30:00+00:00,New England Revolution at Orlando City SC,NE @ ORL,Orlando City SC,12011,3,New England Revolution,189,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,10,7,2023
-660047,2023-10-07 23:30:00+00:00,Columbus Crew at Atlanta United FC,CLB @ ATL,Atlanta United FC,18418,1,Columbus Crew,183,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,7,2023
-660042,2023-10-07 23:30:00+00:00,New York City FC at D.C. United,NYC @ DC,D.C. United,193,2,New York City FC,17606,0,STATUS_FULL_TIME,Audi Field,regular_season,10,7,2023
+660041,2023-10-07 23:30:00+00:00,Portland Timbers at CF Montréal,POR @ MTL,CF Montréal,9720,4,Portland Timbers,9723,1,STATUS_FULL_TIME,Stade Saputo,regular_season,10,7,2023
+660046,2023-10-07 23:30:00+00:00,Nashville SC at Philadelphia Union,NSH @ PHI,Philadelphia Union,10739,0,Nashville SC,18986,0,STATUS_FULL_TIME,Subaru Park,regular_season,10,7,2023
 660045,2023-10-07 23:30:00+00:00,FC Cincinnati at Inter Miami CF,CIN @ MIA,Inter Miami CF,20232,0,FC Cincinnati,18267,1,STATUS_FULL_TIME,Chase Stadium,regular_season,10,7,2023
+660047,2023-10-07 23:30:00+00:00,Columbus Crew at Atlanta United FC,CLB @ ATL,Atlanta United FC,18418,1,Columbus Crew,183,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,7,2023
 660049,2023-10-08 00:30:00+00:00,LAFC at Austin FC,LAFC @ ATX,Austin FC,20906,2,LAFC,18966,4,STATUS_FULL_TIME,Q2 Stadium,regular_season,10,8,2023
 660050,2023-10-08 00:30:00+00:00,Charlotte FC at Chicago Fire FC,CLT @ CHI,Chicago Fire FC,182,0,Charlotte FC,21300,2,STATUS_FULL_TIME,Soldier Field,regular_season,10,8,2023
 660051,2023-10-08 00:30:00+00:00,San Jose Earthquakes at FC Dallas,SJ @ DAL,FC Dallas,185,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,10,8,2023
@@ -1162,11 +1162,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 660060,2023-10-21 22:20:00+00:00,Orlando City SC at Toronto FC,ORL @ TOR,Toronto FC,7318,0,Orlando City SC,12011,2,STATUS_FULL_TIME,BMO Field,regular_season,10,21,2023
 660062,2023-10-22 01:00:00+00:00,Seattle Sounders FC at St. Louis CITY SC,SEA @ STL,St. Louis CITY SC,21812,0,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Energizer Park,regular_season,10,22,2023
 660059,2023-10-22 01:00:00+00:00,Minnesota United FC at Sporting Kansas City,MIN @ SKC,Sporting Kansas City,186,3,Minnesota United FC,17362,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,10,22,2023
+660063,2023-10-22 01:00:00+00:00,Houston Dynamo FC at Portland Timbers,HOU @ POR,Portland Timbers,9723,1,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,Providence Park,regular_season,10,22,2023
 660055,2023-10-22 01:00:00+00:00,Austin FC at San Jose Earthquakes,ATX @ SJ,San Jose Earthquakes,191,1,Austin FC,20906,1,STATUS_FULL_TIME,PayPal Park,regular_season,10,22,2023
-660067,2023-10-22 01:00:00+00:00,LAFC at Vancouver Whitecaps,LAFC @ VAN,Vancouver Whitecaps,9727,1,LAFC,18966,1,STATUS_FULL_TIME,BC Place,regular_season,10,22,2023
 660056,2023-10-22 01:00:00+00:00,FC Dallas at LA Galaxy,DAL @ LA,LA Galaxy,187,1,FC Dallas,185,4,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,10,22,2023
 660068,2023-10-22 01:00:00+00:00,Real Salt Lake at Colorado Rapids,RSL @ COL,Colorado Rapids,184,0,Real Salt Lake,4771,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,10,22,2023
-660063,2023-10-22 01:00:00+00:00,Houston Dynamo FC at Portland Timbers,HOU @ POR,Portland Timbers,9723,1,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,Providence Park,regular_season,10,22,2023
+660067,2023-10-22 01:00:00+00:00,LAFC at Vancouver Whitecaps,LAFC @ VAN,Vancouver Whitecaps,9727,1,LAFC,18966,1,STATUS_FULL_TIME,BC Place,regular_season,10,22,2023
 689566,2023-10-25 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,5,Charlotte FC,21300,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,10,25,2023
 689567,2023-10-26 01:30:00+00:00,San Jose Earthquakes at Sporting Kansas City,SJ @ SKC,Sporting Kansas City,186,0,San Jose Earthquakes,191,0,STATUS_FINAL_PEN,Children's Mercy Park,regular_season,10,26,2023
 689598,2023-10-28 21:00:00+00:00,New England Revolution at Philadelphia Union,NE @ PHI,Philadelphia Union,10739,3,New England Revolution,189,1,STATUS_FULL_TIME,Subaru Park,regular_season,10,28,2023
@@ -1247,22 +1247,22 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692649,2024-03-16 19:55:00+00:00,Colorado Rapids at Seattle Sounders FC,COL @ SEA,Seattle Sounders FC,9726,1,Colorado Rapids,184,1,STATUS_FULL_TIME,Lumen Field,regular_season,3,16,2024
 692650,2024-03-16 23:30:00+00:00,Red Bull New York at Columbus Crew,RBNY @ CLB,Columbus Crew,183,3,Red Bull New York,190,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,3,16,2024
 692651,2024-03-16 23:30:00+00:00,Toronto FC at New York City FC,TOR @ NYC,New York City FC,17606,2,Toronto FC,7318,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,3,16,2024
+692653,2024-03-17 00:30:00+00:00,LAFC at Minnesota United FC,LAFC @ MIN,Minnesota United FC,17362,2,LAFC,18966,0,STATUS_FULL_TIME,Allianz Field,regular_season,3,17,2024
 692654,2024-03-17 00:30:00+00:00,San Jose Earthquakes at Sporting Kansas City,SJ @ SKC,Sporting Kansas City,186,2,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,3,17,2024
 692655,2024-03-17 00:30:00+00:00,Charlotte FC at Nashville SC,CLT @ NSH,Nashville SC,18986,2,Charlotte FC,21300,1,STATUS_FULL_TIME,GEODIS Park,regular_season,3,17,2024
-692653,2024-03-17 00:30:00+00:00,LAFC at Minnesota United FC,LAFC @ MIN,Minnesota United FC,17362,2,LAFC,18966,0,STATUS_FULL_TIME,Allianz Field,regular_season,3,17,2024
-692657,2024-03-17 00:30:00+00:00,Vancouver Whitecaps at FC Dallas,VAN @ DAL,FC Dallas,185,1,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,17,2024
 692652,2024-03-17 00:30:00+00:00,Philadelphia Union at Austin FC,PHI @ ATX,Austin FC,20906,2,Philadelphia Union,10739,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,3,17,2024
 692656,2024-03-17 00:30:00+00:00,Portland Timbers at Houston Dynamo FC,POR @ HOU,Houston Dynamo FC,6077,1,Portland Timbers,9723,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,3,17,2024
+692657,2024-03-17 00:30:00+00:00,Vancouver Whitecaps at FC Dallas,VAN @ DAL,FC Dallas,185,1,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,17,2024
 692658,2024-03-17 02:30:00+00:00,St. Louis CITY SC at LA Galaxy,STL @ LA,LA Galaxy,187,3,St. Louis CITY SC,21812,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,3,17,2024
 692659,2024-03-17 18:00:00+00:00,FC Cincinnati at New England Revolution,CIN @ NE,New England Revolution,189,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,3,17,2024
 692660,2024-03-17 23:15:00+00:00,Orlando City SC at Atlanta United FC,ORL @ ATL,Atlanta United FC,18418,2,Orlando City SC,12011,0,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,3,17,2024
 692662,2024-03-23 18:00:00+00:00,Chicago Fire FC at New England Revolution,CHI @ NE,New England Revolution,189,1,Chicago Fire FC,182,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,3,23,2024
 692663,2024-03-23 18:00:00+00:00,Inter Miami CF at Red Bull New York,MIA @ RBNY,Red Bull New York,190,4,Inter Miami CF,20232,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,3,23,2024
-692661,2024-03-23 23:30:00+00:00,Real Salt Lake at Vancouver Whitecaps,RSL @ VAN,Vancouver Whitecaps,9727,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,BC Place,regular_season,3,23,2024
-692667,2024-03-23 23:30:00+00:00,Atlanta United FC at Toronto FC,ATL @ TOR,Toronto FC,7318,2,Atlanta United FC,18418,0,STATUS_FULL_TIME,BMO Field,regular_season,3,23,2024
 692666,2024-03-23 23:30:00+00:00,Columbus Crew at Charlotte FC,CLB @ CLT,Charlotte FC,21300,2,Columbus Crew,183,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,3,23,2024
-692664,2024-03-23 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,1,New York City FC,17606,0,STATUS_FULL_TIME,TQL Stadium,regular_season,3,23,2024
+692667,2024-03-23 23:30:00+00:00,Atlanta United FC at Toronto FC,ATL @ TOR,Toronto FC,7318,2,Atlanta United FC,18418,0,STATUS_FULL_TIME,BMO Field,regular_season,3,23,2024
 692665,2024-03-23 23:30:00+00:00,Austin FC at Orlando City SC,ATX @ ORL,Orlando City SC,12011,2,Austin FC,20906,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,3,23,2024
+692664,2024-03-23 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,1,New York City FC,17606,0,STATUS_FULL_TIME,TQL Stadium,regular_season,3,23,2024
+692661,2024-03-23 23:30:00+00:00,Real Salt Lake at Vancouver Whitecaps,RSL @ VAN,Vancouver Whitecaps,9727,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,BC Place,regular_season,3,23,2024
 692668,2024-03-24 00:30:00+00:00,LA Galaxy at Sporting Kansas City,LA @ SKC,Sporting Kansas City,186,2,LA Galaxy,187,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,3,24,2024
 692669,2024-03-24 00:30:00+00:00,D.C. United at St. Louis CITY SC,DC @ STL,St. Louis CITY SC,21812,2,D.C. United,193,2,STATUS_FULL_TIME,Energizer Park,regular_season,3,24,2024
 692670,2024-03-24 01:30:00+00:00,Houston Dynamo FC at Colorado Rapids,HOU @ COL,Colorado Rapids,184,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,3,24,2024
@@ -1299,9 +1299,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692701,2024-04-07 17:45:00+00:00,Portland Timbers at Sporting Kansas City,POR @ SKC,Sporting Kansas City,186,3,Portland Timbers,9723,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,4,7,2024
 692703,2024-04-13 20:45:00+00:00,LAFC at Portland Timbers,LAFC @ POR,Portland Timbers,9723,2,LAFC,18966,2,STATUS_FULL_TIME,Providence Park,regular_season,4,13,2024
 692706,2024-04-13 23:30:00+00:00,Chicago Fire FC at Red Bull New York,CHI @ RBNY,Red Bull New York,190,0,Chicago Fire FC,182,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,13,2024
-692704,2024-04-13 23:30:00+00:00,New England Revolution at New York City FC,NE @ NYC,New York City FC,17606,2,New England Revolution,189,0,STATUS_FULL_TIME,Yankee Stadium,regular_season,4,13,2024
 692705,2024-04-13 23:30:00+00:00,Toronto FC at Charlotte FC,TOR @ CLT,Charlotte FC,21300,3,Toronto FC,7318,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,4,13,2024
 692707,2024-04-13 23:30:00+00:00,Orlando City SC at D.C. United,ORL @ DC,D.C. United,193,2,Orlando City SC,12011,3,STATUS_FULL_TIME,Audi Field,regular_season,4,13,2024
+692704,2024-04-13 23:30:00+00:00,New England Revolution at New York City FC,NE @ NYC,New York City FC,17606,2,New England Revolution,189,0,STATUS_FULL_TIME,Yankee Stadium,regular_season,4,13,2024
 692708,2024-04-13 23:30:00+00:00,FC Cincinnati at CF Montréal,CIN @ MTL,CF Montréal,9720,2,FC Cincinnati,18267,1,STATUS_FULL_TIME,Stade Saputo,regular_season,4,13,2024
 692710,2024-04-14 00:30:00+00:00,Seattle Sounders FC at FC Dallas,SEA @ DAL,FC Dallas,185,0,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,4,14,2024
 692709,2024-04-14 00:30:00+00:00,Houston Dynamo FC at Minnesota United FC,HOU @ MIN,Minnesota United FC,17362,1,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,Allianz Field,regular_season,4,14,2024
@@ -1311,12 +1311,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692702,2024-04-14 02:30:00+00:00,LA Galaxy at Vancouver Whitecaps,LA @ VAN,Vancouver Whitecaps,9727,1,LA Galaxy,187,3,STATUS_FULL_TIME,BC Place,regular_season,4,14,2024
 692714,2024-04-14 18:30:00+00:00,Philadelphia Union at Atlanta United FC,PHI @ ATL,Atlanta United FC,18418,2,Philadelphia Union,10739,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,14,2024
 692715,2024-04-14 20:45:00+00:00,Austin FC at St. Louis CITY SC,ATX @ STL,St. Louis CITY SC,21812,1,Austin FC,20906,0,STATUS_FULL_TIME,Energizer Park,regular_season,4,14,2024
-692722,2024-04-20 23:30:00+00:00,New England Revolution at Toronto FC,NE @ TOR,Toronto FC,7318,1,New England Revolution,189,0,STATUS_FULL_TIME,BMO Field,regular_season,4,20,2024
-692720,2024-04-20 23:30:00+00:00,D.C. United at New York City FC,DC @ NYC,New York City FC,17606,2,D.C. United,193,0,STATUS_FULL_TIME,Citi Field,regular_season,4,20,2024
 692716,2024-04-20 23:30:00+00:00,Nashville SC at Inter Miami CF,NSH @ MIA,Inter Miami CF,20232,3,Nashville SC,18986,1,STATUS_FULL_TIME,Chase Stadium,regular_season,4,20,2024
-692719,2024-04-20 23:30:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,20,2024
-692717,2024-04-20 23:30:00+00:00,Orlando City SC at CF Montréal,ORL @ MTL,CF Montréal,9720,2,Orlando City SC,12011,2,STATUS_FULL_TIME,Stade Saputo,regular_season,4,20,2024
+692720,2024-04-20 23:30:00+00:00,D.C. United at New York City FC,DC @ NYC,New York City FC,17606,2,D.C. United,193,0,STATUS_FULL_TIME,Citi Field,regular_season,4,20,2024
+692722,2024-04-20 23:30:00+00:00,New England Revolution at Toronto FC,NE @ TOR,Toronto FC,7318,1,New England Revolution,189,0,STATUS_FULL_TIME,BMO Field,regular_season,4,20,2024
 692721,2024-04-20 23:30:00+00:00,Portland Timbers at Columbus Crew,POR @ CLB,Columbus Crew,183,2,Portland Timbers,9723,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,4,20,2024
+692717,2024-04-20 23:30:00+00:00,Orlando City SC at CF Montréal,ORL @ MTL,CF Montréal,9720,2,Orlando City SC,12011,2,STATUS_FULL_TIME,Stade Saputo,regular_season,4,20,2024
+692719,2024-04-20 23:30:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,20,2024
 692723,2024-04-21 00:30:00+00:00,Real Salt Lake at Chicago Fire FC,RSL @ CHI,Chicago Fire FC,182,0,Real Salt Lake,4771,4,STATUS_FULL_TIME,Soldier Field,regular_season,4,21,2024
 692724,2024-04-21 00:30:00+00:00,Austin FC at Houston Dynamo FC,ATX @ HOU,Houston Dynamo FC,6077,0,Austin FC,20906,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,4,21,2024
 692725,2024-04-21 00:30:00+00:00,St. Louis CITY SC at Sporting Kansas City,STL @ SKC,Sporting Kansas City,186,3,St. Louis CITY SC,21812,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,4,21,2024
@@ -1326,26 +1326,26 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692718,2024-04-21 22:00:00+00:00,Minnesota United FC at Charlotte FC,MIN @ CLT,Charlotte FC,21300,0,Minnesota United FC,17362,3,STATUS_FULL_TIME,Bank of America Stadium,regular_season,4,21,2024
 692729,2024-04-22 00:15:00+00:00,San Jose Earthquakes at LA Galaxy,SJ @ LA,LA Galaxy,187,4,San Jose Earthquakes,191,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,4,22,2024
 692730,2024-04-27 17:45:00+00:00,LA Galaxy at Austin FC,LA @ ATX,Austin FC,20906,2,LA Galaxy,187,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,4,27,2024
-692731,2024-04-27 23:30:00+00:00,Vancouver Whitecaps at Red Bull New York,VAN @ RBNY,Red Bull New York,190,1,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,27,2024
+692735,2024-04-27 23:30:00+00:00,Real Salt Lake at Philadelphia Union,RSL @ PHI,Philadelphia Union,10739,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,Subaru Park,regular_season,4,27,2024
 692737,2024-04-27 23:30:00+00:00,Toronto FC at Orlando City SC,TOR @ ORL,Orlando City SC,12011,1,Toronto FC,7318,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,27,2024
 692732,2024-04-27 23:30:00+00:00,Charlotte FC at New York City FC,CLT @ NYC,New York City FC,17606,2,Charlotte FC,21300,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,4,27,2024
-692735,2024-04-27 23:30:00+00:00,Real Salt Lake at Philadelphia Union,RSL @ PHI,Philadelphia Union,10739,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,Subaru Park,regular_season,4,27,2024
+692731,2024-04-27 23:30:00+00:00,Vancouver Whitecaps at Red Bull New York,VAN @ RBNY,Red Bull New York,190,1,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,4,27,2024
 692738,2024-04-27 23:30:00+00:00,Colorado Rapids at FC Cincinnati,COL @ CIN,FC Cincinnati,18267,2,Colorado Rapids,184,1,STATUS_FULL_TIME,TQL Stadium,regular_season,4,27,2024
 692736,2024-04-27 23:30:00+00:00,Seattle Sounders FC at D.C. United,SEA @ DC,D.C. United,193,2,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Audi Field,regular_season,4,27,2024
-692734,2024-04-27 23:30:00+00:00,CF Montréal at Columbus Crew,MTL @ CLB,Columbus Crew,183,0,CF Montréal,9720,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,4,27,2024
 692733,2024-04-27 23:30:00+00:00,Inter Miami CF at New England Revolution,MIA @ NE,New England Revolution,189,1,Inter Miami CF,20232,4,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,27,2024
+692734,2024-04-27 23:30:00+00:00,CF Montréal at Columbus Crew,MTL @ CLB,Columbus Crew,183,0,CF Montréal,9720,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,4,27,2024
 692741,2024-04-28 00:30:00+00:00,Atlanta United FC at Chicago Fire FC,ATL @ CHI,Chicago Fire FC,182,0,Atlanta United FC,18418,0,STATUS_FULL_TIME,Soldier Field,regular_season,4,28,2024
 692742,2024-04-28 00:30:00+00:00,Houston Dynamo FC at FC Dallas,HOU @ DAL,FC Dallas,185,2,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,4,28,2024
 692739,2024-04-28 00:30:00+00:00,Sporting Kansas City at Minnesota United FC,SKC @ MIN,Minnesota United FC,17362,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Allianz Field,regular_season,4,28,2024
 692740,2024-04-28 00:30:00+00:00,San Jose Earthquakes at Nashville SC,SJ @ NSH,Nashville SC,18986,1,San Jose Earthquakes,191,1,STATUS_FULL_TIME,GEODIS Park,regular_season,4,28,2024
 692743,2024-04-28 02:30:00+00:00,Portland Timbers at LAFC,POR @ LAFC,LAFC,18966,3,Portland Timbers,9723,2,STATUS_FULL_TIME,BMO Stadium,regular_season,4,28,2024
 692636,2024-04-30 23:30:00+00:00,Seattle Sounders FC at Philadelphia Union,SEA @ PHI,Philadelphia Union,10739,2,Seattle Sounders FC,9726,3,STATUS_FULL_TIME,Subaru Park,regular_season,4,30,2024
-692747,2024-05-04 23:30:00+00:00,LAFC at San Jose Earthquakes,LAFC @ SJ,San Jose Earthquakes,191,3,LAFC,18966,1,STATUS_FULL_TIME,Levi's Stadium,regular_season,5,4,2024
+692745,2024-05-04 23:30:00+00:00,Minnesota United FC at Atlanta United FC,MIN @ ATL,Atlanta United FC,18418,1,Minnesota United FC,17362,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,4,2024
 692750,2024-05-04 23:30:00+00:00,FC Dallas at Toronto FC,DAL @ TOR,Toronto FC,7318,3,FC Dallas,185,1,STATUS_FULL_TIME,BMO Field,regular_season,5,4,2024
 692748,2024-05-04 23:30:00+00:00,FC Cincinnati at Orlando City SC,CIN @ ORL,Orlando City SC,12011,0,FC Cincinnati,18267,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,4,2024
-692745,2024-05-04 23:30:00+00:00,Minnesota United FC at Atlanta United FC,MIN @ ATL,Atlanta United FC,18418,1,Minnesota United FC,17362,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,4,2024
-692751,2024-05-04 23:30:00+00:00,Philadelphia Union at D.C. United,PHI @ DC,D.C. United,193,2,Philadelphia Union,10739,2,STATUS_FULL_TIME,Audi Field,regular_season,5,4,2024
 692746,2024-05-04 23:30:00+00:00,Red Bull New York at Inter Miami CF,RBNY @ MIA,Inter Miami CF,20232,6,Red Bull New York,190,2,STATUS_FULL_TIME,Chase Stadium,regular_season,5,4,2024
+692751,2024-05-04 23:30:00+00:00,Philadelphia Union at D.C. United,PHI @ DC,D.C. United,193,2,Philadelphia Union,10739,2,STATUS_FULL_TIME,Audi Field,regular_season,5,4,2024
+692747,2024-05-04 23:30:00+00:00,LAFC at San Jose Earthquakes,LAFC @ SJ,San Jose Earthquakes,191,3,LAFC,18966,1,STATUS_FULL_TIME,Levi's Stadium,regular_season,5,4,2024
 692749,2024-05-04 23:30:00+00:00,Portland Timbers at Charlotte FC,POR @ CLT,Charlotte FC,21300,2,Portland Timbers,9723,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,4,2024
 692753,2024-05-05 00:30:00+00:00,St. Louis CITY SC at Houston Dynamo FC,STL @ HOU,Houston Dynamo FC,6077,0,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,5,2024
 692752,2024-05-05 00:30:00+00:00,CF Montréal at Nashville SC,MTL @ NSH,Nashville SC,18986,4,CF Montréal,9720,1,STATUS_FULL_TIME,GEODIS Park,regular_season,5,5,2024
@@ -1361,17 +1361,17 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692763,2024-05-11 23:30:00+00:00,New England Revolution at Red Bull New York,NE @ RBNY,Red Bull New York,190,4,New England Revolution,189,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,11,2024
 692761,2024-05-11 23:30:00+00:00,New York City FC at Toronto FC,NYC @ TOR,Toronto FC,7318,2,New York City FC,17606,3,STATUS_FULL_TIME,BMO Field,regular_season,5,11,2024
 692764,2024-05-11 23:45:00+00:00,FC Cincinnati at Columbus Crew,CIN @ CLB,Columbus Crew,183,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,5,11,2024
-692766,2024-05-12 00:30:00+00:00,Chicago Fire FC at St. Louis CITY SC,CHI @ STL,St. Louis CITY SC,21812,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Energizer Park,regular_season,5,12,2024
 692767,2024-05-12 00:30:00+00:00,Austin FC at FC Dallas,ATX @ DAL,FC Dallas,185,2,Austin FC,20906,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,12,2024
 692765,2024-05-12 00:30:00+00:00,Houston Dynamo FC at Sporting Kansas City,HOU @ SKC,Sporting Kansas City,186,1,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,Children's Mercy Park,regular_season,5,12,2024
+692766,2024-05-12 00:30:00+00:00,Chicago Fire FC at St. Louis CITY SC,CHI @ STL,St. Louis CITY SC,21812,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Energizer Park,regular_season,5,12,2024
 692768,2024-05-12 01:30:00+00:00,San Jose Earthquakes at Colorado Rapids,SJ @ COL,Colorado Rapids,184,2,San Jose Earthquakes,191,3,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,5,12,2024
 692770,2024-05-12 02:30:00+00:00,Real Salt Lake at LA Galaxy,RSL @ LA,LA Galaxy,187,2,Real Salt Lake,4771,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,5,12,2024
 692769,2024-05-12 02:30:00+00:00,Vancouver Whitecaps at LAFC,VAN @ LAFC,LAFC,18966,3,Vancouver Whitecaps,9727,0,STATUS_FULL_TIME,BMO Stadium,regular_season,5,12,2024
 692771,2024-05-12 20:45:00+00:00,Seattle Sounders FC at Portland Timbers,SEA @ POR,Portland Timbers,9723,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Providence Park,regular_season,5,12,2024
-692774,2024-05-15 23:30:00+00:00,Inter Miami CF at Orlando City SC,MIA @ ORL,Orlando City SC,12011,0,Inter Miami CF,20232,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,15,2024
-692776,2024-05-15 23:30:00+00:00,Columbus Crew at CF Montréal,CLB @ MTL,CF Montréal,9720,1,Columbus Crew,183,3,STATUS_FULL_TIME,Stade Saputo,regular_season,5,15,2024
 692775,2024-05-15 23:30:00+00:00,Red Bull New York at D.C. United,RBNY @ DC,D.C. United,193,1,Red Bull New York,190,4,STATUS_FULL_TIME,Audi Field,regular_season,5,15,2024
 692772,2024-05-15 23:30:00+00:00,Atlanta United FC at FC Cincinnati,ATL @ CIN,FC Cincinnati,18267,1,Atlanta United FC,18418,0,STATUS_FULL_TIME,TQL Stadium,regular_season,5,15,2024
+692774,2024-05-15 23:30:00+00:00,Inter Miami CF at Orlando City SC,MIA @ ORL,Orlando City SC,12011,0,Inter Miami CF,20232,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,15,2024
+692776,2024-05-15 23:30:00+00:00,Columbus Crew at CF Montréal,CLB @ MTL,CF Montréal,9720,1,Columbus Crew,183,3,STATUS_FULL_TIME,Stade Saputo,regular_season,5,15,2024
 692773,2024-05-15 23:30:00+00:00,New York City FC at Philadelphia Union,NYC @ PHI,Philadelphia Union,10739,1,New York City FC,17606,2,STATUS_FULL_TIME,Subaru Park,regular_season,5,15,2024
 692779,2024-05-16 00:30:00+00:00,Houston Dynamo FC at Austin FC,HOU @ ATX,Austin FC,20906,1,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,5,16,2024
 692778,2024-05-16 00:30:00+00:00,Charlotte FC at Chicago Fire FC,CLT @ CHI,Chicago Fire FC,182,0,Charlotte FC,21300,1,STATUS_FULL_TIME,Soldier Field,regular_season,5,16,2024
@@ -1395,13 +1395,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692796,2024-05-19 01:30:00+00:00,Colorado Rapids at Real Salt Lake,COL @ RSL,Real Salt Lake,4771,5,Colorado Rapids,184,3,STATUS_FULL_TIME,America First Field,regular_season,5,19,2024
 692798,2024-05-19 02:30:00+00:00,Orlando City SC at San Jose Earthquakes,ORL @ SJ,San Jose Earthquakes,191,0,Orlando City SC,12011,1,STATUS_FULL_TIME,PayPal Park,regular_season,5,19,2024
 692797,2024-05-19 02:30:00+00:00,Vancouver Whitecaps at Seattle Sounders FC,VAN @ SEA,Seattle Sounders FC,9726,1,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Lumen Field,regular_season,5,19,2024
-692801,2024-05-25 23:30:00+00:00,FC Cincinnati at Toronto FC,CIN @ TOR,Toronto FC,7318,3,FC Cincinnati,18267,4,STATUS_FULL_TIME,BMO Field,regular_season,5,25,2024
-692806,2024-05-25 23:30:00+00:00,New York City FC at New England Revolution,NYC @ NE,New England Revolution,189,0,New York City FC,17606,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,25,2024
 692805,2024-05-25 23:30:00+00:00,Chicago Fire FC at D.C. United,CHI @ DC,D.C. United,193,1,Chicago Fire FC,182,1,STATUS_FULL_TIME,Audi Field,regular_season,5,25,2024
-692800,2024-05-25 23:30:00+00:00,Columbus Crew at Orlando City SC,CLB @ ORL,Orlando City SC,12011,0,Columbus Crew,183,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,25,2024
-692803,2024-05-25 23:30:00+00:00,Nashville SC at CF Montréal,NSH @ MTL,CF Montréal,9720,0,Nashville SC,18986,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,25,2024
+692806,2024-05-25 23:30:00+00:00,New York City FC at New England Revolution,NYC @ NE,New England Revolution,189,0,New York City FC,17606,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,25,2024
 692802,2024-05-25 23:30:00+00:00,LAFC at Atlanta United FC,LAFC @ ATL,Atlanta United FC,18418,0,LAFC,18966,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,25,2024
+692801,2024-05-25 23:30:00+00:00,FC Cincinnati at Toronto FC,CIN @ TOR,Toronto FC,7318,3,FC Cincinnati,18267,4,STATUS_FULL_TIME,BMO Field,regular_season,5,25,2024
+692803,2024-05-25 23:30:00+00:00,Nashville SC at CF Montréal,NSH @ MTL,CF Montréal,9720,0,Nashville SC,18986,0,STATUS_FULL_TIME,Stade Saputo,regular_season,5,25,2024
 692804,2024-05-25 23:30:00+00:00,Philadelphia Union at Charlotte FC,PHI @ CLT,Charlotte FC,21300,0,Philadelphia Union,10739,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,25,2024
+692800,2024-05-25 23:30:00+00:00,Columbus Crew at Orlando City SC,CLB @ ORL,Orlando City SC,12011,0,Columbus Crew,183,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,25,2024
 692808,2024-05-26 00:30:00+00:00,Real Salt Lake at FC Dallas,RSL @ DAL,FC Dallas,185,3,Real Salt Lake,4771,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,26,2024
 692807,2024-05-26 00:30:00+00:00,Seattle Sounders FC at St. Louis CITY SC,SEA @ STL,St. Louis CITY SC,21812,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Energizer Park,regular_season,5,26,2024
 692809,2024-05-26 01:30:00+00:00,Minnesota United FC at Colorado Rapids,MIN @ COL,Colorado Rapids,184,3,Minnesota United FC,17362,3,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,5,26,2024
@@ -1409,11 +1409,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692811,2024-05-26 02:30:00+00:00,Sporting Kansas City at Portland Timbers,SKC @ POR,Portland Timbers,9723,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Providence Park,regular_season,5,26,2024
 692810,2024-05-26 02:30:00+00:00,Austin FC at San Jose Earthquakes,ATX @ SJ,San Jose Earthquakes,191,1,Austin FC,20906,1,STATUS_FULL_TIME,PayPal Park,regular_season,5,26,2024
 692799,2024-05-26 02:30:00+00:00,Inter Miami CF at Vancouver Whitecaps,MIA @ VAN,Vancouver Whitecaps,9727,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,BC Place,regular_season,5,26,2024
-692814,2024-05-29 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,3,Charlotte FC,21300,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,29,2024
-692817,2024-05-29 23:30:00+00:00,Toronto FC at Philadelphia Union,TOR @ PHI,Philadelphia Union,10739,0,Toronto FC,7318,0,STATUS_FULL_TIME,Subaru Park,regular_season,5,29,2024
 692813,2024-05-29 23:30:00+00:00,D.C. United at CF Montréal,DC @ MTL,CF Montréal,9720,4,D.C. United,193,2,STATUS_FULL_TIME,Stade Saputo,regular_season,5,29,2024
-692815,2024-05-29 23:30:00+00:00,Nashville SC at FC Cincinnati,NSH @ CIN,FC Cincinnati,18267,0,Nashville SC,18986,2,STATUS_FULL_TIME,TQL Stadium,regular_season,5,29,2024
+692817,2024-05-29 23:30:00+00:00,Toronto FC at Philadelphia Union,TOR @ PHI,Philadelphia Union,10739,0,Toronto FC,7318,0,STATUS_FULL_TIME,Subaru Park,regular_season,5,29,2024
 692818,2024-05-29 23:30:00+00:00,Atlanta United FC at Inter Miami CF,ATL @ MIA,Inter Miami CF,20232,1,Atlanta United FC,18418,3,STATUS_FULL_TIME,Chase Stadium,regular_season,5,29,2024
+692815,2024-05-29 23:30:00+00:00,Nashville SC at FC Cincinnati,NSH @ CIN,FC Cincinnati,18267,0,Nashville SC,18986,2,STATUS_FULL_TIME,TQL Stadium,regular_season,5,29,2024
+692814,2024-05-29 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,3,Charlotte FC,21300,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,29,2024
 692820,2024-05-30 00:30:00+00:00,Portland Timbers at Austin FC,POR @ ATX,Austin FC,20906,0,Portland Timbers,9723,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,5,30,2024
 692819,2024-05-30 00:30:00+00:00,Orlando City SC at Chicago Fire FC,ORL @ CHI,Chicago Fire FC,182,1,Orlando City SC,12011,1,STATUS_FULL_TIME,Soldier Field,regular_season,5,30,2024
 692822,2024-05-30 00:30:00+00:00,Colorado Rapids at Houston Dynamo FC,COL @ HOU,Houston Dynamo FC,6077,3,Colorado Rapids,184,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,30,2024
@@ -1439,14 +1439,14 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692842,2024-06-09 00:30:00+00:00,Seattle Sounders FC at Sporting Kansas City,SEA @ SKC,Sporting Kansas City,186,2,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,6,9,2024
 692843,2024-06-09 00:30:00+00:00,Portland Timbers at St. Louis CITY SC,POR @ STL,St. Louis CITY SC,21812,0,Portland Timbers,9723,0,STATUS_FULL_TIME,Energizer Park,regular_season,6,9,2024
 692844,2024-06-15 00:40:00+00:00,Columbus Crew at New York City FC,CLB @ NYC,New York City FC,17606,2,Columbus Crew,183,3,STATUS_FULL_TIME,Yankee Stadium,regular_season,6,15,2024
-692847,2024-06-15 23:30:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,1,Chicago Fire FC,182,4,STATUS_FULL_TIME,BMO Field,regular_season,6,15,2024
-692850,2024-06-15 23:30:00+00:00,Nashville SC at Red Bull New York,NSH @ RBNY,Red Bull New York,190,0,Nashville SC,18986,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,15,2024
-692852,2024-06-15 23:30:00+00:00,Inter Miami CF at Philadelphia Union,MIA @ PHI,Philadelphia Union,10739,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,Subaru Park,regular_season,6,15,2024
 692851,2024-06-15 23:30:00+00:00,LAFC at Orlando City SC,LAFC @ ORL,Orlando City SC,12011,1,LAFC,18966,3,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,6,15,2024
-692846,2024-06-15 23:30:00+00:00,Real Salt Lake at CF Montréal,RSL @ MTL,CF Montréal,9720,0,Real Salt Lake,4771,0,STATUS_FULL_TIME,Stade Saputo,regular_season,6,15,2024
-692845,2024-06-15 23:30:00+00:00,D.C. United at Charlotte FC,DC @ CLT,Charlotte FC,21300,1,D.C. United,193,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,6,15,2024
+692847,2024-06-15 23:30:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,1,Chicago Fire FC,182,4,STATUS_FULL_TIME,BMO Field,regular_season,6,15,2024
+692852,2024-06-15 23:30:00+00:00,Inter Miami CF at Philadelphia Union,MIA @ PHI,Philadelphia Union,10739,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,Subaru Park,regular_season,6,15,2024
+692850,2024-06-15 23:30:00+00:00,Nashville SC at Red Bull New York,NSH @ RBNY,Red Bull New York,190,0,Nashville SC,18986,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,15,2024
 692848,2024-06-15 23:30:00+00:00,Houston Dynamo FC at Atlanta United FC,HOU @ ATL,Atlanta United FC,18418,2,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,6,15,2024
+692845,2024-06-15 23:30:00+00:00,D.C. United at Charlotte FC,DC @ CLT,Charlotte FC,21300,1,D.C. United,193,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,6,15,2024
 692849,2024-06-15 23:30:00+00:00,Vancouver Whitecaps at New England Revolution,VAN @ NE,New England Revolution,189,3,Vancouver Whitecaps,9727,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,6,15,2024
+692846,2024-06-15 23:30:00+00:00,Real Salt Lake at CF Montréal,RSL @ MTL,CF Montréal,9720,0,Real Salt Lake,4771,0,STATUS_FULL_TIME,Stade Saputo,regular_season,6,15,2024
 692853,2024-06-16 00:30:00+00:00,St. Louis CITY SC at FC Dallas,STL @ DAL,FC Dallas,185,2,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,6,16,2024
 692854,2024-06-16 01:30:00+00:00,Austin FC at Colorado Rapids,ATX @ COL,Colorado Rapids,184,2,Austin FC,20906,0,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,6,16,2024
 692855,2024-06-16 02:30:00+00:00,Sporting Kansas City at LA Galaxy,SKC @ LA,LA Galaxy,187,4,Sporting Kansas City,186,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,6,16,2024
@@ -1459,10 +1459,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692859,2024-06-19 23:30:00+00:00,Nashville SC at Toronto FC,NSH @ TOR,Toronto FC,7318,1,Nashville SC,18986,2,STATUS_FULL_TIME,BMO Field,regular_season,6,19,2024
 692858,2024-06-19 23:45:00+00:00,Philadelphia Union at FC Cincinnati,PHI @ CIN,FC Cincinnati,18267,4,Philadelphia Union,10739,3,STATUS_FULL_TIME,TQL Stadium,regular_season,6,19,2024
 692864,2024-06-20 00:30:00+00:00,Real Salt Lake at Sporting Kansas City,RSL @ SKC,Sporting Kansas City,186,3,Real Salt Lake,4771,4,STATUS_FULL_TIME,Children's Mercy Park,regular_season,6,20,2024
-692865,2024-06-20 00:30:00+00:00,Seattle Sounders FC at Houston Dynamo FC,SEA @ HOU,Houston Dynamo FC,6077,2,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,6,20,2024
-692867,2024-06-20 00:30:00+00:00,Colorado Rapids at St. Louis CITY SC,COL @ STL,St. Louis CITY SC,21812,0,Colorado Rapids,184,3,STATUS_FULL_TIME,Energizer Park,regular_season,6,20,2024
-692868,2024-06-20 00:30:00+00:00,LAFC at Austin FC,LAFC @ ATX,Austin FC,20906,1,LAFC,18966,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,6,20,2024
 692866,2024-06-20 00:30:00+00:00,Minnesota United FC at FC Dallas,MIN @ DAL,FC Dallas,185,5,Minnesota United FC,17362,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,6,20,2024
+692865,2024-06-20 00:30:00+00:00,Seattle Sounders FC at Houston Dynamo FC,SEA @ HOU,Houston Dynamo FC,6077,2,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,6,20,2024
+692868,2024-06-20 00:30:00+00:00,LAFC at Austin FC,LAFC @ ATX,Austin FC,20906,1,LAFC,18966,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,6,20,2024
+692867,2024-06-20 00:30:00+00:00,Colorado Rapids at St. Louis CITY SC,COL @ STL,St. Louis CITY SC,21812,0,Colorado Rapids,184,3,STATUS_FULL_TIME,Energizer Park,regular_season,6,20,2024
 692870,2024-06-20 02:30:00+00:00,New York City FC at LA Galaxy,NYC @ LA,LA Galaxy,187,2,New York City FC,17606,0,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,6,20,2024
 692869,2024-06-20 02:30:00+00:00,Portland Timbers at San Jose Earthquakes,POR @ SJ,San Jose Earthquakes,191,1,Portland Timbers,9723,2,STATUS_FULL_TIME,PayPal Park,regular_season,6,20,2024
 692873,2024-06-22 23:30:00+00:00,Sporting Kansas City at Columbus Crew,SKC @ CLB,Columbus Crew,183,4,Sporting Kansas City,186,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,6,22,2024
@@ -1471,9 +1471,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692876,2024-06-22 23:30:00+00:00,Chicago Fire FC at Orlando City SC,CHI @ ORL,Orlando City SC,12011,4,Chicago Fire FC,182,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,6,22,2024
 692874,2024-06-22 23:30:00+00:00,Charlotte FC at Philadelphia Union,CLT @ PHI,Philadelphia Union,10739,0,Charlotte FC,21300,2,STATUS_FULL_TIME,Subaru Park,regular_season,6,22,2024
 692875,2024-06-22 23:30:00+00:00,Toronto FC at Red Bull New York,TOR @ RBNY,Red Bull New York,190,3,Toronto FC,7318,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,22,2024
-692879,2024-06-23 00:30:00+00:00,Atlanta United FC at St. Louis CITY SC,ATL @ STL,St. Louis CITY SC,21812,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Energizer Park,regular_season,6,23,2024
 692878,2024-06-23 00:30:00+00:00,Austin FC at Minnesota United FC,ATX @ MIN,Minnesota United FC,17362,0,Austin FC,20906,1,STATUS_FULL_TIME,Allianz Field,regular_season,6,23,2024
 692877,2024-06-23 00:30:00+00:00,New York City FC at Nashville SC,NYC @ NSH,Nashville SC,18986,1,New York City FC,17606,0,STATUS_FULL_TIME,GEODIS Park,regular_season,6,23,2024
+692879,2024-06-23 00:30:00+00:00,Atlanta United FC at St. Louis CITY SC,ATL @ STL,St. Louis CITY SC,21812,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Energizer Park,regular_season,6,23,2024
 692880,2024-06-23 01:30:00+00:00,CF Montréal at Colorado Rapids,MTL @ COL,Colorado Rapids,184,4,CF Montréal,9720,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,6,23,2024
 692881,2024-06-23 01:30:00+00:00,LA Galaxy at Real Salt Lake,LA @ RSL,Real Salt Lake,4771,0,LA Galaxy,187,1,STATUS_FULL_TIME,America First Field,regular_season,6,23,2024
 692883,2024-06-23 02:30:00+00:00,San Jose Earthquakes at LAFC,SJ @ LAFC,LAFC,18966,6,San Jose Earthquakes,191,2,STATUS_FULL_TIME,BMO Stadium,regular_season,6,23,2024
@@ -1489,18 +1489,18 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692891,2024-06-30 00:30:00+00:00,Inter Miami CF at Nashville SC,MIA @ NSH,Nashville SC,18986,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,GEODIS Park,regular_season,6,30,2024
 692892,2024-06-30 00:30:00+00:00,Austin FC at Sporting Kansas City,ATX @ SKC,Sporting Kansas City,186,2,Austin FC,20906,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,6,30,2024
 692896,2024-06-30 02:30:00+00:00,Chicago Fire FC at Seattle Sounders FC,CHI @ SEA,Seattle Sounders FC,9726,2,Chicago Fire FC,182,1,STATUS_FULL_TIME,Lumen Field,regular_season,6,30,2024
-692897,2024-06-30 02:30:00+00:00,LA Galaxy at San Jose Earthquakes,LA @ SJ,San Jose Earthquakes,191,0,LA Galaxy,187,3,STATUS_FULL_TIME,Stanford Stadium,regular_season,6,30,2024
-692886,2024-06-30 02:30:00+00:00,St. Louis CITY SC at Vancouver Whitecaps,STL @ VAN,Vancouver Whitecaps,9727,4,St. Louis CITY SC,21812,3,STATUS_FULL_TIME,BC Place,regular_season,6,30,2024
-692898,2024-06-30 02:30:00+00:00,Colorado Rapids at LAFC,COL @ LAFC,LAFC,18966,3,Colorado Rapids,184,0,STATUS_FULL_TIME,BMO Stadium,regular_season,6,30,2024
 692895,2024-06-30 02:30:00+00:00,Minnesota United FC at Portland Timbers,MIN @ POR,Portland Timbers,9723,3,Minnesota United FC,17362,2,STATUS_FULL_TIME,Providence Park,regular_season,6,30,2024
+692897,2024-06-30 02:30:00+00:00,LA Galaxy at San Jose Earthquakes,LA @ SJ,San Jose Earthquakes,191,0,LA Galaxy,187,3,STATUS_FULL_TIME,Stanford Stadium,regular_season,6,30,2024
+692898,2024-06-30 02:30:00+00:00,Colorado Rapids at LAFC,COL @ LAFC,LAFC,18966,3,Colorado Rapids,184,0,STATUS_FULL_TIME,BMO Stadium,regular_season,6,30,2024
+692886,2024-06-30 02:30:00+00:00,St. Louis CITY SC at Vancouver Whitecaps,STL @ VAN,Vancouver Whitecaps,9727,4,St. Louis CITY SC,21812,3,STATUS_FULL_TIME,BC Place,regular_season,6,30,2024
 692904,2024-07-03 23:30:00+00:00,Inter Miami CF at Charlotte FC,MIA @ CLT,Charlotte FC,21300,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,7,3,2024
 692903,2024-07-03 23:30:00+00:00,FC Cincinnati at D.C. United,CIN @ DC,D.C. United,193,2,FC Cincinnati,18267,3,STATUS_FULL_TIME,Audi Field,regular_season,7,3,2024
 692901,2024-07-03 23:30:00+00:00,CF Montréal at New York City FC,MTL @ NYC,New York City FC,17606,2,CF Montréal,9720,0,STATUS_FULL_TIME,Citi Field,regular_season,7,3,2024
 692900,2024-07-03 23:30:00+00:00,Orlando City SC at Toronto FC,ORL @ TOR,Toronto FC,7318,1,Orlando City SC,12011,2,STATUS_FULL_TIME,BMO Field,regular_season,7,3,2024
 692899,2024-07-03 23:45:00+00:00,Atlanta United FC at New England Revolution,ATL @ NE,New England Revolution,189,2,Atlanta United FC,18418,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,3,2024
-692907,2024-07-04 00:30:00+00:00,San Jose Earthquakes at St. Louis CITY SC,SJ @ STL,St. Louis CITY SC,21812,2,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Energizer Park,regular_season,7,4,2024
 692906,2024-07-04 00:30:00+00:00,Philadelphia Union at Chicago Fire FC,PHI @ CHI,Chicago Fire FC,182,4,Philadelphia Union,10739,3,STATUS_FULL_TIME,Soldier Field,regular_season,7,4,2024
 692905,2024-07-04 00:30:00+00:00,Vancouver Whitecaps at Minnesota United FC,VAN @ MIN,Minnesota United FC,17362,1,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Allianz Field,regular_season,7,4,2024
+692907,2024-07-04 00:30:00+00:00,San Jose Earthquakes at St. Louis CITY SC,SJ @ STL,St. Louis CITY SC,21812,2,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Energizer Park,regular_season,7,4,2024
 692902,2024-07-04 00:45:00+00:00,Nashville SC at Columbus Crew,NSH @ CLB,Columbus Crew,183,2,Nashville SC,18986,0,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,4,2024
 692908,2024-07-04 01:30:00+00:00,Houston Dynamo FC at Real Salt Lake,HOU @ RSL,Real Salt Lake,4771,3,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,America First Field,regular_season,7,4,2024
 692909,2024-07-05 00:30:00+00:00,Portland Timbers at FC Dallas,POR @ DAL,FC Dallas,185,3,Portland Timbers,9723,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,7,5,2024
@@ -1520,10 +1520,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692925,2024-07-08 02:30:00+00:00,Minnesota United FC at LA Galaxy,MIN @ LA,LA Galaxy,187,2,Minnesota United FC,17362,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,7,8,2024
 692924,2024-07-08 02:30:00+00:00,Nashville SC at Portland Timbers,NSH @ POR,Portland Timbers,9723,4,Nashville SC,18986,1,STATUS_FULL_TIME,Providence Park,regular_season,7,8,2024
 692930,2024-07-13 23:30:00+00:00,Orlando City SC at New England Revolution,ORL @ NE,New England Revolution,189,1,Orlando City SC,12011,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,13,2024
-692929,2024-07-13 23:30:00+00:00,Charlotte FC at FC Cincinnati,CLT @ CIN,FC Cincinnati,18267,1,Charlotte FC,21300,3,STATUS_FULL_TIME,TQL Stadium,regular_season,7,13,2024
-692926,2024-07-13 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,2,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,7,13,2024
-692928,2024-07-13 23:30:00+00:00,Atlanta United FC at CF Montréal,ATL @ MTL,CF Montréal,9720,1,Atlanta United FC,18418,0,STATUS_FULL_TIME,Stade Saputo,regular_season,7,13,2024
 692927,2024-07-13 23:30:00+00:00,Nashville SC at D.C. United,NSH @ DC,D.C. United,193,2,Nashville SC,18986,1,STATUS_FULL_TIME,Audi Field,regular_season,7,13,2024
+692929,2024-07-13 23:30:00+00:00,Charlotte FC at FC Cincinnati,CLT @ CIN,FC Cincinnati,18267,1,Charlotte FC,21300,3,STATUS_FULL_TIME,TQL Stadium,regular_season,7,13,2024
+692928,2024-07-13 23:30:00+00:00,Atlanta United FC at CF Montréal,ATL @ MTL,CF Montréal,9720,1,Atlanta United FC,18418,0,STATUS_FULL_TIME,Stade Saputo,regular_season,7,13,2024
+692926,2024-07-13 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,2,Philadelphia Union,10739,1,STATUS_FULL_TIME,BMO Field,regular_season,7,13,2024
 692934,2024-07-14 00:30:00+00:00,Seattle Sounders FC at Austin FC,SEA @ ATX,Austin FC,20906,0,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,7,14,2024
 692933,2024-07-14 00:30:00+00:00,New York City FC at Chicago Fire FC,NYC @ CHI,Chicago Fire FC,182,0,New York City FC,17606,0,STATUS_FULL_TIME,Soldier Field,regular_season,7,14,2024
 692932,2024-07-14 00:30:00+00:00,LA Galaxy at FC Dallas,LA @ DAL,FC Dallas,185,2,LA Galaxy,187,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,7,14,2024
@@ -1542,10 +1542,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692946,2024-07-18 00:30:00+00:00,Austin FC at FC Dallas,ATX @ DAL,FC Dallas,185,3,Austin FC,20906,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,7,18,2024
 692948,2024-07-18 00:30:00+00:00,D.C. United at Minnesota United FC,DC @ MIN,Minnesota United FC,17362,2,D.C. United,193,3,STATUS_FULL_TIME,Allianz Field,regular_season,7,18,2024
 692947,2024-07-18 00:30:00+00:00,Orlando City SC at Nashville SC,ORL @ NSH,Nashville SC,18986,0,Orlando City SC,12011,3,STATUS_FULL_TIME,GEODIS Park,regular_season,7,18,2024
-692949,2024-07-18 02:30:00+00:00,Sporting Kansas City at Vancouver Whitecaps,SKC @ VAN,Vancouver Whitecaps,9727,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,BC Place,regular_season,7,18,2024
 692950,2024-07-18 02:30:00+00:00,St. Louis CITY SC at Seattle Sounders FC,STL @ SEA,Seattle Sounders FC,9726,2,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Lumen Field,regular_season,7,18,2024
-692952,2024-07-18 02:30:00+00:00,Colorado Rapids at LA Galaxy,COL @ LA,LA Galaxy,187,3,Colorado Rapids,184,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,7,18,2024
+692949,2024-07-18 02:30:00+00:00,Sporting Kansas City at Vancouver Whitecaps,SKC @ VAN,Vancouver Whitecaps,9727,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,BC Place,regular_season,7,18,2024
 692951,2024-07-18 02:30:00+00:00,Houston Dynamo FC at San Jose Earthquakes,HOU @ SJ,San Jose Earthquakes,191,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,PayPal Park,regular_season,7,18,2024
+692952,2024-07-18 02:30:00+00:00,Colorado Rapids at LA Galaxy,COL @ LA,LA Galaxy,187,3,Colorado Rapids,184,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,7,18,2024
 692953,2024-07-18 02:45:00+00:00,Real Salt Lake at LAFC,RSL @ LAFC,LAFC,18966,1,Real Salt Lake,4771,1,STATUS_FULL_TIME,BMO Stadium,regular_season,7,18,2024
 692957,2024-07-20 23:30:00+00:00,Columbus Crew at Atlanta United FC,CLB @ ATL,Atlanta United FC,18418,2,Columbus Crew,183,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,7,20,2024
 692955,2024-07-20 23:30:00+00:00,Toronto FC at CF Montréal,TOR @ MTL,CF Montréal,9720,0,Toronto FC,7318,1,STATUS_FULL_TIME,Stade Saputo,regular_season,7,20,2024
@@ -1554,20 +1554,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692959,2024-07-20 23:30:00+00:00,New York City FC at Orlando City SC,NYC @ ORL,Orlando City SC,12011,1,New York City FC,17606,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,7,20,2024
 692958,2024-07-20 23:30:00+00:00,Nashville SC at Philadelphia Union,NSH @ PHI,Philadelphia Union,10739,3,Nashville SC,18986,0,STATUS_FULL_TIME,Subaru Park,regular_season,7,20,2024
 692961,2024-07-20 23:30:00+00:00,FC Cincinnati at Red Bull New York,CIN @ RBNY,Red Bull New York,190,3,FC Cincinnati,18267,1,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,7,20,2024
-692963,2024-07-21 00:30:00+00:00,St. Louis CITY SC at Sporting Kansas City,STL @ SKC,Sporting Kansas City,186,1,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,7,21,2024
 692964,2024-07-21 00:30:00+00:00,Charlotte FC at Austin FC,CLT @ ATX,Austin FC,20906,2,Charlotte FC,21300,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,7,21,2024
 692962,2024-07-21 00:30:00+00:00,San Jose Earthquakes at Minnesota United FC,SJ @ MIN,Minnesota United FC,17362,2,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Allianz Field,regular_season,7,21,2024
+692963,2024-07-21 00:30:00+00:00,St. Louis CITY SC at Sporting Kansas City,STL @ SKC,Sporting Kansas City,186,1,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,7,21,2024
 692965,2024-07-21 01:30:00+00:00,Real Salt Lake at Colorado Rapids,RSL @ COL,Colorado Rapids,184,3,Real Salt Lake,4771,2,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,7,21,2024
 692966,2024-07-21 02:30:00+00:00,LAFC at Seattle Sounders FC,LAFC @ SEA,Seattle Sounders FC,9726,0,LAFC,18966,3,STATUS_FULL_TIME,Lumen Field,regular_season,7,21,2024
 692954,2024-07-21 02:30:00+00:00,Houston Dynamo FC at Vancouver Whitecaps,HOU @ VAN,Vancouver Whitecaps,9727,3,Houston Dynamo FC,6077,4,STATUS_FULL_TIME,BC Place,regular_season,7,21,2024
 692967,2024-07-21 02:45:00+00:00,Portland Timbers at LA Galaxy,POR @ LA,LA Galaxy,187,3,Portland Timbers,9723,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,7,21,2024
 699799,2024-07-25 00:00:00+00:00,Liga MX All-Stars at MLS All-Stars,LMX @ MLS,MLS All-Stars,9817,1,Liga MX All-Stars,20279,4,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,25,2024
 692968,2024-08-24 22:45:00+00:00,Seattle Sounders FC at Minnesota United FC,SEA @ MIN,Minnesota United FC,17362,2,Seattle Sounders FC,9726,3,STATUS_FULL_TIME,Allianz Field,regular_season,8,24,2024
-692974,2024-08-24 23:30:00+00:00,Chicago Fire FC at New York City FC,CHI @ NYC,New York City FC,17606,2,Chicago Fire FC,182,2,STATUS_FULL_TIME,Citi Field,regular_season,8,24,2024
-692973,2024-08-24 23:30:00+00:00,FC Cincinnati at Inter Miami CF,CIN @ MIA,Inter Miami CF,20232,2,FC Cincinnati,18267,0,STATUS_FULL_TIME,Chase Stadium,regular_season,8,24,2024
 692971,2024-08-24 23:30:00+00:00,Red Bull New York at Charlotte FC,RBNY @ CLT,Charlotte FC,21300,1,Red Bull New York,190,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,24,2024
+692974,2024-08-24 23:30:00+00:00,Chicago Fire FC at New York City FC,CHI @ NYC,New York City FC,17606,2,Chicago Fire FC,182,2,STATUS_FULL_TIME,Citi Field,regular_season,8,24,2024
 692970,2024-08-24 23:30:00+00:00,New England Revolution at CF Montréal,NE @ MTL,CF Montréal,9720,0,New England Revolution,189,5,STATUS_FULL_TIME,Stade Saputo,regular_season,8,24,2024
 692972,2024-08-24 23:30:00+00:00,FC Dallas at D.C. United,DAL @ DC,D.C. United,193,3,FC Dallas,185,4,STATUS_FULL_TIME,Audi Field,regular_season,8,24,2024
+692973,2024-08-24 23:30:00+00:00,FC Cincinnati at Inter Miami CF,CIN @ MIA,Inter Miami CF,20232,2,FC Cincinnati,18267,0,STATUS_FULL_TIME,Chase Stadium,regular_season,8,24,2024
 692977,2024-08-25 00:30:00+00:00,Toronto FC at Houston Dynamo FC,TOR @ HOU,Houston Dynamo FC,6077,0,Toronto FC,7318,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,8,25,2024
 692976,2024-08-25 00:30:00+00:00,Austin FC at Nashville SC,ATX @ NSH,Nashville SC,18986,0,Austin FC,20906,2,STATUS_FULL_TIME,GEODIS Park,regular_season,8,25,2024
 692978,2024-08-25 00:30:00+00:00,Orlando City SC at Sporting Kansas City,ORL @ SKC,Sporting Kansas City,186,3,Orlando City SC,12011,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,8,25,2024
@@ -1595,13 +1595,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 692921,2024-09-08 00:30:00+00:00,LAFC at Houston Dynamo FC,LAFC @ HOU,Houston Dynamo FC,6077,0,LAFC,18966,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,9,8,2024
 692999,2024-09-08 00:30:00+00:00,D.C. United at Chicago Fire FC,DC @ CHI,Chicago Fire FC,182,1,D.C. United,193,2,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,9,8,2024
 692996,2024-09-08 02:30:00+00:00,FC Dallas at Vancouver Whitecaps,DAL @ VAN,Vancouver Whitecaps,9727,0,FC Dallas,185,0,STATUS_FULL_TIME,BC Place,regular_season,9,8,2024
+693006,2024-09-14 23:30:00+00:00,Philadelphia Union at Inter Miami CF,PHI @ MIA,Inter Miami CF,20232,3,Philadelphia Union,10739,1,STATUS_FULL_TIME,Chase Stadium,regular_season,9,14,2024
+693001,2024-09-14 23:30:00+00:00,New England Revolution at Orlando City SC,NE @ ORL,Orlando City SC,12011,3,New England Revolution,189,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,9,14,2024
 693004,2024-09-14 23:30:00+00:00,Austin FC at Toronto FC,ATX @ TOR,Toronto FC,7318,2,Austin FC,20906,1,STATUS_FULL_TIME,BMO Field,regular_season,9,14,2024
 693002,2024-09-14 23:30:00+00:00,Nashville SC at Atlanta United FC,NSH @ ATL,Atlanta United FC,18418,0,Nashville SC,18986,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,9,14,2024
 693003,2024-09-14 23:30:00+00:00,Charlotte FC at CF Montréal,CLT @ MTL,CF Montréal,9720,2,Charlotte FC,21300,1,STATUS_FULL_TIME,Stade Saputo,regular_season,9,14,2024
 693005,2024-09-14 23:30:00+00:00,New York City FC at D.C. United,NYC @ DC,D.C. United,193,1,New York City FC,17606,1,STATUS_FULL_TIME,Audi Field,regular_season,9,14,2024
 693007,2024-09-14 23:30:00+00:00,Columbus Crew at FC Cincinnati,CLB @ CIN,FC Cincinnati,18267,0,Columbus Crew,183,0,STATUS_FULL_TIME,TQL Stadium,regular_season,9,14,2024
-693006,2024-09-14 23:30:00+00:00,Philadelphia Union at Inter Miami CF,PHI @ MIA,Inter Miami CF,20232,3,Philadelphia Union,10739,1,STATUS_FULL_TIME,Chase Stadium,regular_season,9,14,2024
-693001,2024-09-14 23:30:00+00:00,New England Revolution at Orlando City SC,NE @ ORL,Orlando City SC,12011,3,New England Revolution,189,0,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,9,14,2024
 693010,2024-09-15 00:30:00+00:00,Minnesota United FC at St. Louis CITY SC,MIN @ STL,St. Louis CITY SC,21812,1,Minnesota United FC,17362,3,STATUS_FULL_TIME,Energizer Park,regular_season,9,15,2024
 693008,2024-09-15 00:30:00+00:00,Real Salt Lake at Houston Dynamo FC,RSL @ HOU,Houston Dynamo FC,6077,4,Real Salt Lake,4771,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,9,15,2024
 693009,2024-09-15 00:30:00+00:00,Red Bull New York at Chicago Fire FC,RBNY @ CHI,Chicago Fire FC,182,2,Red Bull New York,190,1,STATUS_FULL_TIME,Soldier Field,regular_season,9,15,2024
@@ -1624,9 +1624,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 693024,2024-09-19 02:30:00+00:00,San Jose Earthquakes at Seattle Sounders FC,SJ @ SEA,Seattle Sounders FC,9726,2,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Lumen Field,regular_season,9,19,2024
 693027,2024-09-21 18:00:00+00:00,Inter Miami CF at New York City FC,MIA @ NYC,New York City FC,17606,1,Inter Miami CF,20232,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,9,21,2024
 693031,2024-09-21 20:00:00+00:00,New England Revolution at Charlotte FC,NE @ CLT,Charlotte FC,21300,4,New England Revolution,189,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,9,21,2024
-693029,2024-09-21 23:30:00+00:00,Atlanta United FC at Red Bull New York,ATL @ RBNY,Red Bull New York,190,2,Atlanta United FC,18418,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,21,2024
 693028,2024-09-21 23:30:00+00:00,Chicago Fire FC at CF Montréal,CHI @ MTL,CF Montréal,9720,2,Chicago Fire FC,182,0,STATUS_FULL_TIME,Stade Saputo,regular_season,9,21,2024
 693030,2024-09-21 23:30:00+00:00,Orlando City SC at Columbus Crew,ORL @ CLB,Columbus Crew,183,4,Orlando City SC,12011,3,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,9,21,2024
+693029,2024-09-21 23:30:00+00:00,Atlanta United FC at Red Bull New York,ATL @ RBNY,Red Bull New York,190,2,Atlanta United FC,18418,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,21,2024
 693034,2024-09-22 00:30:00+00:00,Houston Dynamo FC at Austin FC,HOU @ ATX,Austin FC,20906,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,9,22,2024
 693032,2024-09-22 00:30:00+00:00,LAFC at FC Dallas,LAFC @ DAL,FC Dallas,185,3,LAFC,18966,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,22,2024
 693035,2024-09-22 00:30:00+00:00,FC Cincinnati at Nashville SC,CIN @ NSH,Nashville SC,18986,2,FC Cincinnati,18267,2,STATUS_FULL_TIME,GEODIS Park,regular_season,9,22,2024
@@ -1643,11 +1643,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 693043,2024-09-28 23:30:00+00:00,Nashville SC at New England Revolution,NSH @ NE,New England Revolution,189,1,Nashville SC,18986,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,9,28,2024
 693045,2024-09-28 23:30:00+00:00,Atlanta United FC at Philadelphia Union,ATL @ PHI,Philadelphia Union,10739,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Subaru Park,regular_season,9,28,2024
 693044,2024-09-28 23:30:00+00:00,New York City FC at Red Bull New York,NYC @ RBNY,Red Bull New York,190,1,New York City FC,17606,5,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,9,28,2024
-693053,2024-09-29 00:30:00+00:00,Sporting Kansas City at St. Louis CITY SC,SKC @ STL,St. Louis CITY SC,21812,3,Sporting Kansas City,186,1,STATUS_FULL_TIME,Energizer Park,regular_season,9,29,2024
 693049,2024-09-29 00:30:00+00:00,Orlando City SC at FC Dallas,ORL @ DAL,FC Dallas,185,1,Orlando City SC,12011,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,9,29,2024
-693050,2024-09-29 00:30:00+00:00,Colorado Rapids at Minnesota United FC,COL @ MIN,Minnesota United FC,17362,3,Colorado Rapids,184,0,STATUS_FULL_TIME,Allianz Field,regular_season,9,29,2024
 693052,2024-09-29 00:30:00+00:00,Real Salt Lake at Austin FC,RSL @ ATX,Austin FC,20906,2,Real Salt Lake,4771,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,9,29,2024
+693053,2024-09-29 00:30:00+00:00,Sporting Kansas City at St. Louis CITY SC,SKC @ STL,St. Louis CITY SC,21812,3,Sporting Kansas City,186,1,STATUS_FULL_TIME,Energizer Park,regular_season,9,29,2024
 693051,2024-09-29 00:30:00+00:00,Toronto FC at Chicago Fire FC,TOR @ CHI,Chicago Fire FC,182,1,Toronto FC,7318,1,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,9,29,2024
+693050,2024-09-29 00:30:00+00:00,Colorado Rapids at Minnesota United FC,COL @ MIN,Minnesota United FC,17362,3,Colorado Rapids,184,0,STATUS_FULL_TIME,Allianz Field,regular_season,9,29,2024
 693054,2024-09-29 02:30:00+00:00,Houston Dynamo FC at Seattle Sounders FC,HOU @ SEA,Seattle Sounders FC,9726,1,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Lumen Field,regular_season,9,29,2024
 693041,2024-09-29 02:30:00+00:00,Portland Timbers at Vancouver Whitecaps,POR @ VAN,Vancouver Whitecaps,9727,1,Portland Timbers,9723,1,STATUS_FULL_TIME,BC Place,regular_season,9,29,2024
 693058,2024-10-02 23:30:00+00:00,CF Montréal at Atlanta United FC,MTL @ ATL,Atlanta United FC,18418,1,CF Montréal,9720,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,2,2024
@@ -1665,12 +1665,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 693067,2024-10-03 02:30:00+00:00,FC Dallas at San Jose Earthquakes,DAL @ SJ,San Jose Earthquakes,191,3,FC Dallas,185,2,STATUS_FULL_TIME,PayPal Park,regular_season,10,3,2024
 693065,2024-10-03 02:30:00+00:00,Seattle Sounders FC at Vancouver Whitecaps,SEA @ VAN,Vancouver Whitecaps,9727,0,Seattle Sounders FC,9726,3,STATUS_FULL_TIME,BC Place,regular_season,10,3,2024
 693075,2024-10-05 20:00:00+00:00,Inter Miami CF at Toronto FC,MIA @ TOR,Toronto FC,7318,0,Inter Miami CF,20232,1,STATUS_FULL_TIME,BMO Field,regular_season,10,5,2024
-693070,2024-10-05 23:30:00+00:00,D.C. United at New England Revolution,DC @ NE,New England Revolution,189,1,D.C. United,193,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,10,5,2024
 693069,2024-10-05 23:30:00+00:00,Minnesota United FC at Vancouver Whitecaps,MIN @ VAN,Vancouver Whitecaps,9727,0,Minnesota United FC,17362,1,STATUS_FULL_TIME,BC Place,regular_season,10,5,2024
 693076,2024-10-05 23:30:00+00:00,Orlando City SC at FC Cincinnati,ORL @ CIN,FC Cincinnati,18267,1,Orlando City SC,12011,3,STATUS_FULL_TIME,TQL Stadium,regular_season,10,5,2024
-693072,2024-10-05 23:30:00+00:00,Red Bull New York at Atlanta United FC,RBNY @ ATL,Atlanta United FC,18418,2,Red Bull New York,190,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,5,2024
+693070,2024-10-05 23:30:00+00:00,D.C. United at New England Revolution,DC @ NE,New England Revolution,189,1,D.C. United,193,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,10,5,2024
 693073,2024-10-05 23:30:00+00:00,CF Montréal at Charlotte FC,MTL @ CLT,Charlotte FC,21300,2,CF Montréal,9720,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,10,5,2024
 693074,2024-10-05 23:30:00+00:00,Philadelphia Union at Columbus Crew,PHI @ CLB,Columbus Crew,183,3,Philadelphia Union,10739,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,10,5,2024
+693072,2024-10-05 23:30:00+00:00,Red Bull New York at Atlanta United FC,RBNY @ ATL,Atlanta United FC,18418,2,Red Bull New York,190,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,5,2024
 693077,2024-10-06 00:30:00+00:00,LAFC at Sporting Kansas City,LAFC @ SKC,Sporting Kansas City,186,0,LAFC,18966,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,10,6,2024
 693078,2024-10-06 00:30:00+00:00,Houston Dynamo FC at St. Louis CITY SC,HOU @ STL,St. Louis CITY SC,21812,3,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Energizer Park,regular_season,10,6,2024
 693079,2024-10-06 01:30:00+00:00,Seattle Sounders FC at Colorado Rapids,SEA @ COL,Colorado Rapids,184,0,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,10,6,2024
@@ -1687,13 +1687,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 693083,2024-10-19 22:00:00+00:00,Atlanta United FC at Orlando City SC,ATL @ ORL,Orlando City SC,12011,1,Atlanta United FC,18418,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,10,19,2024
 693084,2024-10-19 22:00:00+00:00,FC Cincinnati at Philadelphia Union,CIN @ PHI,Philadelphia Union,10739,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Subaru Park,regular_season,10,19,2024
 693086,2024-10-19 22:00:00+00:00,Columbus Crew at Red Bull New York,CLB @ RBNY,Red Bull New York,190,2,Columbus Crew,183,3,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,10,19,2024
-693096,2024-10-20 01:00:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,1,Portland Timbers,9723,1,STATUS_FULL_TIME,Lumen Field,regular_season,10,20,2024
+693093,2024-10-20 01:00:00+00:00,Colorado Rapids at Austin FC,COL @ ATX,Austin FC,20906,3,Colorado Rapids,184,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,10,20,2024
 693090,2024-10-20 01:00:00+00:00,Vancouver Whitecaps at Real Salt Lake,VAN @ RSL,Real Salt Lake,4771,2,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,America First Field,regular_season,10,20,2024
 693091,2024-10-20 01:00:00+00:00,St. Louis CITY SC at Minnesota United FC,STL @ MIN,Minnesota United FC,17362,4,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Allianz Field,regular_season,10,20,2024
-693093,2024-10-20 01:00:00+00:00,Colorado Rapids at Austin FC,COL @ ATX,Austin FC,20906,3,Colorado Rapids,184,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,10,20,2024
+693092,2024-10-20 01:00:00+00:00,San Jose Earthquakes at LAFC,SJ @ LAFC,LAFC,18966,3,San Jose Earthquakes,191,1,STATUS_FULL_TIME,BMO Stadium,regular_season,10,20,2024
 693095,2024-10-20 01:00:00+00:00,LA Galaxy at Houston Dynamo FC,LA @ HOU,Houston Dynamo FC,6077,2,LA Galaxy,187,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,10,20,2024
 693094,2024-10-20 01:00:00+00:00,Sporting Kansas City at FC Dallas,SKC @ DAL,FC Dallas,185,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,10,20,2024
-693092,2024-10-20 01:00:00+00:00,San Jose Earthquakes at LAFC,SJ @ LAFC,LAFC,18966,3,San Jose Earthquakes,191,1,STATUS_FULL_TIME,BMO Stadium,regular_season,10,20,2024
+693096,2024-10-20 01:00:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,1,Portland Timbers,9723,1,STATUS_FULL_TIME,Lumen Field,regular_season,10,20,2024
 722597,2024-10-22 23:30:00+00:00,Atlanta United FC at CF Montréal,ATL @ MTL,CF Montréal,9720,2,Atlanta United FC,18418,2,STATUS_FINAL_PEN,Stade Saputo,regular_season,10,22,2024
 722598,2024-10-24 02:30:00+00:00,Portland Timbers at Vancouver Whitecaps,POR @ VAN,Vancouver Whitecaps,9727,5,Portland Timbers,9723,0,STATUS_FULL_TIME,Providence Park,regular_season,10,24,2024
 722573,2024-10-26 00:30:00+00:00,Atlanta United FC at Inter Miami CF,ATL @ MIA,Inter Miami CF,20232,2,Atlanta United FC,18418,1,STATUS_FULL_TIME,Chase Stadium,regular_season,10,26,2024
@@ -1775,9 +1775,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 726844,2025-03-15 18:30:00+00:00,Orlando City SC at Red Bull New York,ORL @ RBNY,Red Bull New York,190,2,Orlando City SC,12011,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,3,15,2025
 726845,2025-03-15 18:30:00+00:00,Chicago Fire FC at Toronto FC,CHI @ TOR,Toronto FC,7318,1,Chicago Fire FC,182,2,STATUS_FULL_TIME,BMO Field,regular_season,3,15,2025
 726846,2025-03-15 19:45:00+00:00,Austin FC at LAFC,ATX @ LAFC,LAFC,18966,0,Austin FC,20906,1,STATUS_FULL_TIME,BMO Stadium,regular_season,3,15,2025
-726849,2025-03-15 23:30:00+00:00,New England Revolution at New York City FC,NE @ NYC,New York City FC,17606,2,New England Revolution,189,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,3,15,2025
 726847,2025-03-15 23:30:00+00:00,FC Cincinnati at Charlotte FC,CIN @ CLT,Charlotte FC,21300,2,FC Cincinnati,18267,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,3,15,2025
 726848,2025-03-15 23:30:00+00:00,CF Montréal at D.C. United,MTL @ DC,D.C. United,193,0,CF Montréal,9720,0,STATUS_FULL_TIME,Audi Field,regular_season,3,15,2025
+726849,2025-03-15 23:30:00+00:00,New England Revolution at New York City FC,NE @ NYC,New York City FC,17606,2,New England Revolution,189,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,3,15,2025
 726850,2025-03-16 00:15:00+00:00,Minnesota United FC at Sporting Kansas City,MIN @ SKC,Sporting Kansas City,186,3,Minnesota United FC,17362,3,STATUS_FULL_TIME,Children's Mercy Park,regular_season,3,16,2025
 726853,2025-03-16 00:30:00+00:00,Vancouver Whitecaps at FC Dallas,VAN @ DAL,FC Dallas,185,0,Vancouver Whitecaps,9727,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,16,2025
 726852,2025-03-16 00:30:00+00:00,Real Salt Lake at Houston Dynamo FC,RSL @ HOU,Houston Dynamo FC,6077,1,Real Salt Lake,4771,2,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,3,16,2025
@@ -1807,10 +1807,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 726878,2025-03-29 23:30:00+00:00,New York City FC at Atlanta United FC,NYC @ ATL,Atlanta United FC,18418,4,New York City FC,17606,3,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,3,29,2025
 726877,2025-03-29 23:30:00+00:00,Columbus Crew at D.C. United,CLB @ DC,D.C. United,193,1,Columbus Crew,183,2,STATUS_FULL_TIME,Audi Field,regular_season,3,29,2025
 726876,2025-03-29 23:30:00+00:00,Philadelphia Union at Inter Miami CF,PHI @ MIA,Inter Miami CF,20232,2,Philadelphia Union,10739,1,STATUS_FULL_TIME,Chase Stadium,regular_season,3,29,2025
-726881,2025-03-30 00:30:00+00:00,FC Cincinnati at Nashville SC,CIN @ NSH,Nashville SC,18986,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,GEODIS Park,regular_season,3,30,2025
 726879,2025-03-30 00:30:00+00:00,Real Salt Lake at Minnesota United FC,RSL @ MIN,Minnesota United FC,17362,2,Real Salt Lake,4771,0,STATUS_FULL_TIME,Allianz Field,regular_season,3,30,2025
-726880,2025-03-30 00:30:00+00:00,CF Montréal at Chicago Fire FC,MTL @ CHI,Chicago Fire FC,182,1,CF Montréal,9720,1,STATUS_FULL_TIME,Soldier Field,regular_season,3,30,2025
+726881,2025-03-30 00:30:00+00:00,FC Cincinnati at Nashville SC,CIN @ NSH,Nashville SC,18986,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,GEODIS Park,regular_season,3,30,2025
 726882,2025-03-30 00:30:00+00:00,Sporting Kansas City at FC Dallas,SKC @ DAL,FC Dallas,185,2,Sporting Kansas City,186,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,30,2025
+726880,2025-03-30 00:30:00+00:00,CF Montréal at Chicago Fire FC,MTL @ CHI,Chicago Fire FC,182,1,CF Montréal,9720,1,STATUS_FULL_TIME,Soldier Field,regular_season,3,30,2025
 726885,2025-03-30 02:30:00+00:00,Orlando City SC at LA Galaxy,ORL @ LA,LA Galaxy,187,1,Orlando City SC,12011,2,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,3,30,2025
 726884,2025-03-30 02:30:00+00:00,LAFC at San Diego FC,LAFC @ SD,San Diego FC,22529,3,LAFC,18966,2,STATUS_FULL_TIME,Snapdragon Stadium,regular_season,3,30,2025
 726883,2025-03-30 02:30:00+00:00,Seattle Sounders FC at San Jose Earthquakes,SEA @ SJ,San Jose Earthquakes,191,1,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,PayPal Park,regular_season,3,30,2025
@@ -1894,11 +1894,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 726963,2025-05-10 18:30:00+00:00,Atlanta United FC at Chicago Fire FC,ATL @ CHI,Chicago Fire FC,182,2,Atlanta United FC,18418,1,STATUS_FULL_TIME,Soldier Field,regular_season,5,10,2025
 726965,2025-05-10 20:30:00+00:00,Inter Miami CF at Minnesota United FC,MIA @ MIN,Minnesota United FC,17362,4,Inter Miami CF,20232,1,STATUS_FULL_TIME,Allianz Field,regular_season,5,10,2025
 726964,2025-05-10 20:30:00+00:00,D.C. United at Toronto FC,DC @ TOR,Toronto FC,7318,2,D.C. United,193,0,STATUS_FULL_TIME,BMO Field,regular_season,5,10,2025
-726970,2025-05-10 23:30:00+00:00,LA Galaxy at Red Bull New York,LA @ RBNY,Red Bull New York,190,7,LA Galaxy,187,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,10,2025
 726968,2025-05-10 23:30:00+00:00,New England Revolution at Orlando City SC,NE @ ORL,Orlando City SC,12011,3,New England Revolution,189,3,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,10,2025
-726966,2025-05-10 23:30:00+00:00,Columbus Crew at Philadelphia Union,CLB @ PHI,Philadelphia Union,10739,2,Columbus Crew,183,2,STATUS_FULL_TIME,Subaru Park,regular_season,5,10,2025
 726967,2025-05-10 23:30:00+00:00,Austin FC at FC Cincinnati,ATX @ CIN,FC Cincinnati,18267,2,Austin FC,20906,1,STATUS_FULL_TIME,TQL Stadium,regular_season,5,10,2025
+726970,2025-05-10 23:30:00+00:00,LA Galaxy at Red Bull New York,LA @ RBNY,Red Bull New York,190,7,LA Galaxy,187,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,10,2025
 726969,2025-05-10 23:30:00+00:00,CF Montréal at New York City FC,MTL @ NYC,New York City FC,17606,0,CF Montréal,9720,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,5,10,2025
+726966,2025-05-10 23:30:00+00:00,Columbus Crew at Philadelphia Union,CLB @ PHI,Philadelphia Union,10739,2,Columbus Crew,183,2,STATUS_FULL_TIME,Subaru Park,regular_season,5,10,2025
 726973,2025-05-11 00:30:00+00:00,Real Salt Lake at FC Dallas,RSL @ DAL,FC Dallas,185,1,Real Salt Lake,4771,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,11,2025
 726972,2025-05-11 00:30:00+00:00,Seattle Sounders FC at Houston Dynamo FC,SEA @ HOU,Houston Dynamo FC,6077,1,Seattle Sounders FC,9726,3,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,11,2025
 726974,2025-05-11 00:30:00+00:00,Charlotte FC at Nashville SC,CLT @ NSH,Nashville SC,18986,2,Charlotte FC,21300,1,STATUS_FULL_TIME,GEODIS Park,regular_season,5,11,2025
@@ -1907,9 +1907,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 726976,2025-05-11 02:30:00+00:00,Sporting Kansas City at Portland Timbers,SKC @ POR,Portland Timbers,9723,1,Sporting Kansas City,186,0,STATUS_FULL_TIME,Providence Park,regular_season,5,11,2025
 726977,2025-05-11 23:00:00+00:00,LAFC at Vancouver Whitecaps,LAFC @ VAN,Vancouver Whitecaps,9727,2,LAFC,18966,2,STATUS_FULL_TIME,BC Place,regular_season,5,11,2025
 726982,2025-05-14 23:30:00+00:00,FC Cincinnati at Toronto FC,CIN @ TOR,Toronto FC,7318,0,FC Cincinnati,18267,1,STATUS_FULL_TIME,BMO Field,regular_season,5,14,2025
-726981,2025-05-14 23:30:00+00:00,LA Galaxy at Philadelphia Union,LA @ PHI,Philadelphia Union,10739,3,LA Galaxy,187,2,STATUS_FULL_TIME,Subaru Park,regular_season,5,14,2025
 726980,2025-05-14 23:30:00+00:00,New York City FC at D.C. United,NYC @ DC,D.C. United,193,0,New York City FC,17606,0,STATUS_FULL_TIME,Audi Field,regular_season,5,14,2025
 726978,2025-05-14 23:30:00+00:00,Charlotte FC at Orlando City SC,CLT @ ORL,Orlando City SC,12011,3,Charlotte FC,21300,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,14,2025
+726981,2025-05-14 23:30:00+00:00,LA Galaxy at Philadelphia Union,LA @ PHI,Philadelphia Union,10739,3,LA Galaxy,187,2,STATUS_FULL_TIME,Subaru Park,regular_season,5,14,2025
 726979,2025-05-14 23:30:00+00:00,Columbus Crew at CF Montréal,CLB @ MTL,CF Montréal,9720,1,Columbus Crew,183,1,STATUS_FULL_TIME,Stade Saputo,regular_season,5,14,2025
 726984,2025-05-15 00:30:00+00:00,Minnesota United FC at Houston Dynamo FC,MIN @ HOU,Houston Dynamo FC,6077,2,Minnesota United FC,17362,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,5,15,2025
 726983,2025-05-15 00:30:00+00:00,Red Bull New York at Nashville SC,RBNY @ NSH,Nashville SC,18986,2,Red Bull New York,190,1,STATUS_FULL_TIME,GEODIS Park,regular_season,5,15,2025
@@ -1949,13 +1949,13 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727018,2025-05-25 02:30:00+00:00,Houston Dynamo FC at San Jose Earthquakes,HOU @ SJ,San Jose Earthquakes,191,3,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,PayPal Park,regular_season,5,25,2025
 727019,2025-05-25 19:00:00+00:00,Chicago Fire FC at New York City FC,CHI @ NYC,New York City FC,17606,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,5,25,2025
 727020,2025-05-25 23:00:00+00:00,FC Cincinnati at Atlanta United FC,CIN @ ATL,Atlanta United FC,18418,4,FC Cincinnati,18267,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,25,2025
-727023,2025-05-28 23:30:00+00:00,New England Revolution at D.C. United,NE @ DC,D.C. United,193,1,New England Revolution,189,1,STATUS_FULL_TIME,Audi Field,regular_season,5,28,2025
-727027,2025-05-28 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,4,Charlotte FC,21300,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,28,2025
+727024,2025-05-28 23:30:00+00:00,FC Dallas at FC Cincinnati,DAL @ CIN,FC Cincinnati,18267,3,FC Dallas,185,3,STATUS_FULL_TIME,TQL Stadium,regular_season,5,28,2025
 727026,2025-05-28 23:30:00+00:00,Philadelphia Union at Toronto FC,PHI @ TOR,Toronto FC,7318,1,Philadelphia Union,10739,2,STATUS_FULL_TIME,BMO Field,regular_season,5,28,2025
 727025,2025-05-28 23:30:00+00:00,Houston Dynamo FC at New York City FC,HOU @ NYC,New York City FC,17606,0,Houston Dynamo FC,6077,3,STATUS_FULL_TIME,Yankee Stadium,regular_season,5,28,2025
-727021,2025-05-28 23:30:00+00:00,Orlando City SC at Atlanta United FC,ORL @ ATL,Atlanta United FC,18418,3,Orlando City SC,12011,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,28,2025
-727024,2025-05-28 23:30:00+00:00,FC Dallas at FC Cincinnati,DAL @ CIN,FC Cincinnati,18267,3,FC Dallas,185,3,STATUS_FULL_TIME,TQL Stadium,regular_season,5,28,2025
+727023,2025-05-28 23:30:00+00:00,New England Revolution at D.C. United,NE @ DC,D.C. United,193,1,New England Revolution,189,1,STATUS_FULL_TIME,Audi Field,regular_season,5,28,2025
+727027,2025-05-28 23:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,4,Charlotte FC,21300,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,5,28,2025
 727022,2025-05-28 23:30:00+00:00,CF Montréal at Inter Miami CF,MTL @ MIA,Inter Miami CF,20232,4,CF Montréal,9720,2,STATUS_FULL_TIME,Chase Stadium,regular_season,5,28,2025
+727021,2025-05-28 23:30:00+00:00,Orlando City SC at Atlanta United FC,ORL @ ATL,Atlanta United FC,18418,3,Orlando City SC,12011,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,5,28,2025
 727028,2025-05-29 00:00:00+00:00,Nashville SC at Columbus Crew,NSH @ CLB,Columbus Crew,183,2,Nashville SC,18986,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,5,29,2025
 727029,2025-05-29 00:30:00+00:00,Real Salt Lake at Austin FC,RSL @ ATX,Austin FC,20906,1,Real Salt Lake,4771,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,5,29,2025
 727030,2025-05-29 00:30:00+00:00,San Diego FC at Seattle Sounders FC,SD @ SEA,Seattle Sounders FC,9726,1,San Diego FC,22529,0,STATUS_FULL_TIME,Lumen Field,regular_season,5,29,2025
@@ -2004,15 +2004,15 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727078,2025-06-26 01:30:00+00:00,LA Galaxy at Colorado Rapids,LA @ COL,Colorado Rapids,184,2,LA Galaxy,187,0,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,6,26,2025
 727076,2025-06-26 02:05:00+00:00,San Jose Earthquakes at FC Dallas,SJ @ DAL,FC Dallas,185,2,San Jose Earthquakes,191,4,STATUS_FULL_TIME,Toyota Stadium,regular_season,6,26,2025
 727079,2025-06-26 02:30:00+00:00,San Diego FC at Vancouver Whitecaps,SD @ VAN,Vancouver Whitecaps,9727,3,San Diego FC,22529,5,STATUS_FULL_TIME,BC Place,regular_season,6,26,2025
-727086,2025-06-28 23:30:00+00:00,Portland Timbers at Toronto FC,POR @ TOR,Toronto FC,7318,3,Portland Timbers,9723,0,STATUS_FULL_TIME,BMO Field,regular_season,6,28,2025
-727084,2025-06-28 23:30:00+00:00,Minnesota United FC at Red Bull New York,MIN @ RBNY,Red Bull New York,190,2,Minnesota United FC,17362,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,28,2025
 727085,2025-06-28 23:30:00+00:00,FC Cincinnati at Orlando City SC,CIN @ ORL,Orlando City SC,12011,1,FC Cincinnati,18267,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,6,28,2025
-727080,2025-06-28 23:30:00+00:00,New York City FC at CF Montréal,NYC @ MTL,CF Montréal,9720,1,New York City FC,17606,0,STATUS_FULL_TIME,Stade Saputo,regular_season,6,28,2025
-727081,2025-06-28 23:30:00+00:00,Nashville SC at D.C. United,NSH @ DC,D.C. United,193,0,Nashville SC,18986,1,STATUS_FULL_TIME,Audi Field,regular_season,6,28,2025
+727084,2025-06-28 23:30:00+00:00,Minnesota United FC at Red Bull New York,MIN @ RBNY,Red Bull New York,190,2,Minnesota United FC,17362,2,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,6,28,2025
+727086,2025-06-28 23:30:00+00:00,Portland Timbers at Toronto FC,POR @ TOR,Toronto FC,7318,3,Portland Timbers,9723,0,STATUS_FULL_TIME,BMO Field,regular_season,6,28,2025
 727083,2025-06-28 23:30:00+00:00,Colorado Rapids at New England Revolution,COL @ NE,New England Revolution,189,3,Colorado Rapids,184,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,6,28,2025
-727089,2025-06-29 00:30:00+00:00,St. Louis CITY SC at Houston Dynamo FC,STL @ HOU,Houston Dynamo FC,6077,1,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,6,29,2025
+727081,2025-06-28 23:30:00+00:00,Nashville SC at D.C. United,NSH @ DC,D.C. United,193,0,Nashville SC,18986,1,STATUS_FULL_TIME,Audi Field,regular_season,6,28,2025
+727080,2025-06-28 23:30:00+00:00,New York City FC at CF Montréal,NYC @ MTL,CF Montréal,9720,1,New York City FC,17606,0,STATUS_FULL_TIME,Stade Saputo,regular_season,6,28,2025
 727088,2025-06-29 00:30:00+00:00,Charlotte FC at Chicago Fire FC,CLT @ CHI,Chicago Fire FC,182,3,Charlotte FC,21300,2,STATUS_FULL_TIME,Soldier Field,regular_season,6,29,2025
 727090,2025-06-29 00:30:00+00:00,San Diego FC at FC Dallas,SD @ DAL,FC Dallas,185,2,San Diego FC,22529,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,6,29,2025
+727089,2025-06-29 00:30:00+00:00,St. Louis CITY SC at Houston Dynamo FC,STL @ HOU,Houston Dynamo FC,6077,1,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,6,29,2025
 727087,2025-06-29 00:30:00+00:00,Real Salt Lake at Sporting Kansas City,RSL @ SKC,Sporting Kansas City,186,1,Real Salt Lake,4771,1,STATUS_FULL_TIME,Children's Mercy Park,regular_season,6,29,2025
 727091,2025-06-29 02:30:00+00:00,Austin FC at Seattle Sounders FC,ATX @ SEA,Seattle Sounders FC,9726,2,Austin FC,20906,0,STATUS_FULL_TIME,Lumen Field,regular_season,6,29,2025
 727092,2025-06-29 02:30:00+00:00,LA Galaxy at San Jose Earthquakes,LA @ SJ,San Jose Earthquakes,191,1,LA Galaxy,187,1,STATUS_FULL_TIME,Stanford Stadium,regular_season,6,29,2025
@@ -2034,10 +2034,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727109,2025-07-06 21:00:00+00:00,Columbus Crew at Seattle Sounders FC,CLB @ SEA,Seattle Sounders FC,9726,1,Columbus Crew,183,1,STATUS_FULL_TIME,Lumen Field,regular_season,7,6,2025
 727110,2025-07-09 23:30:00+00:00,Inter Miami CF at New England Revolution,MIA @ NE,New England Revolution,189,1,Inter Miami CF,20232,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,9,2025
 727046,2025-07-10 02:25:00+00:00,Colorado Rapids at LAFC,COL @ LAFC,LAFC,18966,3,Colorado Rapids,184,0,STATUS_FULL_TIME,BMO Stadium,regular_season,7,10,2025
-727112,2025-07-12 23:30:00+00:00,Atlanta United FC at Toronto FC,ATL @ TOR,Toronto FC,7318,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,BMO Field,regular_season,7,12,2025
 727113,2025-07-12 23:30:00+00:00,Red Bull New York at Philadelphia Union,RBNY @ PHI,Philadelphia Union,10739,2,Red Bull New York,190,0,STATUS_FULL_TIME,Subaru Park,regular_season,7,12,2025
-727116,2025-07-12 23:30:00+00:00,Columbus Crew at FC Cincinnati,CLB @ CIN,FC Cincinnati,18267,2,Columbus Crew,183,4,STATUS_FULL_TIME,TQL Stadium,regular_season,7,12,2025
+727112,2025-07-12 23:30:00+00:00,Atlanta United FC at Toronto FC,ATL @ TOR,Toronto FC,7318,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,BMO Field,regular_season,7,12,2025
 727114,2025-07-12 23:30:00+00:00,CF Montréal at Orlando City SC,MTL @ ORL,Orlando City SC,12011,1,CF Montréal,9720,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,7,12,2025
+727116,2025-07-12 23:30:00+00:00,Columbus Crew at FC Cincinnati,CLB @ CIN,FC Cincinnati,18267,2,Columbus Crew,183,4,STATUS_FULL_TIME,TQL Stadium,regular_season,7,12,2025
 727111,2025-07-12 23:45:00+00:00,Nashville SC at Inter Miami CF,NSH @ MIA,Inter Miami CF,20232,2,Nashville SC,18986,1,STATUS_FULL_TIME,Chase Stadium,regular_season,7,12,2025
 727119,2025-07-13 00:30:00+00:00,New England Revolution at Austin FC,NE @ ATX,Austin FC,20906,0,New England Revolution,189,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,7,13,2025
 727118,2025-07-13 00:30:00+00:00,San Diego FC at Chicago Fire FC,SD @ CHI,Chicago Fire FC,182,1,San Diego FC,22529,2,STATUS_FULL_TIME,Soldier Field,regular_season,7,13,2025
@@ -2063,11 +2063,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727138,2025-07-17 02:30:00+00:00,Real Salt Lake at Portland Timbers,RSL @ POR,Portland Timbers,9723,0,Real Salt Lake,4771,1,STATUS_FULL_TIME,Providence Park,regular_season,7,17,2025
 727137,2025-07-17 02:30:00+00:00,Toronto FC at San Diego FC,TOR @ SD,San Diego FC,22529,0,Toronto FC,7318,1,STATUS_FULL_TIME,Snapdragon Stadium,regular_season,7,17,2025
 727136,2025-07-17 02:30:00+00:00,FC Dallas at San Jose Earthquakes,DAL @ SJ,San Jose Earthquakes,191,2,FC Dallas,185,2,STATUS_FULL_TIME,PayPal Park,regular_season,7,17,2025
-727143,2025-07-19 23:30:00+00:00,Inter Miami CF at Red Bull New York,MIA @ RBNY,Red Bull New York,190,1,Inter Miami CF,20232,5,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,7,19,2025
 727144,2025-07-19 23:30:00+00:00,D.C. United at Columbus Crew,DC @ CLB,Columbus Crew,183,2,D.C. United,193,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,19,2025
-727140,2025-07-19 23:30:00+00:00,Orlando City SC at New England Revolution,ORL @ NE,New England Revolution,189,1,Orlando City SC,12011,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,19,2025
 727142,2025-07-19 23:30:00+00:00,Charlotte FC at Atlanta United FC,CLT @ ATL,Atlanta United FC,18418,2,Charlotte FC,21300,3,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,7,19,2025
+727143,2025-07-19 23:30:00+00:00,Inter Miami CF at Red Bull New York,MIA @ RBNY,Red Bull New York,190,1,Inter Miami CF,20232,5,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,7,19,2025
 727141,2025-07-19 23:30:00+00:00,Chicago Fire FC at CF Montréal,CHI @ MTL,CF Montréal,9720,0,Chicago Fire FC,182,2,STATUS_FULL_TIME,Stade Saputo,regular_season,7,19,2025
+727140,2025-07-19 23:30:00+00:00,Orlando City SC at New England Revolution,ORL @ NE,New England Revolution,189,1,Orlando City SC,12011,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,19,2025
 727147,2025-07-20 00:30:00+00:00,St. Louis CITY SC at FC Dallas,STL @ DAL,FC Dallas,185,3,St. Louis CITY SC,21812,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,7,20,2025
 727149,2025-07-20 00:30:00+00:00,Philadelphia Union at Houston Dynamo FC,PHI @ HOU,Houston Dynamo FC,6077,1,Philadelphia Union,10739,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,7,20,2025
 727146,2025-07-20 00:30:00+00:00,San Jose Earthquakes at Seattle Sounders FC,SJ @ SEA,Seattle Sounders FC,9726,3,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Lumen Field,regular_season,7,20,2025
@@ -2092,9 +2092,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727165,2025-07-27 00:30:00+00:00,Minnesota United FC at St. Louis CITY SC,MIN @ STL,St. Louis CITY SC,21812,1,Minnesota United FC,17362,2,STATUS_FULL_TIME,Energizer Park,regular_season,7,27,2025
 727167,2025-07-27 01:30:00+00:00,San Jose Earthquakes at Real Salt Lake,SJ @ RSL,Real Salt Lake,4771,2,San Jose Earthquakes,191,1,STATUS_FULL_TIME,America First Field,regular_season,7,27,2025
 727168,2025-07-27 02:30:00+00:00,Sporting Kansas City at Vancouver Whitecaps,SKC @ VAN,Vancouver Whitecaps,9727,3,Sporting Kansas City,186,0,STATUS_FULL_TIME,BC Place,regular_season,7,27,2025
+727172,2025-08-09 23:30:00+00:00,Atlanta United FC at CF Montréal,ATL @ MTL,CF Montréal,9720,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,9,2025
 727171,2025-08-09 23:30:00+00:00,D.C. United at New England Revolution,DC @ NE,New England Revolution,189,2,D.C. United,193,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,8,9,2025
 727170,2025-08-09 23:30:00+00:00,Toronto FC at Philadelphia Union,TOR @ PHI,Philadelphia Union,10739,1,Toronto FC,7318,1,STATUS_FULL_TIME,Subaru Park,regular_season,8,9,2025
-727172,2025-08-09 23:30:00+00:00,Atlanta United FC at CF Montréal,ATL @ MTL,CF Montréal,9720,1,Atlanta United FC,18418,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,9,2025
 727175,2025-08-10 00:30:00+00:00,Houston Dynamo FC at Austin FC,HOU @ ATX,Austin FC,20906,2,Houston Dynamo FC,6077,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,8,10,2025
 727174,2025-08-10 00:30:00+00:00,LAFC at Chicago Fire FC,LAFC @ CHI,Chicago Fire FC,182,2,LAFC,18966,2,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,8,10,2025
 727177,2025-08-10 00:30:00+00:00,Portland Timbers at FC Dallas,POR @ DAL,FC Dallas,185,2,Portland Timbers,9723,0,STATUS_FULL_TIME,Toyota Stadium,regular_season,8,10,2025
@@ -2107,10 +2107,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727182,2025-08-11 00:00:00+00:00,Inter Miami CF at Orlando City SC,MIA @ ORL,Orlando City SC,12011,4,Inter Miami CF,20232,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,11,2025
 727183,2025-08-11 02:00:00+00:00,Seattle Sounders FC at LA Galaxy,SEA @ LA,LA Galaxy,187,0,Seattle Sounders FC,9726,4,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,8,11,2025
 727188,2025-08-16 23:30:00+00:00,LAFC at New England Revolution,LAFC @ NE,New England Revolution,189,0,LAFC,18966,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,8,16,2025
-727190,2025-08-16 23:30:00+00:00,LA Galaxy at Inter Miami CF,LA @ MIA,Inter Miami CF,20232,3,LA Galaxy,187,1,STATUS_FULL_TIME,Chase Stadium,regular_season,8,16,2025
-727189,2025-08-16 23:30:00+00:00,Philadelphia Union at Red Bull New York,PHI @ RBNY,Red Bull New York,190,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,8,16,2025
-727186,2025-08-16 23:30:00+00:00,D.C. United at CF Montréal,DC @ MTL,CF Montréal,9720,1,D.C. United,193,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,16,2025
 727187,2025-08-16 23:30:00+00:00,Real Salt Lake at Charlotte FC,RSL @ CLT,Charlotte FC,21300,1,Real Salt Lake,4771,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,16,2025
+727190,2025-08-16 23:30:00+00:00,LA Galaxy at Inter Miami CF,LA @ MIA,Inter Miami CF,20232,3,LA Galaxy,187,1,STATUS_FULL_TIME,Chase Stadium,regular_season,8,16,2025
+727186,2025-08-16 23:30:00+00:00,D.C. United at CF Montréal,DC @ MTL,CF Montréal,9720,1,D.C. United,193,1,STATUS_FULL_TIME,Stade Saputo,regular_season,8,16,2025
+727189,2025-08-16 23:30:00+00:00,Philadelphia Union at Red Bull New York,PHI @ RBNY,Red Bull New York,190,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,Sports Illustrated Stadium,regular_season,8,16,2025
 727185,2025-08-16 23:30:00+00:00,Columbus Crew at Toronto FC,CLB @ TOR,Toronto FC,7318,1,Columbus Crew,183,1,STATUS_FULL_TIME,BMO Field,regular_season,8,16,2025
 727191,2025-08-17 00:30:00+00:00,Seattle Sounders FC at Minnesota United FC,SEA @ MIN,Minnesota United FC,17362,1,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,Allianz Field,regular_season,8,17,2025
 727192,2025-08-17 00:30:00+00:00,FC Dallas at Austin FC,DAL @ ATX,Austin FC,20906,1,FC Dallas,185,1,STATUS_FULL_TIME,Q2 Stadium,regular_season,8,17,2025
@@ -2121,11 +2121,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727196,2025-08-17 21:00:00+00:00,Nashville SC at New York City FC,NSH @ NYC,New York City FC,17606,2,Nashville SC,18986,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,8,17,2025
 727197,2025-08-17 23:00:00+00:00,San Diego FC at San Jose Earthquakes,SD @ SJ,San Jose Earthquakes,191,1,San Diego FC,22529,2,STATUS_FULL_TIME,PayPal Park,regular_season,8,17,2025
 727198,2025-08-18 01:00:00+00:00,Houston Dynamo FC at Vancouver Whitecaps,HOU @ VAN,Vancouver Whitecaps,9727,1,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,BC Place,regular_season,8,18,2025
-727200,2025-08-23 23:30:00+00:00,Chicago Fire FC at Philadelphia Union,CHI @ PHI,Philadelphia Union,10739,4,Chicago Fire FC,182,0,STATUS_FULL_TIME,Subaru Park,regular_season,8,23,2025
 727202,2025-08-23 23:30:00+00:00,Inter Miami CF at D.C. United,MIA @ DC,D.C. United,193,1,Inter Miami CF,20232,1,STATUS_FULL_TIME,Audi Field,regular_season,8,23,2025
-727203,2025-08-23 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,0,New York City FC,17606,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,23,2025
 727199,2025-08-23 23:30:00+00:00,Austin FC at CF Montréal,ATX @ MTL,CF Montréal,9720,3,Austin FC,20906,2,STATUS_FULL_TIME,Stade Saputo,regular_season,8,23,2025
+727200,2025-08-23 23:30:00+00:00,Chicago Fire FC at Philadelphia Union,CHI @ PHI,Philadelphia Union,10739,4,Chicago Fire FC,182,0,STATUS_FULL_TIME,Subaru Park,regular_season,8,23,2025
 727201,2025-08-23 23:30:00+00:00,New England Revolution at Columbus Crew,NE @ CLB,Columbus Crew,183,1,New England Revolution,189,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,8,23,2025
+727203,2025-08-23 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,0,New York City FC,17606,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,23,2025
 727204,2025-08-24 00:30:00+00:00,LAFC at FC Dallas,LAFC @ DAL,FC Dallas,185,1,LAFC,18966,1,STATUS_FULL_TIME,Toyota Stadium,regular_season,8,24,2025
 727206,2025-08-24 00:30:00+00:00,San Jose Earthquakes at Houston Dynamo FC,SJ @ HOU,Houston Dynamo FC,6077,1,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,8,24,2025
 727205,2025-08-24 00:30:00+00:00,Orlando City SC at Nashville SC,ORL @ NSH,Nashville SC,18986,5,Orlando City SC,12011,1,STATUS_FULL_TIME,GEODIS Park,regular_season,8,24,2025
@@ -2196,10 +2196,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727271,2025-09-28 00:30:00+00:00,LAFC at St. Louis CITY SC,LAFC @ STL,St. Louis CITY SC,21812,0,LAFC,18966,3,STATUS_FULL_TIME,Energizer Park,regular_season,9,28,2025
 727274,2025-09-28 01:30:00+00:00,Minnesota United FC at Colorado Rapids,MIN @ COL,Colorado Rapids,184,1,Minnesota United FC,17362,1,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,9,28,2025
 727273,2025-09-28 01:30:00+00:00,Austin FC at Real Salt Lake,ATX @ RSL,Real Salt Lake,4771,3,Austin FC,20906,1,STATUS_FULL_TIME,America First Field,regular_season,9,28,2025
-727276,2025-09-28 02:30:00+00:00,Vancouver Whitecaps at Seattle Sounders FC,VAN @ SEA,Seattle Sounders FC,9726,2,Vancouver Whitecaps,9727,2,STATUS_FULL_TIME,Lumen Field,regular_season,9,28,2025
 727278,2025-09-28 02:30:00+00:00,San Jose Earthquakes at San Diego FC,SJ @ SD,San Diego FC,22529,0,San Jose Earthquakes,191,1,STATUS_FULL_TIME,Snapdragon Stadium,regular_season,9,28,2025
-727275,2025-09-28 02:30:00+00:00,Sporting Kansas City at LA Galaxy,SKC @ LA,LA Galaxy,187,4,Sporting Kansas City,186,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,9,28,2025
+727276,2025-09-28 02:30:00+00:00,Vancouver Whitecaps at Seattle Sounders FC,VAN @ SEA,Seattle Sounders FC,9726,2,Vancouver Whitecaps,9727,2,STATUS_FULL_TIME,Lumen Field,regular_season,9,28,2025
 727277,2025-09-28 02:30:00+00:00,FC Dallas at Portland Timbers,DAL @ POR,Portland Timbers,9723,2,FC Dallas,185,2,STATUS_FULL_TIME,Providence Park,regular_season,9,28,2025
+727275,2025-09-28 02:30:00+00:00,Sporting Kansas City at LA Galaxy,SKC @ LA,LA Galaxy,187,4,Sporting Kansas City,186,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,9,28,2025
 727264,2025-09-28 23:00:00+00:00,Orlando City SC at FC Cincinnati,ORL @ CIN,FC Cincinnati,18267,1,Orlando City SC,12011,1,STATUS_FULL_TIME,TQL Stadium,regular_season,9,28,2025
 727214,2025-09-30 23:30:00+00:00,Chicago Fire FC at Inter Miami CF,CHI @ MIA,Inter Miami CF,20232,3,Chicago Fire FC,182,5,STATUS_FULL_TIME,Chase Stadium,regular_season,9,30,2025
 727284,2025-10-04 18:30:00+00:00,Nashville SC at CF Montréal,NSH @ MTL,CF Montréal,9720,1,Nashville SC,18986,1,STATUS_FULL_TIME,Stade Saputo,regular_season,10,4,2025
@@ -2223,20 +2223,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 727226,2025-10-12 01:30:00+00:00,Real Salt Lake at Seattle Sounders FC,RSL @ SEA,Seattle Sounders FC,9726,1,Real Salt Lake,4771,0,STATUS_FULL_TIME,Lumen Field,regular_season,10,12,2025
 727227,2025-10-12 02:30:00+00:00,FC Dallas at LA Galaxy,DAL @ LA,LA Galaxy,187,2,FC Dallas,185,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,10,12,2025
 727103,2025-10-12 23:00:00+00:00,LAFC at Austin FC,LAFC @ ATX,Austin FC,20906,1,LAFC,18966,0,STATUS_FULL_TIME,Q2 Stadium,regular_season,10,12,2025
-727298,2025-10-18 22:00:00+00:00,Orlando City SC at Toronto FC,ORL @ TOR,Toronto FC,7318,4,Orlando City SC,12011,2,STATUS_FULL_TIME,BMO Field,regular_season,10,18,2025
-727297,2025-10-18 22:00:00+00:00,Seattle Sounders FC at New York City FC,SEA @ NYC,New York City FC,17606,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Citi Field,regular_season,10,18,2025
-727296,2025-10-18 22:00:00+00:00,Inter Miami CF at Nashville SC,MIA @ NSH,Nashville SC,18986,2,Inter Miami CF,20232,5,STATUS_FULL_TIME,GEODIS Park,regular_season,10,18,2025
 727294,2025-10-18 22:00:00+00:00,Chicago Fire FC at New England Revolution,CHI @ NE,New England Revolution,189,2,Chicago Fire FC,182,2,STATUS_FULL_TIME,Gillette Stadium,regular_season,10,18,2025
+727298,2025-10-18 22:00:00+00:00,Orlando City SC at Toronto FC,ORL @ TOR,Toronto FC,7318,4,Orlando City SC,12011,2,STATUS_FULL_TIME,BMO Field,regular_season,10,18,2025
+727296,2025-10-18 22:00:00+00:00,Inter Miami CF at Nashville SC,MIA @ NSH,Nashville SC,18986,2,Inter Miami CF,20232,5,STATUS_FULL_TIME,GEODIS Park,regular_season,10,18,2025
+727297,2025-10-18 22:00:00+00:00,Seattle Sounders FC at New York City FC,SEA @ NYC,New York City FC,17606,1,Seattle Sounders FC,9726,2,STATUS_FULL_TIME,Citi Field,regular_season,10,18,2025
 727300,2025-10-18 22:00:00+00:00,Red Bull New York at Columbus Crew,RBNY @ CLB,Columbus Crew,183,3,Red Bull New York,190,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,10,18,2025
-727299,2025-10-18 22:00:00+00:00,Philadelphia Union at Charlotte FC,PHI @ CLT,Charlotte FC,21300,2,Philadelphia Union,10739,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,10,18,2025
 727301,2025-10-18 22:00:00+00:00,D.C. United at Atlanta United FC,DC @ ATL,Atlanta United FC,18418,1,D.C. United,193,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,10,18,2025
 727295,2025-10-18 22:00:00+00:00,CF Montréal at FC Cincinnati,MTL @ CIN,FC Cincinnati,18267,3,CF Montréal,9720,0,STATUS_FULL_TIME,TQL Stadium,regular_season,10,18,2025
+727299,2025-10-18 22:00:00+00:00,Philadelphia Union at Charlotte FC,PHI @ CLT,Charlotte FC,21300,2,Philadelphia Union,10739,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,10,18,2025
+727305,2025-10-19 01:00:00+00:00,Austin FC at San Jose Earthquakes,ATX @ SJ,San Jose Earthquakes,191,2,Austin FC,20906,1,STATUS_FULL_TIME,PayPal Park,regular_season,10,19,2025
+727306,2025-10-19 01:00:00+00:00,Houston Dynamo FC at Sporting Kansas City,HOU @ SKC,Sporting Kansas City,186,0,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,10,19,2025
 727302,2025-10-19 01:00:00+00:00,Real Salt Lake at St. Louis CITY SC,RSL @ STL,St. Louis CITY SC,21812,2,Real Salt Lake,4771,2,STATUS_FULL_TIME,Energizer Park,regular_season,10,19,2025
 727303,2025-10-19 01:00:00+00:00,LAFC at Colorado Rapids,LAFC @ COL,Colorado Rapids,184,2,LAFC,18966,2,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,10,19,2025
 727304,2025-10-19 01:00:00+00:00,Minnesota United FC at LA Galaxy,MIN @ LA,LA Galaxy,187,2,Minnesota United FC,17362,1,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,10,19,2025
 727308,2025-10-19 01:00:00+00:00,San Diego FC at Portland Timbers,SD @ POR,Portland Timbers,9723,0,San Diego FC,22529,4,STATUS_FULL_TIME,Providence Park,regular_season,10,19,2025
-727305,2025-10-19 01:00:00+00:00,Austin FC at San Jose Earthquakes,ATX @ SJ,San Jose Earthquakes,191,2,Austin FC,20906,1,STATUS_FULL_TIME,PayPal Park,regular_season,10,19,2025
-727306,2025-10-19 01:00:00+00:00,Houston Dynamo FC at Sporting Kansas City,HOU @ SKC,Sporting Kansas City,186,0,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,Children's Mercy Park,regular_season,10,19,2025
 727307,2025-10-19 01:00:00+00:00,FC Dallas at Vancouver Whitecaps,DAL @ VAN,Vancouver Whitecaps,9727,1,FC Dallas,185,2,STATUS_FULL_TIME,BC Place,regular_season,10,19,2025
 760057,2025-10-23 00:30:00+00:00,Orlando City SC at Chicago Fire FC,ORL @ CHI,Chicago Fire FC,182,3,Orlando City SC,12011,1,STATUS_FULL_TIME,SeatGeek Stadium,regular_season,10,23,2025
 760058,2025-10-23 02:30:00+00:00,Real Salt Lake at Portland Timbers,RSL @ POR,Portland Timbers,9723,3,Real Salt Lake,4771,1,STATUS_FULL_TIME,Providence Park,regular_season,10,23,2025
@@ -2276,10 +2276,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761441,2026-02-22 00:30:00+00:00,Philadelphia Union at D.C. United,PHI @ DC,D.C. United,193,1,Philadelphia Union,10739,0,STATUS_FULL_TIME,Audi Field,regular_season,2,22,2026
 761442,2026-02-22 00:30:00+00:00,Red Bull New York at Orlando City SC,RBNY @ ORL,Orlando City SC,12011,1,Red Bull New York,190,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,2,22,2026
 761443,2026-02-22 00:30:00+00:00,Real Salt Lake at Vancouver Whitecaps,RSL @ VAN,Vancouver Whitecaps,9727,1,Real Salt Lake,4771,0,STATUS_FULL_TIME,BC Place,regular_season,2,22,2026
-761444,2026-02-22 01:30:00+00:00,New England Revolution at Nashville SC,NE @ NSH,Nashville SC,18986,4,New England Revolution,189,1,STATUS_FULL_TIME,GEODIS Park,regular_season,2,22,2026
 761445,2026-02-22 01:30:00+00:00,Chicago Fire FC at Houston Dynamo FC,CHI @ HOU,Houston Dynamo FC,6077,2,Chicago Fire FC,182,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,2,22,2026
-761446,2026-02-22 01:30:00+00:00,Minnesota United FC at Austin FC,MIN @ ATX,Austin FC,20906,2,Minnesota United FC,17362,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,2,22,2026
+761444,2026-02-22 01:30:00+00:00,New England Revolution at Nashville SC,NE @ NSH,Nashville SC,18986,4,New England Revolution,189,1,STATUS_FULL_TIME,GEODIS Park,regular_season,2,22,2026
 761447,2026-02-22 01:30:00+00:00,Toronto FC at FC Dallas,TOR @ DAL,FC Dallas,185,3,Toronto FC,7318,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,2,22,2026
+761446,2026-02-22 01:30:00+00:00,Minnesota United FC at Austin FC,MIN @ ATX,Austin FC,20906,2,Minnesota United FC,17362,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,2,22,2026
 761448,2026-02-22 02:30:00+00:00,Inter Miami CF at LAFC,MIA @ LAFC,LAFC,18966,3,Inter Miami CF,20232,0,STATUS_FULL_TIME,Los Angeles Memorial Coliseum,regular_season,2,22,2026
 761451,2026-02-22 03:30:00+00:00,Columbus Crew at Portland Timbers,CLB @ POR,Portland Timbers,9723,3,Columbus Crew,183,2,STATUS_FULL_TIME,Providence Park,regular_season,2,22,2026
 761449,2026-02-22 03:30:00+00:00,CF Montréal at San Diego FC,MTL @ SD,San Diego FC,22529,5,CF Montréal,9720,0,STATUS_FULL_TIME,Snapdragon Stadium,regular_season,2,22,2026
@@ -2318,9 +2318,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761484,2026-03-14 17:00:00+00:00,Red Bull New York at Toronto FC,RBNY @ TOR,Toronto FC,7318,1,Red Bull New York,190,1,STATUS_FULL_TIME,BMO Field,regular_season,3,14,2026
 761485,2026-03-14 19:15:00+00:00,Philadelphia Union at Atlanta United FC,PHI @ ATL,Atlanta United FC,18418,3,Philadelphia Union,10739,1,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,3,14,2026
 761486,2026-03-14 22:15:00+00:00,Nashville SC at Columbus Crew,NSH @ CLB,Columbus Crew,183,0,Nashville SC,18986,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,3,14,2026
-761488,2026-03-14 23:30:00+00:00,CF Montréal at Orlando City SC,MTL @ ORL,Orlando City SC,12011,2,CF Montréal,9720,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,3,14,2026
 761489,2026-03-14 23:30:00+00:00,Inter Miami CF at Charlotte FC,MIA @ CLT,Charlotte FC,21300,0,Inter Miami CF,20232,0,STATUS_FULL_TIME,Bank of America Stadium,regular_season,3,14,2026
 761487,2026-03-14 23:30:00+00:00,Colorado Rapids at New York City FC,COL @ NYC,New York City FC,17606,3,Colorado Rapids,184,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,3,14,2026
+761488,2026-03-14 23:30:00+00:00,CF Montréal at Orlando City SC,MTL @ ORL,Orlando City SC,12011,2,CF Montréal,9720,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,3,14,2026
 761491,2026-03-15 00:30:00+00:00,D.C. United at Chicago Fire FC,DC @ CHI,Chicago Fire FC,182,1,D.C. United,193,2,STATUS_FULL_TIME,Soldier Field,regular_season,3,15,2026
 761490,2026-03-15 00:30:00+00:00,San Diego FC at FC Dallas,SD @ DAL,FC Dallas,185,3,San Diego FC,22529,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,3,15,2026
 761492,2026-03-15 00:30:00+00:00,Portland Timbers at Houston Dynamo FC,POR @ HOU,Houston Dynamo FC,6077,3,Portland Timbers,9723,2,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,3,15,2026
@@ -2378,12 +2378,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761545,2026-04-18 17:00:00+00:00,Austin FC at Toronto FC,ATX @ TOR,Toronto FC,7318,3,Austin FC,20906,3,STATUS_FULL_TIME,BMO Field,regular_season,4,18,2026
 761557,2026-04-18 18:30:00+00:00,Red Bull New York at CF Montréal,RBNY @ MTL,CF Montréal,9720,4,Red Bull New York,190,1,STATUS_FULL_TIME,Stade Saputo,regular_season,4,18,2026
 761546,2026-04-18 20:30:00+00:00,Inter Miami CF at Colorado Rapids,MIA @ COL,Colorado Rapids,184,2,Inter Miami CF,20232,3,STATUS_FULL_TIME,Empower Field at Mile High,regular_season,4,18,2026
-761548,2026-04-18 23:30:00+00:00,D.C. United at Philadelphia Union,DC @ PHI,Philadelphia Union,10739,0,D.C. United,193,0,STATUS_FULL_TIME,Subaru Park,regular_season,4,18,2026
-761549,2026-04-18 23:30:00+00:00,Houston Dynamo FC at Orlando City SC,HOU @ ORL,Orlando City SC,12011,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,18,2026
 761551,2026-04-18 23:30:00+00:00,Charlotte FC at New York City FC,CLT @ NYC,New York City FC,17606,1,Charlotte FC,21300,2,STATUS_FULL_TIME,Citi Field,regular_season,4,18,2026
-761547,2026-04-18 23:30:00+00:00,Nashville SC at Atlanta United FC,NSH @ ATL,Atlanta United FC,18418,0,Nashville SC,18986,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,18,2026
-761550,2026-04-18 23:30:00+00:00,Chicago Fire FC at FC Cincinnati,CHI @ CIN,FC Cincinnati,18267,3,Chicago Fire FC,182,3,STATUS_FULL_TIME,TQL Stadium,regular_season,4,18,2026
+761549,2026-04-18 23:30:00+00:00,Houston Dynamo FC at Orlando City SC,HOU @ ORL,Orlando City SC,12011,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,4,18,2026
+761548,2026-04-18 23:30:00+00:00,D.C. United at Philadelphia Union,DC @ PHI,Philadelphia Union,10739,0,D.C. United,193,0,STATUS_FULL_TIME,Subaru Park,regular_season,4,18,2026
 761552,2026-04-18 23:30:00+00:00,Columbus Crew at New England Revolution,CLB @ NE,New England Revolution,189,2,Columbus Crew,183,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,4,18,2026
+761550,2026-04-18 23:30:00+00:00,Chicago Fire FC at FC Cincinnati,CHI @ CIN,FC Cincinnati,18267,3,Chicago Fire FC,182,3,STATUS_FULL_TIME,TQL Stadium,regular_season,4,18,2026
+761547,2026-04-18 23:30:00+00:00,Nashville SC at Atlanta United FC,NSH @ ATL,Atlanta United FC,18418,0,Nashville SC,18986,2,STATUS_FULL_TIME,Mercedes-Benz Stadium,regular_season,4,18,2026
 761554,2026-04-19 00:30:00+00:00,LA Galaxy at FC Dallas,LA @ DAL,FC Dallas,185,2,LA Galaxy,187,2,STATUS_FULL_TIME,Toyota Stadium,regular_season,4,19,2026
 761553,2026-04-19 00:30:00+00:00,Portland Timbers at Minnesota United FC,POR @ MIN,Minnesota United FC,17362,2,Portland Timbers,9723,0,STATUS_FULL_TIME,Allianz Field,regular_season,4,19,2026
 761556,2026-04-19 01:30:00+00:00,San Diego FC at Real Salt Lake,SD @ RSL,Real Salt Lake,4771,4,San Diego FC,22529,2,STATUS_FULL_TIME,America First Field,regular_season,4,19,2026
@@ -2446,16 +2446,16 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761613,2026-05-10 23:00:00+00:00,Austin FC at Minnesota United FC,ATX @ MIN,Minnesota United FC,17362,2,Austin FC,20906,2,STATUS_FULL_TIME,Allianz Field,regular_season,5,10,2026
 761614,2026-05-11 01:00:00+00:00,Houston Dynamo FC at LAFC,HOU @ LAFC,LAFC,18966,1,Houston Dynamo FC,6077,4,STATUS_FULL_TIME,BMO Stadium,regular_season,5,11,2026
 761615,2026-05-13 23:15:00+00:00,New York City FC at Charlotte FC,NYC @ CLT,Charlotte FC,21300,0,New York City FC,17606,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,5,13,2026
+761617,2026-05-13 23:30:00+00:00,Nashville SC at New England Revolution,NSH @ NE,New England Revolution,189,0,Nashville SC,18986,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,13,2026
 761621,2026-05-13 23:30:00+00:00,Columbus Crew at Red Bull New York,CLB @ RBNY,Red Bull New York,190,3,Columbus Crew,183,2,STATUS_FULL_TIME,Red Bull Arena,regular_season,5,13,2026
 761616,2026-05-13 23:30:00+00:00,Philadelphia Union at Orlando City SC,PHI @ ORL,Orlando City SC,12011,4,Philadelphia Union,10739,3,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,5,13,2026
-761617,2026-05-13 23:30:00+00:00,Nashville SC at New England Revolution,NSH @ NE,New England Revolution,189,0,Nashville SC,18986,3,STATUS_FULL_TIME,Gillette Stadium,regular_season,5,13,2026
-761620,2026-05-13 23:30:00+00:00,Chicago Fire FC at D.C. United,CHI @ DC,D.C. United,193,1,Chicago Fire FC,182,3,STATUS_FULL_TIME,Audi Field,regular_season,5,13,2026
 761618,2026-05-13 23:30:00+00:00,Portland Timbers at CF Montréal,POR @ MTL,CF Montréal,9720,2,Portland Timbers,9723,2,STATUS_FULL_TIME,Stade Saputo,regular_season,5,13,2026
 761619,2026-05-13 23:30:00+00:00,Inter Miami CF at FC Cincinnati,MIA @ CIN,FC Cincinnati,18267,3,Inter Miami CF,20232,5,STATUS_FULL_TIME,TQL Stadium,regular_season,5,13,2026
-761625,2026-05-14 00:30:00+00:00,LAFC at St. Louis CITY SC,LAFC @ STL,St. Louis CITY SC,21812,2,LAFC,18966,1,STATUS_FULL_TIME,Energizer Park,regular_season,5,14,2026
-761622,2026-05-14 00:30:00+00:00,Vancouver Whitecaps at FC Dallas,VAN @ DAL,FC Dallas,185,2,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,14,2026
+761620,2026-05-13 23:30:00+00:00,Chicago Fire FC at D.C. United,CHI @ DC,D.C. United,193,1,Chicago Fire FC,182,3,STATUS_FULL_TIME,Audi Field,regular_season,5,13,2026
 761624,2026-05-14 00:30:00+00:00,Colorado Rapids at Minnesota United FC,COL @ MIN,Minnesota United FC,17362,0,Colorado Rapids,184,1,STATUS_FULL_TIME,Allianz Field,regular_season,5,14,2026
 761623,2026-05-14 00:30:00+00:00,LA Galaxy at Sporting Kansas City,LA @ SKC,Sporting Kansas City,186,3,LA Galaxy,187,1,STATUS_FULL_TIME,Sporting Park,regular_season,5,14,2026
+761625,2026-05-14 00:30:00+00:00,LAFC at St. Louis CITY SC,LAFC @ STL,St. Louis CITY SC,21812,2,LAFC,18966,1,STATUS_FULL_TIME,Energizer Park,regular_season,5,14,2026
+761622,2026-05-14 00:30:00+00:00,Vancouver Whitecaps at FC Dallas,VAN @ DAL,FC Dallas,185,2,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,Toyota Stadium,regular_season,5,14,2026
 761626,2026-05-14 01:30:00+00:00,San Jose Earthquakes at Seattle Sounders FC,SJ @ SEA,Seattle Sounders FC,9726,3,San Jose Earthquakes,191,2,STATUS_FULL_TIME,Lumen Field,regular_season,5,14,2026
 761627,2026-05-14 01:30:00+00:00,Austin FC at San Diego FC,ATX @ SD,San Diego FC,22529,5,Austin FC,20906,0,STATUS_FULL_TIME,Snapdragon Stadium,regular_season,5,14,2026
 761628,2026-05-14 01:30:00+00:00,Houston Dynamo FC at Real Salt Lake,HOU @ RSL,Real Salt Lake,4771,3,Houston Dynamo FC,6077,0,STATUS_FULL_TIME,America First Field,regular_season,5,14,2026
@@ -2494,11 +2494,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761662,2026-07-17 02:30:00+00:00,Portland Timbers at Seattle Sounders FC,POR @ SEA,Seattle Sounders FC,9726,1,Portland Timbers,9723,5,STATUS_FULL_TIME,Lumen Field,regular_season,7,17,2026
 761663,2026-07-18 00:10:00+00:00,Atlanta United FC at Nashville SC,ATL @ NSH,Nashville SC,18986,1,Atlanta United FC,18418,0,STATUS_FULL_TIME,GEODIS Park,regular_season,7,18,2026
 761664,2026-07-18 02:25:00+00:00,LAFC at LA Galaxy,LAFC @ LA,LA Galaxy,187,0,LAFC,18966,3,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,7,18,2026
-761665,2026-07-22 23:30:00+00:00,Red Bull New York at Philadelphia Union,RBNY @ PHI,Philadelphia Union,10739,3,Red Bull New York,190,1,STATUS_FULL_TIME,Subaru Park,regular_season,7,22,2026
 761667,2026-07-22 23:30:00+00:00,Chicago Fire FC at Inter Miami CF,CHI @ MIA,Inter Miami CF,20232,3,Chicago Fire FC,182,2,STATUS_FULL_TIME,Nu Stadium,regular_season,7,22,2026
-761666,2026-07-22 23:30:00+00:00,Toronto FC at New England Revolution,TOR @ NE,New England Revolution,189,0,Toronto FC,7318,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,22,2026
 761668,2026-07-22 23:30:00+00:00,New York City FC at Columbus Crew,NYC @ CLB,Columbus Crew,183,1,New York City FC,17606,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,22,2026
+761665,2026-07-22 23:30:00+00:00,Red Bull New York at Philadelphia Union,RBNY @ PHI,Philadelphia Union,10739,3,Red Bull New York,190,1,STATUS_FULL_TIME,Subaru Park,regular_season,7,22,2026
 761669,2026-07-22 23:30:00+00:00,Vancouver Whitecaps at FC Cincinnati,VAN @ CIN,FC Cincinnati,18267,4,Vancouver Whitecaps,9727,3,STATUS_FULL_TIME,TQL Stadium,regular_season,7,22,2026
+761666,2026-07-22 23:30:00+00:00,Toronto FC at New England Revolution,TOR @ NE,New England Revolution,189,0,Toronto FC,7318,0,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,22,2026
 761670,2026-07-23 00:15:00+00:00,Atlanta United FC at Charlotte FC,ATL @ CLT,Charlotte FC,21300,2,Atlanta United FC,18418,2,STATUS_FULL_TIME,Bank of America Stadium,regular_season,7,23,2026
 761671,2026-07-23 00:30:00+00:00,D.C. United at Houston Dynamo FC,DC @ HOU,Houston Dynamo FC,6077,1,D.C. United,193,1,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,7,23,2026
 761673,2026-07-23 00:30:00+00:00,CF Montréal at Nashville SC,MTL @ NSH,Nashville SC,18986,1,CF Montréal,9720,0,STATUS_FULL_TIME,GEODIS Park,regular_season,7,23,2026
@@ -2512,10 +2512,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761685,2026-07-25 22:30:00+00:00,Charlotte FC at Red Bull New York,CLT @ RBNY,Red Bull New York,190,0,Charlotte FC,21300,2,STATUS_FULL_TIME,Red Bull Arena,regular_season,7,25,2026
 761680,2026-07-25 23:15:00+00:00,FC Cincinnati at Columbus Crew,CIN @ CLB,Columbus Crew,183,2,FC Cincinnati,18267,1,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,7,25,2026
 761683,2026-07-25 23:30:00+00:00,Chicago Fire FC at New York City FC,CHI @ NYC,New York City FC,17606,3,Chicago Fire FC,182,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,7,25,2026
-761682,2026-07-25 23:30:00+00:00,Atlanta United FC at New England Revolution,ATL @ NE,New England Revolution,189,4,Atlanta United FC,18418,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,25,2026
-761686,2026-07-25 23:30:00+00:00,Seattle Sounders FC at Philadelphia Union,SEA @ PHI,Philadelphia Union,10739,1,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,Subaru Park,regular_season,7,25,2026
-761687,2026-07-25 23:30:00+00:00,Inter Miami CF at CF Montréal,MIA @ MTL,CF Montréal,9720,0,Inter Miami CF,20232,1,STATUS_FULL_TIME,Stade Saputo,regular_season,7,25,2026
 761681,2026-07-25 23:30:00+00:00,Toronto FC at D.C. United,TOR @ DC,D.C. United,193,2,Toronto FC,7318,1,STATUS_FULL_TIME,Audi Field,regular_season,7,25,2026
+761682,2026-07-25 23:30:00+00:00,Atlanta United FC at New England Revolution,ATL @ NE,New England Revolution,189,4,Atlanta United FC,18418,1,STATUS_FULL_TIME,Gillette Stadium,regular_season,7,25,2026
+761687,2026-07-25 23:30:00+00:00,Inter Miami CF at CF Montréal,MIA @ MTL,CF Montréal,9720,0,Inter Miami CF,20232,1,STATUS_FULL_TIME,Stade Saputo,regular_season,7,25,2026
+761686,2026-07-25 23:30:00+00:00,Seattle Sounders FC at Philadelphia Union,SEA @ PHI,Philadelphia Union,10739,1,Seattle Sounders FC,9726,0,STATUS_FULL_TIME,Subaru Park,regular_season,7,25,2026
 761688,2026-07-26 00:30:00+00:00,Colorado Rapids at St. Louis CITY SC,COL @ STL,St. Louis CITY SC,21812,1,Colorado Rapids,184,0,STATUS_FULL_TIME,Energizer Park,regular_season,7,26,2026
 761690,2026-07-26 00:30:00+00:00,Vancouver Whitecaps at Minnesota United FC,VAN @ MIN,Minnesota United FC,17362,0,Vancouver Whitecaps,9727,0,STATUS_FULL_TIME,Allianz Field,regular_season,7,26,2026
 761689,2026-07-26 00:30:00+00:00,Austin FC at Houston Dynamo FC,ATX @ HOU,Houston Dynamo FC,6077,3,Austin FC,20906,0,STATUS_FULL_TIME,Shell Energy Stadium,regular_season,7,26,2026
@@ -2526,11 +2526,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761693,2026-07-26 02:30:00+00:00,LA Galaxy at San Jose Earthquakes,LA @ SJ,San Jose Earthquakes,191,1,LA Galaxy,187,1,STATUS_FULL_TIME,Stanford Stadium,regular_season,7,26,2026
 401864004,2026-07-30 00:00:00+00:00,Liga MX All-Stars at MLS All-Stars,LMX @ MLS,MLS All-Stars,9817,4,Liga MX All-Stars,20279,3,STATUS_FULL_TIME,Bank of America Stadium,regular_season,7,30,2026
 761695,2026-07-31 23:30:00+00:00,Toronto FC at New York City FC,TOR @ NYC,New York City FC,17606,1,Toronto FC,7318,1,STATUS_FULL_TIME,Yankee Stadium,regular_season,7,31,2026
-761698,2026-08-01 23:30:00+00:00,LAFC at Vancouver Whitecaps,LAFC @ VAN,Vancouver Whitecaps,9727,1,LAFC,18966,1,STATUS_FULL_TIME,BC Place,regular_season,8,1,2026
-761696,2026-08-01 23:30:00+00:00,Orlando City SC at Red Bull New York,ORL @ RBNY,Red Bull New York,190,3,Orlando City SC,12011,2,STATUS_FULL_TIME,Red Bull Arena,regular_season,8,1,2026
 761699,2026-08-01 23:30:00+00:00,Nashville SC at D.C. United,NSH @ DC,D.C. United,193,2,Nashville SC,18986,2,STATUS_FULL_TIME,Audi Field,regular_season,8,1,2026
+761698,2026-08-01 23:30:00+00:00,LAFC at Vancouver Whitecaps,LAFC @ VAN,Vancouver Whitecaps,9727,1,LAFC,18966,1,STATUS_FULL_TIME,BC Place,regular_season,8,1,2026
 761697,2026-08-01 23:30:00+00:00,New England Revolution at CF Montréal,NE @ MTL,CF Montréal,9720,2,New England Revolution,189,2,STATUS_FULL_TIME,Stade Saputo,regular_season,8,1,2026
 761702,2026-08-01 23:30:00+00:00,Atlanta United FC at Philadelphia Union,ATL @ PHI,Philadelphia Union,10739,3,Atlanta United FC,18418,2,STATUS_FULL_TIME,Subaru Park,regular_season,8,1,2026
+761696,2026-08-01 23:30:00+00:00,Orlando City SC at Red Bull New York,ORL @ RBNY,Red Bull New York,190,3,Orlando City SC,12011,2,STATUS_FULL_TIME,Red Bull Arena,regular_season,8,1,2026
 761701,2026-08-02 00:10:00+00:00,Columbus Crew at Inter Miami CF,CLB @ MIA,Inter Miami CF,20232,2,Columbus Crew,183,2,STATUS_FULL_TIME,Nu Stadium,regular_season,8,2,2026
 761704,2026-08-02 00:30:00+00:00,Charlotte FC at Chicago Fire FC,CLT @ CHI,Chicago Fire FC,182,2,Charlotte FC,21300,1,STATUS_FULL_TIME,Soldier Field,regular_season,8,2,2026
 761703,2026-08-02 00:30:00+00:00,San Diego FC at Minnesota United FC,SD @ MIN,Minnesota United FC,17362,1,San Diego FC,22529,1,STATUS_FULL_TIME,Allianz Field,regular_season,8,2,2026
@@ -2557,25 +2557,25 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 761717,2026-08-17 00:30:00+00:00,FC Dallas at Austin FC,DAL @ ATX,Austin FC,20906,1,FC Dallas,185,2,STATUS_FULL_TIME,Q2 Stadium,regular_season,8,17,2026
 761724,2026-08-17 02:30:00+00:00,Vancouver Whitecaps at Seattle Sounders FC,VAN @ SEA,Seattle Sounders FC,9726,0,Vancouver Whitecaps,9727,2,STATUS_FULL_TIME,Lumen Field,regular_season,8,17,2026
 761731,2026-08-19 23:30:00+00:00,Charlotte FC at Toronto FC,CLT @ TOR,Toronto FC,7318,3,Charlotte FC,21300,3,STATUS_FULL_TIME,BMO Field,regular_season,8,19,2026
-761728,2026-08-19 23:30:00+00:00,Nashville SC at Red Bull New York,NSH @ RBNY,Red Bull New York,190,0,Nashville SC,18986,1,STATUS_FULL_TIME,Red Bull Arena,regular_season,8,19,2026
-761727,2026-08-19 23:30:00+00:00,Inter Miami CF at Philadelphia Union,MIA @ PHI,Philadelphia Union,10739,2,Inter Miami CF,20232,2,STATUS_FULL_TIME,Subaru Park,regular_season,8,19,2026
 761725,2026-08-19 23:30:00+00:00,New England Revolution at D.C. United,NE @ DC,D.C. United,193,0,New England Revolution,189,3,STATUS_FULL_TIME,Audi Field,regular_season,8,19,2026
-761730,2026-08-19 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,2,New York City FC,17606,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,19,2026
+761727,2026-08-19 23:30:00+00:00,Inter Miami CF at Philadelphia Union,MIA @ PHI,Philadelphia Union,10739,2,Inter Miami CF,20232,2,STATUS_FULL_TIME,Subaru Park,regular_season,8,19,2026
 761729,2026-08-19 23:30:00+00:00,Chicago Fire FC at Orlando City SC,CHI @ ORL,Orlando City SC,12011,1,Chicago Fire FC,182,2,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,19,2026
+761730,2026-08-19 23:30:00+00:00,New York City FC at FC Cincinnati,NYC @ CIN,FC Cincinnati,18267,2,New York City FC,17606,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,19,2026
+761728,2026-08-19 23:30:00+00:00,Nashville SC at Red Bull New York,NSH @ RBNY,Red Bull New York,190,0,Nashville SC,18986,1,STATUS_FULL_TIME,Red Bull Arena,regular_season,8,19,2026
 761726,2026-08-19 23:30:00+00:00,CF Montréal at Columbus Crew,MTL @ CLB,Columbus Crew,183,1,CF Montréal,9720,2,STATUS_FULL_TIME,ScottsMiracle-Gro Field,regular_season,8,19,2026
 761732,2026-08-20 00:00:00+00:00,St. Louis CITY SC at Sporting Kansas City,STL @ SKC,Sporting Kansas City,186,1,St. Louis CITY SC,21812,1,STATUS_FULL_TIME,Sporting Park,regular_season,8,20,2026
 761733,2026-08-20 00:30:00+00:00,Atlanta United FC at Minnesota United FC,ATL @ MIN,Minnesota United FC,17362,1,Atlanta United FC,18418,2,STATUS_FULL_TIME,Allianz Field,regular_season,8,20,2026
 761734,2026-08-20 01:30:00+00:00,LAFC at Colorado Rapids,LAFC @ COL,Colorado Rapids,184,1,LAFC,18966,0,STATUS_FULL_TIME,Dick's Sporting Goods Park,regular_season,8,20,2026
 761735,2026-08-20 01:30:00+00:00,FC Dallas at Real Salt Lake,DAL @ RSL,Real Salt Lake,4771,3,FC Dallas,185,4,STATUS_FULL_TIME,America First Field,regular_season,8,20,2026
 761736,2026-08-20 01:30:00+00:00,Austin FC at Seattle Sounders FC,ATX @ SEA,Seattle Sounders FC,9726,1,Austin FC,20906,2,STATUS_FULL_TIME,Lumen Field,regular_season,8,20,2026
-761739,2026-08-20 02:30:00+00:00,Houston Dynamo FC at Vancouver Whitecaps,HOU @ VAN,Vancouver Whitecaps,9727,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,BC Place,regular_season,8,20,2026
 761738,2026-08-20 02:30:00+00:00,San Jose Earthquakes at LA Galaxy,SJ @ LA,LA Galaxy,187,1,San Jose Earthquakes,191,0,STATUS_FULL_TIME,Dignity Health Sports Park,regular_season,8,20,2026
 761737,2026-08-20 02:30:00+00:00,San Diego FC at Portland Timbers,SD @ POR,Portland Timbers,9723,3,San Diego FC,22529,1,STATUS_FULL_TIME,Providence Park,regular_season,8,20,2026
+761739,2026-08-20 02:30:00+00:00,Houston Dynamo FC at Vancouver Whitecaps,HOU @ VAN,Vancouver Whitecaps,9727,0,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,BC Place,regular_season,8,20,2026
+761743,2026-08-22 23:30:00+00:00,Seattle Sounders FC at FC Cincinnati,SEA @ CIN,FC Cincinnati,18267,1,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,22,2026
+761742,2026-08-22 23:30:00+00:00,Toronto FC at Inter Miami CF,TOR @ MIA,Inter Miami CF,20232,1,Toronto FC,7318,2,STATUS_FULL_TIME,Nu Stadium,regular_season,8,22,2026
 761740,2026-08-22 23:30:00+00:00,Real Salt Lake at Orlando City SC,RSL @ ORL,Orlando City SC,12011,2,Real Salt Lake,4771,1,STATUS_FULL_TIME,Inter&Co Stadium,regular_season,8,22,2026
 761745,2026-08-22 23:30:00+00:00,LA Galaxy at CF Montréal,LA @ MTL,CF Montréal,9720,2,LA Galaxy,187,2,STATUS_FULL_TIME,Stade Saputo,regular_season,8,22,2026
 761741,2026-08-22 23:30:00+00:00,D.C. United at Charlotte FC,DC @ CLT,Charlotte FC,21300,3,D.C. United,193,1,STATUS_FULL_TIME,Bank of America Stadium,regular_season,8,22,2026
-761743,2026-08-22 23:30:00+00:00,Seattle Sounders FC at FC Cincinnati,SEA @ CIN,FC Cincinnati,18267,1,Seattle Sounders FC,9726,1,STATUS_FULL_TIME,TQL Stadium,regular_season,8,22,2026
-761742,2026-08-22 23:30:00+00:00,Toronto FC at Inter Miami CF,TOR @ MIA,Inter Miami CF,20232,1,Toronto FC,7318,2,STATUS_FULL_TIME,Nu Stadium,regular_season,8,22,2026
 761744,2026-08-22 23:30:00+00:00,Chicago Fire FC at Red Bull New York,CHI @ RBNY,Red Bull New York,190,1,Chicago Fire FC,182,1,STATUS_FULL_TIME,Red Bull Arena,regular_season,8,22,2026
 761747,2026-08-23 00:30:00+00:00,Houston Dynamo FC at St. Louis CITY SC,HOU @ STL,St. Louis CITY SC,21812,2,Houston Dynamo FC,6077,1,STATUS_FULL_TIME,Energizer Park,regular_season,8,23,2026
 761746,2026-08-23 00:30:00+00:00,Columbus Crew at Nashville SC,CLB @ NSH,Nashville SC,18986,3,Columbus Crew,183,2,STATUS_FULL_TIME,GEODIS Park,regular_season,8,23,2026
