@@ -23,14 +23,12 @@ def get_games(league="nba"):
     # Filter completed regular season games
     if league in ["nba", "wnba", "nfl", "nhl"]:
         df = df[
-            (df["season_type"] == 2) &
-            (df["status_type_name"] == "STATUS_FINAL")
+            df["status_type_name"] == "STATUS_FINAL"
         ].copy()
 
     elif league == "mlb":
         df = df[
-            (df["season_type"] == 2) &
-            (df["status_type_completed"] == True)
+            df["status_type_completed"] == True
         ].copy()
 
     elif league == "pwhl":
@@ -221,9 +219,6 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
                     df["season_id"],
                     errors="coerce"
                 )
-
-                # Regular season only
-                df = df[df["season_id"] % 3 != 0]
                 
                 games.append(df)
                 
@@ -282,28 +277,13 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     df["day"] = df["date"].dt.day
     df["year"] = df["date"].dt.year
 
-    if league == "pwhl":
-        future_games = df[
-            (df["date"] >= prediction_date) &
-            (df["date"] <= end_date)
-        ].copy()
-
-    elif "league" in SPORT_CONFIG[league]:
-        future_games = df[
-            (df["date"] >= prediction_date) &
-            (df["date"] <= end_date)
-        ].copy()
-
-    else:
-        future_games = df[
-            (df["season_type"] == 2) &
-            (df["date"] >= prediction_date) &
-            (df["date"] <= end_date)
-        ].copy()
+    future_games = df[
+        (df["date"] >= prediction_date) &
+        (df["date"] <= end_date)
+    ].copy()
 
     # Remove duplicates
     future_games = future_games.drop_duplicates(
         subset=["game_id"]
     )
-
     return future_games

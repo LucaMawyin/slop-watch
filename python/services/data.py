@@ -94,6 +94,7 @@ def collect_games(sport):
             )
 
             if df is not None and not df.empty:
+                
                 games.append(df)
 
                 print(
@@ -112,6 +113,46 @@ def collect_games(sport):
     
     # Concatenate all the DataFrames into a single DataFrame
     all_games = pd.concat(games, ignore_index=True)
+
+    all_games = all_games.drop_duplicates(
+        subset="game_id",
+        keep="first"
+    )
+
+    # ---------------------------------
+    # REGULAR VS POSTSEASON
+    # ---------------------------------
+
+    if sport in ["nba", "wnba", "nfl", "nhl", "mlb"]:
+        all_games["season_type"] = all_games["season_type"].map({
+            2: "regular_season",
+            3: "postseason",
+        })
+
+    elif sport == "pwhl":
+        # PWHL postseason is divisible by 3
+        all_games["season_type"] = (
+            all_games["season_id"]
+            .apply(
+                lambda x: (
+                    "postseason"
+                    if pd.notna(x) and str(x).isdigit() and int(x) % 3 == 0
+                    else "regular_season"
+                )
+            )
+        )
+
+    elif sport in [
+        "mls",
+        "epl",
+        "laliga",
+        "serie_a",
+        "bundesliga",
+        "ligue_1",
+    ]:
+        # TODO: determine postseason from the soccer API data
+        all_games["season_type"] = "regular_season"
+
 
     all_games["date"] = pd.to_datetime(
         all_games["date"],
