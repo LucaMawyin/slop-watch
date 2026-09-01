@@ -1,4 +1,4 @@
-game_id,date,game_status,home_name,home_id,home_score,away_name,away_id,away_score,venue_full_name,season_id,game_type,season_type,month,day,year
+game_id,date,game_status,home_name,home_id,home_score,away_name,away_id,away_score,venue_full_name,season_id,game_type,is_postseason,month,day,year
 74,2023-12-04 18:00:00+00:00,Final 1st OT,PWHL Boston,1,2,PWHL Toronto,6,5,Utica University Nexus Center - Mastrovito Hyundai,2,,,12,4,2023
 75,2023-12-04 21:15:00+00:00,Final 1st OT,PWHL Minnesota,2,8,PWHL Ottawa,5,4,Utica University Nexus Center - Mastrovito Hyundai,2,,,12,4,2023
 76,2023-12-05 00:30:00+00:00,Final 1st OT,PWHL New York,4,4,PWHL Montreal,3,0,Utica University Nexus Center - Mastrovito Hyundai,2,,,12,5,2023

@@ -124,20 +124,21 @@ def collect_games(sport):
     # ---------------------------------
 
     if sport in ["nba", "wnba", "nfl", "nhl", "mlb"]:
-        all_games["season_type"] = all_games["season_type"].map({
-            2: "regular_season",
-            3: "postseason",
-        })
+        all_games["is_postseason"] = (
+            all_games["season_type"] == 3
+        ).astype(int)
 
     elif sport == "pwhl":
         # PWHL postseason is divisible by 3
-        all_games["season_type"] = (
+        all_games["is_postseason"] = (
             all_games["season_id"]
             .apply(
                 lambda x: (
-                    "postseason"
-                    if pd.notna(x) and str(x).isdigit() and int(x) % 3 == 0
-                    else "regular_season"
+                    1
+                    if pd.notna(x)
+                    and str(x).isdigit()
+                    and int(x) % 3 == 0
+                    else 0
                 )
             )
         )
@@ -150,8 +151,8 @@ def collect_games(sport):
         "bundesliga",
         "ligue_1",
     ]:
-        # TODO: determine postseason from the soccer API data
-        all_games["season_type"] = "regular_season"
+        # Soccer leagues do not currently have a postseason flag
+        all_games["is_postseason"] = 0
 
 
     all_games["date"] = pd.to_datetime(
