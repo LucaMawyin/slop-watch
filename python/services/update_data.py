@@ -189,6 +189,55 @@ def update_data(league="nba"):
         ignore_index=True
     )
 
+    # ---------------------------------
+    # SEASON
+    # ---------------------------------
+
+    df["date"] = pd.to_datetime(
+        df["date"],
+        format="mixed",
+        utc=True,
+        errors="coerce"
+    )
+
+    if league in ["nba", "wnba", "nfl", "nhl", "mlb"]:
+
+        df["season"] = df["date"].dt.year.astype(str)
+
+    elif league == "pwhl":
+
+        df["season_id"] = pd.to_numeric(
+            df["season_id"],
+            errors="coerce"
+        )
+
+        df["season"] = (
+            ((df["season_id"] - 1) // 3) + 1
+        ).astype("Int64").astype(str)
+
+    elif league == "mls":
+
+        df["season"] = df["date"].dt.year.astype(str)
+
+    elif league in [
+        "epl",
+        "laliga",
+        "serie_a",
+        "bundesliga",
+        "ligue_1",
+    ]:
+
+        season_start = (
+            df["date"].dt.year
+            - (df["date"].dt.month < 7).astype(int)
+        )
+
+        df["season"] = (
+            season_start.astype(str)
+            + "-"
+            + (season_start + 1).astype(str)
+        )
+
     df["date"] = pd.to_datetime(
         df["date"],
         format="mixed",

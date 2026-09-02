@@ -17,7 +17,15 @@ export default function Footer() {
                 text-sm
                 sm:flex-row
             ">
-                <p>© {new Date().getFullYear()} Slop Watch by Luca Mawyin</p>
+                <p>© {new Date().getFullYear()} Slop Watch by <a
+                        href="https://lucamawyin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white"
+                    >
+                        Luca Mawyin
+                    </a>
+                </p>
 
                 <div className="flex items-center gap-6">
                     <a

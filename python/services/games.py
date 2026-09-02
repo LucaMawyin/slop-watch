@@ -59,23 +59,30 @@ def get_games(league="nba"):
     df = df.dropna(subset=["home_score", "away_score"])
 
     # Reduce dataframe to the columns needed
-    games = df[
-        [
-            "game_id",
-            "date",
-            "month",
-            "day",
-            "year",
-            "home_id",
-            "home_name",
-            "home_score",
-            "away_id",
-            "away_name",
-            "away_score",
-            "venue_full_name",
-            "is_postseason",
-        ]
-    ].copy()
+    columns = [
+        "game_id",
+        "date",
+        "month",
+        "day",
+        "year",
+        "home_id",
+        "home_name",
+        "home_score",
+        "away_id",
+        "away_name",
+        "away_score",
+        "venue_full_name",
+        "is_postseason",
+        "season",
+    ]
+
+    if league == "pwhl":
+        columns.append("season_id")
+
+    elif "league" not in SPORT_CONFIG[league]:
+        columns.append("season_type")
+
+    games = df[columns].copy()
 
     return games
 

@@ -13,6 +13,7 @@ import { ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 import { getHeatColour } from "@/lib/getHeatColour";
 import ProgressCircle from "@/components/ProgressCircle";
+import { slugify } from "@/lib/slugify";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -411,18 +412,24 @@ function GamesContent() {
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 HOME
                                             </div>
-                                            <div className="text-xl font-semibold">
+                                            <Link
+                                                href={`/${game.league}/${slugify(game.home_name)}`}
+                                                className="text-xl font-semibold hover:underline"
+                                            >
                                                 {game.home_name}
-                                            </div>
+                                            </Link>
                                         </div>
 
                                         <div className="text-right max-w-[50%]">
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 AWAY
                                             </div>
-                                            <div className="text-xl font-semibold">
+                                            <Link
+                                                href={`/${game.league}/${slugify(game.away_name)}`}
+                                                className="text-xl font-semibold hover:underline"
+                                            >
                                                 {game.away_name}
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
 

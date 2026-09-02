@@ -26,8 +26,8 @@ export default function DayPickerClient({
     const [open, setOpen] = useState(false);
 
     const formatDate = (date: Date) =>
-        `${String(date.getDate()).padStart(2, "0")}/${String(
-            date.getMonth() + 1
+        `${String(date.getMonth() + 1).padStart(2, "0")}/${String(
+            date.getDate()
         ).padStart(2, "0")}/${date.getFullYear()}`;
 
     const dateLabel = range?.from

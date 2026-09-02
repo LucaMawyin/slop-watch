@@ -17,6 +17,10 @@ footer a {
     color: var(--text-colour);
 }
 
+footer a:hover{
+    color: white;
+}
+
 button,option,select{
     cursor: pointer;
 }

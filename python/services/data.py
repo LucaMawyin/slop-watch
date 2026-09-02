@@ -2,7 +2,7 @@ from datetime import date, timedelta
 from pathlib import Path
 import pandas as pd
 import os
-from config.sports import SPORT_CONFIG
+from config.sports import SPORT_CONFIG, SPORT_LEAGUES
 
 # 5 years of data
 END_DATE = date.today()
@@ -119,47 +119,75 @@ def collect_games(sport):
         keep="first"
     )
 
-    # ---------------------------------
-    # REGULAR VS POSTSEASON
-    # ---------------------------------
-
-    if sport in ["nba", "wnba", "nfl", "nhl", "mlb"]:
-        all_games["is_postseason"] = (
-            all_games["season_type"] == 3
-        ).astype(int)
-
-    elif sport == "pwhl":
-        # PWHL postseason is divisible by 3
-        all_games["is_postseason"] = (
-            all_games["season_id"]
-            .apply(
-                lambda x: (
-                    1
-                    if pd.notna(x)
-                    and str(x).isdigit()
-                    and int(x) % 3 == 0
-                    else 0
-                )
-            )
-        )
-
-    elif sport in [
-        "mls",
-        "epl",
-        "laliga",
-        "serie_a",
-        "bundesliga",
-        "ligue_1",
-    ]:
-        # Soccer leagues do not currently have a postseason flag
-        all_games["is_postseason"] = 0
-
-
     all_games["date"] = pd.to_datetime(
         all_games["date"],
         utc=True,
         errors="coerce"
     )
+
+    # ---------------------------------
+    # SEASON YEAR, REGULAR, POSTSEASON
+    # ---------------------------------
+
+    if sport == "pwhl":
+
+        all_games["season_id"] = pd.to_numeric(
+            all_games["season_id"],
+            errors="coerce"
+        )
+
+        # Every 3 season IDs represent one season
+        all_games["season"] = (
+            ((all_games["season_id"] - 1) // 3) + 1
+        ).astype(str)
+
+        # PWHL postseason is divisible by 3
+        all_games["is_postseason"] = (
+            all_games["season_id"] % 3 == 0
+        ).astype(int)
+
+    elif "league" in config:
+
+        # ---------------------------------
+        # DETECT SEASONS FROM TIME GAPS
+        # ---------------------------------
+
+        all_games = all_games.sort_values("date").reset_index(drop=True)
+
+        SEASON_GAP_DAYS = 60
+
+        season_break = (
+            all_games["date"].diff()
+            > pd.Timedelta(days=SEASON_GAP_DAYS)
+        )
+
+        all_games["season"] = (
+            season_break.cumsum() + 1
+        ).astype(str)
+
+        # Soccer leagues do not currently have a postseason flag
+        all_games["is_postseason"] = 0
+
+    else:
+
+        if sport == "mlb":
+            all_games["season"] = (
+                all_games["date"].dt.year
+            ).astype(str)
+
+        else:
+            all_games["season"] = (
+                pd.to_numeric(
+                    all_games["season"],
+                    errors="coerce"
+                )
+                .astype("Int64")
+                .astype(str)
+            )
+
+        all_games["is_postseason"] = (
+            all_games["season_type"] == 3
+        ).astype(int)
 
     all_games["month"] = all_games["date"].dt.month
     all_games["day"] = all_games["date"].dt.day
@@ -175,7 +203,7 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-for sport in SPORT_CONFIG:
+for sport in SPORT_LEAGUES["soccer"]:
     print()
     print("=" * 50)
     print(f"Collecting {sport.upper()}")
