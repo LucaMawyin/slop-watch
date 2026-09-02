@@ -60,11 +60,11 @@ function GamesContent() {
 
         // Fetching sport or league
         if (sport) {
-            params.set("sport", sport)
+            params.set("sport", slugify(sport))
         } 
         
         else if (league) {
-            params.set("league", league);
+            params.set("league", slugify(league));
         }
 
         
@@ -370,6 +370,7 @@ function GamesContent() {
                             const watchabilityColour = getHeatColour(1-watchability);
 
                             const badge = getSlopBadge(slop, watchability);
+                            const currentLeague = leagues.find((item) => item.id === game.league)?.name;
 
 
                             return (
@@ -401,9 +402,14 @@ function GamesContent() {
                                         />
                                     </div>
 
-                                    {(sport || (!league && !sport))  && (
+                                    {(sport || (!league && !sport)) && currentLeague && (
                                         <div className="mb-3 text-lg font-semibold text-white">
-                                            {leagues.find((item) => item.id === game.league)?.name}
+                                            <Link
+                                                href={`/games?league=${slugify(currentLeague)}`}
+                                            >
+                                                {leagues.find((item) => item.id === game.league)?.name}
+                                            </Link>
+                                            
                                         </div>
                                     )}
 
@@ -414,7 +420,7 @@ function GamesContent() {
                                             </div>
                                             <Link
                                                 href={`/${game.league}/${slugify(game.home_name)}`}
-                                                className="text-xl font-semibold hover:underline"
+                                                className="text-xl font-semibold"
                                             >
                                                 {game.home_name}
                                             </Link>
@@ -426,7 +432,7 @@ function GamesContent() {
                                             </div>
                                             <Link
                                                 href={`/${game.league}/${slugify(game.away_name)}`}
-                                                className="text-xl font-semibold hover:underline"
+                                                className="text-xl font-semibold"
                                             >
                                                 {game.away_name}
                                             </Link>

@@ -12,8 +12,7 @@ from config.sports import SPORT_CONFIG, SPORT_LEAGUES
 from services.update_data import update_data
 from services.model import train_model
 from services.slop import get_slop
-
-
+from services.teams import get_teams
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
@@ -522,6 +521,18 @@ def team(league, team_slug):
             orient="records"
         ),
     })
+
+@app.route("/api/teams", methods=["GET"])
+def teams():
+    league = request.args.get("league")
+
+    if not league:
+        return jsonify({"error": "league is required"}), 400
+
+    if league not in SPORT_CONFIG:
+        return jsonify({"error": "invalid league"}), 400
+
+    return jsonify(get_teams(league))
 
 def slugify(value):
     return re.sub(

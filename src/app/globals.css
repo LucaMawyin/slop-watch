@@ -4,6 +4,7 @@
     user-select: none;
     --text-colour: rgb(161, 161, 170);
     background-color: rgb(9, 9, 11);
+    overflow-x: hidden;
 }
 
 html,
@@ -17,8 +18,19 @@ footer a {
     color: var(--text-colour);
 }
 
-footer a:hover{
+a:hover{
+    color: rgb(96, 165, 250);
+    text-decoration: underline;
+}
+
+a:active {
+    color: rgb(37 99 235);
+}
+
+footer a:hover,
+nav a:hover {
     color: white;
+    text-decoration: none;
 }
 
 button,option,select{
