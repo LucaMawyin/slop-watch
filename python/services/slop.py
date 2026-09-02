@@ -306,30 +306,7 @@ def get_slop(league="nba"):
         games["team_quality_weight"] * games["team_quality"] +
         playoff_watchability_boost
     ).clip(0, 1)
-    print(
-        games.loc[
-            (
-                (games["total_points"] == 9) & (games["actual_margin"] == 3)
-            ) |
-            (
-                (games["total_points"] == 33) & (games["actual_margin"] == 29)
-            ) |
-            (
-                (games["total_points"] == 34) & (games["actual_margin"] == 22)
-            ),
-            [
-                "total_points",
-                "actual_margin",
-                "competitiveness",
-                "scoring_entertainment",
-                "team_quality",
-                "competitiveness_weight",
-                "scoring_weight",
-                "team_quality_weight",
-                "actual_watchability"
-            ]
-        ]
-    )
+
     # ---------------------------------
     # ACTUAL SLOP
     # ---------------------------------
