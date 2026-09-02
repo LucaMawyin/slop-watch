@@ -19,6 +19,7 @@ FEATURES = [
     "month",
     "day",
     "year",
+    "is_postseason",
 ]
 
 def predict_slop(prediction_date=None, league="nba", days_ahead=7):
@@ -133,16 +134,6 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
 
     games["predicted_slop"] = predictions [:, 0]
     games["predicted_watchability"] = predictions [:, 1]
-
-    # ---------------------------------
-    # HISTORICAL METRICS
-    # ---------------------------------
-
-    historical = get_slop(league=league)
-
-    historical = historical[
-        historical["date"] < prediction_date
-    ]
 
     # ---------------------------------
     # SLOP PERCENTILE

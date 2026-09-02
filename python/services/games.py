@@ -73,6 +73,7 @@ def get_games(league="nba"):
             "away_name",
             "away_score",
             "venue_full_name",
+            "is_postseason",
         ]
     ].copy()
 
@@ -117,8 +118,9 @@ def get_performance(league="nba"):
     group = performance.groupby("team")
 
     # ---------------------------------
-    # LAST 2 SEASONS
+    # WIN PCT AND POINT DIFF AVG OF GAMES IN WINDOW
     # ---------------------------------
+
     performance["win_pct"] = (
         group["win"]
         .transform(
@@ -271,6 +273,39 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
         return pd.DataFrame()
 
     df = pd.concat(games, ignore_index=True)
+
+    # ---------------------------------
+    # REGULAR VS POSTSEASON
+    # ---------------------------------
+
+    if league in ["nba", "wnba", "nfl", "nhl", "mlb"]:
+        df["is_postseason"] = (
+            df["season_type"] == 3
+        ).astype(int)
+
+    elif league == "pwhl":
+        df["is_postseason"] = (
+            df["season_id"]
+            .apply(
+                lambda x: (
+                    1
+                    if pd.notna(x)
+                    and str(x).isdigit()
+                    and int(x) % 3 == 0
+                    else 0
+                )
+            )
+        )
+
+    elif league in [
+        "mls",
+        "epl",
+        "laliga",
+        "serie_a",
+        "bundesliga",
+        "ligue_1",
+    ]:
+        df["is_postseason"] = 0
 
     df["date"] = pd.to_datetime(df["date"], utc=True)
     df["month"] = df["date"].dt.month

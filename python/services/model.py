@@ -36,6 +36,7 @@ def train_model(league="nba"):
         "month",
         "day",
         "year",
+        "is_postseason",
     ]
 
     targets = [

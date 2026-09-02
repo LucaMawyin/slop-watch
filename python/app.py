@@ -163,6 +163,7 @@ def games():
                 "home_name",
                 "away_name",
                 "venue_full_name",
+                "is_postseason",
 
                 # Score
                 "home_score",

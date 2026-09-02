@@ -73,6 +73,8 @@ SPORT_LEAGUES = {
     ],
 }
 
+NUMBER_OF_SEASONS = 1
+
 SPORT_CONFIG = {
 
     # ---------------------------------
@@ -101,7 +103,7 @@ SPORT_CONFIG = {
             "fouls",
             "largest_lead",
         ],
-        "performance_window" : 164,
+        "performance_window" : 82 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -20,
@@ -133,7 +135,7 @@ SPORT_CONFIG = {
             "fouls",
             "largest_lead",
         ],
-        "performance_window": 40,
+        "performance_window": 44 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -20,
@@ -175,7 +177,7 @@ SPORT_CONFIG = {
             "total_plays",
             "red_zone_efficiency",
         ],
-        "performance_window" : 34,
+        "performance_window" : 17 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -30,
@@ -211,7 +213,7 @@ SPORT_CONFIG = {
             "penalties",
             "penaltyMinutes",
         ],
-        "performance_window" : 164,
+        "performance_window" : 82 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -5,
@@ -239,7 +241,7 @@ SPORT_CONFIG = {
             "giveaways",
             "takeaways",
         ],
-        "performance_window": 60,
+        "performance_window": 30 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -5,
@@ -272,7 +274,7 @@ SPORT_CONFIG = {
             "earnedRuns",
             "ERA",
         ],
-        "performance_window" : 324,
+        "performance_window" : 162 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -5,
@@ -305,7 +307,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 68,
+        "performance_window": 34 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,
@@ -333,7 +335,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 76,
+        "performance_window": 38 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,
@@ -362,7 +364,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 76,
+        "performance_window": 38 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,
@@ -391,7 +393,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 76,
+        "performance_window": 38 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,
@@ -420,7 +422,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 68,
+        "performance_window": 34 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,
@@ -449,7 +451,7 @@ SPORT_CONFIG = {
             "corner_kicks",
             "saves",
         ],
-        "performance_window": 68,
+        "performance_window": 34 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -3,

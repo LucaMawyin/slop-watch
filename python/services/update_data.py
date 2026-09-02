@@ -120,6 +120,8 @@ def update_data(league="nba"):
             ]
         ].copy()
 
+        new_games["is_postseason"] = 0
+
     # ---------------------------------
     # PWHL
     # ---------------------------------
@@ -152,6 +154,22 @@ def update_data(league="nba"):
                 "game_type",
             ]
         ].copy()
+
+        new_games["is_postseason"] = (
+            pd.to_numeric(new_games["season_id"], errors="coerce")
+            .fillna(0)
+            .astype(int)
+            .mod(3)
+            .eq(0)
+            .astype(int)
+        )
+
+    else:
+        new_games["is_postseason"] = (
+            pd.to_numeric(new_games["season_type"], errors="coerce")
+            .eq(3)
+            .astype(int)
+        )
 
     # Game id as string
     new_games["game_id"] = new_games["game_id"].astype(str)
@@ -208,6 +226,8 @@ def update_data(league="nba"):
     df["month"] = df["date"].dt.month
     df["day"] = df["date"].dt.day
     df["year"] = df["date"].dt.year
+
+    df["is_postseason"] = df["is_postseason"].fillna(0).astype(int)
 
     # Write to csv
     temp_path = output_path.with_suffix(".tmp")

@@ -7,6 +7,7 @@ export type Game = {
     home_name: string;
     away_name: string;
     venue_full_name: string;
+    is_postseason: number;
 
     // Score
     home_score:number;
