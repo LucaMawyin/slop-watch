@@ -304,7 +304,7 @@ def team(league, team_slug):
             team_games_all["away_score"].notna()
         ]
         .sort_values("date", ascending=False)
-        .head(5)
+        .head(15)
         .copy()
     )
 
@@ -342,7 +342,7 @@ def team(league, team_slug):
         ].sort_values(
             "date",
             ascending=True
-        ).head(5).copy()
+        ).head(15).copy()
 
     else:
         upcoming_games = pd.DataFrame()

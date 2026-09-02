@@ -1,6 +1,7 @@
 "use client";
 
 import Badge from "@/components/Badge";
+import ShowMoreButton from "@/components/ShowMoreButton";
 import TeamSkeleton from "@/components/TeamSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
@@ -24,6 +25,8 @@ export default function TeamPage({ params }: Props) {
 
     const [team, setTeam] = useState<Team | null>(null);
     const [loading, setLoading] = useState(true);
+    const [recentGamesCount, setRecentGamesCount] = useState(3);
+    const [ upcomingGamesCount, setUpcomingGamesCount ] = useState(3);
 
     const slug = slugify(teamSlug);
 
@@ -138,9 +141,10 @@ export default function TeamPage({ params }: Props) {
 
                             <div className="rounded-xl border border-zinc-800 bg-zinc-900">
                                 {team.upcoming_games.length > 0 ? (
-                                    team.upcoming_games.map((game) => {
+                                    team.upcoming_games.slice(0, upcomingGamesCount).map((game) => {
 
                                         const isHome = game.home_name === team.team;
+                                        const opponent = isHome ? game.away_name : game.home_name;
                                         
                                         return (
 
@@ -160,9 +164,12 @@ export default function TeamPage({ params }: Props) {
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
-                                                        {isHome
-                                                            ? game.away_name
-                                                            : game.home_name}
+                                                        <Link
+                                                            href={`/${league}/${slugify(opponent)}`}
+                                                            className="hover:underline"
+                                                        >
+                                                            {opponent}
+                                                        </Link>
                                                     </p>
 
                                                     <p className="mt-1 text-sm">
@@ -213,6 +220,14 @@ export default function TeamPage({ params }: Props) {
                                     </div>
                                 )}
                             </div>
+
+                            {upcomingGamesCount < team.upcoming_games.length && (
+                                <ShowMoreButton
+                                    currentCount={upcomingGamesCount}
+                                    totalCount={team.upcoming_games.length}
+                                    onShowMore={() => setUpcomingGamesCount((count) => count + 3)}
+                                />
+                            )}
                         </section>
 
                         {/* RECENT GAMES */}
@@ -223,7 +238,7 @@ export default function TeamPage({ params }: Props) {
 
                             <div className="divide-y divide-zinc-800 rounded-xl border border-zinc-800 bg-zinc-900">
                                 {team.recent_games.length > 0 ? (
-                                    team.recent_games.map((game) => {
+                                    team.recent_games.slice(0, recentGamesCount).map((game) => {
 
                                         const slop = game.slop_percentile;
                                         const slopColour = getHeatColour(slop);
@@ -234,6 +249,7 @@ export default function TeamPage({ params }: Props) {
                                         const badge = getSlopBadge(slop, watchability);
 
                                         const isHome = game.home_name === team.team;
+                                        const opponent = isHome ? game.away_name : game.home_name;
 
                                         const teamScore = isHome
                                             ? game.home_score
@@ -269,9 +285,12 @@ export default function TeamPage({ params }: Props) {
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
-                                                        {isHome
-                                                            ? game.away_name
-                                                            : game.home_name}
+                                                        <Link
+                                                            href={`/${league}/${slugify(opponent)}`}
+                                                            className="hover:underline"
+                                                        >
+                                                            {opponent}
+                                                        </Link>
                                                     </p>
 
                                                     <p className="text-sm">
@@ -342,6 +361,13 @@ export default function TeamPage({ params }: Props) {
                                     </div>
                                 )}
                             </div>
+                            {recentGamesCount < team.recent_games.length && (
+                                <ShowMoreButton
+                                    currentCount={recentGamesCount}
+                                    totalCount={team.recent_games.length}
+                                    onShowMore={() => setRecentGamesCount((count) => count + 3)}
+                                />
+                            )}
                         </section>
                     </>
                 ) : (
