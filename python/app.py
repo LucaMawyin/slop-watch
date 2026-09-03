@@ -353,7 +353,9 @@ def team(league, team_slug):
     else:
         upcoming_games = pd.DataFrame()
 
-    # Fields that may not exist for future games
+    # Required by Game type
+    upcoming_games["league"] = league
+
     for column in [
         "home_score",
         "away_score",
@@ -362,9 +364,6 @@ def team(league, team_slug):
     ]:
         if column not in upcoming_games.columns:
             upcoming_games[column] = None
-
-    # Required by Game type
-    upcoming_games["league"] = league
 
     game_columns = [
         # Game information
@@ -404,7 +403,11 @@ def team(league, team_slug):
     ]
 
     recent_games = recent_games[game_columns]
-    upcoming_games = upcoming_games[game_columns]
+
+    if upcoming_games.empty:
+        upcoming_games = pd.DataFrame(columns=game_columns)
+    else:
+        upcoming_games = upcoming_games[game_columns]
 
     # Convert dates / NaN for JSON
     recent_games["date"] = recent_games["date"].astype(str)
