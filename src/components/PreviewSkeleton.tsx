@@ -18,16 +18,16 @@ export default function PreviewSkeleton() {
                     {/* TEAMS */}
                     <div className="mx-auto mt-6 grid w-full max-w-3xl grid-cols-3 items-center gap-6 sm:gap-12">
 
-                        <div className="space-y-2">
-                            <div className="mx-auto h-4 w-12 rounded bg-zinc-800 skeleton-glow" />
-                            <div className="mx-auto h-10 w-32 rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                        <div className="min-w-0 space-y-2">
+                            <div className="mx-auto h-4 w-12 max-w-full rounded bg-zinc-800 skeleton-glow" />
+                            <div className="mx-auto h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
                         </div>
 
                         <div className="mx-auto h-12 w-20 rounded bg-zinc-800 skeleton-glow" />
 
-                        <div className="space-y-2">
-                            <div className="mx-auto h-4 w-12 rounded bg-zinc-800 skeleton-glow" />
-                            <div className="mx-auto h-10 w-32 rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                        <div className="min-w-0 space-y-2">
+                            <div className="mx-auto h-4 w-12 max-w-full rounded bg-zinc-800 skeleton-glow" />
+                            <div className="mx-auto h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
                         </div>
 
                     </div>
