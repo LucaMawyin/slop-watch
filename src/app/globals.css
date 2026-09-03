@@ -11,6 +11,7 @@ html,
 body {
     min-height: 100dvh;
     background-color: rgb(9, 9, 11);
+    color: white
 }
 
 p, 

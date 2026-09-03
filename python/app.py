@@ -70,6 +70,7 @@ def games():
     start_date = request.args.get("start")
     end_date = request.args.get("end")
     team = request.args.get("team")
+    game_id = request.args.get("id")
 
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
@@ -99,15 +100,15 @@ def games():
     # ---------------------------------
     
     if start_date:
-        prediction_date = pd.Timestamp(start_date, tz="UTC")
+        prediction_date = pd.Timestamp(start_date, tz="UTC").normalize()
     else:
-        prediction_date = pd.Timestamp.now(tz="UTC")
+        prediction_date = pd.Timestamp.now(tz="UTC").normalize()
 
     if end_date:
-        end_date = pd.Timestamp(end_date, tz="UTC")
+        end_date = pd.Timestamp(end_date, tz="UTC").normalize()
 
         days_ahead = (
-            end_date.normalize() - prediction_date.normalize()
+            end_date - prediction_date
         ).days
     else:
         days_ahead = 7
@@ -193,6 +194,12 @@ def games():
                 "away_recent_point_diff",
             ]
         ].copy()
+
+        # Filter to specific game if provided
+        if game_id:
+            league_games = league_games[
+                league_games["game_id"].astype(str) == str(game_id)
+            ].copy()
 
         # Filter to team if provided
         if team:

@@ -26,8 +26,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614880,2021-09-22 16:30:00+00:00,Juventus at Spezia,JUV @ SPE,Spezia,4056,2,Juventus,111,3,STATUS_FULL_TIME,Alberto Picco,2021-2022,0,9,22,2021
 614885,2021-09-22 18:45:00+00:00,Venezia at AC Milan,VEN @ MIL,AC Milan,103,2,Venezia,17530,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,9,22,2021
 614876,2021-09-22 18:45:00+00:00,Empoli at Cagliari,EMP @ CAG,Cagliari,2925,0,Empoli,2574,2,STATUS_FULL_TIME,Unipol Domus,2021-2022,0,9,22,2021
-614882,2021-09-23 16:30:00+00:00,Napoli at Sampdoria,NAP @ SAM,Sampdoria,2734,0,Napoli,114,4,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,9,23,2021
 614881,2021-09-23 16:30:00+00:00,Lazio at Torino,LAZ @ TOR,Torino,239,1,Lazio,112,1,STATUS_FULL_TIME,Olimpico Grande Torino,2021-2022,0,9,23,2021
+614882,2021-09-23 16:30:00+00:00,Napoli at Sampdoria,NAP @ SAM,Sampdoria,2734,0,Napoli,114,4,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,9,23,2021
 614884,2021-09-23 18:45:00+00:00,Udinese at AS Roma,UDI @ ROMA,AS Roma,104,1,Udinese,118,0,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,9,23,2021
 614871,2021-09-25 13:00:00+00:00,AC Milan at Spezia,MIL @ SPE,Spezia,4056,1,AC Milan,103,2,STATUS_FULL_TIME,Alberto Picco,2021-2022,0,9,25,2021
 614866,2021-09-25 16:00:00+00:00,Atalanta at Internazionale,ATA @ INT,Internazionale,110,2,Atalanta,105,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,9,25,2021
@@ -53,9 +53,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614850,2021-10-16 16:00:00+00:00,Internazionale at Lazio,INT @ LAZ,Lazio,112,3,Internazionale,110,1,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,10,16,2021
 614849,2021-10-16 18:45:00+00:00,Hellas Verona at AC Milan,VER @ MIL,AC Milan,103,3,Hellas Verona,119,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,10,16,2021
 614853,2021-10-17 10:30:00+00:00,Sampdoria at Cagliari,SAM @ CAG,Cagliari,2925,3,Sampdoria,2734,1,STATUS_FULL_TIME,Unipol Domus,2021-2022,0,10,17,2021
-614846,2021-10-17 13:00:00+00:00,Atalanta at Empoli,ATA @ EMP,Empoli,2574,1,Atalanta,105,4,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,10,17,2021
 614854,2021-10-17 13:00:00+00:00,Sassuolo at Genoa,SAS @ GEN,Genoa,3263,2,Sassuolo,3997,2,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,10,17,2021
 614847,2021-10-17 13:00:00+00:00,Bologna at Udinese,BOL @ UDI,Udinese,118,1,Bologna,107,1,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,10,17,2021
+614846,2021-10-17 13:00:00+00:00,Atalanta at Empoli,ATA @ EMP,Empoli,2574,1,Atalanta,105,4,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,10,17,2021
 614855,2021-10-17 16:00:00+00:00,Torino at Napoli,TOR @ NAP,Napoli,114,1,Torino,239,0,STATUS_FULL_TIME,Diego Armando Maradona,2021-2022,0,10,17,2021
 614851,2021-10-17 18:45:00+00:00,AS Roma at Juventus,ROMA @ JUV,Juventus,111,1,AS Roma,104,0,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,10,17,2021
 614848,2021-10-18 18:45:00+00:00,Fiorentina at Venezia,FIO @ VEN,Venezia,17530,1,Fiorentina,109,0,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,10,18,2021
@@ -72,9 +72,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614829,2021-10-26 16:30:00+00:00,Genoa at Spezia,GEN @ SPE,Spezia,4056,1,Genoa,3263,1,STATUS_FULL_TIME,Alberto Picco,2021-2022,0,10,26,2021
 614833,2021-10-26 16:30:00+00:00,Salernitana at Venezia,SAL @ VEN,Venezia,17530,1,Salernitana,3240,2,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,10,26,2021
 614835,2021-10-26 18:45:00+00:00,Torino at AC Milan,TOR @ MIL,AC Milan,103,1,Torino,239,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,10,26,2021
+614830,2021-10-27 16:30:00+00:00,Hellas Verona at Udinese,VER @ UDI,Udinese,118,1,Hellas Verona,119,1,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,10,27,2021
 614834,2021-10-27 16:30:00+00:00,Sassuolo at Juventus,SAS @ JUV,Juventus,111,1,Sassuolo,3997,2,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,10,27,2021
 614826,2021-10-27 16:30:00+00:00,Atalanta at Sampdoria,ATA @ SAM,Sampdoria,2734,1,Atalanta,105,3,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,10,27,2021
-614830,2021-10-27 16:30:00+00:00,Hellas Verona at Udinese,VER @ UDI,Udinese,118,1,Hellas Verona,119,1,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,10,27,2021
 614832,2021-10-27 18:45:00+00:00,AS Roma at Cagliari,ROMA @ CAG,Cagliari,2925,1,AS Roma,104,2,STATUS_FULL_TIME,Unipol Domus,2021-2022,0,10,27,2021
 614831,2021-10-27 18:45:00+00:00,Internazionale at Empoli,INT @ EMP,Empoli,2574,0,Internazionale,110,2,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,10,27,2021
 614828,2021-10-27 18:45:00+00:00,Fiorentina at Lazio,FIO @ LAZ,Lazio,112,1,Fiorentina,109,0,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,10,27,2021
@@ -83,9 +83,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614818,2021-10-30 16:00:00+00:00,Juventus at Hellas Verona,JUV @ VER,Hellas Verona,119,2,Juventus,111,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,10,30,2021
 614822,2021-10-30 18:45:00+00:00,Sampdoria at Torino,SAM @ TOR,Torino,239,3,Sampdoria,2734,0,STATUS_FULL_TIME,Olimpico Grande Torino,2021-2022,0,10,30,2021
 614824,2021-10-31 11:30:00+00:00,Udinese at Internazionale,UDI @ INT,Internazionale,110,2,Udinese,118,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,10,31,2021
+614817,2021-10-31 14:00:00+00:00,Empoli at Sassuolo,EMP @ SAS,Sassuolo,3997,1,Empoli,2574,2,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,10,31,2021
 614823,2021-10-31 14:00:00+00:00,Spezia at Fiorentina,SPE @ FIO,Fiorentina,109,3,Spezia,4056,0,STATUS_FULL_TIME,Artemio Franchi,2021-2022,0,10,31,2021
 614825,2021-10-31 14:00:00+00:00,Venezia at Genoa,VEN @ GEN,Genoa,3263,0,Venezia,17530,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,10,31,2021
-614817,2021-10-31 14:00:00+00:00,Empoli at Sassuolo,EMP @ SAS,Sassuolo,3997,1,Empoli,2574,2,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,10,31,2021
 614821,2021-10-31 17:00:00+00:00,Napoli at Salernitana,NAP @ SAL,Salernitana,3240,0,Napoli,114,1,STATUS_FULL_TIME,Arechi,2021-2022,0,10,31,2021
 614820,2021-10-31 19:45:00+00:00,AC Milan at AS Roma,MIL @ ROMA,AS Roma,104,1,AC Milan,103,2,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,10,31,2021
 614816,2021-11-01 19:45:00+00:00,Cagliari at Bologna,CAG @ BOL,Bologna,107,2,Cagliari,2925,0,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,11,1,2021
@@ -161,8 +161,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614751,2021-12-19 19:45:00+00:00,Napoli at AC Milan,NAP @ MIL,AC Milan,103,0,Napoli,114,1,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,12,19,2021
 614736,2021-12-21 19:45:00+00:00,Atalanta at Genoa,ATA @ GEN,Genoa,3263,0,Atalanta,105,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,12,21,2021
 614738,2021-12-21 19:45:00+00:00,Cagliari at Juventus,CAG @ JUV,Juventus,111,2,Cagliari,2925,0,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,12,21,2021
-614737,2021-12-22 15:30:00+00:00,Bologna at Sassuolo,BOL @ SAS,Sassuolo,3997,0,Bologna,107,3,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,12,22,2021
 614740,2021-12-22 15:30:00+00:00,Lazio at Venezia,LAZ @ VEN,Venezia,17530,1,Lazio,112,3,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,12,22,2021
+614737,2021-12-22 15:30:00+00:00,Bologna at Sassuolo,BOL @ SAS,Sassuolo,3997,0,Bologna,107,3,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,12,22,2021
 614743,2021-12-22 17:30:00+00:00,Sampdoria at AS Roma,SAM @ ROMA,AS Roma,104,1,Sampdoria,2734,1,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,12,22,2021
 614739,2021-12-22 17:30:00+00:00,Fiorentina at Hellas Verona,FIO @ VER,Hellas Verona,119,1,Fiorentina,109,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,12,22,2021
 614745,2021-12-22 17:30:00+00:00,Torino at Internazionale,TOR @ INT,Internazionale,110,1,Torino,239,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,12,22,2021
@@ -176,8 +176,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614731,2022-01-06 19:45:00+00:00,Napoli at Juventus,NAP @ JUV,Juventus,111,1,Napoli,114,1,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,1,6,2022
 614721,2022-01-09 11:30:00+00:00,AC Milan at Venezia,MIL @ VEN,Venezia,17530,0,AC Milan,103,3,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,1,9,2022
 614724,2022-01-09 13:30:00+00:00,Sassuolo at Empoli,SAS @ EMP,Empoli,2574,1,Sassuolo,3997,5,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,1,9,2022
-614723,2022-01-09 15:30:00+00:00,Sampdoria at Napoli,SAM @ NAP,Napoli,114,1,Sampdoria,2734,0,STATUS_FULL_TIME,Diego Armando Maradona,2021-2022,0,1,9,2022
 614716,2022-01-09 15:30:00+00:00,Atalanta at Udinese,ATA @ UDI,Udinese,118,2,Atalanta,105,6,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,1,9,2022
+614723,2022-01-09 15:30:00+00:00,Sampdoria at Napoli,SAM @ NAP,Napoli,114,1,Sampdoria,2734,0,STATUS_FULL_TIME,Diego Armando Maradona,2021-2022,0,1,9,2022
 614719,2022-01-09 17:30:00+00:00,Juventus at AS Roma,JUV @ ROMA,AS Roma,104,3,Juventus,111,4,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,1,9,2022
 614725,2022-01-09 17:30:00+00:00,Spezia at Genoa,SPE @ GEN,Genoa,3263,0,Spezia,4056,1,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,1,9,2022
 614722,2022-01-09 19:45:00+00:00,Salernitana at Hellas Verona,SAL @ VER,Hellas Verona,119,1,Salernitana,3240,2,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,1,9,2022
@@ -191,8 +191,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614707,2022-01-16 14:00:00+00:00,Empoli at Venezia,EMP @ VEN,Venezia,17530,1,Empoli,2574,1,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,1,16,2022
 614706,2022-01-16 17:00:00+00:00,Cagliari at AS Roma,CAG @ ROMA,AS Roma,104,1,Cagliari,2925,0,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,1,16,2022
 614710,2022-01-16 19:45:00+00:00,Internazionale at Atalanta,INT @ ATA,Atalanta,105,0,Internazionale,110,0,STATUS_FULL_TIME,New Balance Arena,2021-2022,0,1,16,2022
-614713,2022-01-17 17:30:00+00:00,Spezia at AC Milan,SPE @ MIL,AC Milan,103,1,Spezia,4056,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,1,17,2022
 614712,2022-01-17 17:30:00+00:00,Napoli at Bologna,NAP @ BOL,Bologna,107,0,Napoli,114,2,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,1,17,2022
+614713,2022-01-17 17:30:00+00:00,Spezia at AC Milan,SPE @ MIL,AC Milan,103,1,Spezia,4056,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,1,17,2022
 614708,2022-01-17 19:45:00+00:00,Genoa at Fiorentina,GEN @ FIO,Fiorentina,109,6,Genoa,3263,0,STATUS_FULL_TIME,Artemio Franchi,2021-2022,0,1,17,2022
 614697,2022-01-21 19:45:00+00:00,Bologna at Hellas Verona,BOL @ VER,Hellas Verona,119,2,Bologna,107,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,1,21,2022
 614704,2022-01-22 14:00:00+00:00,Udinese at Genoa,UDI @ GEN,Genoa,3263,0,Udinese,118,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,1,22,2022
@@ -249,9 +249,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614646,2022-03-05 17:00:00+00:00,Atalanta at AS Roma,ATA @ ROMA,AS Roma,104,1,Atalanta,105,0,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,3,5,2022
 614649,2022-03-05 19:45:00+00:00,Lazio at Cagliari,LAZ @ CAG,Cagliari,2925,0,Lazio,112,3,STATUS_FULL_TIME,Unipol Domus,2021-2022,0,3,5,2022
 614647,2022-03-06 11:30:00+00:00,Empoli at Genoa,EMP @ GEN,Genoa,3263,0,Empoli,2574,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,3,6,2022
-614655,2022-03-06 14:00:00+00:00,Torino at Bologna,TOR @ BOL,Bologna,107,0,Torino,239,0,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,3,6,2022
 614648,2022-03-06 14:00:00+00:00,Hellas Verona at Fiorentina,VER @ FIO,Fiorentina,109,1,Hellas Verona,119,1,STATUS_FULL_TIME,Artemio Franchi,2021-2022,0,3,6,2022
 614653,2022-03-06 14:00:00+00:00,Sassuolo at Venezia,SAS @ VEN,Venezia,17530,1,Sassuolo,3997,4,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,3,6,2022
+614655,2022-03-06 14:00:00+00:00,Torino at Bologna,TOR @ BOL,Bologna,107,0,Torino,239,0,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,3,6,2022
 614654,2022-03-06 17:00:00+00:00,Spezia at Juventus,SPE @ JUV,Juventus,111,1,Spezia,4056,0,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,3,6,2022
 614650,2022-03-06 19:45:00+00:00,AC Milan at Napoli,MIL @ NAP,Napoli,114,0,AC Milan,103,1,STATUS_FULL_TIME,Diego Armando Maradona,2021-2022,0,3,6,2022
 614644,2022-03-12 14:00:00+00:00,Sassuolo at Salernitana,SAS @ SAL,Salernitana,3240,2,Sassuolo,3997,2,STATUS_FULL_TIME,Arechi,2021-2022,0,3,12,2022
@@ -310,8 +310,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614592,2022-04-23 16:00:00+00:00,AS Roma at Internazionale,ROMA @ INT,Internazionale,110,3,AS Roma,104,1,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,4,23,2022
 614593,2022-04-23 18:45:00+00:00,Sampdoria at Hellas Verona,SAM @ VER,Hellas Verona,119,1,Sampdoria,2734,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,4,23,2022
 614588,2022-04-24 10:30:00+00:00,Fiorentina at Salernitana,FIO @ SAL,Salernitana,3240,2,Fiorentina,109,1,STATUS_FULL_TIME,Arechi,2021-2022,0,4,24,2022
-614595,2022-04-24 13:00:00+00:00,Udinese at Bologna,UDI @ BOL,Bologna,107,2,Udinese,118,2,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,4,24,2022
 614591,2022-04-24 13:00:00+00:00,Napoli at Empoli,NAP @ EMP,Empoli,2574,3,Napoli,114,2,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,4,24,2022
+614595,2022-04-24 13:00:00+00:00,Udinese at Bologna,UDI @ BOL,Bologna,107,2,Udinese,118,2,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,4,24,2022
 614587,2022-04-24 16:00:00+00:00,Cagliari at Genoa,CAG @ GEN,Genoa,3263,1,Cagliari,2925,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,4,24,2022
 614590,2022-04-24 18:45:00+00:00,AC Milan at Lazio,MIL @ LAZ,Lazio,112,1,AC Milan,103,2,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,4,24,2022
 614589,2022-04-25 18:45:00+00:00,Juventus at Sassuolo,JUV @ SAS,Sassuolo,3997,1,Juventus,111,2,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,4,25,2022
@@ -323,8 +323,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614578,2022-04-30 16:00:00+00:00,Genoa at Sampdoria,GEN @ SAM,Sampdoria,2734,1,Genoa,3263,0,STATUS_FULL_TIME,Luigi Ferraris,2021-2022,0,4,30,2022
 614581,2022-04-30 18:45:00+00:00,Lazio at Spezia,LAZ @ SPE,Spezia,4056,3,Lazio,112,4,STATUS_FULL_TIME,Alberto Picco,2021-2022,0,4,30,2022
 614585,2022-05-01 10:30:00+00:00,Venezia at Juventus,VEN @ JUV,Juventus,111,2,Venezia,17530,1,STATUS_FULL_TIME,Allianz Stadium,2021-2022,0,5,1,2022
-614577,2022-05-01 13:00:00+00:00,Fiorentina at AC Milan,FIO @ MIL,AC Milan,103,1,Fiorentina,109,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,5,1,2022
 614584,2022-05-01 13:00:00+00:00,Torino at Empoli,TOR @ EMP,Empoli,2574,1,Torino,239,3,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,5,1,2022
+614577,2022-05-01 13:00:00+00:00,Fiorentina at AC Milan,FIO @ MIL,AC Milan,103,1,Fiorentina,109,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,5,1,2022
 614580,2022-05-01 16:00:00+00:00,Internazionale at Udinese,INT @ UDI,Udinese,118,1,Internazionale,110,2,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,5,1,2022
 614576,2022-05-01 18:45:00+00:00,Bologna at AS Roma,BOL @ ROMA,AS Roma,104,0,Bologna,107,0,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,5,1,2022
 614582,2022-05-02 18:45:00+00:00,Salernitana at Atalanta,SAL @ ATA,Atalanta,105,1,Salernitana,3240,1,STATUS_FULL_TIME,New Balance Arena,2021-2022,0,5,2,2022
@@ -340,8 +340,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614571,2022-05-08 18:45:00+00:00,AC Milan at Hellas Verona,MIL @ VER,Hellas Verona,119,1,AC Milan,103,3,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,5,8,2022
 614573,2022-05-09 18:45:00+00:00,AS Roma at Fiorentina,ROMA @ FIO,Fiorentina,109,2,AS Roma,104,0,STATUS_FULL_TIME,Artemio Franchi,2021-2022,0,5,9,2022
 614561,2022-05-14 13:00:00+00:00,Salernitana at Empoli,SAL @ EMP,Empoli,2574,1,Salernitana,3240,1,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2021-2022,0,5,14,2022
-614564,2022-05-14 16:00:00+00:00,Torino at Hellas Verona,TOR @ VER,Hellas Verona,119,0,Torino,239,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,5,14,2022
 614563,2022-05-14 16:00:00+00:00,Spezia at Udinese,SPE @ UDI,Udinese,118,2,Spezia,4056,3,STATUS_FULL_TIME,Bluenergy Stadium,2021-2022,0,5,14,2022
+614564,2022-05-14 16:00:00+00:00,Torino at Hellas Verona,TOR @ VER,Hellas Verona,119,0,Torino,239,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2021-2022,0,5,14,2022
 614565,2022-05-14 18:45:00+00:00,Venezia at AS Roma,VEN @ ROMA,AS Roma,104,1,Venezia,17530,1,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,5,14,2022
 614562,2022-05-15 10:30:00+00:00,Sassuolo at Bologna,SAS @ BOL,Bologna,107,1,Sassuolo,3997,3,STATUS_FULL_TIME,Renato Dall'Ara,2021-2022,0,5,15,2022
 614558,2022-05-15 13:00:00+00:00,Genoa at Napoli,GEN @ NAP,Napoli,114,3,Genoa,3263,0,STATUS_FULL_TIME,Diego Armando Maradona,2021-2022,0,5,15,2022
@@ -355,8 +355,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 614550,2022-05-21 18:45:00+00:00,Juventus at Fiorentina,JUV @ FIO,Fiorentina,109,2,Juventus,111,0,STATUS_FULL_TIME,Artemio Franchi,2021-2022,0,5,21,2022
 614549,2022-05-21 18:45:00+00:00,Hellas Verona at Lazio,VER @ LAZ,Lazio,112,3,Hellas Verona,119,3,STATUS_FULL_TIME,Stadio Olimpico,2021-2022,0,5,21,2022
 614552,2022-05-22 10:30:00+00:00,Napoli at Spezia,NAP @ SPE,Spezia,4056,0,Napoli,114,3,STATUS_FULL_TIME,Alberto Picco,2021-2022,0,5,22,2022
-614554,2022-05-22 16:00:00+00:00,Sampdoria at Internazionale,SAM @ INT,Internazionale,110,3,Sampdoria,2734,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,5,22,2022
 614551,2022-05-22 16:00:00+00:00,AC Milan at Sassuolo,MIL @ SAS,Sassuolo,3997,0,AC Milan,103,3,STATUS_FULL_TIME,Mapei Stadium,2021-2022,0,5,22,2022
+614554,2022-05-22 16:00:00+00:00,Sampdoria at Internazionale,SAM @ INT,Internazionale,110,3,Sampdoria,2734,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2021-2022,0,5,22,2022
 614555,2022-05-22 19:00:00+00:00,Udinese at Salernitana,UDI @ SAL,Salernitana,3240,0,Udinese,118,4,STATUS_FULL_TIME,Arechi,2021-2022,0,5,22,2022
 614547,2022-05-22 19:00:00+00:00,Cagliari at Venezia,CAG @ VEN,Venezia,17530,0,Cagliari,2925,0,STATUS_FULL_TIME,Pier Luigi Penzo,2021-2022,0,5,22,2022
 644626,2022-08-13 16:30:00+00:00,Udinese at AC Milan,UDI @ MIL,AC Milan,103,4,Udinese,118,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,8,13,2022
@@ -371,8 +371,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644624,2022-08-15 18:45:00+00:00,Sassuolo at Juventus,SAS @ JUV,Juventus,111,3,Sassuolo,3997,0,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,8,15,2022
 644627,2022-08-20 16:30:00+00:00,Lazio at Torino,LAZ @ TOR,Torino,239,0,Lazio,112,0,STATUS_FULL_TIME,Olimpico Grande Torino,2022-2023,0,8,20,2022
 644636,2022-08-20 16:30:00+00:00,Salernitana at Udinese,SAL @ UDI,Udinese,118,0,Salernitana,3240,0,STATUS_FULL_TIME,Bluenergy Stadium,2022-2023,0,8,20,2022
-644632,2022-08-20 18:45:00+00:00,Spezia at Internazionale,SPE @ INT,Internazionale,110,3,Spezia,4056,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,8,20,2022
 644628,2022-08-20 18:45:00+00:00,Lecce at Sassuolo,LEC @ SAS,Sassuolo,3997,1,Lecce,113,0,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,8,20,2022
+644632,2022-08-20 18:45:00+00:00,Spezia at Internazionale,SPE @ INT,Internazionale,110,3,Spezia,4056,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,8,20,2022
 644633,2022-08-21 16:30:00+00:00,Fiorentina at Empoli,FIO @ EMP,Empoli,2574,0,Fiorentina,109,0,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2022-2023,0,8,21,2022
 644631,2022-08-21 16:30:00+00:00,Monza at Napoli,MON @ NAP,Napoli,114,4,Monza,4007,0,STATUS_FULL_TIME,Diego Armando Maradona,2022-2023,0,8,21,2022
 644635,2022-08-21 18:45:00+00:00,AC Milan at Atalanta,MIL @ ATA,Atalanta,105,1,AC Milan,103,1,STATUS_FULL_TIME,New Balance Arena,2022-2023,0,8,21,2022
@@ -385,8 +385,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644646,2022-08-27 16:30:00+00:00,AS Roma at Juventus,ROMA @ JUV,Juventus,111,1,AS Roma,104,1,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,8,27,2022
 644643,2022-08-27 18:45:00+00:00,Bologna at AC Milan,BOL @ MIL,AC Milan,103,2,Bologna,107,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,8,27,2022
 644640,2022-08-27 18:45:00+00:00,Sassuolo at Spezia,SAS @ SPE,Spezia,4056,2,Sassuolo,3997,2,STATUS_FULL_TIME,Alberto Picco,2022-2023,0,8,27,2022
-644639,2022-08-28 16:30:00+00:00,Atalanta at Hellas Verona,ATA @ VER,Hellas Verona,119,0,Atalanta,105,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2022-2023,0,8,28,2022
 644641,2022-08-28 16:30:00+00:00,Sampdoria at Salernitana,SAM @ SAL,Salernitana,3240,4,Sampdoria,2734,0,STATUS_FULL_TIME,Arechi,2022-2023,0,8,28,2022
+644639,2022-08-28 16:30:00+00:00,Atalanta at Hellas Verona,ATA @ VER,Hellas Verona,119,0,Atalanta,105,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2022-2023,0,8,28,2022
 644638,2022-08-28 18:45:00+00:00,Napoli at Fiorentina,NAP @ FIO,Fiorentina,109,0,Napoli,114,0,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,8,28,2022
 644644,2022-08-28 18:45:00+00:00,Empoli at Lecce,EMP @ LEC,Lecce,113,1,Empoli,2574,1,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2022-2023,0,8,28,2022
 644648,2022-08-30 16:30:00+00:00,AC Milan at Sassuolo,MIL @ SAS,Sassuolo,3997,0,AC Milan,103,0,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,8,30,2022
@@ -413,9 +413,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644671,2022-09-10 16:00:00+00:00,Torino at Internazionale,TOR @ INT,Internazionale,110,1,Torino,239,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,9,10,2022
 644673,2022-09-10 18:45:00+00:00,AC Milan at Sampdoria,MIL @ SAM,Sampdoria,2734,1,AC Milan,103,2,STATUS_FULL_TIME,Luigi Ferraris,2022-2023,0,9,10,2022
 644667,2022-09-11 10:30:00+00:00,Cremonese at Atalanta,CRE @ ATA,Atalanta,105,1,Cremonese,4050,1,STATUS_FULL_TIME,New Balance Arena,2022-2023,0,9,11,2022
-644675,2022-09-11 13:00:00+00:00,Fiorentina at Bologna,FIO @ BOL,Bologna,107,2,Fiorentina,109,1,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,9,11,2022
 644676,2022-09-11 13:00:00+00:00,Monza at Lecce,MON @ LEC,Lecce,113,1,Monza,4007,1,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2022-2023,0,9,11,2022
 644674,2022-09-11 13:00:00+00:00,Udinese at Sassuolo,UDI @ SAS,Sassuolo,3997,1,Udinese,118,3,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,9,11,2022
+644675,2022-09-11 13:00:00+00:00,Fiorentina at Bologna,FIO @ BOL,Bologna,107,2,Fiorentina,109,1,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,9,11,2022
 644670,2022-09-11 16:00:00+00:00,Hellas Verona at Lazio,VER @ LAZ,Lazio,112,2,Hellas Verona,119,0,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,9,11,2022
 644669,2022-09-11 18:45:00+00:00,Salernitana at Juventus,SAL @ JUV,Juventus,111,2,Salernitana,3240,2,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,9,11,2022
 644668,2022-09-12 18:45:00+00:00,AS Roma at Empoli,ROMA @ EMP,Empoli,2574,1,AS Roma,104,2,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2022-2023,0,9,12,2022
@@ -443,9 +443,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644702,2022-10-08 16:00:00+00:00,Juventus at AC Milan,JUV @ MIL,AC Milan,103,2,Juventus,111,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,10,8,2022
 644705,2022-10-08 18:45:00+00:00,Sampdoria at Bologna,SAM @ BOL,Bologna,107,1,Sampdoria,2734,1,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,10,8,2022
 644697,2022-10-09 10:30:00+00:00,Empoli at Torino,EMP @ TOR,Torino,239,1,Empoli,2574,1,STATUS_FULL_TIME,Olimpico Grande Torino,2022-2023,0,10,9,2022
-644706,2022-10-09 13:00:00+00:00,Spezia at Monza,SPE @ MON,Monza,4007,2,Spezia,4056,0,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,10,9,2022
-644699,2022-10-09 13:00:00+00:00,Hellas Verona at Salernitana,VER @ SAL,Salernitana,3240,2,Hellas Verona,119,1,STATUS_FULL_TIME,Arechi,2022-2023,0,10,9,2022
 644701,2022-10-09 13:00:00+00:00,Atalanta at Udinese,ATA @ UDI,Udinese,118,2,Atalanta,105,2,STATUS_FULL_TIME,Bluenergy Stadium,2022-2023,0,10,9,2022
+644699,2022-10-09 13:00:00+00:00,Hellas Verona at Salernitana,VER @ SAL,Salernitana,3240,2,Hellas Verona,119,1,STATUS_FULL_TIME,Arechi,2022-2023,0,10,9,2022
+644706,2022-10-09 13:00:00+00:00,Spezia at Monza,SPE @ MON,Monza,4007,2,Spezia,4056,0,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,10,9,2022
 644704,2022-10-09 16:00:00+00:00,Napoli at Cremonese,NAP @ CRE,Cremonese,4050,1,Napoli,114,4,STATUS_FULL_TIME,Giovanni Zini,2022-2023,0,10,9,2022
 644700,2022-10-09 18:45:00+00:00,Lecce at AS Roma,LEC @ ROMA,AS Roma,104,2,Lecce,113,1,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,10,9,2022
 644703,2022-10-10 18:45:00+00:00,Lazio at Fiorentina,LAZ @ FIO,Fiorentina,109,0,Lazio,112,4,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,10,10,2022
@@ -473,8 +473,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644732,2022-10-29 16:00:00+00:00,Juventus at Lecce,JUV @ LEC,Lecce,113,0,Juventus,111,1,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2022-2023,0,10,29,2022
 644734,2022-10-29 18:45:00+00:00,Sampdoria at Internazionale,SAM @ INT,Internazionale,110,3,Sampdoria,2734,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,10,29,2022
 644735,2022-10-30 11:30:00+00:00,Atalanta at Empoli,ATA @ EMP,Empoli,2574,0,Atalanta,105,2,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2022-2023,0,10,30,2022
-644727,2022-10-30 14:00:00+00:00,Udinese at Cremonese,UDI @ CRE,Cremonese,4050,0,Udinese,118,0,STATUS_FULL_TIME,Giovanni Zini,2022-2023,0,10,30,2022
 644729,2022-10-30 14:00:00+00:00,Fiorentina at Spezia,FIO @ SPE,Spezia,4056,1,Fiorentina,109,2,STATUS_FULL_TIME,Alberto Picco,2022-2023,0,10,30,2022
+644727,2022-10-30 14:00:00+00:00,Udinese at Cremonese,UDI @ CRE,Cremonese,4050,0,Udinese,118,0,STATUS_FULL_TIME,Giovanni Zini,2022-2023,0,10,30,2022
 644733,2022-10-30 17:00:00+00:00,Salernitana at Lazio,SAL @ LAZ,Lazio,112,1,Salernitana,3240,3,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,10,30,2022
 644728,2022-10-30 19:45:00+00:00,AC Milan at Torino,MIL @ TOR,Torino,239,2,AC Milan,103,1,STATUS_FULL_TIME,Olimpico Grande Torino,2022-2023,0,10,30,2022
 644731,2022-10-31 17:30:00+00:00,AS Roma at Hellas Verona,ROMA @ VER,Hellas Verona,119,1,AS Roma,104,3,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2022-2023,0,10,31,2022
@@ -517,8 +517,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644767,2023-01-04 15:30:00+00:00,Lazio at Lecce,LAZ @ LEC,Lecce,113,2,Lazio,112,1,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2022-2023,0,1,4,2023
 644770,2023-01-04 17:30:00+00:00,Juventus at Cremonese,JUV @ CRE,Cremonese,4050,0,Juventus,111,1,STATUS_FULL_TIME,Giovanni Zini,2022-2023,0,1,4,2023
 644769,2023-01-04 17:30:00+00:00,Monza at Fiorentina,MON @ FIO,Fiorentina,109,1,Monza,4007,1,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,1,4,2023
-644768,2023-01-04 19:45:00+00:00,Napoli at Internazionale,NAP @ INT,Internazionale,110,1,Napoli,114,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,1,4,2023
 644771,2023-01-04 19:45:00+00:00,Empoli at Udinese,EMP @ UDI,Udinese,118,1,Empoli,2574,1,STATUS_FULL_TIME,Bluenergy Stadium,2022-2023,0,1,4,2023
+644768,2023-01-04 19:45:00+00:00,Napoli at Internazionale,NAP @ INT,Internazionale,110,1,Napoli,114,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,1,4,2023
 644779,2023-01-07 14:00:00+00:00,Sassuolo at Fiorentina,SAS @ FIO,Fiorentina,109,2,Sassuolo,3997,1,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,1,7,2023
 644778,2023-01-07 17:00:00+00:00,Udinese at Juventus,UDI @ JUV,Juventus,111,1,Udinese,118,0,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,1,7,2023
 644786,2023-01-07 19:45:00+00:00,Internazionale at Monza,INT @ MON,Monza,4007,2,Internazionale,110,2,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,1,7,2023
@@ -664,8 +664,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644925,2023-04-22 16:00:00+00:00,Torino at Lazio,TOR @ LAZ,Lazio,112,0,Torino,239,1,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,4,22,2023
 644921,2023-04-22 18:45:00+00:00,Spezia at Sampdoria,SPE @ SAM,Sampdoria,2734,1,Spezia,4056,1,STATUS_FULL_TIME,Luigi Ferraris,2022-2023,0,4,22,2023
 644918,2023-04-23 10:30:00+00:00,Internazionale at Empoli,INT @ EMP,Empoli,2574,0,Internazionale,110,3,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2022-2023,0,4,23,2023
-644923,2023-04-23 13:00:00+00:00,Fiorentina at Monza,FIO @ MON,Monza,4007,3,Fiorentina,109,2,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,4,23,2023
 644920,2023-04-23 13:00:00+00:00,Cremonese at Udinese,CRE @ UDI,Udinese,118,3,Cremonese,4050,0,STATUS_FULL_TIME,Bluenergy Stadium,2022-2023,0,4,23,2023
+644923,2023-04-23 13:00:00+00:00,Fiorentina at Monza,FIO @ MON,Monza,4007,3,Fiorentina,109,2,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,4,23,2023
 644924,2023-04-23 16:00:00+00:00,Lecce at AC Milan,LEC @ MIL,AC Milan,103,2,Lecce,113,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,4,23,2023
 644926,2023-04-23 18:45:00+00:00,Napoli at Juventus,NAP @ JUV,Juventus,111,0,Napoli,114,1,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,4,23,2023
 644917,2023-04-24 18:45:00+00:00,AS Roma at Atalanta,ROMA @ ATA,Atalanta,105,3,AS Roma,104,1,STATUS_FULL_TIME,New Balance Arena,2022-2023,0,4,24,2023
@@ -679,10 +679,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644936,2023-04-30 13:00:00+00:00,Empoli at Sassuolo,EMP @ SAS,Sassuolo,3997,2,Empoli,2574,1,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,4,30,2023
 644934,2023-04-30 16:00:00+00:00,Sampdoria at Fiorentina,SAM @ FIO,Fiorentina,109,5,Sampdoria,2734,0,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,4,30,2023
 644927,2023-04-30 18:45:00+00:00,Juventus at Bologna,JUV @ BOL,Bologna,107,1,Juventus,111,1,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,4,30,2023
+644941,2023-05-03 16:00:00+00:00,Torino at Sampdoria,TOR @ SAM,Sampdoria,2734,0,Torino,239,2,STATUS_FULL_TIME,Luigi Ferraris,2022-2023,0,5,3,2023
+644942,2023-05-03 16:00:00+00:00,Fiorentina at Salernitana,FIO @ SAL,Salernitana,3240,3,Fiorentina,109,3,STATUS_FULL_TIME,Arechi,2022-2023,0,5,3,2023
 644945,2023-05-03 16:00:00+00:00,Spezia at Atalanta,SPE @ ATA,Atalanta,105,3,Spezia,4056,2,STATUS_FULL_TIME,New Balance Arena,2022-2023,0,5,3,2023
 644938,2023-05-03 16:00:00+00:00,Lecce at Juventus,LEC @ JUV,Juventus,111,2,Lecce,113,1,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,5,3,2023
-644942,2023-05-03 16:00:00+00:00,Fiorentina at Salernitana,FIO @ SAL,Salernitana,3240,3,Fiorentina,109,3,STATUS_FULL_TIME,Arechi,2022-2023,0,5,3,2023
-644941,2023-05-03 16:00:00+00:00,Torino at Sampdoria,TOR @ SAM,Sampdoria,2734,0,Torino,239,2,STATUS_FULL_TIME,Luigi Ferraris,2022-2023,0,5,3,2023
 644944,2023-05-03 19:00:00+00:00,Cremonese at AC Milan,CRE @ MIL,AC Milan,103,1,Cremonese,4050,1,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,5,3,2023
 644939,2023-05-03 19:00:00+00:00,Internazionale at Hellas Verona,INT @ VER,Hellas Verona,119,0,Internazionale,110,6,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2022-2023,0,5,3,2023
 644937,2023-05-03 19:00:00+00:00,Sassuolo at Lazio,SAS @ LAZ,Lazio,112,2,Sassuolo,3997,0,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,5,3,2023
@@ -725,8 +725,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644985,2023-05-27 16:00:00+00:00,AS Roma at Fiorentina,ROMA @ FIO,Fiorentina,109,2,AS Roma,104,1,STATUS_FULL_TIME,Artemio Franchi,2022-2023,0,5,27,2023
 644984,2023-05-27 18:45:00+00:00,Atalanta at Internazionale,ATA @ INT,Internazionale,110,3,Atalanta,105,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2022-2023,0,5,27,2023
 644981,2023-05-28 10:30:00+00:00,Empoli at Hellas Verona,EMP @ VER,Hellas Verona,119,1,Empoli,2574,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2022-2023,0,5,28,2023
-644977,2023-05-28 13:00:00+00:00,Napoli at Bologna,NAP @ BOL,Bologna,107,2,Napoli,114,2,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,5,28,2023
 644979,2023-05-28 13:00:00+00:00,Lecce at Monza,LEC @ MON,Monza,4007,0,Lecce,113,1,STATUS_FULL_TIME,U-Power Stadium,2022-2023,0,5,28,2023
+644977,2023-05-28 13:00:00+00:00,Napoli at Bologna,NAP @ BOL,Bologna,107,2,Napoli,114,2,STATUS_FULL_TIME,Renato Dall'Ara,2022-2023,0,5,28,2023
 644978,2023-05-28 16:00:00+00:00,Cremonese at Lazio,CRE @ LAZ,Lazio,112,3,Cremonese,4050,2,STATUS_FULL_TIME,Stadio Olimpico,2022-2023,0,5,28,2023
 644983,2023-05-28 18:45:00+00:00,AC Milan at Juventus,MIL @ JUV,Juventus,111,0,AC Milan,103,1,STATUS_FULL_TIME,Allianz Stadium,2022-2023,0,5,28,2023
 644994,2023-06-02 18:30:00+00:00,Fiorentina at Sassuolo,FIO @ SAS,Sassuolo,3997,1,Fiorentina,109,3,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,6,2,2023
@@ -740,8 +740,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 644990,2023-06-04 19:00:00+00:00,Bologna at Lecce,BOL @ LEC,Lecce,113,2,Bologna,107,3,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2022-2023,0,6,4,2023
 644991,2023-06-04 19:00:00+00:00,Juventus at Udinese,JUV @ UDI,Udinese,118,0,Juventus,111,1,STATUS_FULL_TIME,Bluenergy Stadium,2022-2023,0,6,4,2023
 670116,2023-06-11 18:45:00+00:00,Hellas Verona at Spezia,VER @ SPE,Spezia,4056,1,Hellas Verona,119,3,STATUS_FULL_TIME,Mapei Stadium,2022-2023,0,6,11,2023
-679226,2023-08-19 16:30:00+00:00,Hellas Verona at Empoli,VER @ EMP,Empoli,2574,0,Hellas Verona,119,1,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2023-2024,0,8,19,2023
 679222,2023-08-19 16:30:00+00:00,Napoli at Frosinone,NAP @ FRO,Frosinone,4057,1,Napoli,114,3,STATUS_FULL_TIME,Benito Stirpe,2023-2024,0,8,19,2023
+679226,2023-08-19 16:30:00+00:00,Hellas Verona at Empoli,VER @ EMP,Empoli,2574,0,Hellas Verona,119,1,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2023-2024,0,8,19,2023
 679228,2023-08-19 18:45:00+00:00,Fiorentina at Genoa,FIO @ GEN,Genoa,3263,1,Fiorentina,109,4,STATUS_FULL_TIME,Luigi Ferraris,2023-2024,0,8,19,2023
 679229,2023-08-19 18:45:00+00:00,Monza at Internazionale,MON @ INT,Internazionale,110,2,Monza,4007,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2023-2024,0,8,19,2023
 679220,2023-08-20 16:30:00+00:00,Salernitana at AS Roma,SAL @ ROMA,AS Roma,104,2,Salernitana,3240,2,STATUS_FULL_TIME,Stadio Olimpico,2023-2024,0,8,20,2023
@@ -754,8 +754,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 679230,2023-08-26 16:30:00+00:00,Empoli at Monza,EMP @ MON,Monza,4007,2,Empoli,2574,0,STATUS_FULL_TIME,U-Power Stadium,2023-2024,0,8,26,2023
 679238,2023-08-26 18:45:00+00:00,Torino at AC Milan,TOR @ MIL,AC Milan,103,4,Torino,239,1,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2023-2024,0,8,26,2023
 679234,2023-08-26 18:45:00+00:00,AS Roma at Hellas Verona,ROMA @ VER,Hellas Verona,119,2,AS Roma,104,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2023-2024,0,8,26,2023
-679239,2023-08-27 16:30:00+00:00,Lecce at Fiorentina,LEC @ FIO,Fiorentina,109,2,Lecce,113,2,STATUS_FULL_TIME,Artemio Franchi,2023-2024,0,8,27,2023
 679236,2023-08-27 16:30:00+00:00,Bologna at Juventus,BOL @ JUV,Juventus,111,1,Bologna,107,1,STATUS_FULL_TIME,Allianz Stadium,2023-2024,0,8,27,2023
+679239,2023-08-27 16:30:00+00:00,Lecce at Fiorentina,LEC @ FIO,Fiorentina,109,2,Lecce,113,2,STATUS_FULL_TIME,Artemio Franchi,2023-2024,0,8,27,2023
 679237,2023-08-27 18:45:00+00:00,Genoa at Lazio,GEN @ LAZ,Lazio,112,0,Genoa,3263,1,STATUS_FULL_TIME,Stadio Olimpico,2023-2024,0,8,27,2023
 679232,2023-08-27 18:45:00+00:00,Sassuolo at Napoli,SAS @ NAP,Napoli,114,2,Sassuolo,3997,0,STATUS_FULL_TIME,Diego Armando Maradona,2023-2024,0,8,27,2023
 679231,2023-08-28 16:30:00+00:00,Udinese at Salernitana,UDI @ SAL,Salernitana,3240,1,Udinese,118,1,STATUS_FULL_TIME,Arechi,2023-2024,0,8,28,2023
@@ -1126,8 +1126,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 712115,2024-08-17 18:45:00+00:00,Monza at Empoli,MON @ EMP,Empoli,2574,0,Monza,4007,0,STATUS_FULL_TIME,Stadio Carlo Castellani – Computer Gross Arena,2024-2025,0,8,17,2024
 712113,2024-08-18 16:30:00+00:00,Udinese at Bologna,UDI @ BOL,Bologna,107,1,Udinese,118,1,STATUS_FULL_TIME,Renato Dall'Ara,2024-2025,0,8,18,2024
 712117,2024-08-18 16:30:00+00:00,Napoli at Hellas Verona,NAP @ VER,Hellas Verona,119,3,Napoli,114,0,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2024-2025,0,8,18,2024
-712114,2024-08-18 18:45:00+00:00,AS Roma at Cagliari,ROMA @ CAG,Cagliari,2925,0,AS Roma,104,0,STATUS_FULL_TIME,Unipol Domus,2024-2025,0,8,18,2024
 712119,2024-08-18 18:45:00+00:00,Venezia at Lazio,VEN @ LAZ,Lazio,112,3,Venezia,17530,1,STATUS_FULL_TIME,Stadio Olimpico,2024-2025,0,8,18,2024
+712114,2024-08-18 18:45:00+00:00,AS Roma at Cagliari,ROMA @ CAG,Cagliari,2925,0,AS Roma,104,0,STATUS_FULL_TIME,Unipol Domus,2024-2025,0,8,18,2024
 712120,2024-08-19 16:30:00+00:00,Atalanta at Lecce,ATA @ LEC,Lecce,113,0,Atalanta,105,4,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2024-2025,0,8,19,2024
 712118,2024-08-19 18:45:00+00:00,Como at Juventus,COMO @ JUV,Juventus,111,3,Como,2572,0,STATUS_FULL_TIME,Allianz Stadium,2024-2025,0,8,19,2024
 712129,2024-08-24 16:30:00+00:00,AC Milan at Parma,MIL @ PAR,Parma,115,2,AC Milan,103,1,STATUS_FULL_TIME,Ennio Tardini,2024-2025,0,8,24,2024
@@ -1186,8 +1186,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 712177,2024-10-05 16:00:00+00:00,Genoa at Atalanta,GEN @ ATA,Atalanta,105,5,Genoa,3263,1,STATUS_FULL_TIME,New Balance Arena,2024-2025,0,10,5,2024
 712178,2024-10-05 18:45:00+00:00,Torino at Internazionale,TOR @ INT,Internazionale,110,3,Torino,239,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2024-2025,0,10,5,2024
 712174,2024-10-06 10:30:00+00:00,Cagliari at Juventus,CAG @ JUV,Juventus,111,1,Cagliari,2925,1,STATUS_FULL_TIME,Allianz Stadium,2024-2025,0,10,6,2024
-712176,2024-10-06 13:00:00+00:00,Parma at Bologna,PAR @ BOL,Bologna,107,0,Parma,115,0,STATUS_FULL_TIME,Renato Dall'Ara,2024-2025,0,10,6,2024
 712180,2024-10-06 13:00:00+00:00,Empoli at Lazio,EMP @ LAZ,Lazio,112,2,Empoli,2574,1,STATUS_FULL_TIME,Stadio Olimpico,2024-2025,0,10,6,2024
+712176,2024-10-06 13:00:00+00:00,Parma at Bologna,PAR @ BOL,Bologna,107,0,Parma,115,0,STATUS_FULL_TIME,Renato Dall'Ara,2024-2025,0,10,6,2024
 712181,2024-10-06 16:00:00+00:00,AS Roma at Monza,ROMA @ MON,Monza,4007,1,AS Roma,104,1,STATUS_FULL_TIME,U-Power Stadium,2024-2025,0,10,6,2024
 712175,2024-10-06 18:45:00+00:00,AC Milan at Fiorentina,MIL @ FIO,Fiorentina,109,2,AC Milan,103,1,STATUS_FULL_TIME,Artemio Franchi,2024-2025,0,10,6,2024
 712186,2024-10-19 13:00:00+00:00,Parma at Como,PAR @ COMO,Como,2572,1,Parma,115,1,STATUS_FULL_TIME,Giuseppe Sinigaglia,2024-2025,0,10,19,2024
@@ -1364,8 +1364,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 712358,2025-02-15 17:00:00+00:00,Napoli at Lazio,NAP @ LAZ,Lazio,112,2,Napoli,114,2,STATUS_FULL_TIME,Stadio Olimpico,2024-2025,0,2,15,2025
 712361,2025-02-15 19:45:00+00:00,Hellas Verona at AC Milan,VER @ MIL,AC Milan,103,1,Hellas Verona,119,0,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2024-2025,0,2,15,2025
 712357,2025-02-16 11:30:00+00:00,Como at Fiorentina,COMO @ FIO,Fiorentina,109,0,Como,2572,2,STATUS_FULL_TIME,Artemio Franchi,2024-2025,0,2,16,2025
-712362,2025-02-16 14:00:00+00:00,Lecce at Monza,LEC @ MON,Monza,4007,0,Lecce,113,0,STATUS_FULL_TIME,U-Power Stadium,2024-2025,0,2,16,2025
 712353,2025-02-16 14:00:00+00:00,Empoli at Udinese,EMP @ UDI,Udinese,118,3,Empoli,2574,0,STATUS_FULL_TIME,Bluenergy Stadium,2024-2025,0,2,16,2025
+712362,2025-02-16 14:00:00+00:00,Lecce at Monza,LEC @ MON,Monza,4007,0,Lecce,113,0,STATUS_FULL_TIME,U-Power Stadium,2024-2025,0,2,16,2025
 712354,2025-02-16 17:00:00+00:00,AS Roma at Parma,ROMA @ PAR,Parma,115,0,AS Roma,104,1,STATUS_FULL_TIME,Ennio Tardini,2024-2025,0,2,16,2025
 712359,2025-02-16 19:45:00+00:00,Internazionale at Juventus,INT @ JUV,Juventus,111,1,Internazionale,110,0,STATUS_FULL_TIME,Allianz Stadium,2024-2025,0,2,16,2025
 712360,2025-02-17 19:45:00+00:00,Venezia at Genoa,VEN @ GEN,Genoa,3263,2,Venezia,17530,0,STATUS_FULL_TIME,Luigi Ferraris,2024-2025,0,2,17,2025
@@ -1481,15 +1481,15 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 712472,2025-05-12 16:30:00+00:00,Fiorentina at Venezia,FIO @ VEN,Venezia,17530,2,Fiorentina,109,1,STATUS_FULL_TIME,Pier Luigi Penzo,2024-2025,0,5,12,2025
 712471,2025-05-12 18:45:00+00:00,AS Roma at Atalanta,ROMA @ ATA,Atalanta,105,2,AS Roma,104,1,STATUS_FULL_TIME,New Balance Arena,2024-2025,0,5,12,2025
 712474,2025-05-17 18:45:00+00:00,Atalanta at Genoa,ATA @ GEN,Genoa,3263,2,Atalanta,105,3,STATUS_FULL_TIME,Luigi Ferraris,2024-2025,0,5,17,2025
-712475,2025-05-18 18:45:00+00:00,AC Milan at AS Roma,MIL @ ROMA,AS Roma,104,3,AC Milan,103,1,STATUS_FULL_TIME,Stadio Olimpico,2024-2025,0,5,18,2025
-712473,2025-05-18 18:45:00+00:00,Venezia at Cagliari,VEN @ CAG,Cagliari,2925,3,Venezia,17530,0,STATUS_FULL_TIME,Unipol Domus,2024-2025,0,5,18,2025
+712477,2025-05-18 18:45:00+00:00,Napoli at Parma,NAP @ PAR,Parma,115,0,Napoli,114,0,STATUS_FULL_TIME,Ennio Tardini,2024-2025,0,5,18,2025
+712478,2025-05-18 18:45:00+00:00,Empoli at Monza,EMP @ MON,Monza,4007,1,Empoli,2574,3,STATUS_FULL_TIME,U-Power Stadium,2024-2025,0,5,18,2025
+712479,2025-05-18 18:45:00+00:00,Torino at Lecce,TOR @ LEC,Lecce,113,1,Torino,239,0,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2024-2025,0,5,18,2025
+712480,2025-05-18 18:45:00+00:00,Udinese at Juventus,UDI @ JUV,Juventus,111,2,Udinese,118,0,STATUS_FULL_TIME,Allianz Stadium,2024-2025,0,5,18,2025
 712476,2025-05-18 18:45:00+00:00,Bologna at Fiorentina,BOL @ FIO,Fiorentina,109,3,Bologna,107,2,STATUS_FULL_TIME,Artemio Franchi,2024-2025,0,5,18,2025
 712482,2025-05-18 18:45:00+00:00,Como at Hellas Verona,COMO @ VER,Hellas Verona,119,1,Como,2572,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2024-2025,0,5,18,2025
+712475,2025-05-18 18:45:00+00:00,AC Milan at AS Roma,MIL @ ROMA,AS Roma,104,3,AC Milan,103,1,STATUS_FULL_TIME,Stadio Olimpico,2024-2025,0,5,18,2025
 712481,2025-05-18 18:45:00+00:00,Lazio at Internazionale,LAZ @ INT,Internazionale,110,2,Lazio,112,2,STATUS_FULL_TIME,Stadio Giuseppe Meazza,2024-2025,0,5,18,2025
-712480,2025-05-18 18:45:00+00:00,Udinese at Juventus,UDI @ JUV,Juventus,111,2,Udinese,118,0,STATUS_FULL_TIME,Allianz Stadium,2024-2025,0,5,18,2025
-712479,2025-05-18 18:45:00+00:00,Torino at Lecce,TOR @ LEC,Lecce,113,1,Torino,239,0,STATUS_FULL_TIME,Stadio Ettore Giardiniero - Via del Mare,2024-2025,0,5,18,2025
-712478,2025-05-18 18:45:00+00:00,Empoli at Monza,EMP @ MON,Monza,4007,1,Empoli,2574,3,STATUS_FULL_TIME,U-Power Stadium,2024-2025,0,5,18,2025
-712477,2025-05-18 18:45:00+00:00,Napoli at Parma,NAP @ PAR,Parma,115,0,Napoli,114,0,STATUS_FULL_TIME,Ennio Tardini,2024-2025,0,5,18,2025
+712473,2025-05-18 18:45:00+00:00,Venezia at Cagliari,VEN @ CAG,Cagliari,2925,3,Venezia,17530,0,STATUS_FULL_TIME,Unipol Domus,2024-2025,0,5,18,2025
 712484,2025-05-23 18:45:00+00:00,Internazionale at Como,INT @ COMO,Como,2572,0,Internazionale,110,2,STATUS_FULL_TIME,Giuseppe Sinigaglia,2024-2025,0,5,23,2025
 712488,2025-05-23 18:45:00+00:00,Cagliari at Napoli,CAG @ NAP,Napoli,114,2,Cagliari,2925,0,STATUS_FULL_TIME,Diego Armando Maradona,2024-2025,0,5,23,2025
 712485,2025-05-24 16:00:00+00:00,Genoa at Bologna,GEN @ BOL,Bologna,107,1,Genoa,3263,3,STATUS_FULL_TIME,Renato Dall'Ara,2024-2025,0,5,24,2025
@@ -1500,8 +1500,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 712489,2025-05-25 18:45:00+00:00,AS Roma at Torino,ROMA @ TOR,Torino,239,0,AS Roma,104,2,STATUS_FULL_TIME,Olimpico Grande Torino,2024-2025,0,5,25,2025
 712490,2025-05-25 18:45:00+00:00,Fiorentina at Udinese,FIO @ UDI,Udinese,118,2,Fiorentina,109,3,STATUS_FULL_TIME,Bluenergy Stadium,2024-2025,0,5,25,2025
 712491,2025-05-25 18:45:00+00:00,Juventus at Venezia,JUV @ VEN,Venezia,17530,2,Juventus,111,3,STATUS_FULL_TIME,Pier Luigi Penzo,2024-2025,0,5,25,2025
-736790,2025-08-23 16:30:00+00:00,Lecce at Genoa,LEC @ GEN,Genoa,3263,0,Lecce,113,0,STATUS_FULL_TIME,Stadio Luigi Ferraris,2025-2026,0,8,23,2025
 736784,2025-08-23 16:30:00+00:00,Napoli at Sassuolo,NAP @ SAS,Sassuolo,3997,0,Napoli,114,2,STATUS_FULL_TIME,Mapei Stadium,2025-2026,0,8,23,2025
+736790,2025-08-23 16:30:00+00:00,Lecce at Genoa,LEC @ GEN,Genoa,3263,0,Lecce,113,0,STATUS_FULL_TIME,Stadio Luigi Ferraris,2025-2026,0,8,23,2025
 736793,2025-08-23 18:45:00+00:00,Cremonese at AC Milan,CRE @ MIL,AC Milan,103,1,Cremonese,4050,2,STATUS_FULL_TIME,San Siro,2025-2026,0,8,23,2025
 736785,2025-08-23 18:45:00+00:00,Bologna at AS Roma,BOL @ ROMA,AS Roma,104,1,Bologna,107,0,STATUS_FULL_TIME,Olimpico,2025-2026,0,8,23,2025
 736788,2025-08-24 16:30:00+00:00,Fiorentina at Cagliari,FIO @ CAG,Cagliari,2925,1,Fiorentina,109,1,STATUS_FULL_TIME,Unipol Domus,2025-2026,0,8,24,2025
@@ -1514,8 +1514,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736803,2025-08-29 18:45:00+00:00,AC Milan at Lecce,MIL @ LEC,Lecce,113,0,AC Milan,103,2,STATUS_FULL_TIME,Via Del Mare,2025-2026,0,8,29,2025
 736794,2025-08-30 16:30:00+00:00,Como at Bologna,COMO @ BOL,Bologna,107,1,Como,2572,0,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,8,30,2025
 736796,2025-08-30 16:30:00+00:00,Atalanta at Parma,ATA @ PAR,Parma,115,1,Atalanta,105,1,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,8,30,2025
-736797,2025-08-30 18:45:00+00:00,Cagliari at Napoli,CAG @ NAP,Napoli,114,1,Cagliari,2925,0,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2025-2026,0,8,30,2025
 736795,2025-08-30 18:45:00+00:00,AS Roma at Pisa,ROMA @ PIS,Pisa,3956,0,AS Roma,104,1,STATUS_FULL_TIME,Arena Garibaldi - Stadio Romeo Anconetani,2025-2026,0,8,30,2025
+736797,2025-08-30 18:45:00+00:00,Cagliari at Napoli,CAG @ NAP,Napoli,114,1,Cagliari,2925,0,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2025-2026,0,8,30,2025
 736801,2025-08-31 16:30:00+00:00,Juventus at Genoa,JUV @ GEN,Genoa,3263,0,Juventus,111,1,STATUS_FULL_TIME,Stadio Luigi Ferraris,2025-2026,0,8,31,2025
 736798,2025-08-31 16:30:00+00:00,Fiorentina at Torino,FIO @ TOR,Torino,239,0,Fiorentina,109,0,STATUS_FULL_TIME,Stadio Olimpico Grande Torino,2025-2026,0,8,31,2025
 736800,2025-08-31 18:45:00+00:00,Udinese at Internazionale,UDI @ INT,Internazionale,110,1,Udinese,118,2,STATUS_FULL_TIME,San Siro,2025-2026,0,8,31,2025
@@ -1556,8 +1556,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736842,2025-10-04 16:00:00+00:00,Cremonese at Internazionale,CRE @ INT,Internazionale,110,4,Cremonese,4050,1,STATUS_FULL_TIME,San Siro,2025-2026,0,10,4,2025
 736834,2025-10-04 18:45:00+00:00,Como at Atalanta,COMO @ ATA,Atalanta,105,1,Como,2572,1,STATUS_FULL_TIME,New Balance Arena,2025-2026,0,10,4,2025
 736838,2025-10-05 10:30:00+00:00,Cagliari at Udinese,CAG @ UDI,Udinese,118,1,Cagliari,2925,1,STATUS_FULL_TIME,Stadio Friuli,2025-2026,0,10,5,2025
-736835,2025-10-05 13:00:00+00:00,Pisa at Bologna,PIS @ BOL,Bologna,107,4,Pisa,3956,0,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,10,5,2025
 736836,2025-10-05 13:00:00+00:00,AS Roma at Fiorentina,ROMA @ FIO,Fiorentina,109,1,AS Roma,104,2,STATUS_FULL_TIME,Stadio Artemio Franchi,2025-2026,0,10,5,2025
+736835,2025-10-05 13:00:00+00:00,Pisa at Bologna,PIS @ BOL,Bologna,107,4,Pisa,3956,0,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,10,5,2025
 736839,2025-10-05 16:00:00+00:00,Genoa at Napoli,GEN @ NAP,Napoli,114,2,Genoa,3263,1,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2025-2026,0,10,5,2025
 736841,2025-10-05 18:45:00+00:00,AC Milan at Juventus,MIL @ JUV,Juventus,111,0,AC Milan,103,0,STATUS_FULL_TIME,Allianz Stadium,2025-2026,0,10,5,2025
 736845,2025-10-18 13:00:00+00:00,Sassuolo at Lecce,SAS @ LEC,Lecce,113,0,Sassuolo,3997,0,STATUS_FULL_TIME,Via Del Mare,2025-2026,0,10,18,2025
@@ -1571,8 +1571,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736846,2025-10-19 18:45:00+00:00,Fiorentina at AC Milan,FIO @ MIL,AC Milan,103,2,Fiorentina,109,1,STATUS_FULL_TIME,San Siro,2025-2026,0,10,19,2025
 736853,2025-10-20 18:45:00+00:00,Udinese at Cremonese,UDI @ CRE,Cremonese,4050,1,Udinese,118,1,STATUS_FULL_TIME,Stadio Giovanni Zini,2025-2026,0,10,20,2025
 736861,2025-10-24 18:45:00+00:00,Pisa at AC Milan,PIS @ MIL,AC Milan,103,2,Pisa,3956,2,STATUS_FULL_TIME,San Siro,2025-2026,0,10,24,2025
-736859,2025-10-25 13:00:00+00:00,Como at Parma,COMO @ PAR,Parma,115,0,Como,2572,0,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,10,25,2025
 736856,2025-10-25 13:00:00+00:00,Lecce at Udinese,LEC @ UDI,Udinese,118,3,Lecce,113,2,STATUS_FULL_TIME,Stadio Friuli,2025-2026,0,10,25,2025
+736859,2025-10-25 13:00:00+00:00,Como at Parma,COMO @ PAR,Parma,115,0,Como,2572,0,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,10,25,2025
 736860,2025-10-25 16:00:00+00:00,Internazionale at Napoli,INT @ NAP,Napoli,114,3,Internazionale,110,1,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2025-2026,0,10,25,2025
 736854,2025-10-25 18:45:00+00:00,Atalanta at Cremonese,ATA @ CRE,Cremonese,4050,1,Atalanta,105,1,STATUS_FULL_TIME,Stadio Giovanni Zini,2025-2026,0,10,25,2025
 736857,2025-10-26 11:30:00+00:00,Genoa at Torino,GEN @ TOR,Torino,239,2,Genoa,3263,1,STATUS_FULL_TIME,Stadio Olimpico Grande Torino,2025-2026,0,10,26,2025
@@ -1585,9 +1585,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736868,2025-10-29 17:30:00+00:00,Parma at AS Roma,PAR @ ROMA,AS Roma,104,2,Parma,115,1,STATUS_FULL_TIME,Olimpico,2025-2026,0,10,29,2025
 736870,2025-10-29 17:30:00+00:00,Hellas Verona at Como,VER @ COMO,Como,2572,3,Hellas Verona,119,1,STATUS_FULL_TIME,Giuseppe Sinigaglia,2025-2026,0,10,29,2025
 736867,2025-10-29 17:30:00+00:00,Udinese at Juventus,UDI @ JUV,Juventus,111,3,Udinese,118,1,STATUS_FULL_TIME,Allianz Stadium,2025-2026,0,10,29,2025
-736872,2025-10-29 19:45:00+00:00,Torino at Bologna,TOR @ BOL,Bologna,107,0,Torino,239,0,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,10,29,2025
 736869,2025-10-29 19:45:00+00:00,Cremonese at Genoa,CRE @ GEN,Genoa,3263,0,Cremonese,4050,2,STATUS_FULL_TIME,Stadio Luigi Ferraris,2025-2026,0,10,29,2025
 736873,2025-10-29 19:45:00+00:00,Fiorentina at Internazionale,FIO @ INT,Internazionale,110,3,Fiorentina,109,0,STATUS_FULL_TIME,San Siro,2025-2026,0,10,29,2025
+736872,2025-10-29 19:45:00+00:00,Torino at Bologna,TOR @ BOL,Bologna,107,0,Torino,239,0,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,10,29,2025
 736871,2025-10-30 17:30:00+00:00,Sassuolo at Cagliari,SAS @ CAG,Cagliari,2925,1,Sassuolo,3997,2,STATUS_FULL_TIME,Unipol Domus,2025-2026,0,10,30,2025
 736865,2025-10-30 19:45:00+00:00,Lazio at Pisa,LAZ @ PIS,Pisa,3956,0,Lazio,112,0,STATUS_FULL_TIME,Arena Garibaldi - Stadio Romeo Anconetani,2025-2026,0,10,30,2025
 736881,2025-11-01 14:00:00+00:00,Atalanta at Udinese,ATA @ UDI,Udinese,118,1,Atalanta,105,0,STATUS_FULL_TIME,Stadio Friuli,2025-2026,0,11,1,2025
@@ -1601,8 +1601,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736878,2025-11-03 17:30:00+00:00,Genoa at Sassuolo,GEN @ SAS,Sassuolo,3997,1,Genoa,3263,2,STATUS_FULL_TIME,Mapei Stadium,2025-2026,0,11,3,2025
 736877,2025-11-03 19:45:00+00:00,Cagliari at Lazio,CAG @ LAZ,Lazio,112,2,Cagliari,2925,0,STATUS_FULL_TIME,Olimpico,2025-2026,0,11,3,2025
 736886,2025-11-07 19:45:00+00:00,Cremonese at Pisa,CRE @ PIS,Pisa,3956,1,Cremonese,4050,0,STATUS_FULL_TIME,Arena Garibaldi - Stadio Romeo Anconetani,2025-2026,0,11,7,2025
-736884,2025-11-08 14:00:00+00:00,Cagliari at Como,CAG @ COMO,Como,2572,0,Cagliari,2925,0,STATUS_FULL_TIME,Giuseppe Sinigaglia,2025-2026,0,11,8,2025
 736888,2025-11-08 14:00:00+00:00,Hellas Verona at Lecce,VER @ LEC,Lecce,113,0,Hellas Verona,119,0,STATUS_FULL_TIME,Via Del Mare,2025-2026,0,11,8,2025
+736884,2025-11-08 14:00:00+00:00,Cagliari at Como,CAG @ COMO,Como,2572,0,Cagliari,2925,0,STATUS_FULL_TIME,Giuseppe Sinigaglia,2025-2026,0,11,8,2025
 736889,2025-11-08 17:00:00+00:00,Torino at Juventus,TOR @ JUV,Juventus,111,0,Torino,239,0,STATUS_FULL_TIME,Allianz Stadium,2025-2026,0,11,8,2025
 736887,2025-11-08 19:45:00+00:00,AC Milan at Parma,MIL @ PAR,Parma,115,2,AC Milan,103,2,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,11,8,2025
 736893,2025-11-09 11:30:00+00:00,Sassuolo at Atalanta,SAS @ ATA,Atalanta,105,0,Sassuolo,3997,3,STATUS_FULL_TIME,New Balance Arena,2025-2026,0,11,9,2025
@@ -1645,8 +1645,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 736926,2025-12-13 17:00:00+00:00,Lazio at Parma,LAZ @ PAR,Parma,115,0,Lazio,112,1,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,12,13,2025
 736932,2025-12-13 19:45:00+00:00,Cagliari at Atalanta,CAG @ ATA,Atalanta,105,2,Cagliari,2925,1,STATUS_FULL_TIME,New Balance Arena,2025-2026,0,12,13,2025
 736927,2025-12-14 11:30:00+00:00,Sassuolo at AC Milan,SAS @ MIL,AC Milan,103,2,Sassuolo,3997,2,STATUS_FULL_TIME,San Siro,2025-2026,0,12,14,2025
-736930,2025-12-14 14:00:00+00:00,Hellas Verona at Fiorentina,VER @ FIO,Fiorentina,109,1,Hellas Verona,119,2,STATUS_FULL_TIME,Stadio Artemio Franchi,2025-2026,0,12,14,2025
 736933,2025-12-14 14:00:00+00:00,Napoli at Udinese,NAP @ UDI,Udinese,118,1,Napoli,114,0,STATUS_FULL_TIME,Stadio Friuli,2025-2026,0,12,14,2025
+736930,2025-12-14 14:00:00+00:00,Hellas Verona at Fiorentina,VER @ FIO,Fiorentina,109,1,Hellas Verona,119,2,STATUS_FULL_TIME,Stadio Artemio Franchi,2025-2026,0,12,14,2025
 736929,2025-12-14 17:00:00+00:00,Internazionale at Genoa,INT @ GEN,Genoa,3263,1,Internazionale,110,2,STATUS_FULL_TIME,Stadio Luigi Ferraris,2025-2026,0,12,14,2025
 736931,2025-12-14 19:45:00+00:00,Juventus at Bologna,JUV @ BOL,Bologna,107,0,Juventus,111,1,STATUS_FULL_TIME,Renato Dall'Ara,2025-2026,0,12,14,2025
 736925,2025-12-15 19:45:00+00:00,Como at AS Roma,COMO @ ROMA,AS Roma,104,1,Como,2572,0,STATUS_FULL_TIME,Olimpico,2025-2026,0,12,15,2025
@@ -1855,8 +1855,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 737138,2026-05-09 16:00:00+00:00,Internazionale at Lazio,INT @ LAZ,Lazio,112,0,Internazionale,110,3,STATUS_FULL_TIME,Olimpico,2025-2026,0,5,9,2026
 737137,2026-05-09 18:45:00+00:00,Juventus at Lecce,JUV @ LEC,Lecce,113,0,Juventus,111,1,STATUS_FULL_TIME,Via Del Mare,2025-2026,0,5,9,2026
 737139,2026-05-10 10:30:00+00:00,Como at Hellas Verona,COMO @ VER,Hellas Verona,119,0,Como,2572,1,STATUS_FULL_TIME,Stadio Marcantonio Bentegodi,2025-2026,0,5,10,2026
-737141,2026-05-10 13:00:00+00:00,Pisa at Cremonese,PIS @ CRE,Cremonese,4050,3,Pisa,3956,0,STATUS_FULL_TIME,Stadio Giovanni Zini,2025-2026,0,5,10,2026
 737140,2026-05-10 13:00:00+00:00,Genoa at Fiorentina,GEN @ FIO,Fiorentina,109,0,Genoa,3263,0,STATUS_FULL_TIME,Stadio Artemio Franchi,2025-2026,0,5,10,2026
+737141,2026-05-10 13:00:00+00:00,Pisa at Cremonese,PIS @ CRE,Cremonese,4050,3,Pisa,3956,0,STATUS_FULL_TIME,Stadio Giovanni Zini,2025-2026,0,5,10,2026
 737134,2026-05-10 16:00:00+00:00,AS Roma at Parma,ROMA @ PAR,Parma,115,2,AS Roma,104,3,STATUS_FULL_TIME,Ennio Tardini,2025-2026,0,5,10,2026
 737136,2026-05-10 18:45:00+00:00,Atalanta at AC Milan,ATA @ MIL,AC Milan,103,2,Atalanta,105,3,STATUS_FULL_TIME,San Siro,2025-2026,0,5,10,2026
 737135,2026-05-11 18:45:00+00:00,Bologna at Napoli,BOL @ NAP,Napoli,114,2,Bologna,107,3,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2025-2026,0,5,11,2026
@@ -1884,8 +1884,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401874745,2026-08-22 16:30:00+00:00,Como at Udinese,COMO @ UDI,Udinese,118,1,Como,2572,1,STATUS_FULL_TIME,Stadio Friuli,2026-2027,0,8,22,2026
 401874929,2026-08-22 18:45:00+00:00,Napoli at Genoa,NAP @ GEN,Genoa,3263,0,Napoli,114,2,STATUS_FULL_TIME,Stadio Luigi Ferraris,2026-2027,0,8,22,2026
 401874747,2026-08-22 18:45:00+00:00,Cagliari at Parma,CAG @ PAR,Parma,115,0,Cagliari,2925,1,STATUS_FULL_TIME,Ennio Tardini,2026-2027,0,8,22,2026
-401874930,2026-08-23 16:30:00+00:00,Juventus at Frosinone,JUV @ FRO,Frosinone,4057,0,Juventus,111,1,STATUS_FULL_TIME,Stadio Benito Stirpe,2026-2027,0,8,23,2026
 401874946,2026-08-23 16:30:00+00:00,Lecce at Venezia,LEC @ VEN,Venezia,17530,0,Lecce,113,2,STATUS_FULL_TIME,Stadio Pier Luigi Penzo,2026-2027,0,8,23,2026
+401874930,2026-08-23 16:30:00+00:00,Juventus at Frosinone,JUV @ FRO,Frosinone,4057,0,Juventus,111,1,STATUS_FULL_TIME,Stadio Benito Stirpe,2026-2027,0,8,23,2026
 401874748,2026-08-23 18:45:00+00:00,Sassuolo at Atalanta,SAS @ ATA,Atalanta,105,2,Sassuolo,3997,1,STATUS_FULL_TIME,New Balance Arena,2026-2027,0,8,23,2026
 401874932,2026-08-23 18:45:00+00:00,AC Milan at Torino,MIL @ TOR,Torino,239,1,AC Milan,103,2,STATUS_FULL_TIME,Stadio Olimpico Grande Torino,2026-2027,0,8,23,2026
 401874927,2026-08-24 16:30:00+00:00,Lazio at Bologna,LAZ @ BOL,Bologna,107,0,Lazio,112,1,STATUS_FULL_TIME,Renato Dall'Ara,2026-2027,0,8,24,2026
@@ -1898,5 +1898,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401874755,2026-08-30 16:30:00+00:00,Como at Napoli,COMO @ NAP,Napoli,114,1,Como,2572,2,STATUS_FULL_TIME,Stadio Diego Armando Maradona,2026-2027,0,8,30,2026
 401874938,2026-08-30 18:45:00+00:00,Internazionale at Cagliari,INT @ CAG,Cagliari,2925,0,Internazionale,110,1,STATUS_FULL_TIME,Unipol Domus,2026-2027,0,8,30,2026
 401874742,2026-08-30 18:45:00+00:00,Genoa at Lazio,GEN @ LAZ,Lazio,112,1,Genoa,3263,0,STATUS_FULL_TIME,Olimpico,2026-2027,0,8,30,2026
-401874945,2026-08-31 16:30:00+00:00,AS Roma at Lecce,ROMA @ LEC,Lecce,113,0,AS Roma,104,4,STATUS_FULL_TIME,Via Del Mare,2026-2027,0,8,31,2026
-401874970,2026-08-31 18:45:00+00:00,Bologna at Atalanta,BOL @ ATA,Atalanta,105,1,Bologna,107,0,STATUS_FULL_TIME,New Balance Arena,2026-2027,0,8,31,2026
+401874945,2026-08-31 16:30:00+00:00,,,Lecce,113,0,AS Roma,104,4,STATUS_FULL_TIME,Via Del Mare,2026-2027,0,8,31,2026
+401874970,2026-08-31 18:45:00+00:00,,,Atalanta,105,1,Bologna,107,0,STATUS_FULL_TIME,New Balance Arena,2026-2027,0,8,31,2026

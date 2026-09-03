@@ -14,6 +14,7 @@ import { leagues } from "@/lib/leagues";
 import { getHeatColour } from "@/lib/getHeatColour";
 import ProgressCircle from "@/components/ProgressCircle";
 import { slugify } from "@/lib/slugify";
+import AddToCalendar from "@/components/AddToCalendar";
 
 function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
@@ -419,7 +420,7 @@ function GamesContent() {
                                                 HOME
                                             </div>
                                             <Link
-                                                href={`/${game.league}/${slugify(game.home_name)}`}
+                                                href={`/${game.league}/teams/${slugify(game.home_name)}`}
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.home_name}
@@ -431,7 +432,7 @@ function GamesContent() {
                                                 AWAY
                                             </div>
                                             <Link
-                                                href={`/${game.league}/${slugify(game.away_name)}`}
+                                                href={`/${game.league}/teams/${slugify(game.away_name)}`}
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.away_name}
@@ -526,30 +527,32 @@ function GamesContent() {
                                         </div>
                                     </div>
 
-                                    {game.actual_slop === null && (
-                                        <div className="mt-4">
-                                            <button
-                                                onClick={() => setCalendarGame(game)}
-                                                className="
-                                                    mt-4
-                                                    w-full
-                                                    rounded-lg
-                                                    border
-                                                    border-zinc-700
-                                                    bg-zinc-800
-                                                    px-4
-                                                    py-2
-                                                    text-sm
-                                                    font-medium
-                                                    text-zinc-200
-                                                    transition
-                                                    hover:bg-zinc-700
-                                                "
-                                            >
-                                                Add to Calendar
-                                            </button>
-                                        </div>                                        
-                                    )}  
+                                    <div className="mt-6 space-y-4">
+                                        <Link
+                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${encodeURIComponent(game.date)}`}
+                                            className="
+                                                block
+                                                w-full
+                                                rounded-lg
+                                                bg-zinc-200
+                                                px-4
+                                                py-2
+                                                text-center
+                                                text-sm
+                                                font-medium
+                                                text-zinc-900!
+                                                transition
+                                                hover:bg-white
+                                                no-underline!
+                                            "
+                                        >
+                                            View Game
+                                        </Link>
+
+                                        {game.actual_slop === null && (
+                                            <AddToCalendar game={game} />
+                                        )}
+                                    </div>
                                 </div>
                             )
                         })}
@@ -580,118 +583,6 @@ function GamesContent() {
                 </>
             )}
 
-            {/* ADD TO CALENDAR POPUP */}
-            {calendarGame && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-                    onClick={() => setCalendarGame(null)}
-                >
-                    <div
-                        className="w-full max-w-sm rounded-xl border border-zinc-800 bg-zinc-900 p-6 shadow-xl"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="flex items-center justify-between">
-                            <h2 className="text-lg font-semibold">
-                                Add to Calendar
-                            </h2>
-
-                            <button
-                                onClick={() => setCalendarGame(null)}
-                                className="text-zinc-500 transition hover:text-zinc-300"
-                            >
-                                ✕
-                            </button>
-                        </div>
-
-                        <div className="mt-2 text-sm text-zinc-400">
-                            {calendarGame.away_name} @ {calendarGame.home_name}
-                        </div>
-
-                        <div className="mt-5 space-y-2">
-                            <button
-                                onClick={() => {
-                                    addToICS(calendarGame);
-                                    setCalendarGame(null);
-                                }}
-                                className="
-                                    w-full
-                                    rounded-lg
-                                    border
-                                    border-zinc-700
-                                    bg-zinc-800
-                                    px-4
-                                    py-3
-                                    text-left
-                                    transition
-                                    hover:border-zinc-600
-                                    hover:bg-zinc-700
-                                "
-                            >
-                                <div className="font-medium">
-                                    Apple Calendar
-                                </div>
-                                <div className="text-xs text-zinc-500">
-                                    Download .ics file
-                                </div>
-                            </button>
-
-                            <button
-                                onClick={() => {
-                                    addToGoogleCalendar(calendarGame);
-                                    setCalendarGame(null);
-                                }}
-                                className="
-                                    w-full
-                                    rounded-lg
-                                    border
-                                    border-zinc-700
-                                    bg-zinc-800
-                                    px-4
-                                    py-3
-                                    text-left
-                                    transition
-                                    hover:border-zinc-600
-                                    hover:bg-zinc-700
-                                "
-                            >
-                                <div className="font-medium">
-                                    Google Calendar
-                                </div>
-                                <div className="text-xs text-zinc-500">
-                                    Open Google Calendar
-                                </div>
-                            </button>
-
-                            <button
-                                onClick={() => {
-                                    addToOutlook(calendarGame);
-                                    setCalendarGame(null);
-                                }}
-                                className="
-                                    w-full
-                                    rounded-lg
-                                    border
-                                    border-zinc-700
-                                    bg-zinc-800
-                                    px-4
-                                    py-3
-                                    text-left
-                                    transition
-                                    hover:border-zinc-600
-                                    hover:bg-zinc-700
-                                "
-                            >
-                                <div className="font-medium">
-                                    Outlook
-                                </div>
-                                <div className="text-xs text-zinc-500">
-                                    Open Outlook Calendar
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </main>
 
     );

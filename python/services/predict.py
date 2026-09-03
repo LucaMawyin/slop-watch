@@ -34,6 +34,9 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     else:
         prediction_date = prediction_date.tz_convert("UTC")
 
+    # Start from the beginning of the given day
+    prediction_date = prediction_date.normalize()
+
     model = joblib.load(
         f"models/{league}_slop_model.pkl"
     )

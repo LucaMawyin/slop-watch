@@ -195,6 +195,8 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     else:
         prediction_date = prediction_date.tz_convert("UTC")
 
+
+    prediction_date = prediction_date.normalize()
     end_date = prediction_date + pd.Timedelta(days=days_ahead)
 
     games = []
@@ -315,13 +317,17 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
         df["is_postseason"] = 0
 
     df["date"] = pd.to_datetime(df["date"], utc=True)
+
+    prediction_date = prediction_date.normalize()
+    end_date = prediction_date + pd.Timedelta(days=days_ahead)
+
     df["month"] = df["date"].dt.month
     df["day"] = df["date"].dt.day
     df["year"] = df["date"].dt.year
 
     future_games = df[
-        (df["date"] >= prediction_date) &
-        (df["date"] <= end_date)
+        (df["date"].dt.normalize() >= prediction_date) &
+        (df["date"].dt.normalize() <= end_date)
     ].copy()
 
     # Remove duplicates
