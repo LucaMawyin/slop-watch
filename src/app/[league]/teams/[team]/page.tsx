@@ -150,6 +150,7 @@ export default function TeamPage({ params }: Props) {
 
                                             <Link
                                                 href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                target="_blank"
                                                 key={game.game_id}
                                                 className="
                                                     flex 
@@ -273,6 +274,7 @@ export default function TeamPage({ params }: Props) {
                                         return (
                                             <Link
                                                 href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                target="_blank"
                                                 key={game.game_id}
                                                 className="
                                                     flex 

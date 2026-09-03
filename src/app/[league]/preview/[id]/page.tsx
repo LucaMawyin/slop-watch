@@ -178,6 +178,7 @@ export default function PreviewPage({ params }: Props) {
                             </div>
                             <Link
                                 href={`/${league}/teams/${slugify(homeTeam.team)}`}
+                                target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
                                 {homeTeam.team}
@@ -202,6 +203,7 @@ export default function PreviewPage({ params }: Props) {
                             </div>
                             <Link
                                 href={`/${league}/teams/${slugify(awayTeam.team)}`}
+                                target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
                                 {awayTeam.team}
@@ -389,6 +391,7 @@ export default function PreviewPage({ params }: Props) {
                                         <Link
                                             key={game.game_id}
                                             href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                            target="_blank"
                                             className="
                                                 no-underline!
                                                 flex
@@ -487,6 +490,7 @@ export default function PreviewPage({ params }: Props) {
                                         <Link
                                             key={game.game_id}
                                             href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                            target="_blank"
                                             className="
                                                 no-underline!
                                                 flex

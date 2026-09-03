@@ -417,6 +417,7 @@ function GamesContent() {
                                             </div>
                                             <Link
                                                 href={`/${game.league}/teams/${slugify(game.home_name)}`}
+                                                target="_blank"
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.home_name}
@@ -429,6 +430,7 @@ function GamesContent() {
                                             </div>
                                             <Link
                                                 href={`/${game.league}/teams/${slugify(game.away_name)}`}
+                                                target="_blank"
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.away_name}
@@ -526,6 +528,7 @@ function GamesContent() {
                                     <div className="mt-6 space-y-4">
                                         <Link
                                             href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                            target="_blank"
                                             className="
                                                 block
                                                 w-full
