@@ -83,10 +83,10 @@ function GamesContent() {
                 defaultEnd.getDate() + defaultDays
             );
 
-            params.set(
-                "end",
-                defaultEnd.toISOString().split("T")[0]
-            );
+            const formatDate = (date: Date) =>
+                `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+            params.set("end", formatDate(defaultEnd));
         }
 
         fetch(
@@ -224,15 +224,11 @@ function GamesContent() {
 
                             const params = new URLSearchParams(searchParams.toString());
 
-                            params.set(
-                                "start",
-                                range.from.toISOString().split("T")[0]
-                            );
+                            const formatDate = (date: Date) =>
+                                `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
-                            params.set(
-                                "end",
-                                range.to.toISOString().split("T")[0]
-                            );
+                            params.set("start", formatDate(range.from));
+                            params.set("end", formatDate(range.to));
 
                             window.location.href = `/games?${params.toString()}`;
                         }}

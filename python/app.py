@@ -100,12 +100,12 @@ def games():
     # ---------------------------------
     
     if start_date:
-        prediction_date = pd.Timestamp(start_date, tz="UTC").normalize()
+        prediction_date = pd.Timestamp(start_date).normalize()
     else:
-        prediction_date = pd.Timestamp.now(tz="UTC").normalize()
+        prediction_date = pd.Timestamp.now().normalize()
 
     if end_date:
-        end_date = pd.Timestamp(end_date, tz="UTC").normalize()
+        end_date = pd.Timestamp(end_date).normalize()
 
         days_ahead = (
             end_date - prediction_date
