@@ -1,7 +1,7 @@
 "use client";
 
 import Badge from "@/components/Badge";
-import TeamSkeleton from "@/components/TeamSkeleton";
+import PreviewSkeleton from "@/components/PreviewSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { slugify } from "@/lib/slugify";
@@ -98,7 +98,7 @@ export default function PreviewPage({ params }: Props) {
         return (
             <main className="p-6 text-white">
                 <div className="mx-auto max-w-5xl">
-                    <TeamSkeleton />
+                    <PreviewSkeleton />
                 </div>
             </main>
         );

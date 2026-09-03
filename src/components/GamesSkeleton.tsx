@@ -127,8 +127,11 @@ export default function GamesSkeleton({
                         </div>
                     </div>
 
-                    {/* Calendar button */}
-                    <div className="h-10 w-full rounded-lg bg-zinc-800 skeleton-glow" />
+                    {/* Buttons */}
+                    <div className="space-y-2">
+                        <div className="h-10 w-full rounded-lg bg-zinc-800 skeleton-glow" />
+                        <div className="h-10 w-full rounded-lg bg-zinc-800 skeleton-glow" />
+                    </div>
                 </div>
             ))}
         </div>
