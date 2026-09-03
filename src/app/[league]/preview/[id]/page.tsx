@@ -22,6 +22,9 @@ export default function PreviewPage({ params }: Props) {
     const { league, id } = use(params);
     const searchParams = useSearchParams();
     const date = searchParams.get("date");
+    const ref = searchParams.get("ref");
+
+    const [start, end] = ref?.split("_") ?? [];
 
     const [game, setGame] = useState<Game | null>(null);
     const [homeTeam, setHomeTeam] = useState<Team | null>(null);
@@ -123,7 +126,7 @@ export default function PreviewPage({ params }: Props) {
                     </p>
 
                     <Link
-                        href={`/games?league=${league}`}
+                        href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mt-4 inline-block hover:underline"
                     >
                         &lt; Back to {league.toUpperCase()} Games
@@ -147,7 +150,7 @@ export default function PreviewPage({ params }: Props) {
 
                 {/* BACK */}
                 <Link
-                    href={`/games?league=${league}`}
+                    href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                     className="mb-4 block hover:underline"
                 >
                     &lt; Back to {league.toUpperCase()} Games

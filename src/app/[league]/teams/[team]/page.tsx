@@ -8,7 +8,7 @@ import { getSlopBadge } from "@/lib/getSlopBadge";
 import { slugify, unslugify } from "@/lib/slugify";
 import { Team } from "@/lib/types";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { use, useEffect, useState } from "react";
 
 type Props = {
@@ -22,6 +22,10 @@ export default function TeamPage({ params }: Props) {
     const { league, team: teamSlug } = use(params);
 
     const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const ref = searchParams.get("ref");
+    const [start, end] = ref?.split("_") ?? [];
 
     const [team, setTeam] = useState<Team | null>(null);
     const [loading, setLoading] = useState(true);
@@ -72,7 +76,7 @@ export default function TeamPage({ params }: Props) {
                 <div className="mb-8">
 
                     <Link
-                        href={`/games?league=${league}`}
+                        href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline"
                     >
                         &lt; Back to {league.toUpperCase()} Games
@@ -149,7 +153,7 @@ export default function TeamPage({ params }: Props) {
                                         return (
 
                                             <Link
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 key={game.game_id}
                                                 className="
@@ -273,7 +277,7 @@ export default function TeamPage({ params }: Props) {
 
                                         return (
                                             <Link
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 key={game.game_id}
                                                 className="

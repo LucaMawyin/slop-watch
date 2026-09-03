@@ -17,6 +17,10 @@ import { slugify } from "@/lib/slugify";
 import AddToCalendar from "@/components/AddToCalendar";
 
 function GamesContent() {
+
+    const formatDate = (date: Date) =>
+        `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -30,9 +34,6 @@ function GamesContent() {
     const league = searchParams.get("league");
     const displayName = leagues.find((item) => item.id === league)?.name || sport;
 
-    const start = searchParams.get("start");
-    const end = searchParams.get("end");
-
     const DEFAULT_LEAGUE_DAYS = 7;
     const DEFAULT_SPORT_DAYS = 3;
     const DEFAULT_ALL_DAYS = 2;
@@ -42,6 +43,42 @@ function GamesContent() {
         : league
             ? DEFAULT_LEAGUE_DAYS - 1
             : DEFAULT_ALL_DAYS - 1;
+
+    const start = searchParams.get("start");
+    const end = searchParams.get("end");
+
+    // Normalize date range
+    let effectiveStart = start;
+    let effectiveEnd = end;
+
+    if (!effectiveStart && effectiveEnd) {
+        effectiveStart = effectiveEnd;
+    }
+
+    if (!effectiveEnd) {
+        const defaultEnd = new Date();
+
+        defaultEnd.setDate(
+            defaultEnd.getDate() + defaultDays
+        );
+
+        effectiveEnd = formatDate(defaultEnd);
+    }
+
+    if (
+        effectiveStart &&
+        effectiveEnd &&
+        effectiveStart > effectiveEnd
+    ) {
+        [effectiveStart, effectiveEnd] = [
+            effectiveEnd,
+            effectiveStart,
+        ];
+    }
+
+    const ref = start && end
+        ? `${start}_${end}`
+        : (start ? start : formatDate(new Date()));
 
     // Reset filters on reload
     useEffect(() => {
@@ -70,23 +107,12 @@ function GamesContent() {
 
         
         // Time frame 
-        if (start) {
-            params.set("start", start);
+        if (effectiveStart) {
+            params.set("start", effectiveStart);
         }
 
-        if (end) {
-            params.set("end", end);
-        }   else {
-            const defaultEnd = new Date();
-
-            defaultEnd.setDate(
-                defaultEnd.getDate() + defaultDays
-            );
-
-            const formatDate = (date: Date) =>
-                `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-
-            params.set("end", formatDate(defaultEnd));
+        if (effectiveEnd) {
+            params.set("end", effectiveEnd);
         }
 
         fetch(
@@ -418,7 +444,7 @@ function GamesContent() {
                                                 HOME
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.home_name)}`}
+                                                href={`/${game.league}/teams/${slugify(game.home_name)}${ref ? `?ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >
@@ -431,7 +457,7 @@ function GamesContent() {
                                                 AWAY
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.away_name)}`}
+                                                href={`/${game.league}/teams/${slugify(game.away_name)}${ref ? `?ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >
@@ -529,7 +555,7 @@ function GamesContent() {
 
                                     <div className="mt-auto space-y-4">
                                         <Link
-                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
                                             target="_blank"
                                             className="
                                                 block
