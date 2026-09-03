@@ -148,9 +148,22 @@ export default function TeamPage({ params }: Props) {
                                         
                                         return (
 
-                                            <div
+                                            <Link
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                                 key={game.game_id}
-                                                className="flex [&>div]:max-w-[50%] items-center justify-between p-5 border-b border-zinc-800 last:border-b-0"
+                                                className="
+                                                    flex 
+                                                    [&>div]:max-w-[50%] 
+                                                    items-center 
+                                                    justify-between 
+                                                    p-5 
+                                                    border-b 
+                                                    border-zinc-800 
+                                                    last:border-b-0 
+                                                    no-underline!
+                                                    transition
+                                                    hover:bg-zinc-800/50
+                                                "
                                             >
 
                                                 {/* Game Info */}
@@ -164,12 +177,7 @@ export default function TeamPage({ params }: Props) {
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
-                                                        <Link
-                                                            href={`/${league}/${slugify(opponent)}`}
-                                                            className="hover:underline"
-                                                        >
-                                                            {opponent}
-                                                        </Link>
+                                                        {opponent}
                                                     </p>
 
                                                     <p className="mt-1 text-sm">
@@ -211,7 +219,7 @@ export default function TeamPage({ params }: Props) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         )
                                     })
                                 ) : (
@@ -263,9 +271,22 @@ export default function TeamPage({ params }: Props) {
                                         const tie = teamScore === opponentScore;
 
                                         return (
-                                            <div
+                                            <Link
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                                 key={game.game_id}
-                                                className="flex items-center justify-between p-5"
+                                                className="
+                                                    flex 
+                                                    [&>div]:max-w-[50%] 
+                                                    items-center 
+                                                    justify-between 
+                                                    p-5 
+                                                    border-b 
+                                                    border-zinc-800 
+                                                    last:border-b-0 
+                                                    no-underline!
+                                                    transition
+                                                    hover:bg-zinc-800/50
+                                                "
                                             >
                                                 <div className="flex flex-col gap-1">
                                                     <Badge
@@ -285,12 +306,7 @@ export default function TeamPage({ params }: Props) {
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
-                                                        <Link
-                                                            href={`/${league}/${slugify(opponent)}`}
-                                                            className="hover:underline"
-                                                        >
-                                                            {opponent}
-                                                        </Link>
+                                                        {opponent}
                                                     </p>
 
                                                     <p className="text-sm">
@@ -352,7 +368,7 @@ export default function TeamPage({ params }: Props) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         );
                                     })
                                 ) : (

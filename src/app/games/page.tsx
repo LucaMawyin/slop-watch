@@ -525,7 +525,7 @@ function GamesContent() {
 
                                     <div className="mt-6 space-y-4">
                                         <Link
-                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${encodeURIComponent(game.date)}`}
+                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                             className="
                                                 block
                                                 w-full

@@ -37,8 +37,19 @@ export default function PreviewPage({ params }: Props) {
                 setError(null);
 
                 // Fetch game
+                const selectedDate = new Date(`${date ?? ""}T00:00:00`);
+
+                const startDate = new Date(selectedDate);
+                startDate.setDate(startDate.getDate() - 1);
+
+                const endDate = new Date(selectedDate);
+                endDate.setDate(endDate.getDate() + 1);
+
+                const formatDate = (d: Date) =>
+                    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
                 const gameResponse = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${encodeURIComponent(date ?? "")}&end=${encodeURIComponent(date ?? "")}&id=${id}`
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${formatDate(startDate)}&end=${formatDate(endDate)}&id=${id}`
                 );
 
                 if (!gameResponse.ok) {
@@ -46,18 +57,15 @@ export default function PreviewPage({ params }: Props) {
                         `Game API failed: ${gameResponse.status}`
                     );
                 }
-                
-                const games = await gameResponse.json() as Game[];
 
+                const games = await gameResponse.json() as Game[];
                 const gameData = games[0];
 
                 if (!gameData) {
                     throw new Error("Game not found");
                 }
 
-                setGame(gameData);
-
-                // Fetch both teams
+                // Fetch both teams concurrently
                 const [homeResponse, awayResponse] = await Promise.all([
                     fetch(
                         `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.home_name)}`
@@ -76,8 +84,10 @@ export default function PreviewPage({ params }: Props) {
                     awayResponse.json() as Promise<Team>,
                 ]);
 
+                setGame(gameData);
                 setHomeTeam(homeData);
                 setAwayTeam(awayData);
+
             } catch (error) {
                 console.error(error);
 
@@ -92,7 +102,7 @@ export default function PreviewPage({ params }: Props) {
         }
 
         fetchPreview();
-    }, [league, id]);
+    }, [league, id, date]);
 
     if (loading) {
         return (
@@ -159,23 +169,23 @@ export default function PreviewPage({ params }: Props) {
                         })}
                     </div>
 
-                    <div className="mx-auto mt-6 grid w-full max-w-3xl grid-cols-3 items-center gap-6 sm:gap-12">
+                    <div className="mx-auto mt-6 flex w-full max-w-3xl items-center justify-between gap-4 sm:gap-8">
 
                         {/* HOME */}
-                        <div className="text-center">
+                        <div className="w-0 flex-1 text-center">
                             <div className="text-zinc-500">
                                 HOME
                             </div>
                             <Link
                                 href={`/${league}/teams/${slugify(homeTeam.team)}`}
-                                className="text-2xl font-bold hover:underline sm:text-4xl"
+                                className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
                                 {homeTeam.team}
                             </Link>
                         </div>
 
                         {/* SCORE / VS */}
-                        <div className="text-center text-lg font-semibold text-zinc-500">
+                        <div className="shrink-0 text-center text-lg font-semibold text-zinc-500">
                             {game.actual_slop !== null ? (
                                 <div className="text-4xl font-bold text-white">
                                     {game.away_score} - {game.home_score}
@@ -186,19 +196,19 @@ export default function PreviewPage({ params }: Props) {
                         </div>
 
                         {/* AWAY */}
-                        <div className="text-center">
+                        <div className="w-0 flex-1 text-center">
                             <div className="text-zinc-500">
                                 AWAY
                             </div>
                             <Link
                                 href={`/${league}/teams/${slugify(awayTeam.team)}`}
-                                className="text-2xl font-bold hover:underline sm:text-4xl"
+                                className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
                                 {awayTeam.team}
                             </Link>
                         </div>
-                    </div>
 
+                    </div>
 
                     <div className="mt-4 text-sm text-zinc-500">
                         {game.venue_full_name}
@@ -378,9 +388,7 @@ export default function PreviewPage({ params }: Props) {
                                     return (
                                         <Link
                                             key={game.game_id}
-                                            href={`/${league}/preview/${game.game_id}?date=${encodeURIComponent(
-                                                game.date.split("T")[0]
-                                            )}`}
+                                            href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                             className="
                                                 no-underline!
                                                 flex
@@ -478,9 +486,7 @@ export default function PreviewPage({ params }: Props) {
                                     return (
                                         <Link
                                             key={game.game_id}
-                                            href={`/${league}/preview/${game.game_id}?date=${encodeURIComponent(
-                                                game.date.split("T")[0]
-                                            )}`}
+                                            href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                             className="
                                                 no-underline!
                                                 flex
