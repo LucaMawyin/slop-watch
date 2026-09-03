@@ -374,6 +374,8 @@ function GamesContent() {
                                 <div
                                     key={game.game_id}
                                     className="
+                                        flex
+                                        flex-col
                                         rounded-xl 
                                         border 
                                         border-zinc-800
@@ -467,7 +469,7 @@ function GamesContent() {
                                         {game.venue_full_name}
                                     </div>
 
-                                    <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center">
+                                    <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center mb-6">
                                         <div>
                                             <div className="text-xs text-zinc-500">
                                                 SLOP SCORE
@@ -525,7 +527,7 @@ function GamesContent() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-6 space-y-4">
+                                    <div className="mt-auto space-y-4">
                                         <Link
                                             href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
                                             target="_blank"

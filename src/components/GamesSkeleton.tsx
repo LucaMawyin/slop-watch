@@ -128,7 +128,7 @@ export default function GamesSkeleton({
                     </div>
 
                     {/* Buttons */}
-                    <div className="space-y-2">
+                    <div className="space-y-4">
                         <div className="h-10 w-full rounded-lg bg-zinc-800 skeleton-glow" />
                         <div className="h-10 w-full rounded-lg bg-zinc-800 skeleton-glow" />
                     </div>
