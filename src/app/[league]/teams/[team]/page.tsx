@@ -173,13 +173,13 @@ export default function TeamPage({ params }: Props) {
                                                         {new Date(game.date).toLocaleDateString()}
                                                     </p>
 
-                                                    <p className="mt-1 font-medium text-white!">
+                                                    <h1 className="mt-1 font-medium">
                                                         <span className="font-bold">
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}
-                                                    </p>
+                                                    </h1>
 
                                                     <p className="mt-1 text-sm">
                                                         {game.venue_full_name}
@@ -190,7 +190,7 @@ export default function TeamPage({ params }: Props) {
                                                 <div className="ml-4 shrink-0 text-center">
                                                     <div className="flex gap-4">
                                                         <div>
-                                                            <p className="text-xs text-zinc-500">
+                                                            <p className="text-xs">
                                                                 Slop
                                                             </p>
 
@@ -205,7 +205,7 @@ export default function TeamPage({ params }: Props) {
                                                         </div>
 
                                                         <div>
-                                                            <p className="text-xs text-zinc-500">
+                                                            <p className="text-xs">
                                                                 Watchability
                                                             </p>
 
@@ -303,13 +303,13 @@ export default function TeamPage({ params }: Props) {
                                                         {new Date(game.date).toLocaleDateString()}
                                                     </p>
 
-                                                    <p className="font-medium text-white!">
+                                                    <h1 className="font-medium">
                                                         <span className="font-bold">
                                                             {team.team}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}
-                                                    </p>
+                                                    </h1>
 
                                                     <p className="text-sm">
                                                         {game.venue_full_name}
@@ -339,7 +339,7 @@ export default function TeamPage({ params }: Props) {
                                                     <div className="ml-4 shrink-0 text-center">
                                                         <div className="flex gap-4">
                                                             <div>
-                                                                <p className="text-xs text-zinc-500">
+                                                                <p className="text-xs">
                                                                     Slop
                                                                 </p>
 
@@ -354,7 +354,7 @@ export default function TeamPage({ params }: Props) {
                                                             </div>
 
                                                             <div>
-                                                                <p className="text-xs text-zinc-500">
+                                                                <p className="text-xs">
                                                                     Watchability
                                                                 </p>
 
