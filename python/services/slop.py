@@ -87,7 +87,7 @@ def get_slop(league="nba"):
 
     for _, game in games.iterrows():
 
-        season = game["year"]
+        season = game["season"]
 
         if season != current_season:
             team_playoff_wins = {}
@@ -162,25 +162,38 @@ def get_slop(league="nba"):
         )
     ) / 4
 
+    # ---------------------------------
+    # NORMALIZE TEAM BADNESS
+    # ---------------------------------
+
+    games["home_badness"] = (
+        games["home_badness"]
+        .expanding(min_periods=100)
+        .apply(
+            lambda x: (
+                (x.iloc[:-1] < x.iloc[-1]).mean()
+                if len(x) > 1
+                else np.nan
+            )
+        )
+    )
+
+    games["away_badness"] = (
+        games["away_badness"]
+        .expanding(min_periods=100)
+        .apply(
+            lambda x: (
+                (x.iloc[:-1] < x.iloc[-1]).mean()
+                if len(x) > 1
+                else np.nan
+            )
+        )
+    )
+
     games["team_badness"] = (
         games["home_badness"] +
         games["away_badness"]
     ) / 2
-
-    # ---------------------------------
-    # UNCOMPETITIVENESS
-    # ---------------------------------
-
-    games["actual_margin"] = (
-        games["home_score"] -
-        games["away_score"]
-    ).abs()
-
-    games["uncompetitiveness"] = (
-        (games["actual_margin"] / config["margin_max"])
-        .clip(0, 1)
-        ** 1.5
-    )
 
     # ---------------------------------
     # SCORING BADNESS
@@ -233,15 +246,29 @@ def get_slop(league="nba"):
     # ACTUAL WATCHABILITY
     # ---------------------------------
 
-    games["team_quality"] = 1 - games["team_badness"]
+    games["actual_margin"] = (
+        games["home_score"] -
+        games["away_score"]
+    ).abs()
+
+    games["team_quality"] = (
+        1 -
+        games[["home_badness", "away_badness"]].min(axis=1)
+    )
 
     games["competitiveness"] = (
-        1 -
-        (
-            games["actual_margin"] /
-            games["total_points"].clip(lower=1)
-        ) ** 0.75
-    ).clip(0, 1)
+        games["actual_margin"]
+        .expanding(min_periods=30)
+        .apply(
+            lambda x: (
+                (x.iloc[:-1] >= x.iloc[-1]).mean()
+                if len(x) > 1
+                else np.nan
+            )
+        )
+    )
+
+    games["uncompetitiveness"] = 1 - games["competitiveness"]
 
     games["scoring_entertainment"] = (
         games["total_points"]
