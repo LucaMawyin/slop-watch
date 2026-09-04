@@ -1,251 +1,156 @@
-
 import pandas as pd
-from config.sports import SPORT_CONFIG
+from config.sports import SPORT_CONFIG, DATA_RANGE_YEARS
 
 import time
 
-pd.set_option("display.max_rows", None)
-
-def get_games(league="nba"):
-
-    df = pd.read_csv(f"data/raw/{league}_games.csv")
-
-    # Convert the date column to datetime and ensure scores are numeric
-    df["date"] = pd.to_datetime(df["date"], utc=True)
-    df["month"] = df["date"].dt.month
-    df["day"] = df["date"].dt.day
-    df["year"] = df["date"].dt.year
-
-    df["home_score"] = pd.to_numeric(df["home_score"], errors="coerce")
-    df["away_score"] = pd.to_numeric(df["away_score"], errors="coerce")
-
-    # Sort by date
-    df = df.sort_values("date").reset_index(drop=True)
-
-    # Filter completed regular season games
-    if league in ["nba", "wnba", "nfl", "nhl"]:
-        df = df[
-            df["status_type_name"] == "STATUS_FINAL"
-        ].copy()
-
-    elif league == "mlb":
-        df = df[
-            df["status_type_completed"] == True
-        ].copy()
-
-    elif league == "pwhl":
-        df = df[
-            df["game_status"].str.startswith("Final", na=False)
-        ].copy()
-
-    elif league in [
-        "mls",
-        "epl",
-        "laliga",
-        "serie_a",
-        "bundesliga",
-        "ligue_1",
-    ]:
-        df = df[
-            df["status"] == "STATUS_FULL_TIME"
-        ].copy()
-
-    else:
-        raise ValueError(f"Unsupported league: {league}")
-
-    # Remove duplicates
-    df = df.drop_duplicates(
-        subset=["game_id"]
-    )
-    
-    df = df.dropna(subset=["home_score", "away_score"])
-
-    # Reduce dataframe to the columns needed
-    columns = [
-        "game_id",
-        "date",
-        "month",
-        "day",
-        "year",
-        "home_id",
-        "home_name",
-        "home_score",
-        "away_id",
-        "away_name",
-        "away_score",
-        "venue_full_name",
-        "is_postseason",
-        "season",
-    ]
-
-    if league == "pwhl":
-        columns.append("season_id")
-
-    elif "league" not in SPORT_CONFIG[league]:
-        columns.append("season_type")
-
-    games = df[columns].copy()
-
-    return games
-
-def get_performance(league="nba"):
-
-    games = get_games(league=league)
-    window = SPORT_CONFIG[league]["performance_window"]
-
-    # Performance per team per game
-    performance = pd.concat([
-
-        # Home team performance
-        pd.DataFrame({
-            "game_id": games["game_id"],
-            "date" : games["date"],
-            "team": games["home_name"],
-            "opponent": games["away_name"],
-            "win" : games["home_score"] > games["away_score"],
-            "point_diff" : games["home_score"] - games["away_score"],
-        }),
-
-        # Away team performance
-        pd.DataFrame({
-            "game_id": games["game_id"],
-            "date" : games["date"],
-            "team": games["away_name"],
-            "opponent": games["home_name"],
-            "win" : games["away_score"] > games["home_score"],
-            "point_diff" : games["away_score"] - games["home_score"],
-        }),
-    ], ignore_index=True)
-
-    # Sort by date
-    performance = (
-        performance
-        .sort_values("date")
-        .reset_index(drop=True)
-    )
-
-    group = performance.groupby("team")
-
-    # ---------------------------------
-    # WIN PCT AND POINT DIFF AVG OF GAMES IN WINDOW
-    # ---------------------------------
-
-    performance["win_pct"] = (
-        group["win"]
-        .transform(
-            lambda x: (
-                x.shift(1)
-                .rolling(window, min_periods=1)
-                .mean()
-            )
-        )
-    )
-
-    performance["point_diff_avg"] = (
-        group["point_diff"]
-        .transform(
-            lambda x: (
-                x.shift(1)
-                .rolling(window, min_periods=1)
-                .mean()
-            )
-        )
-    )
-
-    # ---------------------------------
-    # LAST 10 GAMES
-    # ---------------------------------
-
-    performance["recent_win_pct"] = (
-        group["win"]
-        .transform(
-            lambda x: (
-                x.shift(1)
-                .rolling(10, min_periods=1)
-                .mean()
-            )
-        )
-    )
-
-    performance["recent_point_diff"] = (
-        group["point_diff"]
-        .transform(
-            lambda x: (
-                x.shift(1)
-                .rolling(10, min_periods=1)
-                .mean()
-            )
-        )
-    )
-
-    return performance
-
-def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
+def get_games(league="mlb", start_date=None, days_ahead=7):
 
     start_time = time.perf_counter()
 
     if league not in SPORT_CONFIG:
         raise ValueError(f"Unsupported league: {league}")
 
-    schedule_function = SPORT_CONFIG[league]["schedule_function"]
-
-    if prediction_date is None:
-        prediction_date = pd.Timestamp.now(tz="UTC")
-
-    prediction_date = pd.Timestamp(prediction_date)
-
-    if prediction_date.tzinfo is None:
-        prediction_date = prediction_date.tz_localize("UTC")
+    # Default to today
+    if start_date is None:
+        start_date = pd.Timestamp.now("UTC")
     else:
-        prediction_date = prediction_date.tz_convert("UTC")
+        start_date = pd.Timestamp(start_date)
 
+        if start_date.tzinfo is None:
+            start_date = start_date.tz_localize("UTC")
+        else:
+            start_date = start_date.tz_convert("UTC")
 
-    prediction_date = prediction_date.normalize()
-    end_date = prediction_date + pd.Timedelta(days=days_ahead)
+    start_date = start_date.normalize()
+
+    end_date = start_date + pd.Timedelta(days=days_ahead)
+
+    data_start_date = (
+        pd.Timestamp.now("UTC")
+        - pd.DateOffset(years=DATA_RANGE_YEARS)
+    ).normalize()
+
+    # ---------------------------------
+    # LOAD PROCESSED CSV
+    # ---------------------------------
+
+    processed = pd.read_csv(
+        SPORT_CONFIG[league]["processed_output"]
+    )
+
+    processed["date"] = pd.to_datetime(
+        processed["date"],
+        utc=True
+    )
+
+    latest_date = processed["date"].max()
+
+    # ---------------------------------
+    # READ PROCESSED DATA IF NEEDED
+    # ---------------------------------
+
+    if start_date >= data_start_date:
+
+        processed_games = processed[
+            (processed["date"] >= start_date) &
+            (processed["date"] <= end_date)
+        ].copy()
+
+    else:
+        processed_games = pd.DataFrame()
+
+    # ---------------------------------
+    # RETURN IF DATE RANGE IS COVERED
+    # ---------------------------------
+
+    if (
+        start_date >= data_start_date
+        and latest_date >= end_date
+    ):
+        print(
+            f"get_games took "
+            f"{time.perf_counter() - start_time:.3f}s"
+        )
+
+        return processed_games
+
+    # ---------------------------------
+    # FETCH MISSING GAMES FROM API
+    # ---------------------------------
+
+    if start_date >= data_start_date:
+        fetch_start = max(
+            start_date,
+            latest_date.normalize() + pd.Timedelta(days=1)
+        )
+    else:
+        fetch_start = start_date
+
+    fetch_end = end_date
+
+    config = SPORT_CONFIG[league]
+    schedule_function = config["schedule_function"]
 
     games = []
 
+    # ---------------------------------
     # PWHL
-    if league == "pwhl":
+    # ---------------------------------
 
+    if league == "pwhl":
         for season in range(
-            prediction_date.year,
-            end_date.year + 1
+            fetch_start.year,
+            fetch_end.year + 1
         ):
-            try:
-                df = schedule_function(
-                    season=season,
-                    return_as_pandas=True
-                )
-            except ValueError:
-                continue
+            df = schedule_function(
+                season=season,
+                return_as_pandas=True
+            )
 
             if df is not None and not df.empty:
+
                 df = df.rename(columns={
                     "game_date": "date",
                     "home_team_id": "home_id",
                     "home_team": "home_name",
                     "away_team_id": "away_id",
                     "away_team": "away_name",
-                    "venue":"venue_full_name",
+                    "venue": "venue_full_name",
                 })
+
+                df["date"] = pd.to_datetime(
+                    df["date"],
+                    utc=True,
+                    errors="coerce"
+                )
+
+                df["month"] = df["date"].dt.month
+                df["day"] = df["date"].dt.day
+                df["year"] = df["date"].dt.year
 
                 df["season_id"] = pd.to_numeric(
                     df["season_id"],
                     errors="coerce"
                 )
-                
+
+                df["is_postseason"] = (
+                    df["season_id"] % 3 == 0
+                ).astype(int)
+
                 games.append(df)
-                
-    # Soccer
+
+    # ---------------------------------
+    # SOCCER
+    # ---------------------------------
+
     elif "league" in SPORT_CONFIG[league]:
 
-        current_date = prediction_date.normalize()
+        current_date = fetch_start
 
-        while current_date <= end_date:
+        while current_date <= fetch_end:
 
             df = schedule_function(
-                league=SPORT_CONFIG[league]["league"],
+                league=config["league"],
                 dates=current_date.strftime("%Y%m%d"),
                 return_as_pandas=True,
                 limit=500
@@ -254,7 +159,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
             if df is not None and not df.empty:
 
                 df = df.rename(columns={
-                    "event_id": "game_id",
+                    "event_id" : "game_id",
                     "home_team": "home_name",
                     "home_team_id": "home_id",
                     "away_team": "away_name",
@@ -262,14 +167,31 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
                     "venue": "venue_full_name",
                 })
 
+                df["date"] = pd.to_datetime(
+                    df["date"],
+                    utc=True,
+                    errors="coerce"
+                )
+
+                df["month"] = df["date"].dt.month
+                df["day"] = df["date"].dt.day
+                df["year"] = df["date"].dt.year
+
+                df["is_postseason"] = 0
+
                 games.append(df)
 
             current_date += pd.Timedelta(days=1)
 
+    # ---------------------------------
     # ESPN
+    # ---------------------------------
+
     else:
-        current_date = prediction_date.normalize()
-        while current_date <= end_date:
+
+        current_date = fetch_start
+
+        while current_date <= fetch_end:
 
             df = schedule_function(
                 dates=current_date.strftime("%Y%m%d"),
@@ -278,69 +200,173 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
             )
 
             if df is not None and not df.empty:
+
+                df["date"] = pd.to_datetime(
+                    df["date"],
+                    utc=True,
+                    errors="coerce"
+                )
+
+                df["month"] = df["date"].dt.month
+                df["day"] = df["date"].dt.day
+                df["year"] = df["date"].dt.year
+
+                df["is_postseason"] = (
+                    df["season_type"] == 3
+                ).astype(int)
+
                 games.append(df)
 
             current_date += pd.Timedelta(days=1)
 
-    if not games:
-        print(
-            f"get_games took "
-            f"{time.perf_counter() - start_time:.3f}s"
-        )
-        return pd.DataFrame()
-
-    df = pd.concat(games, ignore_index=True)
-
     # ---------------------------------
-    # REGULAR VS POSTSEASON
+    # COMBINE API DATA
     # ---------------------------------
 
-    if league in ["nba", "wnba", "nfl", "nhl", "mlb"]:
-        df["is_postseason"] = (
-            df["season_type"] == 3
-        ).astype(int)
+    if games:
 
-    elif league == "pwhl":
-        df["is_postseason"] = (
-            df["season_id"]
-            .apply(
-                lambda x: (
-                    1
-                    if pd.notna(x)
-                    and str(x).isdigit()
-                    and int(x) % 3 == 0
-                    else 0
-                )
-            )
+        fetched_games = pd.concat(
+            games,
+            ignore_index=True
         )
 
-    elif league in [
-        "mls",
-        "epl",
-        "laliga",
-        "serie_a",
-        "bundesliga",
-        "ligue_1",
-    ]:
-        df["is_postseason"] = 0
+        fetched_games["date"] = pd.to_datetime(
+            fetched_games["date"],
+            utc=True,
+            errors="coerce"
+        )
 
-    df["date"] = pd.to_datetime(df["date"], utc=True)
+        fetched_games = fetched_games[
+            (fetched_games["date"] >= fetch_start) &
+            (fetched_games["date"] <= fetch_end)
+        ].copy()
 
-    prediction_date = prediction_date.normalize()
-    end_date = prediction_date + pd.Timedelta(days=days_ahead)
+    else:
+        fetched_games = pd.DataFrame()
 
-    df["month"] = df["date"].dt.month
-    df["day"] = df["date"].dt.day
-    df["year"] = df["date"].dt.year
+    # ---------------------------------
+    # GET HISTORICAL DATA
+    # ---------------------------------
 
-    future_games = df[
-        (df["date"].dt.normalize() >= prediction_date) &
-        (df["date"].dt.normalize() <= end_date)
+    historical = processed[
+        processed["date"] < start_date
     ].copy()
 
-    # Remove duplicates
-    future_games = future_games.drop_duplicates(
-        subset=["game_id"]
+    # ---------------------------------
+    # LATEST TEAM PERFORMANCE
+    # ---------------------------------
+
+    team_performance = pd.concat([
+        historical[
+            [
+                "date",
+                "home_name",
+                "home_win_pct",
+                "home_point_diff",
+                "home_recent_win_pct",
+                "home_recent_point_diff",
+            ]
+        ].rename(columns={
+            "home_name": "team",
+            "home_win_pct": "win_pct",
+            "home_point_diff": "point_diff",
+            "home_recent_win_pct": "recent_win_pct",
+            "home_recent_point_diff": "recent_point_diff",
+        }),
+
+        historical[
+            [
+                "date",
+                "away_name",
+                "away_win_pct",
+                "away_point_diff",
+                "away_recent_win_pct",
+                "away_recent_point_diff",
+            ]
+        ].rename(columns={
+            "away_name": "team",
+            "away_win_pct": "win_pct",
+            "away_point_diff": "point_diff",
+            "away_recent_win_pct": "recent_win_pct",
+            "away_recent_point_diff": "recent_point_diff",
+        }),
+    ])
+
+    latest = (
+        team_performance
+        .sort_values("date")
+        .groupby("team")
+        .tail(1)
+    )
+
+    # ---------------------------------
+    # ATTACH TO FUTURE GAMES
+    # ---------------------------------
+
+    home = latest[
+        [
+            "team",
+            "win_pct",
+            "point_diff",
+            "recent_win_pct",
+            "recent_point_diff",
+        ]
+    ].rename(columns={
+        "team": "home_name",
+        "win_pct": "home_win_pct",
+        "point_diff": "home_point_diff",
+        "recent_win_pct": "home_recent_win_pct",
+        "recent_point_diff": "home_recent_point_diff",
+    })
+
+    away = latest[
+        [
+            "team",
+            "win_pct",
+            "point_diff",
+            "recent_win_pct",
+            "recent_point_diff",
+        ]
+    ].rename(columns={
+        "team": "away_name",
+        "win_pct": "away_win_pct",
+        "point_diff": "away_point_diff",
+        "recent_win_pct": "away_recent_win_pct",
+        "recent_point_diff": "away_recent_point_diff",
+    })
+
+    # ---------------------------------
+    # ATTACH TO FUTURE GAMES
+    # ---------------------------------
+
+    if not fetched_games.empty:
+
+        fetched_games = (
+            fetched_games
+            .merge(home, on="home_name", how="left")
+            .merge(away, on="away_name", how="left")
+        )
+
+    # ---------------------------------
+    # COMBINE PROCESSED W/ API
+    # ---------------------------------
+
+    if not processed_games.empty and not fetched_games.empty:
+
+        result = pd.concat(
+            [processed_games, fetched_games],
+            ignore_index=True
+        )
+
+    elif not processed_games.empty:
+        result = processed_games
+
+    else:
+        result = fetched_games
+
+    # Drop duplicates
+    result = result.drop_duplicates(
+        subset="game_id"
     )
 
     print(
@@ -348,4 +374,4 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
         f"{time.perf_counter() - start_time:.3f}s"
     )
 
-    return future_games
+    return result

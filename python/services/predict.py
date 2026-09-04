@@ -1,29 +1,63 @@
+import time
 import joblib
 import pandas as pd
 import numpy as np
 
-from services.games import get_future_games, get_performance
-from services.slop import get_slop
-from config.sports import MODEL_FEATURES
+from config.sports import (
+    SPORT_CONFIG, 
+    MODEL_FEATURES,
+)
+from services.games import get_games
 
-import time
-
-def predict_slop(prediction_date=None, league="mlb", days_ahead=100):
+def predict(start_date=None, days_ahead=100, league="mlb"):
 
     start_time = time.perf_counter()
 
-    if prediction_date is None:
-        prediction_date = pd.Timestamp.now(tz="UTC")
-
-    prediction_date = pd.Timestamp(prediction_date)
-
-    if prediction_date.tzinfo is None:
-        prediction_date = prediction_date.tz_localize("UTC")
+    # Default to today
+    if start_date is None:
+        start_date = pd.Timestamp.now("UTC")
     else:
-        prediction_date = prediction_date.tz_convert("UTC")
+        start_date = pd.Timestamp(start_date)
 
-    # Start from the beginning of the given day
-    prediction_date = prediction_date.normalize()
+        if start_date.tzinfo is None:
+            start_date = start_date.tz_localize("UTC")
+        else:
+            start_date = start_date.tz_convert("UTC")
+
+    start_date = start_date.normalize()
+
+    # ---------------------------------
+    # GET GAMES IN DATE RANGE
+    # ---------------------------------
+
+    games = get_games(
+        start_date=start_date,
+        days_ahead=days_ahead,
+        league=league
+    )
+
+    # Return if no games
+    if games.empty:
+        print(f"Predict took {time.perf_counter() - start_time:.3f}s")
+        return games
+
+    # Add missing actual values for future games
+    if "actual_slop" not in games:
+        games["actual_slop"] = None
+
+    if "actual_watchability" not in games:
+        games["actual_watchability"] = None
+
+    valid = games[MODEL_FEATURES].notna().all(axis=1)
+
+    if not valid.any():
+        return games.iloc[0:0].copy()
+
+    games = games[valid].copy()
+
+    # ---------------------------------
+    # PREDICT FEATURES
+    # ---------------------------------
 
     model = joblib.load(
         f"models/{league}_slop_model.pkl"
@@ -32,94 +66,6 @@ def predict_slop(prediction_date=None, league="mlb", days_ahead=100):
     prediction_distribution = joblib.load(
         f"models/{league}_prediction_distribution.pkl"
     )
-
-    games = get_future_games(
-        prediction_date=prediction_date,
-        days_ahead=days_ahead,
-        league=league,
-    )
-
-    performance = get_performance(
-        league=league,
-    )
-
-    if games.empty:
-        return games
-
-    # Only use performance available before prediction date
-    performance = performance[
-        performance["date"] < prediction_date
-    ]
-
-    # ---------------------------------
-    # GET LATEST TEAM PERFORMANCE
-    # ---------------------------------
-    latest_performance = (
-        performance
-        .sort_values("date")
-        .groupby("team")
-        .tail(1)
-    )
-
-    home_features = latest_performance[
-        [
-            "team",
-            "win_pct",
-            "point_diff_avg",
-            "recent_win_pct",
-            "recent_point_diff",            
-        ]
-    ].rename(
-        columns={
-            "team": "home_name",
-            "win_pct": "home_win_pct",
-            "point_diff_avg": "home_point_diff",
-            "recent_win_pct": "home_recent_win_pct",
-            "recent_point_diff": "home_recent_point_diff",
-        }
-    )
-
-    away_features = latest_performance[
-        [
-            "team",
-            "win_pct",
-            "point_diff_avg",
-            "recent_win_pct",
-            "recent_point_diff",            
-        ]
-    ].rename(
-        columns={
-            "team": "away_name",
-            "win_pct": "away_win_pct",
-            "point_diff_avg": "away_point_diff",
-            "recent_win_pct": "away_recent_win_pct",
-            "recent_point_diff": "away_recent_point_diff",
-        }
-    )
-
-    # ---------------------------------
-    # ATTACH TEAM PERFORMANCE
-    # ---------------------------------
-
-    games = games.merge(
-        home_features,
-        on=["home_name"],
-        how="left",
-    ).merge(
-        away_features,
-        on=["away_name"],
-        how="left",
-    )
-
-    valid = games[MODEL_FEATURES].notna().all(axis=1)
-    if not valid.any():
-        return games.iloc[0:0].copy()
-
-    games = games[valid].copy()
-
-    # ---------------------------------
-    # PREDICT SLOP
-    # ---------------------------------
 
     predictions = model.predict(games[MODEL_FEATURES])
 
@@ -169,5 +115,5 @@ def predict_slop(prediction_date=None, league="mlb", days_ahead=100):
     return games
 
 if __name__ == "__main__":
-    predictions = predict_slop(
+    predictions = predict(
     )

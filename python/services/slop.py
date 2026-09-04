@@ -1,5 +1,5 @@
 import numpy as np
-from services.games import get_games, get_performance
+from services.games_old import get_games, get_performance
 from config.sports import SPORT_CONFIG
 
 def normalize_badness(value, min_value, max_value):
