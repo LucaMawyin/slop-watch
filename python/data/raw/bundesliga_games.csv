@@ -9,20 +9,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608568,2021-09-12 15:30:00+00:00,Hertha Berlin at VfL Bochum,BSC @ BOC,VfL Bochum,121,1,Hertha Berlin,129,3,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,9,12,2021
 608573,2021-09-12 17:30:00+00:00,Arminia Bielefeld at Borussia Mönchengladbach,DSC @ BMG,Borussia Mönchengladbach,268,3,Arminia Bielefeld,2506,1,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,9,12,2021
 608579,2021-09-17 18:30:00+00:00,SpVgg Greuther Fürth at Hertha Berlin,SGF @ BSC,Hertha Berlin,129,2,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,9,17,2021
+608580,2021-09-18 13:30:00+00:00,SC Freiburg at Mainz,SCF @ M05,Mainz,2950,0,SC Freiburg,126,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,9,18,2021
+608575,2021-09-18 13:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,WWK Arena,2021-2022,0,9,18,2021
 608576,2021-09-18 13:30:00+00:00,TSG Hoffenheim at Arminia Bielefeld,TSG @ DSC,Arminia Bielefeld,2506,0,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,SchücoArena,2021-2022,0,9,18,2021
 608582,2021-09-18 13:30:00+00:00,VfL Bochum at Bayern Munich,BOC @ MUN,Bayern Munich,132,7,VfL Bochum,121,0,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,9,18,2021
-608575,2021-09-18 13:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,WWK Arena,2021-2022,0,9,18,2021
-608580,2021-09-18 13:30:00+00:00,SC Freiburg at Mainz,SCF @ M05,Mainz,2950,0,SC Freiburg,126,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,9,18,2021
 608581,2021-09-18 16:30:00+00:00,RB Leipzig at FC Cologne,RBL @ KOE,FC Cologne,122,1,RB Leipzig,11420,1,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,9,18,2021
 608577,2021-09-19 13:30:00+00:00,Bayer Leverkusen at VfB Stuttgart,B04 @ VFB,VfB Stuttgart,134,1,Bayer Leverkusen,131,3,STATUS_FULL_TIME,MHPArena,2021-2022,0,9,19,2021
 608583,2021-09-19 15:30:00+00:00,1. FC Union Berlin at Borussia Dortmund,FCU @ DOR,Borussia Dortmund,124,4,1. FC Union Berlin,598,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,9,19,2021
 608578,2021-09-19 17:30:00+00:00,Eintracht Frankfurt at VfL Wolfsburg,SGE @ WOB,VfL Wolfsburg,138,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,9,19,2021
 608584,2021-09-24 18:30:00+00:00,Bayern Munich at SpVgg Greuther Fürth,MUN @ SGF,SpVgg Greuther Fürth,3070,1,Bayern Munich,132,3,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,9,24,2021
+608585,2021-09-25 13:30:00+00:00,Hertha Berlin at RB Leipzig,BSC @ RBL,RB Leipzig,11420,6,Hertha Berlin,129,0,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,9,25,2021
+608586,2021-09-25 13:30:00+00:00,FC Cologne at Eintracht Frankfurt,KOE @ SGE,Eintracht Frankfurt,125,1,FC Cologne,122,1,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,9,25,2021
+608591,2021-09-25 13:30:00+00:00,VfL Wolfsburg at TSG Hoffenheim,WOB @ TSG,TSG Hoffenheim,7911,3,VfL Wolfsburg,138,1,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,9,25,2021
 608589,2021-09-25 13:30:00+00:00,Arminia Bielefeld at 1. FC Union Berlin,DSC @ FCU,1. FC Union Berlin,598,1,Arminia Bielefeld,2506,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,9,25,2021
 608588,2021-09-25 13:30:00+00:00,Mainz at Bayer Leverkusen,M05 @ B04,Bayer Leverkusen,131,1,Mainz,2950,0,STATUS_FULL_TIME,BayArena,2021-2022,0,9,25,2021
-608586,2021-09-25 13:30:00+00:00,FC Cologne at Eintracht Frankfurt,KOE @ SGE,Eintracht Frankfurt,125,1,FC Cologne,122,1,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,9,25,2021
-608585,2021-09-25 13:30:00+00:00,Hertha Berlin at RB Leipzig,BSC @ RBL,RB Leipzig,11420,6,Hertha Berlin,129,0,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,9,25,2021
-608591,2021-09-25 13:30:00+00:00,VfL Wolfsburg at TSG Hoffenheim,WOB @ TSG,TSG Hoffenheim,7911,3,VfL Wolfsburg,138,1,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,9,25,2021
 608587,2021-09-25 16:30:00+00:00,Borussia Dortmund at Borussia Mönchengladbach,DOR @ BMG,Borussia Mönchengladbach,268,1,Borussia Dortmund,124,0,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,9,25,2021
 608592,2021-09-26 13:30:00+00:00,VfB Stuttgart at VfL Bochum,VFB @ BOC,VfL Bochum,121,0,VfB Stuttgart,134,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,9,26,2021
 608590,2021-09-26 15:30:00+00:00,FC Augsburg at SC Freiburg,FCA @ SCF,SC Freiburg,126,3,FC Augsburg,3841,0,STATUS_FULL_TIME,Dreisamstadion,2021-2022,0,9,26,2021
@@ -45,20 +45,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608608,2021-10-17 13:30:00+00:00,Bayern Munich at Bayer Leverkusen,MUN @ B04,Bayer Leverkusen,131,1,Bayern Munich,132,5,STATUS_FULL_TIME,BayArena,2021-2022,0,10,17,2021
 608604,2021-10-17 15:30:00+00:00,Arminia Bielefeld at FC Augsburg,DSC @ FCA,FC Augsburg,3841,1,Arminia Bielefeld,2506,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,10,17,2021
 608612,2021-10-22 18:30:00+00:00,FC Augsburg at Mainz,FCA @ M05,Mainz,2950,4,FC Augsburg,3841,1,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,10,22,2021
+608613,2021-10-23 13:30:00+00:00,SC Freiburg at VfL Wolfsburg,SCF @ WOB,VfL Wolfsburg,138,0,SC Freiburg,126,2,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,10,23,2021
+608616,2021-10-23 13:30:00+00:00,SpVgg Greuther Fürth at RB Leipzig,SGF @ RBL,RB Leipzig,11420,4,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,10,23,2021
 608619,2021-10-23 13:30:00+00:00,Borussia Dortmund at Arminia Bielefeld,DOR @ DSC,Arminia Bielefeld,2506,1,Borussia Dortmund,124,3,STATUS_FULL_TIME,SchücoArena,2021-2022,0,10,23,2021
 608618,2021-10-23 13:30:00+00:00,TSG Hoffenheim at Bayern Munich,TSG @ MUN,Bayern Munich,132,4,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,10,23,2021
-608616,2021-10-23 13:30:00+00:00,SpVgg Greuther Fürth at RB Leipzig,SGF @ RBL,RB Leipzig,11420,4,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,10,23,2021
-608613,2021-10-23 13:30:00+00:00,SC Freiburg at VfL Wolfsburg,SCF @ WOB,VfL Wolfsburg,138,0,SC Freiburg,126,2,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,10,23,2021
 608617,2021-10-23 16:30:00+00:00,Borussia Mönchengladbach at Hertha Berlin,BMG @ BSC,Hertha Berlin,129,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,10,23,2021
 608611,2021-10-24 13:30:00+00:00,Bayer Leverkusen at FC Cologne,B04 @ KOE,FC Cologne,122,2,Bayer Leverkusen,131,2,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,10,24,2021
 608615,2021-10-24 15:30:00+00:00,1. FC Union Berlin at VfB Stuttgart,FCU @ VFB,VfB Stuttgart,134,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,MHPArena,2021-2022,0,10,24,2021
 608614,2021-10-24 17:30:00+00:00,Eintracht Frankfurt at VfL Bochum,SGE @ BOC,VfL Bochum,121,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,10,24,2021
 608624,2021-10-29 18:30:00+00:00,Hertha Berlin at TSG Hoffenheim,BSC @ TSG,TSG Hoffenheim,7911,2,Hertha Berlin,129,0,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,10,29,2021
+608626,2021-10-30 13:30:00+00:00,FC Cologne at Borussia Dortmund,KOE @ DOR,Borussia Dortmund,124,2,FC Cologne,122,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,10,30,2021
+608627,2021-10-30 13:30:00+00:00,VfL Wolfsburg at Bayer Leverkusen,WOB @ B04,Bayer Leverkusen,131,0,VfL Wolfsburg,138,2,STATUS_FULL_TIME,BayArena,2021-2022,0,10,30,2021
+608621,2021-10-30 13:30:00+00:00,SpVgg Greuther Fürth at SC Freiburg,SGF @ SCF,SC Freiburg,126,3,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,10,30,2021
 608620,2021-10-30 13:30:00+00:00,Bayern Munich at 1. FC Union Berlin,MUN @ FCU,1. FC Union Berlin,598,2,Bayern Munich,132,5,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,10,30,2021
 608628,2021-10-30 13:30:00+00:00,Mainz at Arminia Bielefeld,M05 @ DSC,Arminia Bielefeld,2506,1,Mainz,2950,2,STATUS_FULL_TIME,SchücoArena,2021-2022,0,10,30,2021
-608627,2021-10-30 13:30:00+00:00,VfL Wolfsburg at Bayer Leverkusen,WOB @ B04,Bayer Leverkusen,131,0,VfL Wolfsburg,138,2,STATUS_FULL_TIME,BayArena,2021-2022,0,10,30,2021
-608626,2021-10-30 13:30:00+00:00,FC Cologne at Borussia Dortmund,KOE @ DOR,Borussia Dortmund,124,2,FC Cologne,122,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,10,30,2021
-608621,2021-10-30 13:30:00+00:00,SpVgg Greuther Fürth at SC Freiburg,SGF @ SCF,SC Freiburg,126,3,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,10,30,2021
 608623,2021-10-30 16:30:00+00:00,RB Leipzig at Eintracht Frankfurt,RBL @ SGE,Eintracht Frankfurt,125,1,RB Leipzig,11420,1,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,10,30,2021
 608622,2021-10-31 14:30:00+00:00,VfB Stuttgart at FC Augsburg,VFB @ FCA,FC Augsburg,3841,4,VfB Stuttgart,134,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,10,31,2021
 608625,2021-10-31 16:30:00+00:00,VfL Bochum at Borussia Mönchengladbach,BOC @ BMG,Borussia Mönchengladbach,268,2,VfL Bochum,121,1,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,10,31,2021
@@ -90,20 +90,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608648,2021-11-28 14:30:00+00:00,1. FC Union Berlin at Eintracht Frankfurt,FCU @ SGE,Eintracht Frankfurt,125,2,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,11,28,2021
 608654,2021-11-28 16:30:00+00:00,Bayer Leverkusen at RB Leipzig,B04 @ RBL,RB Leipzig,11420,1,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,11,28,2021
 608656,2021-12-03 19:30:00+00:00,RB Leipzig at 1. FC Union Berlin,RBL @ FCU,1. FC Union Berlin,598,2,RB Leipzig,11420,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,12,3,2021
-608661,2021-12-04 14:30:00+00:00,FC Cologne at Arminia Bielefeld,KOE @ DSC,Arminia Bielefeld,2506,1,FC Cologne,122,1,STATUS_FULL_TIME,SchücoArena,2021-2022,0,12,4,2021
-608664,2021-12-04 14:30:00+00:00,SpVgg Greuther Fürth at Bayer Leverkusen,SGF @ B04,Bayer Leverkusen,131,7,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,BayArena,2021-2022,0,12,4,2021
-608660,2021-12-04 14:30:00+00:00,VfL Bochum at FC Augsburg,BOC @ FCA,FC Augsburg,3841,2,VfL Bochum,121,3,STATUS_FULL_TIME,WWK Arena,2021-2022,0,12,4,2021
-608657,2021-12-04 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,3,VfL Wolfsburg,138,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,12,4,2021
 608659,2021-12-04 14:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,3,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,12,4,2021
+608657,2021-12-04 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,3,VfL Wolfsburg,138,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,12,4,2021
+608660,2021-12-04 14:30:00+00:00,VfL Bochum at FC Augsburg,BOC @ FCA,FC Augsburg,3841,2,VfL Bochum,121,3,STATUS_FULL_TIME,WWK Arena,2021-2022,0,12,4,2021
+608664,2021-12-04 14:30:00+00:00,SpVgg Greuther Fürth at Bayer Leverkusen,SGF @ B04,Bayer Leverkusen,131,7,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,BayArena,2021-2022,0,12,4,2021
+608661,2021-12-04 14:30:00+00:00,FC Cologne at Arminia Bielefeld,KOE @ DSC,Arminia Bielefeld,2506,1,FC Cologne,122,1,STATUS_FULL_TIME,SchücoArena,2021-2022,0,12,4,2021
 608663,2021-12-04 17:30:00+00:00,Bayern Munich at Borussia Dortmund,MUN @ DOR,Borussia Dortmund,124,2,Bayern Munich,132,3,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,12,4,2021
 608658,2021-12-05 14:30:00+00:00,Hertha Berlin at VfB Stuttgart,BSC @ VFB,VfB Stuttgart,134,2,Hertha Berlin,129,2,STATUS_FULL_TIME,MHPArena,2021-2022,0,12,5,2021
 608662,2021-12-05 16:30:00+00:00,SC Freiburg at Borussia Mönchengladbach,SCF @ BMG,Borussia Mönchengladbach,268,0,SC Freiburg,126,6,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,12,5,2021
 608665,2021-12-10 19:30:00+00:00,FC Augsburg at FC Cologne,FCA @ KOE,FC Cologne,122,0,FC Augsburg,3841,2,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,12,10,2021
-608671,2021-12-11 14:30:00+00:00,Mainz at Bayern Munich,M05 @ MUN,Bayern Munich,132,2,Mainz,2950,1,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,12,11,2021
-608670,2021-12-11 14:30:00+00:00,Arminia Bielefeld at Hertha Berlin,DSC @ BSC,Hertha Berlin,129,2,Arminia Bielefeld,2506,0,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,12,11,2021
+608666,2021-12-11 14:30:00+00:00,Borussia Dortmund at VfL Bochum,DOR @ BOC,VfL Bochum,121,1,Borussia Dortmund,124,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,12,11,2021
 608673,2021-12-11 14:30:00+00:00,Borussia Mönchengladbach at RB Leipzig,BMG @ RBL,RB Leipzig,11420,4,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,12,11,2021
 608667,2021-12-11 14:30:00+00:00,TSG Hoffenheim at SC Freiburg,TSG @ SCF,SC Freiburg,126,1,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,12,11,2021
-608666,2021-12-11 14:30:00+00:00,Borussia Dortmund at VfL Bochum,DOR @ BOC,VfL Bochum,121,1,Borussia Dortmund,124,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,12,11,2021
+608671,2021-12-11 14:30:00+00:00,Mainz at Bayern Munich,M05 @ MUN,Bayern Munich,132,2,Mainz,2950,1,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,12,11,2021
+608670,2021-12-11 14:30:00+00:00,Arminia Bielefeld at Hertha Berlin,DSC @ BSC,Hertha Berlin,129,2,Arminia Bielefeld,2506,0,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,12,11,2021
 608669,2021-12-11 17:30:00+00:00,VfB Stuttgart at VfL Wolfsburg,VFB @ WOB,VfL Wolfsburg,138,0,VfB Stuttgart,134,2,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,12,11,2021
 608668,2021-12-12 14:30:00+00:00,1. FC Union Berlin at SpVgg Greuther Fürth,FCU @ SGF,SpVgg Greuther Fürth,3070,1,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,12,12,2021
 608672,2021-12-12 16:30:00+00:00,Bayer Leverkusen at Eintracht Frankfurt,B04 @ SGE,Eintracht Frankfurt,125,5,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,12,12,2021
@@ -112,10 +112,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608682,2021-12-14 19:30:00+00:00,Hertha Berlin at Mainz,BSC @ M05,Mainz,2950,4,Hertha Berlin,129,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,12,14,2021
 608680,2021-12-14 19:30:00+00:00,FC Cologne at VfL Wolfsburg,KOE @ WOB,VfL Wolfsburg,138,2,FC Cologne,122,3,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,12,14,2021
 608676,2021-12-15 17:30:00+00:00,Eintracht Frankfurt at Borussia Mönchengladbach,SGE @ BMG,Borussia Mönchengladbach,268,2,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,12,15,2021
+608678,2021-12-15 19:30:00+00:00,RB Leipzig at FC Augsburg,RBL @ FCA,FC Augsburg,3841,1,RB Leipzig,11420,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,12,15,2021
+608675,2021-12-15 19:30:00+00:00,SpVgg Greuther Fürth at Borussia Dortmund,SGF @ DOR,Borussia Dortmund,124,3,SpVgg Greuther Fürth,3070,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,12,15,2021
 608681,2021-12-15 19:30:00+00:00,SC Freiburg at 1. FC Union Berlin,SCF @ FCU,1. FC Union Berlin,598,0,SC Freiburg,126,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,12,15,2021
 608674,2021-12-15 19:30:00+00:00,TSG Hoffenheim at Bayer Leverkusen,TSG @ B04,Bayer Leverkusen,131,2,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,BayArena,2021-2022,0,12,15,2021
-608675,2021-12-15 19:30:00+00:00,SpVgg Greuther Fürth at Borussia Dortmund,SGF @ DOR,Borussia Dortmund,124,3,SpVgg Greuther Fürth,3070,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,12,15,2021
-608678,2021-12-15 19:30:00+00:00,RB Leipzig at FC Augsburg,RBL @ FCA,FC Augsburg,3841,1,RB Leipzig,11420,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,12,15,2021
 608685,2021-12-17 19:30:00+00:00,VfL Wolfsburg at Bayern Munich,WOB @ MUN,Bayern Munich,132,4,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,12,17,2021
 608684,2021-12-18 14:30:00+00:00,Mainz at Eintracht Frankfurt,M05 @ SGE,Eintracht Frankfurt,125,1,Mainz,2950,0,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,12,18,2021
 608691,2021-12-18 14:30:00+00:00,Arminia Bielefeld at RB Leipzig,DSC @ RBL,RB Leipzig,11420,0,Arminia Bielefeld,2506,2,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,12,18,2021
@@ -135,11 +135,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608692,2022-01-09 14:30:00+00:00,FC Cologne at Hertha Berlin,KOE @ BSC,Hertha Berlin,129,1,FC Cologne,122,3,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,1,9,2022
 608696,2022-01-09 16:30:00+00:00,VfL Wolfsburg at VfL Bochum,WOB @ BOC,VfL Bochum,121,1,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,1,9,2022
 608701,2022-01-14 19:30:00+00:00,SC Freiburg at Borussia Dortmund,SCF @ DOR,Borussia Dortmund,124,5,SC Freiburg,126,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,1,14,2022
+608707,2022-01-15 14:30:00+00:00,RB Leipzig at VfB Stuttgart,RBL @ VFB,VfB Stuttgart,134,0,RB Leipzig,11420,2,STATUS_FULL_TIME,MHPArena,2021-2022,0,1,15,2022
+608702,2022-01-15 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,1,VfL Bochum,121,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,1,15,2022
+608706,2022-01-15 14:30:00+00:00,Hertha Berlin at VfL Wolfsburg,BSC @ WOB,VfL Wolfsburg,138,0,Hertha Berlin,129,0,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,1,15,2022
 608703,2022-01-15 14:30:00+00:00,TSG Hoffenheim at 1. FC Union Berlin,TSG @ FCU,1. FC Union Berlin,598,2,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,1,15,2022
 608704,2022-01-15 14:30:00+00:00,Bayern Munich at FC Cologne,MUN @ KOE,FC Cologne,122,0,Bayern Munich,132,4,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,1,15,2022
-608702,2022-01-15 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,1,VfL Bochum,121,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,1,15,2022
-608707,2022-01-15 14:30:00+00:00,RB Leipzig at VfB Stuttgart,RBL @ VFB,VfB Stuttgart,134,0,RB Leipzig,11420,2,STATUS_FULL_TIME,MHPArena,2021-2022,0,1,15,2022
-608706,2022-01-15 14:30:00+00:00,Hertha Berlin at VfL Wolfsburg,BSC @ WOB,VfL Wolfsburg,138,0,Hertha Berlin,129,0,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,1,15,2022
 608705,2022-01-15 17:30:00+00:00,Bayer Leverkusen at Borussia Mönchengladbach,B04 @ BMG,Borussia Mönchengladbach,268,1,Bayer Leverkusen,131,2,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,1,15,2022
 608708,2022-01-16 14:30:00+00:00,Eintracht Frankfurt at FC Augsburg,SGE @ FCA,FC Augsburg,3841,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,1,16,2022
 608709,2022-01-16 16:30:00+00:00,SpVgg Greuther Fürth at Arminia Bielefeld,SGF @ DSC,Arminia Bielefeld,2506,2,SpVgg Greuther Fürth,3070,2,STATUS_FULL_TIME,SchücoArena,2021-2022,0,1,16,2022
@@ -162,11 +162,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608724,2022-02-06 14:30:00+00:00,Bayer Leverkusen at Borussia Dortmund,B04 @ DOR,Borussia Dortmund,124,2,Bayer Leverkusen,131,5,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,2,6,2022
 608723,2022-02-06 16:30:00+00:00,SpVgg Greuther Fürth at VfL Wolfsburg,SGF @ WOB,VfL Wolfsburg,138,4,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,2,6,2022
 608731,2022-02-11 19:30:00+00:00,FC Cologne at RB Leipzig,KOE @ RBL,RB Leipzig,11420,3,FC Cologne,122,1,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,2,11,2022
+608736,2022-02-12 14:30:00+00:00,Bayern Munich at VfL Bochum,MUN @ BOC,VfL Bochum,121,4,Bayern Munich,132,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,2,12,2022
+608730,2022-02-12 14:30:00+00:00,Hertha Berlin at SpVgg Greuther Fürth,BSC @ SGF,SpVgg Greuther Fürth,3070,2,Hertha Berlin,129,1,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,2,12,2022
 608733,2022-02-12 14:30:00+00:00,FC Augsburg at Borussia Mönchengladbach,FCA @ BMG,Borussia Mönchengladbach,268,3,FC Augsburg,3841,2,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,2,12,2022
 608732,2022-02-12 14:30:00+00:00,VfL Wolfsburg at Eintracht Frankfurt,WOB @ SGE,Eintracht Frankfurt,125,0,VfL Wolfsburg,138,2,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,2,12,2022
 608729,2022-02-12 14:30:00+00:00,Mainz at SC Freiburg,M05 @ SCF,SC Freiburg,126,1,Mainz,2950,1,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,2,12,2022
-608730,2022-02-12 14:30:00+00:00,Hertha Berlin at SpVgg Greuther Fürth,BSC @ SGF,SpVgg Greuther Fürth,3070,2,Hertha Berlin,129,1,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,2,12,2022
-608736,2022-02-12 14:30:00+00:00,Bayern Munich at VfL Bochum,MUN @ BOC,VfL Bochum,121,4,Bayern Munich,132,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,2,12,2022
 608734,2022-02-12 17:30:00+00:00,VfB Stuttgart at Bayer Leverkusen,VFB @ B04,Bayer Leverkusen,131,4,VfB Stuttgart,134,2,STATUS_FULL_TIME,BayArena,2021-2022,0,2,12,2022
 608735,2022-02-13 14:30:00+00:00,Borussia Dortmund at 1. FC Union Berlin,DOR @ FCU,1. FC Union Berlin,598,0,Borussia Dortmund,124,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,2,13,2022
 608728,2022-02-13 16:30:00+00:00,Arminia Bielefeld at TSG Hoffenheim,DSC @ TSG,TSG Hoffenheim,7911,2,Arminia Bielefeld,2506,0,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,2,13,2022
@@ -233,21 +233,21 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608797,2022-04-10 13:30:00+00:00,Bayer Leverkusen at VfL Bochum,B04 @ BOC,VfL Bochum,121,0,Bayer Leverkusen,131,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,4,10,2022
 608798,2022-04-10 15:30:00+00:00,SC Freiburg at Eintracht Frankfurt,SCF @ SGE,Eintracht Frankfurt,125,1,SC Freiburg,126,2,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,4,10,2022
 608794,2022-04-10 17:30:00+00:00,TSG Hoffenheim at RB Leipzig,TSG @ RBL,RB Leipzig,11420,3,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,4,10,2022
-608802,2022-04-16 13:30:00+00:00,VfL Wolfsburg at Borussia Dortmund,WOB @ DOR,Borussia Dortmund,124,6,VfL Wolfsburg,138,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,4,16,2022
-608805,2022-04-16 13:30:00+00:00,Hertha Berlin at FC Augsburg,BSC @ FCA,FC Augsburg,3841,0,Hertha Berlin,129,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,4,16,2022
-608807,2022-04-16 13:30:00+00:00,VfB Stuttgart at Mainz,VFB @ M05,Mainz,2950,0,VfB Stuttgart,134,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,4,16,2022
 608806,2022-04-16 13:30:00+00:00,VfL Bochum at SC Freiburg,BOC @ SCF,SC Freiburg,126,3,VfL Bochum,121,0,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,4,16,2022
+608807,2022-04-16 13:30:00+00:00,VfB Stuttgart at Mainz,VFB @ M05,Mainz,2950,0,VfB Stuttgart,134,0,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,4,16,2022
+608805,2022-04-16 13:30:00+00:00,Hertha Berlin at FC Augsburg,BSC @ FCA,FC Augsburg,3841,0,Hertha Berlin,129,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,4,16,2022
+608802,2022-04-16 13:30:00+00:00,VfL Wolfsburg at Borussia Dortmund,WOB @ DOR,Borussia Dortmund,124,6,VfL Wolfsburg,138,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,4,16,2022
 608803,2022-04-16 16:30:00+00:00,FC Cologne at Borussia Mönchengladbach,KOE @ BMG,Borussia Mönchengladbach,268,1,FC Cologne,122,3,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,4,16,2022
 608804,2022-04-17 13:30:00+00:00,Bayern Munich at Arminia Bielefeld,MUN @ DSC,Arminia Bielefeld,2506,0,Bayern Munich,132,3,STATUS_FULL_TIME,SchücoArena,2021-2022,0,4,17,2022
 608800,2022-04-17 15:30:00+00:00,Eintracht Frankfurt at 1. FC Union Berlin,SGE @ FCU,1. FC Union Berlin,598,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,4,17,2022
 608808,2022-04-17 15:30:00+00:00,SpVgg Greuther Fürth at TSG Hoffenheim,SGF @ TSG,TSG Hoffenheim,7911,0,SpVgg Greuther Fürth,3070,0,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,4,17,2022
 608801,2022-04-17 17:30:00+00:00,RB Leipzig at Bayer Leverkusen,RBL @ B04,Bayer Leverkusen,131,0,RB Leipzig,11420,1,STATUS_FULL_TIME,BayArena,2021-2022,0,4,17,2022
 608817,2022-04-22 18:30:00+00:00,Mainz at VfL Wolfsburg,M05 @ WOB,VfL Wolfsburg,138,5,Mainz,2950,0,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,4,22,2022
+608814,2022-04-23 13:30:00+00:00,Borussia Mönchengladbach at SC Freiburg,BMG @ SCF,SC Freiburg,126,3,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,4,23,2022
+608812,2022-04-23 13:30:00+00:00,1. FC Union Berlin at RB Leipzig,FCU @ RBL,RB Leipzig,11420,1,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,4,23,2022
+608813,2022-04-23 13:30:00+00:00,Bayer Leverkusen at SpVgg Greuther Fürth,B04 @ SGF,SpVgg Greuther Fürth,3070,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,4,23,2022
 608816,2022-04-23 13:30:00+00:00,TSG Hoffenheim at Eintracht Frankfurt,TSG @ SGE,Eintracht Frankfurt,125,2,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,4,23,2022
 608809,2022-04-23 13:30:00+00:00,Arminia Bielefeld at FC Cologne,DSC @ KOE,FC Cologne,122,3,Arminia Bielefeld,2506,1,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,4,23,2022
-608812,2022-04-23 13:30:00+00:00,1. FC Union Berlin at RB Leipzig,FCU @ RBL,RB Leipzig,11420,1,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,4,23,2022
-608814,2022-04-23 13:30:00+00:00,Borussia Mönchengladbach at SC Freiburg,BMG @ SCF,SC Freiburg,126,3,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,4,23,2022
-608813,2022-04-23 13:30:00+00:00,Bayer Leverkusen at SpVgg Greuther Fürth,B04 @ SGF,SpVgg Greuther Fürth,3070,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,Sportpark Ronhof | Thomas Sommer,2021-2022,0,4,23,2022
 608810,2022-04-23 16:30:00+00:00,Borussia Dortmund at Bayern Munich,DOR @ MUN,Bayern Munich,132,3,Borussia Dortmund,124,1,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,4,23,2022
 608815,2022-04-24 13:30:00+00:00,FC Augsburg at VfL Bochum,FCA @ BOC,VfL Bochum,121,0,FC Augsburg,3841,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,4,24,2022
 608811,2022-04-24 15:30:00+00:00,VfB Stuttgart at Hertha Berlin,VFB @ BSC,Hertha Berlin,129,2,VfB Stuttgart,134,0,STATUS_FULL_TIME,Olympiastadion Berlin,2021-2022,0,4,24,2022
@@ -258,8 +258,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608824,2022-04-30 13:30:00+00:00,Bayern Munich at Mainz,MUN @ M05,Mainz,2950,3,Bayern Munich,132,1,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,4,30,2022
 608819,2022-04-30 13:30:00+00:00,VfL Wolfsburg at VfB Stuttgart,WOB @ VFB,VfB Stuttgart,134,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MHPArena,2021-2022,0,4,30,2022
 608820,2022-04-30 16:30:00+00:00,SC Freiburg at TSG Hoffenheim,SCF @ TSG,TSG Hoffenheim,7911,3,SC Freiburg,126,4,STATUS_FULL_TIME,PreZero Arena,2021-2022,0,4,30,2022
-608825,2022-05-02 18:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,BayArena,2021-2022,0,5,2,2022
 608823,2022-05-02 18:30:00+00:00,RB Leipzig at Borussia Mönchengladbach,RBL @ BMG,Borussia Mönchengladbach,268,3,RB Leipzig,11420,1,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,5,2,2022
+608825,2022-05-02 18:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,BayArena,2021-2022,0,5,2,2022
 608829,2022-05-06 18:30:00+00:00,Arminia Bielefeld at VfL Bochum,DSC @ BOC,VfL Bochum,121,2,Arminia Bielefeld,2506,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2021-2022,0,5,6,2022
 608827,2022-05-07 13:30:00+00:00,VfL Wolfsburg at FC Cologne,WOB @ KOE,FC Cologne,122,0,VfL Wolfsburg,138,1,STATUS_FULL_TIME,RheinEnergieStadion,2021-2022,0,5,7,2022
 608831,2022-05-07 13:30:00+00:00,1. FC Union Berlin at SC Freiburg,FCU @ SCF,SC Freiburg,126,1,1. FC Union Berlin,598,4,STATUS_FULL_TIME,Europa-Park Stadion,2021-2022,0,5,7,2022
@@ -269,21 +269,21 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 608828,2022-05-08 13:30:00+00:00,Borussia Mönchengladbach at Eintracht Frankfurt,BMG @ SGE,Eintracht Frankfurt,125,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Deutsche Bank Park,2021-2022,0,5,8,2022
 608835,2022-05-08 15:30:00+00:00,VfB Stuttgart at Bayern Munich,VFB @ MUN,Bayern Munich,132,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,Allianz Arena,2021-2022,0,5,8,2022
 608833,2022-05-08 17:30:00+00:00,FC Augsburg at RB Leipzig,FCA @ RBL,RB Leipzig,11420,4,FC Augsburg,3841,0,STATUS_FULL_TIME,Red Bull Arena,2021-2022,0,5,8,2022
-608836,2022-05-14 13:30:00+00:00,VfL Bochum at 1. FC Union Berlin,BOC @ FCU,1. FC Union Berlin,598,3,VfL Bochum,121,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,5,14,2022
-608839,2022-05-14 13:30:00+00:00,RB Leipzig at Arminia Bielefeld,RBL @ DSC,Arminia Bielefeld,2506,1,RB Leipzig,11420,1,STATUS_FULL_TIME,SchücoArena,2021-2022,0,5,14,2022
-608842,2022-05-14 13:30:00+00:00,SC Freiburg at Bayer Leverkusen,SCF @ B04,Bayer Leverkusen,131,2,SC Freiburg,126,1,STATUS_FULL_TIME,BayArena,2021-2022,0,5,14,2022
-608841,2022-05-14 13:30:00+00:00,Hertha Berlin at Borussia Dortmund,BSC @ DOR,Borussia Dortmund,124,2,Hertha Berlin,129,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,5,14,2022
-608844,2022-05-14 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,5,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,5,14,2022
-608838,2022-05-14 13:30:00+00:00,SpVgg Greuther Fürth at FC Augsburg,SGF @ FCA,FC Augsburg,3841,2,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,5,14,2022
-608843,2022-05-14 13:30:00+00:00,Eintracht Frankfurt at Mainz,SGE @ M05,Mainz,2950,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,5,14,2022
-608837,2022-05-14 13:30:00+00:00,FC Cologne at VfB Stuttgart,KOE @ VFB,VfB Stuttgart,134,2,FC Cologne,122,1,STATUS_FULL_TIME,MHPArena,2021-2022,0,5,14,2022
 608840,2022-05-14 13:30:00+00:00,Bayern Munich at VfL Wolfsburg,MUN @ WOB,VfL Wolfsburg,138,2,Bayern Munich,132,2,STATUS_FULL_TIME,Volkswagen Arena,2021-2022,0,5,14,2022
+608837,2022-05-14 13:30:00+00:00,FC Cologne at VfB Stuttgart,KOE @ VFB,VfB Stuttgart,134,2,FC Cologne,122,1,STATUS_FULL_TIME,MHPArena,2021-2022,0,5,14,2022
+608843,2022-05-14 13:30:00+00:00,Eintracht Frankfurt at Mainz,SGE @ M05,Mainz,2950,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,MEWA ARENA,2021-2022,0,5,14,2022
+608838,2022-05-14 13:30:00+00:00,SpVgg Greuther Fürth at FC Augsburg,SGF @ FCA,FC Augsburg,3841,2,SpVgg Greuther Fürth,3070,1,STATUS_FULL_TIME,WWK Arena,2021-2022,0,5,14,2022
+608839,2022-05-14 13:30:00+00:00,RB Leipzig at Arminia Bielefeld,RBL @ DSC,Arminia Bielefeld,2506,1,RB Leipzig,11420,1,STATUS_FULL_TIME,SchücoArena,2021-2022,0,5,14,2022
+608841,2022-05-14 13:30:00+00:00,Hertha Berlin at Borussia Dortmund,BSC @ DOR,Borussia Dortmund,124,2,Hertha Berlin,129,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2021-2022,0,5,14,2022
+608842,2022-05-14 13:30:00+00:00,SC Freiburg at Bayer Leverkusen,SCF @ B04,Bayer Leverkusen,131,2,SC Freiburg,126,1,STATUS_FULL_TIME,BayArena,2021-2022,0,5,14,2022
+608836,2022-05-14 13:30:00+00:00,VfL Bochum at 1. FC Union Berlin,BOC @ FCU,1. FC Union Berlin,598,3,VfL Bochum,121,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2021-2022,0,5,14,2022
+608844,2022-05-14 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,5,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,BORUSSIA-PARK,2021-2022,0,5,14,2022
 638734,2022-08-05 18:30:00+00:00,Bayern Munich at Eintracht Frankfurt,MUN @ SGE,Eintracht Frankfurt,125,1,Bayern Munich,132,6,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,8,5,2022
-638442,2022-08-06 13:30:00+00:00,Hertha Berlin at 1. FC Union Berlin,BSC @ FCU,1. FC Union Berlin,598,3,Hertha Berlin,129,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,8,6,2022
-638440,2022-08-06 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,3,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,8,6,2022
+638441,2022-08-06 13:30:00+00:00,Werder Bremen at VfL Wolfsburg,SVW @ WOB,VfL Wolfsburg,138,2,Werder Bremen,137,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,8,6,2022
 638439,2022-08-06 13:30:00+00:00,SC Freiburg at FC Augsburg,SCF @ FCA,FC Augsburg,3841,0,SC Freiburg,126,4,STATUS_FULL_TIME,WWK Arena,2022-2023,0,8,6,2022
 638444,2022-08-06 13:30:00+00:00,Mainz at VfL Bochum,M05 @ BOC,VfL Bochum,121,1,Mainz,2950,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,8,6,2022
-638441,2022-08-06 13:30:00+00:00,Werder Bremen at VfL Wolfsburg,SVW @ WOB,VfL Wolfsburg,138,2,Werder Bremen,137,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,8,6,2022
+638440,2022-08-06 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,3,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,8,6,2022
+638442,2022-08-06 13:30:00+00:00,Hertha Berlin at 1. FC Union Berlin,BSC @ FCU,1. FC Union Berlin,598,3,Hertha Berlin,129,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,8,6,2022
 638445,2022-08-06 16:30:00+00:00,Bayer Leverkusen at Borussia Dortmund,B04 @ DOR,Borussia Dortmund,124,1,Bayer Leverkusen,131,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,8,6,2022
 638438,2022-08-07 13:30:00+00:00,RB Leipzig at VfB Stuttgart,RBL @ VFB,VfB Stuttgart,134,1,RB Leipzig,11420,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,8,7,2022
 638443,2022-08-07 15:30:00+00:00,Schalke 04 at FC Cologne,S04 @ KOE,FC Cologne,122,3,Schalke 04,133,1,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,8,7,2022
@@ -315,11 +315,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638464,2022-08-28 13:30:00+00:00,VfB Stuttgart at FC Cologne,VFB @ KOE,FC Cologne,122,0,VfB Stuttgart,134,0,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,8,28,2022
 638465,2022-08-28 15:30:00+00:00,Eintracht Frankfurt at Werder Bremen,SGE @ SVW,Werder Bremen,137,3,Eintracht Frankfurt,125,4,STATUS_FULL_TIME,Weserstadion,2022-2023,0,8,28,2022
 638474,2022-09-02 18:30:00+00:00,TSG Hoffenheim at Borussia Dortmund,TSG @ DOR,Borussia Dortmund,124,1,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,9,2,2022
-638476,2022-09-03 13:30:00+00:00,Bayern Munich at 1. FC Union Berlin,MUN @ FCU,1. FC Union Berlin,598,1,Bayern Munich,132,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,9,3,2022
-638475,2022-09-03 13:30:00+00:00,SC Freiburg at Bayer Leverkusen,SCF @ B04,Bayer Leverkusen,131,2,SC Freiburg,126,3,STATUS_FULL_TIME,BayArena,2022-2023,0,9,3,2022
-638479,2022-09-03 13:30:00+00:00,Schalke 04 at VfB Stuttgart,S04 @ VFB,VfB Stuttgart,134,1,Schalke 04,133,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,9,3,2022
-638480,2022-09-03 13:30:00+00:00,Werder Bremen at VfL Bochum,SVW @ BOC,VfL Bochum,121,0,Werder Bremen,137,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,9,3,2022
 638477,2022-09-03 13:30:00+00:00,FC Cologne at VfL Wolfsburg,KOE @ WOB,VfL Wolfsburg,138,2,FC Cologne,122,4,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,9,3,2022
+638480,2022-09-03 13:30:00+00:00,Werder Bremen at VfL Bochum,SVW @ BOC,VfL Bochum,121,0,Werder Bremen,137,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,9,3,2022
+638479,2022-09-03 13:30:00+00:00,Schalke 04 at VfB Stuttgart,S04 @ VFB,VfB Stuttgart,134,1,Schalke 04,133,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,9,3,2022
+638475,2022-09-03 13:30:00+00:00,SC Freiburg at Bayer Leverkusen,SCF @ B04,Bayer Leverkusen,131,2,SC Freiburg,126,3,STATUS_FULL_TIME,BayArena,2022-2023,0,9,3,2022
+638476,2022-09-03 13:30:00+00:00,Bayern Munich at 1. FC Union Berlin,MUN @ FCU,1. FC Union Berlin,598,1,Bayern Munich,132,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,9,3,2022
 638481,2022-09-03 16:30:00+00:00,RB Leipzig at Eintracht Frankfurt,RBL @ SGE,Eintracht Frankfurt,125,4,RB Leipzig,11420,0,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,9,3,2022
 638478,2022-09-04 13:30:00+00:00,Hertha Berlin at FC Augsburg,BSC @ FCA,FC Augsburg,3841,0,Hertha Berlin,129,2,STATUS_FULL_TIME,WWK Arena,2022-2023,0,9,4,2022
 638473,2022-09-04 15:30:00+00:00,Mainz at Borussia Mönchengladbach,M05 @ BMG,Borussia Mönchengladbach,268,0,Mainz,2950,1,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,9,4,2022
@@ -351,10 +351,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638505,2022-10-02 13:30:00+00:00,TSG Hoffenheim at Hertha Berlin,TSG @ BSC,Hertha Berlin,129,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,10,2,2022
 638506,2022-10-02 15:30:00+00:00,FC Augsburg at Schalke 04,FCA @ S04,Schalke 04,133,2,FC Augsburg,3841,3,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,10,2,2022
 638511,2022-10-07 18:30:00+00:00,Werder Bremen at TSG Hoffenheim,SVW @ TSG,TSG Hoffenheim,7911,1,Werder Bremen,137,2,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,10,7,2022
-638515,2022-10-08 13:30:00+00:00,Schalke 04 at Bayer Leverkusen,S04 @ B04,Bayer Leverkusen,131,4,Schalke 04,133,0,STATUS_FULL_TIME,BayArena,2022-2023,0,10,8,2022
-638512,2022-10-08 13:30:00+00:00,VfL Wolfsburg at FC Augsburg,WOB @ FCA,FC Augsburg,3841,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,WWK Arena,2022-2023,0,10,8,2022
-638516,2022-10-08 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,1,RB Leipzig,11420,1,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,10,8,2022
 638509,2022-10-08 13:30:00+00:00,Eintracht Frankfurt at VfL Bochum,SGE @ BOC,VfL Bochum,121,3,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,10,8,2022
+638516,2022-10-08 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,1,RB Leipzig,11420,1,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,10,8,2022
+638512,2022-10-08 13:30:00+00:00,VfL Wolfsburg at FC Augsburg,WOB @ FCA,FC Augsburg,3841,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,WWK Arena,2022-2023,0,10,8,2022
+638515,2022-10-08 13:30:00+00:00,Schalke 04 at Bayer Leverkusen,S04 @ B04,Bayer Leverkusen,131,4,Schalke 04,133,0,STATUS_FULL_TIME,BayArena,2022-2023,0,10,8,2022
 638514,2022-10-08 16:30:00+00:00,Bayern Munich at Borussia Dortmund,MUN @ DOR,Borussia Dortmund,124,2,Bayern Munich,132,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,10,8,2022
 638513,2022-10-09 13:30:00+00:00,FC Cologne at Borussia Mönchengladbach,KOE @ BMG,Borussia Mönchengladbach,268,5,FC Cologne,122,2,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,10,9,2022
 638517,2022-10-09 15:30:00+00:00,SC Freiburg at Hertha Berlin,SCF @ BSC,Hertha Berlin,129,2,SC Freiburg,126,2,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,10,9,2022
@@ -387,11 +387,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638541,2022-10-30 16:30:00+00:00,SC Freiburg at Schalke 04,SCF @ S04,Schalke 04,133,0,SC Freiburg,126,2,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,10,30,2022
 638536,2022-10-30 18:30:00+00:00,TSG Hoffenheim at FC Cologne,TSG @ KOE,FC Cologne,122,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,10,30,2022
 638547,2022-11-04 19:30:00+00:00,VfB Stuttgart at Borussia Mönchengladbach,VFB @ BMG,Borussia Mönchengladbach,268,3,VfB Stuttgart,134,1,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,11,4,2022
-638546,2022-11-05 14:30:00+00:00,VfL Bochum at Borussia Dortmund,BOC @ DOR,Borussia Dortmund,124,3,VfL Bochum,121,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,11,5,2022
-638548,2022-11-05 14:30:00+00:00,Eintracht Frankfurt at FC Augsburg,SGE @ FCA,FC Augsburg,3841,1,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,WWK Arena,2022-2023,0,11,5,2022
-638549,2022-11-05 14:30:00+00:00,Bayern Munich at Hertha Berlin,MUN @ BSC,Hertha Berlin,129,2,Bayern Munich,132,3,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,11,5,2022
-638545,2022-11-05 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,0,VfL Wolfsburg,138,3,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,11,5,2022
 638553,2022-11-05 14:30:00+00:00,RB Leipzig at TSG Hoffenheim,RBL @ TSG,TSG Hoffenheim,7911,1,RB Leipzig,11420,3,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,11,5,2022
+638545,2022-11-05 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,0,VfL Wolfsburg,138,3,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,11,5,2022
+638549,2022-11-05 14:30:00+00:00,Bayern Munich at Hertha Berlin,MUN @ BSC,Hertha Berlin,129,2,Bayern Munich,132,3,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,11,5,2022
+638548,2022-11-05 14:30:00+00:00,Eintracht Frankfurt at FC Augsburg,SGE @ FCA,FC Augsburg,3841,1,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,WWK Arena,2022-2023,0,11,5,2022
+638546,2022-11-05 14:30:00+00:00,VfL Bochum at Borussia Dortmund,BOC @ DOR,Borussia Dortmund,124,3,VfL Bochum,121,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,11,5,2022
 638551,2022-11-05 17:30:00+00:00,Schalke 04 at Werder Bremen,S04 @ SVW,Werder Bremen,137,2,Schalke 04,133,1,STATUS_FULL_TIME,Weserstadion,2022-2023,0,11,5,2022
 638552,2022-11-06 14:30:00+00:00,1. FC Union Berlin at Bayer Leverkusen,FCU @ B04,Bayer Leverkusen,131,5,1. FC Union Berlin,598,0,STATUS_FULL_TIME,BayArena,2022-2023,0,11,6,2022
 638550,2022-11-06 16:30:00+00:00,FC Cologne at SC Freiburg,KOE @ SCF,SC Freiburg,126,2,FC Cologne,122,0,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,11,6,2022
@@ -400,10 +400,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638559,2022-11-08 19:30:00+00:00,Hertha Berlin at VfB Stuttgart,BSC @ VFB,VfB Stuttgart,134,2,Hertha Berlin,129,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,11,8,2022
 638560,2022-11-08 19:30:00+00:00,Borussia Mönchengladbach at VfL Bochum,BMG @ BOC,VfL Bochum,121,2,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,11,8,2022
 638554,2022-11-09 17:30:00+00:00,Bayer Leverkusen at FC Cologne,B04 @ KOE,FC Cologne,122,1,Bayer Leverkusen,131,2,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,11,9,2022
+638557,2022-11-09 19:30:00+00:00,Mainz at Schalke 04,M05 @ S04,Schalke 04,133,1,Mainz,2950,0,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,11,9,2022
+638558,2022-11-09 19:30:00+00:00,SC Freiburg at RB Leipzig,SCF @ RBL,RB Leipzig,11420,3,SC Freiburg,126,1,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,11,9,2022
 638561,2022-11-09 19:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,2,FC Augsburg,3841,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,11,9,2022
 638555,2022-11-09 19:30:00+00:00,TSG Hoffenheim at Eintracht Frankfurt,TSG @ SGE,Eintracht Frankfurt,125,4,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,11,9,2022
-638558,2022-11-09 19:30:00+00:00,SC Freiburg at RB Leipzig,SCF @ RBL,RB Leipzig,11420,3,SC Freiburg,126,1,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,11,9,2022
-638557,2022-11-09 19:30:00+00:00,Mainz at Schalke 04,M05 @ S04,Schalke 04,133,1,Mainz,2950,0,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,11,9,2022
 638570,2022-11-11 19:30:00+00:00,Borussia Dortmund at Borussia Mönchengladbach,DOR @ BMG,Borussia Mönchengladbach,268,4,Borussia Dortmund,124,2,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,11,11,2022
 638569,2022-11-12 14:30:00+00:00,VfB Stuttgart at Bayer Leverkusen,VFB @ B04,Bayer Leverkusen,131,2,VfB Stuttgart,134,0,STATUS_FULL_TIME,BayArena,2022-2023,0,11,12,2022
 638571,2022-11-12 14:30:00+00:00,VfL Bochum at FC Augsburg,BOC @ FCA,FC Augsburg,3841,0,VfL Bochum,121,1,STATUS_FULL_TIME,WWK Arena,2022-2023,0,11,12,2022
@@ -423,28 +423,28 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638580,2023-01-22 14:30:00+00:00,FC Augsburg at Borussia Dortmund,FCA @ DOR,Borussia Dortmund,124,4,FC Augsburg,3841,3,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,1,22,2023
 638579,2023-01-22 16:30:00+00:00,Bayer Leverkusen at Borussia Mönchengladbach,B04 @ BMG,Borussia Mönchengladbach,268,2,Bayer Leverkusen,131,3,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,1,22,2023
 638589,2023-01-24 17:30:00+00:00,RB Leipzig at Schalke 04,RBL @ S04,Schalke 04,133,1,RB Leipzig,11420,6,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,1,24,2023
-638586,2023-01-24 19:30:00+00:00,FC Cologne at Bayern Munich,KOE @ MUN,Bayern Munich,132,1,FC Cologne,122,1,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,1,24,2023
 638584,2023-01-24 19:30:00+00:00,VfL Wolfsburg at Hertha Berlin,WOB @ BSC,Hertha Berlin,129,0,VfL Wolfsburg,138,5,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,1,24,2023
 638585,2023-01-24 19:30:00+00:00,VfB Stuttgart at TSG Hoffenheim,VFB @ TSG,TSG Hoffenheim,7911,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,1,24,2023
+638586,2023-01-24 19:30:00+00:00,FC Cologne at Bayern Munich,KOE @ MUN,Bayern Munich,132,1,FC Cologne,122,1,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,1,24,2023
 638581,2023-01-25 17:30:00+00:00,Borussia Dortmund at Mainz,DOR @ M05,Mainz,2950,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,1,25,2023
 638588,2023-01-25 19:30:00+00:00,VfL Bochum at Bayer Leverkusen,BOC @ B04,Bayer Leverkusen,131,2,VfL Bochum,121,0,STATUS_FULL_TIME,BayArena,2022-2023,0,1,25,2023
 638587,2023-01-25 19:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,WWK Arena,2022-2023,0,1,25,2023
 638583,2023-01-25 19:30:00+00:00,Eintracht Frankfurt at SC Freiburg,SGE @ SCF,SC Freiburg,126,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,1,25,2023
 638582,2023-01-25 19:30:00+00:00,1. FC Union Berlin at Werder Bremen,FCU @ SVW,Werder Bremen,137,1,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Weserstadion,2022-2023,0,1,25,2023
 638595,2023-01-27 19:30:00+00:00,VfB Stuttgart at RB Leipzig,VFB @ RBL,RB Leipzig,11420,2,VfB Stuttgart,134,1,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,1,27,2023
-638594,2023-01-28 14:30:00+00:00,1. FC Union Berlin at Hertha Berlin,FCU @ BSC,Hertha Berlin,129,0,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,1,28,2023
-638590,2023-01-28 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,5,VfL Bochum,121,2,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,1,28,2023
+638597,2023-01-28 14:30:00+00:00,VfL Wolfsburg at Werder Bremen,WOB @ SVW,Werder Bremen,137,2,VfL Wolfsburg,138,1,STATUS_FULL_TIME,Weserstadion,2022-2023,0,1,28,2023
 638596,2023-01-28 14:30:00+00:00,FC Augsburg at SC Freiburg,FCA @ SCF,SC Freiburg,126,3,FC Augsburg,3841,1,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,1,28,2023
 638598,2023-01-28 14:30:00+00:00,Borussia Mönchengladbach at TSG Hoffenheim,BMG @ TSG,TSG Hoffenheim,7911,1,Borussia Mönchengladbach,268,4,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,1,28,2023
-638597,2023-01-28 14:30:00+00:00,VfL Wolfsburg at Werder Bremen,WOB @ SVW,Werder Bremen,137,2,VfL Wolfsburg,138,1,STATUS_FULL_TIME,Weserstadion,2022-2023,0,1,28,2023
+638594,2023-01-28 14:30:00+00:00,1. FC Union Berlin at Hertha Berlin,FCU @ BSC,Hertha Berlin,129,0,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,1,28,2023
+638590,2023-01-28 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,5,VfL Bochum,121,2,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,1,28,2023
 638592,2023-01-28 17:30:00+00:00,Eintracht Frankfurt at Bayern Munich,SGE @ MUN,Bayern Munich,132,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,1,28,2023
 638593,2023-01-29 14:30:00+00:00,FC Cologne at Schalke 04,KOE @ S04,Schalke 04,133,0,FC Cologne,122,0,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,1,29,2023
 638591,2023-01-29 16:30:00+00:00,Borussia Dortmund at Bayer Leverkusen,DOR @ B04,Bayer Leverkusen,131,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,BayArena,2022-2023,0,1,29,2023
 638601,2023-02-03 19:30:00+00:00,Bayer Leverkusen at FC Augsburg,B04 @ FCA,FC Augsburg,3841,1,Bayer Leverkusen,131,0,STATUS_FULL_TIME,WWK Arena,2022-2023,0,2,3,2023
+638606,2023-02-04 14:30:00+00:00,RB Leipzig at FC Cologne,RBL @ KOE,FC Cologne,122,0,RB Leipzig,11420,0,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,2,4,2023
 638605,2023-02-04 14:30:00+00:00,Mainz at 1. FC Union Berlin,M05 @ FCU,1. FC Union Berlin,598,2,Mainz,2950,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,2,4,2023
 638604,2023-02-04 14:30:00+00:00,SC Freiburg at Borussia Dortmund,SCF @ DOR,Borussia Dortmund,124,5,SC Freiburg,126,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,2,4,2023
 638602,2023-02-04 14:30:00+00:00,Hertha Berlin at Eintracht Frankfurt,BSC @ SGE,Eintracht Frankfurt,125,3,Hertha Berlin,129,0,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,2,4,2023
-638606,2023-02-04 14:30:00+00:00,RB Leipzig at FC Cologne,RBL @ KOE,FC Cologne,122,0,RB Leipzig,11420,0,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,2,4,2023
 638599,2023-02-04 14:30:00+00:00,TSG Hoffenheim at VfL Bochum,TSG @ BOC,VfL Bochum,121,5,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,2,4,2023
 638607,2023-02-04 17:30:00+00:00,Schalke 04 at Borussia Mönchengladbach,S04 @ BMG,Borussia Mönchengladbach,268,0,Schalke 04,133,0,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,2,4,2023
 638600,2023-02-05 14:30:00+00:00,Werder Bremen at VfB Stuttgart,SVW @ VFB,VfB Stuttgart,134,0,Werder Bremen,137,2,STATUS_FULL_TIME,MHPArena,2022-2023,0,2,5,2023
@@ -468,10 +468,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638625,2023-02-19 16:30:00+00:00,Hertha Berlin at Borussia Dortmund,BSC @ DOR,Borussia Dortmund,124,4,Hertha Berlin,129,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,2,19,2023
 638618,2023-02-19 18:30:00+00:00,Mainz at Bayer Leverkusen,M05 @ B04,Bayer Leverkusen,131,2,Mainz,2950,3,STATUS_FULL_TIME,BayArena,2022-2023,0,2,19,2023
 638633,2023-02-24 19:30:00+00:00,Borussia Mönchengladbach at Mainz,BMG @ M05,Mainz,2950,4,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,2,24,2023
-638626,2023-02-25 14:30:00+00:00,VfL Wolfsburg at FC Cologne,WOB @ KOE,FC Cologne,122,0,VfL Wolfsburg,138,2,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,2,25,2023
-638634,2023-02-25 14:30:00+00:00,FC Augsburg at Hertha Berlin,FCA @ BSC,Hertha Berlin,129,2,FC Augsburg,3841,0,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,2,25,2023
 638629,2023-02-25 14:30:00+00:00,Eintracht Frankfurt at RB Leipzig,SGE @ RBL,RB Leipzig,11420,2,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,2,25,2023
 638630,2023-02-25 14:30:00+00:00,Borussia Dortmund at TSG Hoffenheim,DOR @ TSG,TSG Hoffenheim,7911,0,Borussia Dortmund,124,1,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,2,25,2023
+638626,2023-02-25 14:30:00+00:00,VfL Wolfsburg at FC Cologne,WOB @ KOE,FC Cologne,122,0,VfL Wolfsburg,138,2,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,2,25,2023
+638634,2023-02-25 14:30:00+00:00,FC Augsburg at Hertha Berlin,FCA @ BSC,Hertha Berlin,129,2,FC Augsburg,3841,0,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,2,25,2023
 638627,2023-02-25 14:30:00+00:00,VfL Bochum at Werder Bremen,BOC @ SVW,Werder Bremen,137,3,VfL Bochum,121,0,STATUS_FULL_TIME,Weserstadion,2022-2023,0,2,25,2023
 638631,2023-02-25 17:30:00+00:00,VfB Stuttgart at Schalke 04,VFB @ S04,Schalke 04,133,2,VfB Stuttgart,134,1,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,2,25,2023
 638628,2023-02-26 14:30:00+00:00,Bayer Leverkusen at SC Freiburg,B04 @ SCF,SC Freiburg,126,1,Bayer Leverkusen,131,1,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,2,26,2023
@@ -495,20 +495,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638650,2023-03-12 16:30:00+00:00,Bayer Leverkusen at Werder Bremen,B04 @ SVW,Werder Bremen,137,2,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Weserstadion,2022-2023,0,3,12,2023
 638649,2023-03-12 18:30:00+00:00,1. FC Union Berlin at VfL Wolfsburg,FCU @ WOB,VfL Wolfsburg,138,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,3,12,2023
 638660,2023-03-17 19:30:00+00:00,Werder Bremen at Borussia Mönchengladbach,SVW @ BMG,Borussia Mönchengladbach,268,2,Werder Bremen,137,2,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,3,17,2023
+638657,2023-03-18 14:30:00+00:00,RB Leipzig at VfL Bochum,RBL @ BOC,VfL Bochum,121,1,RB Leipzig,11420,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,3,18,2023
+638661,2023-03-18 14:30:00+00:00,VfL Wolfsburg at VfB Stuttgart,WOB @ VFB,VfB Stuttgart,134,0,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,3,18,2023
 638659,2023-03-18 14:30:00+00:00,Schalke 04 at FC Augsburg,S04 @ FCA,FC Augsburg,3841,1,Schalke 04,133,1,STATUS_FULL_TIME,WWK Arena,2022-2023,0,3,18,2023
 638658,2023-03-18 14:30:00+00:00,Hertha Berlin at TSG Hoffenheim,BSC @ TSG,TSG Hoffenheim,7911,3,Hertha Berlin,129,1,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,3,18,2023
-638661,2023-03-18 14:30:00+00:00,VfL Wolfsburg at VfB Stuttgart,WOB @ VFB,VfB Stuttgart,134,0,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,3,18,2023
-638657,2023-03-18 14:30:00+00:00,RB Leipzig at VfL Bochum,RBL @ BOC,VfL Bochum,121,1,RB Leipzig,11420,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,3,18,2023
 638656,2023-03-18 17:30:00+00:00,FC Cologne at Borussia Dortmund,KOE @ DOR,Borussia Dortmund,124,6,FC Cologne,122,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,3,18,2023
 638653,2023-03-19 14:30:00+00:00,Eintracht Frankfurt at 1. FC Union Berlin,SGE @ FCU,1. FC Union Berlin,598,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,3,19,2023
 638655,2023-03-19 16:30:00+00:00,Bayern Munich at Bayer Leverkusen,MUN @ B04,Bayer Leverkusen,131,2,Bayern Munich,132,1,STATUS_FULL_TIME,BayArena,2022-2023,0,3,19,2023
 638654,2023-03-19 18:30:00+00:00,SC Freiburg at Mainz,SCF @ M05,Mainz,2950,1,SC Freiburg,126,1,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,3,19,2023
 638663,2023-03-31 18:30:00+00:00,VfL Bochum at Eintracht Frankfurt,BOC @ SGE,Eintracht Frankfurt,125,1,VfL Bochum,121,1,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,3,31,2023
-638670,2023-04-01 13:30:00+00:00,VfB Stuttgart at 1. FC Union Berlin,VFB @ FCU,1. FC Union Berlin,598,3,VfB Stuttgart,134,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,4,1,2023
-638667,2023-04-01 13:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,0,Mainz,2950,3,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,4,1,2023
+638664,2023-04-01 13:30:00+00:00,FC Augsburg at VfL Wolfsburg,FCA @ WOB,VfL Wolfsburg,138,2,FC Augsburg,3841,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,4,1,2023
 638666,2023-04-01 13:30:00+00:00,Hertha Berlin at SC Freiburg,BSC @ SCF,SC Freiburg,126,1,Hertha Berlin,129,1,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,4,1,2023
 638668,2023-04-01 13:30:00+00:00,Bayer Leverkusen at Schalke 04,B04 @ S04,Schalke 04,133,0,Bayer Leverkusen,131,3,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,4,1,2023
-638664,2023-04-01 13:30:00+00:00,FC Augsburg at VfL Wolfsburg,FCA @ WOB,VfL Wolfsburg,138,2,FC Augsburg,3841,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,4,1,2023
+638670,2023-04-01 13:30:00+00:00,VfB Stuttgart at 1. FC Union Berlin,VFB @ FCU,1. FC Union Berlin,598,3,VfB Stuttgart,134,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,4,1,2023
+638667,2023-04-01 13:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,0,Mainz,2950,3,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,4,1,2023
 638662,2023-04-01 16:30:00+00:00,Borussia Dortmund at Bayern Munich,DOR @ MUN,Bayern Munich,132,4,Borussia Dortmund,124,2,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,4,1,2023
 638669,2023-04-02 13:30:00+00:00,Borussia Mönchengladbach at FC Cologne,BMG @ KOE,FC Cologne,122,0,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,4,2,2023
 638665,2023-04-02 15:30:00+00:00,TSG Hoffenheim at Werder Bremen,TSG @ SVW,Werder Bremen,137,1,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Weserstadion,2022-2023,0,4,2,2023
@@ -531,19 +531,19 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638682,2023-04-16 15:30:00+00:00,VfL Bochum at 1. FC Union Berlin,BOC @ FCU,1. FC Union Berlin,598,1,VfL Bochum,121,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,4,16,2023
 638685,2023-04-16 17:30:00+00:00,Bayer Leverkusen at VfL Wolfsburg,B04 @ WOB,VfL Wolfsburg,138,0,Bayer Leverkusen,131,0,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,4,16,2023
 638695,2023-04-21 18:30:00+00:00,VfB Stuttgart at FC Augsburg,VFB @ FCA,FC Augsburg,3841,1,VfB Stuttgart,134,1,STATUS_FULL_TIME,WWK Arena,2022-2023,0,4,21,2023
+638691,2023-04-22 13:30:00+00:00,VfL Wolfsburg at VfL Bochum,WOB @ BOC,VfL Bochum,121,1,VfL Wolfsburg,138,5,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,4,22,2023
+638692,2023-04-22 13:30:00+00:00,FC Cologne at TSG Hoffenheim,KOE @ TSG,TSG Hoffenheim,7911,1,FC Cologne,122,3,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,4,22,2023
 638694,2023-04-22 13:30:00+00:00,Werder Bremen at Hertha Berlin,SVW @ BSC,Hertha Berlin,129,2,Werder Bremen,137,4,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,4,22,2023
 638689,2023-04-22 13:30:00+00:00,Bayern Munich at Mainz,MUN @ M05,Mainz,2950,3,Bayern Munich,132,1,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,4,22,2023
-638692,2023-04-22 13:30:00+00:00,FC Cologne at TSG Hoffenheim,KOE @ TSG,TSG Hoffenheim,7911,1,FC Cologne,122,3,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,4,22,2023
-638691,2023-04-22 13:30:00+00:00,VfL Wolfsburg at VfL Bochum,WOB @ BOC,VfL Bochum,121,1,VfL Wolfsburg,138,5,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,4,22,2023
 638697,2023-04-22 16:30:00+00:00,Eintracht Frankfurt at Borussia Dortmund,SGE @ DOR,Borussia Dortmund,124,4,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,4,22,2023
 638693,2023-04-23 13:30:00+00:00,Schalke 04 at SC Freiburg,S04 @ SCF,SC Freiburg,126,4,Schalke 04,133,0,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,4,23,2023
 638690,2023-04-23 15:30:00+00:00,RB Leipzig at Bayer Leverkusen,RBL @ B04,Bayer Leverkusen,131,2,RB Leipzig,11420,0,STATUS_FULL_TIME,BayArena,2022-2023,0,4,23,2023
 638696,2023-04-23 17:30:00+00:00,1. FC Union Berlin at Borussia Mönchengladbach,FCU @ BMG,Borussia Mönchengladbach,268,0,1. FC Union Berlin,598,1,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,4,23,2023
 638706,2023-04-28 18:30:00+00:00,Borussia Dortmund at VfL Bochum,DOR @ BOC,VfL Bochum,121,1,Borussia Dortmund,124,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,4,28,2023
+638700,2023-04-29 13:30:00+00:00,TSG Hoffenheim at RB Leipzig,TSG @ RBL,RB Leipzig,11420,1,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,4,29,2023
 638705,2023-04-29 13:30:00+00:00,Bayer Leverkusen at 1. FC Union Berlin,B04 @ FCU,1. FC Union Berlin,598,0,Bayer Leverkusen,131,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,4,29,2023
 638704,2023-04-29 13:30:00+00:00,FC Augsburg at Eintracht Frankfurt,FCA @ SGE,Eintracht Frankfurt,125,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,4,29,2023
 638698,2023-04-29 13:30:00+00:00,SC Freiburg at FC Cologne,SCF @ KOE,FC Cologne,122,0,SC Freiburg,126,1,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,4,29,2023
-638700,2023-04-29 13:30:00+00:00,TSG Hoffenheim at RB Leipzig,TSG @ RBL,RB Leipzig,11420,1,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,4,29,2023
 638701,2023-04-29 13:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,2,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,4,29,2023
 638699,2023-04-29 16:30:00+00:00,Werder Bremen at Schalke 04,SVW @ S04,Schalke 04,133,2,Werder Bremen,137,1,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,4,29,2023
 638703,2023-04-30 13:30:00+00:00,Hertha Berlin at Bayern Munich,BSC @ MUN,Bayern Munich,132,2,Hertha Berlin,129,0,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,4,30,2023
@@ -567,29 +567,29 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 638717,2023-05-14 13:30:00+00:00,Bayer Leverkusen at VfB Stuttgart,B04 @ VFB,VfB Stuttgart,134,1,Bayer Leverkusen,131,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,5,14,2023
 638718,2023-05-14 15:30:00+00:00,Werder Bremen at RB Leipzig,SVW @ RBL,RB Leipzig,11420,2,Werder Bremen,137,1,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,5,14,2023
 638729,2023-05-19 18:30:00+00:00,VfL Wolfsburg at SC Freiburg,WOB @ SCF,SC Freiburg,126,2,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Europa-Park Stadion,2022-2023,0,5,19,2023
+638728,2023-05-20 13:30:00+00:00,FC Cologne at Werder Bremen,KOE @ SVW,Werder Bremen,137,1,FC Cologne,122,1,STATUS_FULL_TIME,Weserstadion,2022-2023,0,5,20,2023
+638727,2023-05-20 13:30:00+00:00,1. FC Union Berlin at TSG Hoffenheim,FCU @ TSG,TSG Hoffenheim,7911,4,1. FC Union Berlin,598,2,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,5,20,2023
 638730,2023-05-20 13:30:00+00:00,VfL Bochum at Hertha Berlin,BOC @ BSC,Hertha Berlin,129,1,VfL Bochum,121,1,STATUS_FULL_TIME,Olympiastadion Berlin,2022-2023,0,5,20,2023
 638731,2023-05-20 13:30:00+00:00,Eintracht Frankfurt at Schalke 04,SGE @ S04,Schalke 04,133,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,VELTINS-Arena,2022-2023,0,5,20,2023
-638727,2023-05-20 13:30:00+00:00,1. FC Union Berlin at TSG Hoffenheim,FCU @ TSG,TSG Hoffenheim,7911,4,1. FC Union Berlin,598,2,STATUS_FULL_TIME,PreZero Arena,2022-2023,0,5,20,2023
-638728,2023-05-20 13:30:00+00:00,FC Cologne at Werder Bremen,KOE @ SVW,Werder Bremen,137,1,FC Cologne,122,1,STATUS_FULL_TIME,Weserstadion,2022-2023,0,5,20,2023
 638732,2023-05-20 16:30:00+00:00,RB Leipzig at Bayern Munich,RBL @ MUN,Bayern Munich,132,1,RB Leipzig,11420,3,STATUS_FULL_TIME,Allianz Arena,2022-2023,0,5,20,2023
 638725,2023-05-21 13:30:00+00:00,VfB Stuttgart at Mainz,VFB @ M05,Mainz,2950,1,VfB Stuttgart,134,4,STATUS_FULL_TIME,MEWA ARENA,2022-2023,0,5,21,2023
 638733,2023-05-21 15:30:00+00:00,Borussia Dortmund at FC Augsburg,DOR @ FCA,FC Augsburg,3841,0,Borussia Dortmund,124,3,STATUS_FULL_TIME,WWK Arena,2022-2023,0,5,21,2023
 638726,2023-05-21 17:30:00+00:00,Borussia Mönchengladbach at Bayer Leverkusen,BMG @ B04,Bayer Leverkusen,131,2,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,BayArena,2022-2023,0,5,21,2023
-638736,2023-05-27 13:30:00+00:00,Werder Bremen at 1. FC Union Berlin,SVW @ FCU,1. FC Union Berlin,598,1,Werder Bremen,137,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,5,27,2023
-638737,2023-05-27 13:30:00+00:00,Mainz at Borussia Dortmund,M05 @ DOR,Borussia Dortmund,124,2,Mainz,2950,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,5,27,2023
-638738,2023-05-27 13:30:00+00:00,FC Augsburg at Borussia Mönchengladbach,FCA @ BMG,Borussia Mönchengladbach,268,2,FC Augsburg,3841,0,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,5,27,2023
-638739,2023-05-27 13:30:00+00:00,SC Freiburg at Eintracht Frankfurt,SCF @ SGE,Eintracht Frankfurt,125,2,SC Freiburg,126,1,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,5,27,2023
+638743,2023-05-27 13:30:00+00:00,Hertha Berlin at VfL Wolfsburg,BSC @ WOB,VfL Wolfsburg,138,1,Hertha Berlin,129,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,5,27,2023
+638742,2023-05-27 13:30:00+00:00,Bayer Leverkusen at VfL Bochum,B04 @ BOC,VfL Bochum,121,3,Bayer Leverkusen,131,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,5,27,2023
+638741,2023-05-27 13:30:00+00:00,TSG Hoffenheim at VfB Stuttgart,TSG @ VFB,VfB Stuttgart,134,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,5,27,2023
 638735,2023-05-27 13:30:00+00:00,Bayern Munich at FC Cologne,MUN @ KOE,FC Cologne,122,1,Bayern Munich,132,2,STATUS_FULL_TIME,RheinEnergieStadion,2022-2023,0,5,27,2023
 638740,2023-05-27 13:30:00+00:00,Schalke 04 at RB Leipzig,S04 @ RBL,RB Leipzig,11420,4,Schalke 04,133,2,STATUS_FULL_TIME,Red Bull Arena,2022-2023,0,5,27,2023
-638741,2023-05-27 13:30:00+00:00,TSG Hoffenheim at VfB Stuttgart,TSG @ VFB,VfB Stuttgart,134,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MHPArena,2022-2023,0,5,27,2023
-638742,2023-05-27 13:30:00+00:00,Bayer Leverkusen at VfL Bochum,B04 @ BOC,VfL Bochum,121,3,Bayer Leverkusen,131,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2022-2023,0,5,27,2023
-638743,2023-05-27 13:30:00+00:00,Hertha Berlin at VfL Wolfsburg,BSC @ WOB,VfL Wolfsburg,138,1,Hertha Berlin,129,2,STATUS_FULL_TIME,Volkswagen Arena,2022-2023,0,5,27,2023
+638738,2023-05-27 13:30:00+00:00,FC Augsburg at Borussia Mönchengladbach,FCA @ BMG,Borussia Mönchengladbach,268,2,FC Augsburg,3841,0,STATUS_FULL_TIME,BORUSSIA-PARK,2022-2023,0,5,27,2023
+638737,2023-05-27 13:30:00+00:00,Mainz at Borussia Dortmund,M05 @ DOR,Borussia Dortmund,124,2,Mainz,2950,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2022-2023,0,5,27,2023
+638736,2023-05-27 13:30:00+00:00,Werder Bremen at 1. FC Union Berlin,SVW @ FCU,1. FC Union Berlin,598,1,Werder Bremen,137,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2022-2023,0,5,27,2023
+638739,2023-05-27 13:30:00+00:00,SC Freiburg at Eintracht Frankfurt,SCF @ SGE,Eintracht Frankfurt,125,2,SC Freiburg,126,1,STATUS_FULL_TIME,Deutsche Bank Park,2022-2023,0,5,27,2023
 677584,2023-08-18 18:30:00+00:00,Bayern Munich at Werder Bremen,MUN @ SVW,Werder Bremen,137,0,Bayern Munich,132,4,STATUS_FULL_TIME,Weserstadion,2023-2024,0,8,18,2023
+677592,2023-08-19 13:30:00+00:00,1. FC Heidenheim 1846 at VfL Wolfsburg,HDH @ WOB,VfL Wolfsburg,138,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,8,19,2023
 677586,2023-08-19 13:30:00+00:00,RB Leipzig at Bayer Leverkusen,RBL @ B04,Bayer Leverkusen,131,3,RB Leipzig,11420,2,STATUS_FULL_TIME,BayArena,2023-2024,0,8,19,2023
 677589,2023-08-19 13:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,4,Borussia Mönchengladbach,268,4,STATUS_FULL_TIME,WWK Arena,2023-2024,0,8,19,2023
 677590,2023-08-19 13:30:00+00:00,SC Freiburg at TSG Hoffenheim,SCF @ TSG,TSG Hoffenheim,7911,1,SC Freiburg,126,2,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,8,19,2023
 677591,2023-08-19 13:30:00+00:00,VfL Bochum at VfB Stuttgart,BOC @ VFB,VfB Stuttgart,134,5,VfL Bochum,121,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,8,19,2023
-677592,2023-08-19 13:30:00+00:00,1. FC Heidenheim 1846 at VfL Wolfsburg,HDH @ WOB,VfL Wolfsburg,138,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,8,19,2023
 677587,2023-08-19 16:30:00+00:00,FC Cologne at Borussia Dortmund,KOE @ DOR,Borussia Dortmund,124,1,FC Cologne,122,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,8,19,2023
 677585,2023-08-20 13:30:00+00:00,Mainz at 1. FC Union Berlin,M05 @ FCU,1. FC Union Berlin,598,4,Mainz,2950,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,8,20,2023
 677588,2023-08-20 15:30:00+00:00,SV Darmstadt 98 at Eintracht Frankfurt,SVD @ SGE,Eintracht Frankfurt,125,1,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,8,20,2023
@@ -612,11 +612,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677610,2023-09-03 13:30:00+00:00,FC Cologne at Eintracht Frankfurt,KOE @ SGE,Eintracht Frankfurt,125,1,FC Cologne,122,1,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,9,3,2023
 677602,2023-09-03 15:30:00+00:00,RB Leipzig at 1. FC Union Berlin,RBL @ FCU,1. FC Union Berlin,598,0,RB Leipzig,11420,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,9,3,2023
 677614,2023-09-15 18:30:00+00:00,Bayer Leverkusen at Bayern Munich,B04 @ MUN,Bayern Munich,132,2,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,9,15,2023
+677616,2023-09-16 13:30:00+00:00,Borussia Dortmund at SC Freiburg,DOR @ SCF,SC Freiburg,126,2,Borussia Dortmund,124,4,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,9,16,2023
+677615,2023-09-16 13:30:00+00:00,FC Augsburg at RB Leipzig,FCA @ RBL,RB Leipzig,11420,3,FC Augsburg,3841,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,9,16,2023
+677619,2023-09-16 13:30:00+00:00,1. FC Union Berlin at VfL Wolfsburg,FCU @ WOB,VfL Wolfsburg,138,2,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,9,16,2023
 677612,2023-09-16 13:30:00+00:00,TSG Hoffenheim at FC Cologne,TSG @ KOE,FC Cologne,122,1,TSG Hoffenheim,7911,3,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,9,16,2023
 677613,2023-09-16 13:30:00+00:00,VfB Stuttgart at Mainz,VFB @ M05,Mainz,2950,1,VfB Stuttgart,134,3,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,9,16,2023
-677615,2023-09-16 13:30:00+00:00,FC Augsburg at RB Leipzig,FCA @ RBL,RB Leipzig,11420,3,FC Augsburg,3841,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,9,16,2023
-677616,2023-09-16 13:30:00+00:00,Borussia Dortmund at SC Freiburg,DOR @ SCF,SC Freiburg,126,2,Borussia Dortmund,124,4,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,9,16,2023
-677619,2023-09-16 13:30:00+00:00,1. FC Union Berlin at VfL Wolfsburg,FCU @ WOB,VfL Wolfsburg,138,2,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,9,16,2023
 677618,2023-09-16 16:30:00+00:00,Eintracht Frankfurt at VfL Bochum,SGE @ BOC,VfL Bochum,121,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,9,16,2023
 677611,2023-09-17 13:30:00+00:00,Werder Bremen at 1. FC Heidenheim 1846,SVW @ HDH,1. FC Heidenheim 1846,6418,4,Werder Bremen,137,2,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,9,17,2023
 677617,2023-09-17 15:30:00+00:00,Borussia Mönchengladbach at SV Darmstadt 98,BMG @ SVD,SV Darmstadt 98,3812,3,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,9,17,2023
@@ -648,11 +648,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677643,2023-10-08 15:30:00+00:00,SC Freiburg at Bayern Munich,SCF @ MUN,Bayern Munich,132,3,SC Freiburg,126,0,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,10,8,2023
 677641,2023-10-08 17:30:00+00:00,1. FC Heidenheim 1846 at Eintracht Frankfurt,HDH @ SGE,Eintracht Frankfurt,125,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,10,8,2023
 677651,2023-10-20 18:30:00+00:00,Werder Bremen at Borussia Dortmund,SVW @ DOR,Borussia Dortmund,124,1,Werder Bremen,137,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,10,20,2023
-677647,2023-10-21 13:30:00+00:00,VfB Stuttgart at 1. FC Union Berlin,VFB @ FCU,1. FC Union Berlin,598,0,VfB Stuttgart,134,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,10,21,2023
-677652,2023-10-21 13:30:00+00:00,VfL Bochum at SC Freiburg,BOC @ SCF,SC Freiburg,126,2,VfL Bochum,121,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,10,21,2023
-677655,2023-10-21 13:30:00+00:00,RB Leipzig at SV Darmstadt 98,RBL @ SVD,SV Darmstadt 98,3812,1,RB Leipzig,11420,3,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,10,21,2023
-677654,2023-10-21 13:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,1,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,10,21,2023
 677653,2023-10-21 13:30:00+00:00,Bayer Leverkusen at VfL Wolfsburg,B04 @ WOB,VfL Wolfsburg,138,1,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,10,21,2023
+677654,2023-10-21 13:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,1,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,10,21,2023
+677655,2023-10-21 13:30:00+00:00,RB Leipzig at SV Darmstadt 98,RBL @ SVD,SV Darmstadt 98,3812,1,RB Leipzig,11420,3,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,10,21,2023
+677652,2023-10-21 13:30:00+00:00,VfL Bochum at SC Freiburg,BOC @ SCF,SC Freiburg,126,2,VfL Bochum,121,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,10,21,2023
+677647,2023-10-21 13:30:00+00:00,VfB Stuttgart at 1. FC Union Berlin,VFB @ FCU,1. FC Union Berlin,598,0,VfB Stuttgart,134,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,10,21,2023
 677650,2023-10-21 16:30:00+00:00,Bayern Munich at Mainz,MUN @ M05,Mainz,2950,1,Bayern Munich,132,3,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,10,21,2023
 677648,2023-10-22 13:30:00+00:00,Borussia Mönchengladbach at FC Cologne,BMG @ KOE,FC Cologne,122,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,10,22,2023
 677649,2023-10-22 15:30:00+00:00,FC Augsburg at 1. FC Heidenheim 1846,FCA @ HDH,1. FC Heidenheim 1846,6418,2,FC Augsburg,3841,5,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,10,22,2023
@@ -684,11 +684,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677680,2023-11-12 16:30:00+00:00,Eintracht Frankfurt at Werder Bremen,SGE @ SVW,Werder Bremen,137,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Weserstadion,2023-2024,0,11,12,2023
 677678,2023-11-12 18:30:00+00:00,SC Freiburg at RB Leipzig,SCF @ RBL,RB Leipzig,11420,3,SC Freiburg,126,1,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,11,12,2023
 677684,2023-11-24 19:30:00+00:00,Bayern Munich at FC Cologne,MUN @ KOE,FC Cologne,122,0,Bayern Munich,132,1,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,11,24,2023
-677687,2023-11-25 14:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,11,25,2023
-677686,2023-11-25 14:30:00+00:00,Borussia Mönchengladbach at Borussia Dortmund,BMG @ DOR,Borussia Dortmund,124,4,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,11,25,2023
-677688,2023-11-25 14:30:00+00:00,SV Darmstadt 98 at SC Freiburg,SVD @ SCF,SC Freiburg,126,1,SV Darmstadt 98,3812,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,11,25,2023
-677685,2023-11-25 14:30:00+00:00,RB Leipzig at VfL Wolfsburg,RBL @ WOB,VfL Wolfsburg,138,2,RB Leipzig,11420,1,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,11,25,2023
 677689,2023-11-25 14:30:00+00:00,Bayer Leverkusen at Werder Bremen,B04 @ SVW,Werder Bremen,137,0,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Weserstadion,2023-2024,0,11,25,2023
+677685,2023-11-25 14:30:00+00:00,RB Leipzig at VfL Wolfsburg,RBL @ WOB,VfL Wolfsburg,138,2,RB Leipzig,11420,1,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,11,25,2023
+677688,2023-11-25 14:30:00+00:00,SV Darmstadt 98 at SC Freiburg,SVD @ SCF,SC Freiburg,126,1,SV Darmstadt 98,3812,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,11,25,2023
+677686,2023-11-25 14:30:00+00:00,Borussia Mönchengladbach at Borussia Dortmund,BMG @ DOR,Borussia Dortmund,124,4,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,11,25,2023
+677687,2023-11-25 14:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,11,25,2023
 677691,2023-11-25 17:30:00+00:00,VfB Stuttgart at Eintracht Frankfurt,VFB @ SGE,Eintracht Frankfurt,125,1,VfB Stuttgart,134,2,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,11,25,2023
 677683,2023-11-26 14:30:00+00:00,VfL Bochum at 1. FC Heidenheim 1846,BOC @ HDH,1. FC Heidenheim 1846,6418,0,VfL Bochum,121,0,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,11,26,2023
 677690,2023-11-26 16:30:00+00:00,Mainz at TSG Hoffenheim,M05 @ TSG,TSG Hoffenheim,7911,1,Mainz,2950,1,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,11,26,2023
@@ -719,8 +719,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677713,2023-12-17 16:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,3,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,BayArena,2023-2024,0,12,17,2023
 677714,2023-12-17 18:30:00+00:00,VfB Stuttgart at Bayern Munich,VFB @ MUN,Bayern Munich,132,3,VfB Stuttgart,134,0,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,12,17,2023
 677724,2023-12-19 17:30:00+00:00,RB Leipzig at Werder Bremen,RBL @ SVW,Werder Bremen,137,1,RB Leipzig,11420,1,STATUS_FULL_TIME,Weserstadion,2023-2024,0,12,19,2023
-677722,2023-12-19 19:30:00+00:00,Mainz at Borussia Dortmund,M05 @ DOR,Borussia Dortmund,124,1,Mainz,2950,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,12,19,2023
 677725,2023-12-19 19:30:00+00:00,SV Darmstadt 98 at TSG Hoffenheim,SVD @ TSG,TSG Hoffenheim,7911,3,SV Darmstadt 98,3812,3,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,12,19,2023
+677722,2023-12-19 19:30:00+00:00,Mainz at Borussia Dortmund,M05 @ DOR,Borussia Dortmund,124,1,Mainz,2950,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,12,19,2023
 677720,2023-12-20 17:30:00+00:00,FC Cologne at 1. FC Union Berlin,KOE @ FCU,1. FC Union Berlin,598,2,FC Cologne,122,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,12,20,2023
 677719,2023-12-20 19:30:00+00:00,SC Freiburg at 1. FC Heidenheim 1846,SCF @ HDH,1. FC Heidenheim 1846,6418,3,SC Freiburg,126,2,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,12,20,2023
 677723,2023-12-20 19:30:00+00:00,VfL Bochum at Bayer Leverkusen,BOC @ B04,Bayer Leverkusen,131,4,VfL Bochum,121,0,STATUS_FULL_TIME,BayArena,2023-2024,0,12,20,2023
@@ -728,11 +728,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677726,2023-12-20 19:30:00+00:00,FC Augsburg at VfB Stuttgart,FCA @ VFB,VfB Stuttgart,134,3,FC Augsburg,3841,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,12,20,2023
 677721,2023-12-20 19:30:00+00:00,Bayern Munich at VfL Wolfsburg,MUN @ WOB,VfL Wolfsburg,138,1,Bayern Munich,132,2,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,12,20,2023
 677732,2024-01-12 19:30:00+00:00,TSG Hoffenheim at Bayern Munich,TSG @ MUN,Bayern Munich,132,3,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,1,12,2024
+677730,2024-01-13 14:30:00+00:00,Eintracht Frankfurt at RB Leipzig,SGE @ RBL,RB Leipzig,11420,0,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,1,13,2024
+677734,2024-01-13 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,1,13,2024
+677729,2024-01-13 14:30:00+00:00,1. FC Union Berlin at SC Freiburg,FCU @ SCF,SC Freiburg,126,0,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,1,13,2024
 677736,2024-01-13 14:30:00+00:00,Bayer Leverkusen at FC Augsburg,B04 @ FCA,FC Augsburg,3841,0,Bayer Leverkusen,131,1,STATUS_FULL_TIME,WWK Arena,2023-2024,0,1,13,2024
 677735,2024-01-13 14:30:00+00:00,1. FC Heidenheim 1846 at FC Cologne,HDH @ KOE,FC Cologne,122,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,1,13,2024
-677734,2024-01-13 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,1,13,2024
-677730,2024-01-13 14:30:00+00:00,Eintracht Frankfurt at RB Leipzig,SGE @ RBL,RB Leipzig,11420,0,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,1,13,2024
-677729,2024-01-13 14:30:00+00:00,1. FC Union Berlin at SC Freiburg,FCU @ SCF,SC Freiburg,126,0,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,1,13,2024
 677728,2024-01-13 17:30:00+00:00,Borussia Dortmund at SV Darmstadt 98,DOR @ SVD,SV Darmstadt 98,3812,0,Borussia Dortmund,124,3,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,1,13,2024
 677731,2024-01-14 14:30:00+00:00,Werder Bremen at VfL Bochum,SVW @ BOC,VfL Bochum,121,1,Werder Bremen,137,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,1,14,2024
 677733,2024-01-14 16:30:00+00:00,VfB Stuttgart at Borussia Mönchengladbach,VFB @ BMG,Borussia Mönchengladbach,268,3,VfB Stuttgart,134,1,STATUS_FULL_TIME,BORUSSIA-PARK,2023-2024,0,1,14,2024
@@ -755,11 +755,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677746,2024-01-28 14:30:00+00:00,SV Darmstadt 98 at 1. FC Union Berlin,SVD @ FCU,1. FC Union Berlin,598,1,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,1,28,2024
 677754,2024-01-28 16:30:00+00:00,VfL Bochum at Borussia Dortmund,BOC @ DOR,Borussia Dortmund,124,3,VfL Bochum,121,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,1,28,2024
 677756,2024-02-02 19:30:00+00:00,Borussia Dortmund at 1. FC Heidenheim 1846,DOR @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Dortmund,124,0,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,2,2,2024
+677755,2024-02-03 14:30:00+00:00,FC Augsburg at VfL Bochum,FCA @ BOC,VfL Bochum,121,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,2,3,2024
+677762,2024-02-03 14:30:00+00:00,Bayer Leverkusen at SV Darmstadt 98,B04 @ SVD,SV Darmstadt 98,3812,0,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,2,3,2024
 677759,2024-02-03 14:30:00+00:00,Borussia Mönchengladbach at Bayern Munich,BMG @ MUN,Bayern Munich,132,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,2,3,2024
 677758,2024-02-03 14:30:00+00:00,Werder Bremen at Mainz,SVW @ M05,Mainz,2950,0,Werder Bremen,137,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,2,3,2024
 677761,2024-02-03 14:30:00+00:00,VfB Stuttgart at SC Freiburg,VFB @ SCF,SC Freiburg,126,1,VfB Stuttgart,134,3,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,2,3,2024
-677762,2024-02-03 14:30:00+00:00,Bayer Leverkusen at SV Darmstadt 98,B04 @ SVD,SV Darmstadt 98,3812,0,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,2,3,2024
-677755,2024-02-03 14:30:00+00:00,FC Augsburg at VfL Bochum,FCA @ BOC,VfL Bochum,121,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,2,3,2024
 677757,2024-02-03 17:30:00+00:00,Eintracht Frankfurt at FC Cologne,SGE @ KOE,FC Cologne,122,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,2,3,2024
 677763,2024-02-04 14:30:00+00:00,TSG Hoffenheim at VfL Wolfsburg,TSG @ WOB,VfL Wolfsburg,138,2,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,2,4,2024
 677760,2024-02-04 16:30:00+00:00,1. FC Union Berlin at RB Leipzig,FCU @ RBL,RB Leipzig,11420,2,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,2,4,2024
@@ -792,18 +792,18 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677784,2024-02-25 16:30:00+00:00,TSG Hoffenheim at Borussia Dortmund,TSG @ DOR,Borussia Dortmund,124,2,TSG Hoffenheim,7911,3,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,2,25,2024
 677787,2024-02-25 18:30:00+00:00,SC Freiburg at FC Augsburg,SCF @ FCA,FC Augsburg,3841,2,SC Freiburg,126,1,STATUS_FULL_TIME,WWK Arena,2023-2024,0,2,25,2024
 677792,2024-03-01 19:30:00+00:00,Bayern Munich at SC Freiburg,MUN @ SCF,SC Freiburg,126,2,Bayern Munich,132,2,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,3,1,2024
-677795,2024-03-02 14:30:00+00:00,Eintracht Frankfurt at 1. FC Heidenheim 1846,SGE @ HDH,1. FC Heidenheim 1846,6418,1,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,3,2,2024
-677798,2024-03-02 14:30:00+00:00,Borussia Dortmund at 1. FC Union Berlin,DOR @ FCU,1. FC Union Berlin,598,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,3,2,2024
-677791,2024-03-02 14:30:00+00:00,Borussia Mönchengladbach at Mainz,BMG @ M05,Mainz,2950,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,3,2,2024
-677793,2024-03-02 14:30:00+00:00,FC Augsburg at SV Darmstadt 98,FCA @ SVD,SV Darmstadt 98,3812,0,FC Augsburg,3841,6,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,3,2,2024
 677799,2024-03-02 14:30:00+00:00,RB Leipzig at VfL Bochum,RBL @ BOC,VfL Bochum,121,1,RB Leipzig,11420,4,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,3,2,2024
+677793,2024-03-02 14:30:00+00:00,FC Augsburg at SV Darmstadt 98,FCA @ SVD,SV Darmstadt 98,3812,0,FC Augsburg,3841,6,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,3,2,2024
+677798,2024-03-02 14:30:00+00:00,Borussia Dortmund at 1. FC Union Berlin,DOR @ FCU,1. FC Union Berlin,598,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,3,2,2024
+677795,2024-03-02 14:30:00+00:00,Eintracht Frankfurt at 1. FC Heidenheim 1846,SGE @ HDH,1. FC Heidenheim 1846,6418,1,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,3,2,2024
+677791,2024-03-02 14:30:00+00:00,Borussia Mönchengladbach at Mainz,BMG @ M05,Mainz,2950,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,3,2,2024
 677796,2024-03-02 17:30:00+00:00,VfB Stuttgart at VfL Wolfsburg,VFB @ WOB,VfL Wolfsburg,138,2,VfB Stuttgart,134,3,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,3,2,2024
 677797,2024-03-03 14:30:00+00:00,Bayer Leverkusen at FC Cologne,B04 @ KOE,FC Cologne,122,0,Bayer Leverkusen,131,2,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,3,3,2024
 677794,2024-03-03 16:30:00+00:00,Werder Bremen at TSG Hoffenheim,SVW @ TSG,TSG Hoffenheim,7911,2,Werder Bremen,137,1,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,3,3,2024
 677800,2024-03-08 19:30:00+00:00,1. FC Union Berlin at VfB Stuttgart,FCU @ VFB,VfB Stuttgart,134,2,1. FC Union Berlin,598,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,3,8,2024
+677805,2024-03-09 14:30:00+00:00,1. FC Heidenheim 1846 at FC Augsburg,HDH @ FCA,FC Augsburg,3841,1,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,WWK Arena,2023-2024,0,3,9,2024
 677804,2024-03-09 14:30:00+00:00,Mainz at Bayern Munich,M05 @ MUN,Bayern Munich,132,8,Mainz,2950,1,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,3,9,2024
 677808,2024-03-09 14:30:00+00:00,FC Cologne at Borussia Mönchengladbach,KOE @ BMG,Borussia Mönchengladbach,268,3,FC Cologne,122,3,STATUS_FULL_TIME,BORUSSIA-PARK,2023-2024,0,3,9,2024
-677805,2024-03-09 14:30:00+00:00,1. FC Heidenheim 1846 at FC Augsburg,HDH @ FCA,FC Augsburg,3841,1,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,WWK Arena,2023-2024,0,3,9,2024
 677802,2024-03-09 14:30:00+00:00,SV Darmstadt 98 at RB Leipzig,SVD @ RBL,RB Leipzig,11420,2,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,3,9,2024
 677803,2024-03-09 17:30:00+00:00,Borussia Dortmund at Werder Bremen,DOR @ SVW,Werder Bremen,137,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,Weserstadion,2023-2024,0,3,9,2024
 677801,2024-03-10 14:30:00+00:00,SC Freiburg at VfL Bochum,SCF @ BOC,VfL Bochum,121,1,SC Freiburg,126,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,3,10,2024
@@ -828,20 +828,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677826,2024-03-31 15:30:00+00:00,1. FC Heidenheim 1846 at VfB Stuttgart,HDH @ VFB,VfB Stuttgart,134,3,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,MHPArena,2023-2024,0,3,31,2024
 677821,2024-03-31 17:30:00+00:00,SV Darmstadt 98 at VfL Bochum,SVD @ BOC,VfL Bochum,121,2,SV Darmstadt 98,3812,2,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,3,31,2024
 677832,2024-04-05 18:30:00+00:00,Werder Bremen at Eintracht Frankfurt,SVW @ SGE,Eintracht Frankfurt,125,1,Werder Bremen,137,1,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,4,5,2024
+677833,2024-04-06 13:30:00+00:00,RB Leipzig at SC Freiburg,RBL @ SCF,SC Freiburg,126,1,RB Leipzig,11420,4,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,4,6,2024
+677831,2024-04-06 13:30:00+00:00,SV Darmstadt 98 at Mainz,SVD @ M05,Mainz,2950,4,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,4,6,2024
 677827,2024-04-06 13:30:00+00:00,Bayern Munich at 1. FC Heidenheim 1846,MUN @ HDH,1. FC Heidenheim 1846,6418,3,Bayern Munich,132,2,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,4,6,2024
 677829,2024-04-06 13:30:00+00:00,Bayer Leverkusen at 1. FC Union Berlin,B04 @ FCU,1. FC Union Berlin,598,0,Bayer Leverkusen,131,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,4,6,2024
 677828,2024-04-06 13:30:00+00:00,VfL Bochum at FC Cologne,BOC @ KOE,FC Cologne,122,2,VfL Bochum,121,1,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,4,6,2024
-677831,2024-04-06 13:30:00+00:00,SV Darmstadt 98 at Mainz,SVD @ M05,Mainz,2950,4,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,4,6,2024
-677833,2024-04-06 13:30:00+00:00,RB Leipzig at SC Freiburg,RBL @ SCF,SC Freiburg,126,1,RB Leipzig,11420,4,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,4,6,2024
 677835,2024-04-06 16:30:00+00:00,VfB Stuttgart at Borussia Dortmund,VFB @ DOR,Borussia Dortmund,124,0,VfB Stuttgart,134,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,4,6,2024
 677834,2024-04-07 13:30:00+00:00,FC Augsburg at TSG Hoffenheim,FCA @ TSG,TSG Hoffenheim,7911,3,FC Augsburg,3841,1,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,4,7,2024
 677830,2024-04-07 15:30:00+00:00,Borussia Mönchengladbach at VfL Wolfsburg,BMG @ WOB,VfL Wolfsburg,138,1,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,4,7,2024
 677839,2024-04-12 18:30:00+00:00,1. FC Union Berlin at FC Augsburg,FCU @ FCA,FC Augsburg,3841,2,1. FC Union Berlin,598,0,STATUS_FULL_TIME,WWK Arena,2023-2024,0,4,12,2024
+677841,2024-04-13 13:30:00+00:00,VfL Wolfsburg at RB Leipzig,WOB @ RBL,RB Leipzig,11420,3,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,4,13,2024
+677836,2024-04-13 13:30:00+00:00,TSG Hoffenheim at Mainz,TSG @ M05,Mainz,2950,4,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,4,13,2024
+677844,2024-04-13 13:30:00+00:00,1. FC Heidenheim 1846 at VfL Bochum,HDH @ BOC,VfL Bochum,121,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,4,13,2024
 677840,2024-04-13 13:30:00+00:00,FC Cologne at Bayern Munich,KOE @ MUN,Bayern Munich,132,2,FC Cologne,122,0,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,4,13,2024
 677838,2024-04-13 13:30:00+00:00,Borussia Dortmund at Borussia Mönchengladbach,DOR @ BMG,Borussia Mönchengladbach,268,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,BORUSSIA-PARK,2023-2024,0,4,13,2024
-677836,2024-04-13 13:30:00+00:00,TSG Hoffenheim at Mainz,TSG @ M05,Mainz,2950,4,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,4,13,2024
-677841,2024-04-13 13:30:00+00:00,VfL Wolfsburg at RB Leipzig,WOB @ RBL,RB Leipzig,11420,3,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,4,13,2024
-677844,2024-04-13 13:30:00+00:00,1. FC Heidenheim 1846 at VfL Bochum,HDH @ BOC,VfL Bochum,121,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,4,13,2024
 677843,2024-04-13 16:30:00+00:00,Eintracht Frankfurt at VfB Stuttgart,SGE @ VFB,VfB Stuttgart,134,3,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,4,13,2024
 677842,2024-04-14 13:30:00+00:00,SC Freiburg at SV Darmstadt 98,SCF @ SVD,SV Darmstadt 98,3812,0,SC Freiburg,126,1,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,4,14,2024
 677837,2024-04-14 15:30:00+00:00,Werder Bremen at Bayer Leverkusen,SVW @ B04,Bayer Leverkusen,131,5,Werder Bremen,137,0,STATUS_FULL_TIME,BayArena,2023-2024,0,4,14,2024
@@ -873,23 +873,23 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677867,2024-05-05 15:30:00+00:00,Bayer Leverkusen at Eintracht Frankfurt,B04 @ SGE,Eintracht Frankfurt,125,1,Bayer Leverkusen,131,5,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,5,5,2024
 677863,2024-05-05 17:30:00+00:00,Mainz at 1. FC Heidenheim 1846,M05 @ HDH,1. FC Heidenheim 1846,6418,1,Mainz,2950,1,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,5,5,2024
 677875,2024-05-10 18:30:00+00:00,VfB Stuttgart at FC Augsburg,VFB @ FCA,FC Augsburg,3841,0,VfB Stuttgart,134,1,STATUS_FULL_TIME,WWK Arena,2023-2024,0,5,10,2024
+677877,2024-05-11 13:30:00+00:00,1. FC Heidenheim 1846 at SC Freiburg,HDH @ SCF,SC Freiburg,126,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,5,11,2024
+677574,2024-05-11 13:30:00+00:00,Werder Bremen at RB Leipzig,SVW @ RBL,RB Leipzig,11420,1,Werder Bremen,137,1,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,5,11,2024
 677874,2024-05-11 13:30:00+00:00,Eintracht Frankfurt at Borussia Mönchengladbach,SGE @ BMG,Borussia Mönchengladbach,268,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,BORUSSIA-PARK,2023-2024,0,5,11,2024
 677872,2024-05-11 13:30:00+00:00,1. FC Union Berlin at FC Cologne,FCU @ KOE,FC Cologne,122,3,1. FC Union Berlin,598,2,STATUS_FULL_TIME,RheinEnergieStadion,2023-2024,0,5,11,2024
-677574,2024-05-11 13:30:00+00:00,Werder Bremen at RB Leipzig,SVW @ RBL,RB Leipzig,11420,1,Werder Bremen,137,1,STATUS_FULL_TIME,Red Bull Arena,2023-2024,0,5,11,2024
-677877,2024-05-11 13:30:00+00:00,1. FC Heidenheim 1846 at SC Freiburg,HDH @ SCF,SC Freiburg,126,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Europa-Park Stadion,2023-2024,0,5,11,2024
 677873,2024-05-11 16:30:00+00:00,Borussia Dortmund at Mainz,DOR @ M05,Mainz,2950,3,Borussia Dortmund,124,0,STATUS_FULL_TIME,MEWA ARENA,2023-2024,0,5,11,2024
 677878,2024-05-12 13:30:00+00:00,TSG Hoffenheim at SV Darmstadt 98,TSG @ SVD,SV Darmstadt 98,3812,0,TSG Hoffenheim,7911,6,STATUS_FULL_TIME,Merck-Stadion am Böllenfalltor,2023-2024,0,5,12,2024
 677876,2024-05-12 15:30:00+00:00,VfL Wolfsburg at Bayern Munich,WOB @ MUN,Bayern Munich,132,2,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Allianz Arena,2023-2024,0,5,12,2024
 677879,2024-05-12 17:30:00+00:00,Bayer Leverkusen at VfL Bochum,B04 @ BOC,VfL Bochum,121,0,Bayer Leverkusen,131,5,STATUS_FULL_TIME,Vonovia Ruhrstadion,2023-2024,0,5,12,2024
-677575,2024-05-18 13:30:00+00:00,FC Cologne at 1. FC Heidenheim 1846,KOE @ HDH,1. FC Heidenheim 1846,6418,4,FC Cologne,122,1,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,5,18,2024
-677576,2024-05-18 13:30:00+00:00,SC Freiburg at 1. FC Union Berlin,SCF @ FCU,1. FC Union Berlin,598,2,SC Freiburg,126,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,5,18,2024
-677577,2024-05-18 13:30:00+00:00,FC Augsburg at Bayer Leverkusen,FCA @ B04,Bayer Leverkusen,131,2,FC Augsburg,3841,1,STATUS_FULL_TIME,BayArena,2023-2024,0,5,18,2024
-677578,2024-05-18 13:30:00+00:00,SV Darmstadt 98 at Borussia Dortmund,SVD @ DOR,Borussia Dortmund,124,4,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,5,18,2024
-677582,2024-05-18 13:30:00+00:00,RB Leipzig at Eintracht Frankfurt,RBL @ SGE,Eintracht Frankfurt,125,2,RB Leipzig,11420,2,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,5,18,2024
 677580,2024-05-18 13:30:00+00:00,Bayern Munich at TSG Hoffenheim,MUN @ TSG,TSG Hoffenheim,7911,4,Bayern Munich,132,2,STATUS_FULL_TIME,PreZero Arena,2023-2024,0,5,18,2024
-677583,2024-05-18 13:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,4,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,5,18,2024
-677579,2024-05-18 13:30:00+00:00,Mainz at VfL Wolfsburg,M05 @ WOB,VfL Wolfsburg,138,1,Mainz,2950,3,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,5,18,2024
 677581,2024-05-18 13:30:00+00:00,VfL Bochum at Werder Bremen,BOC @ SVW,Werder Bremen,137,4,VfL Bochum,121,1,STATUS_FULL_TIME,Weserstadion,2023-2024,0,5,18,2024
+677579,2024-05-18 13:30:00+00:00,Mainz at VfL Wolfsburg,M05 @ WOB,VfL Wolfsburg,138,1,Mainz,2950,3,STATUS_FULL_TIME,Volkswagen Arena,2023-2024,0,5,18,2024
+677583,2024-05-18 13:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,4,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,MHPArena,2023-2024,0,5,18,2024
+677582,2024-05-18 13:30:00+00:00,RB Leipzig at Eintracht Frankfurt,RBL @ SGE,Eintracht Frankfurt,125,2,RB Leipzig,11420,2,STATUS_FULL_TIME,Deutsche Bank Park,2023-2024,0,5,18,2024
+677578,2024-05-18 13:30:00+00:00,SV Darmstadt 98 at Borussia Dortmund,SVD @ DOR,Borussia Dortmund,124,4,SV Darmstadt 98,3812,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2023-2024,0,5,18,2024
+677577,2024-05-18 13:30:00+00:00,FC Augsburg at Bayer Leverkusen,FCA @ B04,Bayer Leverkusen,131,2,FC Augsburg,3841,1,STATUS_FULL_TIME,BayArena,2023-2024,0,5,18,2024
+677576,2024-05-18 13:30:00+00:00,SC Freiburg at 1. FC Union Berlin,SCF @ FCU,1. FC Union Berlin,598,2,SC Freiburg,126,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2023-2024,0,5,18,2024
+677575,2024-05-18 13:30:00+00:00,FC Cologne at 1. FC Heidenheim 1846,KOE @ HDH,1. FC Heidenheim 1846,6418,4,FC Cologne,122,1,STATUS_FULL_TIME,Voith-Arena,2023-2024,0,5,18,2024
 711729,2024-08-23 18:30:00+00:00,Bayer Leverkusen at Borussia Mönchengladbach,B04 @ BMG,Borussia Mönchengladbach,268,2,Bayer Leverkusen,131,3,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,8,23,2024
 711439,2024-08-24 13:30:00+00:00,Werder Bremen at FC Augsburg,SVW @ FCA,FC Augsburg,3841,2,Werder Bremen,137,2,STATUS_FULL_TIME,WWK Arena,2024-2025,0,8,24,2024
 711433,2024-08-24 13:30:00+00:00,1. FC Union Berlin at Mainz,FCU @ M05,Mainz,2950,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,8,24,2024
@@ -909,11 +909,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711441,2024-09-01 13:30:00+00:00,FC Augsburg at 1. FC Heidenheim 1846,FCA @ HDH,1. FC Heidenheim 1846,6418,4,FC Augsburg,3841,0,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,9,1,2024
 711449,2024-09-01 15:30:00+00:00,SC Freiburg at Bayern Munich,SCF @ MUN,Bayern Munich,132,2,SC Freiburg,126,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,9,1,2024
 711452,2024-09-13 18:30:00+00:00,1. FC Heidenheim 1846 at Borussia Dortmund,HDH @ DOR,Borussia Dortmund,124,4,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,9,13,2024
-711451,2024-09-14 13:30:00+00:00,VfB Stuttgart at Borussia Mönchengladbach,VFB @ BMG,Borussia Mönchengladbach,268,1,VfB Stuttgart,134,3,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,9,14,2024
-711455,2024-09-14 13:30:00+00:00,1. FC Union Berlin at RB Leipzig,FCU @ RBL,RB Leipzig,11420,0,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,9,14,2024
-711456,2024-09-14 13:30:00+00:00,VfL Bochum at SC Freiburg,BOC @ SCF,SC Freiburg,126,2,VfL Bochum,121,1,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,9,14,2024
-711457,2024-09-14 13:30:00+00:00,Bayer Leverkusen at TSG Hoffenheim,B04 @ TSG,TSG Hoffenheim,7911,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,9,14,2024
 711454,2024-09-14 13:30:00+00:00,Eintracht Frankfurt at VfL Wolfsburg,SGE @ WOB,VfL Wolfsburg,138,1,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,9,14,2024
+711457,2024-09-14 13:30:00+00:00,Bayer Leverkusen at TSG Hoffenheim,B04 @ TSG,TSG Hoffenheim,7911,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,9,14,2024
+711456,2024-09-14 13:30:00+00:00,VfL Bochum at SC Freiburg,BOC @ SCF,SC Freiburg,126,2,VfL Bochum,121,1,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,9,14,2024
+711455,2024-09-14 13:30:00+00:00,1. FC Union Berlin at RB Leipzig,FCU @ RBL,RB Leipzig,11420,0,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,9,14,2024
+711451,2024-09-14 13:30:00+00:00,VfB Stuttgart at Borussia Mönchengladbach,VFB @ BMG,Borussia Mönchengladbach,268,1,VfB Stuttgart,134,3,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,9,14,2024
 711458,2024-09-14 16:30:00+00:00,Bayern Munich at Holstein Kiel,MUN @ KSV,Holstein Kiel,7884,1,Bayern Munich,132,6,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,9,14,2024
 711450,2024-09-15 13:30:00+00:00,St. Pauli at FC Augsburg,STP @ FCA,FC Augsburg,3841,3,St. Pauli,270,1,STATUS_FULL_TIME,WWK Arena,2024-2025,0,9,15,2024
 711453,2024-09-15 15:30:00+00:00,Werder Bremen at Mainz,SVW @ M05,Mainz,2950,1,Werder Bremen,137,2,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,9,15,2024
@@ -945,11 +945,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711482,2024-10-06 15:30:00+00:00,Bayern Munich at Eintracht Frankfurt,MUN @ SGE,Eintracht Frankfurt,125,3,Bayern Munich,132,3,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,10,6,2024
 711478,2024-10-06 17:30:00+00:00,TSG Hoffenheim at VfB Stuttgart,TSG @ VFB,VfB Stuttgart,134,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,10,6,2024
 711492,2024-10-18 18:30:00+00:00,St. Pauli at Borussia Dortmund,STP @ DOR,Borussia Dortmund,124,2,St. Pauli,270,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,10,18,2024
-711493,2024-10-19 13:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,2,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,BayArena,2024-2025,0,10,19,2024
-711491,2024-10-19 13:30:00+00:00,1. FC Heidenheim 1846 at Borussia Mönchengladbach,HDH @ BMG,Borussia Mönchengladbach,268,3,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,10,19,2024
-711494,2024-10-19 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,0,RB Leipzig,11420,2,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,10,19,2024
 711488,2024-10-19 13:30:00+00:00,FC Augsburg at SC Freiburg,FCA @ SCF,SC Freiburg,126,3,FC Augsburg,3841,1,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,10,19,2024
 711487,2024-10-19 13:30:00+00:00,VfL Bochum at TSG Hoffenheim,BOC @ TSG,TSG Hoffenheim,7911,3,VfL Bochum,121,1,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,10,19,2024
+711491,2024-10-19 13:30:00+00:00,1. FC Heidenheim 1846 at Borussia Mönchengladbach,HDH @ BMG,Borussia Mönchengladbach,268,3,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,10,19,2024
+711493,2024-10-19 13:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,2,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,BayArena,2024-2025,0,10,19,2024
+711494,2024-10-19 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,0,RB Leipzig,11420,2,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,10,19,2024
 711490,2024-10-19 16:30:00+00:00,VfB Stuttgart at Bayern Munich,VFB @ MUN,Bayern Munich,132,4,VfB Stuttgart,134,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,10,19,2024
 711489,2024-10-20 13:30:00+00:00,1. FC Union Berlin at Holstein Kiel,FCU @ KSV,Holstein Kiel,7884,0,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,10,20,2024
 711486,2024-10-20 15:30:00+00:00,Werder Bremen at VfL Wolfsburg,SVW @ WOB,VfL Wolfsburg,138,2,Werder Bremen,137,4,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,10,20,2024
@@ -990,11 +990,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711527,2024-11-24 14:30:00+00:00,Mainz at Holstein Kiel,M05 @ KSV,Holstein Kiel,7884,0,Mainz,2950,3,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,11,24,2024
 711524,2024-11-24 16:30:00+00:00,St. Pauli at Borussia Mönchengladbach,STP @ BMG,Borussia Mönchengladbach,268,2,St. Pauli,270,0,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,11,24,2024
 711539,2024-11-29 19:30:00+00:00,Holstein Kiel at St. Pauli,KSV @ STP,St. Pauli,270,3,Holstein Kiel,7884,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,11,29,2024
+711534,2024-11-30 14:30:00+00:00,VfL Wolfsburg at RB Leipzig,WOB @ RBL,RB Leipzig,11420,1,VfL Wolfsburg,138,5,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,11,30,2024
+711532,2024-11-30 14:30:00+00:00,VfB Stuttgart at Werder Bremen,VFB @ SVW,Werder Bremen,137,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,Weserstadion,2024-2025,0,11,30,2024
 711535,2024-11-30 14:30:00+00:00,Bayer Leverkusen at 1. FC Union Berlin,B04 @ FCU,1. FC Union Berlin,598,1,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,11,30,2024
 711536,2024-11-30 14:30:00+00:00,VfL Bochum at FC Augsburg,BOC @ FCA,FC Augsburg,3841,1,VfL Bochum,121,0,STATUS_FULL_TIME,WWK Arena,2024-2025,0,11,30,2024
-711534,2024-11-30 14:30:00+00:00,VfL Wolfsburg at RB Leipzig,WOB @ RBL,RB Leipzig,11420,1,VfL Wolfsburg,138,5,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,11,30,2024
 711533,2024-11-30 14:30:00+00:00,Borussia Mönchengladbach at SC Freiburg,BMG @ SCF,SC Freiburg,126,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,11,30,2024
-711532,2024-11-30 14:30:00+00:00,VfB Stuttgart at Werder Bremen,VFB @ SVW,Werder Bremen,137,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,Weserstadion,2024-2025,0,11,30,2024
 711537,2024-11-30 17:30:00+00:00,Bayern Munich at Borussia Dortmund,MUN @ DOR,Borussia Dortmund,124,1,Bayern Munich,132,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,11,30,2024
 711538,2024-12-01 14:30:00+00:00,TSG Hoffenheim at Mainz,TSG @ M05,Mainz,2950,2,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,12,1,2024
 711531,2024-12-01 16:30:00+00:00,Eintracht Frankfurt at 1. FC Heidenheim 1846,SGE @ HDH,1. FC Heidenheim 1846,6418,0,Eintracht Frankfurt,125,4,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,12,1,2024
@@ -1017,20 +1017,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711551,2024-12-15 16:30:00+00:00,TSG Hoffenheim at Borussia Dortmund,TSG @ DOR,Borussia Dortmund,124,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,12,15,2024
 711555,2024-12-15 18:30:00+00:00,Eintracht Frankfurt at RB Leipzig,SGE @ RBL,RB Leipzig,11420,2,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,12,15,2024
 711565,2024-12-20 19:30:00+00:00,RB Leipzig at Bayern Munich,RBL @ MUN,Bayern Munich,132,5,RB Leipzig,11420,1,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,12,20,2024
+711563,2024-12-21 14:30:00+00:00,1. FC Union Berlin at Werder Bremen,FCU @ SVW,Werder Bremen,137,4,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Weserstadion,2024-2025,0,12,21,2024
+711561,2024-12-21 14:30:00+00:00,St. Pauli at VfB Stuttgart,STP @ VFB,VfB Stuttgart,134,0,St. Pauli,270,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,12,21,2024
 711564,2024-12-21 14:30:00+00:00,Mainz at Eintracht Frankfurt,M05 @ SGE,Eintracht Frankfurt,125,1,Mainz,2950,3,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,12,21,2024
 711566,2024-12-21 14:30:00+00:00,FC Augsburg at Holstein Kiel,FCA @ KSV,Holstein Kiel,7884,5,FC Augsburg,3841,1,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,12,21,2024
 711562,2024-12-21 14:30:00+00:00,Borussia Mönchengladbach at TSG Hoffenheim,BMG @ TSG,TSG Hoffenheim,7911,1,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,12,21,2024
-711561,2024-12-21 14:30:00+00:00,St. Pauli at VfB Stuttgart,STP @ VFB,VfB Stuttgart,134,0,St. Pauli,270,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,12,21,2024
-711563,2024-12-21 14:30:00+00:00,1. FC Union Berlin at Werder Bremen,FCU @ SVW,Werder Bremen,137,4,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Weserstadion,2024-2025,0,12,21,2024
 711558,2024-12-21 17:30:00+00:00,SC Freiburg at Bayer Leverkusen,SCF @ B04,Bayer Leverkusen,131,5,SC Freiburg,126,1,STATUS_FULL_TIME,BayArena,2024-2025,0,12,21,2024
 711560,2024-12-22 14:30:00+00:00,1. FC Heidenheim 1846 at VfL Bochum,HDH @ BOC,VfL Bochum,121,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,12,22,2024
 711559,2024-12-22 16:30:00+00:00,Borussia Dortmund at VfL Wolfsburg,DOR @ WOB,VfL Wolfsburg,138,1,Borussia Dortmund,124,3,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,12,22,2024
 711572,2025-01-10 19:45:00+00:00,Bayer Leverkusen at Borussia Dortmund,B04 @ DOR,Borussia Dortmund,124,2,Bayer Leverkusen,131,3,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,1,10,2025
-711570,2025-01-11 14:30:00+00:00,1. FC Union Berlin at 1. FC Heidenheim 1846,FCU @ HDH,1. FC Heidenheim 1846,6418,2,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,1,11,2025
-711571,2025-01-11 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,2,VfL Bochum,121,0,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,1,11,2025
+711569,2025-01-11 14:30:00+00:00,VfL Wolfsburg at TSG Hoffenheim,WOB @ TSG,TSG Hoffenheim,7911,0,VfL Wolfsburg,138,1,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,1,11,2025
 711567,2025-01-11 14:30:00+00:00,Holstein Kiel at SC Freiburg,KSV @ SCF,SC Freiburg,126,3,Holstein Kiel,7884,2,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,1,11,2025
 711575,2025-01-11 14:30:00+00:00,Eintracht Frankfurt at St. Pauli,SGE @ STP,St. Pauli,270,0,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,1,11,2025
-711569,2025-01-11 14:30:00+00:00,VfL Wolfsburg at TSG Hoffenheim,WOB @ TSG,TSG Hoffenheim,7911,0,VfL Wolfsburg,138,1,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,1,11,2025
+711570,2025-01-11 14:30:00+00:00,1. FC Union Berlin at 1. FC Heidenheim 1846,FCU @ HDH,1. FC Heidenheim 1846,6418,2,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,1,11,2025
+711571,2025-01-11 14:30:00+00:00,VfL Bochum at Mainz,BOC @ M05,Mainz,2950,2,VfL Bochum,121,0,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,1,11,2025
 711573,2025-01-11 17:30:00+00:00,Bayern Munich at Borussia Mönchengladbach,MUN @ BMG,Borussia Mönchengladbach,268,0,Bayern Munich,132,1,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,1,11,2025
 711568,2025-01-12 14:30:00+00:00,Werder Bremen at RB Leipzig,SVW @ RBL,RB Leipzig,11420,4,Werder Bremen,137,2,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,1,12,2025
 711574,2025-01-12 16:30:00+00:00,VfB Stuttgart at FC Augsburg,VFB @ FCA,FC Augsburg,3841,0,VfB Stuttgart,134,1,STATUS_FULL_TIME,WWK Arena,2024-2025,0,1,12,2025
@@ -1039,10 +1039,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711582,2025-01-14 19:30:00+00:00,SC Freiburg at Eintracht Frankfurt,SCF @ SGE,Eintracht Frankfurt,125,4,SC Freiburg,126,1,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,1,14,2025
 711580,2025-01-14 19:30:00+00:00,Borussia Mönchengladbach at VfL Wolfsburg,BMG @ WOB,VfL Wolfsburg,138,5,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,1,14,2025
 711577,2025-01-15 17:30:00+00:00,St. Pauli at VfL Bochum,STP @ BOC,VfL Bochum,121,1,St. Pauli,270,0,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,1,15,2025
+711579,2025-01-15 19:30:00+00:00,1. FC Heidenheim 1846 at Werder Bremen,HDH @ SVW,Werder Bremen,137,3,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,Weserstadion,2024-2025,0,1,15,2025
+711578,2025-01-15 19:30:00+00:00,RB Leipzig at VfB Stuttgart,RBL @ VFB,VfB Stuttgart,134,2,RB Leipzig,11420,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,1,15,2025
 711576,2025-01-15 19:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,0,FC Augsburg,3841,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,1,15,2025
 711581,2025-01-15 19:30:00+00:00,TSG Hoffenheim at Bayern Munich,TSG @ MUN,Bayern Munich,132,5,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,1,15,2025
-711578,2025-01-15 19:30:00+00:00,RB Leipzig at VfB Stuttgart,RBL @ VFB,VfB Stuttgart,134,2,RB Leipzig,11420,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,1,15,2025
-711579,2025-01-15 19:30:00+00:00,1. FC Heidenheim 1846 at Werder Bremen,HDH @ SVW,Werder Bremen,137,3,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,Weserstadion,2024-2025,0,1,15,2025
 711589,2025-01-17 19:30:00+00:00,Borussia Dortmund at Eintracht Frankfurt,DOR @ SGE,Eintracht Frankfurt,125,2,Borussia Dortmund,124,0,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,1,17,2025
 711592,2025-01-18 14:30:00+00:00,St. Pauli at 1. FC Heidenheim 1846,STP @ HDH,1. FC Heidenheim 1846,6418,0,St. Pauli,270,2,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,1,18,2025
 711588,2025-01-18 14:30:00+00:00,VfL Wolfsburg at Bayern Munich,WOB @ MUN,Bayern Munich,132,3,VfL Wolfsburg,138,2,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,1,18,2025
@@ -1062,11 +1062,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711601,2025-01-26 14:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,1,26,2025
 711602,2025-01-26 16:30:00+00:00,1. FC Union Berlin at St. Pauli,FCU @ STP,St. Pauli,270,3,1. FC Union Berlin,598,0,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,1,26,2025
 711610,2025-01-31 19:30:00+00:00,Mainz at Werder Bremen,M05 @ SVW,Werder Bremen,137,1,Mainz,2950,0,STATUS_FULL_TIME,Weserstadion,2024-2025,0,1,31,2025
-711606,2025-02-01 14:30:00+00:00,Borussia Dortmund at 1. FC Heidenheim 1846,DOR @ HDH,1. FC Heidenheim 1846,6418,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,2,1,2025
-711607,2025-02-01 14:30:00+00:00,Holstein Kiel at Bayern Munich,KSV @ MUN,Bayern Munich,132,4,Holstein Kiel,7884,3,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,2,1,2025
-711611,2025-02-01 14:30:00+00:00,FC Augsburg at St. Pauli,FCA @ STP,St. Pauli,270,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,2,1,2025
-711609,2025-02-01 14:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,1,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,MHPArena,2024-2025,0,2,1,2025
 711608,2025-02-01 14:30:00+00:00,SC Freiburg at VfL Bochum,SCF @ BOC,VfL Bochum,121,0,SC Freiburg,126,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,2,1,2025
+711609,2025-02-01 14:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,1,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,MHPArena,2024-2025,0,2,1,2025
+711611,2025-02-01 14:30:00+00:00,FC Augsburg at St. Pauli,FCA @ STP,St. Pauli,270,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,2,1,2025
+711607,2025-02-01 14:30:00+00:00,Holstein Kiel at Bayern Munich,KSV @ MUN,Bayern Munich,132,4,Holstein Kiel,7884,3,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,2,1,2025
+711606,2025-02-01 14:30:00+00:00,Borussia Dortmund at 1. FC Heidenheim 1846,DOR @ HDH,1. FC Heidenheim 1846,6418,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,2,1,2025
 711605,2025-02-01 17:30:00+00:00,RB Leipzig at 1. FC Union Berlin,RBL @ FCU,1. FC Union Berlin,598,0,RB Leipzig,11420,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,2,1,2025
 711603,2025-02-02 14:30:00+00:00,VfL Wolfsburg at Eintracht Frankfurt,WOB @ SGE,Eintracht Frankfurt,125,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,2,2,2025
 711604,2025-02-02 16:30:00+00:00,TSG Hoffenheim at Bayer Leverkusen,TSG @ B04,Bayer Leverkusen,131,3,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,BayArena,2024-2025,0,2,2,2025
@@ -1098,11 +1098,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711633,2025-02-23 16:30:00+00:00,Eintracht Frankfurt at Bayern Munich,SGE @ MUN,Bayern Munich,132,4,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,2,23,2025
 711637,2025-02-23 18:30:00+00:00,VfB Stuttgart at TSG Hoffenheim,VFB @ TSG,TSG Hoffenheim,7911,1,VfB Stuttgart,134,1,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,2,23,2025
 711639,2025-02-28 19:30:00+00:00,Bayern Munich at VfB Stuttgart,MUN @ VFB,VfB Stuttgart,134,1,Bayern Munich,132,3,STATUS_FULL_TIME,MHPArena,2024-2025,0,2,28,2025
-711646,2025-03-01 14:30:00+00:00,Borussia Mönchengladbach at 1. FC Heidenheim 1846,BMG @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,3,1,2025
-711641,2025-03-01 14:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,1,Mainz,2950,2,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,3,1,2025
-711642,2025-03-01 14:30:00+00:00,Borussia Dortmund at St. Pauli,DOR @ STP,St. Pauli,270,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,3,1,2025
-711643,2025-03-01 14:30:00+00:00,TSG Hoffenheim at VfL Bochum,TSG @ BOC,VfL Bochum,121,0,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,3,1,2025
 711640,2025-03-01 14:30:00+00:00,VfL Wolfsburg at Werder Bremen,WOB @ SVW,Werder Bremen,137,1,VfL Wolfsburg,138,2,STATUS_FULL_TIME,Weserstadion,2024-2025,0,3,1,2025
+711643,2025-03-01 14:30:00+00:00,TSG Hoffenheim at VfL Bochum,TSG @ BOC,VfL Bochum,121,0,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,3,1,2025
+711642,2025-03-01 14:30:00+00:00,Borussia Dortmund at St. Pauli,DOR @ STP,St. Pauli,270,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,3,1,2025
+711641,2025-03-01 14:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,1,Mainz,2950,2,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,3,1,2025
+711646,2025-03-01 14:30:00+00:00,Borussia Mönchengladbach at 1. FC Heidenheim 1846,BMG @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,3,1,2025
 711644,2025-03-01 17:30:00+00:00,Bayer Leverkusen at Eintracht Frankfurt,B04 @ SGE,Eintracht Frankfurt,125,1,Bayer Leverkusen,131,4,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,3,1,2025
 711645,2025-03-02 14:30:00+00:00,Holstein Kiel at 1. FC Union Berlin,KSV @ FCU,1. FC Union Berlin,598,0,Holstein Kiel,7884,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,3,2,2025
 711647,2025-03-02 16:30:00+00:00,SC Freiburg at FC Augsburg,SCF @ FCA,FC Augsburg,3841,0,SC Freiburg,126,0,STATUS_FULL_TIME,WWK Arena,2024-2025,0,3,2,2025
@@ -1134,11 +1134,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711668,2025-03-30 13:30:00+00:00,1. FC Union Berlin at SC Freiburg,FCU @ SCF,SC Freiburg,126,1,1. FC Union Berlin,598,2,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,3,30,2025
 711673,2025-03-30 15:30:00+00:00,Mainz at Borussia Dortmund,M05 @ DOR,Borussia Dortmund,124,3,Mainz,2950,1,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,3,30,2025
 711683,2025-04-04 18:30:00+00:00,Bayern Munich at FC Augsburg,MUN @ FCA,FC Augsburg,3841,1,Bayern Munich,132,3,STATUS_FULL_TIME,WWK Arena,2024-2025,0,4,4,2025
+711679,2025-04-05 13:30:00+00:00,VfB Stuttgart at VfL Bochum,VFB @ BOC,VfL Bochum,121,0,VfB Stuttgart,134,4,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,4,5,2025
+711676,2025-04-05 13:30:00+00:00,Borussia Dortmund at SC Freiburg,DOR @ SCF,SC Freiburg,126,1,Borussia Dortmund,124,4,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,4,5,2025
 711682,2025-04-05 13:30:00+00:00,Bayer Leverkusen at 1. FC Heidenheim 1846,B04 @ HDH,1. FC Heidenheim 1846,6418,0,Bayer Leverkusen,131,1,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,4,5,2025
 711680,2025-04-05 13:30:00+00:00,Holstein Kiel at Mainz,KSV @ M05,Mainz,2950,1,Holstein Kiel,7884,1,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,4,5,2025
 711677,2025-04-05 13:30:00+00:00,TSG Hoffenheim at RB Leipzig,TSG @ RBL,RB Leipzig,11420,3,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,4,5,2025
-711676,2025-04-05 13:30:00+00:00,Borussia Dortmund at SC Freiburg,DOR @ SCF,SC Freiburg,126,1,Borussia Dortmund,124,4,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,4,5,2025
-711679,2025-04-05 13:30:00+00:00,VfB Stuttgart at VfL Bochum,VFB @ BOC,VfL Bochum,121,0,VfB Stuttgart,134,4,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,4,5,2025
 711675,2025-04-05 16:30:00+00:00,Eintracht Frankfurt at Werder Bremen,SGE @ SVW,Werder Bremen,137,2,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Weserstadion,2024-2025,0,4,5,2025
 711678,2025-04-06 13:30:00+00:00,Borussia Mönchengladbach at St. Pauli,BMG @ STP,St. Pauli,270,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,4,6,2025
 711681,2025-04-06 15:30:00+00:00,VfL Wolfsburg at 1. FC Union Berlin,WOB @ FCU,1. FC Union Berlin,598,1,VfL Wolfsburg,138,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,4,6,2025
@@ -1161,28 +1161,28 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 711700,2025-04-20 15:30:00+00:00,Borussia Mönchengladbach at Borussia Dortmund,BMG @ DOR,Borussia Dortmund,124,3,Borussia Mönchengladbach,268,2,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,4,20,2025
 711698,2025-04-20 17:30:00+00:00,Bayer Leverkusen at St. Pauli,B04 @ STP,St. Pauli,270,1,Bayer Leverkusen,131,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,4,20,2025
 711704,2025-04-25 18:30:00+00:00,1. FC Heidenheim 1846 at VfB Stuttgart,HDH @ VFB,VfB Stuttgart,134,0,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,MHPArena,2024-2025,0,4,25,2025
+711706,2025-04-26 13:30:00+00:00,SC Freiburg at VfL Wolfsburg,SCF @ WOB,VfL Wolfsburg,138,0,SC Freiburg,126,1,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,4,26,2025
+711705,2025-04-26 13:30:00+00:00,Borussia Dortmund at TSG Hoffenheim,DOR @ TSG,TSG Hoffenheim,7911,2,Borussia Dortmund,124,3,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,4,26,2025
 711702,2025-04-26 13:30:00+00:00,FC Augsburg at Bayer Leverkusen,FCA @ B04,Bayer Leverkusen,131,2,FC Augsburg,3841,0,STATUS_FULL_TIME,BayArena,2024-2025,0,4,26,2025
 711708,2025-04-26 13:30:00+00:00,Mainz at Bayern Munich,M05 @ MUN,Bayern Munich,132,3,Mainz,2950,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,4,26,2025
 711707,2025-04-26 13:30:00+00:00,Borussia Mönchengladbach at Holstein Kiel,BMG @ KSV,Holstein Kiel,7884,4,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,4,26,2025
-711705,2025-04-26 13:30:00+00:00,Borussia Dortmund at TSG Hoffenheim,DOR @ TSG,TSG Hoffenheim,7911,2,Borussia Dortmund,124,3,STATUS_FULL_TIME,PreZero Arena,2024-2025,0,4,26,2025
-711706,2025-04-26 13:30:00+00:00,SC Freiburg at VfL Wolfsburg,SCF @ WOB,VfL Wolfsburg,138,0,SC Freiburg,126,1,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,4,26,2025
 711709,2025-04-26 16:30:00+00:00,RB Leipzig at Eintracht Frankfurt,RBL @ SGE,Eintracht Frankfurt,125,4,RB Leipzig,11420,0,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,4,26,2025
 711703,2025-04-27 13:30:00+00:00,1. FC Union Berlin at VfL Bochum,FCU @ BOC,VfL Bochum,121,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,4,27,2025
 711710,2025-04-27 15:30:00+00:00,St. Pauli at Werder Bremen,STP @ SVW,Werder Bremen,137,0,St. Pauli,270,0,STATUS_FULL_TIME,Weserstadion,2024-2025,0,4,27,2025
 711714,2025-05-02 18:30:00+00:00,VfL Bochum at 1. FC Heidenheim 1846,BOC @ HDH,1. FC Heidenheim 1846,6418,0,VfL Bochum,121,0,STATUS_FULL_TIME,Voith-Arena,2024-2025,0,5,2,2025
-711713,2025-05-03 13:30:00+00:00,Werder Bremen at 1. FC Union Berlin,SVW @ FCU,1. FC Union Berlin,598,2,Werder Bremen,137,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,5,3,2025
-711719,2025-05-03 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,4,TSG Hoffenheim,7911,4,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,5,3,2025
 711718,2025-05-03 13:30:00+00:00,Bayern Munich at RB Leipzig,MUN @ RBL,RB Leipzig,11420,3,Bayern Munich,132,3,STATUS_FULL_TIME,Red Bull Arena,2024-2025,0,5,3,2025
 711717,2025-05-03 13:30:00+00:00,VfB Stuttgart at St. Pauli,VFB @ STP,St. Pauli,270,0,VfB Stuttgart,134,1,STATUS_FULL_TIME,Millerntor-Stadion,2024-2025,0,5,3,2025
+711713,2025-05-03 13:30:00+00:00,Werder Bremen at 1. FC Union Berlin,SVW @ FCU,1. FC Union Berlin,598,2,Werder Bremen,137,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,5,3,2025
+711719,2025-05-03 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,4,TSG Hoffenheim,7911,4,STATUS_FULL_TIME,BORUSSIA-PARK,2024-2025,0,5,3,2025
 711711,2025-05-03 16:30:00+00:00,VfL Wolfsburg at Borussia Dortmund,WOB @ DOR,Borussia Dortmund,124,4,VfL Wolfsburg,138,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2024-2025,0,5,3,2025
 711716,2025-05-04 13:30:00+00:00,Holstein Kiel at FC Augsburg,KSV @ FCA,FC Augsburg,3841,1,Holstein Kiel,7884,3,STATUS_FULL_TIME,WWK Arena,2024-2025,0,5,4,2025
 711715,2025-05-04 15:30:00+00:00,Bayer Leverkusen at SC Freiburg,B04 @ SCF,SC Freiburg,126,2,Bayer Leverkusen,131,2,STATUS_FULL_TIME,Europa-Park Stadion,2024-2025,0,5,4,2025
 711712,2025-05-04 17:30:00+00:00,Eintracht Frankfurt at Mainz,SGE @ M05,Mainz,2950,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,MEWA ARENA,2024-2025,0,5,4,2025
 711725,2025-05-09 18:30:00+00:00,TSG Hoffenheim at VfL Wolfsburg,TSG @ WOB,VfL Wolfsburg,138,2,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Volkswagen Arena,2024-2025,0,5,9,2025
+711728,2025-05-10 13:30:00+00:00,RB Leipzig at Werder Bremen,RBL @ SVW,Werder Bremen,137,0,RB Leipzig,11420,0,STATUS_FULL_TIME,Weserstadion,2024-2025,0,5,10,2025
 711723,2025-05-10 13:30:00+00:00,1. FC Heidenheim 1846 at 1. FC Union Berlin,HDH @ FCU,1. FC Union Berlin,598,0,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2024-2025,0,5,10,2025
 711724,2025-05-10 13:30:00+00:00,SC Freiburg at Holstein Kiel,SCF @ KSV,Holstein Kiel,7884,1,SC Freiburg,126,2,STATUS_FULL_TIME,Holstein-Stadion,2024-2025,0,5,10,2025
 711726,2025-05-10 13:30:00+00:00,Mainz at VfL Bochum,M05 @ BOC,VfL Bochum,121,1,Mainz,2950,4,STATUS_FULL_TIME,Vonovia Ruhrstadion,2024-2025,0,5,10,2025
-711728,2025-05-10 13:30:00+00:00,RB Leipzig at Werder Bremen,RBL @ SVW,Werder Bremen,137,0,RB Leipzig,11420,0,STATUS_FULL_TIME,Weserstadion,2024-2025,0,5,10,2025
 711720,2025-05-10 16:30:00+00:00,Borussia Mönchengladbach at Bayern Munich,BMG @ MUN,Bayern Munich,132,2,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,Allianz Arena,2024-2025,0,5,10,2025
 711722,2025-05-11 13:30:00+00:00,Borussia Dortmund at Bayer Leverkusen,DOR @ B04,Bayer Leverkusen,131,2,Borussia Dortmund,124,4,STATUS_FULL_TIME,BayArena,2024-2025,0,5,11,2025
 711721,2025-05-11 15:30:00+00:00,St. Pauli at Eintracht Frankfurt,STP @ SGE,Eintracht Frankfurt,125,2,St. Pauli,270,2,STATUS_FULL_TIME,Deutsche Bank Park,2024-2025,0,5,11,2025
@@ -1206,20 +1206,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746721,2025-08-24 13:30:00+00:00,FC Cologne at Mainz,KOE @ M05,Mainz,2950,0,FC Cologne,122,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,8,24,2025
 746723,2025-08-24 15:30:00+00:00,Hamburg SV at Borussia Mönchengladbach,HSV @ BMG,Borussia Mönchengladbach,268,0,Hamburg SV,127,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,8,24,2025
 746730,2025-08-29 18:30:00+00:00,St. Pauli at Hamburg SV,STP @ HSV,Hamburg SV,127,0,St. Pauli,270,2,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,8,29,2025
-746731,2025-08-30 13:30:00+00:00,1. FC Heidenheim 1846 at RB Leipzig,HDH @ RBL,RB Leipzig,11420,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,8,30,2025
-746733,2025-08-30 13:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,1,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,8,30,2025
-746734,2025-08-30 13:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,MHPArena,2025-2026,0,8,30,2025
 746732,2025-08-30 13:30:00+00:00,Bayer Leverkusen at Werder Bremen,B04 @ SVW,Werder Bremen,137,3,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Weserstadion,2025-2026,0,8,30,2025
+746734,2025-08-30 13:30:00+00:00,Borussia Mönchengladbach at VfB Stuttgart,BMG @ VFB,VfB Stuttgart,134,1,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,MHPArena,2025-2026,0,8,30,2025
+746733,2025-08-30 13:30:00+00:00,Eintracht Frankfurt at TSG Hoffenheim,SGE @ TSG,TSG Hoffenheim,7911,1,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,8,30,2025
+746731,2025-08-30 13:30:00+00:00,1. FC Heidenheim 1846 at RB Leipzig,HDH @ RBL,RB Leipzig,11420,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,8,30,2025
 746729,2025-08-30 16:30:00+00:00,Bayern Munich at FC Augsburg,MUN @ FCA,FC Augsburg,3841,2,Bayern Munich,132,3,STATUS_FULL_TIME,WWK Arena,2025-2026,0,8,30,2025
 746735,2025-08-31 13:30:00+00:00,Mainz at VfL Wolfsburg,M05 @ WOB,VfL Wolfsburg,138,1,Mainz,2950,1,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,8,31,2025
 746728,2025-08-31 15:30:00+00:00,1. FC Union Berlin at Borussia Dortmund,FCU @ DOR,Borussia Dortmund,124,3,1. FC Union Berlin,598,0,STATUS_FULL_TIME,SIGNAL IDUNA PARK,2025-2026,0,8,31,2025
 746727,2025-08-31 17:30:00+00:00,SC Freiburg at FC Cologne,SCF @ KOE,FC Cologne,122,4,SC Freiburg,126,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,8,31,2025
 746739,2025-09-12 18:30:00+00:00,Eintracht Frankfurt at Bayer Leverkusen,SGE @ B04,Bayer Leverkusen,131,3,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,BayArena,2025-2026,0,9,12,2025
+746743,2025-09-13 13:30:00+00:00,VfB Stuttgart at SC Freiburg,VFB @ SCF,SC Freiburg,126,3,VfB Stuttgart,134,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,9,13,2025
+746738,2025-09-13 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,0,RB Leipzig,11420,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,9,13,2025
+746744,2025-09-13 13:30:00+00:00,FC Cologne at VfL Wolfsburg,KOE @ WOB,VfL Wolfsburg,138,3,FC Cologne,122,3,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,9,13,2025
 746736,2025-09-13 13:30:00+00:00,Borussia Dortmund at 1. FC Heidenheim 1846,DOR @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,9,13,2025
 746737,2025-09-13 13:30:00+00:00,TSG Hoffenheim at 1. FC Union Berlin,TSG @ FCU,1. FC Union Berlin,598,2,TSG Hoffenheim,7911,4,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,9,13,2025
-746738,2025-09-13 13:30:00+00:00,RB Leipzig at Mainz,RBL @ M05,Mainz,2950,0,RB Leipzig,11420,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,9,13,2025
-746743,2025-09-13 13:30:00+00:00,VfB Stuttgart at SC Freiburg,VFB @ SCF,SC Freiburg,126,3,VfB Stuttgart,134,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,9,13,2025
-746744,2025-09-13 13:30:00+00:00,FC Cologne at VfL Wolfsburg,KOE @ WOB,VfL Wolfsburg,138,3,FC Cologne,122,3,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,9,13,2025
 746741,2025-09-13 16:30:00+00:00,Hamburg SV at Bayern Munich,HSV @ MUN,Bayern Munich,132,5,Hamburg SV,127,0,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,9,13,2025
 746742,2025-09-14 13:30:00+00:00,FC Augsburg at St. Pauli,FCA @ STP,St. Pauli,270,2,FC Augsburg,3841,1,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,9,14,2025
 746740,2025-09-14 15:30:00+00:00,Werder Bremen at Borussia Mönchengladbach,SVW @ BMG,Borussia Mönchengladbach,268,0,Werder Bremen,137,4,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,9,14,2025
@@ -1251,11 +1251,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746768,2025-10-05 15:30:00+00:00,Mainz at Hamburg SV,M05 @ HSV,Hamburg SV,127,4,Mainz,2950,0,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,10,5,2025
 746764,2025-10-05 17:30:00+00:00,SC Freiburg at Borussia Mönchengladbach,SCF @ BMG,Borussia Mönchengladbach,268,0,SC Freiburg,126,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,10,5,2025
 746779,2025-10-17 18:30:00+00:00,Borussia Mönchengladbach at 1. FC Union Berlin,BMG @ FCU,1. FC Union Berlin,598,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,10,17,2025
-746777,2025-10-18 13:30:00+00:00,Werder Bremen at 1. FC Heidenheim 1846,SVW @ HDH,1. FC Heidenheim 1846,6418,2,Werder Bremen,137,2,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,10,18,2025
-746780,2025-10-18 13:30:00+00:00,FC Augsburg at FC Cologne,FCA @ KOE,FC Cologne,122,1,FC Augsburg,3841,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,10,18,2025
-746778,2025-10-18 13:30:00+00:00,Bayer Leverkusen at Mainz,B04 @ M05,Mainz,2950,3,Bayer Leverkusen,131,4,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,10,18,2025
-746773,2025-10-18 13:30:00+00:00,Hamburg SV at RB Leipzig,HSV @ RBL,RB Leipzig,11420,2,Hamburg SV,127,1,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,10,18,2025
 746775,2025-10-18 13:30:00+00:00,VfB Stuttgart at VfL Wolfsburg,VFB @ WOB,VfL Wolfsburg,138,0,VfB Stuttgart,134,3,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,10,18,2025
+746773,2025-10-18 13:30:00+00:00,Hamburg SV at RB Leipzig,HSV @ RBL,RB Leipzig,11420,2,Hamburg SV,127,1,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,10,18,2025
+746778,2025-10-18 13:30:00+00:00,Bayer Leverkusen at Mainz,B04 @ M05,Mainz,2950,3,Bayer Leverkusen,131,4,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,10,18,2025
+746780,2025-10-18 13:30:00+00:00,FC Augsburg at FC Cologne,FCA @ KOE,FC Cologne,122,1,FC Augsburg,3841,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,10,18,2025
+746777,2025-10-18 13:30:00+00:00,Werder Bremen at 1. FC Heidenheim 1846,SVW @ HDH,1. FC Heidenheim 1846,6418,2,Werder Bremen,137,2,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,10,18,2025
 746776,2025-10-18 16:30:00+00:00,Borussia Dortmund at Bayern Munich,DOR @ MUN,Bayern Munich,132,2,Borussia Dortmund,124,1,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,10,18,2025
 746774,2025-10-19 13:30:00+00:00,Eintracht Frankfurt at SC Freiburg,SGE @ SCF,SC Freiburg,126,2,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,10,19,2025
 746772,2025-10-19 15:30:00+00:00,TSG Hoffenheim at St. Pauli,TSG @ STP,St. Pauli,270,0,TSG Hoffenheim,7911,3,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,10,19,2025
@@ -1287,11 +1287,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746802,2025-11-09 16:30:00+00:00,FC Augsburg at VfB Stuttgart,FCA @ VFB,VfB Stuttgart,134,3,FC Augsburg,3841,2,STATUS_FULL_TIME,MHPArena,2025-2026,0,11,9,2025
 746801,2025-11-09 18:30:00+00:00,Mainz at Eintracht Frankfurt,M05 @ SGE,Eintracht Frankfurt,125,1,Mainz,2950,0,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,11,9,2025
 746816,2025-11-21 19:30:00+00:00,TSG Hoffenheim at Mainz,TSG @ M05,Mainz,2950,1,TSG Hoffenheim,7911,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,11,21,2025
-746808,2025-11-22 14:30:00+00:00,Borussia Mönchengladbach at 1. FC Heidenheim 1846,BMG @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,11,22,2025
-746813,2025-11-22 14:30:00+00:00,SC Freiburg at Bayern Munich,SCF @ MUN,Bayern Munich,132,6,SC Freiburg,126,2,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,11,22,2025
-746815,2025-11-22 14:30:00+00:00,VfB Stuttgart at Borussia Dortmund,VFB @ DOR,Borussia Dortmund,124,3,VfB Stuttgart,134,3,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,11,22,2025
-746814,2025-11-22 14:30:00+00:00,Hamburg SV at FC Augsburg,HSV @ FCA,FC Augsburg,3841,1,Hamburg SV,127,0,STATUS_FULL_TIME,WWK Arena,2025-2026,0,11,22,2025
 746810,2025-11-22 14:30:00+00:00,Bayer Leverkusen at VfL Wolfsburg,B04 @ WOB,VfL Wolfsburg,138,1,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,11,22,2025
+746814,2025-11-22 14:30:00+00:00,Hamburg SV at FC Augsburg,HSV @ FCA,FC Augsburg,3841,1,Hamburg SV,127,0,STATUS_FULL_TIME,WWK Arena,2025-2026,0,11,22,2025
+746815,2025-11-22 14:30:00+00:00,VfB Stuttgart at Borussia Dortmund,VFB @ DOR,Borussia Dortmund,124,3,VfB Stuttgart,134,3,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,11,22,2025
+746813,2025-11-22 14:30:00+00:00,SC Freiburg at Bayern Munich,SCF @ MUN,Bayern Munich,132,6,SC Freiburg,126,2,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,11,22,2025
+746808,2025-11-22 14:30:00+00:00,Borussia Mönchengladbach at 1. FC Heidenheim 1846,BMG @ HDH,1. FC Heidenheim 1846,6418,0,Borussia Mönchengladbach,268,3,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,11,22,2025
 746809,2025-11-22 17:30:00+00:00,Eintracht Frankfurt at FC Cologne,SGE @ KOE,FC Cologne,122,3,Eintracht Frankfurt,125,4,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,11,22,2025
 746811,2025-11-23 14:30:00+00:00,Werder Bremen at RB Leipzig,SVW @ RBL,RB Leipzig,11420,2,Werder Bremen,137,0,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,11,23,2025
 746812,2025-11-23 16:30:00+00:00,1. FC Union Berlin at St. Pauli,FCU @ STP,St. Pauli,270,0,1. FC Union Berlin,598,1,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,11,23,2025
@@ -1323,11 +1323,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746840,2025-12-14 16:30:00+00:00,Mainz at Bayern Munich,M05 @ MUN,Bayern Munich,132,2,Mainz,2950,2,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,12,14,2025
 746843,2025-12-14 18:30:00+00:00,VfB Stuttgart at Werder Bremen,VFB @ SVW,Werder Bremen,137,0,VfB Stuttgart,134,4,STATUS_FULL_TIME,Weserstadion,2025-2026,0,12,14,2025
 746848,2025-12-19 19:30:00+00:00,Borussia Mönchengladbach at Borussia Dortmund,BMG @ DOR,Borussia Dortmund,124,2,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,12,19,2025
-746851,2025-12-20 14:30:00+00:00,Werder Bremen at FC Augsburg,SVW @ FCA,FC Augsburg,3841,0,Werder Bremen,137,0,STATUS_FULL_TIME,WWK Arena,2025-2026,0,12,20,2025
-746847,2025-12-20 14:30:00+00:00,1. FC Union Berlin at FC Cologne,FCU @ KOE,FC Cologne,122,0,1. FC Union Berlin,598,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,12,20,2025
-746852,2025-12-20 14:30:00+00:00,Eintracht Frankfurt at Hamburg SV,SGE @ HSV,Hamburg SV,127,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,12,20,2025
 746844,2025-12-20 14:30:00+00:00,TSG Hoffenheim at VfB Stuttgart,TSG @ VFB,VfB Stuttgart,134,0,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,MHPArena,2025-2026,0,12,20,2025
 746850,2025-12-20 14:30:00+00:00,SC Freiburg at VfL Wolfsburg,SCF @ WOB,VfL Wolfsburg,138,3,SC Freiburg,126,4,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,12,20,2025
+746847,2025-12-20 14:30:00+00:00,1. FC Union Berlin at FC Cologne,FCU @ KOE,FC Cologne,122,0,1. FC Union Berlin,598,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,12,20,2025
+746851,2025-12-20 14:30:00+00:00,Werder Bremen at FC Augsburg,SVW @ FCA,FC Augsburg,3841,0,Werder Bremen,137,0,STATUS_FULL_TIME,WWK Arena,2025-2026,0,12,20,2025
+746852,2025-12-20 14:30:00+00:00,Eintracht Frankfurt at Hamburg SV,SGE @ HSV,Hamburg SV,127,1,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,12,20,2025
 746845,2025-12-20 17:30:00+00:00,Bayer Leverkusen at RB Leipzig,B04 @ RBL,RB Leipzig,11420,1,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,12,20,2025
 746849,2025-12-21 14:30:00+00:00,St. Pauli at Mainz,STP @ M05,Mainz,2950,0,St. Pauli,270,0,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,12,21,2025
 746846,2025-12-21 16:30:00+00:00,Bayern Munich at 1. FC Heidenheim 1846,MUN @ HDH,1. FC Heidenheim 1846,6418,0,Bayern Munich,132,4,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,12,21,2025
@@ -1347,31 +1347,31 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746862,2026-01-14 19:30:00+00:00,Borussia Mönchengladbach at TSG Hoffenheim,BMG @ TSG,TSG Hoffenheim,7911,5,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,1,14,2026
 746867,2026-01-15 19:30:00+00:00,1. FC Union Berlin at FC Augsburg,FCU @ FCA,FC Augsburg,3841,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,WWK Arena,2025-2026,0,1,15,2026
 746872,2026-01-16 19:30:00+00:00,Eintracht Frankfurt at Werder Bremen,SGE @ SVW,Werder Bremen,137,3,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,Weserstadion,2025-2026,0,1,16,2026
+746871,2026-01-17 14:30:00+00:00,1. FC Heidenheim 1846 at VfL Wolfsburg,HDH @ WOB,VfL Wolfsburg,138,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,1,17,2026
+746873,2026-01-17 14:30:00+00:00,Bayer Leverkusen at TSG Hoffenheim,B04 @ TSG,TSG Hoffenheim,7911,1,Bayer Leverkusen,131,0,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,1,17,2026
 746878,2026-01-17 14:30:00+00:00,St. Pauli at Borussia Dortmund,STP @ DOR,Borussia Dortmund,124,3,St. Pauli,270,2,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,1,17,2026
 746879,2026-01-17 14:30:00+00:00,Mainz at FC Cologne,M05 @ KOE,FC Cologne,122,2,Mainz,2950,1,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,1,17,2026
 746876,2026-01-17 14:30:00+00:00,Borussia Mönchengladbach at Hamburg SV,BMG @ HSV,Hamburg SV,127,0,Borussia Mönchengladbach,268,0,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,1,17,2026
-746873,2026-01-17 14:30:00+00:00,Bayer Leverkusen at TSG Hoffenheim,B04 @ TSG,TSG Hoffenheim,7911,1,Bayer Leverkusen,131,0,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,1,17,2026
-746871,2026-01-17 14:30:00+00:00,1. FC Heidenheim 1846 at VfL Wolfsburg,HDH @ WOB,VfL Wolfsburg,138,1,1. FC Heidenheim 1846,6418,1,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,1,17,2026
 746875,2026-01-17 17:30:00+00:00,Bayern Munich at RB Leipzig,MUN @ RBL,RB Leipzig,11420,1,Bayern Munich,132,5,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,1,17,2026
 746874,2026-01-18 14:30:00+00:00,1. FC Union Berlin at VfB Stuttgart,FCU @ VFB,VfB Stuttgart,134,1,1. FC Union Berlin,598,1,STATUS_FULL_TIME,MHPArena,2025-2026,0,1,18,2026
 746877,2026-01-18 16:30:00+00:00,SC Freiburg at FC Augsburg,SCF @ FCA,FC Augsburg,3841,2,SC Freiburg,126,2,STATUS_FULL_TIME,WWK Arena,2025-2026,0,1,18,2026
 746884,2026-01-23 19:30:00+00:00,Hamburg SV at St. Pauli,HSV @ STP,St. Pauli,270,0,Hamburg SV,127,0,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,1,23,2026
-746885,2026-01-24 14:30:00+00:00,RB Leipzig at 1. FC Heidenheim 1846,RBL @ HDH,1. FC Heidenheim 1846,6418,0,RB Leipzig,11420,3,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,1,24,2026
-746883,2026-01-24 14:30:00+00:00,Werder Bremen at Bayer Leverkusen,SVW @ B04,Bayer Leverkusen,131,1,Werder Bremen,137,0,STATUS_FULL_TIME,BayArena,2025-2026,0,1,24,2026
+746888,2026-01-24 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,3,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,1,24,2026
 746880,2026-01-24 14:30:00+00:00,FC Augsburg at Bayern Munich,FCA @ MUN,Bayern Munich,132,1,FC Augsburg,3841,2,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,1,24,2026
 746881,2026-01-24 14:30:00+00:00,TSG Hoffenheim at Eintracht Frankfurt,TSG @ SGE,Eintracht Frankfurt,125,1,TSG Hoffenheim,7911,3,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,1,24,2026
-746888,2026-01-24 14:30:00+00:00,VfL Wolfsburg at Mainz,WOB @ M05,Mainz,2950,3,VfL Wolfsburg,138,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,1,24,2026
+746885,2026-01-24 14:30:00+00:00,RB Leipzig at 1. FC Heidenheim 1846,RBL @ HDH,1. FC Heidenheim 1846,6418,0,RB Leipzig,11420,3,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,1,24,2026
+746883,2026-01-24 14:30:00+00:00,Werder Bremen at Bayer Leverkusen,SVW @ B04,Bayer Leverkusen,131,1,Werder Bremen,137,0,STATUS_FULL_TIME,BayArena,2025-2026,0,1,24,2026
 746886,2026-01-24 17:30:00+00:00,Borussia Dortmund at 1. FC Union Berlin,DOR @ FCU,1. FC Union Berlin,598,0,Borussia Dortmund,124,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,1,24,2026
 746882,2026-01-25 14:30:00+00:00,VfB Stuttgart at Borussia Mönchengladbach,VFB @ BMG,Borussia Mönchengladbach,268,0,VfB Stuttgart,134,3,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,1,25,2026
 746887,2026-01-25 16:30:00+00:00,FC Cologne at SC Freiburg,KOE @ SCF,SC Freiburg,126,2,FC Cologne,122,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,1,25,2026
 746857,2026-01-27 19:30:00+00:00,RB Leipzig at St. Pauli,RBL @ STP,St. Pauli,270,1,RB Leipzig,11420,1,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,1,27,2026
 746855,2026-01-27 19:30:00+00:00,TSG Hoffenheim at Werder Bremen,TSG @ SVW,Werder Bremen,137,0,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Weserstadion,2025-2026,0,1,27,2026
 746894,2026-01-30 19:30:00+00:00,VfL Wolfsburg at FC Cologne,WOB @ KOE,FC Cologne,122,1,VfL Wolfsburg,138,0,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,1,30,2026
+746897,2026-01-31 14:30:00+00:00,1. FC Union Berlin at TSG Hoffenheim,FCU @ TSG,TSG Hoffenheim,7911,3,1. FC Union Berlin,598,1,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,1,31,2026
+746893,2026-01-31 14:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,1,Mainz,2950,2,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,1,31,2026
+746896,2026-01-31 14:30:00+00:00,Borussia Mönchengladbach at Werder Bremen,BMG @ SVW,Werder Bremen,137,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Weserstadion,2025-2026,0,1,31,2026
 746890,2026-01-31 14:30:00+00:00,Bayer Leverkusen at Eintracht Frankfurt,B04 @ SGE,Eintracht Frankfurt,125,1,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,1,31,2026
 746891,2026-01-31 14:30:00+00:00,St. Pauli at FC Augsburg,STP @ FCA,FC Augsburg,3841,2,St. Pauli,270,1,STATUS_FULL_TIME,WWK Arena,2025-2026,0,1,31,2026
-746893,2026-01-31 14:30:00+00:00,Mainz at RB Leipzig,M05 @ RBL,RB Leipzig,11420,1,Mainz,2950,2,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,1,31,2026
-746897,2026-01-31 14:30:00+00:00,1. FC Union Berlin at TSG Hoffenheim,FCU @ TSG,TSG Hoffenheim,7911,3,1. FC Union Berlin,598,1,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,1,31,2026
-746896,2026-01-31 14:30:00+00:00,Borussia Mönchengladbach at Werder Bremen,BMG @ SVW,Werder Bremen,137,1,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Weserstadion,2025-2026,0,1,31,2026
 746895,2026-01-31 17:30:00+00:00,Bayern Munich at Hamburg SV,MUN @ HSV,Hamburg SV,127,2,Bayern Munich,132,2,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,1,31,2026
 746892,2026-02-01 14:30:00+00:00,SC Freiburg at VfB Stuttgart,SCF @ VFB,VfB Stuttgart,134,1,SC Freiburg,126,0,STATUS_FULL_TIME,MHPArena,2025-2026,0,2,1,2026
 746889,2026-02-01 16:30:00+00:00,1. FC Heidenheim 1846 at Borussia Dortmund,HDH @ DOR,Borussia Dortmund,124,3,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,2,1,2026
@@ -1403,20 +1403,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746921,2026-02-22 16:30:00+00:00,Werder Bremen at St. Pauli,SVW @ STP,St. Pauli,270,2,Werder Bremen,137,1,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,2,22,2026
 746916,2026-02-22 18:30:00+00:00,VfB Stuttgart at 1. FC Heidenheim 1846,VFB @ HDH,1. FC Heidenheim 1846,6418,3,VfB Stuttgart,134,3,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,2,22,2026
 746929,2026-02-27 19:30:00+00:00,FC Cologne at FC Augsburg,KOE @ FCA,FC Augsburg,3841,2,FC Cologne,122,0,STATUS_FULL_TIME,WWK Arena,2025-2026,0,2,27,2026
+746931,2026-02-28 14:30:00+00:00,1. FC Heidenheim 1846 at Werder Bremen,HDH @ SVW,Werder Bremen,137,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Weserstadion,2025-2026,0,2,28,2026
+746932,2026-02-28 14:30:00+00:00,St. Pauli at TSG Hoffenheim,STP @ TSG,TSG Hoffenheim,7911,0,St. Pauli,270,1,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,2,28,2026
 746925,2026-02-28 14:30:00+00:00,Mainz at Bayer Leverkusen,M05 @ B04,Bayer Leverkusen,131,1,Mainz,2950,1,STATUS_FULL_TIME,BayArena,2025-2026,0,2,28,2026
 746927,2026-02-28 14:30:00+00:00,1. FC Union Berlin at Borussia Mönchengladbach,FCU @ BMG,Borussia Mönchengladbach,268,1,1. FC Union Berlin,598,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,2,28,2026
-746932,2026-02-28 14:30:00+00:00,St. Pauli at TSG Hoffenheim,STP @ TSG,TSG Hoffenheim,7911,0,St. Pauli,270,1,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,2,28,2026
-746931,2026-02-28 14:30:00+00:00,1. FC Heidenheim 1846 at Werder Bremen,HDH @ SVW,Werder Bremen,137,2,1. FC Heidenheim 1846,6418,0,STATUS_FULL_TIME,Weserstadion,2025-2026,0,2,28,2026
 746926,2026-02-28 17:30:00+00:00,Bayern Munich at Borussia Dortmund,MUN @ DOR,Borussia Dortmund,124,2,Bayern Munich,132,3,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,2,28,2026
 746933,2026-03-01 14:30:00+00:00,VfL Wolfsburg at VfB Stuttgart,WOB @ VFB,VfB Stuttgart,134,4,VfL Wolfsburg,138,0,STATUS_FULL_TIME,MHPArena,2025-2026,0,3,1,2026
 746928,2026-03-01 16:30:00+00:00,SC Freiburg at Eintracht Frankfurt,SCF @ SGE,Eintracht Frankfurt,125,2,SC Freiburg,126,0,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,3,1,2026
 746930,2026-03-01 18:30:00+00:00,RB Leipzig at Hamburg SV,RBL @ HSV,Hamburg SV,127,1,RB Leipzig,11420,2,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,3,1,2026
 746866,2026-03-04 19:30:00+00:00,Bayer Leverkusen at Hamburg SV,B04 @ HSV,Hamburg SV,127,0,Bayer Leverkusen,131,1,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,3,4,2026
 746935,2026-03-06 19:30:00+00:00,Borussia Mönchengladbach at Bayern Munich,BMG @ MUN,Bayern Munich,132,4,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,3,6,2026
+746934,2026-03-07 14:30:00+00:00,Bayer Leverkusen at SC Freiburg,B04 @ SCF,SC Freiburg,126,3,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,3,7,2026
 746939,2026-03-07 14:30:00+00:00,TSG Hoffenheim at 1. FC Heidenheim 1846,TSG @ HDH,1. FC Heidenheim 1846,6418,2,TSG Hoffenheim,7911,4,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,3,7,2026
 746936,2026-03-07 14:30:00+00:00,VfB Stuttgart at Mainz,VFB @ M05,Mainz,2950,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,3,7,2026
 746942,2026-03-07 14:30:00+00:00,FC Augsburg at RB Leipzig,FCA @ RBL,RB Leipzig,11420,2,FC Augsburg,3841,1,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,3,7,2026
-746934,2026-03-07 14:30:00+00:00,Bayer Leverkusen at SC Freiburg,B04 @ SCF,SC Freiburg,126,3,Bayer Leverkusen,131,3,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,3,7,2026
 746940,2026-03-07 14:30:00+00:00,Hamburg SV at VfL Wolfsburg,HSV @ WOB,VfL Wolfsburg,138,1,Hamburg SV,127,2,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,3,7,2026
 746938,2026-03-07 17:30:00+00:00,Borussia Dortmund at FC Cologne,DOR @ KOE,FC Cologne,122,1,Borussia Dortmund,124,2,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,3,7,2026
 746941,2026-03-08 14:30:00+00:00,Eintracht Frankfurt at St. Pauli,SGE @ STP,St. Pauli,270,0,Eintracht Frankfurt,125,0,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,3,8,2026
@@ -1439,12 +1439,12 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746958,2026-03-22 14:30:00+00:00,Eintracht Frankfurt at Mainz,SGE @ M05,Mainz,2950,2,Eintracht Frankfurt,125,1,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,3,22,2026
 746955,2026-03-22 16:30:00+00:00,SC Freiburg at St. Pauli,SCF @ STP,St. Pauli,270,1,SC Freiburg,126,2,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,3,22,2026
 746953,2026-03-22 18:30:00+00:00,VfB Stuttgart at FC Augsburg,VFB @ FCA,FC Augsburg,3841,2,VfB Stuttgart,134,5,STATUS_FULL_TIME,WWK Arena,2025-2026,0,3,22,2026
-746962,2026-04-04 13:30:00+00:00,VfL Wolfsburg at Bayer Leverkusen,WOB @ B04,Bayer Leverkusen,131,6,VfL Wolfsburg,138,3,STATUS_FULL_TIME,BayArena,2025-2026,0,4,4,2026
-746963,2026-04-04 13:30:00+00:00,1. FC Heidenheim 1846 at Borussia Mönchengladbach,HDH @ BMG,Borussia Mönchengladbach,268,2,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,4,4,2026
-746969,2026-04-04 13:30:00+00:00,FC Augsburg at Hamburg SV,FCA @ HSV,Hamburg SV,127,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,4,4,2026
-746966,2026-04-04 13:30:00+00:00,Bayern Munich at SC Freiburg,MUN @ SCF,SC Freiburg,126,2,Bayern Munich,132,3,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,4,4,2026
-746968,2026-04-04 13:30:00+00:00,Mainz at TSG Hoffenheim,M05 @ TSG,TSG Hoffenheim,7911,1,Mainz,2950,2,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,4,4,2026
 746967,2026-04-04 13:30:00+00:00,RB Leipzig at Werder Bremen,RBL @ SVW,Werder Bremen,137,1,RB Leipzig,11420,2,STATUS_FULL_TIME,Weserstadion,2025-2026,0,4,4,2026
+746968,2026-04-04 13:30:00+00:00,Mainz at TSG Hoffenheim,M05 @ TSG,TSG Hoffenheim,7911,1,Mainz,2950,2,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,4,4,2026
+746966,2026-04-04 13:30:00+00:00,Bayern Munich at SC Freiburg,MUN @ SCF,SC Freiburg,126,2,Bayern Munich,132,3,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,4,4,2026
+746969,2026-04-04 13:30:00+00:00,FC Augsburg at Hamburg SV,FCA @ HSV,Hamburg SV,127,1,FC Augsburg,3841,1,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,4,4,2026
+746963,2026-04-04 13:30:00+00:00,1. FC Heidenheim 1846 at Borussia Mönchengladbach,HDH @ BMG,Borussia Mönchengladbach,268,2,1. FC Heidenheim 1846,6418,2,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,4,4,2026
+746962,2026-04-04 13:30:00+00:00,VfL Wolfsburg at Bayer Leverkusen,WOB @ B04,Bayer Leverkusen,131,6,VfL Wolfsburg,138,3,STATUS_FULL_TIME,BayArena,2025-2026,0,4,4,2026
 746964,2026-04-04 16:30:00+00:00,Borussia Dortmund at VfB Stuttgart,DOR @ VFB,VfB Stuttgart,134,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,MHPArena,2025-2026,0,4,4,2026
 746961,2026-04-05 13:30:00+00:00,St. Pauli at 1. FC Union Berlin,STP @ FCU,1. FC Union Berlin,598,1,St. Pauli,270,1,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,4,5,2026
 746965,2026-04-05 15:30:00+00:00,FC Cologne at Eintracht Frankfurt,KOE @ SGE,Eintracht Frankfurt,125,2,FC Cologne,122,2,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,4,5,2026
@@ -1475,33 +1475,33 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746993,2026-04-25 16:30:00+00:00,TSG Hoffenheim at Hamburg SV,TSG @ HSV,Hamburg SV,127,1,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,4,25,2026
 746995,2026-04-26 13:30:00+00:00,Werder Bremen at VfB Stuttgart,SVW @ VFB,VfB Stuttgart,134,1,Werder Bremen,137,1,STATUS_FULL_TIME,MHPArena,2025-2026,0,4,26,2026
 746991,2026-04-26 15:30:00+00:00,SC Freiburg at Borussia Dortmund,SCF @ DOR,Borussia Dortmund,124,4,SC Freiburg,126,0,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,4,26,2026
+747004,2026-05-02 13:30:00+00:00,FC Augsburg at Werder Bremen,FCA @ SVW,Werder Bremen,137,1,FC Augsburg,3841,3,STATUS_FULL_TIME,Weserstadion,2025-2026,0,5,2,2026
+747005,2026-05-02 13:30:00+00:00,VfB Stuttgart at TSG Hoffenheim,VFB @ TSG,TSG Hoffenheim,7911,3,VfB Stuttgart,134,3,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,5,2,2026
 746997,2026-05-02 13:30:00+00:00,FC Cologne at 1. FC Union Berlin,KOE @ FCU,1. FC Union Berlin,598,2,FC Cologne,122,2,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,5,2,2026
 747001,2026-05-02 13:30:00+00:00,1. FC Heidenheim 1846 at Bayern Munich,HDH @ MUN,Bayern Munich,132,3,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,5,2,2026
 747000,2026-05-02 13:30:00+00:00,Hamburg SV at Eintracht Frankfurt,HSV @ SGE,Eintracht Frankfurt,125,1,Hamburg SV,127,2,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,5,2,2026
-747005,2026-05-02 13:30:00+00:00,VfB Stuttgart at TSG Hoffenheim,VFB @ TSG,TSG Hoffenheim,7911,3,VfB Stuttgart,134,3,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,5,2,2026
-747004,2026-05-02 13:30:00+00:00,FC Augsburg at Werder Bremen,FCA @ SVW,Werder Bremen,137,1,FC Augsburg,3841,3,STATUS_FULL_TIME,Weserstadion,2025-2026,0,5,2,2026
 746998,2026-05-02 16:30:00+00:00,RB Leipzig at Bayer Leverkusen,RBL @ B04,Bayer Leverkusen,131,4,RB Leipzig,11420,1,STATUS_FULL_TIME,BayArena,2025-2026,0,5,2,2026
 747002,2026-05-03 13:30:00+00:00,Mainz at St. Pauli,M05 @ STP,St. Pauli,270,1,Mainz,2950,2,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,5,3,2026
 746999,2026-05-03 15:30:00+00:00,Borussia Dortmund at Borussia Mönchengladbach,DOR @ BMG,Borussia Mönchengladbach,268,1,Borussia Dortmund,124,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,5,3,2026
 747003,2026-05-03 17:30:00+00:00,VfL Wolfsburg at SC Freiburg,WOB @ SCF,SC Freiburg,126,1,VfL Wolfsburg,138,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,5,3,2026
 747008,2026-05-08 18:30:00+00:00,Eintracht Frankfurt at Borussia Dortmund,SGE @ DOR,Borussia Dortmund,124,3,Eintracht Frankfurt,125,2,STATUS_FULL_TIME,Signal Iduna Park,2025-2026,0,5,8,2026
-747009,2026-05-09 13:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,WWK Arena,2025-2026,0,5,9,2026
-747011,2026-05-09 13:30:00+00:00,St. Pauli at RB Leipzig,STP @ RBL,RB Leipzig,11420,2,St. Pauli,270,1,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,5,9,2026
 747012,2026-05-09 13:30:00+00:00,Werder Bremen at TSG Hoffenheim,SVW @ TSG,TSG Hoffenheim,7911,1,Werder Bremen,137,0,STATUS_FULL_TIME,PreZero Arena,2025-2026,0,5,9,2026
 747013,2026-05-09 13:30:00+00:00,Bayer Leverkusen at VfB Stuttgart,B04 @ VFB,VfB Stuttgart,134,3,Bayer Leverkusen,131,1,STATUS_FULL_TIME,MHPArena,2025-2026,0,5,9,2026
+747009,2026-05-09 13:30:00+00:00,Borussia Mönchengladbach at FC Augsburg,BMG @ FCA,FC Augsburg,3841,3,Borussia Mönchengladbach,268,1,STATUS_FULL_TIME,WWK Arena,2025-2026,0,5,9,2026
+747011,2026-05-09 13:30:00+00:00,St. Pauli at RB Leipzig,STP @ RBL,RB Leipzig,11420,2,St. Pauli,270,1,STATUS_FULL_TIME,Red Bull Arena,2025-2026,0,5,9,2026
 747014,2026-05-09 16:30:00+00:00,Bayern Munich at VfL Wolfsburg,MUN @ WOB,VfL Wolfsburg,138,0,Bayern Munich,132,1,STATUS_FULL_TIME,Volkswagen Arena,2025-2026,0,5,9,2026
 747010,2026-05-10 13:30:00+00:00,SC Freiburg at Hamburg SV,SCF @ HSV,Hamburg SV,127,3,SC Freiburg,126,2,STATUS_FULL_TIME,Volksparkstadion,2025-2026,0,5,10,2026
 747006,2026-05-10 15:30:00+00:00,1. FC Heidenheim 1846 at FC Cologne,HDH @ KOE,FC Cologne,122,1,1. FC Heidenheim 1846,6418,3,STATUS_FULL_TIME,RheinEnergieStadion,2025-2026,0,5,10,2026
 747007,2026-05-10 17:30:00+00:00,1. FC Union Berlin at Mainz,FCU @ M05,Mainz,2950,1,1. FC Union Berlin,598,3,STATUS_FULL_TIME,MEWA ARENA,2025-2026,0,5,10,2026
-747015,2026-05-16 13:30:00+00:00,Mainz at 1. FC Heidenheim 1846,M05 @ HDH,1. FC Heidenheim 1846,6418,0,Mainz,2950,2,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,5,16,2026
-747016,2026-05-16 13:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,4,FC Augsburg,3841,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,5,16,2026
-747017,2026-05-16 13:30:00+00:00,Hamburg SV at Bayer Leverkusen,HSV @ B04,Bayer Leverkusen,131,1,Hamburg SV,127,1,STATUS_FULL_TIME,BayArena,2025-2026,0,5,16,2026
-747020,2026-05-16 13:30:00+00:00,FC Cologne at Bayern Munich,KOE @ MUN,Bayern Munich,132,5,FC Cologne,122,1,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,5,16,2026
-747018,2026-05-16 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,4,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,5,16,2026
-747023,2026-05-16 13:30:00+00:00,VfB Stuttgart at Eintracht Frankfurt,VFB @ SGE,Eintracht Frankfurt,125,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,5,16,2026
-747019,2026-05-16 13:30:00+00:00,RB Leipzig at SC Freiburg,RBL @ SCF,SC Freiburg,126,4,RB Leipzig,11420,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,5,16,2026
-747021,2026-05-16 13:30:00+00:00,VfL Wolfsburg at St. Pauli,WOB @ STP,St. Pauli,270,1,VfL Wolfsburg,138,3,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,5,16,2026
 747022,2026-05-16 13:30:00+00:00,Borussia Dortmund at Werder Bremen,DOR @ SVW,Werder Bremen,137,0,Borussia Dortmund,124,2,STATUS_FULL_TIME,Weserstadion,2025-2026,0,5,16,2026
+747021,2026-05-16 13:30:00+00:00,VfL Wolfsburg at St. Pauli,WOB @ STP,St. Pauli,270,1,VfL Wolfsburg,138,3,STATUS_FULL_TIME,Millerntor-Stadion,2025-2026,0,5,16,2026
+747023,2026-05-16 13:30:00+00:00,VfB Stuttgart at Eintracht Frankfurt,VFB @ SGE,Eintracht Frankfurt,125,2,VfB Stuttgart,134,2,STATUS_FULL_TIME,Deutsche Bank Park,2025-2026,0,5,16,2026
+747018,2026-05-16 13:30:00+00:00,TSG Hoffenheim at Borussia Mönchengladbach,TSG @ BMG,Borussia Mönchengladbach,268,4,TSG Hoffenheim,7911,0,STATUS_FULL_TIME,BORUSSIA-PARK,2025-2026,0,5,16,2026
+747019,2026-05-16 13:30:00+00:00,RB Leipzig at SC Freiburg,RBL @ SCF,SC Freiburg,126,4,RB Leipzig,11420,1,STATUS_FULL_TIME,Europa-Park Stadion,2025-2026,0,5,16,2026
+747017,2026-05-16 13:30:00+00:00,Hamburg SV at Bayer Leverkusen,HSV @ B04,Bayer Leverkusen,131,1,Hamburg SV,127,1,STATUS_FULL_TIME,BayArena,2025-2026,0,5,16,2026
+747016,2026-05-16 13:30:00+00:00,FC Augsburg at 1. FC Union Berlin,FCA @ FCU,1. FC Union Berlin,598,4,FC Augsburg,3841,0,STATUS_FULL_TIME,Stadion An der Alten Försterei,2025-2026,0,5,16,2026
+747015,2026-05-16 13:30:00+00:00,Mainz at 1. FC Heidenheim 1846,M05 @ HDH,1. FC Heidenheim 1846,6418,0,Mainz,2950,2,STATUS_FULL_TIME,Voith-Arena,2025-2026,0,5,16,2026
+747020,2026-05-16 13:30:00+00:00,FC Cologne at Bayern Munich,KOE @ MUN,Bayern Munich,132,5,FC Cologne,122,1,STATUS_FULL_TIME,Allianz Arena,2025-2026,0,5,16,2026
 401884817,2026-08-28 18:30:00+00:00,VfB Stuttgart at Bayern Munich,VFB @ MUN,Bayern Munich,132,5,VfB Stuttgart,134,1,STATUS_FULL_TIME,Allianz Arena,2026-2027,0,8,28,2026
 401884811,2026-08-29 13:30:00+00:00,Eintracht Frankfurt at 1. FC Union Berlin,SGE @ FCU,1. FC Union Berlin,598,3,Eintracht Frankfurt,125,3,STATUS_FULL_TIME,Stadion An der Alten Försterei,2026-2027,0,8,29,2026
 401884810,2026-08-29 13:30:00+00:00,TSG Hoffenheim at FC Cologne,TSG @ KOE,FC Cologne,122,3,TSG Hoffenheim,7911,2,STATUS_FULL_TIME,RheinEnergieStadion,2026-2027,0,8,29,2026
@@ -1511,3 +1511,4 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401884816,2026-08-29 16:30:00+00:00,Hamburg SV at Borussia Dortmund,HSV @ DOR,Borussia Dortmund,124,2,Hamburg SV,127,0,STATUS_FULL_TIME,Signal Iduna Park,2026-2027,0,8,29,2026
 401884814,2026-08-30 13:30:00+00:00,Werder Bremen at SC Freiburg,SVW @ SCF,SC Freiburg,126,4,Werder Bremen,137,1,STATUS_FULL_TIME,Europa-Park Stadion,2026-2027,0,8,30,2026
 401884813,2026-08-30 15:30:00+00:00,Schalke 04 at FC Augsburg,S04 @ FCA,FC Augsburg,3841,3,Schalke 04,133,0,STATUS_FULL_TIME,WWK Arena,2026-2027,0,8,30,2026
+401884808,2026-09-04 18:30:00+00:00,,,VfB Stuttgart,134,4,FC Cologne,122,1,STATUS_FULL_TIME,MHPArena,2026-2027,0,9,4,2026

@@ -24,11 +24,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609461,2021-09-22 17:00:00+00:00,Bordeaux at Montpellier,BOR @ MON,Montpellier,274,3,Bordeaux,159,3,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,9,22,2021
 609462,2021-09-22 17:00:00+00:00,Brest at Nantes,BRE @ NAN,Nantes,165,3,Brest,6997,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,9,22,2021
 609463,2021-09-22 17:00:00+00:00,Clermont Foot at Stade Rennais,CLE @ REN,Stade Rennais,169,6,Clermont Foot,3171,0,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,9,22,2021
+609464,2021-09-22 19:00:00+00:00,Marseille at Angers,OLM @ ANG,Angers,7868,0,Marseille,176,0,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,9,22,2021
+609470,2021-09-22 19:00:00+00:00,Troyes at Lyon,TRY @ LYON,Lyon,167,3,Troyes,170,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,9,22,2021
 609465,2021-09-22 19:00:00+00:00,Nice at Lorient,NICE @ LOR,Lorient,273,1,Nice,2502,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,9,22,2021
 609469,2021-09-22 19:00:00+00:00,Strasbourg at Lens,STR @ RCL,Lens,175,0,Strasbourg,180,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,9,22,2021
 609466,2021-09-22 19:00:00+00:00,Paris Saint-Germain at Metz,PSG @ METZ,Metz,177,1,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,9,22,2021
-609470,2021-09-22 19:00:00+00:00,Troyes at Lyon,TRY @ LYON,Lyon,167,3,Troyes,170,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,9,22,2021
-609464,2021-09-22 19:00:00+00:00,Marseille at Angers,OLM @ ANG,Angers,7868,0,Marseille,176,0,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,9,22,2021
 609459,2021-09-25 15:00:00+00:00,Nice at Saint-Étienne,NICE @ ASSE,Saint-Étienne,178,0,Nice,2502,3,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,9,25,2021
 609454,2021-09-25 17:00:00+00:00,Lille at Strasbourg,LILL @ STR,Strasbourg,180,1,Lille,166,2,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,9,25,2021
 609455,2021-09-25 19:00:00+00:00,Lorient at Lyon,LOR @ LYON,Lyon,167,1,Lorient,273,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,9,25,2021
@@ -74,20 +74,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609418,2021-10-30 15:00:00+00:00,Saint-Étienne at Metz,ASSE @ METZ,Metz,177,1,Saint-Étienne,178,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,10,30,2021
 609412,2021-10-30 19:00:00+00:00,Lens at Lyon,RCL @ LYON,Lyon,167,2,Lens,175,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,10,30,2021
 609417,2021-10-31 12:00:00+00:00,Nice at Angers,NICE @ ANG,Angers,7868,1,Nice,2502,2,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,10,31,2021
+609414,2021-10-31 14:00:00+00:00,Lorient at Strasbourg,LOR @ STR,Strasbourg,180,4,Lorient,273,0,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,10,31,2021
+609419,2021-10-31 14:00:00+00:00,Stade Rennais at Troyes,REN @ TRY,Troyes,170,2,Stade Rennais,169,2,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,10,31,2021
 609416,2021-10-31 14:00:00+00:00,Nantes at Montpellier,NAN @ MON,Montpellier,274,2,Nantes,165,0,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,10,31,2021
 609420,2021-10-31 14:00:00+00:00,Stade de Reims at Bordeaux,REIM @ BOR,Bordeaux,159,3,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,10,31,2021
-609419,2021-10-31 14:00:00+00:00,Stade Rennais at Troyes,REN @ TRY,Troyes,170,2,Stade Rennais,169,2,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,10,31,2021
-609414,2021-10-31 14:00:00+00:00,Lorient at Strasbourg,LOR @ STR,Strasbourg,180,4,Lorient,273,0,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,10,31,2021
 609411,2021-10-31 16:00:00+00:00,AS Monaco at Brest,MON @ BRE,Brest,6997,2,AS Monaco,174,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,10,31,2021
 609415,2021-10-31 19:45:00+00:00,Marseille at Clermont Foot,OLM @ CLE,Clermont Foot,3171,0,Marseille,176,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,10,31,2021
 609410,2021-11-05 20:00:00+00:00,Troyes at Lens,TRY @ RCL,Lens,175,4,Troyes,170,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,11,5,2021
 609402,2021-11-06 16:00:00+00:00,Angers at Lille,ANG @ LILL,Lille,166,1,Angers,7868,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,11,6,2021
 609408,2021-11-06 20:00:00+00:00,Paris Saint-Germain at Bordeaux,PSG @ BOR,Bordeaux,159,2,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,11,6,2021
 609406,2021-11-07 12:00:00+00:00,Metz at Marseille,METZ @ OLM,Marseille,176,0,Metz,177,0,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,11,7,2021
+609409,2021-11-07 14:00:00+00:00,Strasbourg at Nantes,STR @ NAN,Nantes,165,2,Strasbourg,180,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,11,7,2021
 609404,2021-11-07 14:00:00+00:00,Clermont Foot at Saint-Étienne,CLE @ ASSE,Saint-Étienne,178,3,Clermont Foot,3171,2,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,11,7,2021
 609401,2021-11-07 14:00:00+00:00,AS Monaco at Stade de Reims,MON @ REIM,Stade de Reims,3243,0,AS Monaco,174,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,11,7,2021
 609403,2021-11-07 14:00:00+00:00,Brest at Lorient,BRE @ LOR,Lorient,273,1,Brest,6997,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,11,7,2021
-609409,2021-11-07 14:00:00+00:00,Strasbourg at Nantes,STR @ NAN,Nantes,165,2,Strasbourg,180,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,11,7,2021
 609407,2021-11-07 16:00:00+00:00,Montpellier at Nice,MON @ NICE,Nice,2502,0,Montpellier,274,1,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,11,7,2021
 609405,2021-11-07 19:45:00+00:00,Lyon at Stade Rennais,LYON @ REN,Stade Rennais,169,4,Lyon,167,1,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,11,7,2021
 609393,2021-11-19 20:00:00+00:00,Lille at AS Monaco,LILL @ MON,AS Monaco,174,2,Lille,166,2,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,11,19,2021
@@ -114,10 +114,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609377,2021-12-01 18:00:00+00:00,Montpellier at Metz,MON @ METZ,Metz,177,1,Montpellier,274,3,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,12,1,2021
 609372,2021-12-01 18:00:00+00:00,Bordeaux at Strasbourg,BOR @ STR,Strasbourg,180,5,Bordeaux,159,2,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,12,1,2021
 609375,2021-12-01 18:00:00+00:00,Lorient at Troyes,LOR @ TRY,Troyes,170,2,Lorient,273,0,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,12,1,2021
-609373,2021-12-01 20:00:00+00:00,Lens at Clermont Foot,RCL @ CLE,Clermont Foot,3171,2,Lens,175,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,12,1,2021
-609380,2021-12-01 20:00:00+00:00,Stade de Reims at Lyon,REIM @ LYON,Lyon,167,1,Stade de Reims,3243,2,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,12,1,2021
-609376,2021-12-01 20:00:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,0,Marseille,176,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,12,1,2021
 609374,2021-12-01 20:00:00+00:00,Lille at Stade Rennais,LILL @ REN,Stade Rennais,169,1,Lille,166,2,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,12,1,2021
+609376,2021-12-01 20:00:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,0,Marseille,176,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,12,1,2021
+609380,2021-12-01 20:00:00+00:00,Stade de Reims at Lyon,REIM @ LYON,Lyon,167,1,Stade de Reims,3243,2,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,12,1,2021
+609373,2021-12-01 20:00:00+00:00,Lens at Clermont Foot,RCL @ CLE,Clermont Foot,3171,2,Lens,175,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,12,1,2021
 609378,2021-12-01 20:05:00+00:00,Nice at Paris Saint-Germain,NICE @ PSG,Paris Saint-Germain,160,0,Nice,2502,0,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,12,1,2021
 609362,2021-12-04 16:00:00+00:00,Brest at Marseille,BRE @ OLM,Marseille,176,1,Brest,6997,2,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,12,4,2021
 609370,2021-12-04 18:00:00+00:00,Troyes at Lille,TRY @ LILL,Lille,166,2,Troyes,170,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,12,4,2021
@@ -139,20 +139,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609352,2021-12-12 14:00:00+00:00,Bordeaux at Troyes,BOR @ TRY,Troyes,170,1,Bordeaux,159,2,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,12,12,2021
 609357,2021-12-12 16:00:00+00:00,Marseille at Strasbourg,OLM @ STR,Strasbourg,180,0,Marseille,176,2,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,12,12,2021
 609351,2021-12-12 19:45:00+00:00,AS Monaco at Paris Saint-Germain,MON @ PSG,Paris Saint-Germain,160,2,AS Monaco,174,0,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,12,12,2021
-609349,2021-12-22 20:00:00+00:00,Stade de Reims at Marseille,REIM @ OLM,Marseille,176,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,12,22,2021
-609348,2021-12-22 20:00:00+00:00,Stade Rennais at AS Monaco,REN @ MON,AS Monaco,174,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,12,22,2021
+609347,2021-12-22 20:00:00+00:00,Paris Saint-Germain at Lorient,PSG @ LOR,Lorient,273,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,12,22,2021
+609342,2021-12-22 20:00:00+00:00,Brest at Troyes,BRE @ TRY,Troyes,170,1,Brest,6997,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,12,22,2021
+609346,2021-12-22 20:00:00+00:00,Nantes at Saint-Étienne,NAN @ ASSE,Saint-Étienne,178,0,Nantes,165,1,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,12,22,2021
+609341,2021-12-22 20:00:00+00:00,Angers at Montpellier,ANG @ MON,Montpellier,274,4,Angers,7868,1,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,12,22,2021
 609344,2021-12-22 20:00:00+00:00,Lille at Bordeaux,LILL @ BOR,Bordeaux,159,2,Lille,166,3,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,12,22,2021
 609345,2021-12-22 20:00:00+00:00,Metz at Lyon,METZ @ LYON,Lyon,167,1,Metz,177,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,12,22,2021
+609348,2021-12-22 20:00:00+00:00,Stade Rennais at AS Monaco,REN @ MON,AS Monaco,174,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,12,22,2021
+609349,2021-12-22 20:00:00+00:00,Stade de Reims at Marseille,REIM @ OLM,Marseille,176,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,12,22,2021
 609343,2021-12-22 20:00:00+00:00,Lens at Nice,RCL @ NICE,Nice,2502,2,Lens,175,1,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,12,22,2021
-609341,2021-12-22 20:00:00+00:00,Angers at Montpellier,ANG @ MON,Montpellier,274,4,Angers,7868,1,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,12,22,2021
-609346,2021-12-22 20:00:00+00:00,Nantes at Saint-Étienne,NAN @ ASSE,Saint-Étienne,178,0,Nantes,165,1,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,12,22,2021
-609342,2021-12-22 20:00:00+00:00,Brest at Troyes,BRE @ TRY,Troyes,170,1,Brest,6997,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,12,22,2021
-609347,2021-12-22 20:00:00+00:00,Paris Saint-Germain at Lorient,PSG @ LOR,Lorient,273,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,12,22,2021
 609333,2022-01-07 20:00:00+00:00,Marseille at Bordeaux,OLM @ BOR,Bordeaux,159,0,Marseille,176,1,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,1,7,2022
 609337,2022-01-08 20:00:00+00:00,Stade Rennais at Lens,REN @ RCL,Lens,175,1,Stade Rennais,169,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,1,8,2022
 609334,2022-01-09 12:00:00+00:00,Nice at Brest,NICE @ BRE,Brest,6997,0,Nice,2502,3,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,1,9,2022
-609338,2022-01-09 14:00:00+00:00,Stade de Reims at Clermont Foot,REIM @ CLE,Clermont Foot,3171,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,1,9,2022
 609339,2022-01-09 14:00:00+00:00,Strasbourg at Metz,STR @ METZ,Metz,177,0,Strasbourg,180,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,1,9,2022
+609338,2022-01-09 14:00:00+00:00,Stade de Reims at Clermont Foot,REIM @ CLE,Clermont Foot,3171,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,1,9,2022
 609331,2022-01-09 16:05:00+00:00,AS Monaco at Nantes,MON @ NAN,Nantes,165,0,AS Monaco,174,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,1,9,2022
 609335,2022-01-09 19:45:00+00:00,Paris Saint-Germain at Lyon,PSG @ LYON,Lyon,167,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,1,9,2022
 609330,2022-01-14 20:00:00+00:00,Nantes at Nice,NAN @ NICE,Nice,2502,2,Nantes,165,1,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,1,14,2022
@@ -165,9 +165,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609329,2022-01-16 14:00:00+00:00,Montpellier at Strasbourg,MON @ STR,Strasbourg,180,3,Montpellier,274,1,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,1,16,2022
 609327,2022-01-16 16:05:00+00:00,Lyon at Troyes,LYON @ TRY,Troyes,170,0,Lyon,167,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,1,16,2022
 609326,2022-01-16 19:45:00+00:00,Lille at Marseille,LILL @ OLM,Marseille,176,1,Lille,166,1,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,1,16,2022
-609340,2022-01-19 18:00:00+00:00,Troyes at Montpellier,TRY @ MON,Montpellier,274,0,Troyes,170,1,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,1,19,2022
 609350,2022-01-19 18:00:00+00:00,Strasbourg at Clermont Foot,STR @ CLE,Clermont Foot,3171,0,Strasbourg,180,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,1,19,2022
 609332,2022-01-19 18:00:00+00:00,Lorient at Lille,LOR @ LILL,Lille,166,3,Lorient,273,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,1,19,2022
+609340,2022-01-19 18:00:00+00:00,Troyes at Montpellier,TRY @ MON,Montpellier,274,0,Troyes,170,1,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,1,19,2022
 609316,2022-01-21 20:00:00+00:00,Saint-Étienne at Lyon,ASSE @ LYON,Lyon,167,1,Saint-Étienne,178,0,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,1,21,2022
 609312,2022-01-22 16:00:00+00:00,Lille at Brest,LILL @ BRE,Brest,6997,2,Lille,166,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,1,22,2022
 609314,2022-01-22 20:00:00+00:00,Marseille at Lens,OLM @ RCL,Lens,175,0,Marseille,176,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,1,22,2022
@@ -204,10 +204,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609285,2022-02-19 16:00:00+00:00,Lyon at Lens,LYON @ RCL,Lens,175,1,Lyon,167,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,2,19,2022
 609288,2022-02-19 20:00:00+00:00,Paris Saint-Germain at Nantes,PSG @ NAN,Nantes,165,3,Paris Saint-Germain,160,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,2,19,2022
 609282,2022-02-20 12:00:00+00:00,Angers at Nice,ANG @ NICE,Nice,2502,1,Angers,7868,0,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,2,20,2022
-609287,2022-02-20 14:00:00+00:00,Montpellier at Lorient,MON @ LOR,Lorient,273,0,Montpellier,274,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,2,20,2022
-609289,2022-02-20 14:00:00+00:00,Strasbourg at Saint-Étienne,STR @ ASSE,Saint-Étienne,178,2,Strasbourg,180,2,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,2,20,2022
-609283,2022-02-20 14:00:00+00:00,Brest at Stade de Reims,BRE @ REIM,Stade de Reims,3243,1,Brest,6997,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,2,20,2022
 609290,2022-02-20 14:00:00+00:00,Troyes at Stade Rennais,TRY @ REN,Stade Rennais,169,4,Troyes,170,1,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,2,20,2022
+609283,2022-02-20 14:00:00+00:00,Brest at Stade de Reims,BRE @ REIM,Stade de Reims,3243,1,Brest,6997,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,2,20,2022
+609289,2022-02-20 14:00:00+00:00,Strasbourg at Saint-Étienne,STR @ ASSE,Saint-Étienne,178,2,Strasbourg,180,2,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,2,20,2022
+609287,2022-02-20 14:00:00+00:00,Montpellier at Lorient,MON @ LOR,Lorient,273,0,Montpellier,274,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,2,20,2022
 609281,2022-02-20 16:05:00+00:00,AS Monaco at Bordeaux,MON @ BOR,Bordeaux,159,1,AS Monaco,174,1,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,2,20,2022
 609284,2022-02-20 19:45:00+00:00,Clermont Foot at Marseille,CLE @ OLM,Marseille,176,0,Clermont Foot,3171,2,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,2,20,2022
 609279,2022-02-25 20:00:00+00:00,Stade Rennais at Montpellier,REN @ MON,Montpellier,274,2,Stade Rennais,169,4,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,2,25,2022
@@ -253,11 +253,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609239,2022-04-02 15:00:00+00:00,Stade Rennais at Nice,REN @ NICE,Nice,2502,1,Stade Rennais,169,1,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,4,2,2022
 609233,2022-04-02 17:00:00+00:00,Bordeaux at Lille,BOR @ LILL,Lille,166,0,Bordeaux,159,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,4,2,2022
 609235,2022-04-03 11:00:00+00:00,Lens at Strasbourg,RCL @ STR,Strasbourg,180,1,Lens,175,0,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,4,3,2022
+609237,2022-04-03 13:00:00+00:00,Marseille at Saint-Étienne,OLM @ ASSE,Saint-Étienne,178,2,Marseille,176,4,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,4,3,2022
+609231,2022-04-03 13:00:00+00:00,AS Monaco at Metz,MON @ METZ,Metz,177,1,AS Monaco,174,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,4,3,2022
+609234,2022-04-03 13:00:00+00:00,Brest at Montpellier,BRE @ MON,Montpellier,274,1,Brest,6997,2,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,4,3,2022
 609238,2022-04-03 13:00:00+00:00,Nantes at Clermont Foot,NAN @ CLE,Clermont Foot,3171,2,Nantes,165,3,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,4,3,2022
 609240,2022-04-03 13:00:00+00:00,Stade de Reims at Troyes,REIM @ TRY,Troyes,170,1,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,4,3,2022
-609231,2022-04-03 13:00:00+00:00,AS Monaco at Metz,MON @ METZ,Metz,177,1,AS Monaco,174,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,4,3,2022
-609237,2022-04-03 13:00:00+00:00,Marseille at Saint-Étienne,OLM @ ASSE,Saint-Étienne,178,2,Marseille,176,4,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,4,3,2022
-609234,2022-04-03 13:00:00+00:00,Brest at Montpellier,BRE @ MON,Montpellier,274,1,Brest,6997,2,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,4,3,2022
 609232,2022-04-03 15:05:00+00:00,Angers at Lyon,ANG @ LYON,Lyon,167,3,Angers,7868,2,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,4,3,2022
 609236,2022-04-03 18:45:00+00:00,Lorient at Paris Saint-Germain,LOR @ PSG,Paris Saint-Germain,160,5,Lorient,273,1,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,4,3,2022
 609228,2022-04-08 19:00:00+00:00,Saint-Étienne at Lorient,ASSE @ LOR,Lorient,273,6,Saint-Étienne,178,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,4,8,2022
@@ -280,11 +280,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609220,2022-04-17 13:00:00+00:00,Strasbourg at Troyes,STR @ TRY,Troyes,170,1,Strasbourg,180,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,4,17,2022
 609213,2022-04-17 15:05:00+00:00,Bordeaux at Lyon,BOR @ LYON,Lyon,167,6,Bordeaux,159,1,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,4,17,2022
 609218,2022-04-17 18:45:00+00:00,Marseille at Paris Saint-Germain,OLM @ PSG,Paris Saint-Germain,160,2,Marseille,176,1,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,4,17,2022
+609202,2022-04-20 17:00:00+00:00,Lille at Stade de Reims,LILL @ REIM,Stade de Reims,3243,2,Lille,166,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,4,20,2022
+609201,2022-04-20 17:00:00+00:00,Clermont Foot at Troyes,CLE @ TRY,Troyes,170,0,Clermont Foot,3171,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,4,20,2022
+609204,2022-04-20 17:00:00+00:00,Metz at Lorient,METZ @ LOR,Lorient,273,1,Metz,177,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,4,20,2022
 609209,2022-04-20 17:00:00+00:00,Saint-Étienne at Bordeaux,ASSE @ BOR,Bordeaux,159,2,Saint-Étienne,178,2,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,4,20,2022
 609207,2022-04-20 17:00:00+00:00,Nice at AS Monaco,NICE @ MON,AS Monaco,174,1,Nice,2502,0,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,4,20,2022
-609204,2022-04-20 17:00:00+00:00,Metz at Lorient,METZ @ LOR,Lorient,273,1,Metz,177,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,4,20,2022
-609201,2022-04-20 17:00:00+00:00,Clermont Foot at Troyes,CLE @ TRY,Troyes,170,0,Clermont Foot,3171,1,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,4,20,2022
-609202,2022-04-20 17:00:00+00:00,Lille at Stade de Reims,LILL @ REIM,Stade de Reims,3243,2,Lille,166,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,4,20,2022
 609208,2022-04-20 19:00:00+00:00,Paris Saint-Germain at Angers,PSG @ ANG,Angers,7868,0,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,4,20,2022
 609203,2022-04-20 19:00:00+00:00,Lyon at Brest,LYON @ BRE,Brest,6997,2,Lyon,167,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,4,20,2022
 609205,2022-04-20 19:00:00+00:00,Montpellier at Lens,MON @ RCL,Lens,175,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,4,20,2022
@@ -294,20 +294,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609191,2022-04-23 17:00:00+00:00,AS Monaco at Saint-Étienne,MON @ ASSE,Saint-Étienne,178,1,AS Monaco,174,4,STATUS_FULL_TIME,Stade Geoffroy Guichard,2021-2022,0,4,23,2022
 609195,2022-04-23 19:00:00+00:00,Lens at Paris Saint-Germain,RCL @ PSG,Paris Saint-Germain,160,1,Lens,175,1,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,4,23,2022
 609196,2022-04-24 11:00:00+00:00,Lorient at Stade Rennais,LOR @ REN,Stade Rennais,169,5,Lorient,273,0,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,4,24,2022
-609192,2022-04-24 13:00:00+00:00,Angers at Clermont Foot,ANG @ CLE,Clermont Foot,3171,2,Angers,7868,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,4,24,2022
-609194,2022-04-24 13:00:00+00:00,Brest at Metz,BRE @ METZ,Metz,177,0,Brest,6997,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,4,24,2022
-609193,2022-04-24 13:00:00+00:00,Bordeaux at Nantes,BOR @ NAN,Nantes,165,5,Bordeaux,159,3,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,4,24,2022
 609200,2022-04-24 13:00:00+00:00,Troyes at Nice,TRY @ NICE,Nice,2502,1,Troyes,170,0,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,4,24,2022
+609193,2022-04-24 13:00:00+00:00,Bordeaux at Nantes,BOR @ NAN,Nantes,165,5,Bordeaux,159,3,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,4,24,2022
+609194,2022-04-24 13:00:00+00:00,Brest at Metz,BRE @ METZ,Metz,177,0,Brest,6997,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,4,24,2022
+609192,2022-04-24 13:00:00+00:00,Angers at Clermont Foot,ANG @ CLE,Clermont Foot,3171,2,Angers,7868,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,4,24,2022
 609199,2022-04-24 15:05:00+00:00,Strasbourg at Lille,STR @ LILL,Lille,166,1,Strasbourg,180,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,4,24,2022
 609197,2022-04-24 18:45:00+00:00,Marseille at Stade de Reims,OLM @ REIM,Stade de Reims,3243,0,Marseille,176,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,4,24,2022
 609188,2022-04-29 19:00:00+00:00,Paris Saint-Germain at Strasbourg,PSG @ STR,Strasbourg,180,3,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,4,29,2022
 609186,2022-04-30 15:00:00+00:00,Nantes at Lens,NAN @ RCL,Lens,175,2,Nantes,165,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,4,30,2022
 609189,2022-04-30 19:00:00+00:00,Saint-Étienne at Stade Rennais,ASSE @ REN,Stade Rennais,169,2,Saint-Étienne,178,0,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,4,30,2022
 609183,2022-05-01 11:00:00+00:00,Lille at Troyes,LILL @ TRY,Troyes,170,3,Lille,166,0,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,5,1,2022
+609182,2022-05-01 13:00:00+00:00,Clermont Foot at Brest,CLE @ BRE,Brest,6997,2,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,5,1,2022
 609190,2022-05-01 13:00:00+00:00,Stade de Reims at Lorient,REIM @ LOR,Lorient,273,1,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,5,1,2022
 609185,2022-05-01 13:00:00+00:00,Metz at Montpellier,METZ @ MON,Montpellier,274,2,Metz,177,2,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,5,1,2022
 609181,2022-05-01 13:00:00+00:00,Angers at AS Monaco,ANG @ MON,AS Monaco,174,2,Angers,7868,0,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,5,1,2022
-609182,2022-05-01 13:00:00+00:00,Clermont Foot at Brest,CLE @ BRE,Brest,6997,2,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,5,1,2022
 609187,2022-05-01 15:05:00+00:00,Nice at Bordeaux,NICE @ BOR,Bordeaux,159,0,Nice,2502,1,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,5,1,2022
 609184,2022-05-01 18:45:00+00:00,Lyon at Marseille,LYON @ OLM,Marseille,176,0,Lyon,167,3,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,5,1,2022
 609171,2022-05-06 19:00:00+00:00,AS Monaco at Lille,MON @ LILL,Lille,166,1,AS Monaco,174,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,5,6,2022
@@ -320,34 +320,34 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 609180,2022-05-08 18:45:00+00:00,Troyes at Paris Saint-Germain,TRY @ PSG,Paris Saint-Germain,160,2,Troyes,170,2,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,5,8,2022
 609177,2022-05-11 17:00:00+00:00,Saint-Étienne at Nice,ASSE @ NICE,Nice,2502,4,Saint-Étienne,178,2,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,5,11,2022
 609178,2022-05-11 19:00:00+00:00,Stade Rennais at Nantes,REN @ NAN,Nantes,165,2,Stade Rennais,169,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,5,11,2022
-609169,2022-05-14 19:00:00+00:00,Paris Saint-Germain at Montpellier,PSG @ MON,Montpellier,274,0,Paris Saint-Germain,160,4,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,5,14,2022
-609162,2022-05-14 19:00:00+00:00,Brest at AS Monaco,BRE @ MON,AS Monaco,174,4,Brest,6997,2,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,5,14,2022
-609166,2022-05-14 19:00:00+00:00,Lorient at Bordeaux,LOR @ BOR,Bordeaux,159,0,Lorient,273,0,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,5,14,2022
-609161,2022-05-14 19:00:00+00:00,Angers at Metz,ANG @ METZ,Metz,177,1,Angers,7868,0,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,5,14,2022
-609168,2022-05-14 19:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,3,Nantes,165,2,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,5,14,2022
-609167,2022-05-14 19:00:00+00:00,Marseille at Stade Rennais,OLM @ REN,Stade Rennais,169,2,Marseille,176,0,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,5,14,2022
-609170,2022-05-14 19:00:00+00:00,Stade de Reims at Saint-Étienne,REIM @ ASSE,Saint-Étienne,178,1,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,5,14,2022
-609163,2022-05-14 19:00:00+00:00,Clermont Foot at Strasbourg,CLE @ STR,Strasbourg,180,1,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,5,14,2022
-609164,2022-05-14 19:00:00+00:00,Lens at Troyes,RCL @ TRY,Troyes,170,1,Lens,175,3,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,5,14,2022
 609165,2022-05-14 19:00:00+00:00,Lille at Nice,LILL @ NICE,Nice,2502,1,Lille,166,3,STATUS_FULL_TIME,Allianz Riviera,2021-2022,0,5,14,2022
-609151,2022-05-21 19:00:00+00:00,AS Monaco at Lens,MON @ RCL,Lens,175,2,AS Monaco,174,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,5,21,2022
-609155,2022-05-21 19:00:00+00:00,Montpellier at Angers,MON @ ANG,Angers,7868,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,5,21,2022
-609152,2022-05-21 19:00:00+00:00,Bordeaux at Brest,BOR @ BRE,Brest,6997,2,Bordeaux,159,4,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,5,21,2022
-609153,2022-05-21 19:00:00+00:00,Lyon at Clermont Foot,LYON @ CLE,Clermont Foot,3171,1,Lyon,167,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,5,21,2022
-609158,2022-05-21 19:00:00+00:00,Stade Rennais at Lille,REN @ LILL,Lille,166,2,Stade Rennais,169,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,5,21,2022
-609160,2022-05-21 19:00:00+00:00,Troyes at Lorient,TRY @ LOR,Lorient,273,1,Troyes,170,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,5,21,2022
-609157,2022-05-21 19:00:00+00:00,Saint-Étienne at Nantes,ASSE @ NAN,Nantes,165,1,Saint-Étienne,178,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,5,21,2022
+609164,2022-05-14 19:00:00+00:00,Lens at Troyes,RCL @ TRY,Troyes,170,1,Lens,175,3,STATUS_FULL_TIME,Stade de l'Aube,2021-2022,0,5,14,2022
+609163,2022-05-14 19:00:00+00:00,Clermont Foot at Strasbourg,CLE @ STR,Strasbourg,180,1,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade de la Meinau,2021-2022,0,5,14,2022
+609170,2022-05-14 19:00:00+00:00,Stade de Reims at Saint-Étienne,REIM @ ASSE,Saint-Étienne,178,1,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2021-2022,0,5,14,2022
+609167,2022-05-14 19:00:00+00:00,Marseille at Stade Rennais,OLM @ REN,Stade Rennais,169,2,Marseille,176,0,STATUS_FULL_TIME,Roazhon Park,2021-2022,0,5,14,2022
+609162,2022-05-14 19:00:00+00:00,Brest at AS Monaco,BRE @ MON,AS Monaco,174,4,Brest,6997,2,STATUS_FULL_TIME,Stade Louis II,2021-2022,0,5,14,2022
+609161,2022-05-14 19:00:00+00:00,Angers at Metz,ANG @ METZ,Metz,177,1,Angers,7868,0,STATUS_FULL_TIME,Stade Saint-Symphorien,2021-2022,0,5,14,2022
+609166,2022-05-14 19:00:00+00:00,Lorient at Bordeaux,LOR @ BOR,Bordeaux,159,0,Lorient,273,0,STATUS_FULL_TIME,Stade Atlantique,2021-2022,0,5,14,2022
+609169,2022-05-14 19:00:00+00:00,Paris Saint-Germain at Montpellier,PSG @ MON,Montpellier,274,0,Paris Saint-Germain,160,4,STATUS_FULL_TIME,Stade de la Mosson,2021-2022,0,5,14,2022
+609168,2022-05-14 19:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,3,Nantes,165,2,STATUS_FULL_TIME,Groupama Stadium,2021-2022,0,5,14,2022
 609154,2022-05-21 19:00:00+00:00,Metz at Paris Saint-Germain,METZ @ PSG,Paris Saint-Germain,160,5,Metz,177,0,STATUS_FULL_TIME,Parc des Princes,2021-2022,0,5,21,2022
-609156,2022-05-21 19:00:00+00:00,Nice at Stade de Reims,NICE @ REIM,Stade de Reims,3243,2,Nice,2502,3,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,5,21,2022
 609159,2022-05-21 19:00:00+00:00,Strasbourg at Marseille,STR @ OLM,Marseille,176,4,Strasbourg,180,0,STATUS_FULL_TIME,Orange Vélodrome,2021-2022,0,5,21,2022
+609156,2022-05-21 19:00:00+00:00,Nice at Stade de Reims,NICE @ REIM,Stade de Reims,3243,2,Nice,2502,3,STATUS_FULL_TIME,Stade Auguste-Delaune II,2021-2022,0,5,21,2022
+609157,2022-05-21 19:00:00+00:00,Saint-Étienne at Nantes,ASSE @ NAN,Nantes,165,1,Saint-Étienne,178,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2021-2022,0,5,21,2022
+609160,2022-05-21 19:00:00+00:00,Troyes at Lorient,TRY @ LOR,Lorient,273,1,Troyes,170,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2021-2022,0,5,21,2022
+609153,2022-05-21 19:00:00+00:00,Lyon at Clermont Foot,LYON @ CLE,Clermont Foot,3171,1,Lyon,167,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2021-2022,0,5,21,2022
+609152,2022-05-21 19:00:00+00:00,Bordeaux at Brest,BOR @ BRE,Brest,6997,2,Bordeaux,159,4,STATUS_FULL_TIME,Stade Francis-Le Blé,2021-2022,0,5,21,2022
+609155,2022-05-21 19:00:00+00:00,Montpellier at Angers,MON @ ANG,Angers,7868,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Raymond Kopa,2021-2022,0,5,21,2022
+609151,2022-05-21 19:00:00+00:00,AS Monaco at Lens,MON @ RCL,Lens,175,2,AS Monaco,174,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2021-2022,0,5,21,2022
+609158,2022-05-21 19:00:00+00:00,Stade Rennais at Lille,REN @ LILL,Lille,166,2,Stade Rennais,169,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2021-2022,0,5,21,2022
 639617,2022-08-05 19:00:00+00:00,AC Ajaccio at Lyon,ACA @ LYON,Lyon,167,2,AC Ajaccio,2503,1,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,8,5,2022
 639613,2022-08-06 15:00:00+00:00,AS Monaco at Strasbourg,MON @ STR,Strasbourg,180,1,AS Monaco,174,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,8,6,2022
 639619,2022-08-06 19:00:00+00:00,Paris Saint-Germain at Clermont Foot,PSG @ CLE,Clermont Foot,3171,0,Paris Saint-Germain,160,5,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,8,6,2022
 639612,2022-08-07 11:00:00+00:00,Nice at Toulouse,NICE @ TOU,Toulouse,179,1,Nice,2502,1,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,8,7,2022
+639615,2022-08-07 13:00:00+00:00,Troyes at Montpellier,TRY @ MON,Montpellier,274,3,Troyes,170,2,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,8,7,2022
+639610,2022-08-07 13:00:00+00:00,AJ Auxerre at Lille,AUX @ LILL,Lille,166,4,AJ Auxerre,172,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,8,7,2022
 639618,2022-08-07 13:00:00+00:00,Nantes at Angers,NAN @ ANG,Angers,7868,0,Nantes,165,0,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,8,7,2022
 639611,2022-08-07 13:00:00+00:00,Brest at Lens,BRE @ RCL,Lens,175,3,Brest,6997,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,8,7,2022
-639610,2022-08-07 13:00:00+00:00,AJ Auxerre at Lille,AUX @ LILL,Lille,166,4,AJ Auxerre,172,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,8,7,2022
-639615,2022-08-07 13:00:00+00:00,Troyes at Montpellier,TRY @ MON,Montpellier,274,3,Troyes,170,2,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,8,7,2022
 639614,2022-08-07 15:05:00+00:00,Lorient at Stade Rennais,LOR @ REN,Stade Rennais,169,0,Lorient,273,1,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,8,7,2022
 639616,2022-08-07 18:45:00+00:00,Stade de Reims at Marseille,REIM @ OLM,Marseille,176,4,Stade de Reims,3243,1,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,8,7,2022
 639629,2022-08-12 19:00:00+00:00,Lille at Nantes,LILL @ NAN,Nantes,165,1,Lille,166,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,8,12,2022
@@ -373,10 +373,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639641,2022-08-27 15:00:00+00:00,Strasbourg at AJ Auxerre,STR @ AUX,AJ Auxerre,172,1,Strasbourg,180,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,8,27,2022
 639648,2022-08-27 19:00:00+00:00,Stade Rennais at Lens,REN @ RCL,Lens,175,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,8,27,2022
 639646,2022-08-28 11:00:00+00:00,Toulouse at Nantes,TOU @ NAN,Nantes,165,3,Toulouse,179,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,8,28,2022
+639645,2022-08-28 13:00:00+00:00,Marseille at Nice,OLM @ NICE,Nice,2502,0,Marseille,176,3,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,8,28,2022
+639642,2022-08-28 13:00:00+00:00,Angers at Troyes,ANG @ TRY,Troyes,170,3,Angers,7868,1,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,8,28,2022
 639647,2022-08-28 13:00:00+00:00,Clermont Foot at Lorient,CLE @ LOR,Lorient,273,2,Clermont Foot,3171,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,8,28,2022
 639649,2022-08-28 13:00:00+00:00,Montpellier at Brest,MON @ BRE,Brest,6997,0,Montpellier,274,7,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,8,28,2022
-639642,2022-08-28 13:00:00+00:00,Angers at Troyes,ANG @ TRY,Troyes,170,3,Angers,7868,1,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,8,28,2022
-639645,2022-08-28 13:00:00+00:00,Marseille at Nice,OLM @ NICE,Nice,2502,0,Marseille,176,3,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,8,28,2022
 639643,2022-08-28 15:05:00+00:00,Lyon at Stade de Reims,LYON @ REIM,Stade de Reims,3243,1,Lyon,167,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,8,28,2022
 639644,2022-08-28 18:45:00+00:00,AS Monaco at Paris Saint-Germain,MON @ PSG,Paris Saint-Germain,160,1,AS Monaco,174,1,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,8,28,2022
 639650,2022-08-31 17:00:00+00:00,Stade de Reims at Angers,REIM @ ANG,Angers,7868,2,Stade de Reims,3243,4,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,8,31,2022
@@ -384,11 +384,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639656,2022-08-31 17:00:00+00:00,AJ Auxerre at Lyon,AUX @ LYON,Lyon,167,2,AJ Auxerre,172,1,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,8,31,2022
 639653,2022-08-31 17:00:00+00:00,AC Ajaccio at Montpellier,ACA @ MON,Montpellier,274,2,AC Ajaccio,2503,0,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,8,31,2022
 639655,2022-08-31 17:00:00+00:00,Nantes at Strasbourg,NAN @ STR,Strasbourg,180,1,Nantes,165,1,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,8,31,2022
-639658,2022-08-31 19:00:00+00:00,Lorient at Lens,LOR @ RCL,Lens,175,5,Lorient,273,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,8,31,2022
-639657,2022-08-31 19:00:00+00:00,Nice at Lille,NICE @ LILL,Lille,166,1,Nice,2502,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,8,31,2022
+639654,2022-08-31 19:00:00+00:00,Paris Saint-Germain at Toulouse,PSG @ TOU,Toulouse,179,0,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,8,31,2022
 639651,2022-08-31 19:00:00+00:00,Clermont Foot at Marseille,CLE @ OLM,Marseille,176,1,Clermont Foot,3171,0,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,8,31,2022
 639659,2022-08-31 19:00:00+00:00,Brest at Stade Rennais,BRE @ REN,Stade Rennais,169,3,Brest,6997,1,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,8,31,2022
-639654,2022-08-31 19:00:00+00:00,Paris Saint-Germain at Toulouse,PSG @ TOU,Toulouse,179,0,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,8,31,2022
+639658,2022-08-31 19:00:00+00:00,Lorient at Lens,LOR @ RCL,Lens,175,5,Lorient,273,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,8,31,2022
+639657,2022-08-31 19:00:00+00:00,Nice at Lille,NICE @ LILL,Lille,166,1,Nice,2502,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,8,31,2022
 639662,2022-09-03 15:00:00+00:00,Marseille at AJ Auxerre,OLM @ AUX,AJ Auxerre,172,0,Marseille,176,2,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,9,3,2022
 639669,2022-09-03 17:00:00+00:00,Angers at Lyon,ANG @ LYON,Lyon,167,5,Angers,7868,0,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,9,3,2022
 639666,2022-09-03 19:00:00+00:00,Paris Saint-Germain at Nantes,PSG @ NAN,Nantes,165,0,Paris Saint-Germain,160,3,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,9,3,2022
@@ -424,20 +424,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639694,2022-10-01 15:00:00+00:00,Stade Rennais at Strasbourg,REN @ STR,Strasbourg,180,1,Stade Rennais,169,3,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,10,1,2022
 639695,2022-10-01 19:00:00+00:00,Nice at Paris Saint-Germain,NICE @ PSG,Paris Saint-Germain,160,2,Nice,2502,1,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,10,1,2022
 639697,2022-10-02 11:00:00+00:00,Lille at Lorient,LILL @ LOR,Lorient,273,2,Lille,166,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,10,2,2022
+639692,2022-10-02 13:00:00+00:00,Stade de Reims at Troyes,REIM @ TRY,Troyes,170,2,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,10,2,2022
+639693,2022-10-02 13:00:00+00:00,Montpellier at Toulouse,MON @ TOU,Toulouse,179,4,Montpellier,274,2,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,10,2,2022
 639698,2022-10-02 13:00:00+00:00,Clermont Foot at AC Ajaccio,CLE @ ACA,AC Ajaccio,2503,1,Clermont Foot,3171,3,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,10,2,2022
 639691,2022-10-02 13:00:00+00:00,Brest at AJ Auxerre,BRE @ AUX,AJ Auxerre,172,1,Brest,6997,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,10,2,2022
-639693,2022-10-02 13:00:00+00:00,Montpellier at Toulouse,MON @ TOU,Toulouse,179,4,Montpellier,274,2,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,10,2,2022
-639692,2022-10-02 13:00:00+00:00,Stade de Reims at Troyes,REIM @ TRY,Troyes,170,2,Stade de Reims,3243,2,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,10,2,2022
 639696,2022-10-02 15:05:00+00:00,Nantes at AS Monaco,NAN @ MON,AS Monaco,174,4,Nantes,165,1,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,10,2,2022
 639690,2022-10-02 18:45:00+00:00,Lyon at Lens,LYON @ RCL,Lens,175,1,Lyon,167,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,10,2,2022
 639705,2022-10-07 19:00:00+00:00,Toulouse at Lyon,TOU @ LYON,Lyon,167,1,Toulouse,179,1,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,10,7,2022
 639709,2022-10-08 15:00:00+00:00,AC Ajaccio at Marseille,ACA @ OLM,Marseille,176,1,AC Ajaccio,2503,2,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,10,8,2022
 639701,2022-10-08 19:00:00+00:00,Paris Saint-Germain at Stade de Reims,PSG @ REIM,Stade de Reims,3243,0,Paris Saint-Germain,160,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,10,8,2022
 639703,2022-10-09 11:00:00+00:00,AS Monaco at Montpellier,MON @ MON,Montpellier,274,0,AS Monaco,174,2,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,10,9,2022
+639702,2022-10-09 13:00:00+00:00,Troyes at Nice,TRY @ NICE,Nice,2502,3,Troyes,170,2,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,10,9,2022
 639700,2022-10-09 13:00:00+00:00,Strasbourg at Angers,STR @ ANG,Angers,7868,2,Strasbourg,180,3,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,10,9,2022
 639708,2022-10-09 13:00:00+00:00,Lorient at Brest,LOR @ BRE,Brest,6997,1,Lorient,273,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,10,9,2022
 639707,2022-10-09 13:00:00+00:00,AJ Auxerre at Clermont Foot,AUX @ CLE,Clermont Foot,3171,2,AJ Auxerre,172,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,10,9,2022
-639702,2022-10-09 13:00:00+00:00,Troyes at Nice,TRY @ NICE,Nice,2502,3,Troyes,170,2,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,10,9,2022
 639704,2022-10-09 15:05:00+00:00,Nantes at Stade Rennais,NAN @ REN,Stade Rennais,169,3,Nantes,165,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,10,9,2022
 639706,2022-10-09 18:45:00+00:00,Lens at Lille,RCL @ LILL,Lille,166,1,Lens,175,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,10,9,2022
 639717,2022-10-14 19:00:00+00:00,Lille at Strasbourg,LILL @ STR,Strasbourg,180,0,Lille,166,3,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,10,14,2022
@@ -464,10 +464,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639739,2022-10-29 15:00:00+00:00,Troyes at Paris Saint-Germain,TRY @ PSG,Paris Saint-Germain,160,4,Troyes,170,3,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,10,29,2022
 639734,2022-10-29 19:00:00+00:00,Marseille at Strasbourg,OLM @ STR,Strasbourg,180,2,Marseille,176,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,10,29,2022
 639730,2022-10-30 12:00:00+00:00,AC Ajaccio at AJ Auxerre,ACA @ AUX,AJ Auxerre,172,1,AC Ajaccio,2503,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,10,30,2022
-639738,2022-10-30 14:00:00+00:00,Stade de Reims at Brest,REIM @ BRE,Brest,6997,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,10,30,2022
-639732,2022-10-30 14:00:00+00:00,Angers at AS Monaco,ANG @ MON,AS Monaco,174,2,Angers,7868,0,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,10,30,2022
-639735,2022-10-30 14:00:00+00:00,Montpellier at Stade Rennais,MON @ REN,Stade Rennais,169,3,Montpellier,274,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,10,30,2022
 639733,2022-10-30 14:00:00+00:00,Clermont Foot at Nantes,CLE @ NAN,Nantes,165,1,Clermont Foot,3171,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,10,30,2022
+639735,2022-10-30 14:00:00+00:00,Montpellier at Stade Rennais,MON @ REN,Stade Rennais,169,3,Montpellier,274,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,10,30,2022
+639732,2022-10-30 14:00:00+00:00,Angers at AS Monaco,ANG @ MON,AS Monaco,174,2,Angers,7868,0,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,10,30,2022
+639738,2022-10-30 14:00:00+00:00,Stade de Reims at Brest,REIM @ BRE,Brest,6997,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,10,30,2022
 639736,2022-10-30 16:05:00+00:00,Nice at Lorient,NICE @ LOR,Lorient,273,1,Nice,2502,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,10,30,2022
 639731,2022-10-30 19:45:00+00:00,Lille at Lyon,LILL @ LYON,Lyon,167,1,Lille,166,0,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,10,30,2022
 639744,2022-11-04 20:00:00+00:00,AJ Auxerre at Troyes,AUX @ TRY,Troyes,170,1,AJ Auxerre,172,1,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,11,4,2022
@@ -490,8 +490,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639755,2022-11-13 14:00:00+00:00,AC Ajaccio at Nantes,ACA @ NAN,Nantes,165,2,AC Ajaccio,2503,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,11,13,2022
 639758,2022-11-13 16:05:00+00:00,Lorient at Strasbourg,LOR @ STR,Strasbourg,180,1,Lorient,273,1,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,11,13,2022
 639753,2022-11-13 19:45:00+00:00,Marseille at AS Monaco,OLM @ MON,AS Monaco,174,2,Marseille,176,3,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,11,13,2022
-639760,2022-12-28 14:00:00+00:00,Angers at AC Ajaccio,ANG @ ACA,AC Ajaccio,2503,1,Angers,7868,0,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,12,28,2022
 639764,2022-12-28 14:00:00+00:00,Nantes at Troyes,NAN @ TRY,Troyes,170,0,Nantes,165,0,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,12,28,2022
+639760,2022-12-28 14:00:00+00:00,Angers at AC Ajaccio,ANG @ ACA,AC Ajaccio,2503,1,Angers,7868,0,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,12,28,2022
 639761,2022-12-28 16:00:00+00:00,AS Monaco at AJ Auxerre,MON @ AUX,AJ Auxerre,172,2,AS Monaco,174,3,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,12,28,2022
 639763,2022-12-28 18:00:00+00:00,Lille at Clermont Foot,LILL @ CLE,Clermont Foot,3171,0,Lille,166,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,12,28,2022
 639762,2022-12-28 20:00:00+00:00,Lyon at Brest,LYON @ BRE,Brest,6997,2,Lyon,167,4,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,12,28,2022
@@ -500,26 +500,26 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639768,2022-12-29 18:00:00+00:00,Stade Rennais at Stade de Reims,REN @ REIM,Stade de Reims,3243,3,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,12,29,2022
 639765,2022-12-29 20:00:00+00:00,Toulouse at Marseille,TOU @ OLM,Marseille,176,6,Toulouse,179,1,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,12,29,2022
 639766,2022-12-29 20:00:00+00:00,Lens at Nice,RCL @ NICE,Nice,2502,0,Lens,175,0,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,12,29,2022
+639774,2023-01-01 14:00:00+00:00,AC Ajaccio at Toulouse,ACA @ TOU,Toulouse,179,2,AC Ajaccio,2503,0,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,1,1,2023
+639772,2023-01-01 14:00:00+00:00,AJ Auxerre at Nantes,AUX @ NAN,Nantes,165,1,AJ Auxerre,172,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,1,1,2023
 639818,2023-01-01 14:00:00+00:00,Lorient at Angers,LOR @ ANG,Angers,7868,1,Lorient,273,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,1,1,2023
 639779,2023-01-01 14:00:00+00:00,Brest at AS Monaco,BRE @ MON,AS Monaco,174,1,Brest,6997,0,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,1,1,2023
-639772,2023-01-01 14:00:00+00:00,AJ Auxerre at Nantes,AUX @ NAN,Nantes,165,1,AJ Auxerre,172,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,1,1,2023
-639774,2023-01-01 14:00:00+00:00,AC Ajaccio at Toulouse,ACA @ TOU,Toulouse,179,2,AC Ajaccio,2503,0,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,1,1,2023
 639776,2023-01-01 16:00:00+00:00,Clermont Foot at Lyon,CLE @ LYON,Lyon,167,0,Clermont Foot,3171,1,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,1,1,2023
 639778,2023-01-01 19:45:00+00:00,Paris Saint-Germain at Lens,PSG @ RCL,Lens,175,3,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,1,1,2023
 639816,2023-01-02 14:00:00+00:00,Troyes at Strasbourg,TRY @ STR,Strasbourg,180,2,Troyes,170,3,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,1,2,2023
 639777,2023-01-02 16:00:00+00:00,Stade de Reims at Lille,REIM @ LILL,Lille,166,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,1,2,2023
 639814,2023-01-02 18:00:00+00:00,Marseille at Montpellier,OLM @ MON,Montpellier,274,1,Marseille,176,2,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,1,2,2023
 639770,2023-01-02 20:00:00+00:00,Nice at Stade Rennais,NICE @ REN,Stade Rennais,169,2,Nice,2502,1,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,1,2,2023
+639787,2023-01-11 18:00:00+00:00,Toulouse at AJ Auxerre,TOU @ AUX,AJ Auxerre,172,0,Toulouse,179,5,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,1,11,2023
 639786,2023-01-11 18:00:00+00:00,Lille at Brest,LILL @ BRE,Brest,6997,0,Lille,166,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,1,11,2023
 639785,2023-01-11 18:00:00+00:00,Stade Rennais at Clermont Foot,REN @ CLE,Clermont Foot,3171,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,1,11,2023
 639788,2023-01-11 18:00:00+00:00,Stade de Reims at AC Ajaccio,REIM @ ACA,AC Ajaccio,2503,0,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,1,11,2023
-639787,2023-01-11 18:00:00+00:00,Toulouse at AJ Auxerre,TOU @ AUX,AJ Auxerre,172,0,Toulouse,179,5,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,1,11,2023
 639783,2023-01-11 18:00:00+00:00,Lyon at Nantes,LYON @ NAN,Nantes,165,0,Lyon,167,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,1,11,2023
-639781,2023-01-11 20:00:00+00:00,Angers at Paris Saint-Germain,ANG @ PSG,Paris Saint-Germain,160,2,Angers,7868,0,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,1,11,2023
+639784,2023-01-11 20:00:00+00:00,AS Monaco at Lorient,MON @ LOR,Lorient,273,2,AS Monaco,174,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,1,11,2023
+639780,2023-01-11 20:00:00+00:00,Lens at Strasbourg,RCL @ STR,Strasbourg,180,2,Lens,175,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,1,11,2023
 639782,2023-01-11 20:00:00+00:00,Montpellier at Nice,MON @ NICE,Nice,2502,6,Montpellier,274,1,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,1,11,2023
 639789,2023-01-11 20:00:00+00:00,Marseille at Troyes,OLM @ TRY,Troyes,170,0,Marseille,176,2,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,1,11,2023
-639780,2023-01-11 20:00:00+00:00,Lens at Strasbourg,RCL @ STR,Strasbourg,180,2,Lens,175,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,1,11,2023
-639784,2023-01-11 20:00:00+00:00,AS Monaco at Lorient,MON @ LOR,Lorient,273,2,AS Monaco,174,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,1,11,2023
+639781,2023-01-11 20:00:00+00:00,Angers at Paris Saint-Germain,ANG @ PSG,Paris Saint-Germain,160,2,Angers,7868,0,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,1,11,2023
 639791,2023-01-14 16:00:00+00:00,AJ Auxerre at Lens,AUX @ RCL,Lens,175,1,AJ Auxerre,172,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,1,14,2023
 639797,2023-01-14 18:00:00+00:00,Lorient at Marseille,LOR @ OLM,Marseille,176,3,Lorient,273,1,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,1,14,2023
 639798,2023-01-14 20:00:00+00:00,Strasbourg at Lyon,STR @ LYON,Lyon,167,1,Strasbourg,180,2,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,1,14,2023
@@ -540,11 +540,11 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639801,2023-01-29 14:00:00+00:00,Toulouse at Strasbourg,TOU @ STR,Strasbourg,180,1,Toulouse,179,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,1,29,2023
 639800,2023-01-29 16:05:00+00:00,Lyon at AC Ajaccio,LYON @ ACA,AC Ajaccio,2503,0,Lyon,167,2,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,1,29,2023
 639802,2023-01-29 19:45:00+00:00,Stade de Reims at Paris Saint-Germain,REIM @ PSG,Paris Saint-Germain,160,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,1,29,2023
-639819,2023-02-01 18:00:00+00:00,AC Ajaccio at Angers,ACA @ ANG,Angers,7868,1,AC Ajaccio,2503,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,2,1,2023
-639811,2023-02-01 18:00:00+00:00,Clermont Foot at Lille,CLE @ LILL,Lille,166,0,Clermont Foot,3171,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,2,1,2023
-639773,2023-02-01 18:00:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,0,Marseille,176,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,2,1,2023
-639771,2023-02-01 18:00:00+00:00,Lorient at Stade de Reims,LOR @ REIM,Stade de Reims,3243,4,Lorient,273,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,2,1,2023
 639810,2023-02-01 18:00:00+00:00,Troyes at Toulouse,TRY @ TOU,Toulouse,179,4,Troyes,170,1,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,2,1,2023
+639771,2023-02-01 18:00:00+00:00,Lorient at Stade de Reims,LOR @ REIM,Stade de Reims,3243,4,Lorient,273,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,2,1,2023
+639773,2023-02-01 18:00:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,0,Marseille,176,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,2,1,2023
+639811,2023-02-01 18:00:00+00:00,Clermont Foot at Lille,CLE @ LILL,Lille,166,0,Clermont Foot,3171,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,2,1,2023
+639819,2023-02-01 18:00:00+00:00,AC Ajaccio at Angers,ACA @ ANG,Angers,7868,1,AC Ajaccio,2503,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,2,1,2023
 639815,2023-02-01 20:00:00+00:00,AJ Auxerre at AS Monaco,AUX @ MON,AS Monaco,174,3,AJ Auxerre,172,2,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,2,1,2023
 639817,2023-02-01 20:00:00+00:00,Nice at Lens,NICE @ RCL,Lens,175,0,Nice,2502,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,2,1,2023
 639775,2023-02-01 20:00:00+00:00,Brest at Lyon,BRE @ LYON,Lyon,167,0,Brest,6997,0,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,2,1,2023
@@ -554,10 +554,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639824,2023-02-04 18:00:00+00:00,Lyon at Troyes,LYON @ TRY,Troyes,170,1,Lyon,167,3,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,2,4,2023
 639827,2023-02-04 20:00:00+00:00,Lille at Stade Rennais,LILL @ REN,Stade Rennais,169,1,Lille,166,3,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,2,4,2023
 639822,2023-02-05 12:00:00+00:00,AS Monaco at Clermont Foot,MON @ CLE,Clermont Foot,3171,0,AS Monaco,174,2,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,2,5,2023
-639825,2023-02-05 14:00:00+00:00,Nantes at AC Ajaccio,NAN @ ACA,AC Ajaccio,2503,0,Nantes,165,2,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,2,5,2023
-639829,2023-02-05 14:00:00+00:00,Stade de Reims at AJ Auxerre,REIM @ AUX,AJ Auxerre,172,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,2,5,2023
-639821,2023-02-05 14:00:00+00:00,Angers at Lorient,ANG @ LOR,Lorient,273,0,Angers,7868,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,2,5,2023
 639828,2023-02-05 14:00:00+00:00,Montpellier at Strasbourg,MON @ STR,Strasbourg,180,2,Montpellier,274,0,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,2,5,2023
+639821,2023-02-05 14:00:00+00:00,Angers at Lorient,ANG @ LOR,Lorient,273,0,Angers,7868,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,2,5,2023
+639829,2023-02-05 14:00:00+00:00,Stade de Reims at AJ Auxerre,REIM @ AUX,AJ Auxerre,172,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,2,5,2023
+639825,2023-02-05 14:00:00+00:00,Nantes at AC Ajaccio,NAN @ ACA,AC Ajaccio,2503,0,Nantes,165,2,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,2,5,2023
 639823,2023-02-05 16:05:00+00:00,Lens at Brest,RCL @ BRE,Brest,6997,1,Lens,175,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,2,5,2023
 639820,2023-02-05 19:45:00+00:00,Nice at Marseille,NICE @ OLM,Marseille,176,1,Nice,2502,3,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,2,5,2023
 639832,2023-02-10 20:00:00+00:00,AC Ajaccio at Nice,ACA @ NICE,Nice,2502,3,AC Ajaccio,2503,0,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,2,10,2023
@@ -604,10 +604,10 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639871,2023-03-11 16:00:00+00:00,Stade Rennais at AJ Auxerre,REN @ AUX,AJ Auxerre,172,0,Stade Rennais,169,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,3,11,2023
 639870,2023-03-11 20:00:00+00:00,Paris Saint-Germain at Brest,PSG @ BRE,Brest,6997,1,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,3,11,2023
 639874,2023-03-12 12:00:00+00:00,Lens at Clermont Foot,RCL @ CLE,Clermont Foot,3171,0,Lens,175,4,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,3,12,2023
-639872,2023-03-12 14:00:00+00:00,Toulouse at Angers,TOU @ ANG,Angers,7868,0,Toulouse,179,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,3,12,2023
-639873,2023-03-12 14:00:00+00:00,Montpellier at AC Ajaccio,MON @ ACA,AC Ajaccio,2503,0,Montpellier,274,1,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,3,12,2023
-639875,2023-03-12 14:00:00+00:00,Nice at Nantes,NICE @ NAN,Nantes,165,2,Nice,2502,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,3,12,2023
 639878,2023-03-12 14:00:00+00:00,Troyes at Lorient,TRY @ LOR,Lorient,273,2,Troyes,170,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,3,12,2023
+639875,2023-03-12 14:00:00+00:00,Nice at Nantes,NICE @ NAN,Nantes,165,2,Nice,2502,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,3,12,2023
+639873,2023-03-12 14:00:00+00:00,Montpellier at AC Ajaccio,MON @ ACA,AC Ajaccio,2503,0,Montpellier,274,1,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,3,12,2023
+639872,2023-03-12 14:00:00+00:00,Toulouse at Angers,TOU @ ANG,Angers,7868,0,Toulouse,179,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,3,12,2023
 639876,2023-03-12 16:05:00+00:00,Stade de Reims at AS Monaco,REIM @ MON,AS Monaco,174,0,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,3,12,2023
 639877,2023-03-12 19:45:00+00:00,Strasbourg at Marseille,STR @ OLM,Marseille,176,2,Strasbourg,180,2,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,3,12,2023
 639882,2023-03-17 20:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,1,Nantes,165,1,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,3,17,2023
@@ -644,20 +644,20 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639919,2023-04-15 15:00:00+00:00,Stade de Reims at Stade Rennais,REIM @ REN,Stade Rennais,169,3,Stade de Reims,3243,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,4,15,2023
 639918,2023-04-15 19:00:00+00:00,Lens at Paris Saint-Germain,RCL @ PSG,Paris Saint-Germain,160,3,Lens,175,1,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,4,15,2023
 639915,2023-04-16 11:00:00+00:00,Montpellier at Lille,MON @ LILL,Lille,166,2,Montpellier,274,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2022-2023,0,4,16,2023
+639910,2023-04-16 13:00:00+00:00,AC Ajaccio at Strasbourg,ACA @ STR,Strasbourg,180,3,AC Ajaccio,2503,1,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,4,16,2023
+639914,2023-04-16 13:00:00+00:00,Angers at Clermont Foot,ANG @ CLE,Clermont Foot,3171,2,Angers,7868,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,4,16,2023
 639911,2023-04-16 13:00:00+00:00,Nantes at AJ Auxerre,NAN @ AUX,AJ Auxerre,172,2,Nantes,165,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,4,16,2023
 639913,2023-04-16 13:00:00+00:00,Nice at Brest,NICE @ BRE,Brest,6997,1,Nice,2502,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,4,16,2023
-639914,2023-04-16 13:00:00+00:00,Angers at Clermont Foot,ANG @ CLE,Clermont Foot,3171,2,Angers,7868,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,4,16,2023
-639910,2023-04-16 13:00:00+00:00,AC Ajaccio at Strasbourg,ACA @ STR,Strasbourg,180,3,AC Ajaccio,2503,1,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,4,16,2023
 639917,2023-04-16 15:05:00+00:00,Lorient at AS Monaco,LOR @ MON,AS Monaco,174,3,Lorient,273,1,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,4,16,2023
 639916,2023-04-16 18:45:00+00:00,Troyes at Marseille,TRY @ OLM,Marseille,176,3,Troyes,170,1,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,4,16,2023
 639923,2023-04-21 19:00:00+00:00,Paris Saint-Germain at Angers,PSG @ ANG,Angers,7868,1,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Raymond Kopa,2022-2023,0,4,21,2023
 639924,2023-04-22 15:00:00+00:00,Lille at AJ Auxerre,LILL @ AUX,AJ Auxerre,172,1,Lille,166,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,4,22,2023
 639925,2023-04-22 19:00:00+00:00,AS Monaco at Lens,MON @ RCL,Lens,175,3,AS Monaco,174,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2022-2023,0,4,22,2023
 639922,2023-04-23 11:00:00+00:00,Strasbourg at Stade de Reims,STR @ REIM,Stade de Reims,3243,0,Strasbourg,180,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,4,23,2023
+639920,2023-04-23 13:00:00+00:00,Clermont Foot at Nice,CLE @ NICE,Nice,2502,1,Clermont Foot,3171,2,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,4,23,2023
 639921,2023-04-23 13:00:00+00:00,Brest at AC Ajaccio,BRE @ ACA,AC Ajaccio,2503,0,Brest,6997,0,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,4,23,2023
 639926,2023-04-23 13:00:00+00:00,Toulouse at Lorient,TOU @ LOR,Lorient,273,0,Toulouse,179,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,4,23,2023
 639929,2023-04-23 13:00:00+00:00,Troyes at Nantes,TRY @ NAN,Nantes,165,2,Troyes,170,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,4,23,2023
-639920,2023-04-23 13:00:00+00:00,Clermont Foot at Nice,CLE @ NICE,Nice,2502,1,Clermont Foot,3171,2,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,4,23,2023
 639928,2023-04-23 15:05:00+00:00,Stade Rennais at Montpellier,REN @ MON,Montpellier,274,1,Stade Rennais,169,0,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,4,23,2023
 639927,2023-04-23 18:45:00+00:00,Marseille at Lyon,OLM @ LYON,Lyon,167,1,Marseille,176,2,STATUS_FULL_TIME,Groupama Stadium,2022-2023,0,4,23,2023
 639932,2023-04-28 19:00:00+00:00,Lyon at Strasbourg,LYON @ STR,Strasbourg,180,1,Lyon,167,2,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,4,28,2023
@@ -684,9 +684,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639958,2023-05-13 15:00:00+00:00,Nice at Strasbourg,NICE @ STR,Strasbourg,180,2,Nice,2502,0,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,5,13,2023
 639951,2023-05-13 19:00:00+00:00,AC Ajaccio at Paris Saint-Germain,ACA @ PSG,Paris Saint-Germain,160,5,AC Ajaccio,2503,0,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,5,13,2023
 639956,2023-05-14 11:00:00+00:00,Lyon at Clermont Foot,LYON @ CLE,Clermont Foot,3171,2,Lyon,167,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2022-2023,0,5,14,2023
-639957,2023-05-14 13:00:00+00:00,AJ Auxerre at Brest,AUX @ BRE,Brest,6997,1,AJ Auxerre,172,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,5,14,2023
-639952,2023-05-14 13:00:00+00:00,Lorient at Montpellier,LOR @ MON,Montpellier,274,1,Lorient,273,1,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,5,14,2023
 639950,2023-05-14 13:00:00+00:00,Troyes at Stade Rennais,TRY @ REN,Stade Rennais,169,4,Troyes,170,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,5,14,2023
+639952,2023-05-14 13:00:00+00:00,Lorient at Montpellier,LOR @ MON,Montpellier,274,1,Lorient,273,1,STATUS_FULL_TIME,Stade de la Mosson,2022-2023,0,5,14,2023
+639957,2023-05-14 13:00:00+00:00,AJ Auxerre at Brest,AUX @ BRE,Brest,6997,1,AJ Auxerre,172,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,5,14,2023
 639954,2023-05-14 14:30:00+00:00,Nantes at Toulouse,NAN @ TOU,Toulouse,179,0,Nantes,165,0,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,5,14,2023
 639953,2023-05-14 15:05:00+00:00,Lille at AS Monaco,LILL @ MON,AS Monaco,174,0,Lille,166,0,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,5,14,2023
 639959,2023-05-14 18:45:00+00:00,Angers at Marseille,ANG @ OLM,Marseille,176,3,Angers,7868,1,STATUS_FULL_TIME,Orange Vélodrome,2022-2023,0,5,14,2023
@@ -710,23 +710,23 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 639970,2023-05-27 19:00:00+00:00,AS Monaco at Stade Rennais,MON @ REN,Stade Rennais,169,2,AS Monaco,174,0,STATUS_FULL_TIME,Roazhon Park,2022-2023,0,5,27,2023
 639978,2023-05-27 19:00:00+00:00,Paris Saint-Germain at Strasbourg,PSG @ STR,Strasbourg,180,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade de la Meinau,2022-2023,0,5,27,2023
 639974,2023-05-27 19:00:00+00:00,AJ Auxerre at Toulouse,AUX @ TOU,Toulouse,179,1,AJ Auxerre,172,1,STATUS_FULL_TIME,Stadium de Toulouse,2022-2023,0,5,27,2023
-639983,2023-06-03 19:00:00+00:00,Strasbourg at Lorient,STR @ LOR,Lorient,273,2,Strasbourg,180,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,6,3,2023
-639980,2023-06-03 19:00:00+00:00,Marseille at AC Ajaccio,OLM @ ACA,AC Ajaccio,2503,1,Marseille,176,0,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,6,3,2023
-639981,2023-06-03 19:00:00+00:00,Lens at AJ Auxerre,RCL @ AUX,AJ Auxerre,172,1,Lens,175,3,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,6,3,2023
-639989,2023-06-03 19:00:00+00:00,Toulouse at AS Monaco,TOU @ MON,AS Monaco,174,1,Toulouse,179,2,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,6,3,2023
-639982,2023-06-03 19:00:00+00:00,Stade Rennais at Brest,REN @ BRE,Brest,6997,1,Stade Rennais,169,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,6,3,2023
-639986,2023-06-03 19:00:00+00:00,Lyon at Nice,LYON @ NICE,Nice,2502,3,Lyon,167,1,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,6,3,2023
-639987,2023-06-03 19:00:00+00:00,Clermont Foot at Paris Saint-Germain,CLE @ PSG,Paris Saint-Germain,160,2,Clermont Foot,3171,3,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,6,3,2023
-639988,2023-06-03 19:00:00+00:00,Montpellier at Stade de Reims,MON @ REIM,Stade de Reims,3243,1,Montpellier,274,3,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,6,3,2023
-639984,2023-06-03 19:00:00+00:00,Lille at Troyes,LILL @ TRY,Troyes,170,1,Lille,166,1,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,6,3,2023
 639985,2023-06-03 19:00:00+00:00,Angers at Nantes,ANG @ NAN,Nantes,165,1,Angers,7868,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2022-2023,0,6,3,2023
+639984,2023-06-03 19:00:00+00:00,Lille at Troyes,LILL @ TRY,Troyes,170,1,Lille,166,1,STATUS_FULL_TIME,Stade de l'Aube,2022-2023,0,6,3,2023
+639988,2023-06-03 19:00:00+00:00,Montpellier at Stade de Reims,MON @ REIM,Stade de Reims,3243,1,Montpellier,274,3,STATUS_FULL_TIME,Stade Auguste-Delaune II,2022-2023,0,6,3,2023
+639987,2023-06-03 19:00:00+00:00,Clermont Foot at Paris Saint-Germain,CLE @ PSG,Paris Saint-Germain,160,2,Clermont Foot,3171,3,STATUS_FULL_TIME,Parc des Princes,2022-2023,0,6,3,2023
+639986,2023-06-03 19:00:00+00:00,Lyon at Nice,LYON @ NICE,Nice,2502,3,Lyon,167,1,STATUS_FULL_TIME,Allianz Riviera,2022-2023,0,6,3,2023
+639980,2023-06-03 19:00:00+00:00,Marseille at AC Ajaccio,OLM @ ACA,AC Ajaccio,2503,1,Marseille,176,0,STATUS_FULL_TIME,Stade Michel-Moretti,2022-2023,0,6,3,2023
+639989,2023-06-03 19:00:00+00:00,Toulouse at AS Monaco,TOU @ MON,AS Monaco,174,1,Toulouse,179,2,STATUS_FULL_TIME,Stade Louis II,2022-2023,0,6,3,2023
+639981,2023-06-03 19:00:00+00:00,Lens at AJ Auxerre,RCL @ AUX,AJ Auxerre,172,1,Lens,175,3,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2022-2023,0,6,3,2023
+639983,2023-06-03 19:00:00+00:00,Strasbourg at Lorient,STR @ LOR,Lorient,273,2,Strasbourg,180,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2022-2023,0,6,3,2023
+639982,2023-06-03 19:00:00+00:00,Stade Rennais at Brest,REN @ BRE,Brest,6997,1,Stade Rennais,169,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2022-2023,0,6,3,2023
 677197,2023-08-11 19:00:00+00:00,Lille at Nice,LILL @ NICE,Nice,2502,1,Lille,166,1,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,8,11,2023
 677191,2023-08-12 15:00:00+00:00,Stade de Reims at Marseille,REIM @ OLM,Marseille,176,2,Stade de Reims,3243,1,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,8,12,2023
 677199,2023-08-12 19:00:00+00:00,Lorient at Paris Saint-Germain,LOR @ PSG,Paris Saint-Germain,160,0,Lorient,273,0,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,8,12,2023
 677185,2023-08-13 11:00:00+00:00,Lens at Brest,RCL @ BRE,Brest,6997,3,Lens,175,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,8,13,2023
+677195,2023-08-13 13:00:00+00:00,Toulouse at Nantes,TOU @ NAN,Nantes,165,1,Toulouse,179,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,8,13,2023
 677188,2023-08-13 13:00:00+00:00,AS Monaco at Clermont Foot,MON @ CLE,Clermont Foot,3171,2,AS Monaco,174,4,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,8,13,2023
 677193,2023-08-13 13:00:00+00:00,Le Havre AC at Montpellier,HAC @ MON,Montpellier,274,2,Le Havre AC,3236,2,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,8,13,2023
-677195,2023-08-13 13:00:00+00:00,Toulouse at Nantes,TOU @ NAN,Nantes,165,1,Toulouse,179,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,8,13,2023
 677201,2023-08-13 15:05:00+00:00,Metz at Stade Rennais,METZ @ REN,Stade Rennais,169,5,Metz,177,1,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,8,13,2023
 677203,2023-08-13 18:45:00+00:00,Lyon at Strasbourg,LYON @ STR,Strasbourg,180,2,Lyon,167,1,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,8,13,2023
 677214,2023-08-18 19:00:00+00:00,Marseille at Metz,OLM @ METZ,Metz,177,2,Marseille,176,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,8,18,2023
@@ -787,8 +787,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677310,2023-10-07 15:00:00+00:00,Nice at Metz,NICE @ METZ,Metz,177,0,Nice,2502,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,10,7,2023
 677314,2023-10-07 19:00:00+00:00,AS Monaco at Stade de Reims,MON @ REIM,Stade de Reims,3243,1,AS Monaco,174,3,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,10,7,2023
 677308,2023-10-08 11:00:00+00:00,Le Havre AC at Marseille,HAC @ OLM,Marseille,176,3,Le Havre AC,3236,0,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,10,8,2023
-677319,2023-10-08 13:00:00+00:00,Toulouse at Brest,TOU @ BRE,Brest,6997,1,Toulouse,179,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,10,8,2023
 677306,2023-10-08 13:00:00+00:00,Lorient at Lyon,LOR @ LYON,Lyon,167,3,Lorient,273,3,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,10,8,2023
+677319,2023-10-08 13:00:00+00:00,Toulouse at Brest,TOU @ BRE,Brest,6997,1,Toulouse,179,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,10,8,2023
 677311,2023-10-08 15:05:00+00:00,Lille at Lens,LILL @ RCL,Lens,175,1,Lille,166,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,10,8,2023
 677315,2023-10-08 18:45:00+00:00,Paris Saint-Germain at Stade Rennais,PSG @ REN,Stade Rennais,169,1,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,10,8,2023
 677323,2023-10-20 19:00:00+00:00,Lens at Le Havre AC,RCL @ HAC,Le Havre AC,3236,0,Lens,175,0,STATUS_FULL_TIME,Stade Océane,2023-2024,0,10,20,2023
@@ -812,9 +812,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677353,2023-11-04 16:00:00+00:00,Lens at Lorient,RCL @ LOR,Lorient,273,0,Lens,175,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,11,4,2023
 677351,2023-11-04 20:00:00+00:00,Lille at Marseille,LILL @ OLM,Marseille,176,0,Lille,166,0,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,11,4,2023
 677352,2023-11-05 12:00:00+00:00,Metz at Lyon,METZ @ LYON,Lyon,167,1,Metz,177,1,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,11,5,2023
-677358,2023-11-05 14:00:00+00:00,Le Havre AC at Toulouse,HAC @ TOU,Toulouse,179,1,Le Havre AC,3236,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,11,5,2023
-677354,2023-11-05 14:00:00+00:00,Stade de Reims at Nantes,REIM @ NAN,Nantes,165,0,Stade de Reims,3243,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,11,5,2023
 677357,2023-11-05 14:00:00+00:00,Clermont Foot at Strasbourg,CLE @ STR,Strasbourg,180,0,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,11,5,2023
+677354,2023-11-05 14:00:00+00:00,Stade de Reims at Nantes,REIM @ NAN,Nantes,165,0,Stade de Reims,3243,1,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,11,5,2023
+677358,2023-11-05 14:00:00+00:00,Le Havre AC at Toulouse,HAC @ TOU,Toulouse,179,1,Le Havre AC,3236,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,11,5,2023
 677350,2023-11-05 16:05:00+00:00,Brest at AS Monaco,BRE @ MON,AS Monaco,174,2,Brest,6997,0,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,11,5,2023
 677355,2023-11-05 19:45:00+00:00,Stade Rennais at Nice,REN @ NICE,Nice,2502,2,Stade Rennais,169,0,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,11,5,2023
 677360,2023-11-10 20:00:00+00:00,Nice at Montpellier,NICE @ MON,Montpellier,274,0,Nice,2502,0,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,11,10,2023
@@ -839,9 +839,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677383,2023-12-02 16:00:00+00:00,Lyon at Lens,LYON @ RCL,Lens,175,3,Lyon,167,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,12,2,2023
 677379,2023-12-02 20:00:00+00:00,Nice at Nantes,NICE @ NAN,Nantes,165,1,Nice,2502,0,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,12,2,2023
 677384,2023-12-03 12:00:00+00:00,Paris Saint-Germain at Le Havre AC,PSG @ HAC,Le Havre AC,3236,0,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Océane,2023-2024,0,12,3,2023
-677377,2023-12-03 14:00:00+00:00,Clermont Foot at Brest,CLE @ BRE,Brest,6997,3,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,12,3,2023
 677378,2023-12-03 14:00:00+00:00,Lorient at Toulouse,LOR @ TOU,Toulouse,179,1,Lorient,273,1,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,12,3,2023
 677380,2023-12-03 14:00:00+00:00,Montpellier at AS Monaco,MON @ MON,AS Monaco,174,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,12,3,2023
+677377,2023-12-03 14:00:00+00:00,Clermont Foot at Brest,CLE @ BRE,Brest,6997,3,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,12,3,2023
 677382,2023-12-03 16:05:00+00:00,Metz at Lille,METZ @ LILL,Lille,166,2,Metz,177,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,12,3,2023
 677381,2023-12-03 19:45:00+00:00,Stade Rennais at Marseille,REN @ OLM,Marseille,176,2,Stade Rennais,169,0,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,12,3,2023
 677345,2023-12-06 20:00:00+00:00,Lyon at Marseille,LYON @ OLM,Marseille,176,3,Lyon,167,0,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,12,6,2023
@@ -850,9 +850,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677388,2023-12-09 16:00:00+00:00,AS Monaco at Stade Rennais,MON @ REN,Stade Rennais,169,1,AS Monaco,174,2,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,12,9,2023
 677387,2023-12-09 20:00:00+00:00,Nantes at Paris Saint-Germain,NAN @ PSG,Paris Saint-Germain,160,2,Nantes,165,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,12,9,2023
 677386,2023-12-10 12:00:00+00:00,Stade de Reims at Nice,REIM @ NICE,Nice,2502,2,Stade de Reims,3243,1,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,12,10,2023
+677392,2023-12-10 14:00:00+00:00,Brest at Metz,BRE @ METZ,Metz,177,0,Brest,6997,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,12,10,2023
 677389,2023-12-10 14:00:00+00:00,Le Havre AC at Strasbourg,HAC @ STR,Strasbourg,180,2,Le Havre AC,3236,1,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,12,10,2023
 677391,2023-12-10 14:00:00+00:00,Lille at Clermont Foot,LILL @ CLE,Clermont Foot,3171,0,Lille,166,0,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,12,10,2023
-677392,2023-12-10 14:00:00+00:00,Brest at Metz,BRE @ METZ,Metz,177,0,Brest,6997,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,12,10,2023
 677393,2023-12-10 16:05:00+00:00,Toulouse at Lyon,TOU @ LYON,Lyon,167,3,Toulouse,179,0,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,12,10,2023
 677394,2023-12-10 19:45:00+00:00,Marseille at Lorient,OLM @ LOR,Lorient,273,2,Marseille,176,4,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,12,10,2023
 677398,2023-12-15 20:00:00+00:00,Lyon at AS Monaco,LYON @ MON,AS Monaco,174,0,Lyon,167,1,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,12,15,2023
@@ -864,21 +864,21 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677395,2023-12-17 14:00:00+00:00,Stade Rennais at Toulouse,REN @ TOU,Toulouse,179,0,Stade Rennais,169,0,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,12,17,2023
 677400,2023-12-17 16:05:00+00:00,Clermont Foot at Marseille,CLE @ OLM,Marseille,176,2,Clermont Foot,3171,1,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,12,17,2023
 677402,2023-12-17 19:45:00+00:00,Paris Saint-Germain at Lille,PSG @ LILL,Lille,166,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,12,17,2023
-677406,2023-12-20 20:00:00+00:00,Lens at Nice,RCL @ NICE,Nice,2502,2,Lens,175,0,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,12,20,2023
-677404,2023-12-20 20:00:00+00:00,Stade Rennais at Clermont Foot,REN @ CLE,Clermont Foot,3171,1,Stade Rennais,169,3,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,12,20,2023
-677412,2023-12-20 20:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,1,Nantes,165,0,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,12,20,2023
-677408,2023-12-20 20:00:00+00:00,Marseille at Montpellier,OLM @ MON,Montpellier,274,1,Marseille,176,1,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,12,20,2023
-677411,2023-12-20 20:00:00+00:00,AS Monaco at Toulouse,MON @ TOU,Toulouse,179,1,AS Monaco,174,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,12,20,2023
-677405,2023-12-20 20:00:00+00:00,Metz at Paris Saint-Germain,METZ @ PSG,Paris Saint-Germain,160,3,Metz,177,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,12,20,2023
-677409,2023-12-20 20:00:00+00:00,Le Havre AC at Stade de Reims,HAC @ REIM,Stade de Reims,3243,1,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,12,20,2023
-677410,2023-12-20 20:00:00+00:00,Lille at Strasbourg,LILL @ STR,Strasbourg,180,2,Lille,166,1,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,12,20,2023
 677407,2023-12-20 20:00:00+00:00,Lorient at Brest,LOR @ BRE,Brest,6997,4,Lorient,273,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,12,20,2023
+677410,2023-12-20 20:00:00+00:00,Lille at Strasbourg,LILL @ STR,Strasbourg,180,2,Lille,166,1,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,12,20,2023
+677409,2023-12-20 20:00:00+00:00,Le Havre AC at Stade de Reims,HAC @ REIM,Stade de Reims,3243,1,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,12,20,2023
+677405,2023-12-20 20:00:00+00:00,Metz at Paris Saint-Germain,METZ @ PSG,Paris Saint-Germain,160,3,Metz,177,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,12,20,2023
+677408,2023-12-20 20:00:00+00:00,Marseille at Montpellier,OLM @ MON,Montpellier,274,1,Marseille,176,1,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,12,20,2023
+677412,2023-12-20 20:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,1,Nantes,165,0,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,12,20,2023
+677404,2023-12-20 20:00:00+00:00,Stade Rennais at Clermont Foot,REN @ CLE,Clermont Foot,3171,1,Stade Rennais,169,3,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,12,20,2023
+677406,2023-12-20 20:00:00+00:00,Lens at Nice,RCL @ NICE,Nice,2502,2,Lens,175,0,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,12,20,2023
+677411,2023-12-20 20:00:00+00:00,AS Monaco at Toulouse,MON @ TOU,Toulouse,179,1,AS Monaco,174,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,12,20,2023
 677419,2024-01-12 20:00:00+00:00,Strasbourg at Marseille,STR @ OLM,Marseille,176,1,Strasbourg,180,1,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,1,12,2024
 677417,2024-01-13 16:00:00+00:00,Stade de Reims at AS Monaco,REIM @ MON,AS Monaco,174,1,Stade de Reims,3243,3,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,1,13,2024
 677415,2024-01-13 20:00:00+00:00,Nice at Stade Rennais,NICE @ REN,Stade Rennais,169,2,Nice,2502,0,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,1,13,2024
 677420,2024-01-14 12:00:00+00:00,Lorient at Lille,LOR @ LILL,Lille,166,3,Lorient,273,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,1,14,2024
-677413,2024-01-14 14:00:00+00:00,Montpellier at Brest,MON @ BRE,Brest,6997,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,1,14,2024
 677418,2024-01-14 14:00:00+00:00,Toulouse at Metz,TOU @ METZ,Metz,177,0,Toulouse,179,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,1,14,2024
+677413,2024-01-14 14:00:00+00:00,Montpellier at Brest,MON @ BRE,Brest,6997,2,Montpellier,274,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,1,14,2024
 677416,2024-01-14 14:00:00+00:00,Clermont Foot at Nantes,CLE @ NAN,Nantes,165,1,Clermont Foot,3171,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,1,14,2024
 677414,2024-01-14 16:05:00+00:00,Lyon at Le Havre AC,LYON @ HAC,Le Havre AC,3236,3,Lyon,167,1,STATUS_FULL_TIME,Stade Océane,2023-2024,0,1,14,2024
 677421,2024-01-14 19:45:00+00:00,Paris Saint-Germain at Lens,PSG @ RCL,Lens,175,0,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,1,14,2024
@@ -904,9 +904,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677442,2024-02-10 16:00:00+00:00,Strasbourg at Lens,STR @ RCL,Lens,175,3,Strasbourg,180,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,2,10,2024
 677447,2024-02-10 20:00:00+00:00,Lille at Paris Saint-Germain,LILL @ PSG,Paris Saint-Germain,160,3,Lille,166,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,2,10,2024
 677441,2024-02-11 12:00:00+00:00,Stade Rennais at Le Havre AC,REN @ HAC,Le Havre AC,3236,0,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Océane,2023-2024,0,2,11,2024
-677443,2024-02-11 14:00:00+00:00,Stade de Reims at Lorient,REIM @ LOR,Lorient,273,2,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,2,11,2024
 677448,2024-02-11 14:00:00+00:00,Nantes at Toulouse,NAN @ TOU,Toulouse,179,1,Nantes,165,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,2,11,2024
 677440,2024-02-11 14:00:00+00:00,Brest at Clermont Foot,BRE @ CLE,Clermont Foot,3171,1,Brest,6997,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,2,11,2024
+677443,2024-02-11 14:00:00+00:00,Stade de Reims at Lorient,REIM @ LOR,Lorient,273,2,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,2,11,2024
 677445,2024-02-11 16:05:00+00:00,Lyon at Montpellier,LYON @ MON,Montpellier,274,1,Lyon,167,2,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,2,11,2024
 677446,2024-02-11 19:45:00+00:00,AS Monaco at Nice,MON @ NICE,Nice,2502,2,AS Monaco,174,3,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,2,11,2024
 677451,2024-02-16 20:00:00+00:00,Nice at Lyon,NICE @ LYON,Lyon,167,1,Nice,2502,0,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,2,16,2024
@@ -931,9 +931,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677475,2024-03-02 16:00:00+00:00,Lille at Stade de Reims,LILL @ REIM,Stade de Reims,3243,0,Lille,166,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,3,2,2024
 677470,2024-03-02 20:00:00+00:00,Marseille at Clermont Foot,OLM @ CLE,Clermont Foot,3171,1,Marseille,176,5,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,3,2,2024
 677472,2024-03-03 12:00:00+00:00,Nice at Toulouse,NICE @ TOU,Toulouse,179,2,Nice,2502,1,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,3,3,2024
+677474,2024-03-03 14:00:00+00:00,Metz at Nantes,METZ @ NAN,Nantes,165,0,Metz,177,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,3,3,2024
 677469,2024-03-03 14:00:00+00:00,Le Havre AC at Brest,HAC @ BRE,Brest,6997,1,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,3,3,2024
 677473,2024-03-03 14:00:00+00:00,Strasbourg at Montpellier,STR @ MON,Montpellier,274,2,Strasbourg,180,2,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,3,3,2024
-677474,2024-03-03 14:00:00+00:00,Metz at Nantes,METZ @ NAN,Nantes,165,0,Metz,177,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,3,3,2024
 677467,2024-03-03 16:05:00+00:00,Lorient at Stade Rennais,LOR @ REN,Stade Rennais,169,1,Lorient,273,2,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,3,3,2024
 677471,2024-03-03 19:45:00+00:00,Lens at Lyon,RCL @ LYON,Lyon,167,0,Lens,175,3,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,3,3,2024
 677480,2024-03-08 20:00:00+00:00,Montpellier at Nice,MON @ NICE,Nice,2502,1,Montpellier,274,2,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,3,8,2024
@@ -967,9 +967,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677504,2024-04-06 15:00:00+00:00,Le Havre AC at Lens,HAC @ RCL,Lens,175,1,Le Havre AC,3236,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,4,6,2024
 677509,2024-04-06 19:00:00+00:00,Clermont Foot at Paris Saint-Germain,CLE @ PSG,Paris Saint-Germain,160,1,Clermont Foot,3171,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,4,6,2024
 677503,2024-04-07 11:00:00+00:00,Metz at Brest,METZ @ BRE,Brest,6997,4,Metz,177,3,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,4,7,2024
-677506,2024-04-07 13:00:00+00:00,Strasbourg at Toulouse,STR @ TOU,Toulouse,179,0,Strasbourg,180,0,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,4,7,2024
 677511,2024-04-07 13:00:00+00:00,Lorient at Montpellier,LOR @ MON,Montpellier,274,2,Lorient,273,0,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,4,7,2024
 677510,2024-04-07 13:00:00+00:00,Nice at Stade de Reims,NICE @ REIM,Stade de Reims,3243,0,Nice,2502,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,4,7,2024
+677506,2024-04-07 13:00:00+00:00,Strasbourg at Toulouse,STR @ TOU,Toulouse,179,0,Strasbourg,180,0,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,4,7,2024
 677507,2024-04-07 15:05:00+00:00,Stade Rennais at AS Monaco,REN @ MON,AS Monaco,174,1,Stade Rennais,169,0,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,4,7,2024
 677508,2024-04-07 18:45:00+00:00,Lyon at Nantes,LYON @ NAN,Nantes,165,1,Lyon,167,3,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,4,7,2024
 677517,2024-04-12 19:00:00+00:00,Lens at Metz,RCL @ METZ,Metz,177,2,Lens,175,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,4,12,2024
@@ -981,9 +981,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677526,2024-04-19 19:00:00+00:00,Lorient at Nice,LOR @ NICE,Nice,2502,3,Lorient,273,0,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,4,19,2024
 677525,2024-04-20 15:00:00+00:00,Stade Rennais at Nantes,REN @ NAN,Nantes,165,0,Stade Rennais,169,3,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,4,20,2024
 677523,2024-04-20 19:00:00+00:00,Clermont Foot at Lens,CLE @ RCL,Lens,175,1,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,4,20,2024
-677522,2024-04-21 13:00:00+00:00,Metz at Le Havre AC,METZ @ HAC,Le Havre AC,3236,0,Metz,177,1,STATUS_FULL_TIME,Stade Océane,2023-2024,0,4,21,2024
-677524,2024-04-21 13:00:00+00:00,Strasbourg at Lille,STR @ LILL,Lille,166,1,Strasbourg,180,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,4,21,2024
 677528,2024-04-21 13:00:00+00:00,Montpellier at Stade de Reims,MON @ REIM,Stade de Reims,3243,1,Montpellier,274,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,4,21,2024
+677524,2024-04-21 13:00:00+00:00,Strasbourg at Lille,STR @ LILL,Lille,166,1,Strasbourg,180,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,4,21,2024
+677522,2024-04-21 13:00:00+00:00,Metz at Le Havre AC,METZ @ HAC,Le Havre AC,3236,0,Metz,177,1,STATUS_FULL_TIME,Stade Océane,2023-2024,0,4,21,2024
 677521,2024-04-21 15:05:00+00:00,AS Monaco at Brest,MON @ BRE,Brest,6997,0,AS Monaco,174,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,4,21,2024
 677529,2024-04-21 17:15:00+00:00,Marseille at Toulouse,OLM @ TOU,Toulouse,179,2,Marseille,176,2,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,4,21,2024
 677527,2024-04-21 19:00:00+00:00,Lyon at Paris Saint-Germain,LYON @ PSG,Paris Saint-Germain,160,4,Lyon,167,1,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,4,21,2024
@@ -993,9 +993,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677535,2024-04-26 19:00:00+00:00,Nantes at Montpellier,NAN @ MON,Montpellier,274,1,Nantes,165,1,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,4,26,2024
 677536,2024-04-27 19:00:00+00:00,Le Havre AC at Paris Saint-Germain,HAC @ PSG,Paris Saint-Germain,160,3,Le Havre AC,3236,3,STATUS_FULL_TIME,Parc des Princes,2023-2024,0,4,27,2024
 677534,2024-04-28 11:00:00+00:00,Lille at Metz,LILL @ METZ,Metz,177,1,Lille,166,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,4,28,2024
-677530,2024-04-28 13:00:00+00:00,Stade de Reims at Clermont Foot,REIM @ CLE,Clermont Foot,3171,4,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,4,28,2024
-677531,2024-04-28 13:00:00+00:00,Toulouse at Lorient,TOU @ LOR,Lorient,273,1,Toulouse,179,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,4,28,2024
 677538,2024-04-28 13:00:00+00:00,Nice at Strasbourg,NICE @ STR,Strasbourg,180,1,Nice,2502,3,STATUS_FULL_TIME,Stade de la Meinau,2023-2024,0,4,28,2024
+677531,2024-04-28 13:00:00+00:00,Toulouse at Lorient,TOU @ LOR,Lorient,273,1,Toulouse,179,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,4,28,2024
+677530,2024-04-28 13:00:00+00:00,Stade de Reims at Clermont Foot,REIM @ CLE,Clermont Foot,3171,4,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,4,28,2024
 677537,2024-04-28 15:05:00+00:00,Brest at Stade Rennais,BRE @ REN,Stade Rennais,169,4,Brest,6997,5,STATUS_FULL_TIME,Roazhon Park,2023-2024,0,4,28,2024
 677532,2024-04-28 17:00:00+00:00,AS Monaco at Lyon,MON @ LYON,Lyon,167,3,AS Monaco,174,2,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,4,28,2024
 677533,2024-04-28 19:00:00+00:00,Lens at Marseille,RCL @ OLM,Marseille,176,2,Lens,175,1,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,4,28,2024
@@ -1006,8 +1006,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677545,2024-05-04 17:00:00+00:00,Stade Rennais at Metz,REN @ METZ,Metz,177,2,Stade Rennais,169,3,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,5,4,2024
 677546,2024-05-04 19:00:00+00:00,Nantes at Brest,NAN @ BRE,Brest,6997,0,Nantes,165,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,5,4,2024
 677547,2024-05-06 19:00:00+00:00,Lyon at Lille,LYON @ LILL,Lille,166,3,Lyon,167,4,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,5,6,2024
-677555,2024-05-10 19:00:00+00:00,Stade de Reims at Brest,REIM @ BRE,Brest,6997,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,5,10,2024
 677554,2024-05-10 19:00:00+00:00,Le Havre AC at Nice,HAC @ NICE,Nice,2502,1,Le Havre AC,3236,0,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,5,10,2024
+677555,2024-05-10 19:00:00+00:00,Stade de Reims at Brest,REIM @ BRE,Brest,6997,1,Stade de Reims,3243,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2023-2024,0,5,10,2024
 677550,2024-05-12 19:00:00+00:00,Lille at Nantes,LILL @ NAN,Nantes,165,1,Lille,166,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2023-2024,0,5,12,2024
 677556,2024-05-12 19:00:00+00:00,Lorient at Marseille,LOR @ OLM,Marseille,176,3,Lorient,273,1,STATUS_FULL_TIME,Orange Vélodrome,2023-2024,0,5,12,2024
 677549,2024-05-12 19:00:00+00:00,AS Monaco at Montpellier,MON @ MON,Montpellier,274,0,AS Monaco,174,2,STATUS_FULL_TIME,Stade de la Mosson,2023-2024,0,5,12,2024
@@ -1017,23 +1017,23 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 677548,2024-05-12 19:00:00+00:00,Lyon at Clermont Foot,LYON @ CLE,Clermont Foot,3171,0,Lyon,167,1,STATUS_FULL_TIME,Stade Gabriel-Montpied,2023-2024,0,5,12,2024
 677543,2024-05-15 19:00:00+00:00,Paris Saint-Germain at Nice,PSG @ NICE,Nice,2502,1,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Allianz Riviera,2023-2024,0,5,15,2024
 677544,2024-05-15 19:00:00+00:00,Marseille at Stade de Reims,OLM @ REIM,Stade de Reims,3243,1,Marseille,176,0,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,5,15,2024
-677557,2024-05-19 19:00:00+00:00,Nice at Lille,NICE @ LILL,Lille,166,2,Nice,2502,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,5,19,2024
-677560,2024-05-19 19:00:00+00:00,Nantes at AS Monaco,NAN @ MON,AS Monaco,174,4,Nantes,165,0,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,5,19,2024
 677561,2024-05-19 19:00:00+00:00,Marseille at Le Havre AC,OLM @ HAC,Le Havre AC,3236,1,Marseille,176,2,STATUS_FULL_TIME,Stade Océane,2023-2024,0,5,19,2024
-677562,2024-05-19 19:00:00+00:00,Strasbourg at Lyon,STR @ LYON,Lyon,167,2,Strasbourg,180,1,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,5,19,2024
-677564,2024-05-19 19:00:00+00:00,Montpellier at Lens,MON @ RCL,Lens,175,2,Montpellier,274,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,5,19,2024
-677565,2024-05-19 19:00:00+00:00,Paris Saint-Germain at Metz,PSG @ METZ,Metz,177,0,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,5,19,2024
-677563,2024-05-19 19:00:00+00:00,Stade Rennais at Stade de Reims,REN @ REIM,Stade de Reims,3243,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,5,19,2024
-677559,2024-05-19 19:00:00+00:00,Brest at Toulouse,BRE @ TOU,Toulouse,179,0,Brest,6997,3,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,5,19,2024
 677558,2024-05-19 19:00:00+00:00,Clermont Foot at Lorient,CLE @ LOR,Lorient,273,5,Clermont Foot,3171,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2023-2024,0,5,19,2024
+677559,2024-05-19 19:00:00+00:00,Brest at Toulouse,BRE @ TOU,Toulouse,179,0,Brest,6997,3,STATUS_FULL_TIME,Stadium de Toulouse,2023-2024,0,5,19,2024
+677563,2024-05-19 19:00:00+00:00,Stade Rennais at Stade de Reims,REN @ REIM,Stade de Reims,3243,2,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2023-2024,0,5,19,2024
+677565,2024-05-19 19:00:00+00:00,Paris Saint-Germain at Metz,PSG @ METZ,Metz,177,0,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Saint-Symphorien,2023-2024,0,5,19,2024
+677560,2024-05-19 19:00:00+00:00,Nantes at AS Monaco,NAN @ MON,AS Monaco,174,4,Nantes,165,0,STATUS_FULL_TIME,Stade Louis II,2023-2024,0,5,19,2024
+677562,2024-05-19 19:00:00+00:00,Strasbourg at Lyon,STR @ LYON,Lyon,167,2,Strasbourg,180,1,STATUS_FULL_TIME,Groupama Stadium,2023-2024,0,5,19,2024
+677557,2024-05-19 19:00:00+00:00,Nice at Lille,NICE @ LILL,Lille,166,2,Nice,2502,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2023-2024,0,5,19,2024
+677564,2024-05-19 19:00:00+00:00,Montpellier at Lens,MON @ RCL,Lens,175,2,Montpellier,274,2,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2023-2024,0,5,19,2024
 706429,2024-08-16 18:45:00+00:00,Paris Saint-Germain at Le Havre AC,PSG @ HAC,Le Havre AC,3236,1,Paris Saint-Germain,160,4,STATUS_FULL_TIME,Stade Océane,2024-2025,0,8,16,2024
 706428,2024-08-17 15:00:00+00:00,Marseille at Brest,OLM @ BRE,Brest,6997,1,Marseille,176,5,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,8,17,2024
 706432,2024-08-17 17:00:00+00:00,Lille at Stade de Reims,LILL @ REIM,Stade de Reims,3243,0,Lille,166,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,8,17,2024
 706430,2024-08-17 19:00:00+00:00,Saint-Étienne at AS Monaco,ASSE @ MON,AS Monaco,174,1,Saint-Étienne,178,0,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,8,17,2024
 706427,2024-08-18 13:00:00+00:00,Nice at AJ Auxerre,NICE @ AUX,AJ Auxerre,172,2,Nice,2502,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,8,18,2024
-706426,2024-08-18 15:00:00+00:00,Lens at Angers,RCL @ ANG,Angers,7868,0,Lens,175,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,8,18,2024
 706431,2024-08-18 15:00:00+00:00,Strasbourg at Montpellier,STR @ MON,Montpellier,274,1,Strasbourg,180,1,STATUS_FULL_TIME,Stade de la Mosson,2024-2025,0,8,18,2024
 706434,2024-08-18 15:00:00+00:00,Nantes at Toulouse,NAN @ TOU,Toulouse,179,0,Nantes,165,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,8,18,2024
+706426,2024-08-18 15:00:00+00:00,Lens at Angers,RCL @ ANG,Angers,7868,0,Lens,175,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,8,18,2024
 706433,2024-08-18 18:45:00+00:00,Lyon at Stade Rennais,LYON @ REN,Stade Rennais,169,3,Lyon,167,0,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,8,18,2024
 706441,2024-08-23 18:45:00+00:00,Montpellier at Paris Saint-Germain,MON @ PSG,Paris Saint-Germain,160,6,Montpellier,274,0,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,8,23,2024
 706437,2024-08-24 15:00:00+00:00,AS Monaco at Lyon,MON @ LYON,Lyon,167,0,AS Monaco,174,2,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,8,24,2024
@@ -1058,9 +1058,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706453,2024-09-14 17:00:00+00:00,AS Monaco at AJ Auxerre,MON @ AUX,AJ Auxerre,172,0,AS Monaco,174,3,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,9,14,2024
 706457,2024-09-14 19:00:00+00:00,Brest at Paris Saint-Germain,BRE @ PSG,Paris Saint-Germain,160,3,Brest,6997,1,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,9,14,2024
 706458,2024-09-15 13:00:00+00:00,Montpellier at Stade Rennais,MON @ REN,Stade Rennais,169,3,Montpellier,274,0,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,9,15,2024
-706461,2024-09-15 15:00:00+00:00,Le Havre AC at Toulouse,HAC @ TOU,Toulouse,179,2,Le Havre AC,3236,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,9,15,2024
 706456,2024-09-15 15:00:00+00:00,Stade de Reims at Nantes,REIM @ NAN,Nantes,165,1,Stade de Reims,3243,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2024-2025,0,9,15,2024
 706460,2024-09-15 15:00:00+00:00,Angers at Strasbourg,ANG @ STR,Strasbourg,180,1,Angers,7868,1,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,9,15,2024
+706461,2024-09-15 15:00:00+00:00,Le Havre AC at Toulouse,HAC @ TOU,Toulouse,179,2,Le Havre AC,3236,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,9,15,2024
 706454,2024-09-15 18:45:00+00:00,Lyon at Lens,LYON @ RCL,Lens,175,0,Lyon,167,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2024-2025,0,9,15,2024
 706468,2024-09-20 18:45:00+00:00,Saint-Étienne at Nice,ASSE @ NICE,Nice,2502,8,Saint-Étienne,178,0,STATUS_FULL_TIME,Allianz Riviera,2024-2025,0,9,20,2024
 706464,2024-09-21 15:00:00+00:00,Strasbourg at Lille,STR @ LILL,Lille,166,3,Strasbourg,180,3,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,9,21,2024
@@ -1085,9 +1085,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706482,2024-10-05 17:00:00+00:00,Toulouse at Lille,TOU @ LILL,Lille,166,2,Toulouse,179,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,10,5,2024
 706486,2024-10-05 19:00:00+00:00,AS Monaco at Stade Rennais,MON @ REN,Stade Rennais,169,1,AS Monaco,174,2,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,10,5,2024
 706481,2024-10-06 13:00:00+00:00,Nantes at Lyon,NAN @ LYON,Lyon,167,2,Nantes,165,0,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,10,6,2024
-706483,2024-10-06 15:00:00+00:00,Le Havre AC at Brest,HAC @ BRE,Brest,6997,2,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,10,6,2024
 706485,2024-10-06 15:00:00+00:00,Montpellier at Stade de Reims,MON @ REIM,Stade de Reims,3243,4,Montpellier,274,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,10,6,2024
 706488,2024-10-06 15:00:00+00:00,Lens at Strasbourg,RCL @ STR,Strasbourg,180,2,Lens,175,2,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,10,6,2024
+706483,2024-10-06 15:00:00+00:00,Le Havre AC at Brest,HAC @ BRE,Brest,6997,2,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,10,6,2024
 706484,2024-10-06 18:45:00+00:00,Paris Saint-Germain at Nice,PSG @ NICE,Nice,2502,1,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Allianz Riviera,2024-2025,0,10,6,2024
 706497,2024-10-18 18:45:00+00:00,Lille at AS Monaco,LILL @ MON,AS Monaco,174,0,Lille,166,0,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,10,18,2024
 706495,2024-10-19 15:00:00+00:00,Stade Rennais at Brest,REN @ BRE,Brest,6997,1,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,10,19,2024
@@ -1113,8 +1113,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706508,2024-11-02 18:00:00+00:00,Nice at Brest,NICE @ BRE,Brest,6997,0,Nice,2502,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,11,2,2024
 706510,2024-11-02 20:00:00+00:00,Strasbourg at Saint-Étienne,STR @ ASSE,Saint-Étienne,178,2,Strasbourg,180,0,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2024-2025,0,11,2,2024
 706513,2024-11-03 14:00:00+00:00,Stade de Reims at Toulouse,REIM @ TOU,Toulouse,179,1,Stade de Reims,3243,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,11,3,2024
-706507,2024-11-03 16:00:00+00:00,Stade Rennais at AJ Auxerre,REN @ AUX,AJ Auxerre,172,4,Stade Rennais,169,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,11,3,2024
 706515,2024-11-03 16:00:00+00:00,Montpellier at Le Havre AC,MON @ HAC,Le Havre AC,3236,1,Montpellier,274,0,STATUS_FULL_TIME,Stade Océane,2024-2025,0,11,3,2024
+706507,2024-11-03 16:00:00+00:00,Stade Rennais at AJ Auxerre,REN @ AUX,AJ Auxerre,172,4,Stade Rennais,169,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,11,3,2024
 706512,2024-11-03 19:45:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,1,Marseille,176,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2024-2025,0,11,3,2024
 706524,2024-11-08 19:45:00+00:00,AJ Auxerre at Marseille,AUX @ OLM,Marseille,176,1,AJ Auxerre,172,3,STATUS_FULL_TIME,Orange Vélodrome,2024-2025,0,11,8,2024
 706520,2024-11-09 16:00:00+00:00,AS Monaco at Strasbourg,MON @ STR,Strasbourg,180,1,AS Monaco,174,3,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,11,9,2024
@@ -1139,9 +1139,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706537,2024-11-30 18:00:00+00:00,Strasbourg at Brest,STR @ BRE,Brest,6997,3,Strasbourg,180,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,11,30,2024
 706542,2024-11-30 20:00:00+00:00,Nantes at Paris Saint-Germain,NAN @ PSG,Paris Saint-Germain,160,1,Nantes,165,1,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,11,30,2024
 706534,2024-12-01 14:00:00+00:00,Lille at Montpellier,LILL @ MON,Montpellier,274,2,Lille,166,2,STATUS_FULL_TIME,Stade de la Mosson,2024-2025,0,12,1,2024
+706538,2024-12-01 16:00:00+00:00,AJ Auxerre at Toulouse,AUX @ TOU,Toulouse,179,2,AJ Auxerre,172,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,12,1,2024
 706541,2024-12-01 16:00:00+00:00,Angers at Le Havre AC,ANG @ HAC,Le Havre AC,3236,0,Angers,7868,1,STATUS_FULL_TIME,Stade Océane,2024-2025,0,12,1,2024
 706536,2024-12-01 16:00:00+00:00,Nice at Lyon,NICE @ LYON,Lyon,167,4,Nice,2502,1,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,12,1,2024
-706538,2024-12-01 16:00:00+00:00,AJ Auxerre at Toulouse,AUX @ TOU,Toulouse,179,2,AJ Auxerre,172,0,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,12,1,2024
 706535,2024-12-01 19:45:00+00:00,AS Monaco at Marseille,MON @ OLM,Marseille,176,2,AS Monaco,174,1,STATUS_FULL_TIME,Orange Vélodrome,2024-2025,0,12,1,2024
 706544,2024-12-06 18:00:00+00:00,Brest at Lille,BRE @ LILL,Lille,166,3,Brest,6997,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,12,6,2024
 706549,2024-12-06 20:00:00+00:00,Paris Saint-Germain at AJ Auxerre,PSG @ AUX,AJ Auxerre,172,0,Paris Saint-Germain,160,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,12,6,2024
@@ -1202,9 +1202,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706603,2025-02-01 18:00:00+00:00,AJ Auxerre at AS Monaco,AUX @ MON,AS Monaco,174,4,AJ Auxerre,172,2,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,2,1,2025
 706601,2025-02-01 20:05:00+00:00,Saint-Étienne at Lille,ASSE @ LILL,Lille,166,4,Saint-Étienne,178,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,2,1,2025
 706602,2025-02-02 14:00:00+00:00,Nice at Toulouse,NICE @ TOU,Toulouse,179,1,Nice,2502,1,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,2,2,2025
-706599,2025-02-02 16:15:00+00:00,Le Havre AC at Angers,HAC @ ANG,Angers,7868,1,Le Havre AC,3236,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,2,2,2025
-706605,2025-02-02 16:15:00+00:00,Nantes at Stade de Reims,NAN @ REIM,Stade de Reims,3243,1,Nantes,165,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,2,2,2025
 706597,2025-02-02 16:15:00+00:00,Strasbourg at Stade Rennais,STR @ REN,Stade Rennais,169,1,Strasbourg,180,0,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,2,2,2025
+706605,2025-02-02 16:15:00+00:00,Nantes at Stade de Reims,NAN @ REIM,Stade de Reims,3243,1,Nantes,165,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,2,2,2025
+706599,2025-02-02 16:15:00+00:00,Le Havre AC at Angers,HAC @ ANG,Angers,7868,1,Le Havre AC,3236,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,2,2,2025
 706598,2025-02-02 19:45:00+00:00,Lyon at Marseille,LYON @ OLM,Marseille,176,3,Lyon,167,2,STATUS_FULL_TIME,Orange Vélodrome,2024-2025,0,2,2,2025
 706609,2025-02-07 18:00:00+00:00,Brest at Nantes,BRE @ NAN,Nantes,165,0,Brest,6997,2,STATUS_FULL_TIME,La Beaujoire-Louis-Fonteneau,2024-2025,0,2,7,2025
 706607,2025-02-07 20:05:00+00:00,AS Monaco at Paris Saint-Germain,MON @ PSG,Paris Saint-Germain,160,4,AS Monaco,174,1,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,2,7,2025
@@ -1256,18 +1256,18 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706651,2025-03-15 18:00:00+00:00,AS Monaco at Angers,MON @ ANG,Angers,7868,0,AS Monaco,174,2,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,3,15,2025
 706655,2025-03-15 20:05:00+00:00,Stade Rennais at Lens,REN @ RCL,Lens,175,1,Stade Rennais,169,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2024-2025,0,3,15,2025
 706659,2025-03-16 14:00:00+00:00,Le Havre AC at Lyon,HAC @ LYON,Lyon,167,4,Le Havre AC,3236,2,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,3,16,2025
+706653,2025-03-16 16:15:00+00:00,Toulouse at Strasbourg,TOU @ STR,Strasbourg,180,2,Toulouse,179,1,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,3,16,2025
 706652,2025-03-16 16:15:00+00:00,Stade de Reims at Brest,REIM @ BRE,Brest,6997,0,Stade de Reims,3243,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,3,16,2025
 706656,2025-03-16 16:15:00+00:00,Saint-Étienne at Montpellier,ASSE @ MON,Montpellier,274,0,Saint-Étienne,178,2,STATUS_FULL_TIME,Stade de la Mosson,2024-2025,0,3,16,2025
-706653,2025-03-16 16:15:00+00:00,Toulouse at Strasbourg,TOU @ STR,Strasbourg,180,2,Toulouse,179,1,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,3,16,2025
 706654,2025-03-16 19:45:00+00:00,Marseille at Paris Saint-Germain,OLM @ PSG,Paris Saint-Germain,160,3,Marseille,176,1,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,3,16,2025
 706661,2025-03-28 19:45:00+00:00,Lyon at Strasbourg,LYON @ STR,Strasbourg,180,4,Lyon,167,2,STATUS_FULL_TIME,Stade de la Meinau,2024-2025,0,3,28,2025
 706663,2025-03-29 16:00:00+00:00,Marseille at Stade de Reims,OLM @ REIM,Stade de Reims,3243,3,Marseille,176,1,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,3,29,2025
 706662,2025-03-29 18:00:00+00:00,Paris Saint-Germain at Saint-Étienne,PSG @ ASSE,Saint-Étienne,178,1,Paris Saint-Germain,160,6,STATUS_FULL_TIME,Stade Geoffroy-Guichard,2024-2025,0,3,29,2025
 706668,2025-03-29 20:05:00+00:00,Nice at AS Monaco,NICE @ MON,AS Monaco,174,2,Nice,2502,1,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,3,29,2025
 706664,2025-03-30 13:00:00+00:00,Brest at Toulouse,BRE @ TOU,Toulouse,179,2,Brest,6997,4,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,3,30,2025
+706660,2025-03-30 15:15:00+00:00,Stade Rennais at Angers,REN @ ANG,Angers,7868,0,Stade Rennais,169,3,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,3,30,2025
 706666,2025-03-30 15:15:00+00:00,Nantes at Le Havre AC,NAN @ HAC,Le Havre AC,3236,3,Nantes,165,2,STATUS_FULL_TIME,Stade Océane,2024-2025,0,3,30,2025
 706667,2025-03-30 15:15:00+00:00,Montpellier at AJ Auxerre,MON @ AUX,AJ Auxerre,172,1,Montpellier,274,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,3,30,2025
-706660,2025-03-30 15:15:00+00:00,Stade Rennais at Angers,REN @ ANG,Angers,7868,0,Stade Rennais,169,3,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,3,30,2025
 706665,2025-03-30 18:45:00+00:00,Lens at Lille,RCL @ LILL,Lille,166,1,Lens,175,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,3,30,2025
 706671,2025-04-04 18:45:00+00:00,Nantes at Nice,NAN @ NICE,Nice,2502,1,Nantes,165,2,STATUS_FULL_TIME,Allianz Riviera,2024-2025,0,4,4,2025
 706676,2025-04-05 15:00:00+00:00,Angers at Paris Saint-Germain,ANG @ PSG,Paris Saint-Germain,160,1,Angers,7868,0,STATUS_FULL_TIME,Parc des Princes,2024-2025,0,4,5,2025
@@ -1314,15 +1314,15 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 706710,2025-05-04 15:15:00+00:00,Montpellier at Brest,MON @ BRE,Brest,6997,1,Montpellier,274,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,5,4,2025
 706712,2025-05-04 15:15:00+00:00,Lens at Lyon,RCL @ LYON,Lyon,167,1,Lens,175,2,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,5,4,2025
 706713,2025-05-04 18:45:00+00:00,Marseille at Lille,OLM @ LILL,Lille,166,1,Marseille,176,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,5,4,2025
-706720,2025-05-10 19:00:00+00:00,Nantes at AJ Auxerre,NAN @ AUX,AJ Auxerre,172,1,Nantes,165,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,5,10,2025
-706721,2025-05-10 19:00:00+00:00,Strasbourg at Angers,STR @ ANG,Angers,7868,2,Strasbourg,180,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,5,10,2025
-706718,2025-05-10 19:00:00+00:00,Lyon at AS Monaco,LYON @ MON,AS Monaco,174,2,Lyon,167,0,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,5,10,2025
-706722,2025-05-10 19:00:00+00:00,Lille at Brest,LILL @ BRE,Brest,6997,2,Lille,166,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,5,10,2025
-706719,2025-05-10 19:00:00+00:00,Marseille at Le Havre AC,OLM @ HAC,Le Havre AC,3236,1,Marseille,176,3,STATUS_FULL_TIME,Stade Océane,2024-2025,0,5,10,2025
-706714,2025-05-10 19:00:00+00:00,Paris Saint-Germain at Montpellier,PSG @ MON,Montpellier,274,1,Paris Saint-Germain,160,4,STATUS_FULL_TIME,Stade de la Mosson,2024-2025,0,5,10,2025
-706715,2025-05-10 19:00:00+00:00,Saint-Étienne at Stade de Reims,ASSE @ REIM,Stade de Reims,3243,0,Saint-Étienne,178,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,5,10,2025
-706716,2025-05-10 19:00:00+00:00,Nice at Stade Rennais,NICE @ REN,Stade Rennais,169,2,Nice,2502,0,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,5,10,2025
 706717,2025-05-10 19:00:00+00:00,Lens at Toulouse,RCL @ TOU,Toulouse,179,1,Lens,175,1,STATUS_FULL_TIME,Stadium de Toulouse,2024-2025,0,5,10,2025
+706715,2025-05-10 19:00:00+00:00,Saint-Étienne at Stade de Reims,ASSE @ REIM,Stade de Reims,3243,0,Saint-Étienne,178,2,STATUS_FULL_TIME,Stade Auguste-Delaune II,2024-2025,0,5,10,2025
+706714,2025-05-10 19:00:00+00:00,Paris Saint-Germain at Montpellier,PSG @ MON,Montpellier,274,1,Paris Saint-Germain,160,4,STATUS_FULL_TIME,Stade de la Mosson,2024-2025,0,5,10,2025
+706719,2025-05-10 19:00:00+00:00,Marseille at Le Havre AC,OLM @ HAC,Le Havre AC,3236,1,Marseille,176,3,STATUS_FULL_TIME,Stade Océane,2024-2025,0,5,10,2025
+706716,2025-05-10 19:00:00+00:00,Nice at Stade Rennais,NICE @ REN,Stade Rennais,169,2,Nice,2502,0,STATUS_FULL_TIME,Roazhon Park,2024-2025,0,5,10,2025
+706718,2025-05-10 19:00:00+00:00,Lyon at AS Monaco,LYON @ MON,AS Monaco,174,2,Lyon,167,0,STATUS_FULL_TIME,Stade Louis II,2024-2025,0,5,10,2025
+706721,2025-05-10 19:00:00+00:00,Strasbourg at Angers,STR @ ANG,Angers,7868,2,Strasbourg,180,1,STATUS_FULL_TIME,Stade Raymond Kopa,2024-2025,0,5,10,2025
+706722,2025-05-10 19:00:00+00:00,Lille at Brest,LILL @ BRE,Brest,6997,2,Lille,166,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2024-2025,0,5,10,2025
+706720,2025-05-10 19:00:00+00:00,Nantes at AJ Auxerre,NAN @ AUX,AJ Auxerre,172,1,Nantes,165,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2024-2025,0,5,10,2025
 706729,2025-05-17 19:00:00+00:00,AS Monaco at Lens,MON @ RCL,Lens,175,4,AS Monaco,174,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2024-2025,0,5,17,2025
 706728,2025-05-17 19:00:00+00:00,Stade de Reims at Lille,REIM @ LILL,Lille,166,2,Stade de Reims,3243,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2024-2025,0,5,17,2025
 706731,2025-05-17 19:00:00+00:00,Angers at Lyon,ANG @ LYON,Lyon,167,2,Angers,7868,0,STATUS_FULL_TIME,Groupama Stadium,2024-2025,0,5,17,2025
@@ -1346,9 +1346,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746426,2025-08-23 17:00:00+00:00,AJ Auxerre at Nice,AUX @ NICE,Nice,2502,3,AJ Auxerre,172,1,STATUS_FULL_TIME,Allianz Riviera,2025-2026,0,8,23,2025
 746424,2025-08-23 19:05:00+00:00,Metz at Lyon,METZ @ LYON,Lyon,167,3,Metz,177,0,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,8,23,2025
 746423,2025-08-24 13:00:00+00:00,Stade Rennais at Lorient,REN @ LOR,Lorient,273,4,Stade Rennais,169,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,8,24,2025
-746421,2025-08-24 15:15:00+00:00,Lens at Le Havre AC,RCL @ HAC,Le Havre AC,3236,1,Lens,175,2,STATUS_FULL_TIME,Stade Océane,2025-2026,0,8,24,2025
-746428,2025-08-24 15:15:00+00:00,Nantes at Strasbourg,NAN @ STR,Strasbourg,180,1,Nantes,165,0,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,8,24,2025
 746429,2025-08-24 15:15:00+00:00,Brest at Toulouse,BRE @ TOU,Toulouse,179,2,Brest,6997,0,STATUS_FULL_TIME,Stadium de Toulouse,2025-2026,0,8,24,2025
+746428,2025-08-24 15:15:00+00:00,Nantes at Strasbourg,NAN @ STR,Strasbourg,180,1,Nantes,165,0,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,8,24,2025
+746421,2025-08-24 15:15:00+00:00,Lens at Le Havre AC,RCL @ HAC,Le Havre AC,3236,1,Lens,175,2,STATUS_FULL_TIME,Stade Océane,2025-2026,0,8,24,2025
 746422,2025-08-24 18:45:00+00:00,AS Monaco at Lille,MON @ LILL,Lille,166,1,AS Monaco,174,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,8,24,2025
 746432,2025-08-29 18:45:00+00:00,Brest at Lens,BRE @ RCL,Lens,175,3,Brest,6997,1,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2025-2026,0,8,29,2025
 746433,2025-08-30 15:00:00+00:00,Lille at Lorient,LILL @ LOR,Lorient,273,1,Lille,166,7,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,8,30,2025
@@ -1373,9 +1373,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746449,2025-09-20 17:00:00+00:00,Nice at Brest,NICE @ BRE,Brest,6997,4,Nice,2502,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,9,20,2025
 746451,2025-09-20 19:05:00+00:00,Lille at Lens,LILL @ RCL,Lens,175,3,Lille,166,0,STATUS_FULL_TIME,Stade Félix Bollaert-Delélis,2025-2026,0,9,20,2025
 746456,2025-09-21 13:00:00+00:00,Strasbourg at Paris FC,STR @ PAR,Paris FC,6851,2,Strasbourg,180,3,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,9,21,2025
+746450,2025-09-21 15:15:00+00:00,Lorient at Le Havre AC,LOR @ HAC,Le Havre AC,3236,1,Lorient,273,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,9,21,2025
 746448,2025-09-21 15:15:00+00:00,Toulouse at AJ Auxerre,TOU @ AUX,AJ Auxerre,172,1,Toulouse,179,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2025-2026,0,9,21,2025
 746454,2025-09-21 15:15:00+00:00,Metz at AS Monaco,METZ @ MON,AS Monaco,174,5,Metz,177,2,STATUS_FULL_TIME,Stade Louis II,2025-2026,0,9,21,2025
-746450,2025-09-21 15:15:00+00:00,Lorient at Le Havre AC,LOR @ HAC,Le Havre AC,3236,1,Lorient,273,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,9,21,2025
 746453,2025-09-22 18:00:00+00:00,Paris Saint-Germain at Marseille,PSG @ OLM,Marseille,176,1,Paris Saint-Germain,160,0,STATUS_FULL_TIME,Orange Vélodrome,2025-2026,0,9,22,2025
 746461,2025-09-26 18:45:00+00:00,Marseille at Strasbourg,OLM @ STR,Strasbourg,180,1,Marseille,176,2,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,9,26,2025
 746459,2025-09-27 15:00:00+00:00,AS Monaco at Lorient,MON @ LOR,Lorient,273,3,AS Monaco,174,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,9,27,2025
@@ -1436,9 +1436,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746512,2025-11-08 18:00:00+00:00,Nantes at Le Havre AC,NAN @ HAC,Le Havre AC,3236,1,Nantes,165,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,11,8,2025
 746517,2025-11-08 20:05:00+00:00,Lens at AS Monaco,RCL @ MON,AS Monaco,174,1,Lens,175,4,STATUS_FULL_TIME,Stade Louis II,2025-2026,0,11,8,2025
 746515,2025-11-09 14:00:00+00:00,Toulouse at Lorient,TOU @ LOR,Lorient,273,1,Toulouse,179,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,11,9,2025
-746516,2025-11-09 16:15:00+00:00,Nice at Metz,NICE @ METZ,Metz,177,2,Nice,2502,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2025-2026,0,11,9,2025
 746513,2025-11-09 16:15:00+00:00,Lille at Strasbourg,LILL @ STR,Strasbourg,180,2,Lille,166,0,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,11,9,2025
 746511,2025-11-09 16:15:00+00:00,AJ Auxerre at Angers,AUX @ ANG,Angers,7868,2,AJ Auxerre,172,0,STATUS_FULL_TIME,Stade Raymond Kopa,2025-2026,0,11,9,2025
+746516,2025-11-09 16:15:00+00:00,Nice at Metz,NICE @ METZ,Metz,177,2,Nice,2502,1,STATUS_FULL_TIME,Stade Saint-Symphorien,2025-2026,0,11,9,2025
 746514,2025-11-09 19:45:00+00:00,Paris Saint-Germain at Lyon,PSG @ LYON,Lyon,167,2,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,11,9,2025
 746521,2025-11-21 19:45:00+00:00,Marseille at Nice,OLM @ NICE,Nice,2502,1,Marseille,176,5,STATUS_FULL_TIME,Allianz Riviera,2025-2026,0,11,21,2025
 746528,2025-11-22 16:00:00+00:00,Strasbourg at Lens,STR @ RCL,Lens,175,1,Strasbourg,180,0,STATUS_FULL_TIME,Stade Bollaert-Delelis,2025-2026,0,11,22,2025
@@ -1527,8 +1527,8 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746604,2026-02-14 18:00:00+00:00,Brest at Lille,BRE @ LILL,Lille,166,1,Brest,6997,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,2,14,2026
 746602,2026-02-14 20:05:00+00:00,Lens at Paris FC,RCL @ PAR,Paris FC,6851,0,Lens,175,5,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,2,14,2026
 746603,2026-02-15 14:00:00+00:00,Toulouse at Le Havre AC,TOU @ HAC,Le Havre AC,3236,2,Toulouse,179,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,2,15,2026
-746605,2026-02-15 16:15:00+00:00,Angers at Lorient,ANG @ LOR,Lorient,273,2,Angers,7868,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,2,15,2026
 746608,2026-02-15 16:15:00+00:00,AJ Auxerre at Metz,AUX @ METZ,Metz,177,1,AJ Auxerre,172,3,STATUS_FULL_TIME,Stade Saint-Symphorien,2025-2026,0,2,15,2026
+746605,2026-02-15 16:15:00+00:00,Angers at Lorient,ANG @ LOR,Lorient,273,2,Angers,7868,0,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,2,15,2026
 746606,2026-02-15 19:45:00+00:00,Nice at Lyon,NICE @ LYON,Lyon,167,2,Nice,2502,0,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,2,15,2026
 746613,2026-02-20 19:45:00+00:00,Marseille at Brest,OLM @ BRE,Brest,6997,2,Marseille,176,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,2,20,2026
 746614,2026-02-21 16:00:00+00:00,AS Monaco at Lens,MON @ RCL,Lens,175,2,AS Monaco,174,3,STATUS_FULL_TIME,Stade Bollaert-Delelis,2025-2026,0,2,21,2026
@@ -1553,9 +1553,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746628,2026-03-07 18:00:00+00:00,Strasbourg at AJ Auxerre,STR @ AUX,AJ Auxerre,172,0,Strasbourg,180,0,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2025-2026,0,3,7,2026
 746636,2026-03-07 20:05:00+00:00,Marseille at Toulouse,OLM @ TOU,Toulouse,179,0,Marseille,176,1,STATUS_FULL_TIME,Stadium Municipal de Toulouse,2025-2026,0,3,7,2026
 746630,2026-03-08 14:00:00+00:00,Metz at Lens,METZ @ RCL,Lens,175,3,Metz,177,0,STATUS_FULL_TIME,Stade Bollaert-Delelis,2025-2026,0,3,8,2026
-746631,2026-03-08 16:15:00+00:00,Lorient at Lille,LOR @ LILL,Lille,166,1,Lorient,273,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,3,8,2026
 746634,2026-03-08 16:15:00+00:00,Stade Rennais at Nice,REN @ NICE,Nice,2502,0,Stade Rennais,169,4,STATUS_FULL_TIME,Allianz Riviera,2025-2026,0,3,8,2026
 746629,2026-03-08 16:15:00+00:00,Le Havre AC at Brest,HAC @ BRE,Brest,6997,2,Le Havre AC,3236,0,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,3,8,2026
+746631,2026-03-08 16:15:00+00:00,Lorient at Lille,LOR @ LILL,Lille,166,1,Lorient,273,1,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,3,8,2026
 746632,2026-03-08 19:45:00+00:00,Paris FC at Lyon,PAR @ LYON,Lyon,167,1,Paris FC,6851,1,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,3,8,2026
 746640,2026-03-13 19:45:00+00:00,AJ Auxerre at Marseille,AUX @ OLM,Marseille,176,1,AJ Auxerre,172,0,STATUS_FULL_TIME,Stade Vélodrome,2025-2026,0,3,13,2026
 746639,2026-03-14 16:00:00+00:00,Lens at Lorient,RCL @ LOR,Lorient,273,2,Lens,175,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,3,14,2026
@@ -1579,9 +1579,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746656,2026-04-04 17:00:00+00:00,Stade Rennais at Brest,REN @ BRE,Brest,6997,3,Stade Rennais,169,4,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,4,4,2026
 746659,2026-04-04 19:05:00+00:00,Lens at Lille,RCL @ LILL,Lille,166,3,Lens,175,0,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,4,4,2026
 746655,2026-04-05 13:00:00+00:00,Lyon at Angers,LYON @ ANG,Angers,7868,0,Lyon,167,0,STATUS_FULL_TIME,Stade Raymond Kopa,2025-2026,0,4,5,2026
-746657,2026-04-05 15:15:00+00:00,AJ Auxerre at Le Havre AC,AUX @ HAC,Le Havre AC,3236,1,AJ Auxerre,172,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,4,5,2026
-746663,2026-04-05 15:15:00+00:00,Paris FC at Lorient,PAR @ LOR,Lorient,273,1,Paris FC,6851,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,4,5,2026
 746660,2026-04-05 15:15:00+00:00,Nantes at Metz,NAN @ METZ,Metz,177,0,Nantes,165,0,STATUS_FULL_TIME,Stade Saint-Symphorien,2025-2026,0,4,5,2026
+746663,2026-04-05 15:15:00+00:00,Paris FC at Lorient,PAR @ LOR,Lorient,273,1,Paris FC,6851,1,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,4,5,2026
+746657,2026-04-05 15:15:00+00:00,AJ Auxerre at Le Havre AC,AUX @ HAC,Le Havre AC,3236,1,AJ Auxerre,172,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,4,5,2026
 746661,2026-04-05 18:45:00+00:00,Marseille at AS Monaco,OLM @ MON,AS Monaco,174,2,Marseille,176,1,STATUS_FULL_TIME,Stade Louis II,2025-2026,0,4,5,2026
 746670,2026-04-10 17:00:00+00:00,AS Monaco at Paris FC,MON @ PAR,Paris FC,6851,4,AS Monaco,174,1,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,4,10,2026
 746668,2026-04-10 19:05:00+00:00,Metz at Marseille,METZ @ OLM,Marseille,176,3,Metz,177,1,STATUS_FULL_TIME,Stade Vélodrome,2025-2026,0,4,10,2026
@@ -1605,9 +1605,9 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746682,2026-04-25 17:00:00+00:00,Paris Saint-Germain at Angers,PSG @ ANG,Angers,7868,0,Paris Saint-Germain,160,3,STATUS_FULL_TIME,Stade Raymond Kopa,2025-2026,0,4,25,2026
 746690,2026-04-25 19:05:00+00:00,AS Monaco at Toulouse,MON @ TOU,Toulouse,179,2,AS Monaco,174,2,STATUS_FULL_TIME,Stadium Municipal de Toulouse,2025-2026,0,4,25,2026
 746685,2026-04-26 13:00:00+00:00,Strasbourg at Lorient,STR @ LOR,Lorient,273,2,Strasbourg,180,3,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,4,26,2026
-746688,2026-04-26 15:15:00+00:00,Lille at Paris FC,LILL @ PAR,Paris FC,6851,0,Lille,166,1,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,4,26,2026
-746689,2026-04-26 15:15:00+00:00,Nantes at Stade Rennais,NAN @ REN,Stade Rennais,169,2,Nantes,165,1,STATUS_FULL_TIME,Roazhon Park,2025-2026,0,4,26,2026
 746684,2026-04-26 15:15:00+00:00,Metz at Le Havre AC,METZ @ HAC,Le Havre AC,3236,4,Metz,177,4,STATUS_FULL_TIME,Stade Océane,2025-2026,0,4,26,2026
+746689,2026-04-26 15:15:00+00:00,Nantes at Stade Rennais,NAN @ REN,Stade Rennais,169,2,Nantes,165,1,STATUS_FULL_TIME,Roazhon Park,2025-2026,0,4,26,2026
+746688,2026-04-26 15:15:00+00:00,Lille at Paris FC,LILL @ PAR,Paris FC,6851,0,Lille,166,1,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,4,26,2026
 746687,2026-04-26 18:45:00+00:00,Nice at Marseille,NICE @ OLM,Marseille,176,1,Nice,2502,1,STATUS_FULL_TIME,Stade Vélodrome,2025-2026,0,4,26,2026
 746694,2026-05-02 13:00:00+00:00,Marseille at Nantes,OLM @ NAN,Nantes,165,3,Marseille,176,0,STATUS_FULL_TIME,Stade de la Beaujoire,2025-2026,0,5,2,2026
 746695,2026-05-02 15:00:00+00:00,Lorient at Paris Saint-Germain,LOR @ PSG,Paris Saint-Germain,160,2,Lorient,273,2,STATUS_FULL_TIME,Parc des Princes,2025-2026,0,5,2,2026
@@ -1619,25 +1619,25 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 746696,2026-05-03 15:15:00+00:00,Toulouse at Strasbourg,TOU @ STR,Strasbourg,180,1,Toulouse,179,2,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,5,3,2026
 746692,2026-05-03 18:45:00+00:00,Stade Rennais at Lyon,REN @ LYON,Lyon,167,4,Stade Rennais,169,2,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,5,3,2026
 746702,2026-05-08 18:45:00+00:00,Nantes at Lens,NAN @ RCL,Lens,175,1,Nantes,165,0,STATUS_FULL_TIME,Stade Bollaert-Delelis,2025-2026,0,5,8,2026
-746700,2026-05-10 19:00:00+00:00,Nice at AJ Auxerre,NICE @ AUX,AJ Auxerre,172,2,Nice,2502,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2025-2026,0,5,10,2026
+746703,2026-05-10 19:00:00+00:00,Lille at AS Monaco,LILL @ MON,AS Monaco,174,0,Lille,166,1,STATUS_FULL_TIME,Stade Louis II,2025-2026,0,5,10,2026
+746704,2026-05-10 19:00:00+00:00,Strasbourg at Angers,STR @ ANG,Angers,7868,1,Strasbourg,180,1,STATUS_FULL_TIME,Stade Raymond Kopa,2025-2026,0,5,10,2026
+746707,2026-05-10 19:00:00+00:00,Lyon at Toulouse,LYON @ TOU,Toulouse,179,2,Lyon,167,1,STATUS_FULL_TIME,Stadium Municipal de Toulouse,2025-2026,0,5,10,2026
+746706,2026-05-10 19:00:00+00:00,Paris FC at Stade Rennais,PAR @ REN,Stade Rennais,169,2,Paris FC,6851,1,STATUS_FULL_TIME,Roazhon Park,2025-2026,0,5,10,2026
 746701,2026-05-10 19:00:00+00:00,Marseille at Le Havre AC,OLM @ HAC,Le Havre AC,3236,0,Marseille,176,1,STATUS_FULL_TIME,Stade Océane,2025-2026,0,5,10,2026
 746708,2026-05-10 19:00:00+00:00,Lorient at Metz,LOR @ METZ,Metz,177,0,Lorient,273,4,STATUS_FULL_TIME,Stade Saint-Symphorien,2025-2026,0,5,10,2026
+746700,2026-05-10 19:00:00+00:00,Nice at AJ Auxerre,NICE @ AUX,AJ Auxerre,172,2,Nice,2502,1,STATUS_FULL_TIME,Stade de l'Abbé-Deschamps,2025-2026,0,5,10,2026
 746705,2026-05-10 19:00:00+00:00,Brest at Paris Saint-Germain,BRE @ PSG,Paris Saint-Germain,160,1,Brest,6997,0,STATUS_FULL_TIME,Parc des Princes,2025-2026,0,5,10,2026
-746706,2026-05-10 19:00:00+00:00,Paris FC at Stade Rennais,PAR @ REN,Stade Rennais,169,2,Paris FC,6851,1,STATUS_FULL_TIME,Roazhon Park,2025-2026,0,5,10,2026
-746707,2026-05-10 19:00:00+00:00,Lyon at Toulouse,LYON @ TOU,Toulouse,179,2,Lyon,167,1,STATUS_FULL_TIME,Stadium Municipal de Toulouse,2025-2026,0,5,10,2026
-746704,2026-05-10 19:00:00+00:00,Strasbourg at Angers,STR @ ANG,Angers,7868,1,Strasbourg,180,1,STATUS_FULL_TIME,Stade Raymond Kopa,2025-2026,0,5,10,2026
-746703,2026-05-10 19:00:00+00:00,Lille at AS Monaco,LILL @ MON,AS Monaco,174,0,Lille,166,1,STATUS_FULL_TIME,Stade Louis II,2025-2026,0,5,10,2026
 746665,2026-05-13 17:00:00+00:00,Strasbourg at Brest,STR @ BRE,Brest,6997,1,Strasbourg,180,2,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,5,13,2026
 746666,2026-05-13 19:00:00+00:00,Paris Saint-Germain at Lens,PSG @ RCL,Lens,175,0,Paris Saint-Germain,160,2,STATUS_FULL_TIME,Stade Bollaert-Delelis,2025-2026,0,5,13,2026
-746711,2026-05-17 19:00:00+00:00,Le Havre AC at Lorient,HAC @ LOR,Lorient,273,0,Le Havre AC,3236,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,5,17,2026
-746710,2026-05-17 19:00:00+00:00,AJ Auxerre at Lille,AUX @ LILL,Lille,166,0,AJ Auxerre,172,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,5,17,2026
-746712,2026-05-17 19:00:00+00:00,Lens at Lyon,RCL @ LYON,Lyon,167,0,Lens,175,4,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,5,17,2026
-746717,2026-05-17 19:00:00+00:00,Stade Rennais at Marseille,REN @ OLM,Marseille,176,3,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Vélodrome,2025-2026,0,5,17,2026
-746709,2026-05-17 19:00:00+00:00,Angers at Brest,ANG @ BRE,Brest,6997,1,Angers,7868,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,5,17,2026
-746713,2026-05-17 19:00:00+00:00,Paris Saint-Germain at Paris FC,PSG @ PAR,Paris FC,6851,2,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,5,17,2026
 746716,2026-05-17 19:00:00+00:00,AS Monaco at Strasbourg,MON @ STR,Strasbourg,180,5,AS Monaco,174,4,STATUS_FULL_TIME,Stade de la Meinau,2025-2026,0,5,17,2026
-746715,2026-05-17 19:00:00+00:00,Metz at Nice,METZ @ NICE,Nice,2502,0,Metz,177,0,STATUS_FULL_TIME,Allianz Riviera,2025-2026,0,5,17,2026
 746714,2026-05-17 19:00:00+00:00,Toulouse at Nantes,TOU @ NAN,Nantes,165,0,Toulouse,179,0,STATUS_ABANDONED,Stade de la Beaujoire,2025-2026,0,5,17,2026
+746715,2026-05-17 19:00:00+00:00,Metz at Nice,METZ @ NICE,Nice,2502,0,Metz,177,0,STATUS_FULL_TIME,Allianz Riviera,2025-2026,0,5,17,2026
+746713,2026-05-17 19:00:00+00:00,Paris Saint-Germain at Paris FC,PSG @ PAR,Paris FC,6851,2,Paris Saint-Germain,160,1,STATUS_FULL_TIME,Stade Jean Bouin,2025-2026,0,5,17,2026
+746717,2026-05-17 19:00:00+00:00,Stade Rennais at Marseille,REN @ OLM,Marseille,176,3,Stade Rennais,169,1,STATUS_FULL_TIME,Stade Vélodrome,2025-2026,0,5,17,2026
+746712,2026-05-17 19:00:00+00:00,Lens at Lyon,RCL @ LYON,Lyon,167,0,Lens,175,4,STATUS_FULL_TIME,Groupama Stadium,2025-2026,0,5,17,2026
+746710,2026-05-17 19:00:00+00:00,AJ Auxerre at Lille,AUX @ LILL,Lille,166,0,AJ Auxerre,172,2,STATUS_FULL_TIME,Decathlon Arena - Stade Pierre-Mauroy,2025-2026,0,5,17,2026
+746711,2026-05-17 19:00:00+00:00,Le Havre AC at Lorient,HAC @ LOR,Lorient,273,0,Le Havre AC,3236,2,STATUS_FULL_TIME,Stade du Moustoir - Yves Allainmat,2025-2026,0,5,17,2026
+746709,2026-05-17 19:00:00+00:00,Angers at Brest,ANG @ BRE,Brest,6997,1,Angers,7868,1,STATUS_FULL_TIME,Stade Francis-Le Blé,2025-2026,0,5,17,2026
 401876489,2026-08-21 18:45:00+00:00,Strasbourg at Marseille,STR @ OLM,Marseille,176,4,Strasbourg,180,0,STATUS_FULL_TIME,Stade Vélodrome,2026-2027,0,8,21,2026
 401876490,2026-08-22 15:15:00+00:00,AJ Auxerre at Lens,AUX @ RCL,Lens,175,5,AJ Auxerre,172,2,STATUS_FULL_TIME,Stade Bollaert-Delelis,2026-2027,0,8,22,2026
 401876491,2026-08-22 18:45:00+00:00,Brest at Le Mans,BRE @ MNS,Le Mans,2697,2,Brest,6997,2,STATUS_FULL_TIME,Stade Marie-Marvingt,2026-2027,0,8,22,2026
@@ -1657,3 +1657,5 @@ game_id,date,name,short_name,home_name,home_id,home_score,away_name,away_id,away
 401876478,2026-08-30 15:15:00+00:00,Le Mans at Stade Rennais,MNS @ REN,Stade Rennais,169,3,Le Mans,2697,2,STATUS_FULL_TIME,Roazhon Park,2026-2027,0,8,30,2026
 401876480,2026-08-30 18:45:00+00:00,Marseille at AS Monaco,OLM @ MON,AS Monaco,174,2,Marseille,176,0,STATUS_FULL_TIME,Stade Louis II,2026-2027,0,8,30,2026
 401876468,2026-09-03 18:45:00+00:00,,,Toulouse,179,0,Lille,166,1,STATUS_FULL_TIME,Stadium Municipal de Toulouse,2026-2027,0,9,3,2026
+401876472,2026-09-04 17:00:00+00:00,,,Lyon,167,3,AJ Auxerre,172,1,STATUS_FULL_TIME,Groupama Stadium,2026-2027,0,9,4,2026
+401876469,2026-09-04 19:05:00+00:00,,,Paris Saint-Germain,160,1,AS Monaco,174,2,STATUS_FULL_TIME,Parc des Princes,2026-2027,0,9,4,2026
