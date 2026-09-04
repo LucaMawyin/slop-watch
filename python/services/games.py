@@ -2,6 +2,8 @@
 import pandas as pd
 from config.sports import SPORT_CONFIG
 
+import time
+
 pd.set_option("display.max_rows", None)
 
 def get_games(league="nba"):
@@ -180,6 +182,8 @@ def get_performance(league="nba"):
 
 def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
 
+    start_time = time.perf_counter()
+
     if league not in SPORT_CONFIG:
         raise ValueError(f"Unsupported league: {league}")
 
@@ -279,6 +283,10 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
             current_date += pd.Timedelta(days=1)
 
     if not games:
+        print(
+            f"get_games took "
+            f"{time.perf_counter() - start_time:.3f}s"
+        )
         return pd.DataFrame()
 
     df = pd.concat(games, ignore_index=True)
@@ -334,4 +342,10 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     future_games = future_games.drop_duplicates(
         subset=["game_id"]
     )
+
+    print(
+        f"get_games took "
+        f"{time.perf_counter() - start_time:.3f}s"
+    )
+
     return future_games

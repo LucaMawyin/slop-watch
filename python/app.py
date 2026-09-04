@@ -6,13 +6,17 @@ from flask_cors import CORS
 import pandas as pd
 from lock import lock
 import re
+import time
 
 from services.predict import predict_slop
-from config.sports import SPORT_CONFIG, SPORT_LEAGUES
+from config.sports import SPORT_CONFIG, SPORT_LEAGUES, GAME_FEATURES
 from services.update_data import update_data
 from services.model import train_model
 from services.slop import get_slop
 from services.teams import get_teams
+
+from services.games_new import get_games
+from services.predict_new import predict
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
@@ -65,6 +69,8 @@ def update():
 @app.route("/api/games",methods=["GET"])
 def games():
 
+    start_time = time.perf_counter()
+
     league = request.args.get("league")
     sport = request.args.get("sport")
     start_date = request.args.get("start")
@@ -115,11 +121,14 @@ def games():
 
     all_games = []
 
+    # ---------------------------------
+    # GET GAMES & PREDICTIONS
+    # ---------------------------------
+
     for league in leagues:
 
-        historical = get_slop(league=league)
-        predictions = predict_slop(
-            prediction_date=prediction_date,
+        predictions = predict(
+            start_date=prediction_date,
             league=league,
             days_ahead=days_ahead,
         )
@@ -127,84 +136,29 @@ def games():
         if predictions.empty:
             continue
 
-        predictions["game_id"] = predictions["game_id"].astype(str)
-        historical["game_id"] = historical["game_id"].astype(str)
-
-        predictions = predictions.merge(
-            historical[[
-                "game_id", 
-                "actual_slop",
-                "slop_percentile",
-                "actual_watchability",
-                "watchability_percentile"
-            ]].rename(
-                columns={
-                    "slop_percentile": "actual_slop_percentile",
-                    "watchability_percentile": "actual_watchability_percentile",
-                }
-            ),
-            on="game_id",
-            how="left",
+        predictions["game_id"] = (
+            predictions["game_id"].astype(str)
         )
 
-        predictions["slop_percentile"] = (
-            predictions["actual_slop_percentile"]
-            .fillna(predictions["slop_percentile"])
-        )
+        # Select cols
+        league_games = predictions[GAME_FEATURES].copy()
 
-        predictions["watchability_percentile"] = (
-            predictions["actual_watchability_percentile"]
-            .fillna(predictions["watchability_percentile"])
-        )
+        # ---------------------------------
+        # FILTER FOR GAME
+        # ---------------------------------
 
-        league_games = predictions[
-            [
-                # Game information
-                "game_id",
-                "date",
-                "home_name",
-                "away_name",
-                "venue_full_name",
-                "is_postseason",
-
-                # Score
-                "home_score",
-                "away_score",
-
-                # Slop
-                "predicted_slop",
-                "actual_slop",
-                "slop_percentile",
-
-                # Watchability
-                "predicted_watchability",
-                "actual_watchability",
-                "watchability_percentile",
-
-                # Season performance
-                "home_win_pct",
-                "away_win_pct",
-                "home_point_diff",
-                "away_point_diff",
-
-                # Recent performance
-                "home_recent_win_pct",
-                "away_recent_win_pct",
-                "home_recent_point_diff",
-                "away_recent_point_diff",
-            ]
-        ].copy()
-
-        # Filter to specific game if provided
         if game_id:
             league_games = league_games[
                 league_games["game_id"].astype(str) == str(game_id)
             ].copy()
 
-        # Filter to team if provided
+        # ---------------------------------
+        # FILTER FOR TEAM
+        # ---------------------------------
+
         if team:
             league_games = league_games[
-                (league_games["home_name"] == team) |
+                (league_games["home_name"] == team) | 
                 (league_games["away_name"] == team)
             ].copy()
 
@@ -212,13 +166,28 @@ def games():
 
         all_games.append(league_games)
 
+    # ---------------------------------
+    # RETURN GAMES
+    # ---------------------------------
+
     if not all_games:
+        print(f"Games took {time.perf_counter() - start_time:.3f}s")
         return jsonify([])
 
-    games = pd.concat(all_games, ignore_index=True)
+    games = pd.concat(
+        all_games, 
+        ignore_index=True
+    )
 
     games["date"] = games["date"].astype(str)
-    games = games.astype(object).where(pd.notna(games), None)
+
+    games = games.astype(object).where(
+        pd.notna(games),
+        None
+    )
+
+    elapsed = time.perf_counter() - start_time
+    print(f"Games took {elapsed:.3f}s")
 
     return jsonify(
         games.to_dict(orient="records")

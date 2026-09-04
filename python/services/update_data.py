@@ -4,6 +4,8 @@ import pandas as pd
 from datetime import date, timedelta
 import os
 
+from services.process_league import process_league
+
 def update_data(league="nba"):
 
     # Initial data
@@ -282,6 +284,9 @@ def update_data(league="nba"):
     temp_path = output_path.with_suffix(".tmp")
     df.to_csv(temp_path, index=False)
     os.replace(temp_path, output_path)
+
+    # Rebuild processed data
+    process_league(league)
 
     print(
         f"{league.upper()}: refreshed {len(new_games)} games, "

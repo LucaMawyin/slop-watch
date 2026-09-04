@@ -58,6 +58,63 @@ from sportsdataverse.soccer.seriea import espn_seriea_summary
 from sportsdataverse.soccer.bundesliga import espn_bundesliga_summary
 from sportsdataverse.soccer.ligue1 import espn_ligue1_summary
 
+GAME_FEATURES = [
+    # Game information
+    "game_id",
+    "date",
+    "home_name",
+    "away_name",
+    "venue_full_name",
+    "is_postseason",
+
+    # Score
+    "home_score",
+    "away_score",
+
+    # Slop
+    "predicted_slop",
+    "actual_slop",
+    "slop_percentile",
+
+    # Watchability
+    "predicted_watchability",
+    "actual_watchability",
+    "watchability_percentile",
+
+    # Season performance
+    "home_win_pct",
+    "away_win_pct",
+    "home_point_diff",
+    "away_point_diff",
+
+    # Recent performance
+    "home_recent_win_pct",
+    "away_recent_win_pct",
+    "home_recent_point_diff",
+    "away_recent_point_diff",
+]
+
+MODEL_FEATURES = [
+    "month",
+    "day",
+    "year",
+    "is_postseason",
+    "home_id",
+    "away_id",
+    "home_win_pct",
+    "away_win_pct",
+    "home_point_diff",
+    "away_point_diff",
+    "home_recent_win_pct",
+    "away_recent_win_pct",
+    "home_recent_point_diff",
+    "away_recent_point_diff",
+]
+
+DATA_RANGE_YEARS = 5
+
+NUMBER_OF_SEASONS = 1
+
 SPORT_LEAGUES = {
     "basketball": ["nba", "wnba"],
     "football": ["nfl"],
@@ -73,7 +130,6 @@ SPORT_LEAGUES = {
     ],
 }
 
-NUMBER_OF_SEASONS = 1
 
 SPORT_CONFIG = {
 
@@ -86,6 +142,7 @@ SPORT_CONFIG = {
         "schedule_function": espn_nba_schedule,
         "statistics_function": espn_nba_game_team_statistics,
         "output": "data/raw/nba_games.csv",
+        "processed_output": "data/processed/nba_games.csv",
         "extra_features": [
             "field_goal_pct",
             "three_point_pct",
@@ -103,7 +160,7 @@ SPORT_CONFIG = {
             "fouls",
             "largest_lead",
         ],
-        "performance_window" : 82 * NUMBER_OF_SEASONS,
+        "performance_window": 82 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -20,
@@ -118,6 +175,7 @@ SPORT_CONFIG = {
         "schedule_function": espn_wnba_schedule,
         "statistics_function": espn_wnba_game_team_statistics,
         "output": "data/raw/wnba_games.csv",
+        "processed_output": "data/processed/wnba_games.csv",
         "extra_features": [
             "field_goal_pct",
             "three_point_pct",
@@ -150,11 +208,11 @@ SPORT_CONFIG = {
     # ---------------------------------
 
     "nfl": {
-
         # Data
         "schedule_function": espn_nfl_schedule,
         "statistics_function": espn_nfl_game_team_statistics,
         "output": "data/raw/nfl_games.csv",
+        "processed_output": "data/processed/nfl_games.csv",
         "extra_features": [
             "first_downs",
             "first_downs_passing",
@@ -177,7 +235,7 @@ SPORT_CONFIG = {
             "total_plays",
             "red_zone_efficiency",
         ],
-        "performance_window" : 17 * NUMBER_OF_SEASONS,
+        "performance_window": 17 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -30,
@@ -192,11 +250,11 @@ SPORT_CONFIG = {
     # ---------------------------------
 
     "nhl": {
-
         # Data
         "schedule_function": espn_nhl_schedule,
         "statistics_function": espn_nhl_game_team_statistics,
         "output": "data/raw/nhl_games.csv",
+        "processed_output": "data/processed/nhl_games.csv",
         "extra_features": [
             "blockedShots",
             "hits",
@@ -213,7 +271,7 @@ SPORT_CONFIG = {
             "penalties",
             "penaltyMinutes",
         ],
-        "performance_window" : 82 * NUMBER_OF_SEASONS,
+        "performance_window": 82 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -5,
@@ -228,6 +286,7 @@ SPORT_CONFIG = {
         "schedule_function": pwhl_schedule,
         "statistics_function": pwhl_game_summary,
         "output": "data/raw/pwhl_games.csv",
+        "processed_output": "data/processed/pwhl_games.csv",
         "schedule_type": "season",
         "extra_features": [
             "shots_on_goal",
@@ -254,13 +313,13 @@ SPORT_CONFIG = {
     # ---------------------------------
     # BASEBALL
     # ---------------------------------
-    
-    "mlb": {
 
+    "mlb": {
         # Data
         "schedule_function": espn_mlb_schedule,
         "statistics_function": espn_mlb_game_team_statistics,
         "output": "data/raw/mlb_games.csv",
+        "processed_output": "data/processed/mlb_games.csv",
         "extra_features": [
             "runs",
             "hits",
@@ -274,7 +333,7 @@ SPORT_CONFIG = {
             "earnedRuns",
             "ERA",
         ],
-        "performance_window" : 162 * NUMBER_OF_SEASONS,
+        "performance_window": 162 * NUMBER_OF_SEASONS,
 
         # Slop config
         "point_diff_min": -5,
@@ -294,6 +353,7 @@ SPORT_CONFIG = {
         "statistics_function": espn_mls_summary,
         "league": "usa.1",
         "output": "data/raw/mls_games.csv",
+        "processed_output": "data/processed/mls_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",
@@ -316,12 +376,14 @@ SPORT_CONFIG = {
         "total_points_max": 6,
         "margin_max": 3,
     },
+
     "epl": {
         # Data
         "schedule_function": espn_soccer_scoreboard,
         "statistics_function": espn_epl_summary,
         "league": "eng.1",
         "output": "data/raw/epl_games.csv",
+        "processed_output": "data/processed/epl_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",
@@ -351,6 +413,7 @@ SPORT_CONFIG = {
         "statistics_function": espn_laliga_summary,
         "league": "esp.1",
         "output": "data/raw/laliga_games.csv",
+        "processed_output": "data/processed/laliga_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",
@@ -380,6 +443,7 @@ SPORT_CONFIG = {
         "statistics_function": espn_seriea_summary,
         "league": "ita.1",
         "output": "data/raw/serie_a_games.csv",
+        "processed_output": "data/processed/serie_a_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",
@@ -409,6 +473,7 @@ SPORT_CONFIG = {
         "statistics_function": espn_bundesliga_summary,
         "league": "ger.1",
         "output": "data/raw/bundesliga_games.csv",
+        "processed_output": "data/processed/bundesliga_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",
@@ -438,6 +503,7 @@ SPORT_CONFIG = {
         "statistics_function": espn_ligue1_summary,
         "league": "fra.1",
         "output": "data/raw/ligue_1_games.csv",
+        "processed_output": "data/processed/ligue_1_games.csv",
         "extra_features": [
             "shots",
             "shots_on_target",

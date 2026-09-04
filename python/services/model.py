@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
 from services.slop import get_slop
-from config.sports import SPORT_CONFIG
+from config.sports import SPORT_CONFIG, MODEL_FEATURES
 
 def train_model(league="nba"):
 
@@ -22,29 +22,12 @@ def train_model(league="nba"):
     # FEATURES
     # ---------------------------------
 
-    features = [
-        "home_id",
-        "away_id",
-        "home_win_pct",
-        "away_win_pct",
-        "home_point_diff",
-        "away_point_diff",
-        "home_recent_win_pct",
-        "away_recent_win_pct",
-        "home_recent_point_diff",
-        "away_recent_point_diff",
-        "month",
-        "day",
-        "year",
-        "is_postseason",
-    ]
-
     targets = [
         "actual_slop",
         "actual_watchability",
     ]
 
-    X = actual_slop[features]
+    X = actual_slop[MODEL_FEATURES]
     Y = actual_slop[targets]
 
     # Remove games where pre-game statistics are unavailable

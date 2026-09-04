@@ -4,25 +4,13 @@ import numpy as np
 
 from services.games import get_future_games, get_performance
 from services.slop import get_slop
+from config.sports import MODEL_FEATURES
 
-FEATURES = [
-    "home_id",
-    "away_id",
-    "home_win_pct",
-    "away_win_pct",
-    "home_point_diff",
-    "away_point_diff",
-    "home_recent_win_pct",
-    "away_recent_win_pct",
-    "home_recent_point_diff",
-    "away_recent_point_diff",
-    "month",
-    "day",
-    "year",
-    "is_postseason",
-]
+import time
 
-def predict_slop(prediction_date=None, league="nba", days_ahead=7):
+def predict_slop(prediction_date=None, league="mlb", days_ahead=100):
+
+    start_time = time.perf_counter()
 
     if prediction_date is None:
         prediction_date = pd.Timestamp.now(tz="UTC")
@@ -123,7 +111,7 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
         how="left",
     )
 
-    valid = games[FEATURES].notna().all(axis=1)
+    valid = games[MODEL_FEATURES].notna().all(axis=1)
     if not valid.any():
         return games.iloc[0:0].copy()
 
@@ -133,7 +121,7 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
     # PREDICT SLOP
     # ---------------------------------
 
-    predictions = model.predict(games[FEATURES])
+    predictions = model.predict(games[MODEL_FEATURES])
 
     games["predicted_slop"] = predictions [:, 0]
     games["predicted_watchability"] = predictions [:, 1]
@@ -175,23 +163,11 @@ def predict_slop(prediction_date=None, league="nba", days_ahead=7):
         ascending=False
     )
 
+    elapsed = time.perf_counter() - start_time
+    print(f"Predict took {elapsed:.3f}s")
+
     return games
 
 if __name__ == "__main__":
     predictions = predict_slop(
-        prediction_date=pd.Timestamp("2026-10-13", tz="UTC")
     )
-
-    if not predictions.empty:
-        print(
-            predictions[
-                [
-                    "date",
-                    "home_name",
-                    "away_name",
-                    "predicted_slop",
-                ]
-            ]
-            .tail(100)
-            .to_string(index=False)
-        )
