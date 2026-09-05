@@ -393,7 +393,7 @@ function GamesContent() {
                             const watchabilityColour = getHeatColour(1-watchability);
 
                             const badge = getSlopBadge(slop, watchability);
-                            const currentLeague = leagues.find((item) => item.id === game.league)?.name;
+                            const currentLeague = leagues.find((item) => item.id === game.league)?.id;
 
 
                             return (
