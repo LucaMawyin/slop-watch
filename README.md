@@ -18,9 +18,10 @@ When Slop Watch identifies a game worth avoiding, users can also **add the game 
 slop-watch/
 
 ├── src/                          # React frontend
+│   ├── games/                    # Games list
 │   └── [league]/
 │       ├── teams/
-│       │   └── [team_id]/       # Team pages
+│       │   └── [team]/           # Team pages
 │       └── preview/
 │           └── [id]/             # Game preview pages
 │
