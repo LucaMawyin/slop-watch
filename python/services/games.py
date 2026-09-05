@@ -11,6 +11,7 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
         raise ValueError(f"Unsupported league: {league}")
 
     # Default to today
+    
     if start_date is None:
         start_date = pd.Timestamp.now("UTC")
     else:
@@ -23,7 +24,11 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
 
     start_date = start_date.normalize()
 
-    end_date = start_date + pd.Timedelta(days=days_ahead)
+    end_date = (
+        start_date
+        + pd.Timedelta(days=days_ahead + 1)
+        - pd.Timedelta(nanoseconds=1)
+    )
 
     data_start_date = (
         pd.Timestamp.now("UTC")
@@ -65,7 +70,7 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
 
     if (
         start_date >= data_start_date
-        and latest_date >= end_date
+        and latest_date > end_date
     ):
         print(
             f"get_games took "
@@ -81,7 +86,7 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     if start_date >= data_start_date:
         fetch_start = max(
             start_date,
-            latest_date.normalize() + pd.Timedelta(days=1)
+            latest_date.normalize()
         )
     else:
         fetch_start = start_date
@@ -222,7 +227,6 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     # ---------------------------------
     # COMBINE API DATA
     # ---------------------------------
-
     if games:
 
         fetched_games = pd.concat(
@@ -240,6 +244,11 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
             (fetched_games["date"] >= fetch_start) &
             (fetched_games["date"] <= fetch_end)
         ].copy()
+
+        fetched_games = fetched_games.drop_duplicates(
+            subset="game_id",
+            keep="last"
+        ).copy()
 
     else:
         fetched_games = pd.DataFrame()
@@ -364,10 +373,18 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     else:
         result = fetched_games
 
-    # Drop duplicates
-    result = result.drop_duplicates(
-        subset="game_id"
+
+    # Remove duplicates
+    result["game_id"] = (
+        result["game_id"]
+        .astype(str)
+        .str.strip()
     )
+
+    result = result.drop_duplicates(
+        subset="game_id",
+        keep="first"
+    ).copy()
 
     print(
         f"get_games took "
