@@ -192,7 +192,7 @@ export default function PreviewPage({ params }: Props) {
                         <div className="shrink-0 text-center text-lg font-semibold text-zinc-500">
                             {game.actual_slop !== null ? (
                                 <div className="text-4xl font-bold text-white">
-                                    {game.away_score} - {game.home_score}
+                                    {game.home_score} - {game.away_score}
                                 </div>
                             ) : (
                                 "VS"
