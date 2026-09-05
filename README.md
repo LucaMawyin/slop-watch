@@ -1,4 +1,4 @@
-# Slop Watch
+# [Slop Watch](https://slopwatchsports.vercel.app/)
 
 **Predicting the sloppiest games in sports — so you know when not to watch.**
 
@@ -14,30 +14,47 @@ When Slop Watch identifies a game worth avoiding, users can also **add the game 
 
 ## Project Structure
 
-```text
+```
 slop-watch/
-├── src/                    # React frontend
+
+├── src/                          # React frontend
+│   └── [league]/
+│       ├── teams/
+│       │   └── [team_id]/       # Team pages
+│       └── preview/
+│           └── [id]/             # Game preview pages
 │
-├── python/                 # Flask backend and ML code
-│   ├── .venv/             # Python virtual environment
-│   ├── app.py             # Flask application
-│   ├── requirements.txt   # Python dependencies
+├── python/                       # Flask backend and ML code
+│   ├── .venv/                    # Python virtual environment
+│   ├── app.py                    # Flask application and API routes
+│   ├── lock.py                   # Handles data/model locking and update coordination
+│   ├── requirements.txt          # Python dependencies
+│   │
+│   ├── config/                   # Application and league configuration
+│   │   ├── __init__.py
+│   │   └── sports.py             # Sports and league configuration
 │   │
 │   ├── data/
-│   │   ├── raw/           # Raw historical sports data
-│   │   └── processed/     # Processed data used by the application
+│   │   ├── raw/                  # Raw historical sports data
+│   │   └── processed/            # Processed data used by the application
 │   │
-│   ├── models/            # Trained ML models
-│   |   └── slop_model.pkl
+│   ├── models/                   # Trained ML models and prediction data
+│   │   ├── league_slop_model
+│   │   └── league_prediction_distribution
 │   │
 │   └── services/
-│       ├── data.py        # Loads and converts raw sports data into DataFrames
-│       ├── games.py       # Provides game data and pre-game team performance
-│       ├── slop.py        # Calculates the actual Slop Score for completed games
-│       ├── model.py       # Trains and saves the Slop Score model
-│       └── predict.py     # Predicts Slop Score using pre-game team performance
+│       ├── data.py               # Loads and converts raw sports data into DataFrames
+│       ├── games_old.py          # DEPRECATED: Previous game data implementation
+│       ├── games.py              # Provides game data and pre-game team performance
+│       ├── teams.py              # Provides team data and team performance statistics
+│       ├── slop.py               # Calculates the actual Slop Score for completed games
+│       ├── model.py              # Trains and saves the Slop Score model
+│       ├── predict.py            # Predicts Slop Score using pre-game team performance
+│       ├── process_leagues.py    # Processes data for individual sports leagues
+│       ├── update_data.py        # Collects and updates historical sports data
+│       └── update_manual.py      # Manually updates data and retrains the models
 │
-├── package.json            # React dependencies
+├── package.json                  # React dependencies
 └── .gitignore
 ```
 
@@ -74,30 +91,34 @@ Calendar integration may support services such as:
 
 ## How It Works
 
-Slop Watch follows a pipeline from historical data to predictions:
+Slop Watch uses a machine learning pipeline to turn historical game data into predictions for upcoming games.
 
 ```text
 Historical Sports Data
         ↓
      data.py
         ↓
+  Processed Data
+        ↓
      games.py
+        ↓
+Pre-Game Team Performance
         ↓
      slop.py
         ↓
-   Actual Slop
+   Actual Slop Score
         ↓
-    model.py
+     model.py
         ↓
  Random Forest Model
         ↓
- slop_model.pkl
+  slop_model.pkl
         ↓
     predict.py
         ↓
- Predicted Slop
+ Predicted Slop Score
         ↓
-     Flask API
+    Flask API
         ↓
  React Frontend
         ↓
@@ -137,7 +158,7 @@ For example:
 
 ```text
 ┌─────────────────────────────────┐
-│ 🚨 HIGH SLOP WARNING            │
+│ HIGH SLOP WARNING               │
 │                                 │
 │ Team A vs. Team B               │
 │ Saturday, 7:30 PM               │
@@ -155,10 +176,42 @@ A calendar event can include relevant information such as:
 - Venue
 - Slop Score
 - Prediction
-- Reason for the prediction
 - Game information
 
 The goal is to make it easy for users to keep track of games they have been warned about — whether they want to **avoid the slop or watch it anyway**.
+
+## Game & Team Pages
+
+Slop Watch provides dedicated pages for both **games** and **teams**, giving users more context behind Slop Score predictions.
+
+### Game Preview Pages
+
+Each game has its own page where users can view information about the matchup, including:
+
+- Teams
+- Game date and time
+- Venue
+- Predicted Slop Score
+- Game details
+- Pre-game team performance
+- Other relevant prediction information
+
+Game pages provide a more detailed view of an individual matchup beyond the main list of upcoming games.
+
+### Team Pages
+
+Each team has its own page containing information about the team's performance and history.
+
+Team pages can include:
+
+- Team information
+- Recent performance
+- Season statistics
+- Upcoming games
+- Previous games
+- Slop-related statistics
+
+Together, game preview and team pages allow users to explore **why a game is predicted to be slop** and understand the teams involved.
 
 ## Development
 
@@ -221,6 +274,8 @@ flask
 flask-cors
 joblib
 sportsdataverse
+python-dotenv
+filelock
 ```
 
 Install them with:
@@ -267,12 +322,37 @@ including:
 The model is trained on historical games using the actual Slop Score
 calculated by `slop.py` as the target.
 
-The trained model is saved as:
+The trained models are stored in:
 
-python/models/slop_model.pkl
+```
+python/models/
+```
 
-`predict.py` loads this model and uses current pre-game team performance
-to estimate the Slop Score of upcoming games.
+Each league has its own trained model:
+
+```
+league_slop_model.pkl
+```
+
+## Prediction
+
+`predict.py` loads the appropriate league model and uses the most recent pre-game team performance to predict the Slop Score of upcoming games.
+
+## League Prediction Distributions
+
+Slop Watch maintains a **prediction distribution for each supported league**.
+
+The league prediction distribution shows how predicted Slop Scores are distributed across games within that league. This allows individual predictions to be evaluated relative to the typical predictions for that specific league.
+
+League-specific models and prediction distributions are stored separately so that different sports can have their own prediction ranges and characteristics.
+
+```
+python/models/
+├── league_slop_model.pkl
+└── league_prediction_distribution
+```
+
+This makes it possible to determine not only a game's predicted Slop Score, but also how unusually high or low that prediction is compared with other games in the same league.
 
 ## Avoiding Data Leakage
 
@@ -290,10 +370,6 @@ For example, when predicting a November game, the model can use:
 It must not use information from games that have not happened yet.
 
 This is particularly important when training and testing the model. A model that accidentally sees future information can appear extremely accurate while being useless in practice.
-
-### Current Status
-
-Replace your current checklist with:
 
 ## Current Status
 
@@ -336,7 +412,7 @@ Replace your current checklist with:
 - [x] Support MLB
 - [x] Support NFL
 - [x] Support NHL
-- [ ] Develop sport-specific Slop Scores
+- [x] Develop sport-specific Slop Scores
 
 ## Future Goals
 
@@ -344,11 +420,6 @@ Replace your current checklist with:
 - Explain why a game is predicted to be slop
 - Display confidence scores
 - Compare predictions with actual game results
-- Track model accuracy over time
-- Build a historical database of the worst games
-- Develop sport-specific Slop Scores
-- Improve predictions with additional data sources
-- Provide personalized slop recommendations
 
 ## The Goal
 
@@ -357,7 +428,3 @@ Sports are full of great games.
 Slop Watch exists to find the ones you should **not** watch.
 
 And if you're brave enough to watch them anyway, **put them on your calendar.**
-
-```
-
-```
