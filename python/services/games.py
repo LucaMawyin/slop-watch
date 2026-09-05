@@ -373,18 +373,19 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     else:
         result = fetched_games
 
-
     # Remove duplicates
-    result["game_id"] = (
-        result["game_id"]
-        .astype(str)
-        .str.strip()
-    )
+    if not result.empty and "game_id" in result.columns:
 
-    result = result.drop_duplicates(
-        subset="game_id",
-        keep="first"
-    ).copy()
+        result["game_id"] = (
+            result["game_id"]
+            .astype(str)
+            .str.strip()
+        )
+
+        result = result.drop_duplicates(
+            subset="game_id",
+            keep="first"
+        )
 
     print(
         f"get_games took "
