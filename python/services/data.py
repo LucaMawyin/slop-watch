@@ -2,11 +2,11 @@ from datetime import date, timedelta
 from pathlib import Path
 import pandas as pd
 import os
-from config.sports import SPORT_CONFIG, SPORT_LEAGUES
+from config.sports import SPORT_CONFIG, SPORT_LEAGUES, DATA_RANGE_YEARS
 
 # 5 years of data
 END_DATE = date.today()
-START_DATE = END_DATE - timedelta(days=5 * 365)
+START_DATE = END_DATE - timedelta(days=DATA_RANGE_YEARS * 365)
 
 def collect_games(sport):
     config = SPORT_CONFIG[sport]
@@ -203,7 +203,7 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-for sport in SPORT_LEAGUES["soccer"]:
+for sport in SPORT_CONFIG:
     print()
     print("=" * 50)
     print(f"Collecting {sport.upper()}")

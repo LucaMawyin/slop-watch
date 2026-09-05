@@ -111,7 +111,7 @@ MODEL_FEATURES = [
     "away_recent_point_diff",
 ]
 
-DATA_RANGE_YEARS = 5
+DATA_RANGE_YEARS = 10
 
 NUMBER_OF_SEASONS = 1
 

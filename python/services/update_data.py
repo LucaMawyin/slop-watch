@@ -5,6 +5,7 @@ from datetime import date, timedelta
 import os
 
 from services.process_league import process_league
+from config.sports import DATA_RANGE_YEARS
 
 def update_data(league="nba"):
 
@@ -249,7 +250,7 @@ def update_data(league="nba"):
 
     cutoff_date = (
         pd.Timestamp.now(tz="UTC")
-        - pd.DateOffset(years=5)
+        - pd.DateOffset(years=DATA_RANGE_YEARS)
     )
 
     df["_date"] = df["date"]
