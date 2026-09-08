@@ -356,10 +356,10 @@ export default function PreviewPage({ params }: Props) {
                     </div>
                 </section>
 
-                {/* RECENT FORM */}
+                {/* RECENT GAMES */}
                 <section className="mt-8">
                     <h2 className="mb-4 text-xl font-semibold">
-                        Recent Form
+                        Recent Games
                     </h2>
 
                     <div className="grid gap-4 sm:grid-cols-2">
