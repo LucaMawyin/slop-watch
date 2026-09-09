@@ -67,10 +67,10 @@ def update_data(league="nba"):
     # ESPN
     else:
 
-        # Get last 3 days so Scheduled games become Final
+        # Get last 5 days of game data
         dates = [
             (today - timedelta(days=i)).strftime("%Y%m%d")
-            for i in reversed(range(3))
+            for i in reversed(range(5))
         ]
 
         for game_date in dates:
