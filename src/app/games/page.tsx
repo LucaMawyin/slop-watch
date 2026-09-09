@@ -135,7 +135,24 @@ function GamesContent() {
                 return data;
             })
             .then((data) => {
-                setGames(data as Game[]);
+                const filteredGames = (data as Game[]).filter((game) => {
+                    const gameDate = new Date(game.date);
+
+                    const localGameDate =
+                        `${gameDate.getFullYear()}-${String(gameDate.getMonth() + 1).padStart(2, "0")}-${String(gameDate.getDate()).padStart(2, "0")}`;
+
+                    if (effectiveStart && localGameDate < effectiveStart) {
+                        return false;
+                    }
+
+                    if (effectiveEnd && localGameDate > effectiveEnd) {
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                setGames(filteredGames);
                 setLoading(false);
             })
             .catch((err) => {
