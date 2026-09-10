@@ -29,7 +29,7 @@ export default function Footer() {
 
                 <div className="flex items-center gap-6">
                     <a
-                        href="https://github.com/LucaMawyin/slop-watch"
+                        href="https://github.com/LucaMawyin"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white"
