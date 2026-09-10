@@ -61,3 +61,5 @@ python/models/*.pkl
 **/__pycache__/
 *.pyc
 deploy.sh
+
+python/data/
