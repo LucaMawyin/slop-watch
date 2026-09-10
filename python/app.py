@@ -385,10 +385,16 @@ def team(league, team_slug):
 
     team_badness = None
 
-    if not current_season_games.empty:
+    completed_team_games = team_games[
+        (team_games["date"] < now) &
+        team_games["home_score"].notna() &
+        team_games["away_score"].notna()
+    ]
+
+    if not completed_team_games.empty:
 
         latest_team_game = (
-            current_season_games
+            completed_team_games
             .sort_values("date")
             .iloc[-1]
         )
