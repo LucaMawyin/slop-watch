@@ -41,71 +41,178 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
         print(f"Predict took {time.perf_counter() - start_time:.3f}s")
         return games
 
-    # Add missing actual values for future games
-    if "actual_slop" not in games:
-        games["actual_slop"] = None
-
-    if "actual_watchability" not in games:
-        games["actual_watchability"] = None
-
-    valid = games[MODEL_FEATURES].notna().all(axis=1)
-
-    if not valid.any():
-        return games.iloc[0:0].copy()
-
-    games = games[valid].copy()
-
     # ---------------------------------
-    # PREDICT FEATURES
+    # LOAD PROCESSED DATA
     # ---------------------------------
 
-    model = joblib.load(
-        f"models/{league}_slop_model.pkl"
+    processed = pd.read_csv(
+        SPORT_CONFIG[league]["processed_output"]
     )
 
-    prediction_distribution = joblib.load(
-        f"models/{league}_prediction_distribution.pkl"
+    processed["game_id"] = (
+        processed["game_id"]
+        .astype(str)
+        .str.strip()
     )
 
-    predictions = model.predict(games[MODEL_FEATURES])
+    games["game_id"] = (
+        games["game_id"]
+        .astype(str)
+        .str.strip()
+    )
 
-    games["predicted_slop"] = predictions [:, 0]
-    games["predicted_watchability"] = predictions [:, 1]
+    games["predicted_slop"] = np.nan
+    games["predicted_watchability"] = np.nan
 
     # ---------------------------------
-    # SLOP PERCENTILE
+    # IDENTIFY PROCESSED GAMES
     # ---------------------------------
 
-    historical_predicted_slop = prediction_distribution["slop"]
+    processed_ids = set(
+        processed["game_id"]
+    )
 
-    games["slop_percentile"] = games["predicted_slop"].apply(
-        lambda score: (
-            (historical_predicted_slop < score).mean()
-            if len(historical_predicted_slop) > 0
-            else np.nan
+    is_processed = games["game_id"].isin(
+        processed_ids
+    )
+
+    is_missing = ~is_processed
+
+    # ---------------------------------
+    # GET STORED VALUES
+    # ---------------------------------
+
+    processed_values = processed[
+        [
+            "game_id",
+            "actual_slop",
+            "actual_watchability",
+            "slop_percentile",
+            "watchability_percentile",
+        ]
+    ].copy()
+
+    processed_values = processed_values.drop_duplicates(
+        subset="game_id",
+        keep="last"
+    )
+
+    processed_values = processed_values.set_index(
+        "game_id"
+    )
+
+    # Only fill values from processed data
+    for column in [
+        "actual_slop",
+        "actual_watchability",
+        "slop_percentile",
+        "watchability_percentile",
+    ]:
+
+        if column not in games.columns:
+            games[column] = np.nan
+
+        games.loc[is_processed, column] = (
+            games.loc[is_processed, "game_id"]
+            .map(processed_values[column])
         )
-    )
 
     # ---------------------------------
-    # WATCHABILITY PERCENTILE
+    # PREDICT MISSING GAMES
     # ---------------------------------
 
-    historical_predicted_watchability = prediction_distribution["watchability"]
+    if is_missing.any():
 
-    games["watchability_percentile"] = games["predicted_watchability"].apply(
-        lambda score: (
-            (historical_predicted_watchability < score).mean()
-            if len(historical_predicted_watchability) > 0
-            else np.nan
+        valid = (
+            games.loc[is_missing, MODEL_FEATURES]
+            .notna()
+            .all(axis=1)
         )
-    )
+
+        missing_indices = games.loc[
+            is_missing
+        ].index
+
+        valid_indices = missing_indices[valid]
+
+        if len(valid_indices) > 0:
+
+
+            # ---------------------------------
+            # PREDICT FEATURES
+            # ---------------------------------
+
+            model = joblib.load(
+                f"models/{league}_slop_model.pkl"
+            )
+
+            prediction_distribution = joblib.load(
+                f"models/{league}_prediction_distribution.pkl"
+            )
+
+            predictions = model.predict(
+                games.loc[
+                    valid_indices,
+                    MODEL_FEATURES
+                ]
+            )
+
+            games.loc[
+                valid_indices,
+                "predicted_slop"
+            ] = predictions[:, 0]
+
+            games.loc[
+                valid_indices,
+                "predicted_watchability"
+            ] = predictions[:, 1]
+
+            # ---------------------------------
+            # SLOP PERCENTILE
+            # ---------------------------------
+
+            historical_predicted_slop = prediction_distribution["slop"]
+
+            games.loc[
+                valid_indices,
+                "slop_percentile"
+            ] = games.loc[
+                valid_indices, 
+                "predicted_slop"
+            ].apply(
+                lambda score: (
+                    (historical_predicted_slop < score).mean()
+                    if len(historical_predicted_slop) > 0
+                    else np.nan
+                )
+            )
+
+            # ---------------------------------
+            # WATCHABILITY PERCENTILE
+            # ---------------------------------
+
+            historical_predicted_watchability = prediction_distribution["watchability"]
+
+            games.loc[
+                valid_indices, 
+                "watchability_percentile"
+            ] = games.loc[
+                valid_indices, 
+                "predicted_watchability"
+            ].apply(
+                lambda score: (
+                    (historical_predicted_watchability < score).mean()
+                    if len(historical_predicted_watchability) > 0
+                    else np.nan
+                )
+            )
 
     # ---------------------------------
     # SORT BY SLOP
     # ---------------------------------
 
     games = games.sort_values(
-        "predicted_slop", 
+        "slop_percentile", 
         ascending=False
     )
 
