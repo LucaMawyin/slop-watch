@@ -326,7 +326,7 @@ def team(league, team_slug):
     # ---------------------------------
 
     current_season_games = team_games[
-        (team_games["season"].astype(int) == current_season) &
+        (pd.to_numeric(team_games["season"], errors="coerce") == current_season) &
         regular_season.loc[team_games.index] &
         (team_games["date"] < now) &
         team_games["home_score"].notna() &
