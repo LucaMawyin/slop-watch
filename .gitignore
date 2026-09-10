@@ -62,5 +62,4 @@ python/models/*.pkl
 *.pyc
 deploy.sh
 
-python/data/
 .slop-watch.lock
