@@ -279,6 +279,7 @@ def team(league, team_slug):
         regular_season &
         games["date"].notna() &
         (games["date"] <= now) &
+        games["season"].notna() &
         games["home_score"].notna() &
         games["away_score"].notna()
     ].copy()
@@ -387,6 +388,7 @@ def team(league, team_slug):
 
     completed_team_games = team_games[
         (team_games["date"] < now) &
+        team_games["season"].notna() &
         team_games["home_score"].notna() &
         team_games["away_score"].notna()
     ]
