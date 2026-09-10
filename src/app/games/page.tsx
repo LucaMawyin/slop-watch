@@ -138,17 +138,8 @@ function GamesContent() {
                 const filteredGames = (data as Game[]).filter((game) => {
                     const gameDate = new Date(game.date);
 
-                    const localGameDateObj = new Date(
-                        gameDate.getFullYear(),
-                        gameDate.getMonth(),
-                        gameDate.getDate() - 1
-                    );
-
-                    const localGameDate = new Intl.DateTimeFormat("en-CA", {
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit",
-                    }).format(localGameDateObj);
+                    const localGameDate =
+                        `${gameDate.getFullYear()}-${String(gameDate.getMonth() + 1).padStart(2, "0")}-${String(gameDate.getDate()).padStart(2, "0")}`;
 
                     if (effectiveStart && localGameDate < effectiveStart) {
                         return false;
