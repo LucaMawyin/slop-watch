@@ -203,51 +203,30 @@ def update_data(league="nba"):
         errors="coerce"
     )
 
-    if league in ["nba", "wnba", "nfl", "nhl", "mlb"]:
+    # Sort games chronologically
+    df = df.sort_values("date").reset_index(drop=True)
 
-        df["season"] = df["date"].dt.year.astype(str)
-
-    elif league == "pwhl":
-
-        df["season_id"] = pd.to_numeric(
-            df["season_id"],
-            errors="coerce"
-        )
-
-        df["season"] = (
-            ((df["season_id"] - 1) // 3) + 1
-        ).astype("Int64").astype(str)
-
-    elif league == "mls":
-
-        df["season"] = df["date"].dt.year.astype(str)
-
-    elif league in [
-        "epl",
-        "laliga",
-        "serie_a",
-        "bundesliga",
-        "ligue_1",
-    ]:
-
-        season_start = (
-            df["date"].dt.year
-            - (df["date"].dt.month < 7).astype(int)
-        )
-
-        df["season"] = (
-            season_start.astype(str)
-            + "-"
-            + (season_start + 1).astype(str)
-        )
-
-    df["date"] = pd.to_datetime(
-        df["date"],
-        format="mixed",
-        utc=True,
-        errors="coerce"
+    # Gap larger than 30 days starts new season
+    season_break = (
+        df["date"].diff() > pd.Timedelta(days=30)
     )
 
+    # Identify each season
+    season_number = season_break.cumsum()
+
+    # Get the year of the first game in each season
+    season_start_year = (
+        df.groupby(season_number)["date"]
+        .transform("min")
+        .dt.year
+    )
+
+    # Season is labeled by the ending year
+    df["season"] = (
+        season_start_year + 1
+    ).astype(str)
+
+    # Cutoff date for removing games
     cutoff_date = (
         pd.Timestamp.now(tz="UTC")
         - pd.DateOffset(years=DATA_RANGE_YEARS)

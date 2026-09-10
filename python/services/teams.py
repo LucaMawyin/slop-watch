@@ -5,8 +5,8 @@ from config.sports import SPORT_CONFIG
 def get_teams(league):
     df = pd.read_csv(SPORT_CONFIG[league]["output"])
 
-    current_season = df["season"].max()
-    season_df = df[df["season"] == current_season]
+    current_season = df["season"].astype(int).max()
+    season_df = df[df["season"].astype(int) == current_season]
 
     team_names = (
         set(season_df["home_name"].dropna())
