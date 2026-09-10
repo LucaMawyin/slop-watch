@@ -208,7 +208,7 @@ def team(league, team_slug):
             "error": f"Unknown league: {league}"
         }), 400
 
-    now = pd.Timestamp.now("UTC").normalize()
+    now = pd.Timestamp.now("UTC")
 
     # ---------------------------------
     # GET CURRENT SEASON GAMES
@@ -289,9 +289,9 @@ def team(league, team_slug):
         }), 404
 
     current_season = (
-        completed_regular
-        .sort_values("date")
-        .iloc[-1]["season"]
+        completed_regular["season"]
+        .astype(int)
+        .max()
     )
 
     # ---------------------------------
@@ -326,7 +326,7 @@ def team(league, team_slug):
     # ---------------------------------
 
     current_season_games = team_games[
-        (team_games["season"] == current_season) &
+        (pd.to_numeric(team_games["season"], errors="coerce") == current_season) &
         regular_season.loc[team_games.index] &
         (team_games["date"] < now) &
         team_games["home_score"].notna() &
@@ -385,10 +385,16 @@ def team(league, team_slug):
 
     team_badness = None
 
-    if not current_season_games.empty:
+    completed_team_games = team_games[
+        (team_games["date"] < now) &
+        team_games["home_score"].notna() &
+        team_games["away_score"].notna()
+    ]
+
+    if not completed_team_games.empty:
 
         latest_team_game = (
-            current_season_games
+            completed_team_games
             .sort_values("date")
             .iloc[-1]
         )

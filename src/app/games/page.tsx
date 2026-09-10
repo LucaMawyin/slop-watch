@@ -51,7 +51,11 @@ function GamesContent() {
     let effectiveStart = start;
     let effectiveEnd = end;
 
-    if (!effectiveStart && effectiveEnd) {
+    if (!effectiveStart && !effectiveEnd) {
+        effectiveStart = formatDate(new Date());
+    }
+
+    else if (!effectiveStart && effectiveEnd) {
         effectiveStart = effectiveEnd;
     }
 
