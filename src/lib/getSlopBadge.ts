@@ -2,7 +2,7 @@ import { getHeatColour } from "./getHeatColour";
 
 export function getSlopBadge(sloppiness: number, watchability: number) {
     
-    const combinedScore = (sloppiness + watchability) / 2;
+    const combinedScore = (sloppiness + (1 - watchability)) / 2;
     const colour = getHeatColour(combinedScore);
 
     // Exceptional watchability
