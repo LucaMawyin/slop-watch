@@ -68,9 +68,14 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     # RETURN IF DATE RANGE IS COVERED
     # ---------------------------------
 
+    today = pd.Timestamp.now("UTC").normalize()
+
+    needs_live_data = end_date >= today
+
     if (
         start_date >= data_start_date
         and latest_date > end_date
+        and not needs_live_data
     ):
         print(
             f"get_games took "
@@ -88,6 +93,8 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
             start_date,
             latest_date.normalize()
         )
+        if start_date <= today <= end_date:
+            fetch_start = min(fetch_start, today)
     else:
         fetch_start = start_date
 

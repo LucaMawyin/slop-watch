@@ -487,7 +487,7 @@ function GamesContent() {
                                         </div>
                                     </div>
 
-                                    {game.actual_slop !== null && (
+                                    {(new Date(game.date) <= new Date() || game.actual_slop !== null) && (
                                         <div className="
                                             mt-4 
                                             py-4
@@ -498,14 +498,28 @@ function GamesContent() {
                                             <div className="text-3xl font-semibold">
                                                 {game.home_score}
                                             </div>
+
                                             <Badge
-                                                title="FINAL"
+                                                title={game.actual_slop !== null ? "FINAL" : "LIVE"}
                                                 x={3}
                                                 y={1}
-                                                borderColour="border-sky-700"
-                                                bgColour="bg-sky-950"
-                                                textColour="text-sky-400"
+                                                borderColour={
+                                                    game.actual_slop !== null
+                                                        ? "border-sky-700"
+                                                        : "border-green-700"
+                                                }
+                                                bgColour={
+                                                    game.actual_slop !== null
+                                                        ? "bg-sky-950"
+                                                        : "bg-green-950"
+                                                }
+                                                textColour={
+                                                    game.actual_slop !== null
+                                                        ? "text-sky-400"
+                                                        : "text-green-400"
+                                                }
                                             />
+
                                             <div className="text-3xl font-semibold">
                                                 {game.away_score}
                                             </div>
