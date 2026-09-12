@@ -155,65 +155,76 @@ function GamesContent() {
                     return true;
                 });
 
-                const now = new Date();
+                // Show predicted games immediately.
+                setGames(filteredGames);
+                setLoading(false);
+
+                // Find today's games that have started and are not final.
+                const today = new Date();
 
                 const liveGames = filteredGames.filter((game) => {
+                    const gameDate = new Date(game.date);
+
                     return (
-                        new Date(game.date) <= now &&
+                        gameDate.getFullYear() === today.getFullYear() &&
+                        gameDate.getMonth() === today.getMonth() &&
+                        gameDate.getDate() === today.getDate() &&
+                        gameDate <= today &&
                         game.actual_slop === null
                     );
                 });
 
-                const updates = await Promise.all(
-                    liveGames.map(async (game) => {
-                        try {
-                            const response = await fetch(
-                                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                                {
-                                    cache: "no-store",
-                                }
-                            );
-
-                            if (!response.ok) {
-                                return null;
+                // Try to update live data one game at a time.
+                for (const game of liveGames) {
+                    try {
+                        const response = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                            {
+                                cache: "no-store",
                             }
+                        );
 
-                            return await response.json() as Game;
-                        } catch (error) {
-                            console.error(
-                                `Failed to fetch live data for ${game.game_id}:`,
-                                error
-                            );
-
-                            return null;
+                        if (!response.ok) {
+                            continue;
                         }
-                    })
-                );
 
-                const updatedGames = filteredGames.map((game) => {
-                    const updatedGame = updates.find(
-                        (updated) =>
-                            updated !== null &&
-                            String(updated.game_id) === String(game.game_id)
-                    );
+                        const liveGame = await response.json() as Game;
 
-                    if (!updatedGame) {
-                        return game;
+                        setGames((currentGames) =>
+                            currentGames.map((currentGame) => {
+                                if (
+                                    String(currentGame.game_id) !==
+                                    String(liveGame.game_id)
+                                ) {
+                                    return currentGame;
+                                }
+
+                                return {
+                                    ...currentGame,
+
+                                    // Replace predicted score with live score
+                                    home_score: liveGame.home_score,
+                                    away_score: liveGame.away_score,
+
+                                    // Add live metrics if available
+                                    live_slop: liveGame.live_slop,
+                                    live_watchability: liveGame.live_watchability,
+
+                                    // If the game finished while we were fetching,
+                                    // update the final values too.
+                                    actual_slop: liveGame.actual_slop,
+                                    actual_watchability: liveGame.actual_watchability,
+                                };
+                            })
+                        );
+
+                    } catch (error) {
+                        console.error(
+                            `Failed to fetch live data for ${game.game_id}:`,
+                            error
+                        );
                     }
-
-                    return {
-                        ...game,
-                        home_score: updatedGame.home_score,
-                        away_score: updatedGame.away_score,
-                        live_slop: updatedGame.live_slop,
-                        live_watchability: updatedGame.live_watchability,
-                        actual_slop: updatedGame.actual_slop,
-                        actual_watchability: updatedGame.actual_watchability,
-                    };
-                });
-
-                setGames(updatedGames);
-                setLoading(false);
+                }
             })
             .catch((err) => {
                 // Ignore intentionally aborted requests
