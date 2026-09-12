@@ -139,7 +139,7 @@ NUMBER_OF_SEASONS = 1
 
 SPORT_LEAGUES = {
     "basketball": ["nba", "wnba"],
-    "football": ["nfl"],
+    "football": ["nfl","cfb"],
     "hockey": ["nhl", "pwhl"],
     "baseball": ["mlb"],
     "soccer": [
