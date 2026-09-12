@@ -17,6 +17,20 @@ def get_slop(league="nba"):
     config=SPORT_CONFIG[league]
 
     # ---------------------------------
+    # TEAM FULL NAMES
+    # ---------------------------------
+
+    if "home_display_name" in games.columns:
+        games["home_full_name"] = games["home_display_name"]
+    else:
+        games["home_full_name"] = games["home_name"]
+
+    if "away_display_name" in games.columns:
+        games["away_full_name"] = games["away_display_name"]
+    else:
+        games["away_full_name"] = games["away_name"]
+
+    # ---------------------------------
     # PRE-GAME TEAM STATS
     # ---------------------------------
 

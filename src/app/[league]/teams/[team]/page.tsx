@@ -24,6 +24,7 @@ export default function TeamPage({ params }: Props) {
     const router = useRouter();
     const searchParams = useSearchParams();
 
+    const teamId = searchParams.get("id");
     const ref = searchParams.get("ref");
     const [start, end] = ref?.split("_") ?? [];
 
@@ -34,18 +35,31 @@ export default function TeamPage({ params }: Props) {
 
     const slug = slugify(teamSlug);
 
-    const displayTeamName = team?.team ?? unslugify(teamSlug);
+    const displayTeamName = team?.team.full_name ?? unslugify(teamSlug);
 
     useEffect(() => {
         if (teamSlug !== slug) {
-            router.replace(`/${league}/${slug}`);
+            const params = new URLSearchParams();
+
+            if (teamId) {
+                params.set("id", teamId);
+            }
+
+            if (ref) {
+                params.set("ref", ref);
+            }
+
+            router.replace(
+                `/${league}/${slug}${params.toString() ? `?${params.toString()}` : ""}`
+            );
+
             return;
         }
 
         async function fetchTeam() {
             try {
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}`
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}${teamId ? `?id=${teamId}` : ""}`
                 );
 
                 if (!response.ok) {
@@ -65,7 +79,7 @@ export default function TeamPage({ params }: Props) {
         }
 
         fetchTeam();
-    }, [league, slug, teamSlug, router]);
+    }, [league, slug, teamSlug, teamId, ref, router]);
 
 
     return (
@@ -147,8 +161,10 @@ export default function TeamPage({ params }: Props) {
                                 {team.upcoming_games.length > 0 ? (
                                     team.upcoming_games.slice(0, upcomingGamesCount).map((game) => {
 
-                                        const isHome = game.home_name === team.team;
-                                        const opponent = isHome ? game.away_name : game.home_name;
+                                        const isHome = game.home_full_name === team.team.full_name;
+                                        const opponent = isHome
+                                            ? game.away_name
+                                            : game.home_name;
                                         
                                         return (
 
@@ -179,7 +195,7 @@ export default function TeamPage({ params }: Props) {
 
                                                     <h1 className="mt-1 font-medium">
                                                         <span className="font-bold">
-                                                            {team.team}
+                                                            {team.team.name}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}
@@ -261,8 +277,10 @@ export default function TeamPage({ params }: Props) {
 
                                         const badge = getSlopBadge(slop, watchability);
 
-                                        const isHome = game.home_name === team.team;
-                                        const opponent = isHome ? game.away_name : game.home_name;
+                                        const isHome = game.home_full_name === team.team.full_name;
+                                        const opponent = isHome
+                                            ? game.away_name
+                                            : game.home_name;
 
                                         const teamScore = isHome
                                             ? game.home_score
@@ -309,7 +327,7 @@ export default function TeamPage({ params }: Props) {
 
                                                     <h1 className="font-medium">
                                                         <span className="font-bold">
-                                                            {team.team}
+                                                            {team.team.name}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}

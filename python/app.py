@@ -203,6 +203,8 @@ def team(league, team_slug):
 
     start_time = time.perf_counter()
 
+    team_id = request.args.get("id")
+
     if league not in SPORT_CONFIG:
         return jsonify({
             "error": f"Unknown league: {league}"
@@ -255,6 +257,36 @@ def team(league, team_slug):
             "error": "Team not found"
         }), 404
 
+    # Make sure id belongs to team if provided
+    if team_id:
+        team_id = str(team_id).strip()
+
+        team_ids = games[
+            (games["home_name"] == team_name) |
+            (games["away_name"] == team_name)
+        ].copy()
+
+        valid_ids = pd.concat([
+            team_ids["home_id"],
+            team_ids["away_id"]
+        ]).dropna().astype(str).str.strip().unique()
+
+        if team_id not in valid_ids:
+            return jsonify({
+                "error": "Team ID does not match team name"
+            }), 404
+
+    if team_id:
+        team_mask = (
+            ((games["home_name"] == team_name) & (games["home_id"].astype(str) == team_id)) |
+            ((games["away_name"] == team_name) & (games["away_id"].astype(str) == team_id))
+        )
+    else:
+        team_mask = (
+            (games["home_name"] == team_name) |
+            (games["away_name"] == team_name)
+        )
+
     # ---------------------------------
     # DETERMINE REGULAR SEASON 
     # ---------------------------------
@@ -300,10 +332,7 @@ def team(league, team_slug):
     # ---------------------------------
 
     team_games = games[
-        (
-            (games["home_name"] == team_name) |
-            (games["away_name"] == team_name)
-        ) &
+        team_mask &
         games["date"].notna()
     ].copy()
 
@@ -348,14 +377,22 @@ def team(league, team_slug):
 
     else:
 
+        if team_id:
+            is_home = (
+                (current_season_games["home_name"] == team_name) &
+                (current_season_games["home_id"].astype(str) == team_id)
+            )
+        else:
+            is_home = current_season_games["home_name"] == team_name
+
         current_season_games["team_score"] = np.where(
-            current_season_games["home_name"] == team_name,
+            is_home,
             current_season_games["home_score"],
             current_season_games["away_score"],
         )
 
         current_season_games["opponent_score"] = np.where(
-            current_season_games["home_name"] == team_name,
+            is_home,
             current_season_games["away_score"],
             current_season_games["home_score"],
         )
@@ -401,7 +438,15 @@ def team(league, team_slug):
             .iloc[-1]
         )
 
-        if latest_team_game["home_name"] == team_name:
+        if team_id:
+            is_home = (
+                latest_team_game["home_name"] == team_name and
+                str(latest_team_game["home_id"]).strip() == team_id
+            )
+        else:
+            is_home = latest_team_game["home_name"] == team_name
+
+        if is_home:
             team_badness = latest_team_game["home_badness"]
         else:
             team_badness = latest_team_game["away_badness"]
@@ -428,17 +473,22 @@ def team(league, team_slug):
             errors="coerce"
         )
 
+        if team_id:
+            prediction_team_mask = (
+                ((predictions["home_name"] == team_name) & (predictions["home_id"].astype(str) == team_id)) |
+                ((predictions["away_name"] == team_name) & (predictions["away_id"].astype(str) == team_id))
+            )
+        else:
+            prediction_team_mask = (
+                (predictions["home_name"] == team_name) |
+                (predictions["away_name"] == team_name)
+            )
+
         upcoming_games = (
             predictions[
-                (
-                    (predictions["home_name"] == team_name) |
-                    (predictions["away_name"] == team_name)
-                ) &
+                prediction_team_mask &
                 (predictions["date"] >= now)
             ]
-            .sort_values("date")
-            .head(15)
-            .copy()
         )
 
     # ---------------------------------
@@ -487,6 +537,23 @@ def team(league, team_slug):
             None
         )
 
+    team_full_name = next(
+        (
+            name
+            for name in pd.concat([
+                games.loc[
+                    games["home_name"] == team_name,
+                    "home_full_name"
+                ],
+                games.loc[
+                    games["away_name"] == team_name,
+                    "away_full_name"
+                ],
+            ]).dropna().unique()
+        ),
+        team_name
+    )
+
     elapsed = time.perf_counter() - start_time
     print(f"Team took {elapsed:.3f}s")
 
@@ -495,7 +562,10 @@ def team(league, team_slug):
     # ---------------------------------
 
     return jsonify({
-        "team": team_name,
+        "team": {
+            "name": team_name,
+            "full_name": team_full_name,
+        },
         "team_badness": (
             float(team_badness)
             if pd.notna(team_badness)

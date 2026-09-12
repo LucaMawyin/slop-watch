@@ -180,11 +180,11 @@ export default function PreviewPage({ params }: Props) {
                                 HOME
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(homeTeam.team)}`}
+                                href={`/${league}/teams/${slugify(homeTeam.team.full_name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
-                                {homeTeam.team}
+                                {homeTeam.team.full_name}
                             </Link>
                         </div>
 
@@ -205,11 +205,11 @@ export default function PreviewPage({ params }: Props) {
                                 AWAY
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(awayTeam.team)}`}
+                                href={`/${league}/teams/${slugify(awayTeam.team.full_name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
-                                {awayTeam.team}
+                                {awayTeam.team.full_name}
                             </Link>
                         </div>
 
@@ -277,7 +277,7 @@ export default function PreviewPage({ params }: Props) {
                         {/* HEADER */}
                         <div className="grid grid-cols-3 border-b border-zinc-800 p-5 text-center">
                             <div className="text-left font-semibold">
-                                {homeTeam.team}
+                                {homeTeam.team.full_name}
                             </div>
 
                             <div className="text-xs text-zinc-500">
@@ -285,7 +285,7 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {awayTeam.team}
+                                {awayTeam.team.full_name}
                             </div>
                         </div>
 
@@ -367,13 +367,13 @@ export default function PreviewPage({ params }: Props) {
                         {/* HOME RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
                             <h3 className="font-semibold">
-                                {homeTeam.team}
+                                {homeTeam.team.full_name}
                             </h3>
 
                             <div className="mt-4">
                                 {homeTeam.recent_games.slice(0, 5).map((game) => {
                                     const isHome =
-                                        game.home_name === homeTeam.team;
+                                        game.home_full_name === homeTeam.team.full_name;
 
                                     const teamScore = isHome
                                         ? game.home_score
@@ -466,13 +466,13 @@ export default function PreviewPage({ params }: Props) {
                         {/* AWAY RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
                             <h3 className="font-semibold">
-                                {awayTeam.team}
+                                {awayTeam.team.name}
                             </h3>
 
                             <div className="mt-4">
                                 {awayTeam.recent_games.slice(0, 5).map((game) => {
                                     const isHome =
-                                        game.home_name === awayTeam.team;
+                                        game.home_full_name === awayTeam.team.full_name;
 
                                     const teamScore = isHome
                                         ? game.home_score

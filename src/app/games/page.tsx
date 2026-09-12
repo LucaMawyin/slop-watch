@@ -464,7 +464,7 @@ function GamesContent() {
                                                 HOME
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.home_name)}${ref ? `?ref=${ref}` : ""}`}
+                                                href={`/${game.league}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >
@@ -477,7 +477,7 @@ function GamesContent() {
                                                 AWAY
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.away_name)}${ref ? `?ref=${ref}` : ""}`}
+                                                href={`/${game.league}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >

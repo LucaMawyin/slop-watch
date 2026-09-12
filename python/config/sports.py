@@ -22,6 +22,11 @@ from sportsdataverse.nfl import (
     espn_nfl_game_team_statistics,
 )
 
+from sportsdataverse.cfb import (
+    espn_cfb_schedule,
+    espn_cfb_game_team_statistics,
+)
+
 # ---------------------------------
 # HOCKEY
 # ---------------------------------
@@ -62,8 +67,12 @@ GAME_FEATURES = [
     # Game information
     "game_id",
     "date",
+    "home_id",
+    "away_id",
     "home_name",
     "away_name",
+    "home_full_name",
+    "away_full_name",
     "venue_full_name",
     "is_postseason",
 
@@ -243,6 +252,44 @@ SPORT_CONFIG = {
         "total_points_min": 20,
         "total_points_max": 70,
         "margin_max": 21,
+    },
+
+    "cfb": {
+        # Data
+        "schedule_function": espn_cfb_schedule,
+        "statistics_function": espn_cfb_game_team_statistics,
+        "output": "data/raw/cfb_games.csv",
+        "processed_output": "data/processed/cfb_games.csv",
+        "extra_features": [
+            "first_downs",
+            "first_downs_passing",
+            "first_downs_rushing",
+            "first_downs_penalty",
+            "third_down_efficiency",
+            "fourth_down_efficiency",
+            "total_yards",
+            "passing_yards",
+            "rushing_yards",
+            "yards_per_pass",
+            "yards_per_rush",
+            "interceptions",
+            "fumbles_lost",
+            "sacks",
+            "sack_yards",
+            "penalties",
+            "penalty_yards",
+            "time_of_possession",
+            "total_plays",
+            "red_zone_efficiency",
+        ],
+        "performance_window": 12 * NUMBER_OF_SEASONS,
+
+        # Slop config
+        "point_diff_min": -30,
+        "point_diff_max": 30,
+        "total_points_min": 30,
+        "total_points_max": 70,
+        "margin_max": 28,
     },
 
     # ---------------------------------

@@ -174,6 +174,16 @@ def update_data(league="nba"):
             .astype(int)
         )
 
+    # ---------------------------------
+    # FULL TEAM NAMES
+    # ---------------------------------
+
+    if "home_full_name" not in new_games.columns:
+        new_games["home_full_name"] = new_games["home_name"]
+
+    if "away_full_name" not in new_games.columns:
+        new_games["away_full_name"] = new_games["away_name"]
+
     # Game id as string
     new_games["game_id"] = new_games["game_id"].astype(str)
 

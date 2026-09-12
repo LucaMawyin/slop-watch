@@ -55,7 +55,7 @@ def collect_games(sport):
                 league=config["league"],
                 dates=date_string,
                 return_as_pandas=True,
-                limit=50
+                limit=500
             )
             
             if df is not None and not df.empty:
@@ -90,7 +90,7 @@ def collect_games(sport):
             df = schedule_function(
                 dates=date_string,
                 return_as_pandas=True,
-                limit=50
+                limit=500
             )
 
             if df is not None and not df.empty:

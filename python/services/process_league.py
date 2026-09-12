@@ -10,6 +10,18 @@ def process_league(league):
 
     games = get_slop(league=league)
 
+    # Remove duplicate games
+    games["game_id"] = (
+        games["game_id"]
+        .astype(str)
+        .str.strip()
+    )
+
+    games = games.drop_duplicates(
+        subset="game_id",
+        keep="last"
+    ).reset_index(drop=True)
+
     output_path = Path(config["processed_output"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
 

@@ -23,7 +23,7 @@ def get_games(league="nba"):
     df = df.sort_values("date").reset_index(drop=True)
 
     # Filter completed regular season games
-    if league in ["nba", "wnba", "nfl", "nhl"]:
+    if league in ["nba", "wnba", "nfl", "cfb", "nhl"]:
         df = df[
             df["status_type_name"] == "STATUS_FINAL"
         ].copy()
@@ -77,6 +77,13 @@ def get_games(league="nba"):
         "is_postseason",
         "season",
     ]
+    
+    # Team full names
+    if "home_display_name" in df.columns:
+        columns.append("home_display_name")
+
+    if "away_display_name" in df.columns:
+        columns.append("away_display_name")
 
     if league == "pwhl":
         columns.append("season_id")

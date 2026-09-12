@@ -4,8 +4,12 @@ export type Game = {
     game_id: string;
     league: string;
     date: string;
+    home_id: string;
+    away_id: string;
     home_name: string;
     away_name: string;
+    home_full_name: string;
+    away_full_name: string;
     venue_full_name: string;
     is_postseason: number;
 
@@ -40,7 +44,9 @@ export type TeamGame = {
     game_id: string;
     date: string;
     home_name: string;
+    home_full_name: string;
     away_name: string;
+    away_full_name: string;
     venue_full_name: string | null;
     season: string;
     is_postseason: number;
@@ -49,7 +55,10 @@ export type TeamGame = {
 };
 
 export type Team = {
-    team: string;
+    team: {
+        name: string;
+        full_name: string;
+    };
     team_badness: number;
     league: string;
     season: string;

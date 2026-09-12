@@ -254,6 +254,22 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
         fetched_games = pd.DataFrame()
 
     # ---------------------------------
+    # TEAM FULL NAMES
+    # ---------------------------------
+
+    if not fetched_games.empty:
+
+        fetched_games["home_full_name"] = fetched_games.get(
+            "home_display_name",
+            fetched_games["home_name"]
+        )
+
+        fetched_games["away_full_name"] = fetched_games.get(
+            "away_display_name",
+            fetched_games["away_name"]
+        )
+
+    # ---------------------------------
     # GET HISTORICAL DATA
     # ---------------------------------
 
