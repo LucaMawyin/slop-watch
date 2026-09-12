@@ -39,20 +39,15 @@ export default function PreviewPage({ params }: Props) {
                 setLoading(true);
                 setError(null);
 
-                // Fetch game
-                const selectedDate = new Date(`${date ?? ""}T00:00:00`);
-
-                const startDate = new Date(selectedDate);
-                startDate.setDate(startDate.getDate() - 1);
-
-                const endDate = new Date(selectedDate);
-                endDate.setDate(endDate.getDate() + 1);
-
-                const formatDate = (d: Date) =>
-                    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+                if (!date) {
+                    throw new Error("Missing game date");
+                }
 
                 const gameResponse = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${formatDate(startDate)}&end=${formatDate(endDate)}&id=${id}`
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
+                    {
+                        cache: "no-store",
+                    }
                 );
 
                 if (!gameResponse.ok) {
@@ -61,10 +56,9 @@ export default function PreviewPage({ params }: Props) {
                     );
                 }
 
-                const games = await gameResponse.json() as Game[];
-                const gameData = games[0];
+                const gameData = await gameResponse.json() as Game;
 
-                if (!gameData) {
+                if (!gameData?.game_id) {
                     throw new Error("Game not found");
                 }
 
@@ -107,6 +101,70 @@ export default function PreviewPage({ params }: Props) {
         fetchPreview();
     }, [league, id, date]);
 
+    useEffect(() => {
+        if (!game) return;
+
+        const currentGame = game;
+
+        async function refreshGame() {
+            try {
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${currentGame.game_id}?league=${currentGame.league}&date=${encodeURIComponent(currentGame.date)}`,
+                    {
+                        cache: "no-store",
+                    }
+                );
+
+                if (!response.ok) {
+                    return false;
+                }
+
+                const updatedGame = await response.json() as Game;
+
+                setGame((currentGame) => {
+                    if (!currentGame) return currentGame;
+
+                    return {
+                        ...currentGame,
+                        home_score: updatedGame.home_score,
+                        away_score: updatedGame.away_score,
+                        live_slop: updatedGame.live_slop,
+                        live_watchability: updatedGame.live_watchability,
+                        actual_slop: updatedGame.actual_slop,
+                        actual_watchability: updatedGame.actual_watchability,
+                    };
+                });
+
+                return updatedGame.actual_slop !== null;
+
+            } catch (error) {
+                console.error(
+                    "Failed to refresh game:",
+                    error
+                );
+
+                return false;
+            }
+        }
+
+        // Run immediately
+        refreshGame();
+
+        // Then every 30 seconds
+        const interval = setInterval(async () => {
+            const finished = await refreshGame();
+
+            if (finished) {
+                clearInterval(interval);
+            }
+        }, 30_000);
+
+        return () => {
+            clearInterval(interval);
+        };
+
+    }, [game?.game_id, game?.league, game?.date]);
+
     if (loading) {
         return (
             <main className="p-6 text-white">
@@ -136,8 +194,19 @@ export default function PreviewPage({ params }: Props) {
         );
     }
 
-    const slop = game.slop_percentile;
-    const watchability = game.watchability_percentile;
+    const slop =
+        game.actual_slop !== null
+            ? game.actual_slop
+            : game.live_slop !== null
+                ? game.live_slop
+                : game.slop_percentile;
+
+    const watchability =
+        game.actual_watchability !== null
+            ? game.actual_watchability
+            : game.live_watchability !== null
+                ? game.live_watchability
+                : game.watchability_percentile;
 
     const slopColour = getHeatColour(slop);
     const watchabilityColour = getHeatColour(1 - watchability);
@@ -190,9 +259,24 @@ export default function PreviewPage({ params }: Props) {
 
                         {/* SCORE / VS */}
                         <div className="shrink-0 text-center text-lg font-semibold text-zinc-500">
-                            {game.actual_slop !== null ? (
-                                <div className="text-4xl font-bold text-white">
-                                    {game.home_score} - {game.away_score}
+                            {(
+                                game.actual_slop !== null ||
+                                (
+                                    new Date(game.date) <= new Date() &&
+                                    game.home_score !== null &&
+                                    game.away_score !== null
+                                )
+                            ) ? (
+                                <div>
+                                    {game.actual_slop === null && (
+                                        <div className="mb-1 text-xs font-semibold text-green-400">
+                                            ● LIVE
+                                        </div>
+                                    )}
+
+                                    <div className="text-4xl font-bold text-white">
+                                        {game.home_score} - {game.away_score}
+                                    </div>
                                 </div>
                             ) : (
                                 "VS"
@@ -392,6 +476,10 @@ export default function PreviewPage({ params }: Props) {
                                             ? game.away_name
                                             : game.home_name;
 
+                                        if (teamScore === null || opponentScore === null) {
+                                            return null;
+                                        }
+
                                         const won = teamScore > opponentScore;
                                         const tie = teamScore === opponentScore;
 
@@ -496,6 +584,10 @@ export default function PreviewPage({ params }: Props) {
                                         const opponent = isHome
                                             ? game.away_name
                                             : game.home_name;
+
+                                        if (teamScore === null || opponentScore === null) {
+                                            return null;
+                                        }
 
                                         const won = teamScore > opponentScore;
                                         const tie = teamScore === opponentScore;

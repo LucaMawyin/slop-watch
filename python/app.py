@@ -9,13 +9,17 @@ import re
 import numpy as np
 import time
 
-from config.sports import SPORT_CONFIG, SPORT_LEAGUES, GAME_FEATURES
+from config.sports import (
+    SPORT_CONFIG,
+    SPORT_LEAGUES,
+    GAME_FEATURES,
+    PREDICTION_FEATURES,
+)
 from services.update_data import update_data
 from services.model import train_model
 from services.teams import get_teams
-
-from services.games import get_games
 from services.predict import predict
+from services.live import get_live_metrics, get_live_score
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
@@ -146,7 +150,7 @@ def games():
         )
 
         # Select cols
-        league_games = predictions[GAME_FEATURES].copy()
+        league_games = predictions[PREDICTION_FEATURES].copy()
 
         # ---------------------------------
         # FILTER FOR GAME
@@ -342,11 +346,11 @@ def team(league, team_slug):
         ].copy()
 
         recent_games = recent_games[
-            GAME_FEATURES
+            PREDICTION_FEATURES
         ].copy()
 
         upcoming_games = upcoming_games[
-            GAME_FEATURES
+            PREDICTION_FEATURES
         ].copy()
 
         recent_games["date"] = recent_games["date"].astype(str)
@@ -409,6 +413,143 @@ def team(league, team_slug):
         "recent_games": recent_games,
         "upcoming_games": upcoming_games,
     })
+
+@app.route("/api/game/<game_id>", methods=["GET"])
+def game(game_id):
+
+    start_time = time.perf_counter()
+
+    league = request.args.get("league")
+    game_date = request.args.get("date")
+
+    if not league:
+        return jsonify({
+            "error": "Missing league"
+        }), 400
+
+    if not game_date:
+        return jsonify({
+            "error": "Missing date"
+        }), 400
+
+    if league not in SPORT_CONFIG:
+        return jsonify({
+            "error": f"Unknown league: {league}"
+        }), 400
+
+    # ---------------------------------
+    # GET GAME DATE
+    # ---------------------------------
+
+    try:
+        game_date = pd.Timestamp(game_date).normalize()
+    except Exception:
+        return jsonify({
+            "error": "Invalid date"
+        }), 400
+
+    # ---------------------------------
+    # GET GAME PREDICTION
+    # ---------------------------------
+
+    prediction_date = (
+        game_date
+        - pd.Timedelta(days=1)
+    )
+
+    games = predict(
+        league=league,
+        start_date=prediction_date,
+        days_ahead=2,
+    )
+
+    if games.empty:
+        return jsonify({
+            "error": "Game not found"
+        }), 404
+
+    games["game_id"] = (
+        games["game_id"]
+        .astype(str)
+    )
+
+    game = games[
+        games["game_id"] == str(game_id)
+    ].copy()
+
+    if game.empty:
+        return jsonify({
+            "error": "Game not found"
+        }), 404
+
+    game = game.iloc[0]
+
+    # ---------------------------------
+    # GET LIVE SCORE
+    # ---------------------------------
+
+    live_score = get_live_score(
+        league=league,
+        game_id=game_id,
+        game_date=game["date"],
+    )
+
+    playoff_wins = game.get(
+        "playoff_wins",
+        0
+    )
+
+    # ---------------------------------
+    # LIVE METRICS
+    # ---------------------------------
+
+    live_metrics = get_live_metrics(
+        league=league,
+        home_name=game["home_name"],
+        away_name=game["away_name"],
+        game_date=game["date"],
+        home_score=live_score["home_score"],
+        away_score=live_score["away_score"],
+        is_postseason=bool(game["is_postseason"]),
+        playoff_wins=playoff_wins,
+    )
+
+    # ---------------------------------
+    # RETURN GAME
+    # ---------------------------------
+
+    result = {}
+
+    for column in GAME_FEATURES:
+
+        if column not in game.index:
+            continue
+
+        value = game[column]
+
+        if pd.isna(value):
+            value = None
+
+        elif isinstance(value, np.integer):
+            value = int(value)
+
+        elif isinstance(value, np.floating):
+            value = float(value)
+
+        result[column] = value
+
+    # Override predicted/CSV scores with live scores
+    result["home_score"] = live_score["home_score"]
+    result["away_score"] = live_score["away_score"]
+
+    result["league"] = league
+
+    result.update(live_metrics)
+
+    elapsed = time.perf_counter() - start_time
+    print(f"Game {game_id} took {elapsed:.3f}s")
+
+    return jsonify(result)
 
 @app.route("/api/teams", methods=["GET"])
 def teams():

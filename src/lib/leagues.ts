@@ -20,6 +20,11 @@ export const leagues = [
         sport: "Football",
     },
     {
+        id: "cfb",
+        name: "College Football",
+        sport: "Football",
+    },
+    {
         id: "nhl",
         name: "NHL",
         sport: "Hockey",

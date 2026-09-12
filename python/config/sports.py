@@ -80,15 +80,19 @@ GAME_FEATURES = [
     "home_score",
     "away_score",
 
-    # Slop
+    # Pregame
     "predicted_slop",
-    "actual_slop",
     "slop_percentile",
-
-    # Watchability
     "predicted_watchability",
-    "actual_watchability",
     "watchability_percentile",
+
+    # Live
+    "live_slop",
+    "live_watchability",
+
+    # Final
+    "actual_slop",
+    "actual_watchability",
 
     # Season performance
     "home_win_pct",
@@ -118,6 +122,15 @@ MODEL_FEATURES = [
     "away_recent_win_pct",
     "home_recent_point_diff",
     "away_recent_point_diff",
+]
+
+PREDICTION_FEATURES = [
+    column
+    for column in GAME_FEATURES
+    if column not in [
+        "live_slop",
+        "live_watchability",
+    ]
 ]
 
 DATA_RANGE_YEARS = 10

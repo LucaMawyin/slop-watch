@@ -3,7 +3,7 @@
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game } from "@/lib/types";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import Badge from "@/components/Badge";
@@ -137,7 +137,7 @@ function GamesContent() {
 
                 return data;
             })
-            .then((data) => {
+            .then(async (data) => {
                 const filteredGames = (data as Game[]).filter((game) => {
                     const gameDate = new Date(game.date);
 
@@ -155,7 +155,65 @@ function GamesContent() {
                     return true;
                 });
 
-                setGames(filteredGames);
+                const now = new Date();
+
+                const liveGames = filteredGames.filter((game) => {
+                    const gameStarted = new Date(game.date) <= now;
+                    const gameFinished = game.actual_slop !== null;
+
+                    return gameStarted && !gameFinished;
+                });
+
+                const updates = await Promise.all(
+                    liveGames.map(async (game) => {
+                        try {
+                            const response = await fetch(
+                                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                                {
+                                    cache: "no-store",
+                                }
+                            );
+
+                            if (!response.ok) {
+                                return null;
+                            }
+
+                            return await response.json() as Game;
+
+                        } catch (error) {
+                            console.error(
+                                `Failed to refresh game ${game.game_id}:`,
+                                error
+                            );
+
+                            return null;
+                        }
+                    })
+                );
+
+                const updatedGames = filteredGames.map((game) => {
+                    const updatedGame = updates.find(
+                        (updated) =>
+                            updated !== null &&
+                            String(updated.game_id) === String(game.game_id)
+                    );
+
+                    if (!updatedGame) {
+                        return game;
+                    }
+
+                    return {
+                        ...game,
+                        home_score: updatedGame.home_score,
+                        away_score: updatedGame.away_score,
+                        live_slop: updatedGame.live_slop,
+                        live_watchability: updatedGame.live_watchability,
+                        actual_slop: updatedGame.actual_slop,
+                        actual_watchability: updatedGame.actual_watchability,
+                    };
+                });
+
+                setGames(updatedGames);
                 setLoading(false);
             })
             .catch((err) => {
@@ -171,6 +229,80 @@ function GamesContent() {
             controller.abort();
         };
     }, [league, sport, start, end, defaultDays]);
+
+    useEffect(() => {
+        if (games.length === 0) return;
+
+        const interval = setInterval(async () => {
+            const now = new Date();
+
+            const liveGames = games.filter((game) => {
+                const gameStarted = new Date(game.date) <= now;
+                const gameFinished = game.actual_slop !== null;
+
+                return gameStarted && !gameFinished;
+            });
+
+            if (liveGames.length === 0) {
+                return;
+            }
+
+            const updates = await Promise.all(
+                liveGames.map(async (game) => {
+                    try {
+                        const response = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                            {
+                                cache: "no-store",
+                            }
+                        );
+
+                        if (!response.ok) {
+                            return null;
+                        }
+
+                        return await response.json() as Game;
+
+                    } catch (error) {
+                        console.error(
+                            `Failed to refresh game ${game.game_id}:`,
+                            error
+                        );
+
+                        return null;
+                    }
+                })
+            );
+
+            setGames((currentGames) =>
+                currentGames.map((game) => {
+                    const updatedGame = updates.find(
+                        (updated) =>
+                            updated !== null &&
+                            String(updated.game_id) === String(game.game_id)
+                    );
+
+                    if (!updatedGame) {
+                        return game;
+                    }
+
+                    return {
+                        ...game,
+                        home_score: updatedGame.home_score,
+                        away_score: updatedGame.away_score,
+                        live_slop: updatedGame.live_slop,
+                        live_watchability: updatedGame.live_watchability,
+                        actual_slop: updatedGame.actual_slop,
+                        actual_watchability: updatedGame.actual_watchability,
+                    };
+                })
+            );
+        }, 30_000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [games.length]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
@@ -406,10 +538,11 @@ function GamesContent() {
                     ">
                         {sortedGames.slice(0, visibleCount).map((game) => {
 
-                            const slop = game.slop_percentile;
-                            const slopColour = getHeatColour(slop);
+                            const slop = game.live_slop ?? game.slop_percentile;
+                            const watchability =
+                                game.live_watchability ?? game.watchability_percentile;
 
-                            const watchability = game.watchability_percentile;
+                            const slopColour = getHeatColour(slop);
                             const watchabilityColour = getHeatColour(1-watchability);
 
                             const badge = getSlopBadge(slop, watchability);
@@ -525,69 +658,73 @@ function GamesContent() {
                                         </div>
                                     )}
 
-                                    <div className="my-3 text-center text-sm text-zinc-500">
-                                        {game.venue_full_name}
-                                    </div>
-
-                                    <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center mb-6">
-                                        <div>
-                                            <div className="text-xs text-zinc-500">
-                                                SLOP SCORE
-                                            </div>
-
-                                            <div className="relative mx-auto mt-3 h-24 w-24">
-                                                <ProgressCircle
-                                                    progress={slop}
-                                                    progressColour={slopColour}
-                                                />
-
-                                                <div 
-                                                    className="
-                                                        absolute
-                                                        inset-0
-                                                        flex
-                                                        items-center
-                                                        justify-center
-                                                        text-xl
-                                                        font-bold
-                                                    "
-                                                    style={{ color: slopColour }}
-                                                >
-                                                    {(slop * 100).toFixed(1)}%
-                                                </div>
-                                            </div>                                            
+                                    <div className="my-auto">
+                                        <div className="my-3 text-center text-sm text-zinc-500">
+                                            {game.venue_full_name}
                                         </div>
 
-                                        <div>
-                                            <div className="text-xs text-zinc-500">
-                                                WATCHABILITY
+                                        <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center mb-6">
+                                            <div>
+                                                <div className="text-xs text-zinc-500">
+                                                    SLOP SCORE
+                                                </div>
+
+                                                <div className="relative mx-auto mt-3 h-24 w-24">
+                                                    <ProgressCircle
+                                                        progress={slop}
+                                                        progressColour={slopColour}
+                                                    />
+
+                                                    <div 
+                                                        className="
+                                                            absolute
+                                                            inset-0
+                                                            flex
+                                                            items-center
+                                                            justify-center
+                                                            text-xl
+                                                            font-bold
+                                                        "
+                                                        style={{ color: slopColour }}
+                                                    >
+                                                        {(slop * 100).toFixed(1)}%
+                                                    </div>
+                                                </div>                                            
                                             </div>
 
-                                            <div className="relative mx-auto mt-3 h-24 w-24">
-                                                <ProgressCircle
-                                                    progress={watchability}
-                                                    progressColour={watchabilityColour}
-                                                />
-
-                                                <div 
-                                                    className="
-                                                        absolute
-                                                        inset-0
-                                                        flex
-                                                        items-center
-                                                        justify-center
-                                                        text-xl
-                                                        font-bold
-                                                    "
-                                                    style={{ color: watchabilityColour }}
-                                                >
-                                                    {(watchability * 100).toFixed(1)}%
+                                            <div>
+                                                <div className="text-xs text-zinc-500">
+                                                    WATCHABILITY
                                                 </div>
-                                            </div>                                            
-                                        </div>
+
+                                                <div className="relative mx-auto mt-3 h-24 w-24">
+                                                    <ProgressCircle
+                                                        progress={watchability}
+                                                        progressColour={watchabilityColour}
+                                                    />
+
+                                                    <div 
+                                                        className="
+                                                            absolute
+                                                            inset-0
+                                                            flex
+                                                            items-center
+                                                            justify-center
+                                                            text-xl
+                                                            font-bold
+                                                        "
+                                                        style={{ color: watchabilityColour }}
+                                                    >
+                                                        {(watchability * 100).toFixed(1)}%
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                        </div>                                        
                                     </div>
 
-                                    <div className="mt-auto space-y-4">
+
+
+                                    <div className="space-y-4">
                                         <Link
                                             href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
                                             target="_blank"

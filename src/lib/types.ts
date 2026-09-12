@@ -14,18 +14,22 @@ export type Game = {
     is_postseason: number;
 
     // Score
-    home_score:number;
-    away_score:number;
+    home_score: number | null;
+    away_score: number | null;
 
-    // Slop
+    // Pregame Slop
     predicted_slop: number;
     actual_slop: number | null;
     slop_percentile: number;
 
-    // Watchability
+    // Pregame Watchability
     predicted_watchability: number;
     actual_watchability: number | null;
     watchability_percentile: number;
+
+    // Live
+    live_slop: number | null;
+    live_watchability: number | null;
 
     // Season performance
     home_win_pct: number;
