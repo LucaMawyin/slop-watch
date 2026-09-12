@@ -1,6 +1,5 @@
 "use client";
 
-import { addToGoogleCalendar, addToICS, addToOutlook } from "@/lib/calendar";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game } from "@/lib/types";
 import Link from "next/link";
@@ -106,7 +105,7 @@ function GamesContent() {
         } 
         
         else if (league) {
-            params.set("league", slugify(league));
+            params.set("league", league);
         }
 
         
@@ -451,7 +450,7 @@ function GamesContent() {
                                     {(sport || (!league && !sport)) && currentLeague && (
                                         <div className="mb-3 text-lg font-semibold text-white">
                                             <Link
-                                                href={`/games?league=${slugify(currentLeague)}`}
+                                                href={`/games?league=${game.league}`}
                                             >
                                                 {leagues.find((item) => item.id === game.league)?.name}
                                             </Link>
