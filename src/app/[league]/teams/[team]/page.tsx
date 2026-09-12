@@ -290,6 +290,10 @@ export default function TeamPage({ params }: Props) {
                                             ? game.away_score
                                             : game.home_score;
 
+                                        if (teamScore === null || opponentScore === null) {
+                                            return null;
+                                        }
+
                                         const won = teamScore > opponentScore; 
                                         const tie = teamScore === opponentScore;
 
