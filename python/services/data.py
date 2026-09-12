@@ -203,10 +203,4 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-for sport in SPORT_CONFIG:
-    print()
-    print("=" * 50)
-    print(f"Collecting {sport.upper()}")
-    print("=" * 50)
-
-    collect_games(sport)
+collect_games(sport="cfb")

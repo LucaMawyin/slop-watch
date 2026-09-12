@@ -216,11 +216,11 @@ def team(league, team_slug):
     # GET CURRENT SEASON GAMES
     # ---------------------------------
 
-    # Just check a full year for now
-    games = get_games(
-        league=league,
+    # Get past year of games + next 30 days
+    games = predict(
         start_date=now - pd.Timedelta(days=365),
-        days_ahead=365
+        days_ahead=395,
+        league=league,
     )
 
     if games.empty:
@@ -455,41 +455,22 @@ def team(league, team_slug):
     # UPCOMING GAMES
     # ---------------------------------
 
-    predictions = predict(
-        start_date=now,
-        days_ahead=30,
-        league=league,
-    )
-
-    if predictions.empty:
-
-        upcoming_games = pd.DataFrame()
-
+    if team_id:
+        prediction_team_mask = (
+            ((games["home_name"] == team_name) & (games["home_id"].astype(str) == team_id)) |
+            ((games["away_name"] == team_name) & (games["away_id"].astype(str) == team_id))
+        )
     else:
-
-        predictions["date"] = pd.to_datetime(
-            predictions["date"],
-            utc=True,
-            errors="coerce"
+        prediction_team_mask = (
+            (games["home_name"] == team_name) |
+            (games["away_name"] == team_name)
         )
 
-        if team_id:
-            prediction_team_mask = (
-                ((predictions["home_name"] == team_name) & (predictions["home_id"].astype(str) == team_id)) |
-                ((predictions["away_name"] == team_name) & (predictions["away_id"].astype(str) == team_id))
-            )
-        else:
-            prediction_team_mask = (
-                (predictions["home_name"] == team_name) |
-                (predictions["away_name"] == team_name)
-            )
+    upcoming_games = games[
+        prediction_team_mask &
+        (games["date"] >= now)
+    ].copy()
 
-        upcoming_games = (
-            predictions[
-                prediction_team_mask &
-                (predictions["date"] >= now)
-            ]
-        )
 
     # ---------------------------------
     # NORMALIZE GAME COLUMNS
