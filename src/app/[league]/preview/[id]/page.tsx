@@ -43,9 +43,11 @@ export default function PreviewPage({ params }: Props) {
                     throw new Error("Missing game date");
                 }
 
-                // Fetch game + live data once
+                // -----------------------------------------
+                // 1. Load current/predicted game data first
+                // -----------------------------------------
                 const gameResponse = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${date}&end=${date}`,
                     {
                         cache: "no-store",
                     }
@@ -53,17 +55,23 @@ export default function PreviewPage({ params }: Props) {
 
                 if (!gameResponse.ok) {
                     throw new Error(
-                        `Game API failed: ${gameResponse.status}`
+                        `Games API failed: ${gameResponse.status}`
                     );
                 }
 
-                const gameData = await gameResponse.json() as Game;
+                const games = await gameResponse.json() as Game[];
 
-                if (!gameData?.game_id) {
+                const gameData = games.find(
+                    (game) => String(game.game_id) === String(id)
+                );
+
+                if (!gameData) {
                     throw new Error("Game not found");
                 }
 
-                // Fetch both teams concurrently
+                // -----------------------------------------
+                // 2. Load team data
+                // -----------------------------------------
                 const [homeResponse, awayResponse] = await Promise.all([
                     fetch(
                         `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.home_name)}`,
@@ -88,10 +96,61 @@ export default function PreviewPage({ params }: Props) {
                     awayResponse.json() as Promise<Team>,
                 ]);
 
-                // gameData already contains the live values
+                // -----------------------------------------
+                // 3. Render immediately with current data
+                // -----------------------------------------
                 setGame(gameData);
                 setHomeTeam(homeData);
                 setAwayTeam(awayData);
+                setLoading(false);
+
+                // -----------------------------------------
+                // 4. Try live data in the background
+                // -----------------------------------------
+                if (
+                    new Date(gameData.date) <= new Date() &&
+                    gameData.actual_slop === null
+                ) {
+                    try {
+                        const liveResponse = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
+                            {
+                                cache: "no-store",
+                            }
+                        );
+
+                        if (!liveResponse.ok) {
+                            return;
+                        }
+
+                        const liveGame = await liveResponse.json() as Game;
+
+                        // -----------------------------------------
+                        // 5. Update only the live/current values
+                        // -----------------------------------------
+                        setGame((currentGame) => {
+                            if (!currentGame) {
+                                return liveGame;
+                            }
+
+                            return {
+                                ...currentGame,
+                                home_score: liveGame.home_score,
+                                away_score: liveGame.away_score,
+                                live_slop: liveGame.live_slop,
+                                live_watchability: liveGame.live_watchability,
+                                actual_slop: liveGame.actual_slop,
+                                actual_watchability: liveGame.actual_watchability,
+                            };
+                        });
+
+                    } catch (error) {
+                        console.error(
+                            `Failed to fetch live data for ${id}:`,
+                            error
+                        );
+                    }
+                }
 
             } catch (error) {
                 console.error(error);
@@ -101,7 +160,7 @@ export default function PreviewPage({ params }: Props) {
                         ? error.message
                         : "Failed to load game preview"
                 );
-            } finally {
+
                 setLoading(false);
             }
         }
@@ -139,18 +198,22 @@ export default function PreviewPage({ params }: Props) {
     }
 
     const slop =
-        game.actual_slop !== null
+        game.actual_slop !== null && Number.isFinite(game.actual_slop)
             ? game.actual_slop
-            : game.live_slop !== null
+            : game.live_slop !== null && Number.isFinite(game.live_slop)
                 ? game.live_slop
-                : game.slop_percentile;
+                : Number.isFinite(game.slop_percentile)
+                    ? game.slop_percentile
+                    : 0;
 
     const watchability =
-        game.actual_watchability !== null
+        game.actual_watchability !== null && Number.isFinite(game.actual_watchability)
             ? game.actual_watchability
-            : game.live_watchability !== null
+            : game.live_watchability !== null && Number.isFinite(game.live_watchability)
                 ? game.live_watchability
-                : game.watchability_percentile;
+                : Number.isFinite(game.watchability_percentile)
+                    ? game.watchability_percentile
+                    : 0;
 
     const slopColour = getHeatColour(slop);
     const watchabilityColour = getHeatColour(1 - watchability);
