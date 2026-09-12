@@ -1,8 +1,8 @@
 # [Slop Watch](https://slopwatchsports.vercel.app/)
 
-**Predicting the sloppiest games in sports — so you know when not to watch.**
+**Predicting the sloppiest games in sports — so you know what not to watch.**
 
-Slop Watch is an ML-powered sports prediction application that predicts which upcoming games are most likely to be the **worst games of the season**.
+Slop Watch is an ML-powered sports prediction application that predicts which upcoming games are most likely to be **slop** and/or **unwatchable**.
 
 Using historical sports data and machine learning, Slop Watch analyzes upcoming matchups and estimates which games are most likely to be boring, uncompetitive, low-scoring, or otherwise deserving of the title of **slop**.
 
@@ -16,7 +16,7 @@ When Slop Watch identifies a game worth avoiding, users can also **add the game 
 
 ```
 slop-watch/
-
+|
 ├── src/                          # React frontend
 │   ├── games/                    # Games list
 │   └── [league]/
@@ -40,8 +40,8 @@ slop-watch/
 │   │   └── processed/            # Processed data used by the application
 │   │
 │   ├── models/                   # Trained ML models and prediction data
-│   │   ├── league_slop_model
-│   │   └── league_prediction_distribution
+│   │   ├── {league}_slop_model.pkl
+│   │   └── {league}_prediction_distribution.pkl
 │   │
 │   └── services/
 │       ├── data.py               # Loads and converts raw sports data into DataFrames
@@ -84,46 +84,117 @@ slop-watch/
 
 Slop Watch will allow users to add predicted slop games directly to their calendar.
 
-Calendar integration may support services such as:
+Calendar integration supports services such as:
 
 - Google Calendar
 - Apple Calendar
 - Microsoft Outlook
+
+## Hosting & Deployment
+
+Slop Watch uses a distributed hosting setup for the frontend, backend, and automated data updates.
+
+### Frontend
+
+The React frontend is hosted on **Vercel**.
+
+- Platform: Vercel
+- Application: React / TypeScript
+- Production URL: https://slopwatchsports.vercel.app/
+
+### Backend
+
+The Flask backend is hosted on a **Raspberry Pi 4** running **Raspberry Pi OS**.
+
+- Hardware: Raspberry Pi 4
+- Operating system: Raspberry Pi OS (Debian 13)
+- Backend: Python / Flask
+- API: Flask REST API
+
+The frontend communicates with the Flask API to retrieve upcoming games, team information, and Slop Score predictions.
+
+### Automated Data & Model Updates
+
+Slop Watch uses a **Cloudflare cron job** to periodically update its data and machine learning models.
+
+The cron job runs **every 2 hours** and triggers the backend update process, which:
+
+1. Collects the latest sports data.
+2. Updates the processed datasets.
+3. Calculates updated game slop, watchability, and team statistics.
+4. Retrains the league machine learning models and updates predictions.
+5. Makes the updated predictions available through the Flask API.
+
+This allows Slop Watch to keep its predictions and sports data up to date without requiring manual updates.
+
+### Deployment Architecture
+
+```
+                                    ┌──────────────────────┐
+                                    │       Vercel         │
+                                    │                      │
+                                    │   React / TypeScript │
+                                    │      Frontend        │
+                                    └───────────┬──────────┘
+                                                │
+                                                │ API Requests
+                                                ▼
+                                    ┌──────────────────────┐
+                                    │    Raspberry Pi 4    │
+                                    │    Raspberry Pi OS   │
+                                    │                      │
+                                    │      Flask API       │
+                                    │         │            │
+                                    │         ▼            │
+                                    │   Python / ML Code   │
+                                    │         │            │
+                                    │         ▼            │
+                                    │   Data & ML Models   │
+                                    └──────────────────────┘
+                                                ▲
+                                                │
+                                            Every 2 Hours
+                                                │
+                                    ┌───────────┴──────────┐
+                                    │      Cloudflare      │
+                                    │      Cron Job        │
+                                    └──────────────────────┘
+```
 
 ## How It Works
 
 Slop Watch uses a machine learning pipeline to turn historical game data into predictions for upcoming games.
 
 ```text
-Historical Sports Data
-        ↓
-     data.py
-        ↓
-  Processed Data
-        ↓
-     games.py
-        ↓
-Pre-Game Team Performance
-        ↓
-     slop.py
-        ↓
-   Actual Slop Score
-        ↓
-     model.py
-        ↓
- Random Forest Model
-        ↓
-  slop_model.pkl
-        ↓
-    predict.py
-        ↓
- Predicted Slop Score
-        ↓
-    Flask API
-        ↓
- React Frontend
-        ↓
-Calendar Integration
+                                  Historical Sports Data
+                                            ↓
+                                         data.py
+                                            ↓
+                                     Processed Data
+                                            ↓
+                                        games.py
+                                            ↓
+                                Pre-Game Team Performance
+                                            ↓
+                                         slop.py
+                                            ↓
+                                    Actual Slop Score
+                                            ↓
+                                        model.py
+                                            ↓
+                                    Random Forest Model
+                                            ↓
+                                      slop_model.pkl
+                                            ↓
+                                        predict.py
+                                            ↓
+                                   Predicted Slop Score
+                                            ↓
+                                        Flask API
+                                            ↓
+                                      React Frontend
+                                            ↓
+                                   Calendar Integration
 ```
 
 The model learns from historical games and uses information available **before a game is played** to predict how likely an upcoming matchup is to be slop.
@@ -131,8 +202,6 @@ The model learns from historical games and uses information available **before a
 Users can then view predicted games and add them to their calendar.
 
 ## What Makes a Game Slop?
-
-The exact definition of slop is still being developed.
 
 Potential factors include:
 
@@ -147,9 +216,9 @@ Potential factors include:
 
 These factors will eventually be combined into a **Slop Score**.
 
-A higher Slop Score means a game is predicted to be worse.
+A higher Slop Score means a game is predicted to be more "sloppy" based on the characteristics that define a poor quality matchup. It does **not necessarily mean the game will be boring or not worth watching**.
 
-Different sports may use different factors when determining slop. What makes an awful NBA game isn't necessarily what makes an awful baseball, hockey, or soccer game.
+**Watchability is a related but separate consideration**. A game can have a high Slop Score while still being entertaining, and a game with a low Slop Score is not necessarily guaranteed to be enjoyable.
 
 ## Calendar Integration
 
@@ -287,26 +356,28 @@ pip install -r requirements.txt
 
 ## Data
 
-Historical sports data is collected using Sportsipy.
+Historical sports data is collected using SportsDataverse.
 
 Raw data is stored in:
 
-```text
+```
 python/data/raw/
 ```
 
 Processed datasets are stored in:
 
-```text
+```
 python/data/processed/
 ```
 
-Raw datasets should remain unchanged. Data cleaning and feature engineering should produce separate processed datasets.
+Raw datasets should maintain unchanged API results. Data cleaning and feature engineering should produce separate processed datasets.
 
 ## Machine Learning
 
 Slop Watch currently uses a Random Forest regression model to predict the
 Slop Score of upcoming games.
+
+### Features
 
 The model uses statistics that are available before a game is played,
 including:
@@ -320,6 +391,8 @@ including:
 - Home team recent point differential
 - Away team recent point differential
 
+### Model Training
+
 The model is trained on historical games using the actual Slop Score
 calculated by `slop.py` as the target.
 
@@ -332,14 +405,14 @@ python/models/
 Each league has its own trained model:
 
 ```
-league_slop_model.pkl
+{league}_slop_model.pkl
 ```
 
-## Prediction
+### Prediction
 
 `predict.py` loads the appropriate league model and uses the most recent pre-game team performance to predict the Slop Score of upcoming games.
 
-## League Prediction Distributions
+### League Prediction Distributions
 
 Slop Watch maintains a **prediction distribution for each supported league**.
 
@@ -355,7 +428,7 @@ python/models/
 
 This makes it possible to determine not only a game's predicted Slop Score, but also how unusually high or low that prediction is compared with other games in the same league.
 
-## Avoiding Data Leakage
+### Avoiding Data Leakage
 
 Predictions must only use information that would have been available **before the game begins**.
 
@@ -397,30 +470,7 @@ This is particularly important when training and testing the model. A model that
 - [x] Create Flask API
 - [x] Expose upcoming game predictions
 - [x] Connect the React frontend to the API
-- [ ] Add prediction explanations
-- [ ] Add confidence estimates
-
-### Calendar
-
-- [x] Add games to calendar
-- [x] Support Google Calendar
-- [x] Support Apple Calendar
-- [x] Support Microsoft Outlook
-
-### Sports
-
-- [x] Initial NBA support
-- [x] Support MLB
-- [x] Support NFL
-- [x] Support NHL
-- [x] Develop sport-specific Slop Scores
-
-## Future Goals
-
-- Predict the sloppiest game of an entire season
-- Explain why a game is predicted to be slop
-- Display confidence scores
-- Compare predictions with actual game results
+- [ ] Add live score tracking
 
 ## The Goal
 
@@ -429,5 +479,3 @@ Sports are full of great games.
 Slop Watch exists to find the ones you should **not** watch.
 
 And if you're brave enough to watch them anyway, **put them on your calendar.**
-
-<!-- Pi deployment test -->
