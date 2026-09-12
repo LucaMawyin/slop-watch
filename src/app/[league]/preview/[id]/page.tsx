@@ -180,7 +180,7 @@ export default function PreviewPage({ params }: Props) {
                                 HOME
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(homeTeam.team.full_name)}`}
+                                href={`/${league}/teams/${slugify(homeTeam.team.name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
@@ -205,7 +205,7 @@ export default function PreviewPage({ params }: Props) {
                                 AWAY
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(awayTeam.team.full_name)}`}
+                                href={`/${league}/teams/${slugify(awayTeam.team.name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
@@ -371,95 +371,101 @@ export default function PreviewPage({ params }: Props) {
                             </h3>
 
                             <div className="mt-4">
-                                {homeTeam.recent_games.slice(0, 5).map((game) => {
-                                    const isHome =
-                                        game.home_full_name === homeTeam.team.full_name;
+                                {homeTeam.recent_games.length === 0 ? (
+                                    <div className="py-4 text-sm text-zinc-500">
+                                        No recent games.
+                                    </div>
+                                ) : (
+                                    homeTeam.recent_games.slice(0, 5).map((game) => {
+                                        const isHome =
+                                            game.home_full_name === homeTeam.team.full_name;
 
-                                    const teamScore = isHome
-                                        ? game.home_score
-                                        : game.away_score;
+                                        const teamScore = isHome
+                                            ? game.home_score
+                                            : game.away_score;
 
-                                    const opponentScore = isHome
-                                        ? game.away_score
-                                        : game.home_score;
+                                        const opponentScore = isHome
+                                            ? game.away_score
+                                            : game.home_score;
 
-                                    const opponent = isHome
-                                        ? game.away_name
-                                        : game.home_name;
+                                        const opponent = isHome
+                                            ? game.away_name
+                                            : game.home_name;
 
-                                    const won = teamScore > opponentScore;
-                                    const tie = teamScore === opponentScore;
+                                        const won = teamScore > opponentScore;
+                                        const tie = teamScore === opponentScore;
 
-                                    return (
-                                        <Link
-                                            key={game.game_id}
-                                            href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
-                                            target="_blank"
-                                            className="
-                                                no-underline!
-                                                flex
-                                                items-center
-                                                justify-between
-                                                border-b
-                                                border-zinc-800
-                                                p-3
-                                                last:border-b-0
-                                                transition
-                                                duration-150
-                                                hover:bg-zinc-800/50
-                                                active:scale-[0.99]
-                                                active:bg-zinc-800
-                                            "
-                                        >
-                                            <div>
-                                                <div className="text-sm">
-                                                    <span
-                                                        className={
-                                                            won
-                                                                ? "text-green-400"
-                                                                : tie
-                                                                    ? "text-yellow-400"
-                                                                    : "text-red-400"
-                                                        }
+                                        return (
+                                            <Link
+                                                key={game.game_id}
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                target="_blank"
+                                                className="
+                                                    no-underline!
+                                                    flex
+                                                    items-center
+                                                    justify-between
+                                                    border-b
+                                                    border-zinc-800
+                                                    p-3
+                                                    last:border-b-0
+                                                    transition
+                                                    duration-150
+                                                    hover:bg-zinc-800/50
+                                                    active:scale-[0.99]
+                                                    active:bg-zinc-800
+                                                "
+                                            >
+                                                <div>
+                                                    <div className="text-sm">
+                                                        <span
+                                                            className={
+                                                                won
+                                                                    ? "text-green-400"
+                                                                    : tie
+                                                                        ? "text-yellow-400"
+                                                                        : "text-red-400"
+                                                            }
+                                                        >
+                                                            {won ? "W" : tie ? "T" : "L"}
+                                                        </span>{" "}
+                                                        {teamScore} - {opponentScore}
+                                                    </div>
+
+                                                    <div className="text-xs text-zinc-500">
+                                                        {opponent}
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex gap-4 text-sm font-semibold">
+                                                    <div
+                                                        className="text-center"
+                                                        style={{
+                                                            color: getHeatColour(game.slop_percentile),
+                                                        }}
                                                     >
-                                                        {won ? "W" : tie ? "T" : "L"}
-                                                    </span>{" "}
-                                                    {teamScore} - {opponentScore}
-                                                </div>
-
-                                                <div className="text-xs text-zinc-500">
-                                                    {opponent}
-                                                </div>
-                                            </div>
-
-                                            <div className="flex gap-4 text-sm font-semibold">
-                                                <div
-                                                    className="text-center"
-                                                    style={{
-                                                        color: getHeatColour(game.slop_percentile),
-                                                    }}
-                                                >
-                                                    <div className="text-[10px] text-zinc-500">
-                                                        SLOP
+                                                        <div className="text-[10px] text-zinc-500">
+                                                            SLOP
+                                                        </div>
+                                                        {(game.slop_percentile * 100).toFixed(0)}%
                                                     </div>
-                                                    {(game.slop_percentile * 100).toFixed(0)}%
-                                                </div>
 
-                                                <div
-                                                    className="text-center"
-                                                    style={{
-                                                        color: getHeatColour(1 - game.watchability_percentile),
-                                                    }}
-                                                >
-                                                    <div className="text-[10px] text-zinc-500">
-                                                        WATCHABILITY
+                                                    <div
+                                                        className="text-center"
+                                                        style={{
+                                                            color: getHeatColour(1 - game.watchability_percentile),
+                                                        }}
+                                                    >
+                                                        <div className="text-[10px] text-zinc-500">
+                                                            WATCHABILITY
+                                                        </div>
+                                                        {(game.watchability_percentile * 100).toFixed(0)}%
                                                     </div>
-                                                    {(game.watchability_percentile * 100).toFixed(0)}%
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
+                                            </Link>
+                                        );
+                                    })
+                                )}
                             </div>
                         </div>
 
@@ -470,95 +476,101 @@ export default function PreviewPage({ params }: Props) {
                             </h3>
 
                             <div className="mt-4">
-                                {awayTeam.recent_games.slice(0, 5).map((game) => {
-                                    const isHome =
-                                        game.home_full_name === awayTeam.team.full_name;
+                                {awayTeam.recent_games.length === 0 ? (
+                                    <div className="py-4 text-sm text-zinc-500">
+                                        No recent games.
+                                    </div>
+                                ) : (
+                                    awayTeam.recent_games.slice(0, 5).map((game) => {
+                                        const isHome =
+                                            game.home_full_name === awayTeam.team.full_name;
 
-                                    const teamScore = isHome
-                                        ? game.home_score
-                                        : game.away_score;
+                                        const teamScore = isHome
+                                            ? game.home_score
+                                            : game.away_score;
 
-                                    const opponentScore = isHome
-                                        ? game.away_score
-                                        : game.home_score;
+                                        const opponentScore = isHome
+                                            ? game.away_score
+                                            : game.home_score;
 
-                                    const opponent = isHome
-                                        ? game.away_name
-                                        : game.home_name;
+                                        const opponent = isHome
+                                            ? game.away_name
+                                            : game.home_name;
 
-                                    const won = teamScore > opponentScore;
-                                    const tie = teamScore === opponentScore;
+                                        const won = teamScore > opponentScore;
+                                        const tie = teamScore === opponentScore;
 
-                                    return (
-                                        <Link
-                                            key={game.game_id}
-                                            href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
-                                            target="_blank"
-                                            className="
-                                                no-underline!
-                                                flex
-                                                items-center
-                                                justify-between
-                                                border-b
-                                                border-zinc-800
-                                                p-3
-                                                last:border-b-0
-                                                transition
-                                                duration-150
-                                                hover:bg-zinc-800/50
-                                                active:scale-[0.99]
-                                                active:bg-zinc-800
-                                            "
-                                        >
-                                            <div>
-                                                <div className="text-sm">
-                                                    <span
-                                                        className={
-                                                            won
-                                                                ? "text-green-400"
-                                                                : tie
-                                                                    ? "text-yellow-400"
-                                                                    : "text-red-400"
-                                                        }
+                                        return (
+                                            <Link
+                                                key={game.game_id}
+                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                target="_blank"
+                                                className="
+                                                    no-underline!
+                                                    flex
+                                                    items-center
+                                                    justify-between
+                                                    border-b
+                                                    border-zinc-800
+                                                    p-3
+                                                    last:border-b-0
+                                                    transition
+                                                    duration-150
+                                                    hover:bg-zinc-800/50
+                                                    active:scale-[0.99]
+                                                    active:bg-zinc-800
+                                                "
+                                            >
+                                                <div>
+                                                    <div className="text-sm">
+                                                        <span
+                                                            className={
+                                                                won
+                                                                    ? "text-green-400"
+                                                                    : tie
+                                                                        ? "text-yellow-400"
+                                                                        : "text-red-400"
+                                                            }
+                                                        >
+                                                            {won ? "W" : tie ? "T" : "L"}
+                                                        </span>{" "}
+                                                        {teamScore} - {opponentScore}
+                                                    </div>
+
+                                                    <div className="text-xs text-zinc-500">
+                                                        {opponent}
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex gap-4 text-sm font-semibold">
+                                                    <div
+                                                        className="text-center"
+                                                        style={{
+                                                            color: getHeatColour(game.slop_percentile),
+                                                        }}
                                                     >
-                                                        {won ? "W" : tie ? "T" : "L"}
-                                                    </span>{" "}
-                                                    {teamScore} - {opponentScore}
-                                                </div>
-
-                                                <div className="text-xs text-zinc-500">
-                                                    {opponent}
-                                                </div>
-                                            </div>
-
-                                            <div className="flex gap-4 text-sm font-semibold">
-                                                <div
-                                                    className="text-center"
-                                                    style={{
-                                                        color: getHeatColour(game.slop_percentile),
-                                                    }}
-                                                >
-                                                    <div className="text-[10px] text-zinc-500">
-                                                        SLOP
+                                                        <div className="text-[10px] text-zinc-500">
+                                                            SLOP
+                                                        </div>
+                                                        {(game.slop_percentile * 100).toFixed(0)}%
                                                     </div>
-                                                    {(game.slop_percentile * 100).toFixed(0)}%
-                                                </div>
 
-                                                <div
-                                                    className="text-center"
-                                                    style={{
-                                                        color: getHeatColour(1 - game.watchability_percentile),
-                                                    }}
-                                                >
-                                                    <div className="text-[10px] text-zinc-500">
-                                                        WATCHABILITY
+                                                    <div
+                                                        className="text-center"
+                                                        style={{
+                                                            color: getHeatColour(1 - game.watchability_percentile),
+                                                        }}
+                                                    >
+                                                        <div className="text-[10px] text-zinc-500">
+                                                            WATCHABILITY
+                                                        </div>
+                                                        {(game.watchability_percentile * 100).toFixed(0)}%
                                                     </div>
-                                                    {(game.watchability_percentile * 100).toFixed(0)}%
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
+                                            </Link>
+                                        );
+                                    })
+                                )}
                             </div>
                         </div>
 

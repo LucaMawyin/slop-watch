@@ -13,22 +13,14 @@ def normalize_badness(value, min_value, max_value):
 def get_slop(league="nba"):
 
     games = get_games(league=league)
+    games = games.rename(
+        columns={
+            "home_display_name": "home_full_name",
+            "away_display_name": "away_full_name",
+        }
+    )
     performance = get_performance(league=league)
     config=SPORT_CONFIG[league]
-
-    # ---------------------------------
-    # TEAM FULL NAMES
-    # ---------------------------------
-
-    if "home_display_name" in games.columns:
-        games["home_full_name"] = games["home_display_name"]
-    else:
-        games["home_full_name"] = games["home_name"]
-
-    if "away_display_name" in games.columns:
-        games["away_full_name"] = games["away_display_name"]
-    else:
-        games["away_full_name"] = games["away_name"]
 
     # ---------------------------------
     # PRE-GAME TEAM STATS
@@ -134,6 +126,164 @@ def get_slop(league="nba"):
             np.maximum
         )
     )
+
+    # ---------------------------------
+    # REGULAR-SEASON TEAM STATS
+    # ---------------------------------
+
+    # Determine which games are regular season
+    if "season_type" in games.columns:
+
+        regular_season = games["season_type"] == 2
+
+    elif "season_id" in games.columns:
+
+        regular_season = games["season_id"] % 3 == 2
+
+    else:
+
+        regular_season = games["is_postseason"] == 0
+
+
+    team_season_stats = {}
+
+    home_season_wins = []
+    home_season_losses = []
+    home_season_win_pct = []
+    home_season_point_diff = []
+
+    away_season_wins = []
+    away_season_losses = []
+    away_season_win_pct = []
+    away_season_point_diff = []
+
+    current_season = None
+
+    for index, game in games.iterrows():
+
+        season = game["season"]
+
+        # ---------------------------------
+        # RESET AT NEW SEASON
+        # ---------------------------------
+
+        if season != current_season:
+            team_season_stats = {}
+            current_season = season
+
+        home = game["home_name"]
+        away = game["away_name"]
+
+        home_stats = team_season_stats.get(
+            home,
+            {
+                "wins": 0,
+                "losses": 0,
+                "points_for": 0,
+                "points_against": 0,
+            }
+        )
+
+        away_stats = team_season_stats.get(
+            away,
+            {
+                "wins": 0,
+                "losses": 0,
+                "points_for": 0,
+                "points_against": 0,
+            }
+        )
+
+        # ---------------------------------
+        # PRE-GAME HOME STATS
+        # ---------------------------------
+
+        home_wins = home_stats["wins"]
+        home_losses = home_stats["losses"]
+
+        home_season_wins.append(home_wins)
+        home_season_losses.append(home_losses)
+
+        home_games = home_wins + home_losses
+
+        home_season_win_pct.append(
+            home_wins / home_games
+            if home_games > 0
+            else np.nan
+        )
+
+        home_season_point_diff.append(
+            home_stats["points_for"] -
+            home_stats["points_against"]
+        )
+
+        # ---------------------------------
+        # PRE-GAME AWAY STATS
+        # ---------------------------------
+
+        away_wins = away_stats["wins"]
+        away_losses = away_stats["losses"]
+
+        away_season_wins.append(away_wins)
+        away_season_losses.append(away_losses)
+
+        away_games = away_wins + away_losses
+
+        away_season_win_pct.append(
+            away_wins / away_games
+            if away_games > 0
+            else np.nan
+        )
+
+        away_season_point_diff.append(
+            away_stats["points_for"] -
+            away_stats["points_against"]
+        )
+
+        # ---------------------------------
+        # ONLY UPDATE AFTER REGULAR-SEASON
+        # GAME
+        # ---------------------------------
+
+        if not regular_season.loc[index]:
+            continue
+
+        home_score = game["home_score"]
+        away_score = game["away_score"]
+
+        if home_score > away_score:
+
+            home_stats["wins"] += 1
+            away_stats["losses"] += 1
+
+        elif away_score > home_score:
+
+            away_stats["wins"] += 1
+            home_stats["losses"] += 1
+
+        # ---------------------------------
+        # UPDATE POINT DIFFERENTIAL
+        # ---------------------------------
+
+        home_stats["points_for"] += home_score
+        home_stats["points_against"] += away_score
+
+        away_stats["points_for"] += away_score
+        away_stats["points_against"] += home_score
+
+        team_season_stats[home] = home_stats
+        team_season_stats[away] = away_stats
+
+
+    games["home_season_wins"] = home_season_wins
+    games["home_season_losses"] = home_season_losses
+    games["home_season_win_pct"] = home_season_win_pct
+    games["home_season_point_diff"] = home_season_point_diff
+
+    games["away_season_wins"] = away_season_wins
+    games["away_season_losses"] = away_season_losses
+    games["away_season_win_pct"] = away_season_win_pct
+    games["away_season_point_diff"] = away_season_point_diff
 
     # ---------------------------------
     # TEAM BADNESS

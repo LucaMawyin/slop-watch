@@ -204,336 +204,177 @@ def team(league, team_slug):
     start_time = time.perf_counter()
 
     team_id = request.args.get("id")
+    team_name = unslugify(team_slug)
 
     if league not in SPORT_CONFIG:
         return jsonify({
             "error": f"Unknown league: {league}"
         }), 400
 
-    now = pd.Timestamp.now("UTC")
-
-    # ---------------------------------
-    # GET CURRENT SEASON GAMES
-    # ---------------------------------
-
-    # Get past year of games + next 30 days
-    games = predict(
-        start_date=now - pd.Timedelta(days=365),
-        days_ahead=395,
-        league=league,
+    processed = pd.read_csv(
+        SPORT_CONFIG[league]["processed_output"]
     )
 
-    if games.empty:
-        return jsonify({
-            "error": "No games found"
-        }), 404
-
-    games["date"] = pd.to_datetime(
-        games["date"],
-        utc=True,
-        errors="coerce"
+    processed["date"] = pd.to_datetime(
+        processed["date"],
+        utc=True
     )
 
-    # ---------------------------------
-    # GET TEAMS
-    # ---------------------------------
-
-    team_names = pd.concat([
-        games["home_name"],
-        games["away_name"]
-    ]).dropna().unique()
-
-    team_name = next(
-        (
-            name
-            for name in team_names
-            if slugify(name) == team_slug
-        ),
-        None
-    )
-
-    if team_name is None:
-        return jsonify({
-            "error": "Team not found"
-        }), 404
-
-    # Make sure id belongs to team if provided
+    # Filter games for this team
     if team_id:
-        team_id = str(team_id).strip()
-
-        team_ids = games[
-            (games["home_name"] == team_name) |
-            (games["away_name"] == team_name)
+        team_games = processed[
+            (processed["home_id"].astype(str) == str(team_id)) |
+            (processed["away_id"].astype(str) == str(team_id))
+        ].copy()
+    else:
+        team_games = processed[
+            (processed["home_name"] == team_name) |
+            (processed["away_name"] == team_name)
         ].copy()
 
-        valid_ids = pd.concat([
-            team_ids["home_id"],
-            team_ids["away_id"]
-        ]).dropna().astype(str).str.strip().unique()
-
-        if team_id not in valid_ids:
-            return jsonify({
-                "error": "Team ID does not match team name"
-            }), 404
-
-    if team_id:
-        team_mask = (
-            ((games["home_name"] == team_name) & (games["home_id"].astype(str) == team_id)) |
-            ((games["away_name"] == team_name) & (games["away_id"].astype(str) == team_id))
-        )
-    else:
-        team_mask = (
-            (games["home_name"] == team_name) |
-            (games["away_name"] == team_name)
-        )
-
-    # ---------------------------------
-    # DETERMINE REGULAR SEASON 
-    # ---------------------------------
-
-    if "season_type" in games.columns:
-
-        regular_season = games["season_type"] == 2
-
-    elif "season_id" in games.columns:
-
-        regular_season = games["season_id"] % 3 == 2
-
-    else:
-
-        regular_season = games["is_postseason"] == 0
-
-    # ---------------------------------
-    # DETERMINE CURRENT SEASON 
-    # ---------------------------------
-
-    completed_regular = games[
-        regular_season &
-        games["date"].notna() &
-        (games["date"] <= now) &
-        games["season"].notna() &
-        games["home_score"].notna() &
-        games["away_score"].notna()
-    ].copy()
-
-    if completed_regular.empty:
-        return jsonify({
-            "error": "Unable to determine current season"
-        }), 404
-
-    current_season = (
-        completed_regular["season"]
-        .astype(int)
-        .max()
-    )
-
-    # ---------------------------------
-    # ALL TEAM GAMES
-    # ---------------------------------
-
-    team_games = games[
-        team_mask &
-        games["date"].notna()
-    ].copy()
-
-    # ---------------------------------
-    # RECENT GAMES
-    # ---------------------------------
-
-    recent_games = (
-        team_games[
-            (team_games["date"] < now) &
-            team_games["home_score"].notna() &
-            team_games["away_score"].notna()
-        ]
-        .sort_values("date", ascending=False)
-        .head(15)
-        .copy()
-    )
-
-    # ---------------------------------
-    # CURRENT SEASON GAMES
-    # ---------------------------------
-
-    current_season_games = team_games[
-        (pd.to_numeric(team_games["season"], errors="coerce") == current_season) &
-        regular_season.loc[team_games.index] &
-        (team_games["date"] < now) &
-        team_games["home_score"].notna() &
-        team_games["away_score"].notna()
-    ].copy()
-
-    # ---------------------------------
-    # RECORD
-    # ---------------------------------
-
-    if current_season_games.empty:
-
-        wins = 0
-        losses = 0
-        games_played = 0
-        win_pct = 0.0
-        point_diff = 0
-
-    else:
-
-        if team_id:
-            is_home = (
-                (current_season_games["home_name"] == team_name) &
-                (current_season_games["home_id"].astype(str) == team_id)
-            )
-        else:
-            is_home = current_season_games["home_name"] == team_name
-
-        current_season_games["team_score"] = np.where(
-            is_home,
-            current_season_games["home_score"],
-            current_season_games["away_score"],
-        )
-
-        current_season_games["opponent_score"] = np.where(
-            is_home,
-            current_season_games["away_score"],
-            current_season_games["home_score"],
-        )
-
-        current_season_games["win"] = (
-            current_season_games["team_score"] >
-            current_season_games["opponent_score"]
-        )
-
-        wins = int(current_season_games["win"].sum())
-
-        games_played = len(current_season_games)
-
-        losses = games_played - wins
-
-        win_pct = wins / games_played
-
-        point_diff = int(
-            (
-                current_season_games["team_score"] -
-                current_season_games["opponent_score"]
-            ).sum()
-        )
-
-    # ---------------------------------
-    # TEAM BADNESS
-    # ---------------------------------
-
-    team_badness = None
-
-    completed_team_games = team_games[
-        (team_games["date"] < now) &
-        team_games["season"].notna() &
-        team_games["home_score"].notna() &
-        team_games["away_score"].notna()
+    # Only completed games
+    team_games = team_games[
+        team_games["actual_slop"].notna()
     ]
 
-    if not completed_team_games.empty:
+    season = None
+    team_badness = None
+    wins = 0
+    losses = 0
+    point_diff = 0
+    team_full_name = team_name
 
-        latest_team_game = (
-            completed_team_games
-            .sort_values("date")
-            .iloc[-1]
+    if team_games.empty:
+        print(f"No completed games found for team ID {team_id}")
+    else:
+        latest_game = (
+            team_games
+            .sort_values("date", ascending=False)
+            .iloc[0]
         )
 
+        season = latest_game["season"]
+
+        # Determine whether team was home or away
         if team_id:
             is_home = (
-                latest_team_game["home_name"] == team_name and
-                str(latest_team_game["home_id"]).strip() == team_id
+                str(latest_game["home_id"]) == str(team_id)
             )
         else:
-            is_home = latest_team_game["home_name"] == team_name
+            is_home = (
+                latest_game["home_name"] == team_name
+            )
 
+        # Get team's badness
         if is_home:
-            team_badness = latest_team_game["home_badness"]
+            team_badness = latest_game["home_badness"]
+            team_score = latest_game["home_score"]
+            opponent_score = latest_game["away_score"]
+            team_full_name = latest_game["home_full_name"]
         else:
-            team_badness = latest_team_game["away_badness"]
+            team_badness = latest_game["away_badness"]
+            team_score = latest_game["away_score"]
+            opponent_score = latest_game["home_score"]
+            team_full_name = latest_game["away_full_name"]
+
+        # Get existing regular season record
+        if is_home:
+            wins = int(latest_game["home_season_wins"])
+            losses = int(latest_game["home_season_losses"])
+            point_diff = int(latest_game["home_season_point_diff"])
+        else:
+            wins = int(latest_game["away_season_wins"])
+            losses = int(latest_game["away_season_losses"])
+            point_diff = int(latest_game["away_season_point_diff"])
+
+        # Only update record for regular season games
+        if latest_game["season_type"] == 2:
+
+            point_diff += int(team_score) - int(opponent_score)
+
+            if team_score > opponent_score:
+                wins += 1
+
+            elif team_score < opponent_score:
+                losses += 1
+
 
     # ---------------------------------
-    # UPCOMING GAMES
+    # RECENT & UPCOMING GAMES
     # ---------------------------------
 
-    if team_id:
-        prediction_team_mask = (
-            ((games["home_name"] == team_name) & (games["home_id"].astype(str) == team_id)) |
-            ((games["away_name"] == team_name) & (games["away_id"].astype(str) == team_id))
+    now = pd.Timestamp.now(tz="UTC")
+    start_date = now - pd.Timedelta(days=14)
+
+    games = predict(
+        league=league,
+        start_date=start_date,
+        days_ahead=28
+    )
+
+    if not games.empty:
+
+        games["date"] = pd.to_datetime(
+            games["date"],
+            utc=True
         )
-    else:
-        prediction_team_mask = (
-            (games["home_name"] == team_name) |
-            (games["away_name"] == team_name)
-        )
 
-    upcoming_games = games[
-        prediction_team_mask &
-        (games["date"] >= now)
-    ].copy()
+        # Filter to this team
+        if team_id:
+            games = games[
+                (games["home_id"].astype(str) == str(team_id)) |
+                (games["away_id"].astype(str) == str(team_id))
+            ].copy()
+        else:
+            games = games[
+                (games["home_name"] == team_name) |
+                (games["away_name"] == team_name)
+            ].copy()
 
+        # Split by date
+        recent_games = games[
+            (games["date"] >= start_date) &
+            (games["date"] <= now)
+        ].copy()
 
-    # ---------------------------------
-    # NORMALIZE GAME COLUMNS
-    # ---------------------------------
+        upcoming_games = games[
+            games["date"] > now
+        ].copy()
 
-    for df in [recent_games, upcoming_games]:
+        recent_games = recent_games[
+            GAME_FEATURES
+        ].copy()
 
-        if df.empty:
-            continue
+        upcoming_games = upcoming_games[
+            GAME_FEATURES
+        ].copy()
 
-        for column in GAME_FEATURES:
-
-            if column not in df.columns:
-                df[column] = None
-
-    if recent_games.empty:
-        recent_games = pd.DataFrame(
-            columns=GAME_FEATURES
-        )
-    else:
-        recent_games = recent_games[GAME_FEATURES]
-
-    if upcoming_games.empty:
-        upcoming_games = pd.DataFrame(
-            columns=GAME_FEATURES
-        )
-    else:
-        upcoming_games = upcoming_games[GAME_FEATURES]
-
-    # ---------------------------------
-    # JSON SERIALIZATION
-    # ---------------------------------
-
-    if not recent_games.empty:
         recent_games["date"] = recent_games["date"].astype(str)
+        upcoming_games["date"] = upcoming_games["date"].astype(str)
+
+        # Convert NaN to None
         recent_games = recent_games.astype(object).where(
             pd.notna(recent_games),
             None
         )
 
-    if not upcoming_games.empty:
-        upcoming_games["date"] = upcoming_games["date"].astype(str)
         upcoming_games = upcoming_games.astype(object).where(
             pd.notna(upcoming_games),
             None
         )
 
-    team_full_name = next(
-        (
-            name
-            for name in pd.concat([
-                games.loc[
-                    games["home_name"] == team_name,
-                    "home_full_name"
-                ],
-                games.loc[
-                    games["away_name"] == team_name,
-                    "away_full_name"
-                ],
-            ]).dropna().unique()
-        ),
-        team_name
-    )
+        # Convert games to JSON
+        recent_games = recent_games.to_dict(
+            orient="records"
+        )
+
+        upcoming_games = upcoming_games.to_dict(
+            orient="records"
+        )        
+
+    else:
+        recent_games = []
+        upcoming_games = []
 
     elapsed = time.perf_counter() - start_time
     print(f"Team took {elapsed:.3f}s")
@@ -552,26 +393,21 @@ def team(league, team_slug):
             if pd.notna(team_badness)
             else None
         ),
-
-        "league": league,
-        "season": str(current_season),
-
         "record": {
-            "wins": wins,
-            "losses": losses,
+            "wins": int(wins),
+            "losses": int(losses),
         },
-
-        "win_pct": float(win_pct),
-        "point_diff": point_diff,
-        "games_played": games_played,
-
-        "recent_games": recent_games.to_dict(
-            orient="records"
+        "league": league,
+        "season": str(season) if season is not None else None,
+        "win_pct": (
+            wins / (wins + losses)
+            if wins + losses > 0
+            else 0
         ),
-
-        "upcoming_games": upcoming_games.to_dict(
-            orient="records"
-        ),
+        "point_diff": int(point_diff),
+        "games_played": wins + losses,
+        "recent_games": recent_games,
+        "upcoming_games": upcoming_games,
     })
 
 @app.route("/api/teams", methods=["GET"])
@@ -595,6 +431,12 @@ def slugify(value):
             "",
             value.lower().strip()
         ).replace(" ", "-")
+    )
+
+def unslugify(value):
+    return " ".join(
+        word.capitalize()
+        for word in value.split("-")
     )
 
 if __name__ == "__main__":
