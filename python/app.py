@@ -292,7 +292,14 @@ def team(league, team_slug):
             point_diff = int(latest_game["away_season_point_diff"])
 
         # Only update record for regular season games
-        if latest_game["season_type"] == 2:
+        if "season_type" in latest_game.index:
+            is_regular_season = latest_game["season_type"] == 2
+        elif "season_id" in latest_game.index:
+            is_regular_season = latest_game["season_id"] % 3 == 2
+        else:
+            is_regular_season = latest_game["is_postseason"] == 0
+
+        if is_regular_season:
 
             point_diff += int(team_score) - int(opponent_score)
 

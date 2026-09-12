@@ -19,6 +19,13 @@ def get_slop(league="nba"):
             "away_display_name": "away_full_name",
         }
     )
+
+    if "home_full_name" not in games.columns:
+        games["home_full_name"] = games["home_name"]
+
+    if "away_full_name" not in games.columns:
+        games["away_full_name"] = games["away_name"]
+        
     performance = get_performance(league=league)
     config=SPORT_CONFIG[league]
 
