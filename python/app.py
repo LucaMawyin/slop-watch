@@ -335,26 +335,47 @@ def team(league, team_slug):
                 (games["away_name"] == team_name)
             ].copy()
 
+        # Sort by date
+        games = games.sort_values(
+            "date",
+            ascending=True
+        )
+
         # Split by date
-        recent_games = games[
-            (games["date"] >= start_date) &
-            (games["date"] <= now)
-        ].copy()
-
         upcoming_games = games[
-            games["date"] > now
+            (games["date"] > now) |
+            (
+                (games["date"] <= now) &
+                (games["actual_slop"].isna())
+            )
         ].copy()
 
-        recent_games = recent_games[
-            PREDICTION_FEATURES
+        # Completed games only
+        recent_games = games[
+            (games["date"] <= now) &
+            (games["actual_slop"].notna())
         ].copy()
 
-        upcoming_games = upcoming_games[
-            PREDICTION_FEATURES
-        ].copy()
+        # Most recent games first
+        recent_games = recent_games.sort_values(
+            "date",
+            ascending=False
+        )
 
-        recent_games["date"] = recent_games["date"].astype(str)
-        upcoming_games["date"] = upcoming_games["date"].astype(str)
+        # Soonest upcoming games first
+        upcoming_games = upcoming_games.sort_values(
+            "date",
+            ascending=True
+        )
+
+        # Convert dates to ISO strings
+        recent_games["date"] = recent_games["date"].dt.strftime(
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        upcoming_games["date"] = upcoming_games["date"].dt.strftime(
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
 
         # Convert NaN to None
         recent_games = recent_games.astype(object).where(

@@ -275,22 +275,18 @@ export default function PreviewPage({ params }: Props) {
     }
 
     const slop =
-        game.actual_slop !== null && Number.isFinite(game.actual_slop)
-            ? game.actual_slop
-            : game.live_slop !== null && Number.isFinite(game.live_slop)
-                ? game.live_slop
-                : Number.isFinite(game.slop_percentile)
-                    ? game.slop_percentile
-                    : 0;
+        typeof game.live_slop === "number" && Number.isFinite(game.live_slop)
+            ? game.live_slop
+            : typeof game.slop_percentile === "number" && Number.isFinite(game.slop_percentile)
+                ? game.slop_percentile
+                : 0;
 
     const watchability =
-        game.actual_watchability !== null && Number.isFinite(game.actual_watchability)
-            ? game.actual_watchability
-            : game.live_watchability !== null && Number.isFinite(game.live_watchability)
-                ? game.live_watchability
-                : Number.isFinite(game.watchability_percentile)
-                    ? game.watchability_percentile
-                    : 0;
+        typeof game.live_watchability === "number" && Number.isFinite(game.live_watchability)
+            ? game.live_watchability
+            : typeof game.watchability_percentile === "number" && Number.isFinite(game.watchability_percentile)
+                ? game.watchability_percentile
+                : 0;
 
     const slopColour = getHeatColour(slop);
     const watchabilityColour = getHeatColour(1 - watchability);
