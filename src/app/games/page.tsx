@@ -23,7 +23,6 @@ function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [calendarGame, setCalendarGame] = useState<Game | null>(null);
     const [sortBy, setSortBy] = useState<"slop" | "date" | "watchability" | "overall">("date");    
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
@@ -239,6 +238,85 @@ function GamesContent() {
             controller.abort();
         };
     }, [league, sport, start, end, defaultDays]);
+
+    const gamesRef = useRef<Game[]>([]);
+
+    useEffect(() => {
+        gamesRef.current = games;
+    }, [games]);
+
+    useEffect(() => {
+        const updateScores = async () => {
+            const now = new Date();
+
+            const liveGames = gamesRef.current.filter((game) => {
+                const gameDate = new Date(game.date);
+                const age = now.getTime() - gameDate.getTime();
+
+                return (
+                    age >= 0 &&
+                    age <= 6 * 60 * 60 * 1000 &&
+                    game.actual_slop === null
+                );
+            });
+
+            for (const game of liveGames) {
+                try {
+                    const response = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                        {
+                            cache: "no-store",
+                        }
+                    );
+
+                    if (!response.ok) {
+                        continue;
+                    }
+
+                    const score = await response.json() as {
+                        home_score: number | null;
+                        away_score: number | null;
+                    };
+
+                    setGames((currentGames) =>
+                        currentGames.map((currentGame) => {
+                            if (
+                                String(currentGame.game_id) !==
+                                String(game.game_id)
+                            ) {
+                                return currentGame;
+                            }
+
+                            return {
+                                ...currentGame,
+                                home_score: score.home_score,
+                                away_score: score.away_score,
+                            };
+                        })
+                    );
+
+                } catch (error) {
+                    console.error(
+                        `Failed to update score for ${game.game_id}:`,
+                        error
+                    );
+                }
+            }
+        };
+
+        // Run once immediately.
+        updateScores();
+
+        // Then every 2 minutes.
+        const interval = setInterval(
+            updateScores,
+            2 * 60 * 1000
+        );
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;

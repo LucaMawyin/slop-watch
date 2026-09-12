@@ -8,7 +8,7 @@ import { slugify } from "@/lib/slugify";
 import { Game, Team } from "@/lib/types";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 
 type Props = {
     params: Promise<{
@@ -44,7 +44,7 @@ export default function PreviewPage({ params }: Props) {
                 }
 
                 // -----------------------------------------
-                // 1. Load current/predicted game data first
+                // Load current/predicted game data first
                 // -----------------------------------------
                 const gameResponse = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${date}&end=${date}`,
@@ -70,7 +70,7 @@ export default function PreviewPage({ params }: Props) {
                 }
 
                 // -----------------------------------------
-                // 2. Load team data
+                // Load team data
                 // -----------------------------------------
                 const [homeResponse, awayResponse] = await Promise.all([
                     fetch(
@@ -97,7 +97,7 @@ export default function PreviewPage({ params }: Props) {
                 ]);
 
                 // -----------------------------------------
-                // 3. Render immediately with current data
+                // Render immediately with current data
                 // -----------------------------------------
                 setGame(gameData);
                 setHomeTeam(homeData);
@@ -167,6 +167,83 @@ export default function PreviewPage({ params }: Props) {
 
         fetchPreview();
     }, [league, id, date]);
+
+    const gameRef = useRef<Game | null>(null);
+
+    useEffect(() => {
+        gameRef.current = game;
+    }, [game]);
+
+    useEffect(() => {
+        const updateScore = async () => {
+            const currentGame = gameRef.current;
+
+            if (!currentGame) {
+                return;
+            }
+
+            const gameDate = new Date(currentGame.date);
+            const now = new Date();
+
+            // Don't poll games that haven't started.
+            if (gameDate > now) {
+                return;
+            }
+
+            // Don't poll completed games.
+            if (currentGame.actual_slop !== null) {
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${league}&date=${encodeURIComponent(currentGame.date)}`,
+                    {
+                        cache: "no-store",
+                    }
+                );
+
+                if (!response.ok) {
+                    console.error(
+                        `Score request failed: ${response.status}`
+                    );
+                    return;
+                }
+
+                const score = await response.json() as {
+                    home_score: number | null;
+                    away_score: number | null;
+                };
+
+                setGame((currentGame) => {
+                    if (!currentGame) {
+                        return currentGame;
+                    }
+
+                    return {
+                        ...currentGame,
+                        home_score: score.home_score,
+                        away_score: score.away_score,
+                    };
+                });
+            } catch (error) {
+                console.error(
+                    `Failed to fetch score for ${id}:`,
+                    error
+                );
+            }
+        };
+
+        // Then every 2 minutes.
+        const interval = setInterval(
+            updateScore,
+            2 * 60 * 1000
+        );
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [id, league]);
 
     if (loading) {
         return (

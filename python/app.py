@@ -551,6 +551,46 @@ def game(game_id):
 
     return jsonify(result)
 
+@app.route("/api/game/<game_id>/score", methods=["GET"])
+def game_score(game_id):
+
+    league = request.args.get("league")
+    game_date = request.args.get("date")
+
+    if not league:
+        return jsonify({
+            "error": "Missing league"
+        }), 400
+
+    if not game_date:
+        return jsonify({
+            "error": "Missing date"
+        }), 400
+
+    if league not in SPORT_CONFIG:
+        return jsonify({
+            "error": f"Unknown league: {league}"
+        }), 400
+
+    try:
+        game_date = pd.Timestamp(game_date).normalize()
+    except Exception:
+        return jsonify({
+            "error": "Invalid date"
+        }), 400
+
+    score = get_live_score(
+        league=league,
+        game_id=game_id,
+        game_date=game_date,
+    )
+
+    return jsonify({
+        "game_id": str(game_id),
+        "home_score": score["home_score"],
+        "away_score": score["away_score"],
+    })
+
 @app.route("/api/teams", methods=["GET"])
 def teams():
     league = request.args.get("league")
@@ -581,9 +621,4 @@ def unslugify(value):
     )
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5002,
-        debug=False,
-        threaded=True,
-    )
+    app.run(host="0.0.0.0", port=5002, debug=True)
