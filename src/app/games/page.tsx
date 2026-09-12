@@ -137,7 +137,7 @@ function GamesContent() {
 
                 return data;
             })
-            .then(async (data) => {
+            .then((data) => {
                 const filteredGames = (data as Game[]).filter((game) => {
                     const gameDate = new Date(game.date);
 
@@ -155,65 +155,7 @@ function GamesContent() {
                     return true;
                 });
 
-                const now = new Date();
-
-                const liveGames = filteredGames.filter((game) => {
-                    const gameStarted = new Date(game.date) <= now;
-                    const gameFinished = game.actual_slop !== null;
-
-                    return gameStarted && !gameFinished;
-                });
-
-                const updates = await Promise.all(
-                    liveGames.map(async (game) => {
-                        try {
-                            const response = await fetch(
-                                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                                {
-                                    cache: "no-store",
-                                }
-                            );
-
-                            if (!response.ok) {
-                                return null;
-                            }
-
-                            return await response.json() as Game;
-
-                        } catch (error) {
-                            console.error(
-                                `Failed to refresh game ${game.game_id}:`,
-                                error
-                            );
-
-                            return null;
-                        }
-                    })
-                );
-
-                const updatedGames = filteredGames.map((game) => {
-                    const updatedGame = updates.find(
-                        (updated) =>
-                            updated !== null &&
-                            String(updated.game_id) === String(game.game_id)
-                    );
-
-                    if (!updatedGame) {
-                        return game;
-                    }
-
-                    return {
-                        ...game,
-                        home_score: updatedGame.home_score,
-                        away_score: updatedGame.away_score,
-                        live_slop: updatedGame.live_slop,
-                        live_watchability: updatedGame.live_watchability,
-                        actual_slop: updatedGame.actual_slop,
-                        actual_watchability: updatedGame.actual_watchability,
-                    };
-                });
-
-                setGames(updatedGames);
+                setGames(filteredGames);
                 setLoading(false);
             })
             .catch((err) => {
@@ -230,13 +172,19 @@ function GamesContent() {
         };
     }, [league, sport, start, end, defaultDays]);
 
+    const gamesRef = useRef<Game[]>([]);
+
+    useEffect(() => {
+        gamesRef.current = games;
+    }, [games]);
+
     useEffect(() => {
         if (games.length === 0) return;
 
-        const interval = setInterval(async () => {
+        const refreshLiveGames = async (gamesToRefresh: Game[]) => {
             const now = new Date();
 
-            const liveGames = games.filter((game) => {
+            const liveGames = gamesToRefresh.filter((game) => {
                 const gameStarted = new Date(game.date) <= now;
                 const gameFinished = game.actual_slop !== null;
 
@@ -262,7 +210,6 @@ function GamesContent() {
                         }
 
                         return await response.json() as Game;
-
                     } catch (error) {
                         console.error(
                             `Failed to refresh game ${game.game_id}:`,
@@ -274,8 +221,8 @@ function GamesContent() {
                 })
             );
 
-            setGames((currentGames) =>
-                currentGames.map((game) => {
+            setGames((currentGames) => {
+                const updatedGames = currentGames.map((game) => {
                     const updatedGame = updates.find(
                         (updated) =>
                             updated !== null &&
@@ -295,8 +242,20 @@ function GamesContent() {
                         actual_slop: updatedGame.actual_slop,
                         actual_watchability: updatedGame.actual_watchability,
                     };
-                })
-            );
+                });
+
+                gamesRef.current = updatedGames;
+
+                return updatedGames;
+            });
+        };
+
+        // Immediately use the games from this render.
+        refreshLiveGames(games);
+
+        // Then use the latest games every 30 seconds.
+        const interval = setInterval(() => {
+            refreshLiveGames(gamesRef.current);
         }, 30_000);
 
         return () => {
