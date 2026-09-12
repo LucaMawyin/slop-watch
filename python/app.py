@@ -388,14 +388,22 @@ def team(league, team_slug):
             None
         )
 
-        # Convert games to JSON
-        recent_games = recent_games.to_dict(
-            orient="records"
-        )
+        # Convert games to JSON-safe Python values
+        recent_games = [
+            {
+                key: json_safe(value)
+                for key, value in game.items()
+            }
+            for game in recent_games.to_dict(orient="records")
+        ]
 
-        upcoming_games = upcoming_games.to_dict(
-            orient="records"
-        )        
+        upcoming_games = [
+            {
+                key: json_safe(value)
+                for key, value in game.items()
+            }
+            for game in upcoming_games.to_dict(orient="records")
+        ]
 
     else:
         recent_games = []
@@ -640,6 +648,18 @@ def unslugify(value):
         word.capitalize()
         for word in value.split("-")
     )
+
+def json_safe(value):
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+
+    if isinstance(value, np.generic):
+        return value.item()
+
+    if pd.isna(value):
+        return None
+
+    return value
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5002, debug=True)

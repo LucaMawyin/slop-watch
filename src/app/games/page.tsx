@@ -32,9 +32,9 @@ function GamesContent() {
     const league = searchParams.get("league");
     const displayName = leagues.find((item) => item.id === league)?.name || sport;
 
-    const DEFAULT_LEAGUE_DAYS = 7;
-    const DEFAULT_SPORT_DAYS = 3;
-    const DEFAULT_ALL_DAYS = 2;
+    const DEFAULT_LEAGUE_DAYS = 1;
+    const DEFAULT_SPORT_DAYS = 1;
+    const DEFAULT_ALL_DAYS = 1;
 
     const defaultDays = sport
         ? DEFAULT_SPORT_DAYS - 1
