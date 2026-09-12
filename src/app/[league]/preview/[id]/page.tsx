@@ -43,6 +43,7 @@ export default function PreviewPage({ params }: Props) {
                     throw new Error("Missing game date");
                 }
 
+                // Fetch game + live data once
                 const gameResponse = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
                     {
@@ -65,10 +66,16 @@ export default function PreviewPage({ params }: Props) {
                 // Fetch both teams concurrently
                 const [homeResponse, awayResponse] = await Promise.all([
                     fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.home_name)}`
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.home_name)}`,
+                        {
+                            cache: "no-store",
+                        }
                     ),
                     fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.away_name)}`
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.away_name)}`,
+                        {
+                            cache: "no-store",
+                        }
                     ),
                 ]);
 
@@ -81,6 +88,7 @@ export default function PreviewPage({ params }: Props) {
                     awayResponse.json() as Promise<Team>,
                 ]);
 
+                // gameData already contains the live values
                 setGame(gameData);
                 setHomeTeam(homeData);
                 setAwayTeam(awayData);
@@ -100,70 +108,6 @@ export default function PreviewPage({ params }: Props) {
 
         fetchPreview();
     }, [league, id, date]);
-
-    useEffect(() => {
-        if (!game) return;
-
-        const currentGame = game;
-
-        async function refreshGame() {
-            try {
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${currentGame.game_id}?league=${currentGame.league}&date=${encodeURIComponent(currentGame.date)}`,
-                    {
-                        cache: "no-store",
-                    }
-                );
-
-                if (!response.ok) {
-                    return false;
-                }
-
-                const updatedGame = await response.json() as Game;
-
-                setGame((currentGame) => {
-                    if (!currentGame) return currentGame;
-
-                    return {
-                        ...currentGame,
-                        home_score: updatedGame.home_score,
-                        away_score: updatedGame.away_score,
-                        live_slop: updatedGame.live_slop,
-                        live_watchability: updatedGame.live_watchability,
-                        actual_slop: updatedGame.actual_slop,
-                        actual_watchability: updatedGame.actual_watchability,
-                    };
-                });
-
-                return updatedGame.actual_slop !== null;
-
-            } catch (error) {
-                console.error(
-                    "Failed to refresh game:",
-                    error
-                );
-
-                return false;
-            }
-        }
-
-        // Run immediately
-        refreshGame();
-
-        // Then every 30 seconds
-        const interval = setInterval(async () => {
-            const finished = await refreshGame();
-
-            if (finished) {
-                clearInterval(interval);
-            }
-        }, 30_000);
-
-        return () => {
-            clearInterval(interval);
-        };
-
-    }, [game?.game_id, game?.league, game?.date]);
 
     if (loading) {
         return (

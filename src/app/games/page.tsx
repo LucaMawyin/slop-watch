@@ -137,7 +137,7 @@ function GamesContent() {
 
                 return data;
             })
-            .then((data) => {
+            .then(async (data) => {
                 const filteredGames = (data as Game[]).filter((game) => {
                     const gameDate = new Date(game.date);
 
@@ -155,74 +155,42 @@ function GamesContent() {
                     return true;
                 });
 
-                setGames(filteredGames);
-                setLoading(false);
-            })
-            .catch((err) => {
-                // Ignore intentionally aborted requests
-                if (err.name === "AbortError") {
-                    return;
-                }
+                const now = new Date();
 
-                setError(err.message);
-                setLoading(false);
-            });
-        return () => {
-            controller.abort();
-        };
-    }, [league, sport, start, end, defaultDays]);
+                const liveGames = filteredGames.filter((game) => {
+                    return (
+                        new Date(game.date) <= now &&
+                        game.actual_slop === null
+                    );
+                });
 
-    const gamesRef = useRef<Game[]>([]);
+                const updates = await Promise.all(
+                    liveGames.map(async (game) => {
+                        try {
+                            const response = await fetch(
+                                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                                {
+                                    cache: "no-store",
+                                }
+                            );
 
-    useEffect(() => {
-        gamesRef.current = games;
-    }, [games]);
-
-    useEffect(() => {
-        if (games.length === 0) return;
-
-        const refreshLiveGames = async (gamesToRefresh: Game[]) => {
-            const now = new Date();
-
-            const liveGames = gamesToRefresh.filter((game) => {
-                const gameStarted = new Date(game.date) <= now;
-                const gameFinished = game.actual_slop !== null;
-
-                return gameStarted && !gameFinished;
-            });
-
-            if (liveGames.length === 0) {
-                return;
-            }
-
-            const updates = await Promise.all(
-                liveGames.map(async (game) => {
-                    try {
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                            {
-                                cache: "no-store",
+                            if (!response.ok) {
+                                return null;
                             }
-                        );
 
-                        if (!response.ok) {
+                            return await response.json() as Game;
+                        } catch (error) {
+                            console.error(
+                                `Failed to fetch live data for ${game.game_id}:`,
+                                error
+                            );
+
                             return null;
                         }
+                    })
+                );
 
-                        return await response.json() as Game;
-                    } catch (error) {
-                        console.error(
-                            `Failed to refresh game ${game.game_id}:`,
-                            error
-                        );
-
-                        return null;
-                    }
-                })
-            );
-
-            setGames((currentGames) => {
-                const updatedGames = currentGames.map((game) => {
+                const updatedGames = filteredGames.map((game) => {
                     const updatedGame = updates.find(
                         (updated) =>
                             updated !== null &&
@@ -244,24 +212,22 @@ function GamesContent() {
                     };
                 });
 
-                gamesRef.current = updatedGames;
+                setGames(updatedGames);
+                setLoading(false);
+            })
+            .catch((err) => {
+                // Ignore intentionally aborted requests
+                if (err.name === "AbortError") {
+                    return;
+                }
 
-                return updatedGames;
+                setError(err.message);
+                setLoading(false);
             });
-        };
-
-        // Immediately use the games from this render.
-        refreshLiveGames(games);
-
-        // Then use the latest games every 30 seconds.
-        const interval = setInterval(() => {
-            refreshLiveGames(gamesRef.current);
-        }, 30_000);
-
         return () => {
-            clearInterval(interval);
+            controller.abort();
         };
-    }, [games.length]);
+    }, [league, sport, start, end, defaultDays]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
