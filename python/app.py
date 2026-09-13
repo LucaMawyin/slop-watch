@@ -149,6 +149,11 @@ def games():
             predictions["game_id"].astype(str)
         )
 
+        # Make sure all prediction feature columns exist
+        for column in PREDICTION_FEATURES:
+            if column not in predictions.columns:
+                predictions[column] = None
+
         # Select cols
         league_games = predictions[PREDICTION_FEATURES].copy()
 
@@ -521,6 +526,107 @@ def game(game_id):
     game = game.iloc[0]
 
     # ---------------------------------
+    # GET LAST 5 HOME TEAM GAMES
+    # ---------------------------------
+
+    processed = pd.read_csv(
+        SPORT_CONFIG[league]["processed_output"]
+    )
+
+    processed["date"] = pd.to_datetime(
+        processed["date"],
+        utc=True
+    )
+
+    current_game_date = pd.Timestamp(
+        game["date"]
+    ).tz_convert("UTC")
+
+    home_recent_games = (
+        processed[
+            (
+                (processed["home_name"] == game["home_name"]) |
+                (processed["away_name"] == game["home_name"])
+            )
+            &
+            (processed["date"] < current_game_date)
+            &
+            processed["home_score"].notna()
+            &
+            processed["away_score"].notna()
+        ]
+        .sort_values("date", ascending=False)
+        .head(5)
+    )
+
+    home_recent_games = [
+        {
+            "game_id": str(row["game_id"]),
+            "date": row["date"].isoformat(),
+            "home_name": row["home_name"],
+            "away_name": row["away_name"],
+            "home_score": int(row["home_score"]),
+            "away_score": int(row["away_score"]),
+            "is_postseason": int(row["is_postseason"]),
+            "slop_percentile": (
+                float(row["slop_percentile"])
+                if pd.notna(row["slop_percentile"])
+                else None
+            ),
+            "watchability_percentile": (
+                float(row["watchability_percentile"])
+                if pd.notna(row["watchability_percentile"])
+                else None
+            ),
+        }
+        for _, row in home_recent_games.iterrows()
+    ]
+
+    # ---------------------------------
+    # GET LAST 5 AWAY TEAM GAMES
+    # ---------------------------------
+
+    away_recent_games = (
+        processed[
+            (
+                (processed["home_name"] == game["away_name"]) |
+                (processed["away_name"] == game["away_name"])
+            )
+            &
+            (processed["date"] < current_game_date)
+            &
+            processed["home_score"].notna()
+            &
+            processed["away_score"].notna()
+        ]
+        .sort_values("date", ascending=False)
+        .head(5)
+    )
+
+    away_recent_games = [
+        {
+            "game_id": str(row["game_id"]),
+            "date": row["date"].isoformat(),
+            "home_name": row["home_name"],
+            "away_name": row["away_name"],
+            "home_score": int(row["home_score"]),
+            "away_score": int(row["away_score"]),
+            "is_postseason": int(row["is_postseason"]),
+            "slop_percentile": (
+                float(row["slop_percentile"])
+                if pd.notna(row["slop_percentile"])
+                else None
+            ),
+            "watchability_percentile": (
+                float(row["watchability_percentile"])
+                if pd.notna(row["watchability_percentile"])
+                else None
+            ),
+        }
+        for _, row in away_recent_games.iterrows()
+    ]
+
+    # ---------------------------------
     # GET LIVE SCORE
     # ---------------------------------
 
@@ -575,10 +681,22 @@ def game(game_id):
         result[column] = value
 
     # Override predicted/CSV scores with live scores
-    result["home_score"] = live_score["home_score"]
-    result["away_score"] = live_score["away_score"]
+    result["home_score"] = (
+        live_score["home_score"]
+        if live_score["home_score"] is not None
+        else int(game["home_score"])
+    )
+
+    result["away_score"] = (
+        live_score["away_score"]
+        if live_score["away_score"] is not None
+        else int(game["away_score"])
+    )
 
     result["league"] = league
+
+    result["home_recent_games"] = home_recent_games
+    result["away_recent_games"] = away_recent_games
 
     result.update(live_metrics)
 

@@ -154,7 +154,7 @@ def collect_games(sport):
 
         all_games = all_games.sort_values("date").reset_index(drop=True)
 
-        SEASON_GAP_DAYS = 60
+        SEASON_GAP_DAYS = 30
 
         season_break = (
             all_games["date"].diff()
@@ -203,4 +203,12 @@ def collect_games(sport):
 
     print(f"Saved {len(all_games)} games to {output_path}")
 
-collect_games(sport="cfb")
+for sport in SPORT_CONFIG:
+    print(f"\n{'=' * 50}")
+    print(f"COLLECTING {sport.upper()}")
+    print(f"{'=' * 50}\n")
+
+    try:
+        collect_games(sport=sport)
+    except Exception as e:
+        print(f"FAILED {sport.upper()}: {e}")

@@ -26,9 +26,26 @@ export default function PreviewPage({ params }: Props) {
 
     const [start, end] = ref?.split("_") ?? [];
 
+    const emptyTeam: Team = {
+        team: {
+            name: "",
+            full_name: "",
+        },
+        team_badness: 0,
+        league: "",
+        season: "",
+        record: {
+            wins: 0,
+            losses: 0,
+        },
+        win_pct: 0,
+        point_diff: 0,
+        games_played: 0,
+        recent_games: [],
+        upcoming_games: [],
+    };
+
     const [game, setGame] = useState<Game | null>(null);
-    const [homeTeam, setHomeTeam] = useState<Team | null>(null);
-    const [awayTeam, setAwayTeam] = useState<Team | null>(null);
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -43,114 +60,24 @@ export default function PreviewPage({ params }: Props) {
                     throw new Error("Missing game date");
                 }
 
-                // -----------------------------------------
-                // Load current/predicted game data first
-                // -----------------------------------------
-                const gameResponse = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?league=${league}&start=${date}&end=${date}`,
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
                     {
                         cache: "no-store",
                     }
                 );
 
-                if (!gameResponse.ok) {
+                if (!response.ok) {
                     throw new Error(
-                        `Games API failed: ${gameResponse.status}`
+                        `Games API failed: ${response.status}`
                     );
                 }
 
-                const games = await gameResponse.json() as Game[];
+                const gameData = await response.json() as Game;
 
-                const gameData = games.find(
-                    (game) => String(game.game_id) === String(id)
-                );
-
-                if (!gameData) {
-                    throw new Error("Game not found");
-                }
-
-                // -----------------------------------------
-                // Load team data
-                // -----------------------------------------
-                const [homeResponse, awayResponse] = await Promise.all([
-                    fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.home_name)}`,
-                        {
-                            cache: "no-store",
-                        }
-                    ),
-                    fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slugify(gameData.away_name)}`,
-                        {
-                            cache: "no-store",
-                        }
-                    ),
-                ]);
-
-                if (!homeResponse.ok || !awayResponse.ok) {
-                    throw new Error("Failed to fetch team data");
-                }
-
-                const [homeData, awayData] = await Promise.all([
-                    homeResponse.json() as Promise<Team>,
-                    awayResponse.json() as Promise<Team>,
-                ]);
-
-                // -----------------------------------------
-                // Render immediately with current data
-                // -----------------------------------------
                 setGame(gameData);
-                setHomeTeam(homeData);
-                setAwayTeam(awayData);
+                console.log(gameData);
                 setLoading(false);
-
-                // -----------------------------------------
-                // 4. Try live data in the background
-                // -----------------------------------------
-                if (
-                    new Date(gameData.date) <= new Date() &&
-                    gameData.actual_slop === null
-                ) {
-                    try {
-                        const liveResponse = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
-                            {
-                                cache: "no-store",
-                            }
-                        );
-
-                        if (!liveResponse.ok) {
-                            return;
-                        }
-
-                        const liveGame = await liveResponse.json() as Game;
-
-                        // -----------------------------------------
-                        // 5. Update only the live/current values
-                        // -----------------------------------------
-                        setGame((currentGame) => {
-                            if (!currentGame) {
-                                return liveGame;
-                            }
-
-                            return {
-                                ...currentGame,
-                                home_score: liveGame.home_score,
-                                away_score: liveGame.away_score,
-                                live_slop: liveGame.live_slop,
-                                live_watchability: liveGame.live_watchability,
-                                actual_slop: liveGame.actual_slop,
-                                actual_watchability: liveGame.actual_watchability,
-                            };
-                        });
-
-                    } catch (error) {
-                        console.error(
-                            `Failed to fetch live data for ${id}:`,
-                            error
-                        );
-                    }
-                }
 
             } catch (error) {
                 console.error(error);
@@ -166,7 +93,7 @@ export default function PreviewPage({ params }: Props) {
         }
 
         fetchPreview();
-    }, [league, id, date]);
+    }, [id]);
 
     const gameRef = useRef<Game | null>(null);
 
@@ -185,12 +112,12 @@ export default function PreviewPage({ params }: Props) {
             const gameDate = new Date(currentGame.date);
             const now = new Date();
 
-            // Don't poll games that haven't started.
+            // Dont query games that havent started 
             if (gameDate > now) {
                 return;
             }
 
-            // Don't poll completed games.
+            // Dont query completed games
             if (currentGame.actual_slop !== null) {
                 return;
             }
@@ -234,7 +161,10 @@ export default function PreviewPage({ params }: Props) {
             }
         };
 
-        // Then every 2 minutes.
+        // Update score immediately on page load
+        updateScore();
+
+        // Requery every 2 min
         const interval = setInterval(
             updateScore,
             2 * 60 * 1000
@@ -255,7 +185,7 @@ export default function PreviewPage({ params }: Props) {
         );
     }
 
-    if (error || !game || !homeTeam || !awayTeam) {
+    if (error || !game) {
         return (
             <main className="p-6 text-white">
                 <div className="mx-auto max-w-5xl">
@@ -329,11 +259,11 @@ export default function PreviewPage({ params }: Props) {
                                 HOME
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(homeTeam.team.name)}`}
+                                href={`/${league}/teams/${slugify(game.home_name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
-                                {homeTeam.team.full_name}
+                                {game.home_full_name}
                             </Link>
                         </div>
 
@@ -369,11 +299,11 @@ export default function PreviewPage({ params }: Props) {
                                 AWAY
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(awayTeam.team.name)}`}
+                                href={`/${league}/teams/${slugify(game.away_name)}`}
                                 target="_blank"
                                 className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
                             >
-                                {awayTeam.team.full_name}
+                                {game.away_full_name}
                             </Link>
                         </div>
 
@@ -433,7 +363,7 @@ export default function PreviewPage({ params }: Props) {
                 {/* TEAM COMPARISON */}
                 <section className="mt-8">
                     <h2 className="mb-4 text-xl font-semibold">
-                        Team Comparison
+                        Pre-Game Comparison
                     </h2>
 
                     <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
@@ -441,7 +371,7 @@ export default function PreviewPage({ params }: Props) {
                         {/* HEADER */}
                         <div className="grid grid-cols-3 border-b border-zinc-800 p-5 text-center">
                             <div className="text-left font-semibold">
-                                {homeTeam.team.full_name}
+                                {game.home_full_name}
                             </div>
 
                             <div className="text-xs text-zinc-500">
@@ -449,14 +379,14 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {awayTeam.team.full_name}
+                                {game.away_full_name}
                             </div>
                         </div>
 
                         {/* RECORD */}
                         <div className="grid grid-cols-3 items-center border-b border-zinc-800 p-5">
                             <div className="text-left font-semibold">
-                                {homeTeam.record.wins} - {homeTeam.record.losses}
+                                {game.home_season_wins} - {game.home_season_losses}
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -464,14 +394,14 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {awayTeam.record.wins} - {awayTeam.record.losses}
+                                {game.away_season_wins} - {game.away_season_losses}
                             </div>
                         </div>
 
                         {/* WIN % */}
                         <div className="grid grid-cols-3 items-center border-b border-zinc-800 p-5">
                             <div className="text-left font-semibold">
-                                {(homeTeam.win_pct * 100).toFixed(1)}%
+                                {(game.home_season_win_pct * 100).toFixed(1)}%
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -479,14 +409,14 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {(awayTeam.win_pct * 100).toFixed(1)}%
+                                {(game.away_season_win_pct * 100).toFixed(1)}%
                             </div>
                         </div>
 
                         {/* BADNESS */}
                         <div className="grid grid-cols-3 items-center border-b border-zinc-800 p-5">
                             <div className="text-left font-semibold">
-                                {(homeTeam.team_badness * 100).toFixed(1)}%
+                                {(game.home_badness * 100).toFixed(1)}%
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -494,16 +424,16 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {(awayTeam.team_badness * 100).toFixed(1)}%
+                                {(game.away_badness * 100).toFixed(1)}%
                             </div>
                         </div>
 
                         {/* POINT DIFF */}
                         <div className="grid grid-cols-3 items-center p-5">
                             <div className="text-left font-semibold">
-                                {homeTeam.point_diff >= 0
-                                    ? `+${homeTeam.point_diff}`
-                                    : homeTeam.point_diff}
+                                {game.home_season_point_diff >= 0
+                                    ? `+${game.home_season_point_diff}`
+                                    : game.home_season_point_diff}
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -511,9 +441,9 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {awayTeam.point_diff >= 0
-                                    ? `+${awayTeam.point_diff}`
-                                    : awayTeam.point_diff}
+                                {game.away_season_point_diff >= 0
+                                    ? `+${game.away_season_point_diff}`
+                                    : game.away_season_point_diff}
                             </div>
                         </div>
 
@@ -523,7 +453,7 @@ export default function PreviewPage({ params }: Props) {
                 {/* RECENT GAMES */}
                 <section className="mt-8">
                     <h2 className="mb-4 text-xl font-semibold">
-                        Recent Games
+                        Last 5 Games
                     </h2>
 
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -531,30 +461,30 @@ export default function PreviewPage({ params }: Props) {
                         {/* HOME RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
                             <h3 className="font-semibold">
-                                {homeTeam.team.full_name}
+                                {game.home_full_name}
                             </h3>
 
                             <div className="mt-4">
-                                {homeTeam.recent_games.length === 0 ? (
+                                {!!game.home_recent_games && game.home_recent_games.length === 0 ? (
                                     <div className="py-4 text-sm text-zinc-500">
                                         No recent games.
                                     </div>
                                 ) : (
-                                    homeTeam.recent_games.slice(0, 5).map((game) => {
+                                    game.home_recent_games?.slice(0, 5).map((recent_game) => {
                                         const isHome =
-                                            game.home_full_name === homeTeam.team.full_name;
+                                            recent_game.home_full_name === game.home_full_name;
 
                                         const teamScore = isHome
-                                            ? game.home_score
-                                            : game.away_score;
+                                            ? recent_game.home_score
+                                            : recent_game.away_score;
 
                                         const opponentScore = isHome
-                                            ? game.away_score
-                                            : game.home_score;
+                                            ? recent_game.away_score
+                                            : recent_game.home_score;
 
                                         const opponent = isHome
-                                            ? game.away_name
-                                            : game.home_name;
+                                            ? recent_game.away_name
+                                            : recent_game.home_name;
 
                                         if (teamScore === null || opponentScore === null) {
                                             return null;
@@ -565,8 +495,8 @@ export default function PreviewPage({ params }: Props) {
 
                                         return (
                                             <Link
-                                                key={game.game_id}
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                key={recent_game.game_id}
+                                                href={`/${league}/preview/${recent_game.game_id}?date=${recent_game.date.slice(0, 10)}`}
                                                 target="_blank"
                                                 className="
                                                     no-underline!
@@ -609,25 +539,25 @@ export default function PreviewPage({ params }: Props) {
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(game.slop_percentile),
+                                                            color: getHeatColour(recent_game.slop_percentile),
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             SLOP
                                                         </div>
-                                                        {(game.slop_percentile * 100).toFixed(0)}%
+                                                        {(recent_game.slop_percentile * 100).toFixed(0)}%
                                                     </div>
 
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(1 - game.watchability_percentile),
+                                                            color: getHeatColour(1 - recent_game.watchability_percentile),
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             WATCHABILITY
                                                         </div>
-                                                        {(game.watchability_percentile * 100).toFixed(0)}%
+                                                        {(recent_game.watchability_percentile * 100).toFixed(0)}%
                                                     </div>
                                                 </div>
                                             </Link>
@@ -640,30 +570,30 @@ export default function PreviewPage({ params }: Props) {
                         {/* AWAY RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
                             <h3 className="font-semibold">
-                                {awayTeam.team.name}
+                                {game.away_name}
                             </h3>
 
                             <div className="mt-4">
-                                {awayTeam.recent_games.length === 0 ? (
+                                {!!game.away_recent_games && game.away_recent_games.length === 0 ? (
                                     <div className="py-4 text-sm text-zinc-500">
                                         No recent games.
                                     </div>
                                 ) : (
-                                    awayTeam.recent_games.slice(0, 5).map((game) => {
+                                    game.away_recent_games?.slice(0, 5).map((recent_game) => {
                                         const isHome =
-                                            game.home_full_name === awayTeam.team.full_name;
+                                            recent_game.home_full_name === game.away_full_name;
 
                                         const teamScore = isHome
-                                            ? game.home_score
-                                            : game.away_score;
+                                            ? recent_game.home_score
+                                            : recent_game.away_score;
 
                                         const opponentScore = isHome
-                                            ? game.away_score
-                                            : game.home_score;
+                                            ? recent_game.away_score
+                                            : recent_game.home_score;
 
                                         const opponent = isHome
-                                            ? game.away_name
-                                            : game.home_name;
+                                            ? recent_game.away_name
+                                            : recent_game.home_name;
 
                                         if (teamScore === null || opponentScore === null) {
                                             return null;
@@ -674,8 +604,8 @@ export default function PreviewPage({ params }: Props) {
 
                                         return (
                                             <Link
-                                                key={game.game_id}
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`}
+                                                key={recent_game.game_id}
+                                                href={`/${league}/preview/${recent_game.game_id}?date=${recent_game.date.slice(0, 10)}`}
                                                 target="_blank"
                                                 className="
                                                     no-underline!
@@ -718,25 +648,25 @@ export default function PreviewPage({ params }: Props) {
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(game.slop_percentile),
+                                                            color: getHeatColour(recent_game.slop_percentile),
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             SLOP
                                                         </div>
-                                                        {(game.slop_percentile * 100).toFixed(0)}%
+                                                        {(recent_game.slop_percentile * 100).toFixed(0)}%
                                                     </div>
 
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(1 - game.watchability_percentile),
+                                                            color: getHeatColour(1 - recent_game.watchability_percentile),
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             WATCHABILITY
                                                         </div>
-                                                        {(game.watchability_percentile * 100).toFixed(0)}%
+                                                        {(recent_game.watchability_percentile * 100).toFixed(0)}%
                                                     </div>
                                                 </div>
                                             </Link>

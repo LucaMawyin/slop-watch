@@ -158,11 +158,16 @@ def get_slop(league="nba"):
     home_season_losses = []
     home_season_win_pct = []
     home_season_point_diff = []
+    home_last_game_id = []
+
 
     away_season_wins = []
     away_season_losses = []
     away_season_win_pct = []
     away_season_point_diff = []
+    away_last_game_id = []
+
+    last_game_by_team = {}
 
     current_season = None
 
@@ -180,6 +185,18 @@ def get_slop(league="nba"):
 
         home = game["home_name"]
         away = game["away_name"]
+
+        # ---------------------------------
+        # LAST COMPLETED GAME
+        # ---------------------------------
+
+        home_last_game_id.append(
+            last_game_by_team.get(home)
+        )
+
+        away_last_game_id.append(
+            last_game_by_team.get(away)
+        )
 
         home_stats = team_season_stats.get(
             home,
@@ -252,35 +269,34 @@ def get_slop(league="nba"):
         # GAME
         # ---------------------------------
 
-        if not regular_season.loc[index]:
-            continue
+        if regular_season.loc[index]:
 
-        home_score = game["home_score"]
-        away_score = game["away_score"]
+            home_score = game["home_score"]
+            away_score = game["away_score"]
 
-        if home_score > away_score:
+            if home_score > away_score:
+                home_stats["wins"] += 1
+                away_stats["losses"] += 1
 
-            home_stats["wins"] += 1
-            away_stats["losses"] += 1
+            elif away_score > home_score:
+                away_stats["wins"] += 1
+                home_stats["losses"] += 1
 
-        elif away_score > home_score:
+            home_stats["points_for"] += home_score
+            home_stats["points_against"] += away_score
 
-            away_stats["wins"] += 1
-            home_stats["losses"] += 1
+            away_stats["points_for"] += away_score
+            away_stats["points_against"] += home_score
 
-        # ---------------------------------
-        # UPDATE POINT DIFFERENTIAL
-        # ---------------------------------
+            team_season_stats[home] = home_stats
+            team_season_stats[away] = away_stats
 
-        home_stats["points_for"] += home_score
-        home_stats["points_against"] += away_score
+        # Update regardless of regular/postseason
+        last_game_by_team[home] = game["game_id"]
+        last_game_by_team[away] = game["game_id"]
 
-        away_stats["points_for"] += away_score
-        away_stats["points_against"] += home_score
-
-        team_season_stats[home] = home_stats
-        team_season_stats[away] = away_stats
-
+    games["home_last_game_id"] = home_last_game_id
+    games["away_last_game_id"] = away_last_game_id
 
     games["home_season_wins"] = home_season_wins
     games["home_season_losses"] = home_season_losses
@@ -339,7 +355,7 @@ def get_slop(league="nba"):
 
     games["home_badness"] = (
         games["home_badness"]
-        .expanding(min_periods=100)
+        .expanding(min_periods=30)
         .apply(
             lambda x: (
                 (x.iloc[:-1] < x.iloc[-1]).mean()
@@ -351,7 +367,7 @@ def get_slop(league="nba"):
 
     games["away_badness"] = (
         games["away_badness"]
-        .expanding(min_periods=100)
+        .expanding(min_periods=30)
         .apply(
             lambda x: (
                 (x.iloc[:-1] < x.iloc[-1]).mean()
@@ -540,7 +556,7 @@ def get_slop(league="nba"):
 
     games["slop_percentile"] = (
         games["actual_slop"]
-        .expanding(min_periods=100)
+        .expanding(min_periods=30)
         .apply(
             lambda x: (
                 (x.iloc[:-1] < x.iloc[-1]).mean()
@@ -552,7 +568,7 @@ def get_slop(league="nba"):
 
     games["watchability_percentile"] = (
         games["actual_watchability"]
-        .expanding(min_periods=100)
+        .expanding(min_periods=30)
         .apply(
             lambda x: (
                 (x.iloc[:-1] < x.iloc[-1]).mean()

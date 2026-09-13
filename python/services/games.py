@@ -273,9 +273,9 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     # GET HISTORICAL DATA
     # ---------------------------------
 
-    historical = processed[
-        processed["date"] < start_date
-    ].copy()
+    historical = processed.copy()
+
+    historical = historical.sort_values("date")
 
     # ---------------------------------
     # LATEST TEAM PERFORMANCE
@@ -324,10 +324,6 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
         .tail(1)
     )
 
-    # ---------------------------------
-    # ATTACH TO FUTURE GAMES
-    # ---------------------------------
-
     home = latest[
         [
             "team",
@@ -361,6 +357,205 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     })
 
     # ---------------------------------
+    # LATEST TEAM BADNESS
+    # ---------------------------------
+
+    badness_performance = pd.concat([
+        historical[
+            [
+                "date",
+                "home_name",
+                "home_win_badness",
+                "home_point_diff_badness",
+                "home_badness",
+            ]
+        ].rename(columns={
+            "home_name": "team",
+            "home_win_badness": "win_badness",
+            "home_point_diff_badness": "point_diff_badness",
+            "home_badness": "badness",
+        }),
+
+        historical[
+            [
+                "date",
+                "away_name",
+                "away_win_badness",
+                "away_point_diff_badness",
+                "away_badness",
+            ]
+        ].rename(columns={
+            "away_name": "team",
+            "away_win_badness": "win_badness",
+            "away_point_diff_badness": "point_diff_badness",
+            "away_badness": "badness",
+        }),
+    ])
+
+    latest_badness = (
+        badness_performance
+        .sort_values("date")
+        .groupby("team")
+        .tail(1)
+    )
+
+    home_badness = latest_badness[
+        [
+            "team",
+            "win_badness",
+            "point_diff_badness",
+            "badness",
+        ]
+    ].rename(columns={
+        "team": "home_name",
+        "win_badness": "home_win_badness",
+        "point_diff_badness": "home_point_diff_badness",
+        "badness": "home_badness",
+    })
+
+    away_badness = latest_badness[
+        [
+            "team",
+            "win_badness",
+            "point_diff_badness",
+            "badness",
+        ]
+    ].rename(columns={
+        "team": "away_name",
+        "win_badness": "away_win_badness",
+        "point_diff_badness": "away_point_diff_badness",
+        "badness": "away_badness",
+    })
+
+    # ---------------------------------
+    # SEASON STATS FOR FUTURE GAMES
+    # ---------------------------------
+
+    season_stats = {}
+
+    if not historical.empty:
+
+        historical = historical.sort_values("date")
+
+        # Season is based on most recent game
+        current_season = historical.iloc[-1]["season"]
+
+        season_games = historical[
+            historical["season"] == current_season
+        ].copy()
+
+        # Determine which games are regular season
+        if "season_type" in season_games.columns:
+
+            regular_season = (
+                season_games["season_type"] == 2
+            )
+
+        elif "season_id" in season_games.columns:
+
+            regular_season = (
+                season_games["season_id"] % 3 == 2
+            )
+
+        else:
+
+            regular_season = (
+                season_games["is_postseason"] == 0
+            )
+
+        season_games = season_games[
+            regular_season
+        ].sort_values("date")
+
+        # Build season record from completed games
+        for _, game in season_games.iterrows():
+
+            home_score = game["home_score"]
+            away_score = game["away_score"]
+
+            if pd.isna(home_score) or pd.isna(away_score):
+                continue
+
+            home_name = game["home_name"]
+            away_name = game["away_name"]
+
+            home_stats = season_stats.setdefault(
+                home_name,
+                {
+                    "wins": 0,
+                    "losses": 0,
+                    "points_for": 0,
+                    "points_against": 0,
+                }
+            )
+
+            away_stats = season_stats.setdefault(
+                away_name,
+                {
+                    "wins": 0,
+                    "losses": 0,
+                    "points_for": 0,
+                    "points_against": 0,
+                }
+            )
+
+            # Update wins/losses
+            if home_score > away_score:
+
+                home_stats["wins"] += 1
+                away_stats["losses"] += 1
+
+            elif away_score > home_score:
+
+                away_stats["wins"] += 1
+                home_stats["losses"] += 1
+
+            # Update points
+            home_stats["points_for"] += home_score
+            home_stats["points_against"] += away_score
+
+            away_stats["points_for"] += away_score
+            away_stats["points_against"] += home_score
+
+    home_season = pd.DataFrame([
+        {
+            "home_name": team,
+            "home_season_wins": stats["wins"],
+            "home_season_losses": stats["losses"],
+            "home_season_win_pct": (
+                stats["wins"] /
+                (stats["wins"] + stats["losses"])
+                if stats["wins"] + stats["losses"] > 0
+                else None
+            ),
+            "home_season_point_diff": (
+                stats["points_for"] -
+                stats["points_against"]
+            ),
+        }
+        for team, stats in season_stats.items()
+    ])
+
+    away_season = pd.DataFrame([
+        {
+            "away_name": team,
+            "away_season_wins": stats["wins"],
+            "away_season_losses": stats["losses"],
+            "away_season_win_pct": (
+                stats["wins"] /
+                (stats["wins"] + stats["losses"])
+                if stats["wins"] + stats["losses"] > 0
+                else None
+            ),
+            "away_season_point_diff": (
+                stats["points_for"] -
+                stats["points_against"]
+            ),
+        }
+        for team, stats in season_stats.items()
+    ])
+
+    # ---------------------------------
     # ATTACH TO FUTURE GAMES
     # ---------------------------------
 
@@ -368,9 +563,43 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
 
         fetched_games = (
             fetched_games
-            .merge(home, on="home_name", how="left")
-            .merge(away, on="away_name", how="left")
+            .merge(
+                home,
+                on="home_name",
+                how="left"
+            )
+            .merge(
+                away,
+                on="away_name",
+                how="left"
+            )
+            .merge(
+                home_season,
+                on="home_name",
+                how="left"
+            )
+            .merge(
+                away_season,
+                on="away_name",
+                how="left"
+            )
+            .merge(
+                home_badness,
+                on="home_name",
+                how="left"
+            )
+            .merge(
+                away_badness,
+                on="away_name",
+                how="left"
+            )
         )
+
+        # Use latest badness for future games
+        fetched_games["team_badness"] = (
+            fetched_games["home_badness"] +
+            fetched_games["away_badness"]
+        ) / 2
 
     # ---------------------------------
     # COMBINE PROCESSED W/ API

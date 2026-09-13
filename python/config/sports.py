@@ -67,6 +67,9 @@ GAME_FEATURES = [
     # Game information
     "game_id",
     "date",
+    "month",
+    "day",
+    "year",
     "home_id",
     "away_id",
     "home_name",
@@ -75,6 +78,7 @@ GAME_FEATURES = [
     "away_full_name",
     "venue_full_name",
     "is_postseason",
+    "season",
 
     # Score
     "home_score",
@@ -105,6 +109,55 @@ GAME_FEATURES = [
     "away_recent_win_pct",
     "home_recent_point_diff",
     "away_recent_point_diff",
+
+    # Last game
+    "home_last_game_id",
+    "away_last_game_id",
+
+    # Playoffs
+    "home_playoff_wins",
+    "away_playoff_wins",
+    "playoff_wins",
+
+    # Season record
+    "home_season_wins",
+    "home_season_losses",
+    "home_season_win_pct",
+    "home_season_point_diff",
+
+    "away_season_wins",
+    "away_season_losses",
+    "away_season_win_pct",
+    "away_season_point_diff",
+
+    # Badness
+    "home_win_badness",
+    "away_win_badness",
+    "home_point_diff_badness",
+    "away_point_diff_badness",
+    "home_badness",
+    "away_badness",
+    "team_badness",
+
+    # Scoring
+    "total_points",
+    "scoring_mean",
+    "scoring_std",
+    "ideal_scoring",
+    "scoring_badness",
+    "actual_margin",
+
+    # Watchability components
+    "team_quality",
+    "competitiveness",
+    "uncompetitiveness",
+    "scoring_entertainment",
+
+    "team_quality_weight",
+    "competitiveness_weight",
+    "scoring_weight",
+    "uncompetitiveness_weight",
+    "team_weight",
 ]
 
 MODEL_FEATURES = [
@@ -133,7 +186,7 @@ PREDICTION_FEATURES = [
     ]
 ]
 
-DATA_RANGE_YEARS = 10
+DATA_RANGE_YEARS = 7
 
 NUMBER_OF_SEASONS = 1
 
