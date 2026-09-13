@@ -51,7 +51,7 @@ export default function PreviewPage({ params }: Props) {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        async function fetchPreview() {
+        const fetchPreview = async () => {
             try {
                 setLoading(true);
                 setError(null);
@@ -90,10 +90,15 @@ export default function PreviewPage({ params }: Props) {
 
                 setLoading(false);
             }
-        }
+        };
 
-        fetchPreview();
-    }, [id]);
+        // Run after the initial render.
+        const timeout = setTimeout(fetchPreview, 0);
+
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [id, league, date]);
 
     const gameRef = useRef<Game | null>(null);
 
@@ -112,7 +117,7 @@ export default function PreviewPage({ params }: Props) {
             const gameDate = new Date(currentGame.date);
             const now = new Date();
 
-            // Dont query games that havent started 
+            // Dont query games that havent started
             if (gameDate > now) {
                 return;
             }
@@ -161,16 +166,17 @@ export default function PreviewPage({ params }: Props) {
             }
         };
 
-        // Update score immediately on page load
-        updateScore();
+        // Wait until initial render has completed.
+        const timeout = setTimeout(updateScore, 0);
 
-        // Requery every 2 min
+        // Query every 2 minutes
         const interval = setInterval(
             updateScore,
             2 * 60 * 1000
         );
 
         return () => {
+            clearTimeout(timeout);
             clearInterval(interval);
         };
     }, [id, league]);
