@@ -96,7 +96,7 @@ export default function DayPickerClient({
                             onSelect={setRange}
                             defaultMonth={initialMonth}
                             captionLayout="dropdown"
-                            startMonth={new Date(today.getFullYear() - 7, today.getMonth(), 1)}
+                            startMonth={new Date(today.getFullYear() - 8, today.getMonth(), 1)}
                             endMonth={new Date(today.getFullYear() + 1, today.getMonth(), 1)}
                             classNames={{
                                 dropdown:
