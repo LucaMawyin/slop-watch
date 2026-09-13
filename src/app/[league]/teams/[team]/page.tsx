@@ -30,7 +30,7 @@ export default function TeamPage({ params }: Props) {
 
     const [team, setTeam] = useState<Team | null>(null);
     const [loading, setLoading] = useState(true);
-    const [recentGamesCount, setRecentGamesCount] = useState(3);
+    const [ recentGamesCount, setRecentGamesCount ] = useState(3);
     const [ upcomingGamesCount, setUpcomingGamesCount ] = useState(3);
 
     const slug = slugify(teamSlug);
@@ -101,11 +101,16 @@ export default function TeamPage({ params }: Props) {
 
             const now = new Date();
 
-            const liveGames = currentTeam.upcoming_games.filter(
-                (game) =>
-                    new Date(game.date) <= now &&
+            const liveGames = currentTeam.upcoming_games.filter((game) => {
+                const gameDate = new Date(game.date);
+                const age = now.getTime() - gameDate.getTime();
+
+                return (
+                    age >= 30 * 60 * 1000 &&
+                    age <= 6 * 60 * 60 * 1000 &&
                     game.actual_slop === null
-            );
+                );
+            });
 
             for (const game of liveGames) {
                 try {
@@ -205,7 +210,7 @@ export default function TeamPage({ params }: Props) {
 
                     <Link
                         href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
-                        className="mb-4 block hover:underline"
+                        className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {league.toUpperCase()} Games
                     </Link>
@@ -472,6 +477,12 @@ export default function TeamPage({ params }: Props) {
                                 {upcomingGames && upcomingGames.length > 0 ? (
                                     upcomingGames.slice(0, upcomingGamesCount).map((game) => {
 
+                                        const slop = game.slop_percentile;
+                                        const watchability = game.watchability_percentile;
+
+                                        const badge = getSlopBadge(slop, watchability);
+
+
                                         const isHome = game.home_full_name === team.team.full_name;
                                         const opponent = isHome
                                             ? game.away_name
@@ -499,12 +510,20 @@ export default function TeamPage({ params }: Props) {
                                             >
 
                                                 {/* Game Info */}
-                                                <div>
+                                                <div className="flex flex-col gap-1">
+                                                    <Badge
+                                                        title={badge.title}
+                                                        x={3}
+                                                        y={1}
+                                                        colour={badge.colour}
+                                                        className="w-fit mb-1"
+                                                    />
+
                                                     <p className="text-sm">
                                                         {new Date(game.date).toLocaleDateString()}
                                                     </p>
 
-                                                    <h1 className="mt-1 font-medium">
+                                                    <h1 className="font-medium">
                                                         <span className="font-bold">
                                                             {team.team.name}
                                                         </span>
@@ -512,7 +531,7 @@ export default function TeamPage({ params }: Props) {
                                                         {opponent}
                                                     </h1>
 
-                                                    <p className="mt-1 text-sm">
+                                                    <p className="text-sm">
                                                         {game.venue_full_name}
                                                     </p>
                                                 </div>
@@ -581,10 +600,7 @@ export default function TeamPage({ params }: Props) {
                                     team.recent_games.slice(0, recentGamesCount).map((game) => {
 
                                         const slop = game.slop_percentile;
-                                        const slopColour = getHeatColour(slop);
-
                                         const watchability = game.watchability_percentile;
-                                        const watchabilityColour = getHeatColour(1-watchability);
 
                                         const badge = getSlopBadge(slop, watchability);
 

@@ -76,7 +76,6 @@ export default function PreviewPage({ params }: Props) {
                 const gameData = await response.json() as Game;
 
                 setGame(gameData);
-                console.log(gameData);
                 setLoading(false);
 
             } catch (error) {
@@ -117,8 +116,15 @@ export default function PreviewPage({ params }: Props) {
             const gameDate = new Date(currentGame.date);
             const now = new Date();
 
-            // Dont query games that havent started
-            if (gameDate > now) {
+            const age = now.getTime() - gameDate.getTime();
+
+            // Dont query games until 30 minutes after start
+            if (age < 30 * 60 * 1000) {
+                return;
+            }
+
+            // Dont query completed games
+            if (currentGame.actual_slop !== null) {
                 return;
             }
 
@@ -236,7 +242,7 @@ export default function PreviewPage({ params }: Props) {
                 {/* BACK */}
                 <Link
                     href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
-                    className="mb-4 block hover:underline"
+                    className="mb-4 block hover:underline w-fit"
                 >
                     &lt; Back to {league.toUpperCase()} Games
                 </Link>
@@ -252,6 +258,7 @@ export default function PreviewPage({ params }: Props) {
                             weekday: "long",
                             month: "long",
                             day: "numeric",
+                            year: "numeric",
                             hour: "numeric",
                             minute: "2-digit",
                         })}

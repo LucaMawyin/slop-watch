@@ -195,7 +195,7 @@ function GamesContent() {
                 const age = now.getTime() - gameDate.getTime();
 
                 return (
-                    age >= 0 &&
+                    age >= 30 * 60 * 1000 &&
                     age <= 6 * 60 * 60 * 1000 &&
                     game.actual_slop === null
                 );
@@ -519,11 +519,12 @@ function GamesContent() {
                                     "
                                 >
                                     <div className="flex items-center justify-between pb-2">
-                                        <div className="text-sm text-zinc-400">
+                                        <div className="text-sm text-zinc-400 max-w-1/2">
                                             {new Date(game.date).toLocaleString([], {
                                                 weekday: "short",
                                                 month: "short",
                                                 day: "numeric",
+                                                year: "numeric",
                                                 hour: "numeric",
                                                 minute: "2-digit",
                                             })}

@@ -392,6 +392,7 @@ def team(league, team_slug):
                 "away_name": previous["away_name"],
                 "home_full_name": previous["home_full_name"],
                 "away_full_name": previous["away_full_name"],
+                "venue_full_name": previous["venue_full_name"],
                 "home_score": (
                     int(previous["home_score"])
                     if pd.notna(previous["home_score"])
