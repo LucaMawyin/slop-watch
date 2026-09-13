@@ -224,6 +224,24 @@ def team(league, team_slug):
         SPORT_CONFIG[league]["processed_output"]
     )
 
+    processed["game_id"] = processed["game_id"].astype(str).str.replace(
+        r"\.0$",
+        "",
+        regex=True
+    )
+
+    processed["home_last_game_id"] = (
+        processed["home_last_game_id"]
+        .astype(str)
+        .str.replace(r"\.0$", "", regex=True)
+    )
+
+    processed["away_last_game_id"] = (
+        processed["away_last_game_id"]
+        .astype(str)
+        .str.replace(r"\.0$", "", regex=True)
+    )
+
     processed["date"] = pd.to_datetime(
         processed["date"],
         utc=True
@@ -314,19 +332,103 @@ def team(league, team_slug):
             elif team_score < opponent_score:
                 losses += 1
 
-
     # ---------------------------------
     # RECENT & UPCOMING GAMES
     # ---------------------------------
 
     now = pd.Timestamp.now(tz="UTC")
-    start_date = now - pd.Timedelta(days=14)
+
+    # ---------------------------------
+    # PREVIOUS GAMES FROM CSV
+    # ---------------------------------
+
+    previous_games = []
+
+    if not team_games.empty:
+
+        team_games = team_games.sort_values("date")
+
+        # Lookup games by ID
+        game_lookup = {
+            str(row["game_id"]): row
+            for _, row in processed.iterrows()
+        }
+
+        # Start from the most recent completed game
+        current_game = team_games.iloc[-1]
+
+        for _ in range(15):
+
+            if team_id:
+                is_home = (
+                    str(current_game["home_id"]) == str(team_id)
+                )
+            else:
+                is_home = (
+                    current_game["home_name"] == team_name
+                )
+
+            last_game_id = (
+                current_game["home_last_game_id"]
+                if is_home
+                else current_game["away_last_game_id"]
+            )
+
+            if pd.isna(last_game_id):
+                break
+
+            previous = game_lookup.get(str(last_game_id))
+
+            if previous is None:
+                break
+
+            previous_games.append({
+                "game_id": str(previous["game_id"]),
+                "date": pd.to_datetime(
+                    previous["date"],
+                    utc=True
+                ).isoformat(),
+                "home_name": previous["home_name"],
+                "away_name": previous["away_name"],
+                "home_full_name": previous["home_full_name"],
+                "away_full_name": previous["away_full_name"],
+                "home_score": (
+                    int(previous["home_score"])
+                    if pd.notna(previous["home_score"])
+                    else None
+                ),
+                "away_score": (
+                    int(previous["away_score"])
+                    if pd.notna(previous["away_score"])
+                    else None
+                ),
+                "is_postseason": int(previous["is_postseason"]),
+                "slop_percentile": (
+                    float(previous["slop_percentile"])
+                    if pd.notna(previous["slop_percentile"])
+                    else None
+                ),
+                "watchability_percentile": (
+                    float(previous["watchability_percentile"])
+                    if pd.notna(previous["watchability_percentile"])
+                    else None
+                ),
+            })
+
+            # Follow the chain backwards
+            current_game = previous
+
+    # ---------------------------------
+    # LIVE & UPCOMING GAMES
+    # ---------------------------------
 
     games = predict(
         league=league,
-        start_date=start_date,
-        days_ahead=28
+        start_date=now,
+        days_ahead=14
     )
+
+    upcoming_games = []
 
     if not games.empty:
 
@@ -347,14 +449,8 @@ def team(league, team_slug):
                 (games["away_name"] == team_name)
             ].copy()
 
-        # Sort by date
-        games = games.sort_values(
-            "date",
-            ascending=True
-        )
-
-        # Split by date
-        upcoming_games = games[
+        # Live + upcoming games
+        games = games[
             (games["date"] > now) |
             (
                 (games["date"] <= now) &
@@ -362,63 +458,29 @@ def team(league, team_slug):
             )
         ].copy()
 
-        # Completed games only
-        recent_games = games[
-            (games["date"] <= now) &
-            (games["actual_slop"].notna())
-        ].copy()
-
-        # Most recent games first
-        recent_games = recent_games.sort_values(
-            "date",
-            ascending=False
-        )
-
-        # Soonest upcoming games first
-        upcoming_games = upcoming_games.sort_values(
+        games = games.sort_values(
             "date",
             ascending=True
         )
 
-        # Convert dates to ISO strings
-        recent_games["date"] = recent_games["date"].dt.strftime(
+        games["date"] = games["date"].dt.strftime(
             "%Y-%m-%dT%H:%M:%SZ"
         )
 
-        upcoming_games["date"] = upcoming_games["date"].dt.strftime(
-            "%Y-%m-%dT%H:%M:%SZ"
-        )
-
-        # Convert NaN to None
-        recent_games = recent_games.astype(object).where(
-            pd.notna(recent_games),
+        games = games.astype(object).where(
+            pd.notna(games),
             None
         )
-
-        upcoming_games = upcoming_games.astype(object).where(
-            pd.notna(upcoming_games),
-            None
-        )
-
-        # Convert games to JSON-safe Python values
-        recent_games = [
-            {
-                key: json_safe(value)
-                for key, value in game.items()
-            }
-            for game in recent_games.to_dict(orient="records")
-        ]
 
         upcoming_games = [
             {
                 key: json_safe(value)
                 for key, value in game.items()
             }
-            for game in upcoming_games.to_dict(orient="records")
+            for game in games.to_dict(orient="records")
         ]
 
     else:
-        recent_games = []
         upcoming_games = []
 
     elapsed = time.perf_counter() - start_time
@@ -451,7 +513,7 @@ def team(league, team_slug):
         ),
         "point_diff": int(point_diff),
         "games_played": wins + losses,
-        "recent_games": recent_games,
+        "recent_games": previous_games,
         "upcoming_games": upcoming_games,
     })
 

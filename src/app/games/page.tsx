@@ -89,7 +89,6 @@ function GamesContent() {
     }, [sport, league]);
 
     useEffect(() => {
-
         const controller = new AbortController();
 
         setLoading(true);
@@ -98,17 +97,12 @@ function GamesContent() {
 
         const params = new URLSearchParams();
 
-        // Fetching sport or league
         if (sport) {
-            params.set("sport", slugify(sport))
-        } 
-        
-        else if (league) {
+            params.set("sport", slugify(sport));
+        } else if (league) {
             params.set("league", league);
         }
 
-        
-        // Time frame 
         if (effectiveStart) {
             params.set("start", effectiveStart);
         }
@@ -124,7 +118,8 @@ function GamesContent() {
             }
         )
             .then(async (res) => {
-                const data: { error?: string } | Game[] = await res.json();
+                const data: { error?: string } | Game[] =
+                    await res.json();
 
                 if (!res.ok) {
                     throw new Error(
@@ -136,97 +131,38 @@ function GamesContent() {
 
                 return data;
             })
-            .then(async (data) => {
+            .then((data) => {
                 const filteredGames = (data as Game[]).filter((game) => {
                     const gameDate = new Date(game.date);
 
                     const localGameDate =
-                        `${gameDate.getFullYear()}-${String(gameDate.getMonth() + 1).padStart(2, "0")}-${String(gameDate.getDate()).padStart(2, "0")}`;
+                        `${gameDate.getFullYear()}-${String(
+                            gameDate.getMonth() + 1
+                        ).padStart(2, "0")}-${String(
+                            gameDate.getDate()
+                        ).padStart(2, "0")}`;
 
-                    if (effectiveStart && localGameDate < effectiveStart) {
+                    if (
+                        effectiveStart &&
+                        localGameDate < effectiveStart
+                    ) {
                         return false;
                     }
 
-                    if (effectiveEnd && localGameDate > effectiveEnd) {
+                    if (
+                        effectiveEnd &&
+                        localGameDate > effectiveEnd
+                    ) {
                         return false;
                     }
 
                     return true;
                 });
 
-                // Show predicted games immediately.
                 setGames(filteredGames);
                 setLoading(false);
-
-                // Find today's games that have started and are not final.
-                const today = new Date();
-
-                const liveGames = filteredGames.filter((game) => {
-                    const gameDate = new Date(game.date);
-
-                    return (
-                        gameDate.getFullYear() === today.getFullYear() &&
-                        gameDate.getMonth() === today.getMonth() &&
-                        gameDate.getDate() === today.getDate() &&
-                        gameDate <= today &&
-                        game.actual_slop === null
-                    );
-                });
-
-                // Try to update live data one game at a time.
-                for (const game of liveGames) {
-                    try {
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                            {
-                                cache: "no-store",
-                            }
-                        );
-
-                        if (!response.ok) {
-                            continue;
-                        }
-
-                        const liveGame = await response.json() as Game;
-
-                        setGames((currentGames) =>
-                            currentGames.map((currentGame) => {
-                                if (
-                                    String(currentGame.game_id) !==
-                                    String(liveGame.game_id)
-                                ) {
-                                    return currentGame;
-                                }
-
-                                return {
-                                    ...currentGame,
-
-                                    // Replace predicted score with live score
-                                    home_score: liveGame.home_score,
-                                    away_score: liveGame.away_score,
-
-                                    // Add live metrics if available
-                                    live_slop: liveGame.live_slop,
-                                    live_watchability: liveGame.live_watchability,
-
-                                    // If the game finished while we were fetching,
-                                    // update the final values too.
-                                    actual_slop: liveGame.actual_slop,
-                                    actual_watchability: liveGame.actual_watchability,
-                                };
-                            })
-                        );
-
-                    } catch (error) {
-                        console.error(
-                            `Failed to fetch live data for ${game.game_id}:`,
-                            error
-                        );
-                    }
-                }
             })
             .catch((err) => {
-                // Ignore intentionally aborted requests
                 if (err.name === "AbortError") {
                     return;
                 }
@@ -234,6 +170,7 @@ function GamesContent() {
                 setError(err.message);
                 setLoading(false);
             });
+
         return () => {
             controller.abort();
         };
@@ -246,7 +183,11 @@ function GamesContent() {
     }, [games]);
 
     useEffect(() => {
-        const updateScores = async () => {
+        if (games.length === 0) {
+            return;
+        }
+
+        const updateLiveGames = async () => {
             const now = new Date();
 
             const liveGames = gamesRef.current.filter((game) => {
@@ -263,7 +204,7 @@ function GamesContent() {
             for (const game of liveGames) {
                 try {
                     const response = await fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
                         {
                             cache: "no-store",
                         }
@@ -273,50 +214,52 @@ function GamesContent() {
                         continue;
                     }
 
-                    const score = await response.json() as {
-                        home_score: number | null;
-                        away_score: number | null;
-                    };
+                    const liveGame = await response.json() as Game;
 
                     setGames((currentGames) =>
                         currentGames.map((currentGame) => {
                             if (
                                 String(currentGame.game_id) !==
-                                String(game.game_id)
+                                String(liveGame.game_id)
                             ) {
                                 return currentGame;
                             }
 
                             return {
                                 ...currentGame,
-                                home_score: score.home_score,
-                                away_score: score.away_score,
+                                home_score: liveGame.home_score,
+                                away_score: liveGame.away_score,
+                                live_slop: liveGame.live_slop,
+                                live_watchability:
+                                    liveGame.live_watchability,
+                                actual_slop: liveGame.actual_slop,
+                                actual_watchability:
+                                    liveGame.actual_watchability,
                             };
                         })
                     );
-
                 } catch (error) {
                     console.error(
-                        `Failed to update score for ${game.game_id}:`,
+                        `Failed to update live game ${game.game_id}:`,
                         error
                     );
                 }
             }
         };
 
-        // Run once immediately.
-        updateScores();
+        // Run after the games have rendered.
+        updateLiveGames();
 
-        // Then every 2 minutes.
+        // Continue updating every 2 minutes.
         const interval = setInterval(
-            updateScores,
+            updateLiveGames,
             2 * 60 * 1000
         );
 
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [games.length]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
