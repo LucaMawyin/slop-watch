@@ -26,25 +26,6 @@ export default function PreviewPage({ params }: Props) {
 
     const [start, end] = ref?.split("_") ?? [];
 
-    const emptyTeam: Team = {
-        team: {
-            name: "",
-            full_name: "",
-        },
-        team_badness: 0,
-        league: "",
-        season: "",
-        record: {
-            wins: 0,
-            losses: 0,
-        },
-        win_pct: 0,
-        point_diff: 0,
-        games_played: 0,
-        recent_games: [],
-        upcoming_games: [],
-    };
-
     const [game, setGame] = useState<Game | null>(null);
 
     const [loading, setLoading] = useState(true);
@@ -190,7 +171,15 @@ export default function PreviewPage({ params }: Props) {
     if (loading) {
         return (
             <main className="p-6 text-white">
+
                 <div className="mx-auto max-w-5xl">
+                    {/* BACK */}
+                    <Link
+                        href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        className="mb-4 block hover:underline w-fit"
+                    >
+                        &lt; Back to {league.toUpperCase()} Games
+                    </Link>
                     <PreviewSkeleton />
                 </div>
             </main>
@@ -399,7 +388,7 @@ export default function PreviewPage({ params }: Props) {
                         {/* RECORD */}
                         <div className="grid grid-cols-3 items-center border-b border-zinc-800 p-5">
                             <div className="text-left font-semibold">
-                                {game.home_season_wins} - {game.home_season_losses}
+                                {game.home_season_wins ?? 0 } - {game.home_season_losses ?? 0}
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -407,7 +396,7 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {game.away_season_wins} - {game.away_season_losses}
+                                {game.away_season_wins ?? 0} - {game.away_season_losses ?? 0}
                             </div>
                         </div>
 
@@ -444,9 +433,9 @@ export default function PreviewPage({ params }: Props) {
                         {/* POINT DIFF */}
                         <div className="grid grid-cols-3 items-center p-5">
                             <div className="text-left font-semibold">
-                                {game.home_season_point_diff >= 0
-                                    ? `+${game.home_season_point_diff}`
-                                    : game.home_season_point_diff}
+                                {(game.home_season_point_diff ?? 0) >= 0
+                                    ? `+${game.home_season_point_diff ?? 0}`
+                                    : game.home_season_point_diff ?? 0}
                             </div>
 
                             <div className="text-center text-xs text-zinc-500">
@@ -454,9 +443,9 @@ export default function PreviewPage({ params }: Props) {
                             </div>
 
                             <div className="text-right font-semibold">
-                                {game.away_season_point_diff >= 0
-                                    ? `+${game.away_season_point_diff}`
-                                    : game.away_season_point_diff}
+                                {(game.away_season_point_diff ?? 0) >= 0
+                                    ? `+${game.away_season_point_diff ?? 0}`
+                                    : game.away_season_point_diff ?? 0}
                             </div>
                         </div>
 

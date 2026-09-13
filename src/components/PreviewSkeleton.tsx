@@ -2,10 +2,7 @@ export default function PreviewSkeleton() {
     return (
         <div className="py-3">
             <div className="mx-auto max-w-5xl">
-
-                {/* BACK */}
-                <div className="mb-4 h-5 w-40 rounded bg-zinc-800 skeleton-glow" />
-
+                
                 {/* HEADER */}
                 <div className="text-center">
 
