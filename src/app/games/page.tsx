@@ -761,9 +761,11 @@ function GamesContent() {
                                             View Game
                                         </Link>
 
-                                        {game.actual_slop === null && (
-                                            <AddToCalendar game={game} />
-                                        )}
+                                        {game.actual_slop === null && 
+                                            new Date(game.date) >= new Date() && (
+                                                <AddToCalendar game={game} />
+                                            )
+                                        }
                                     </div>
                                 </div>
                             )
