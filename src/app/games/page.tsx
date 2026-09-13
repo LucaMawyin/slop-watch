@@ -541,7 +541,7 @@ function GamesContent() {
                                     {(sport || (!league && !sport)) && currentLeague && (
                                         <div className="mb-3 text-lg font-semibold text-white">
                                             <Link
-                                                href={`/games?league=${game.league}`}
+                                                href={`/games?league=${currentLeague}`}
                                             >
                                                 {leagues.find((item) => item.id === game.league)?.name}
                                             </Link>
@@ -555,7 +555,7 @@ function GamesContent() {
                                                 HOME
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`}
+                                                href={`/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >
@@ -568,7 +568,7 @@ function GamesContent() {
                                                 AWAY
                                             </div>
                                             <Link
-                                                href={`/${game.league}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`}
+                                                href={`/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`}
                                                 target="_blank"
                                                 className="text-xl font-semibold"
                                             >
@@ -684,7 +684,7 @@ function GamesContent() {
 
                                     <div className="space-y-4">
                                         <Link
-                                            href={`/${slugify(currentLeague ?? "")}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
+                                            href={`/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
                                             target="_blank"
                                             className="
                                                 block
