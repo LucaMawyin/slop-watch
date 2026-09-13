@@ -23,7 +23,9 @@ function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [sortBy, setSortBy] = useState<"slop" | "date" | "watchability" | "overall">("date");    
+    const [sortBy, setSortBy] = useState<
+        "slop" | "date" | "watchability" | "overall" | "live"
+    >("live");
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
 
@@ -84,7 +86,7 @@ function GamesContent() {
 
     // Reset filters on reload
     useEffect(() => {
-        setSortBy("date");
+        setSortBy("live");
         setSortDirection("asc");
     }, [sport, league]);
 
@@ -264,7 +266,26 @@ function GamesContent() {
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
 
-        if (sortBy === "slop") {
+        if (sortBy === "live") {
+            const aLive =
+                new Date(a.date) <= new Date() &&
+                a.actual_slop === null;
+
+            const bLive =
+                new Date(b.date) <= new Date() &&
+                b.actual_slop === null;
+
+            comparison = Number(bLive) - Number(aLive);
+
+            // If both have the same live status sort by date
+            if (comparison === 0) {
+                comparison =
+                    new Date(a.date).getTime() -
+                    new Date(b.date).getTime();
+            }
+        }
+
+        else if (sortBy === "slop") {
             const aSlop = a.slop_percentile;
             const bSlop = b.slop_percentile;
 
@@ -375,10 +396,19 @@ function GamesContent() {
                             <select
                                 value={sortBy}
                                 onChange={(e) =>{
-                                    const value = e.target.value as "slop" | "date" | "watchability" | "overall";
+                                    const value = e.target.value as 
+                                        "slop" 
+                                        | "date" 
+                                        | "watchability" 
+                                        | "overall"
+                                        | "live";
 
                                     setSortBy(value);
-                                    setSortDirection(value === "slop" || value === "overall" ? "desc" : "asc");
+                                    setSortDirection(
+                                        value === "slop" || value === "overall" 
+                                        ? "desc" 
+                                        : "asc"
+                                    );
                                 }}
                                 className="
                                     appearance-none
@@ -397,10 +427,11 @@ function GamesContent() {
                                     focus:border-zinc-500
                                 "
                             >
+                                <option value="live">Sort by Live</option>
+                                <option value="date">Sort by Date</option>
                                 <option value="slop">Sort by Slop</option>
                                 <option value="watchability">Sort by Watchability</option>
                                 <option value="overall">Sort by Overall</option>
-                                <option value="date">Sort by Date</option>
 
                             </select>
                             <ChevronDown
