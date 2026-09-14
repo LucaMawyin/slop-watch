@@ -407,7 +407,7 @@ export default function PreviewPage({ params }: Props) {
                                 {game.home_full_name}
                             </div>
 
-                            <div className="text-xs text-zinc-500">
+                            <div className="my-auto text-xs text-zinc-500">
                                 TEAM
                             </div>
 
