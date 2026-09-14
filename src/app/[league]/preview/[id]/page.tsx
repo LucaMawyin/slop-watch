@@ -109,11 +109,6 @@ export default function PreviewPage({ params }: Props) {
                 return;
             }
 
-            // Dont query completed games
-            if (currentGame.actual_slop !== null) {
-                return;
-            }
-
             try {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${league}&date=${encodeURIComponent(currentGame.date)}`,
@@ -205,17 +200,27 @@ export default function PreviewPage({ params }: Props) {
         );
     }
 
+    const isLive =
+        game.actual_slop === null &&
+        new Date(game.date) <= new Date();
+
     const slop =
-        typeof game.live_slop === "number" && Number.isFinite(game.live_slop)
+        isLive &&
+        typeof game.live_slop === "number" &&
+        Number.isFinite(game.live_slop)
             ? game.live_slop
-            : typeof game.slop_percentile === "number" && Number.isFinite(game.slop_percentile)
+            : typeof game.slop_percentile === "number" &&
+                Number.isFinite(game.slop_percentile)
                 ? game.slop_percentile
                 : 0;
 
     const watchability =
-        typeof game.live_watchability === "number" && Number.isFinite(game.live_watchability)
+        isLive &&
+        typeof game.live_watchability === "number" &&
+        Number.isFinite(game.live_watchability)
             ? game.live_watchability
-            : typeof game.watchability_percentile === "number" && Number.isFinite(game.watchability_percentile)
+            : typeof game.watchability_percentile === "number" &&
+                Number.isFinite(game.watchability_percentile)
                 ? game.watchability_percentile
                 : 0;
 
