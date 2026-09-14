@@ -258,7 +258,17 @@ export default function PreviewPage({ params }: Props) {
                         })}
                     </div>
 
-                    <div className="mx-auto mt-6 flex w-full max-w-3xl items-center justify-between gap-4 sm:gap-8">
+                    <div className="
+                        mx-auto 
+                        mt-6 
+                        flex 
+                        w-full 
+                        max-w-3xl 
+                        items-center 
+                        justify-between 
+                        gap-4 
+                        sm:gap-8
+                    ">
 
                         {/* HOME */}
                         <div className="w-0 flex-1 text-center">
@@ -268,7 +278,15 @@ export default function PreviewPage({ params }: Props) {
                             <Link
                                 href={`/${league}/teams/${slugify(game.home_name)}`}
                                 target="_blank"
-                                className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
+                                className="
+                                    flex
+                                    w-full
+                                    justify-center
+                                    wrap-break-words 
+                                    text-[clamp(1.25rem,4vw,2.25rem)]
+                                    font-bold 
+                                    hover:underline 
+                                "
                             >
                                 {game.home_full_name}
                             </Link>
@@ -308,7 +326,15 @@ export default function PreviewPage({ params }: Props) {
                             <Link
                                 href={`/${league}/teams/${slugify(game.away_name)}`}
                                 target="_blank"
-                                className="wrap-break-words text-2xl font-bold hover:underline sm:text-4xl"
+                                className="
+                                    flex
+                                    w-full
+                                    justify-center
+                                    wrap-break-words 
+                                    text-[clamp(1.25rem,4vw,2.25rem)] 
+                                    font-bold 
+                                    hover:underline 
+                                "
                             >
                                 {game.away_full_name}
                             </Link>
@@ -522,6 +548,13 @@ export default function PreviewPage({ params }: Props) {
                                                 "
                                             >
                                                 <div>
+                                                    <div className="text-xs mb-1 text-zinc-500">
+                                                        {new Date(recent_game.date).toLocaleDateString([], {
+                                                            month: "short",
+                                                            day: "numeric",
+                                                            year: "numeric",
+                                                        })}
+                                                    </div>
                                                     <div className="text-sm">
                                                         <span
                                                             className={
@@ -538,7 +571,7 @@ export default function PreviewPage({ params }: Props) {
                                                     </div>
 
                                                     <div className="text-xs text-zinc-500">
-                                                        {opponent}
+                                                        {isHome ? "vs " : "@ "}{opponent}
                                                     </div>
                                                 </div>
 
@@ -631,6 +664,13 @@ export default function PreviewPage({ params }: Props) {
                                                 "
                                             >
                                                 <div>
+                                                    <div className="text-xs mb-1 text-zinc-500">
+                                                        {new Date(recent_game.date).toLocaleDateString([], {
+                                                            month: "short",
+                                                            day: "numeric",
+                                                            year: "numeric",
+                                                        })}
+                                                    </div>
                                                     <div className="text-sm">
                                                         <span
                                                             className={
@@ -647,7 +687,7 @@ export default function PreviewPage({ params }: Props) {
                                                     </div>
 
                                                     <div className="text-xs text-zinc-500">
-                                                        {opponent}
+                                                        {isHome ? "vs " : "@ "}{opponent}
                                                     </div>
                                                 </div>
 
