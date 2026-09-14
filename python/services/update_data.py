@@ -14,7 +14,21 @@ def update_data(league="nba"):
     output_path = Path(config["output"])
 
     df = pd.read_csv(output_path)
-    df["game_id"] = df["game_id"].astype(str)
+
+    df["game_id"] = pd.to_numeric(
+        df["game_id"],
+        errors="raise"
+    ).astype("int64")
+
+    df["home_id"] = pd.to_numeric(
+        df["home_id"],
+        errors="raise"
+    ).astype("int64")
+
+    df["away_id"] = pd.to_numeric(
+        df["away_id"],
+        errors="raise"
+    ).astype("int64")
 
     # Remove any existing duplicate games
     df = df.drop_duplicates(
@@ -184,8 +198,12 @@ def update_data(league="nba"):
     if "away_full_name" not in new_games.columns:
         new_games["away_full_name"] = new_games["away_name"]
 
-    # Game id as string
-    new_games["game_id"] = new_games["game_id"].astype(str)
+    # Normalize id to integers
+    for column in ["game_id", "home_id", "away_id"]:
+        new_games[column] = pd.to_numeric(
+            new_games[column],
+            errors="raise"
+        ).astype("int64")
 
     # Keep the latest version of each game
     new_games = new_games.drop_duplicates(

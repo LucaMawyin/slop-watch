@@ -383,7 +383,7 @@ def team(league, team_slug):
                 break
 
             previous_games.append({
-                "game_id": str(previous["game_id"]),
+                "game_id": int(float(previous["game_id"])),
                 "date": pd.to_datetime(
                     previous["date"],
                     utc=True
@@ -624,7 +624,7 @@ def game(game_id):
 
     home_recent_games = [
         {
-            "game_id": str(row["game_id"]),
+            "game_id": int(float(row["game_id"])),
             "date": row["date"].isoformat(),
             "home_name": row["home_name"],
             "away_name": row["away_name"],
@@ -670,7 +670,7 @@ def game(game_id):
 
     away_recent_games = [
         {
-            "game_id": str(row["game_id"]),
+            "game_id": int(float(row["game_id"])),
             "date": row["date"].isoformat(),
             "home_name": row["home_name"],
             "away_name": row["away_name"],
@@ -807,7 +807,7 @@ def game_score(game_id):
     )
 
     return jsonify({
-        "game_id": str(game_id),
+        "game_id": int(game_id),
         "home_score": score["home_score"],
         "away_score": score["away_score"],
     })
