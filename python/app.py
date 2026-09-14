@@ -368,6 +368,42 @@ def team(league, team_slug):
                     current_game["home_name"] == team_name
                 )
 
+            # Add the CURRENT game first
+            previous_games.append({
+                "game_id": int(float(current_game["game_id"])),
+                "date": pd.to_datetime(
+                    current_game["date"],
+                    utc=True
+                ).isoformat(),
+                "home_name": current_game["home_name"],
+                "away_name": current_game["away_name"],
+                "home_full_name": current_game["home_full_name"],
+                "away_full_name": current_game["away_full_name"],
+                "venue_full_name": current_game["venue_full_name"],
+                "home_score": (
+                    int(current_game["home_score"])
+                    if pd.notna(current_game["home_score"])
+                    else None
+                ),
+                "away_score": (
+                    int(current_game["away_score"])
+                    if pd.notna(current_game["away_score"])
+                    else None
+                ),
+                "is_postseason": int(current_game["is_postseason"]),
+                "slop_percentile": (
+                    float(current_game["slop_percentile"])
+                    if pd.notna(current_game["slop_percentile"])
+                    else None
+                ),
+                "watchability_percentile": (
+                    float(current_game["watchability_percentile"])
+                    if pd.notna(current_game["watchability_percentile"])
+                    else None
+                ),
+            })
+
+            # Find the previous game
             last_game_id = (
                 current_game["home_last_game_id"]
                 if is_home
@@ -381,40 +417,6 @@ def team(league, team_slug):
 
             if previous is None:
                 break
-
-            previous_games.append({
-                "game_id": int(float(previous["game_id"])),
-                "date": pd.to_datetime(
-                    previous["date"],
-                    utc=True
-                ).isoformat(),
-                "home_name": previous["home_name"],
-                "away_name": previous["away_name"],
-                "home_full_name": previous["home_full_name"],
-                "away_full_name": previous["away_full_name"],
-                "venue_full_name": previous["venue_full_name"],
-                "home_score": (
-                    int(previous["home_score"])
-                    if pd.notna(previous["home_score"])
-                    else None
-                ),
-                "away_score": (
-                    int(previous["away_score"])
-                    if pd.notna(previous["away_score"])
-                    else None
-                ),
-                "is_postseason": int(previous["is_postseason"]),
-                "slop_percentile": (
-                    float(previous["slop_percentile"])
-                    if pd.notna(previous["slop_percentile"])
-                    else None
-                ),
-                "watchability_percentile": (
-                    float(previous["watchability_percentile"])
-                    if pd.notna(previous["watchability_percentile"])
-                    else None
-                ),
-            })
 
             # Follow the chain backwards
             current_game = previous
