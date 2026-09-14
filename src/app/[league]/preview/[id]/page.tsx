@@ -276,7 +276,7 @@ export default function PreviewPage({ params }: Props) {
                                 HOME
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(game.home_name)}`}
+                                href={`/${league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
                                 target="_blank"
                                 className="
                                     flex
@@ -324,7 +324,7 @@ export default function PreviewPage({ params }: Props) {
                                 AWAY
                             </div>
                             <Link
-                                href={`/${league}/teams/${slugify(game.away_name)}`}
+                                href={`/${league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
                                 target="_blank"
                                 className="
                                     flex
