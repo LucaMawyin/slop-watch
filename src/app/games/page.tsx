@@ -574,7 +574,7 @@ function GamesContent() {
                                             <Link
                                                 href={`/games?league=${currentLeague}`}
                                             >
-                                                {leagues.find((item) => item.id === game.league)?.name}
+                                                {leagues.find((item) => item.id.toLowerCase() === game.league.toLowerCase())?.name}
                                             </Link>
                                             
                                         </div>
