@@ -4,6 +4,7 @@ import Badge from "@/components/Badge";
 import PreviewSkeleton from "@/components/PreviewSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
+import { leagues } from "@/lib/leagues";
 import { slugify } from "@/lib/slugify";
 import { Game, Team } from "@/lib/types";
 import Link from "next/link";
@@ -173,7 +174,7 @@ export default function PreviewPage({ params }: Props) {
                         href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
-                        &lt; Back to {league.toUpperCase()} Games
+                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
                     </Link>
                     <PreviewSkeleton />
                 </div>
@@ -193,7 +194,7 @@ export default function PreviewPage({ params }: Props) {
                         href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mt-4 inline-block hover:underline"
                     >
-                        &lt; Back to {league.toUpperCase()} Games
+                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
                     </Link>
                 </div>
             </main>
@@ -238,7 +239,7 @@ export default function PreviewPage({ params }: Props) {
                     href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                     className="mb-4 block hover:underline w-fit"
                 >
-                    &lt; Back to {league.toUpperCase()} Games
+                    &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
                 </Link>
 
                 {/* HEADER */}

@@ -5,6 +5,7 @@ import ShowMoreButton from "@/components/ShowMoreButton";
 import TeamSkeleton from "@/components/TeamSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
+import { leagues } from "@/lib/leagues";
 import { slugify, unslugify } from "@/lib/slugify";
 import { Game, Team } from "@/lib/types";
 import Link from "next/link";
@@ -212,7 +213,7 @@ export default function TeamPage({ params }: Props) {
                         href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
-                        &lt; Back to {league.toUpperCase()} Games
+                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
                     </Link>
 
                     <div className="text-sm uppercase text-zinc-500">
