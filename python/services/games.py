@@ -448,13 +448,19 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
         if "season_type" in season_games.columns:
 
             regular_season = (
-                season_games["season_type"] == 2
+                pd.to_numeric(
+                    season_games["season_type"],
+                    errors="coerce"
+                ) == 2
             )
 
         elif "season_id" in season_games.columns:
 
             regular_season = (
-                season_games["season_id"] % 3 == 2
+                pd.to_numeric(
+                    season_games["season_id"],
+                    errors="coerce"
+                ).mod(3) == 2
             )
 
         else:
@@ -517,43 +523,61 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
             away_stats["points_for"] += away_score
             away_stats["points_against"] += home_score
 
-    home_season = pd.DataFrame([
-        {
-            "home_name": team,
-            "home_season_wins": stats["wins"],
-            "home_season_losses": stats["losses"],
-            "home_season_win_pct": (
-                stats["wins"] /
-                (stats["wins"] + stats["losses"])
-                if stats["wins"] + stats["losses"] > 0
-                else None
-            ),
-            "home_season_point_diff": (
-                stats["points_for"] -
-                stats["points_against"]
-            ),
-        }
-        for team, stats in season_stats.items()
-    ])
+    home_season = pd.DataFrame(
+        [
+            {
+                "home_name": team,
+                "home_season_wins": stats["wins"],
+                "home_season_losses": stats["losses"],
+                "home_season_win_pct": (
+                    stats["wins"] /
+                    (stats["wins"] + stats["losses"])
+                    if stats["wins"] + stats["losses"] > 0
+                    else None
+                ),
+                "home_season_point_diff": (
+                    stats["points_for"] -
+                    stats["points_against"]
+                ),
+            }
+            for team, stats in season_stats.items()
+        ],
+        columns=[
+            "home_name",
+            "home_season_wins",
+            "home_season_losses",
+            "home_season_win_pct",
+            "home_season_point_diff",
+        ],
+    )
 
-    away_season = pd.DataFrame([
-        {
-            "away_name": team,
-            "away_season_wins": stats["wins"],
-            "away_season_losses": stats["losses"],
-            "away_season_win_pct": (
-                stats["wins"] /
-                (stats["wins"] + stats["losses"])
-                if stats["wins"] + stats["losses"] > 0
-                else None
-            ),
-            "away_season_point_diff": (
-                stats["points_for"] -
-                stats["points_against"]
-            ),
-        }
-        for team, stats in season_stats.items()
-    ])
+    away_season = pd.DataFrame(
+        [
+            {
+                "away_name": team,
+                "away_season_wins": stats["wins"],
+                "away_season_losses": stats["losses"],
+                "away_season_win_pct": (
+                    stats["wins"] /
+                    (stats["wins"] + stats["losses"])
+                    if stats["wins"] + stats["losses"] > 0
+                    else None
+                ),
+                "away_season_point_diff": (
+                    stats["points_for"] -
+                    stats["points_against"]
+                ),
+            }
+            for team, stats in season_stats.items()
+        ],
+        columns=[
+            "away_name",
+            "away_season_wins",
+            "away_season_losses",
+            "away_season_win_pct",
+            "away_season_point_diff",
+        ],
+    )
 
     # ---------------------------------
     # ATTACH TO FUTURE GAMES

@@ -62,7 +62,7 @@ def update_data(league="nba"):
 
         dates = [
             (today - timedelta(days=i)).strftime("%Y%m%d")
-            for i in reversed(range(3))
+            for i in reversed(range(10))
         ]
 
         for game_date in dates:
@@ -84,7 +84,7 @@ def update_data(league="nba"):
         # Get last 5 days of game data
         dates = [
             (today - timedelta(days=i)).strftime("%Y%m%d")
-            for i in reversed(range(5))
+            for i in reversed(range(10))
         ]
 
         for game_date in dates:
