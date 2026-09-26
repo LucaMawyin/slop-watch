@@ -64,7 +64,7 @@ export default function Navbar() {
                 {/* Desktop */}
                 <div className="hidden md:flex flex-1 justify-evenly items-center gap-4">
 
-                    <Link
+                    <a
                         href={`/games`}
                         onClick={() => {
                             setOpenSport(null);
@@ -73,7 +73,7 @@ export default function Navbar() {
                         className="text-sm text-zinc-300 hover:text-white"
                     >
                         All Leagues
-                    </Link>
+                    </a>
 
                     {sports.map((sport) => {
 
@@ -234,7 +234,7 @@ export default function Navbar() {
             >
 
                 <div className="border-b border-zinc-800 py-4">
-                    <Link
+                    <a
                         href="/games"
                         onClick={() => {
                             setOpenSport(null);
@@ -249,7 +249,7 @@ export default function Navbar() {
                         "
                     >
                         All Leagues
-                    </Link>
+                    </a>
                 </div>
                 {sports.map((sport) => {
                     const isOpen = openSport === sport;
