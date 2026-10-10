@@ -1,8 +1,10 @@
 from dotenv import load_dotenv
 from pathlib import Path
 import os
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from starlette.concurrency import run_in_threadpool
 import pandas as pd
 from lock import lock
 import re
@@ -24,21 +26,28 @@ from services.live import get_live_metrics, get_live_score
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
 
-@app.route("/api/update", methods=["POST"])
-def update():
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.post("/api/update")
+def update(request: Request):
 
     # Authenticate request
     provided_secret = request.headers.get("X-Update-Secret")
     expected_secret = os.environ.get("UPDATE_KEY")
 
     if not expected_secret or provided_secret != expected_secret:
-        return jsonify({
-            "success": False,
-            "error": "Unauthorized"
-        }), 401
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized"
+        )
     
     try: 
 
@@ -53,33 +62,36 @@ def update():
                 train_model(league=league)
 
         # Success
-        return jsonify({
+        return {
             "success": True,
             "message": "Data updated and models retrained."
-        }), 200
+        }
 
     # Error
     except Exception as e:
         print(f"Update failed: {e}")
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": str(e)
+            }
+        )
 
 
 
-@app.route("/api/games",methods=["GET"])
-def games():
+@app.get("/api/games")
+async def games(request: Request):
 
     start_time = time.perf_counter()
 
-    league = request.args.get("league")
-    sport = request.args.get("sport")
-    start_date = request.args.get("start")
-    end_date = request.args.get("end")
-    team = request.args.get("team")
-    game_id = request.args.get("id")
+    league = request.query_params.get("league")
+    sport = request.query_params.get("sport")
+    start_date = request.query_params.get("start")
+    end_date = request.query_params.get("end")
+    team = request.query_params.get("team")
+    game_id = request.query_params.get("id")
 
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
@@ -88,16 +100,18 @@ def games():
         leagues = SPORT_LEAGUES.get(sport.lower())
 
         if leagues is None:
-            return jsonify({
-                "error": f"Unknown sport: {sport}"
-            }), 400
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"Unknown sport: {sport}"}
+            )
 
     elif league:
 
         if league not in SPORT_CONFIG:
-            return jsonify({
-                "error": f"Unknown league: {league}"
-            }), 400
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"Unknown league: {league}"}
+            )
 
         leagues = [league]
 
@@ -136,7 +150,8 @@ def games():
 
     for league in leagues:
 
-        predictions = predict(
+        predictions = await run_in_threadpool(
+            predict,
             start_date=prediction_date,
             league=league,
             days_ahead=days_ahead,
@@ -186,7 +201,7 @@ def games():
 
     if not all_games:
         print(f"Games took {time.perf_counter() - start_time:.3f}s")
-        return jsonify([])
+        return []
 
     games = pd.concat(
         all_games, 
@@ -203,26 +218,26 @@ def games():
     elapsed = time.perf_counter() - start_time
     print(f"Games took {elapsed:.3f}s")
 
-    return jsonify(
-        games.to_dict(orient="records")
-    )
+    return games.to_dict(orient="records")
 
-@app.route("/api/team/<league>/<team_slug>", methods=["GET"])
-def team(league, team_slug):
+@app.get("/api/team/{league}/{team_slug}")
+async def team(league: str, team_slug: str, request: Request):
 
     start_time = time.perf_counter()
 
-    team_id = request.args.get("id")
+    team_id = request.query_params.get("id")
     team_name = unslugify(team_slug)
 
     if league not in SPORT_CONFIG:
-        return jsonify({
-            "error": f"Unknown league: {league}"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Unknown league: {league}"}
+        )
 
-    processed = pd.read_csv(
-        SPORT_CONFIG[league]["processed_output"]
-    )
+    processed = await run_in_threadpool(
+        pd.read_csv,
+        SPORT_CONFIG[league]["processed_output"],
+)
 
     processed["game_id"] = processed["game_id"].astype(str).str.replace(
         r"\.0$",
@@ -425,10 +440,11 @@ def team(league, team_slug):
     # LIVE & UPCOMING GAMES
     # ---------------------------------
 
-    games = predict(
+    games = await run_in_threadpool(
+        predict,
         league=league,
         start_date=now,
-        days_ahead=14
+        days_ahead=14,
     )
 
     upcoming_games = []
@@ -493,7 +509,7 @@ def team(league, team_slug):
     # RETURN
     # ---------------------------------
 
-    return jsonify({
+    return {
         "team": {
             "name": team_name,
             "full_name": team_full_name,
@@ -518,30 +534,33 @@ def team(league, team_slug):
         "games_played": wins + losses,
         "recent_games": previous_games,
         "upcoming_games": upcoming_games,
-    })
+    }
 
-@app.route("/api/game/<game_id>", methods=["GET"])
-def game(game_id):
+@app.get("/api/game/{game_id}")
+async def game(game_id: str, request: Request):
 
     start_time = time.perf_counter()
 
-    league = request.args.get("league")
-    game_date = request.args.get("date")
+    league = request.query_params.get("league")
+    game_date = request.query_params.get("date")
 
     if not league:
-        return jsonify({
-            "error": "Missing league"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Missing league"}
+        )
 
     if not game_date:
-        return jsonify({
-            "error": "Missing date"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Missing date"}
+        )
 
     if league not in SPORT_CONFIG:
-        return jsonify({
-            "error": f"Unknown league: {league}"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Unknown league: {league}"}
+        )
 
     # ---------------------------------
     # GET GAME DATE
@@ -550,9 +569,10 @@ def game(game_id):
     try:
         game_date = pd.Timestamp(game_date).normalize()
     except Exception:
-        return jsonify({
-            "error": "Invalid date"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Invalid date"}
+        )
 
     # ---------------------------------
     # GET GAME PREDICTION
@@ -563,16 +583,18 @@ def game(game_id):
         - pd.Timedelta(days=1)
     )
 
-    games = predict(
+    games = await run_in_threadpool(
+        predict,
         league=league,
         start_date=prediction_date,
         days_ahead=2,
     )
 
     if games.empty:
-        return jsonify({
-            "error": "Game not found"
-        }), 404
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Game not found"}
+        )
 
     games["game_id"] = (
         games["game_id"]
@@ -584,9 +606,10 @@ def game(game_id):
     ].copy()
 
     if game.empty:
-        return jsonify({
-            "error": "Game not found"
-        }), 404
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Game not found"}
+        )
 
     game = game.iloc[0]
 
@@ -594,8 +617,9 @@ def game(game_id):
     # GET LAST 5 HOME TEAM GAMES
     # ---------------------------------
 
-    processed = pd.read_csv(
-        SPORT_CONFIG[league]["processed_output"]
+    processed = await run_in_threadpool(
+        pd.read_csv,
+        SPORT_CONFIG[league]["processed_output"],
     )
 
     processed["date"] = pd.to_datetime(
@@ -699,7 +723,8 @@ def game(game_id):
     # GET LIVE SCORE
     # ---------------------------------
 
-    live_score = get_live_score(
+    live_score = await run_in_threadpool(
+        get_live_score,
         league=league,
         game_id=game_id,
         game_date=game["date"],
@@ -714,7 +739,8 @@ def game(game_id):
     # LIVE METRICS
     # ---------------------------------
 
-    live_metrics = get_live_metrics(
+    live_metrics = await run_in_threadpool(
+        get_live_metrics,
         league=league,
         home_name=game["home_name"],
         away_name=game["away_name"],
@@ -772,59 +798,70 @@ def game(game_id):
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
 
-    return jsonify(result)
+    return result
 
-@app.route("/api/game/<game_id>/score", methods=["GET"])
-def game_score(game_id):
+@app.get("/api/game/{game_id}/score")
+async def game_score(game_id: str, request: Request):
 
-    league = request.args.get("league")
-    game_date = request.args.get("date")
+    league = request.query_params.get("league")
+    game_date = request.query_params.get("date")
 
     if not league:
-        return jsonify({
-            "error": "Missing league"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Missing league"}
+        )
 
     if not game_date:
-        return jsonify({
-            "error": "Missing date"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Missing date"}
+        )
 
     if league not in SPORT_CONFIG:
-        return jsonify({
-            "error": f"Unknown league: {league}"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Unknown league: {league}"}
+        )
 
     try:
         game_date = pd.Timestamp(game_date).normalize()
     except Exception:
-        return jsonify({
-            "error": "Invalid date"
-        }), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Invalid date"}
+        )
 
-    score = get_live_score(
+    score = await run_in_threadpool(
+        get_live_score,
         league=league,
         game_id=game_id,
         game_date=game_date,
     )
 
-    return jsonify({
+    return {
         "game_id": int(game_id),
         "home_score": score["home_score"],
         "away_score": score["away_score"],
-    })
+    }
 
-@app.route("/api/teams", methods=["GET"])
-def teams():
-    league = request.args.get("league")
+@app.get("/api/teams")
+def teams(request: Request):
+    league = request.query_params.get("league")
 
     if not league:
-        return jsonify({"error": "league is required"}), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"League is required"}
+        )
 
     if league not in SPORT_CONFIG:
-        return jsonify({"error": "invalid league"}), 400
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Invalid league"}
+        )
 
-    return jsonify(get_teams(league))
+    return get_teams(league)
 
 def slugify(value):
     return re.sub(
@@ -856,4 +893,10 @@ def json_safe(value):
     return value
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5002, debug=True)
+    import uvicorn
+
+    uvicorn.run(
+        app,
+        host="127.0.0.1",
+        port=5002
+    )
