@@ -39,7 +39,10 @@ export default function Home() {
                 // Load the schedule first
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
-                    { signal: controller.signal }
+                    { 
+                        signal: controller.signal,
+                        cache: "no-store",
+                    },
                 );
 
                 if (!response.ok) {

@@ -60,7 +60,10 @@ export default function TeamPage({ params }: Props) {
         async function fetchTeam() {
             try {
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}${teamId ? `?id=${teamId}` : ""}`
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}${teamId ? `?id=${teamId}` : ""}`,
+                    { 
+                        cache: "no-store",
+                    },
                 );
 
                 if (!response.ok) {
