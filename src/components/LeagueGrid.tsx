@@ -20,19 +20,9 @@ export default function LeagueGrid() {
     return (
         <section className="space-y-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                    <p className="text-sm font-medium uppercase tracking-widest text-emerald-400">
-                        Explore
-                    </p>
-
-                    <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                        Browse Leagues
-                    </h2>
-
-                    <p className="mt-1 text-sm text-zinc-400">
-                        Find the games worth watching.
-                    </p>
-                </div>
+                <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                    Browse Leagues
+                </h2>
 
                 <span className="text-sm text-zinc-500">
                     {leagues.length} leagues available
