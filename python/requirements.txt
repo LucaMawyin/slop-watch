@@ -7,3 +7,5 @@ flask-cors
 joblib
 python-dotenv
 filelock
+fastapi
+uvicorn[standard]

@@ -7,6 +7,8 @@ import os
 from services.process_league import process_league
 from config.sports import DATA_RANGE_YEARS
 
+previous_game_days = 10
+
 def update_data(league="nba"):
 
     # Initial data
@@ -18,17 +20,17 @@ def update_data(league="nba"):
     df["game_id"] = pd.to_numeric(
         df["game_id"],
         errors="raise"
-    ).astype("int64")
+    ).astype("Int64")
 
     df["home_id"] = pd.to_numeric(
         df["home_id"],
         errors="raise"
-    ).astype("int64")
+    ).astype("Int64")
 
     df["away_id"] = pd.to_numeric(
         df["away_id"],
         errors="raise"
-    ).astype("int64")
+    ).astype("Int64")
 
     # Remove any existing duplicate games
     df = df.drop_duplicates(
@@ -62,7 +64,7 @@ def update_data(league="nba"):
 
         dates = [
             (today - timedelta(days=i)).strftime("%Y%m%d")
-            for i in reversed(range(10))
+            for i in reversed(range(previous_game_days))
         ]
 
         for game_date in dates:
@@ -84,7 +86,7 @@ def update_data(league="nba"):
         # Get last 5 days of game data
         dates = [
             (today - timedelta(days=i)).strftime("%Y%m%d")
-            for i in reversed(range(10))
+            for i in reversed(range(previous_game_days))
         ]
 
         for game_date in dates:
@@ -203,7 +205,7 @@ def update_data(league="nba"):
         new_games[column] = pd.to_numeric(
             new_games[column],
             errors="raise"
-        ).astype("int64")
+        ).astype("Int64")
 
     # Keep the latest version of each game
     new_games = new_games.drop_duplicates(
