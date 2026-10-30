@@ -18,6 +18,7 @@ export default function Home() {
 
     useEffect(() => {
         const controller = new AbortController();
+        let notificationTimeout: ReturnType<typeof setTimeout> | undefined;
 
         const loadGames = async () => {
             try {
@@ -81,6 +82,10 @@ export default function Home() {
                     null
                 );
 
+                notificationTimeout = setTimeout(() => {
+                    dismiss(notificationId);
+                }, 60 * 1000);
+
                 const results = await Promise.allSettled(
                     gamesToUpdate.map(async (game) => {
                         const scoreResponse = await fetch(
@@ -107,6 +112,8 @@ export default function Home() {
                         );
                     })
                 );
+
+                clearTimeout(notificationTimeout);
 
                 if (controller.signal.aborted) return;
 
@@ -151,7 +158,10 @@ export default function Home() {
 
         loadGames();
 
-        return () => controller.abort();
+        return () => {
+            controller.abort();
+            clearTimeout(notificationTimeout);
+        };
     }, [notify]);
 
     return (
