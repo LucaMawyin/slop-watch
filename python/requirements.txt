@@ -9,3 +9,4 @@ python-dotenv
 filelock
 fastapi
 uvicorn[standard]
+cachetools
