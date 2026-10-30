@@ -155,6 +155,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.middleware("http")
+async def disable_response_caching(request: Request, call_next):
+    response = await call_next(request)
+
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+
+    return response
+
 @router.post("/api/update")
 def update(request: Request):
 

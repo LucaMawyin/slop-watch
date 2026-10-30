@@ -6,7 +6,6 @@ import HomeStats from "@/components/HomeStats";
 import FeaturedGames from "@/components/FeaturedGames";
 import LeagueGrid from "@/components/LeagueGrid";
 import UpcomingGames from "@/components/UpcomingGames";
-import GamesSkeleton from "@/components/GamesSkeleton";
 import { useNotifications } from "@/components/NotificationProvider";
 import HomeSkeleton from "@/components/HomeSkeleton";
 

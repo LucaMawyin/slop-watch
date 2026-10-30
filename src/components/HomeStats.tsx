@@ -92,7 +92,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
         {
             label: "Most Watchable",
             value: stats.mostWatchable
-                ? `${Math.round(100 - (stats.mostWatchable.watchability_percentile ?? 0))}%`
+                ? `${Math.round(stats.mostWatchable.watchability_percentile * 100)}%`
                 : "—",
             description: stats.mostWatchable
                 ? `${stats.mostWatchable.away_name} @ ${stats.mostWatchable.home_name}`
