@@ -16,7 +16,11 @@ export default function AddToCalendar({ game }: Props) {
     return (
         <>
             <button
-                onClick={() => setOpen(true)}
+                onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpen(true);
+                }}
                 className="
                     w-full
                     rounded-lg

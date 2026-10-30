@@ -24,7 +24,12 @@ export default function ProgressCircle(props: {progress : number, progressColour
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="8"
-                className="text-zinc-800"
+                className="
+                    text-zinc-800 
+                    group-hover:text-zinc-700
+                    transition-colors
+                    duration-200
+                "
             />
 
             {/* Progress circle */}

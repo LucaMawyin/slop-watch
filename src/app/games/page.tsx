@@ -610,16 +610,26 @@ function GamesContent() {
 
 
                             return (
-                                <div
+                                <a
                                     key={game.game_id}
                                     className="
                                         flex
                                         flex-col
-                                        rounded-xl 
-                                        border 
+                                        rounded-xl
+                                        border
                                         border-zinc-800
-                                        bg-zinc-900 p-5
+                                        bg-zinc-900
+                                        p-5
+                                        no-underline!
+                                        group
+                                        hover:text-white!
+                                        hover:border-zinc-700
+                                        hover:bg-zinc-800
+                                        transition-colors
+                                        duration-200
                                     "
+                                    href={`/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
+                                    target="_blank"
                                 >
                                     <div className="flex items-center justify-between pb-2">
                                         <div className="text-sm text-zinc-400 max-w-1/2">
@@ -643,11 +653,14 @@ function GamesContent() {
 
                                     {(sport || (!league && !sport)) && currentLeague && (
                                         <div className="mb-3 text-lg font-semibold text-white">
-                                            <Link
-                                                href={`/games?league=${currentLeague}`}
+                                            <div
+                                                onClick={() => window.open(
+                                                    `/games?league=${currentLeague}`,
+                                                    "_blank"
+                                                )}
                                             >
                                                 {leagues.find((item) => item.id === game.league)?.name}
-                                            </Link>
+                                            </div>
                                             
                                         </div>
                                     )}
@@ -657,26 +670,30 @@ function GamesContent() {
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 HOME
                                             </div>
-                                            <Link
-                                                href={`/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`}
-                                                target="_blank"
+                                            <div
+                                                onClick={() => window.open(
+                                                    `/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`,
+                                                    "_blank"
+                                                )}
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.home_name}
-                                            </Link>
+                                            </div>
                                         </div>
 
                                         <div className="text-right max-w-[50%]">
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 AWAY
                                             </div>
-                                            <Link
-                                                href={`/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`}
-                                                target="_blank"
+                                            <div
+                                                onClick={() => window.open(
+                                                    `/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`,
+                                                    "_blank"
+                                                )}
                                                 className="text-xl font-semibold"
                                             >
                                                 {game.away_name}
-                                            </Link>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -792,9 +809,11 @@ function GamesContent() {
 
 
                                     <div className="space-y-4">
-                                        <Link
-                                            href={`/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
-                                            target="_blank"
+                                        <div
+                                            onClick={() => window.open(
+                                                `/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`,
+                                                "_blank"
+                                            )}
                                             className="
                                                 block
                                                 w-full
@@ -812,7 +831,7 @@ function GamesContent() {
                                             "
                                         >
                                             View Game
-                                        </Link>
+                                        </div>
 
                                         {game.actual_slop === null && 
                                             new Date(game.date) >= new Date() && (
@@ -820,7 +839,7 @@ function GamesContent() {
                                             )
                                         }
                                     </div>
-                                </div>
+                                </a>
                             )
                         })}
                     </div>
