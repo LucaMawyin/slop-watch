@@ -87,22 +87,30 @@ function GamesContent() {
         : (start ? start : formatDate(new Date()));
 
     const shiftDateRange = (days: number) => {
-        const currentStart = effectiveStart ?? formatDate(new Date());
-        const currentEnd = effectiveEnd ?? currentStart;
+        const currentStart = new Date(
+            `${effectiveStart ?? formatDate(new Date())}T00:00:00`
+        );
 
-        const startDate = new Date(`${currentStart}T00:00:00`);
-        const endDate = new Date(`${currentEnd}T00:00:00`);
+        const currentEnd = new Date(
+            `${effectiveEnd ?? effectiveStart ?? formatDate(new Date())}T00:00:00`
+        );
 
-        // Preserve the existing range length.
-        startDate.setDate(startDate.getDate() + days);
-        endDate.setDate(endDate.getDate() + days);
+        if (
+            isNaN(currentStart.getTime()) ||
+            isNaN(currentEnd.getTime())
+        ) {
+            return;
+        }
+
+        currentStart.setDate(currentStart.getDate() + days);
+        currentEnd.setDate(currentEnd.getDate() + days);
 
         const params = new URLSearchParams(searchParams.toString());
 
-        params.set("start", formatDate(startDate));
-        params.set("end", formatDate(endDate));
+        params.set("start", formatDate(currentStart));
+        params.set("end", formatDate(currentEnd));
 
-        router.push(`/games?${params.toString()}`);
+        router.replace(`/games?${params.toString()}`);
     };
 
     const swipeHandlers = useSwipeNavigation({
@@ -435,7 +443,7 @@ function GamesContent() {
                                 params.set("start", formatDate(range.from));
                                 params.set("end", formatDate(range.to));
 
-                                window.location.href = `/games?${params.toString()}`;
+                                router.push(`/games?${params.toString()}`);
                             }}
                         />
 
