@@ -56,9 +56,22 @@ export default function Home() {
                 setLoading(false);
 
                 // Load scores in the background
-                const gamesToUpdate = data.filter(
-                    (game) => new Date(game.date) <= new Date()
-                );
+                const now = new Date();
+
+                const gamesToUpdate = data.filter((game) => {
+                    const gameDate = new Date(game.date);
+
+                    const startOfWindow = new Date(now.getTime() - 60 * 60 * 1000);
+
+                    const endOfDay = new Date(now);
+                    endOfDay.setHours(23, 59, 59, 999);
+
+                    return (
+                        gameDate >= startOfWindow &&
+                        gameDate <= endOfDay &&
+                        game.actual_slop === null
+                    );
+                });
 
                 if (gamesToUpdate.length === 0) return;
 
