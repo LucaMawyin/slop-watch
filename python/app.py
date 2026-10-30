@@ -33,14 +33,17 @@ load_dotenv(ROOT_DIR / ".env.local")
 app = FastAPI()
 router = APIRouter(prefix="/slop-watch")
 
-# Prediction results: 15 minutes
-prediction_cache = TTLCache(maxsize=256, ttl=900)
 
 # Live scores, separated by game status
 live_score_cache = TTLCache(maxsize=512, ttl=15)
 upcoming_score_cache = TTLCache(maxsize=512, ttl=300)
 completed_score_cache = TTLCache(maxsize=512, ttl=86400)
 processed_cache = TTLCache(maxsize=10, ttl=3600)
+prediction_cache = TTLCache(
+    maxsize=256,
+    ttl=3600,
+    timer=lambda: int(time.time() // 3600) * 3600
+)
 
 cache_lock = Lock()
 
