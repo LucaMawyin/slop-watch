@@ -41,7 +41,6 @@ export default function Home() {
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
                     { 
                         signal: controller.signal,
-                        cache: "no-store",
                     },
                 );
 

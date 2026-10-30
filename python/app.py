@@ -156,12 +156,22 @@ app.add_middleware(
 )
 
 @app.middleware("http")
-async def disable_response_caching(request: Request, call_next):
+async def configure_response_caching(request: Request, call_next):
     response = await call_next(request)
 
-    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "0"
+    path = request.url.path
+
+    if path == "/slop-watch/api/games":
+        # Cache schedules for 60 seconds
+        response.headers["Cache-Control"] = "public, max-age=60"
+
+    elif path.endswith("/score"):
+        # Keep live score responses fresh
+        response.headers["Cache-Control"] = "no-store"
+
+    else:
+        # Everything else is not cached
+        response.headers["Cache-Control"] = "no-store"
 
     return response
 
