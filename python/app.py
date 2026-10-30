@@ -126,7 +126,7 @@ def get_cached_processed(league: str):
         cached = processed_cache.get(league)
 
     if cached is not None:
-        return cached
+        return cached.copy(deep=True)
 
     result = pd.read_csv(SPORT_CONFIG[league]["processed_output"])
 
@@ -148,7 +148,7 @@ def get_cached_processed(league: str):
     with cache_lock:
         processed_cache[league] = result
 
-    return result
+    return result.copy(deep=True)
 
 app.add_middleware(
     CORSMiddleware,
@@ -164,16 +164,23 @@ async def configure_response_caching(request: Request, call_next):
 
     path = request.url.path
 
-    if path == "/slop-watch/api/games":
-        # Cache schedules for 60 seconds
-        response.headers["Cache-Control"] = "public, max-age=60"
+    # Respect cache headers assigned by individual endpoints
+    if "Cache-Control" in response.headers:
+        return response
 
-    elif path.endswith("/score"):
-        # Keep live score responses fresh
-        response.headers["Cache-Control"] = "no-store"
+    if path == "/slop-watch/api/games":
+        response.headers["Cache-Control"] = "public, max-age=3600"
+
+    elif "/api/game/" in path:
+        response.headers["Cache-Control"] = "public, max-age=15"
+
+    elif "/api/team/" in path:
+        response.headers["Cache-Control"] = "public, max-age=3600"
+
+    elif path == "/slop-watch/api/teams":
+        response.headers["Cache-Control"] = "public, max-age=3600"
 
     else:
-        # Everything else is not cached
         response.headers["Cache-Control"] = "no-store"
 
     return response
@@ -984,13 +991,13 @@ async def game_score(game_id: str, request: Request):
     if not league:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Missing league"}
+            content={"error": "Missing league"}
         )
 
     if not game_date:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Missing date"}
+            content={"error": "Missing date"}
         )
 
     if league not in SPORT_CONFIG:
@@ -1004,15 +1011,51 @@ async def game_score(game_id: str, request: Request):
     except Exception:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Invalid date"}
+            content={"error": "Invalid date"}
         )
 
-    score_status = (
-        "upcoming"
-        if game_date.tz_localize("UTC") > pd.Timestamp.now(tz="UTC")
-        else "live"
+    # Get the game prediction to determine its actual status
+    prediction_date = game_date - pd.Timedelta(days=1)
+
+    games = await run_in_threadpool(
+        get_cached_predictions,
+        league=league,
+        start_date=prediction_date,
+        days_ahead=2,
     )
 
+    if games.empty:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "Game not found"}
+        )
+
+    games["game_id"] = games["game_id"].astype(str)
+
+    game = games[
+        games["game_id"] == str(game_id)
+    ]
+
+    if game.empty:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "Game not found"}
+        )
+
+    game = game.iloc[0]
+
+    # Determine game status
+    now = pd.Timestamp.now(tz="UTC")
+    game_timestamp = pd.Timestamp(game["date"]).tz_convert("UTC")
+
+    if pd.notna(game.get("actual_slop")):
+        score_status = "completed"
+    elif game_timestamp > now:
+        score_status = "upcoming"
+    else:
+        score_status = "live"
+
+    # Get cached score
     score = await run_in_threadpool(
         get_cached_live_score,
         league=league,
@@ -1021,11 +1064,23 @@ async def game_score(game_id: str, request: Request):
         status=score_status,
     )
 
-    return {
-        "game_id": int(game_id),
-        "home_score": score["home_score"],
-        "away_score": score["away_score"],
-    }
+    response = JSONResponse(
+        content={
+            "game_id": int(game_id),
+            "home_score": score["home_score"],
+            "away_score": score["away_score"],
+        }
+    )
+
+    ttl = {
+        "live": 15,
+        "upcoming": 300,
+        "completed": 86400,
+    }[score_status]
+
+    response.headers["Cache-Control"] = f"public, max-age={ttl}"
+
+    return response
 
 @router.get("/api/teams")
 def teams(request: Request):
