@@ -1,3 +1,5 @@
+import { NotificationStatus } from "@/components/NotificationBubble";
+
 export type Game = {
     // Game information
     game_id: string;
@@ -142,4 +144,11 @@ export type Team = {
 
     recent_games: Game[];
     upcoming_games: Game[];
+};
+
+export type Notification = {
+    id: number;
+    text: string;
+    status: NotificationStatus;
+    duration?: number | null;
 };

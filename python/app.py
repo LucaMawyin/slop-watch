@@ -10,6 +10,9 @@ from lock import lock
 import re
 import numpy as np
 import time
+from cachetools import TTLCache
+from threading import Lock
+import asyncio
 
 from config.sports import (
     SPORT_CONFIG,
@@ -27,6 +30,76 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
 
 app = FastAPI()
+
+# Prediction results: 15 minutes
+prediction_cache = TTLCache(maxsize=256, ttl=900)
+
+# Live scores: 30 seconds
+live_score_cache = TTLCache(maxsize=512, ttl=30)
+
+cache_lock = Lock()
+
+# Separate locks for individual cache keys
+prediction_locks = {}
+prediction_locks_guard = Lock()
+
+
+def get_prediction_lock(key):
+    with prediction_locks_guard:
+        if key not in prediction_locks:
+            prediction_locks[key] = Lock()
+
+        return prediction_locks[key]
+
+
+def get_cached_predictions(league, start_date, days_ahead=7):
+    prediction_date = pd.Timestamp(start_date).normalize()
+    key = (league, prediction_date.isoformat(), int(days_ahead))
+
+    with cache_lock:
+        cached = prediction_cache.get(key)
+
+    if cached is not None:
+        return cached.copy(deep=True)
+
+    with get_prediction_lock(key):
+        with cache_lock:
+            cached = prediction_cache.get(key)
+
+        if cached is not None:
+            return cached.copy(deep=True)
+
+        result = predict(
+            league=league,
+            start_date=prediction_date,
+            days_ahead=days_ahead,
+        )
+
+        with cache_lock:
+            prediction_cache[key] = result.copy(deep=True)
+
+        return result.copy(deep=True)
+
+def get_cached_live_score(league, game_id, game_date):
+    date_key = pd.Timestamp(game_date).normalize().isoformat()
+    key = (league, str(game_id), date_key)
+
+    with cache_lock:
+        cached = live_score_cache.get(key)
+
+    if cached is not None:
+        return cached.copy()
+
+    result = get_live_score(
+        league=league,
+        game_id=game_id,
+        game_date=game_date,
+    )
+
+    with cache_lock:
+        live_score_cache[key] = result.copy()
+
+    return result
 
 app.add_middleware(
     CORSMiddleware,
@@ -60,6 +133,20 @@ def update(request: Request):
             # Retrain each model using updated data
             for league in SPORT_CONFIG:
                 train_model(league=league)
+
+            with cache_lock:
+                prediction_cache.clear()
+                live_score_cache.clear()
+
+            # Warmup the cache for the next month
+            prediction_date = pd.Timestamp.now().normalize()
+
+            for league in SPORT_CONFIG:
+                get_cached_predictions(
+                    league=league,
+                    start_date=prediction_date,
+                    days_ahead=30,
+                )
 
         # Success
         return {
@@ -148,14 +235,28 @@ async def games(request: Request):
     # GET GAMES & PREDICTIONS
     # ---------------------------------
 
-    for league in leagues:
+    prediction_start = time.perf_counter()
 
-        predictions = await run_in_threadpool(
-            predict,
-            start_date=prediction_date,
-            league=league,
-            days_ahead=days_ahead,
-        )
+    prediction_results = await asyncio.gather(
+        *[
+            run_in_threadpool(
+                get_cached_predictions,
+                league=league,
+                start_date=prediction_date,
+                days_ahead=days_ahead,
+            )
+            for league in leagues
+        ]
+    )
+
+    print(
+        f"All league predictions took "
+        f"{time.perf_counter() - prediction_start:.3f}s"
+    )
+
+    all_games = []
+
+    for league, predictions in zip(leagues, prediction_results):
 
         if predictions.empty:
             continue
@@ -169,25 +270,16 @@ async def games(request: Request):
             if column not in predictions.columns:
                 predictions[column] = None
 
-        # Select cols
         league_games = predictions[PREDICTION_FEATURES].copy()
-
-        # ---------------------------------
-        # FILTER FOR GAME
-        # ---------------------------------
 
         if game_id:
             league_games = league_games[
                 league_games["game_id"].astype(str) == str(game_id)
             ].copy()
 
-        # ---------------------------------
-        # FILTER FOR TEAM
-        # ---------------------------------
-
         if team:
             league_games = league_games[
-                (league_games["home_name"] == team) | 
+                (league_games["home_name"] == team) |
                 (league_games["away_name"] == team)
             ].copy()
 
@@ -441,7 +533,7 @@ async def team(league: str, team_slug: str, request: Request):
     # ---------------------------------
 
     games = await run_in_threadpool(
-        predict,
+        get_cached_predictions,
         league=league,
         start_date=now,
         days_ahead=14,
@@ -584,7 +676,7 @@ async def game(game_id: str, request: Request):
     )
 
     games = await run_in_threadpool(
-        predict,
+        get_cached_predictions,
         league=league,
         start_date=prediction_date,
         days_ahead=2,
@@ -724,7 +816,7 @@ async def game(game_id: str, request: Request):
     # ---------------------------------
 
     live_score = await run_in_threadpool(
-        get_live_score,
+        get_cached_live_score,
         league=league,
         game_id=game_id,
         game_date=game["date"],
@@ -833,7 +925,7 @@ async def game_score(game_id: str, request: Request):
         )
 
     score = await run_in_threadpool(
-        get_live_score,
+        get_cached_live_score,
         league=league,
         game_id=game_id,
         game_date=game_date,
@@ -896,7 +988,8 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(
-        app,
+        "app:app",
         host="127.0.0.1",
-        port=5002
+        port=5002,
+        reload=True
     )

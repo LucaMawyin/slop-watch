@@ -696,11 +696,7 @@ function GamesContent() {
                                                 title={game.actual_slop !== null ? "FINAL" : "LIVE"}
                                                 x={3}
                                                 y={1}
-                                                borderColour={
-                                                    game.actual_slop !== null
-                                                        ? "border-sky-700"
-                                                        : "border-green-700"
-                                                }
+                                                className="border-none"
                                                 bgColour={
                                                     game.actual_slop !== null
                                                         ? "bg-sky-950"
@@ -711,7 +707,17 @@ function GamesContent() {
                                                         ? "text-sky-400"
                                                         : "text-green-400"
                                                 }
-                                            />
+                                            >
+                                                {game.actual_slop === null && (
+                                                    <span className="
+                                                        h-1.5
+                                                        w-1.5
+                                                        animate-pulse
+                                                        rounded-full
+                                                        bg-green-400
+                                                    " />
+                                                )}
+                                            </Badge>
 
                                             <div className="text-3xl font-semibold">
                                                 {game.away_score}

@@ -1,195 +1,185 @@
 "use client";
 
-import DayPickerClient from "@/components/DayPicker";
-import { leagues } from "@/lib/leagues";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
-import { DateRange } from "react-day-picker";
+import { useEffect, useState } from "react";
+import type { Game } from "@/lib/types";
+import HomeStats from "@/components/HomeStats";
+import FeaturedGames from "@/components/FeaturedGames";
+import LeagueGrid from "@/components/LeagueGrid";
+import UpcomingGames from "@/components/UpcomingGames";
+import GamesSkeleton from "@/components/GamesSkeleton";
+import { useNotifications } from "@/components/NotificationProvider";
+import HomeSkeleton from "@/components/HomeSkeleton";
 
 export default function Home() {
-    const [league, setLeague] = useState("");
-    const [dateRange, setDateRange] = useState<DateRange | undefined>();
+    const [games, setGames] = useState<Game[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const { notify, dismiss } = useNotifications();
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const loadGames = async () => {
+            try {
+                setError(null);
+
+                const today = new Date();
+                const end = new Date();
+
+                end.setDate(today.getDate() + 7);
+
+                const formatDate = (date: Date) =>
+                    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+                const params = new URLSearchParams({
+                    start: formatDate(today),
+                    end: formatDate(end),
+                });
+
+                // Load the schedule first
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to load games.");
+                }
+
+                const data: Game[] = await response.json();
+
+                if (controller.signal.aborted) return;
+
+                setGames(data);
+                setLoading(false);
+
+                // Load scores in the background
+                const gamesToUpdate = data.filter(
+                    (game) => new Date(game.date) <= new Date()
+                );
+
+                if (gamesToUpdate.length === 0) return;
+
+                const notificationId = notify(
+                    `Updating scores for ${gamesToUpdate.length} games...`,
+                    "info",
+                    null
+                );
+
+                const results = await Promise.allSettled(
+                    gamesToUpdate.map(async (game) => {
+                        const scoreResponse = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                            { signal: controller.signal }
+                        );
+
+                        if (!scoreResponse.ok) {
+                            throw new Error("Failed to update game.");
+                        }
+
+                        const updatedGame: Partial<Game> =
+                            await scoreResponse.json();
+
+                        if (controller.signal.aborted) return;
+
+                        setGames((current) =>
+                            current.map((item) =>
+                                item.game_id === game.game_id &&
+                                item.league === game.league
+                                    ? { ...item, ...updatedGame }
+                                    : item
+                            )
+                        );
+                    })
+                );
+
+                if (controller.signal.aborted) return;
+
+                dismiss(notificationId);
+
+                const successful = results.filter(
+                    (result) => result.status === "fulfilled"
+                ).length;
+
+                const failed = results.length - successful;
+
+                if (failed === 0) {
+                    notify(`Successfully updated ${successful} games.`, "success");
+                } else if (successful === 0) {
+                    notify("Failed to update game scores.", "error");
+                } else {
+                    notify(
+                        `Updated ${successful} games. ${failed} failed.`,
+                        "warning"
+                    );
+                }
+                
+            } catch (err) {
+                if (
+                    err instanceof Error &&
+                    err.name === "AbortError"
+                ) {
+                    return;
+                }
+
+                setError(
+                    err instanceof Error
+                        ? err.message
+                        : "Something went wrong."
+                );
+            } finally {
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
+            }
+        };
+
+        loadGames();
+
+        return () => controller.abort();
+    }, [notify]);
 
     return (
-
         <div className="
+            mx-auto
+            w-full
+            max-w-7xl
+            space-y-10
+            p-6
             text-white
-            mx-auto 
-            flex 
-            flex-col 
-            max-w-5xl  
-            p-6 
-            gap-6
         ">
-
-            {/* Hero */}
             <section className="
-                flex 
-                flex-1 
-                flex-col 
-                items-center 
-                justify-center
-                text-center
+                flex
+                flex-col
+                gap-2
+                border-b
+                border-zinc-800
+                pb-8
             ">
-
-                <h1 className="
-                    text-6xl 
-                    font-bold 
-                    tracking-tight 
-                    sm:text-7xl
-                ">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
                     Slop Watch
                 </h1>
 
-                <p className="
-                    text-zinc-300!
-                    mt-4 
-                    max-w-2xl 
-                    text-lg 
-                    leading-8 
-                ">
+                <p className="max-w-xl text-zinc-400">
                     Some games are worth watching.
-                    <br />
-                    Some games are <b>pure slop</b>.
+                    Some games are pure slop.
+                    Find out which is which.
                 </p>
-
-                <p className="
-                    mt-6
-                    text-xs
-                    font-medium
-                    uppercase
-                    tracking-[0.2em]
-                    text-zinc-500
-                ">
-                    AI-powered sports analytics
-                </p>
-
-                <a
-                    href="https://github.com/LucaMawyin/slop-watch"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                        mt-6
-                        text-sm
-                        text-zinc-500
-                        underline
-                        underline-offset-4
-                        transition
-                        hover:text-zinc-300
-                    "
-                >
-                    View source code →
-                </a>
-
-                {/* Controls */}
-                <div className="
-                    mt-8
-                    flex
-                    flex-col
-                    items-center
-                    gap-6
-                ">
-                {/* Filters */}
-                <div className="
-                    flex
-                    items-center
-                    gap-3
-                ">
-                    <div className="relative">
-                        <select
-                            value={league}
-                            onChange={(e) => setLeague(e.target.value)}
-                            className="
-                                appearance-none
-                                rounded-lg
-                                px-3
-                                py-2
-                                pr-9
-                                text-sm
-                                outline-none
-                                transition
-                                truncate
-                                w-30
-                                border
-                                border-zinc-700
-                                text-zinc-200
-                                bg-zinc-900
-                                hover:border-zinc-600
-                                focus:border-zinc-500
-                            "
-                        >
-                            <option value="">
-                                All Leagues
-                            </option>
-                            {[...leagues]
-                                .sort((a, b) => a.sport.localeCompare(b.sport))
-                                .map((league) => (
-                                    <option
-                                        key={league.id}
-                                        value={league.id}
-                                        className=""
-                                    >
-                                        {league.name}
-                                    </option>
-                                ))}
-                        </select>
-
-                        <ChevronDown
-                            size={16}
-                            className="
-                                pointer-events-none
-                                absolute
-                                right-3
-                                top-1/2
-                                -translate-y-1/2
-                                text-zinc-400
-                            "
-                        />
-                    </div>
-
-                    <DayPickerClient onChange={setDateRange} />
-                </div>
-
-                    {/* Button */}
-                    <button
-                        className="
-                            rounded-lg
-                            bg-white
-                            px-5
-                            py-3
-                            text-sm
-                            font-semibold
-                            text-black
-                            transition
-                            hover:bg-zinc-200
-                        "
-                        onClick={() => {
-                            const params = new URLSearchParams();
-
-                            league && params.set("league", league);
-
-                            if (dateRange?.from) {
-                                params.set(
-                                    "start",
-                                    dateRange.from.toISOString().split("T")[0]
-                                );
-                            }
-
-                            if (dateRange?.to) {
-                                params.set(
-                                    "end",
-                                    dateRange.to.toISOString().split("T")[0]
-                                );
-                            }
-
-                            window.location.href = `/games?${params.toString()}`;
-                        }}
-                    >
-                        Show Me The Slop
-                    </button>
-                </div>
-
             </section>
+
+            {error && games.length === 0 ? (
+                <p className="text-red-400">{error}</p>
+            ) : loading ? (
+                <HomeSkeleton />
+            ) : (
+                <>
+                    <HomeStats games={games} />
+                    <FeaturedGames games={games} />
+                    <UpcomingGames games={games} />
+                    <LeagueGrid />
+                </>
+            )}
         </div>
     );
 }

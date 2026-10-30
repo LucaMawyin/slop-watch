@@ -7,6 +7,7 @@ export default function Badge(props: {
     textColour?:string;
     colour?: string;
     className?:string;
+    children?: React.ReactNode;
 }){
     return (
         <div
@@ -28,12 +29,16 @@ export default function Badge(props: {
                 text-xs
                 font-medium
                 h-fit
+                justify-center
+                items-center
+                gap-2
                 ${props.borderColour ?? "border-zinc-700"}
                 ${props.bgColour ?? "bg-zinc-800"}
                 ${props.textColour ?? "text-zinc-200"}
                 ${props.className}
             `}
         >
+            {props.children}
             {props.title}
         </div>
     );
