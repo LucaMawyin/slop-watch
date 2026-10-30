@@ -36,8 +36,11 @@ router = APIRouter(prefix="/slop-watch")
 # Prediction results: 15 minutes
 prediction_cache = TTLCache(maxsize=256, ttl=900)
 
-# Live scores: 30 seconds
-live_score_cache = TTLCache(maxsize=512, ttl=30)
+# Live scores, separated by game status
+live_score_cache = TTLCache(maxsize=512, ttl=15)
+upcoming_score_cache = TTLCache(maxsize=512, ttl=300)
+completed_score_cache = TTLCache(maxsize=512, ttl=86400)
+processed_cache = TTLCache(maxsize=10, ttl=3600)
 
 cache_lock = Lock()
 
@@ -82,12 +85,24 @@ def get_cached_predictions(league, start_date, days_ahead=7):
 
         return result.copy(deep=True)
 
-def get_cached_live_score(league, game_id, game_date):
+def get_cached_live_score(
+    league,
+    game_id,
+    game_date,
+    status="live",
+):
     date_key = pd.Timestamp(game_date).normalize().isoformat()
     key = (league, str(game_id), date_key)
 
+    if status == "completed":
+        cache = completed_score_cache
+    elif status == "upcoming":
+        cache = upcoming_score_cache
+    else:
+        cache = live_score_cache
+
     with cache_lock:
-        cached = live_score_cache.get(key)
+        cached = cache.get(key)
 
     if cached is not None:
         return cached.copy()
@@ -99,7 +114,36 @@ def get_cached_live_score(league, game_id, game_date):
     )
 
     with cache_lock:
-        live_score_cache[key] = result.copy()
+        cache[key] = result.copy()
+
+    return result
+
+def get_cached_processed(league: str):
+    with cache_lock:
+        cached = processed_cache.get(league)
+
+    if cached is not None:
+        return cached
+
+    result = pd.read_csv(SPORT_CONFIG[league]["processed_output"])
+
+    result["game_id"] = (
+        result["game_id"]
+        .astype(str)
+        .str.replace(r"\.0$", "", regex=True)
+    )
+
+    for column in ("home_last_game_id", "away_last_game_id"):
+        result[column] = (
+            result[column]
+            .astype(str)
+            .str.replace(r"\.0$", "", regex=True)
+        )
+
+    result["date"] = pd.to_datetime(result["date"], utc=True)
+
+    with cache_lock:
+        processed_cache[league] = result
 
     return result
 
@@ -139,6 +183,9 @@ def update(request: Request):
             with cache_lock:
                 prediction_cache.clear()
                 live_score_cache.clear()
+                upcoming_score_cache.clear()
+                completed_score_cache.clear()
+                processed_cache.clear()
 
             # Warmup the cache for the next month
             prediction_date = pd.Timestamp.now().normalize()
@@ -329,9 +376,9 @@ async def team(league: str, team_slug: str, request: Request):
         )
 
     processed = await run_in_threadpool(
-        pd.read_csv,
-        SPORT_CONFIG[league]["processed_output"],
-)
+        get_cached_processed,
+        league,
+    )
 
     processed["game_id"] = processed["game_id"].astype(str).str.replace(
         r"\.0$",
@@ -712,8 +759,8 @@ async def game(game_id: str, request: Request):
     # ---------------------------------
 
     processed = await run_in_threadpool(
-        pd.read_csv,
-        SPORT_CONFIG[league]["processed_output"],
+        get_cached_processed,
+        league,
     )
 
     processed["date"] = pd.to_datetime(
@@ -817,11 +864,22 @@ async def game(game_id: str, request: Request):
     # GET LIVE SCORE
     # ---------------------------------
 
+    now = pd.Timestamp.now(tz="UTC")
+    game_timestamp = pd.Timestamp(game["date"]).tz_convert("UTC")
+
+    if pd.notna(game.get("actual_slop")):
+        score_status = "completed"
+    elif game_timestamp > now:
+        score_status = "upcoming"
+    else:
+        score_status = "live"
+
     live_score = await run_in_threadpool(
         get_cached_live_score,
         league=league,
         game_id=game_id,
         game_date=game["date"],
+        status=score_status,
     )
 
     playoff_wins = game.get(
@@ -926,11 +984,18 @@ async def game_score(game_id: str, request: Request):
             content={"error": f"Invalid date"}
         )
 
+    score_status = (
+        "upcoming"
+        if game_date.tz_localize("UTC") > pd.Timestamp.now(tz="UTC")
+        else "live"
+    )
+
     score = await run_in_threadpool(
         get_cached_live_score,
         league=league,
         game_id=game_id,
         game_date=game_date,
+        status=score_status,
     )
 
     return {
