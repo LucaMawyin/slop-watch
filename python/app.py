@@ -986,6 +986,9 @@ def json_safe(value):
 
     return value
 
+app.include_router(router)
+
+
 if __name__ == "__main__":
     import uvicorn
 
@@ -995,5 +998,3 @@ if __name__ == "__main__":
         port=5002,
         reload=True
     )
-
-app.include_router(router)
