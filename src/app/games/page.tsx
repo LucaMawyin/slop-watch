@@ -4,16 +4,17 @@ import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game } from "@/lib/types";
 import Link from "next/link";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import Badge from "@/components/Badge";
 import GamesSkeleton from "@/components/GamesSkeleton";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 import { getHeatColour } from "@/lib/getHeatColour";
 import ProgressCircle from "@/components/ProgressCircle";
 import { slugify } from "@/lib/slugify";
 import AddToCalendar from "@/components/AddToCalendar";
+import useSwipeNavigation from "@/lib/useSwipeNavigation";
 
 function GamesContent() {
 
@@ -29,6 +30,7 @@ function GamesContent() {
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
 
+    const router = useRouter();
     const searchParams = useSearchParams();
     const sport = searchParams.get("sport")?.toLowerCase();
     const league = searchParams.get("league");
@@ -83,6 +85,30 @@ function GamesContent() {
     const ref = start && end
         ? `${start}_${end}`
         : (start ? start : formatDate(new Date()));
+
+    const shiftDateRange = (days: number) => {
+        const currentStart = effectiveStart ?? formatDate(new Date());
+        const currentEnd = effectiveEnd ?? currentStart;
+
+        const startDate = new Date(`${currentStart}T00:00:00`);
+        const endDate = new Date(`${currentEnd}T00:00:00`);
+
+        // Preserve the existing range length.
+        startDate.setDate(startDate.getDate() + days);
+        endDate.setDate(endDate.getDate() + days);
+
+        const params = new URLSearchParams(searchParams.toString());
+
+        params.set("start", formatDate(startDate));
+        params.set("end", formatDate(endDate));
+
+        router.push(`/games?${params.toString()}`);
+    };
+
+    const swipeHandlers = useSwipeNavigation({
+        onSwipeLeft: () => shiftDateRange(1),
+        onSwipeRight: () => shiftDateRange(-1),
+    });
 
     // Reset filters on reload
     useEffect(() => {
@@ -318,7 +344,14 @@ function GamesContent() {
     });
 
     return (
-        <main className="p-6 text-white">
+        <main 
+            className="
+                p-6 
+                text-white
+                touch-pan-y
+            "
+            {...swipeHandlers}
+        >
 
             {/* HEADER */}
             <div className="
@@ -353,44 +386,81 @@ function GamesContent() {
                     sm:w-auto
                 ">
 
-                    {/* DATE RANGE */}
-                    <DayPickerClient
-                        initialMonth={
-                            start 
-                                ? new Date(`${start}T00:00:00`) 
-                                : new Date()
-                        }
-                        initialRange={
-                            start && end
-                                ? {
-                                    from: new Date(`${start}T00:00:00`),
-                                    to: new Date(`${end}T00:00:00`),
-                                }
-                                : {
-                                    from: new Date(),
-                                    to: new Date(
-                                        new Date().setDate(
-                                            new Date().getDate() + defaultDays
-                                        )
-                                    ),
-                                }
-                        }
-                        onChange={(range) => {
-                            if (!range?.from || !range?.to) return;
+                    <div className="
+                            flex 
+                            items-center 
+                            justify-center
+                            gap-3
+                            w-full
+                            sm:w-fit
+                        "
+                    >
+                        <button
+                            type="button"
+                            onClick={() => shiftDateRange(-1)}
+                            aria-label="Previous day"
+                            className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
 
-                            const params = new URLSearchParams(searchParams.toString());
+                        {/* DATE RANGE */}
+                        <DayPickerClient
+                            initialMonth={
+                                start 
+                                    ? new Date(`${start}T00:00:00`) 
+                                    : new Date()
+                            }
+                            initialRange={
+                                start && end
+                                    ? {
+                                        from: new Date(`${start}T00:00:00`),
+                                        to: new Date(`${end}T00:00:00`),
+                                    }
+                                    : {
+                                        from: new Date(),
+                                        to: new Date(
+                                            new Date().setDate(
+                                                new Date().getDate() + defaultDays
+                                            )
+                                        ),
+                                    }
+                            }
+                            onChange={(range) => {
+                                if (!range?.from || !range?.to) return;
 
-                            const formatDate = (date: Date) =>
-                                `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+                                const params = new URLSearchParams(searchParams.toString());
 
-                            params.set("start", formatDate(range.from));
-                            params.set("end", formatDate(range.to));
+                                const formatDate = (date: Date) =>
+                                    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
-                            window.location.href = `/games?${params.toString()}`;
-                        }}
-                    />
+                                params.set("start", formatDate(range.from));
+                                params.set("end", formatDate(range.to));
 
-                    <div className="flex relative gap-3">
+                                window.location.href = `/games?${params.toString()}`;
+                            }}
+                        />
+
+                        <button
+                            type="button"
+                            onClick={() => shiftDateRange(1)}
+                            aria-label="Next day"
+                            className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+
+
+
+                    <div className="
+                        flex 
+                        relative 
+                        gap-3 
+                        justify-between
+                        w-full
+                        sm:w-fit
+                    ">
                         {/* SLOP | DATE | WATCHABILITY */}
                         <div className="relative">
                             <select
@@ -491,7 +561,7 @@ function GamesContent() {
 
                 </div>
             </div>
-
+            
             {loading ? (
                 <GamesSkeleton showLeague={!!sport}/>
             ) : error ? (
