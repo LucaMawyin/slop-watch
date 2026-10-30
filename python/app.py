@@ -4,6 +4,7 @@ import os
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi import APIRouter
 from starlette.concurrency import run_in_threadpool
 import pandas as pd
 from lock import lock
@@ -30,6 +31,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
 
 app = FastAPI()
+router = APIRouter(prefix="/slop-watch")
 
 # Prediction results: 15 minutes
 prediction_cache = TTLCache(maxsize=256, ttl=900)
@@ -109,7 +111,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/api/update")
+@router.post("/api/update")
 def update(request: Request):
 
     # Authenticate request
@@ -168,7 +170,7 @@ def update(request: Request):
 
 
 
-@app.get("/api/games")
+@router.get("/api/games")
 async def games(request: Request):
 
     start_time = time.perf_counter()
@@ -312,7 +314,7 @@ async def games(request: Request):
 
     return games.to_dict(orient="records")
 
-@app.get("/api/team/{league}/{team_slug}")
+@router.get("/api/team/{league}/{team_slug}")
 async def team(league: str, team_slug: str, request: Request):
 
     start_time = time.perf_counter()
@@ -628,7 +630,7 @@ async def team(league: str, team_slug: str, request: Request):
         "upcoming_games": upcoming_games,
     }
 
-@app.get("/api/game/{game_id}")
+@router.get("/api/game/{game_id}")
 async def game(game_id: str, request: Request):
 
     start_time = time.perf_counter()
@@ -892,7 +894,7 @@ async def game(game_id: str, request: Request):
 
     return result
 
-@app.get("/api/game/{game_id}/score")
+@router.get("/api/game/{game_id}/score")
 async def game_score(game_id: str, request: Request):
 
     league = request.query_params.get("league")
@@ -937,7 +939,7 @@ async def game_score(game_id: str, request: Request):
         "away_score": score["away_score"],
     }
 
-@app.get("/api/teams")
+@router.get("/api/teams")
 def teams(request: Request):
     league = request.query_params.get("league")
 
@@ -993,3 +995,5 @@ if __name__ == "__main__":
         port=5002,
         reload=True
     )
+
+app.include_router(router)
