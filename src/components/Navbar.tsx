@@ -242,7 +242,7 @@ export default function Navbar() {
             >
 
                 <div className="border-b border-zinc-800 py-4">
-                    <Link
+                    <a
                         href="/games"
                         onClick={handleNavigation}
                         className="
@@ -254,7 +254,7 @@ export default function Navbar() {
                         "
                     >
                         All Leagues
-                    </Link>
+                    </a>
                 </div>
                 {sports.map((sport) => {
                     const isOpen = openSport === sport;
