@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { leagues } from "@/lib/leagues";
 import { useRouter } from "next/navigation";
+import { useNotifications } from "./NotificationProvider";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -16,6 +17,14 @@ export default function Navbar() {
     // Navbar click off
     const navRef = useRef<HTMLElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+    const { dismissAll } = useNotifications();
+
+    const handleNavigation = () => {
+        setOpenSport(null);
+        setMenuOpen(false);
+        dismissAll();
+    };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -56,6 +65,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-6 py-4">
                 <Link
                     href="/"
+                    onClick={handleNavigation}
                     className="text-xl font-bold text-white pr-4"
                 >
                     Slop Watch
@@ -64,16 +74,13 @@ export default function Navbar() {
                 {/* Desktop */}
                 <div className="hidden md:flex flex-1 justify-evenly items-center gap-4">
 
-                    <a
-                        href={`/games`}
-                        onClick={() => {
-                            setOpenSport(null);
-                            router.push("/");
-                        }}
+                    <Link
+                        href="/games"
+                        onClick={handleNavigation}
                         className="text-sm text-zinc-300 hover:text-white"
                     >
                         All Leagues
-                    </a>
+                    </Link>
 
                     {sports.map((sport) => {
 
@@ -102,9 +109,10 @@ export default function Navbar() {
                                 <div
                                     className="flex items-center"
                                 >
-                                    <Link 
+                                    <Link
                                         href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
-                                        className="text-sm text-zinc-300 "
+                                        onClick={handleNavigation}
+                                        className="text-sm text-zinc-300"
                                     >
                                         {sport}
                                     </Link>
@@ -163,7 +171,7 @@ export default function Navbar() {
                                             <Link
                                                 key={league.id}
                                                 href={`/games?league=${league.id}`}
-                                                onClick={() => setOpenSport(null)}
+                                                onClick={handleNavigation}
                                                 className="
                                                     block
                                                     px-4
@@ -234,22 +242,19 @@ export default function Navbar() {
             >
 
                 <div className="border-b border-zinc-800 py-4">
-                    <a
+                    <Link
                         href="/games"
-                        onClick={() => {
-                            setOpenSport(null);
-                            setMenuOpen(false);
-                        }}
+                        onClick={handleNavigation}
                         className="
-                            block
-                            text-sm
-                            font-medium
-                            text-zinc-300
+                            block 
+                            text-sm 
+                            font-medium 
+                            text-zinc-300 
                             hover:text-white
                         "
                     >
                         All Leagues
-                    </a>
+                    </Link>
                 </div>
                 {sports.map((sport) => {
                     const isOpen = openSport === sport;
@@ -270,10 +275,7 @@ export default function Navbar() {
                                         text-zinc-300
                                         hover:text-white
                                     "
-                                    onClick={() =>{
-                                        setOpenSport(null);
-                                        setMenuOpen(false);
-                                    }}
+                                    onClick={handleNavigation}
                                 >
                                     {sport}
                                 </Link>
@@ -318,10 +320,7 @@ export default function Navbar() {
                                             <Link
                                                 key={league.id}
                                                 href={`/games?league=${league.id}`}
-                                                onClick={() =>{
-                                                    setOpenSport(null);
-                                                    setMenuOpen(false);
-                                                }}
+                                                onClick={handleNavigation}
                                                 className="
                                                     block
                                                     py-2

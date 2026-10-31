@@ -14,7 +14,13 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const { notify, dismiss } = useNotifications();
+    const { notify, dismiss, dismissAll } = useNotifications();
+
+    useEffect(() => {
+        return () => {
+            dismissAll();
+        };
+    }, [dismissAll]);
 
     useEffect(() => {
         const controller = new AbortController();

@@ -19,6 +19,7 @@ type NotificationContextType = {
         duration?: number | null
     ) => number;
     dismiss: (id: number) => void;
+    dismissAll: () => void;
 };
 
 const NotificationContext =
@@ -30,6 +31,10 @@ export function NotificationProvider({
     children: React.ReactNode;
 }) {
     const [notifications, setNotifications] = useState<Notification[]>([]);
+
+    const dismissAll = useCallback(() => {
+        setNotifications([]);
+    }, []);
 
     const notify = useCallback(
         (
@@ -68,7 +73,7 @@ export function NotificationProvider({
     }, []);
 
     return (
-        <NotificationContext.Provider value={{ notify, dismiss }}>
+        <NotificationContext.Provider value={{ notify, dismiss, dismissAll }}>
             {children}
 
             <div
