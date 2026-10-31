@@ -233,15 +233,14 @@ function GamesContent() {
 
                 return (
                     age >= 30 * 60 * 1000 &&
-                    age <= 6 * 60 * 60 * 1000 &&
-                    game.actual_slop === null
+                    age <= 6 * 60 * 60 * 1000
                 );
             });
 
             for (const game of liveGames) {
                 try {
                     const response = await fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
                         {
                             cache: "no-store",
                         }
@@ -254,27 +253,17 @@ function GamesContent() {
                     const liveGame = await response.json() as Game;
 
                     setGames((currentGames) =>
-                        currentGames.map((currentGame) => {
-                            if (
-                                String(currentGame.game_id) !==
-                                String(liveGame.game_id)
-                            ) {
-                                return currentGame;
-                            }
-
-                            return {
-                                ...currentGame,
-                                home_score: liveGame.home_score,
-                                away_score: liveGame.away_score,
-                                live_slop: liveGame.live_slop,
-                                live_watchability:
-                                    liveGame.live_watchability,
-                                actual_slop: liveGame.actual_slop,
-                                actual_watchability:
-                                    liveGame.actual_watchability,
-                            };
-                        })
+                        currentGames.map((currentGame) =>
+                            String(currentGame.game_id) === String(liveGame.game_id)
+                                ? {
+                                    ...currentGame,
+                                    home_score: liveGame.home_score,
+                                    away_score: liveGame.away_score,
+                                }
+                                : currentGame
+                        )
                     );
+
                 } catch (error) {
                     console.error(
                         `Failed to update live game ${game.game_id}:`,
@@ -598,9 +587,8 @@ function GamesContent() {
                     ">
                         {sortedGames.slice(0, visibleCount).map((game) => {
 
-                            const slop = game.live_slop ?? game.slop_percentile;
-                            const watchability =
-                                game.live_watchability ?? game.watchability_percentile;
+                            const slop = game.slop_percentile;
+                            const watchability = game.watchability_percentile;
 
                             const slopColour = getHeatColour(slop);
                             const watchabilityColour = getHeatColour(1-watchability);

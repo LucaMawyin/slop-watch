@@ -111,15 +111,14 @@ export default function TeamPage({ params }: Props) {
 
                 return (
                     age >= 30 * 60 * 1000 &&
-                    age <= 6 * 60 * 60 * 1000 &&
-                    game.actual_slop === null
+                    age <= 6 * 60 * 60 * 1000
                 );
             });
 
             for (const game of liveGames) {
                 try {
                     const response = await fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${league}&date=${encodeURIComponent(game.date)}`,
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${league}&date=${encodeURIComponent(game.date)}`,
                         {
                             cache: "no-store",
                         }
@@ -138,35 +137,15 @@ export default function TeamPage({ params }: Props) {
 
                         return {
                             ...current,
-                            upcoming_games:
-                                current.upcoming_games.map(
-                                    (currentGame) => {
-                                        if (
-                                            currentGame.game_id !==
-                                            game.game_id
-                                        ) {
-                                            return currentGame;
-                                        }
-
-                                        return {
-                                            ...currentGame,
-
-                                            home_score:
-                                                updatedGame.home_score,
-
-                                            away_score:
-                                                updatedGame.away_score,
-
-                                            slop_percentile:
-                                                updatedGame.live_slop ??
-                                                currentGame.slop_percentile,
-
-                                            watchability_percentile:
-                                                updatedGame.live_watchability ??
-                                                currentGame.watchability_percentile,
-                                        };
+                            upcoming_games: current.upcoming_games.map((currentGame) =>
+                                String(currentGame.game_id) === String(game.game_id)
+                                    ? {
+                                        ...currentGame,
+                                        home_score: updatedGame.home_score,
+                                        away_score: updatedGame.away_score,
                                     }
-                                ),
+                                    : currentGame
+                            ),
                         };
                     });
 
@@ -194,9 +173,11 @@ export default function TeamPage({ params }: Props) {
     }, [team !== null, league]);
 
     const liveGames = team?.upcoming_games.filter(
-        (game) =>
-            new Date(game.date) <= new Date() &&
-            game.actual_slop === null
+        (game) => {
+            const age = Date.now() - new Date(game.date).getTime();
+
+            return age >= 0 && age <= 6 * 60 * 60 * 1000;
+        }
     );
 
     const upcomingGames = team?.upcoming_games.filter(

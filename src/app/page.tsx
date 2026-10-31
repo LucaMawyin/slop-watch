@@ -69,8 +69,7 @@ export default function Home() {
 
                     return (
                         gameDate >= startOfWindow &&
-                        gameDate <= endOfDay &&
-                        game.actual_slop === null
+                        gameDate <= endOfDay
                     );
                 });
 
@@ -89,7 +88,7 @@ export default function Home() {
                 const results = await Promise.allSettled(
                     gamesToUpdate.map(async (game) => {
                         const scoreResponse = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
                             { signal: controller.signal }
                         );
 

@@ -25,7 +25,7 @@ from services.update_data import update_data
 from services.model import train_model
 from services.teams import get_teams
 from services.predict import predict
-from services.live import get_live_metrics, get_live_score
+from services.live import get_live_score
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env.local")
@@ -912,27 +912,6 @@ async def game(game_id: str, request: Request):
         status=score_status,
     )
 
-    playoff_wins = game.get(
-        "playoff_wins",
-        0
-    )
-
-    # ---------------------------------
-    # LIVE METRICS
-    # ---------------------------------
-
-    live_metrics = await run_in_threadpool(
-        get_live_metrics,
-        league=league,
-        home_name=game["home_name"],
-        away_name=game["away_name"],
-        game_date=game["date"],
-        home_score=live_score["home_score"],
-        away_score=live_score["away_score"],
-        is_postseason=bool(game["is_postseason"]),
-        playoff_wins=playoff_wins,
-    )
-
     # ---------------------------------
     # RETURN GAME
     # ---------------------------------
@@ -974,8 +953,6 @@ async def game(game_id: str, request: Request):
 
     result["home_recent_games"] = home_recent_games
     result["away_recent_games"] = away_recent_games
-
-    result.update(live_metrics)
 
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
