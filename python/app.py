@@ -41,8 +41,7 @@ completed_score_cache = TTLCache(maxsize=512, ttl=86400)
 processed_cache = TTLCache(maxsize=10, ttl=3600)
 prediction_cache = TTLCache(
     maxsize=256,
-    ttl=3600,
-    timer=lambda: int(time.time() // 3600) * 3600
+    ttl=3600
 )
 
 cache_lock = Lock()
@@ -60,33 +59,90 @@ def get_prediction_lock(key):
         return prediction_locks[key]
 
 
+PREDICTION_CACHE_DAYS = 45
+
 def get_cached_predictions(league, start_date, days_ahead=7):
-    prediction_date = pd.Timestamp(start_date).normalize()
-    key = (league, prediction_date.isoformat(), int(days_ahead))
+    requested_start = pd.Timestamp(start_date)
+
+    if requested_start.tzinfo is None:
+        requested_start = requested_start.tz_localize("UTC")
+    else:
+        requested_start = requested_start.tz_convert("UTC")
+
+    requested_start = requested_start.normalize()
+    requested_end = requested_start + pd.Timedelta(days=days_ahead)
+
+    today = pd.Timestamp.now(tz="UTC").normalize()
+
+    # Use one shared cache window for current/future requests.
+    cache_start = today
+    cache_days = PREDICTION_CACHE_DAYS
+
+    # Historical requests need a separate date-specific window.
+    if requested_start < today:
+        cache_start = requested_start
+        cache_days = max(
+            PREDICTION_CACHE_DAYS,
+            (requested_end - cache_start).days + 1,
+        )
+
+    key = (league, cache_start.isoformat(), cache_days)
 
     with cache_lock:
         cached = prediction_cache.get(key)
 
-    if cached is not None:
-        return cached.copy(deep=True)
+    if cached is None:
+        with get_prediction_lock(key):
+            with cache_lock:
+                cached = prediction_cache.get(key)
 
-    with get_prediction_lock(key):
-        with cache_lock:
-            cached = prediction_cache.get(key)
+            if cached is None:
+                start = time.perf_counter()
 
-        if cached is not None:
-            return cached.copy(deep=True)
+                cached = predict(
+                    league=league,
+                    start_date=cache_start,
+                    days_ahead=cache_days,
+                )
 
-        result = predict(
-            league=league,
-            start_date=prediction_date,
-            days_ahead=days_ahead,
-        )
+                print(
+                    f"PREDICTION MISS | {league} | "
+                    f"{cache_start.date()} | "
+                    f"{cache_days} days | "
+                    f"{time.perf_counter() - start:.2f}s"
+                )
 
-        with cache_lock:
-            prediction_cache[key] = result.copy(deep=True)
+                with cache_lock:
+                    prediction_cache[key] = cached.copy(deep=True)
 
-        return result.copy(deep=True)
+            else:
+                print(f"PREDICTION HIT | {league}")
+
+    else:
+        print(f"PREDICTION HIT | {league}")
+
+    result = cached.copy(deep=True)
+
+    if "date" in result.columns:
+        dates = pd.to_datetime(result["date"], utc=True)
+
+        result = result[
+            (dates >= requested_start) &
+            (dates < requested_end)
+        ].copy()
+
+    return result
+
+live_score_locks = {}
+live_score_locks_guard = Lock()
+
+
+def get_live_score_lock(key):
+    with live_score_locks_guard:
+        if key not in live_score_locks:
+            live_score_locks[key] = Lock()
+
+        return live_score_locks[key]
 
 def get_cached_live_score(
     league,
@@ -110,45 +166,93 @@ def get_cached_live_score(
     if cached is not None:
         return cached.copy()
 
-    result = get_live_score(
-        league=league,
-        game_id=game_id,
-        game_date=game_date,
-    )
+    with get_live_score_lock(key):
 
-    with cache_lock:
-        cache[key] = result.copy()
+        with cache_lock:
+            cached = cache.get(key)
 
-    return result
+        if cached is not None:
+            return cached.copy()
+
+        start = time.perf_counter()
+
+        result = get_live_score(
+            league=league,
+            game_id=game_id,
+            game_date=game_date,
+        )
+
+        with cache_lock:
+            cache[key] = result.copy()
+
+        print(
+            f"LIVE SCORE MISS | {league} | {game_id} | "
+            f"{time.perf_counter() - start:.2f}s"
+        )
+
+        return result.copy()
+
+processed_locks = {}
+processed_locks_guard = Lock()
+
+
+def get_processed_lock(league):
+    with processed_locks_guard:
+        if league not in processed_locks:
+            processed_locks[league] = Lock()
+
+        return processed_locks[league]
+
 
 def get_cached_processed(league: str):
+
     with cache_lock:
         cached = processed_cache.get(league)
 
     if cached is not None:
         return cached.copy(deep=True)
 
-    result = pd.read_csv(SPORT_CONFIG[league]["processed_output"])
+    with get_processed_lock(league):
 
-    result["game_id"] = (
-        result["game_id"]
-        .astype(str)
-        .str.replace(r"\.0$", "", regex=True)
-    )
+        with cache_lock:
+            cached = processed_cache.get(league)
 
-    for column in ("home_last_game_id", "away_last_game_id"):
-        result[column] = (
-            result[column]
+        if cached is not None:
+            return cached.copy(deep=True)
+
+        start = time.perf_counter()
+
+        result = pd.read_csv(
+            SPORT_CONFIG[league]["processed_output"]
+        )
+
+        result["game_id"] = (
+            result["game_id"]
             .astype(str)
             .str.replace(r"\.0$", "", regex=True)
         )
 
-    result["date"] = pd.to_datetime(result["date"], utc=True)
+        for column in ("home_last_game_id", "away_last_game_id"):
+            result[column] = (
+                result[column]
+                .astype(str)
+                .str.replace(r"\.0$", "", regex=True)
+            )
 
-    with cache_lock:
-        processed_cache[league] = result
+        result["date"] = pd.to_datetime(
+            result["date"],
+            utc=True
+        )
 
-    return result.copy(deep=True)
+        with cache_lock:
+            processed_cache[league] = result
+
+        print(
+            f"PROCESSED CSV MISS | {league} | "
+            f"{time.perf_counter() - start:.2f}s"
+        )
+
+        return result.copy(deep=True)
 
 app.add_middleware(
     CORSMiddleware,
@@ -169,7 +273,9 @@ async def configure_response_caching(request: Request, call_next):
         return response
 
     if path == "/slop-watch/api/games":
-        response.headers["Cache-Control"] = "public, max-age=3600"
+        response.headers["Cache-Control"] = (
+            "public, max-age=60, s-maxage=300"
+        )
 
     elif "/api/game/" in path:
         response.headers["Cache-Control"] = "public, max-age=15"
@@ -216,6 +322,15 @@ def update(request: Request):
                 upcoming_score_cache.clear()
                 completed_score_cache.clear()
                 processed_cache.clear()
+
+            with prediction_locks_guard:
+                prediction_locks.clear()
+
+            with live_score_locks_guard:
+                live_score_locks.clear()
+
+            with processed_locks_guard:
+                processed_locks.clear()
 
             # Warmup the cache for the next month
             prediction_date = pd.Timestamp.now().normalize()
@@ -329,8 +444,8 @@ async def games(request: Request):
     )
 
     print(
-        f"All league predictions took "
-        f"{time.perf_counter() - prediction_start:.3f}s"
+        f"GAMES PREDICTIONS: "
+        f"{time.perf_counter() - start_time:.3f}s"
     )
 
     all_games = []
@@ -386,8 +501,10 @@ async def games(request: Request):
         None
     )
 
-    elapsed = time.perf_counter() - start_time
-    print(f"Games took {elapsed:.3f}s")
+    print(
+        f"GAMES TOTAL: "
+        f"{time.perf_counter() - start_time:.3f}s"
+    )
 
     return games.to_dict(orient="records")
 
@@ -408,29 +525,6 @@ async def team(league: str, team_slug: str, request: Request):
     processed = await run_in_threadpool(
         get_cached_processed,
         league,
-    )
-
-    processed["game_id"] = processed["game_id"].astype(str).str.replace(
-        r"\.0$",
-        "",
-        regex=True
-    )
-
-    processed["home_last_game_id"] = (
-        processed["home_last_game_id"]
-        .astype(str)
-        .str.replace(r"\.0$", "", regex=True)
-    )
-
-    processed["away_last_game_id"] = (
-        processed["away_last_game_id"]
-        .astype(str)
-        .str.replace(r"\.0$", "", regex=True)
-    )
-
-    processed["date"] = pd.to_datetime(
-        processed["date"],
-        utc=True
     )
 
     # Filter games for this team
@@ -791,11 +885,6 @@ async def game(game_id: str, request: Request):
     processed = await run_in_threadpool(
         get_cached_processed,
         league,
-    )
-
-    processed["date"] = pd.to_datetime(
-        processed["date"],
-        utc=True
     )
 
     current_game_date = pd.Timestamp(
