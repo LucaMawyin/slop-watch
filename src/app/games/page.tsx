@@ -743,7 +743,16 @@ function GamesContent() {
                                             {game.venue_full_name}
                                         </div>
 
-                                        <div className="flex flex-wrap justify-evenly border-t border-zinc-800 pt-4 text-center mb-6">
+                                        <div className="
+                                            flex 
+                                            flex-wrap 
+                                            justify-evenly 
+                                            border-t 
+                                            border-zinc-800 
+                                            pt-4 
+                                            text-center 
+                                            mb-6
+                                        ">
                                             <div>
                                                 <div className="text-xs text-zinc-500">
                                                     SLOP SCORE

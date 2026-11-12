@@ -36,6 +36,21 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
         league=league
     )
 
+    debug_game = games[
+        games["game_id"].astype(str).str.strip() == "401891808"
+    ]
+
+    if not debug_game.empty:
+        print("\n========== PREDICTION DEBUG ==========")
+        print(f"Start date: {start_date}")
+        print(f"Days ahead: {days_ahead}")
+        print(
+            debug_game[
+                ["game_id", "date"] + MODEL_FEATURES
+            ].to_string(index=False)
+        )
+        print("======================================\n")
+
     # Return if no games
     if games.empty:
         print(f"Predict took {time.perf_counter() - start_time:.3f}s")
