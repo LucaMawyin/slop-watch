@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Game } from "@/lib/types";
 import HomeStats from "@/components/HomeStats";
 import FeaturedGames from "@/components/FeaturedGames";
@@ -15,6 +15,12 @@ export default function Home() {
     const [error, setError] = useState<string | null>(null);
 
     const { notify, dismiss, dismissAll } = useNotifications();
+
+    const gamesRef = useRef<Game[]>([]);
+
+    useEffect(() => {
+        gamesRef.current = games;
+    }, [games]);
 
     useEffect(() => {
         return () => {
@@ -168,6 +174,70 @@ export default function Home() {
             clearTimeout(notificationTimeout);
         };
     }, [notify]);
+
+    useEffect(() => {
+        if (games.length === 0) return;
+
+        const controller = new AbortController();
+        let updating = false;
+
+        const updateLiveGames = async () => {
+            if (updating) return;
+
+            updating = true;
+
+            try {
+                const now = new Date();
+
+                const liveGames = gamesRef.current.filter((game) => {
+                    const age = now.getTime() - new Date(game.date).getTime();
+
+                    return age >= 30 * 60 * 1000 &&
+                        age <= 6 * 60 * 60 * 1000;
+                });
+
+                await Promise.all(
+                    liveGames.map(async (game) => {
+                        const response = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
+                            {
+                                cache: "no-store",
+                                signal: controller.signal,
+                            }
+                        );
+
+                        if (!response.ok) return;
+
+                        const updatedGame: Partial<Game> = await response.json();
+
+                        setGames((current) =>
+                            current.map((item) =>
+                                item.game_id === game.game_id &&
+                                item.league === game.league
+                                    ? { ...item, ...updatedGame }
+                                    : item
+                            )
+                        );
+                    })
+                );
+            } catch (error) {
+                if (error instanceof Error && error.name !== "AbortError") {
+                    console.error("Failed to update live scores:", error);
+                }
+            } finally {
+                updating = false;
+            }
+        };
+
+        updateLiveGames();
+
+        const interval = setInterval(updateLiveGames, 2 * 60 * 1000);
+
+        return () => {
+            controller.abort();
+            clearInterval(interval);
+        };
+    }, [games.length]);
 
     return (
         <div className="
