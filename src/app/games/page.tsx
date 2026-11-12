@@ -612,7 +612,7 @@ function GamesContent() {
                                         group
                                         hover:text-white!
                                         hover:border-zinc-700
-                                        hover:bg-zinc-800
+                                        hover:bg-zinc-800/70
                                         transition-colors
                                         duration-200
                                     "
