@@ -663,7 +663,11 @@ function GamesContent() {
                                                     `/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`,
                                                     "_blank"
                                                 )}
-                                                className="text-xl font-semibold"
+                                                className="
+                                                    text-xl 
+                                                    font-semibold 
+                                                    link
+                                                "
                                             >
                                                 {game.home_name}
                                             </div>
@@ -678,7 +682,11 @@ function GamesContent() {
                                                     `/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`,
                                                     "_blank"
                                                 )}
-                                                className="text-xl font-semibold"
+                                                className="
+                                                    text-xl 
+                                                    font-semibold
+                                                    link
+                                                "
                                             >
                                                 {game.away_name}
                                             </div>
@@ -798,10 +806,13 @@ function GamesContent() {
 
                                     <div className="space-y-4">
                                         <div
-                                            onClick={() => window.open(
-                                                `/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`,
-                                                "_blank"
-                                            )}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.open(
+                                                    `/${currentLeague}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`,
+                                                    "_blank"
+                                                )
+                                            }}
                                             className="
                                                 block
                                                 w-full

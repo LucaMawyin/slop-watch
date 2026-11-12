@@ -19,9 +19,12 @@ footer a {
     color: var(--text-colour);
 }
 
-a:hover{
-    color: rgb(96, 165, 250);
-    text-decoration: underline;
+@media (hover: hover) and (pointer: fine) {
+    a:hover, 
+    .link:hover {
+        color: rgb(96, 165, 250);
+        text-decoration: underline;
+    }
 }
 
 a:active {

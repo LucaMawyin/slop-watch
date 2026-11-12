@@ -4,6 +4,7 @@ import os
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from fastapi import APIRouter
 from starlette.concurrency import run_in_threadpool
 import pandas as pd
@@ -44,12 +45,9 @@ def cached_response(
     stale_while_revalidate: int = 120
 ):
     return JSONResponse(
-        content=content,
+        content=jsonable_encoder(content),
         headers={
-            # Browser caching
             "Cache-Control": "public, max-age=0",
-
-            # Cloudflare edge caching
             "Cloudflare-CDN-Cache-Control": (
                 f"public, max-age={max_age}, "
                 f"stale-while-revalidate={stale_while_revalidate}"
