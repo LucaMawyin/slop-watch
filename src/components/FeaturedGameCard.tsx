@@ -20,9 +20,8 @@ export default function FeaturedGameCard({
 }: FeaturedGameCardProps) {
     const router = useRouter();
 
-    const slop = game.live_slop ?? game.slop_percentile;
-    const watchability =
-        game.live_watchability ?? game.watchability_percentile;
+    const slop = game.slop_percentile;
+    const watchability = game.watchability_percentile;
 
     const slopColour = getHeatColour(slop);
     const watchabilityColour = getHeatColour(1 - watchability);
