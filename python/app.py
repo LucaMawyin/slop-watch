@@ -38,6 +38,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def cached_response(
+    content,
+    max_age: int = 60,
+    stale_while_revalidate: int = 120
+):
+    return JSONResponse(
+        content=content,
+        headers={
+            # Browser caching
+            "Cache-Control": "public, max-age=0",
+
+            # Cloudflare edge caching
+            "Cloudflare-CDN-Cache-Control": (
+                f"public, max-age={max_age}, "
+                f"stale-while-revalidate={stale_while_revalidate}"
+            )
+        }
+    )
+
 @router.post("/api/update")
 def update(request: Request):
 
@@ -203,7 +222,7 @@ async def games(request: Request):
 
     if not all_games:
         print(f"Games took {time.perf_counter() - start_time:.3f}s")
-        return []
+        return cached_response([], max_age=60)
 
     games = pd.concat(
         all_games, 
@@ -220,7 +239,11 @@ async def games(request: Request):
     elapsed = time.perf_counter() - start_time
     print(f"Games took {elapsed:.3f}s")
 
-    return games.to_dict(orient="records")
+    return cached_response(
+        games.to_dict(orient="records"),
+        max_age=60,
+        stale_while_revalidate=120
+    )
 
 @router.get("/api/team/{league}/{team_slug}")
 async def team(league: str, team_slug: str, request: Request):
@@ -511,32 +534,36 @@ async def team(league: str, team_slug: str, request: Request):
     # RETURN
     # ---------------------------------
 
-    return {
-        "team": {
-            "name": team_name,
-            "full_name": team_full_name,
+    return cached_response (
+        {
+            "team": {
+                "name": team_name,
+                "full_name": team_full_name,
+            },
+            "team_badness": (
+                float(team_badness)
+                if pd.notna(team_badness)
+                else None
+            ),
+            "record": {
+                "wins": int(wins),
+                "losses": int(losses),
+            },
+            "league": league,
+            "season": str(season) if season is not None else None,
+            "win_pct": (
+                wins / (wins + losses)
+                if wins + losses > 0
+                else 0
+            ),
+            "point_diff": int(point_diff),
+            "games_played": wins + losses,
+            "recent_games": previous_games,
+            "upcoming_games": upcoming_games,
         },
-        "team_badness": (
-            float(team_badness)
-            if pd.notna(team_badness)
-            else None
-        ),
-        "record": {
-            "wins": int(wins),
-            "losses": int(losses),
-        },
-        "league": league,
-        "season": str(season) if season is not None else None,
-        "win_pct": (
-            wins / (wins + losses)
-            if wins + losses > 0
-            else 0
-        ),
-        "point_diff": int(point_diff),
-        "games_played": wins + losses,
-        "recent_games": previous_games,
-        "upcoming_games": upcoming_games,
-    }
+        max_age=300,
+        stale_while_revalidate=300
+    )
 
 @router.get("/api/game/{game_id}")
 async def game(game_id: str, request: Request):
@@ -800,7 +827,11 @@ async def game(game_id: str, request: Request):
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
 
-    return result
+    return cached_response(
+        result,
+        max_age=15,
+        stale_while_revalidate=5
+    )
 
 @router.get("/api/game/{game_id}/score")
 async def game_score(game_id: str, request: Request):
@@ -841,11 +872,15 @@ async def game_score(game_id: str, request: Request):
         game_date=game_date,
     )
 
-    return {
-        "game_id": int(game_id),
-        "home_score": score["home_score"],
-        "away_score": score["away_score"],
-    }
+    return cached_response(
+        {
+            "game_id": int(game_id),
+            "home_score": score["home_score"],
+            "away_score": score["away_score"],
+        },
+        max_age=10,
+        stale_while_revalidate=5
+    )
 
 @router.get("/api/teams")
 def teams(request: Request):
@@ -863,7 +898,11 @@ def teams(request: Request):
             content={"error": f"Invalid league"}
         )
 
-    return get_teams(league)
+    return cached_response(
+        get_teams(league),
+        max_age=3600,
+        stale_while_revalidate=3600
+    )
 
 def slugify(value):
     return re.sub(
