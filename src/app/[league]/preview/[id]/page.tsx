@@ -6,7 +6,7 @@ import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { leagues } from "@/lib/leagues";
 import { slugify } from "@/lib/slugify";
-import { Game, Team } from "@/lib/types";
+import { Game } from "@/lib/types";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
@@ -187,7 +187,7 @@ export default function PreviewPage({ params }: Props) {
                 <div className="mx-auto max-w-5xl">
                     {/* BACK */}
                     <Link
-                        href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -207,7 +207,7 @@ export default function PreviewPage({ params }: Props) {
                     </p>
 
                     <Link
-                        href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mt-4 inline-block hover:underline"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -240,7 +240,7 @@ export default function PreviewPage({ params }: Props) {
 
                 {/* BACK */}
                 <Link
-                    href={`/games?league=${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                    href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                     className="mb-4 block hover:underline w-fit"
                 >
                     &lt; Back to {leagues.find((item) => item.id === league)?.name} Games

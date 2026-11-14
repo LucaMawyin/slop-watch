@@ -110,7 +110,7 @@ export default function Navbar() {
                                     className="flex items-center"
                                 >
                                     <Link
-                                        href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
+                                        href={`/games/${encodeURIComponent(sport).toLowerCase()}`}
                                         onClick={handleNavigation}
                                         className="text-sm text-zinc-300"
                                     >
@@ -170,7 +170,7 @@ export default function Navbar() {
                                         {sportLeagues.map((league) => (
                                             <Link
                                                 key={league.id}
-                                                href={`/games?league=${league.id}`}
+                                                href={`/games/${league.id}`}
                                                 onClick={handleNavigation}
                                                 className="
                                                     block
@@ -268,7 +268,7 @@ export default function Navbar() {
                                 py-4
                             ">
                                 <Link
-                                    href={`/games?sport=${encodeURIComponent(sport).toLowerCase()}`}
+                                    href={`/games/${encodeURIComponent(sport).toLowerCase()}`}
                                     className="
                                         text-sm
                                         font-medium
@@ -319,7 +319,7 @@ export default function Navbar() {
                                         .map((league) => (
                                             <Link
                                                 key={league.id}
-                                                href={`/games?league=${league.id}`}
+                                                href={`/games/${league.id}`}
                                                 onClick={handleNavigation}
                                                 className="
                                                     block

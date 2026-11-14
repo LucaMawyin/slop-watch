@@ -31,7 +31,7 @@ export default function FeaturedGames({
 
 
                 <h2 className="text-2xl font-bold">
-                    Today's Slop
+                    Live Slop
                 </h2>
 
                 <Link
@@ -72,11 +72,11 @@ export default function FeaturedGames({
                     text-center
                 ">
                     <p className="font-medium text-zinc-300">
-                        No slop detected. Yet.
+                        No live slop detected.
                     </p>
 
                     <p className="mt-2 text-sm text-zinc-500">
-                        Check back when more games are scheduled.
+                        Nothing happening right now. Stay tuned.
                     </p>
                 </div>
             )}
