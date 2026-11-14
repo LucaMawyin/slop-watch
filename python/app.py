@@ -172,15 +172,22 @@ def update(request: Request):
 
     try:
         with lock:
+            print("UPDATE: Starting", flush=True)
 
-            # Update every league
             update_manual()
 
-            # Publish new version after everything succeeds
+            print("UPDATE: Manual update finished", flush=True)
+
             version = increment_data_version()
 
+            print(f"UPDATE: Version incremented to {version}", flush=True)
+
         # Warm cache after releasing
+        print("UPDATE: Starting cache warm", flush=True)
+
         warm_cache(version)
+
+        print("UPDATE: Complete", flush=True)
 
         return {
             "success": True,
@@ -994,4 +1001,5 @@ if __name__ == "__main__":
         "app:app",
         host="127.0.0.1",
         port=5002,
+        reload=True
     )
