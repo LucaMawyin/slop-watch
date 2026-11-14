@@ -12,6 +12,10 @@ from lock import lock
 import re
 import numpy as np
 import time
+import json
+import requests
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from config.sports import (
     SPORT_CONFIG,
@@ -26,6 +30,8 @@ from services.predict import predict
 from services.live import get_live_metrics, get_live_score
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_VERSION_FILE = Path(__file__).resolve().parent / "data_version.json"
+
 load_dotenv(ROOT_DIR / ".env.local")
 
 app = FastAPI()
@@ -38,6 +44,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+def get_data_version():
+    if not DATA_VERSION_FILE.exists():
+        return 0
+
+    try:
+        with open(DATA_VERSION_FILE, "r") as f:
+            return json.load(f)["version"]
+    except Exception:
+        return 0
+
+
+def increment_data_version():
+    version = time.time_ns()
+
+    temp_file = DATA_VERSION_FILE.with_suffix(".tmp")
+
+    with open(temp_file, "w") as f:
+        json.dump({"version": version}, f)
+
+    temp_file.replace(DATA_VERSION_FILE)
+
+    return version
 
 def cached_response(
     content,
@@ -55,10 +84,77 @@ def cached_response(
         }
     )
 
+def warm_cache(version: int):
+    base_url = os.environ.get("NEXT_PUBLIC_API_URL")
+
+    if not base_url:
+        print("PUBLIC_API_URL is not configured. Skipping cache warming.")
+        return
+
+    today = datetime.now(ZoneInfo("America/Toronto")).date()
+    start = (today - timedelta(days=30)).isoformat()
+    end = (today + timedelta(days=30)).isoformat()
+
+    # Warm home page games
+    try:
+        response = requests.get(
+            f"{base_url}/api/games",
+            params={
+                "start": start,
+                "end": end,
+                "version": version,
+            },
+            timeout=120,
+        )
+
+        print(
+            f"Games cache warm: HTTP {response.status_code}, "
+            f"CF status: {response.headers.get('CF-Cache-Status')}"
+        )
+
+        response.raise_for_status()
+
+    except Exception as e:
+        print(f"Failed to warm games cache: {e}")
+
+    # Warm teams for every league
+    for league in SPORT_CONFIG:
+        try:
+            response = requests.get(
+                f"{base_url}/api/teams",
+                params={
+                    "league": league,
+                    "version": version,
+                },
+                timeout=60,
+            )
+
+            print(
+                f"{league} teams cache warm: "
+                f"HTTP {response.status_code}, "
+                f"CF status: {response.headers.get('CF-Cache-Status')}"
+            )
+
+            response.raise_for_status()
+
+        except Exception as e:
+            print(f"Failed to warm {league} teams cache: {e}")
+
+
+@router.get("/api/version")
+def version():
+    return JSONResponse(
+        content={"version": get_data_version()},
+        headers={
+            "Cache-Control": "no-store",
+            "Cloudflare-CDN-Cache-Control": "no-store",
+        }
+    )
+
+    
 @router.post("/api/update")
 def update(request: Request):
 
-    # Authenticate request
     provided_secret = request.headers.get("X-Update-Secret")
     expected_secret = os.environ.get("UPDATE_KEY")
 
@@ -67,26 +163,30 @@ def update(request: Request):
             status_code=401,
             detail="Unauthorized"
         )
-    
-    try: 
 
+    try:
         with lock:
 
-            # Fetch new data for each league
+            # Update every league
             for league in SPORT_CONFIG:
                 update_data(league=league)
 
-            # Retrain each model using updated data
+            # Retrain every model
             for league in SPORT_CONFIG:
                 train_model(league=league)
 
-        # Success
+            # Publish new version after everything succeeds
+            version = increment_data_version()
+
+        # Warm cache after releasing
+        warm_cache(version)
+
         return {
             "success": True,
-            "message": "Data updated and models retrained."
+            "message": "Data updated, models retrained, and cache warmed.",
+            "version": version,
         }
 
-    # Error
     except Exception as e:
         print(f"Update failed: {e}")
 
@@ -97,7 +197,6 @@ def update(request: Request):
                 "error": str(e)
             }
         )
-
 
 
 @router.get("/api/games")
@@ -220,7 +319,7 @@ async def games(request: Request):
 
     if not all_games:
         print(f"Games took {time.perf_counter() - start_time:.3f}s")
-        return cached_response([], max_age=60)
+        return cached_response([], max_age=3600)
 
     games = pd.concat(
         all_games, 
@@ -239,8 +338,8 @@ async def games(request: Request):
 
     return cached_response(
         games.to_dict(orient="records"),
-        max_age=60,
-        stale_while_revalidate=120
+        max_age=3600,
+        stale_while_revalidate=3600
     )
 
 @router.get("/api/team/{league}/{team_slug}")
@@ -747,38 +846,6 @@ async def game(game_id: str, request: Request):
     ]
 
     # ---------------------------------
-    # GET LIVE SCORE
-    # ---------------------------------
-
-    live_score = await run_in_threadpool(
-        get_live_score,
-        league=league,
-        game_id=game_id,
-        game_date=game["date"],
-    )
-
-    playoff_wins = game.get(
-        "playoff_wins",
-        0
-    )
-
-    # ---------------------------------
-    # LIVE METRICS
-    # ---------------------------------
-
-    live_metrics = await run_in_threadpool(
-        get_live_metrics,
-        league=league,
-        home_name=game["home_name"],
-        away_name=game["away_name"],
-        game_date=game["date"],
-        home_score=live_score["home_score"],
-        away_score=live_score["away_score"],
-        is_postseason=bool(game["is_postseason"]),
-        playoff_wins=playoff_wins,
-    )
-
-    # ---------------------------------
     # RETURN GAME
     # ---------------------------------
 
@@ -802,33 +869,18 @@ async def game(game_id: str, request: Request):
 
         result[column] = value
 
-    # Override predicted/CSV scores with live scores
-    result["home_score"] = (
-        live_score["home_score"]
-        if live_score["home_score"] is not None
-        else int(game["home_score"])
-    )
-
-    result["away_score"] = (
-        live_score["away_score"]
-        if live_score["away_score"] is not None
-        else int(game["away_score"])
-    )
-
     result["league"] = league
 
     result["home_recent_games"] = home_recent_games
     result["away_recent_games"] = away_recent_games
-
-    result.update(live_metrics)
 
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
 
     return cached_response(
         result,
-        max_age=15,
-        stale_while_revalidate=5
+        max_age=3600,
+        stale_while_revalidate=3600
     )
 
 @router.get("/api/game/{game_id}/score")
@@ -876,24 +928,25 @@ async def game_score(game_id: str, request: Request):
             "home_score": score["home_score"],
             "away_score": score["away_score"],
         },
-        max_age=10,
+        max_age=5,
         stale_while_revalidate=5
     )
 
 @router.get("/api/teams")
 def teams(request: Request):
+
     league = request.query_params.get("league")
 
     if not league:
         return JSONResponse(
             status_code=400,
-            content={"error": f"League is required"}
+            content={"error": "League is required"}
         )
 
     if league not in SPORT_CONFIG:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Invalid league"}
+            content={"error": "Invalid league"}
         )
 
     return cached_response(

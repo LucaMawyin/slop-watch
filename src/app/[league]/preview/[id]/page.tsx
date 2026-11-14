@@ -33,6 +33,8 @@ export default function PreviewPage({ params }: Props) {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const fetchPreview = async () => {
             try {
                 setLoading(true);
@@ -42,25 +44,47 @@ export default function PreviewPage({ params }: Props) {
                     throw new Error("Missing game date");
                 }
 
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?league=${league}&date=${encodeURIComponent(date)}`,
+                // Get the latest data version
+                const versionResponse = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
                     {
                         cache: "no-store",
+                        signal: controller.signal,
                     }
                 );
 
-                if (!response.ok) {
-                    throw new Error(
-                        `Games API failed: ${response.status}`
-                    );
+                if (!versionResponse.ok) {
+                    throw new Error("Failed to check data version.");
                 }
 
-                const gameData = await response.json() as Game;
+                const { version } = await versionResponse.json() as any;
+
+                const params = new URLSearchParams({
+                    league,
+                    date,
+                    version: String(version),
+                });
+
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?${params}`,
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`Games API failed: ${response.status}`);
+                }
+
+                const gameData: Game = await response.json();
+
+                if (controller.signal.aborted) return;
 
                 setGame(gameData);
-                setLoading(false);
 
             } catch (error) {
+                if (error instanceof Error && error.name === "AbortError") {
+                    return;
+                }
+
                 console.error(error);
 
                 setError(
@@ -68,17 +92,16 @@ export default function PreviewPage({ params }: Props) {
                         ? error.message
                         : "Failed to load game preview"
                 );
-
-                setLoading(false);
+            } finally {
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
             }
         };
 
-        // Run after the initial render.
-        const timeout = setTimeout(fetchPreview, 0);
+        fetchPreview();
 
-        return () => {
-            clearTimeout(timeout);
-        };
+        return () => controller.abort();
     }, [id, league, date]);
 
     const gameRef = useRef<Game | null>(null);
@@ -98,10 +121,11 @@ export default function PreviewPage({ params }: Props) {
             const gameDate = new Date(currentGame.date);
             const now = new Date();
 
-            const age = now.getTime() - gameDate.getTime();
-
-            // Dont query games until 30 minutes after start
-            if (age < 30 * 60 * 1000) {
+            // Dont query games that havent started or are completed
+            if (
+                currentGame.actual_slop !== null ||
+                gameDate.getTime() > now.getTime()
+            ) {
                 return;
             }
 
@@ -120,10 +144,10 @@ export default function PreviewPage({ params }: Props) {
                     return;
                 }
 
-                const score = await response.json() as {
-                    home_score: number | null;
-                    away_score: number | null;
-                };
+                const score: {
+                    home_score: number;
+                    away_score: number;
+                } = await response.json();
 
                 setGame((currentGame) => {
                     if (!currentGame) {
@@ -144,14 +168,11 @@ export default function PreviewPage({ params }: Props) {
             }
         };
 
-        // Wait until initial render has completed.
+        // Wait until initial render has completed
         const timeout = setTimeout(updateScore, 0);
 
-        // Query every 2 minutes
-        const interval = setInterval(
-            updateScore,
-            2 * 60 * 1000
-        );
+        // Query every minute
+        const interval = setInterval(updateScore, 60 * 1000);
 
         return () => {
             clearTimeout(timeout);

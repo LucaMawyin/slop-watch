@@ -42,13 +42,8 @@ export default function TeamPage({ params }: Props) {
         if (teamSlug !== slug) {
             const params = new URLSearchParams();
 
-            if (teamId) {
-                params.set("id", teamId);
-            }
-
-            if (ref) {
-                params.set("ref", ref);
-            }
+            if (teamId) params.set("id", teamId);
+            if (ref) params.set("ref", ref);
 
             router.replace(
                 `/${league}/${slug}${params.toString() ? `?${params.toString()}` : ""}`
@@ -57,32 +52,63 @@ export default function TeamPage({ params }: Props) {
             return;
         }
 
+        const controller = new AbortController();
+
         async function fetchTeam() {
             try {
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}${teamId ? `?id=${teamId}` : ""}`,
-                    { 
+                setLoading(true);
+
+                // Get current data version
+                const versionResponse = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
+                    {
                         cache: "no-store",
-                    },
+                        signal: controller.signal,
+                    }
+                );
+
+                if (!versionResponse.ok) {
+                    throw new Error("Failed to check data version.");
+                }
+
+                const { version } = await versionResponse.json() as any;
+
+                const query = new URLSearchParams();
+
+                if (teamId) query.set("id", teamId);
+
+                query.set("version", String(version));
+
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/team/${league}/${slug}?${query}`,
+                    { signal: controller.signal }
                 );
 
                 if (!response.ok) {
-                    throw new Error(
-                        `Team API failed: ${response.status}`
-                    );
+                    throw new Error(`Team API failed: ${response.status}`);
                 }
 
-                const data = await response.json() as Team;
+                const data: Team = await response.json();
 
-                setTeam(data);
+                if (!controller.signal.aborted) {
+                    setTeam(data);
+                }
             } catch (error) {
+                if (error instanceof Error && error.name === "AbortError") {
+                    return;
+                }
+
                 console.error(error);
             } finally {
-                setLoading(false);
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
             }
         }
 
         fetchTeam();
+
+        return () => controller.abort();
     }, [league, slug, teamSlug, teamId, ref, router]);
 
     const teamRef = useRef<Team | null>(null);
@@ -105,15 +131,10 @@ export default function TeamPage({ params }: Props) {
 
             const now = new Date();
 
-            const liveGames = currentTeam.upcoming_games.filter((game) => {
-                const gameDate = new Date(game.date);
-                const age = now.getTime() - gameDate.getTime();
-
-                return (
-                    age >= 30 * 60 * 1000 &&
-                    age <= 6 * 60 * 60 * 1000
-                );
-            });
+            const liveGames = currentTeam.upcoming_games.filter(
+                (game) => game.actual_slop === null &&
+                        new Date(game.date).getTime() <= now.getTime()
+            );
 
             for (const game of liveGames) {
                 try {
@@ -158,13 +179,13 @@ export default function TeamPage({ params }: Props) {
             }
         };
 
-        // Run immediately after the team has loaded
+        // Run immediately after team has loaded
         updateLiveGames();
 
-        // Update every 2 minutes
+        // Update every minute
         const interval = setInterval(
             updateLiveGames,
-            2 * 60 * 1000
+            60 * 1000
         );
 
         return () => {

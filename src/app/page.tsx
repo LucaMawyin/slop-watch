@@ -30,14 +30,32 @@ export default function Home() {
 
     useEffect(() => {
         const controller = new AbortController();
-        let notificationTimeout: ReturnType<typeof setTimeout> | undefined;
+
+        let currentVersion: string | null = null;
+        let initialLoad = true;
 
         const loadGames = async () => {
             try {
-                setError(null);
+                // Check which hourly dataset is currently published
+                const versionResponse = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
+                    {
+                        cache: "no-store",
+                        signal: controller.signal,
+                    }
+                );
+
+                if (!versionResponse.ok) {
+                    throw new Error("Failed to check data version.");
+                }
+
+                const { version } = await versionResponse.json() as any;
+
+                // Nothing changed so dont download the games again
+                if (currentVersion === String(version)) return;
 
                 const today = new Date();
-                const end = new Date();
+                const end = new Date(today);
 
                 end.setDate(today.getDate() + 7);
 
@@ -47,14 +65,14 @@ export default function Home() {
                 const params = new URLSearchParams({
                     start: formatDate(today),
                     end: formatDate(end),
+                    version: String(version),
                 });
 
-                // Load the schedule first
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
-                    { 
+                    {
                         signal: controller.signal,
-                    },
+                    }
                 );
 
                 if (!response.ok) {
@@ -65,51 +83,92 @@ export default function Home() {
 
                 if (controller.signal.aborted) return;
 
+                // Only mark version as loaded after successful response
+                currentVersion = String(version);
+
                 setGames(data);
-                setLoading(false);
+                setError(null);
+            } catch (err) {
+                if (
+                    err instanceof Error &&
+                    err.name === "AbortError"
+                ) {
+                    return;
+                }
 
-                // Load scores in the background
-                const now = new Date();
+                console.error("Failed to load games:", err);
 
-                const gamesToUpdate = data.filter((game) => {
-                    const gameDate = new Date(game.date);
+                if (initialLoad) {
+                    setError(
+                        err instanceof Error
+                            ? err.message
+                            : "Something went wrong."
+                    );
+                }
+            } finally {
+                if (initialLoad && !controller.signal.aborted) {
+                    initialLoad = false;
+                    setLoading(false);
+                }
+            }
+        };
 
-                    const startOfWindow = new Date(now.getTime() - 60 * 60 * 1000);
+        // Load the initial games
+        loadGames();
 
-                    const endOfDay = new Date(now);
-                    endOfDay.setHours(23, 59, 59, 999);
+        // Check for new games every five minutes
+        const interval = setInterval(loadGames, 5 * 60 * 1000);
+
+        return () => {
+            controller.abort();
+            clearInterval(interval);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (games.length === 0) return;
+
+        const controller = new AbortController();
+
+        let updating = false;
+
+        const updateLiveGames = async () => {
+            if (updating) return;
+
+            updating = true;
+
+            try {
+                const now = Date.now();
+
+                // Only check live, completed, or starting games
+                const liveGames = gamesRef.current.filter((game) => {
+                    const age = now - new Date(game.date).getTime();
 
                     return (
-                        gameDate >= startOfWindow &&
-                        gameDate <= endOfDay
+                        age >= -30 * 60 * 1000 &&
+                        age <= 6 * 60 * 60 * 1000
                     );
                 });
 
-                if (gamesToUpdate.length === 0) return;
+                await Promise.all(
+                    liveGames.map(async (game) => {
+                        const params = new URLSearchParams({
+                            league: game.league,
+                            date: game.date,
+                        });
 
-                const notificationId = notify(
-                    `Updating scores for ${gamesToUpdate.length} games...`,
-                    "info",
-                    null
-                );
-
-                notificationTimeout = setTimeout(() => {
-                    dismiss(notificationId);
-                }, 60 * 1000);
-
-                const results = await Promise.allSettled(
-                    gamesToUpdate.map(async (game) => {
-                        const scoreResponse = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                            { signal: controller.signal }
+                        const response = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
+                            {
+                                cache: "no-store",
+                                signal: controller.signal,
+                            }
                         );
 
-                        if (!scoreResponse.ok) {
-                            throw new Error("Failed to update game.");
-                        }
+                        if (!response.ok) return;
 
                         const updatedGame: Partial<Game> =
-                            await scoreResponse.json();
+                            await response.json();
 
                         if (controller.signal.aborted) return;
 
@@ -123,105 +182,11 @@ export default function Home() {
                         );
                     })
                 );
-
-                clearTimeout(notificationTimeout);
-
-                if (controller.signal.aborted) return;
-
-                dismiss(notificationId);
-
-                const successful = results.filter(
-                    (result) => result.status === "fulfilled"
-                ).length;
-
-                const failed = results.length - successful;
-
-                if (failed === 0) {
-                    notify(`Successfully updated ${successful} games.`, "success");
-                } else if (successful === 0) {
-                    notify("Failed to update game scores.", "error");
-                } else {
-                    notify(
-                        `Updated ${successful} games. ${failed} failed.`,
-                        "warning"
-                    );
-                }
-                
-            } catch (err) {
-                if (
-                    err instanceof Error &&
-                    err.name === "AbortError"
-                ) {
-                    return;
-                }
-
-                setError(
-                    err instanceof Error
-                        ? err.message
-                        : "Something went wrong."
-                );
-            } finally {
-                if (!controller.signal.aborted) {
-                    setLoading(false);
-                }
-            }
-        };
-
-        loadGames();
-
-        return () => {
-            controller.abort();
-            clearTimeout(notificationTimeout);
-        };
-    }, [notify]);
-
-    useEffect(() => {
-        if (games.length === 0) return;
-
-        const controller = new AbortController();
-        let updating = false;
-
-        const updateLiveGames = async () => {
-            if (updating) return;
-
-            updating = true;
-
-            try {
-                const now = new Date();
-
-                const liveGames = gamesRef.current.filter((game) => {
-                    const age = now.getTime() - new Date(game.date).getTime();
-
-                    return age >= 30 * 60 * 1000 &&
-                        age <= 6 * 60 * 60 * 1000;
-                });
-
-                await Promise.all(
-                    liveGames.map(async (game) => {
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                            {
-                                cache: "no-store",
-                                signal: controller.signal,
-                            }
-                        );
-
-                        if (!response.ok) return;
-
-                        const updatedGame: Partial<Game> = await response.json();
-
-                        setGames((current) =>
-                            current.map((item) =>
-                                item.game_id === game.game_id &&
-                                item.league === game.league
-                                    ? { ...item, ...updatedGame }
-                                    : item
-                            )
-                        );
-                    })
-                );
             } catch (error) {
-                if (error instanceof Error && error.name !== "AbortError") {
+                if (
+                    error instanceof Error &&
+                    error.name !== "AbortError"
+                ) {
                     console.error("Failed to update live scores:", error);
                 }
             } finally {
@@ -229,9 +194,13 @@ export default function Home() {
             }
         };
 
+        // Fetch scores immediately then every minute
         updateLiveGames();
 
-        const interval = setInterval(updateLiveGames, 2 * 60 * 1000);
+        const interval = setInterval(
+            updateLiveGames,
+            60 * 1000
+        );
 
         return () => {
             controller.abort();

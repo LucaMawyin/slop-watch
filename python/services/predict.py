@@ -129,10 +129,18 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
         if column not in games.columns:
             games[column] = np.nan
 
-        games.loc[is_processed, column] = (
-            games.loc[is_processed, "game_id"]
-            .map(processed_values[column])
-        )
+        if is_processed.any():
+            values = (
+                games.loc[is_processed, "game_id"]
+                .map(processed_values[column])
+            )
+
+            games[column] = games[column].astype("float64")
+
+            games.loc[is_processed, column] = pd.to_numeric(
+                values,
+                errors="coerce"
+            )
 
     # ---------------------------------
     # PREDICT MISSING GAMES

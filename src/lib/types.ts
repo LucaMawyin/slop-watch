@@ -152,3 +152,9 @@ export type Notification = {
     status: NotificationStatus;
     duration?: number | null;
 };
+
+export type LiveScore = {
+    game_id: string;
+    home_score: number;
+    away_score: number;
+};

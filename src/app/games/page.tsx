@@ -1,7 +1,7 @@
 "use client";
 
 import { getSlopBadge } from "@/lib/getSlopBadge";
-import { Game } from "@/lib/types";
+import { Game, LiveScore } from "@/lib/types";
 import Link from "next/link";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -102,7 +102,7 @@ function GamesContent() {
             return "/games";
         }
 
-        // Shift both dates while preserving the selected range.
+        // Shift both dates while preserving selected range
         startDate.setDate(startDate.getDate() + days);
         endDate.setDate(endDate.getDate() + days);
 
@@ -128,48 +128,72 @@ function GamesContent() {
     useEffect(() => {
         const controller = new AbortController();
 
+        let currentVersion: string | null = null;
+        let initialLoad = true;
+
         setLoading(true);
         setVisibleCount(9);
         setError(null);
 
-        const params = new URLSearchParams();
+        const loadGames = async () => {
+            try {
+                // Get current hourly dataset version
+                const versionResponse = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
+                    {
+                        cache: "no-store",
+                        signal: controller.signal,
+                    }
+                );
 
-        if (sport) {
-            params.set("sport", slugify(sport));
-        } else if (league) {
-            params.set("league", league);
-        }
+                if (!versionResponse.ok) {
+                    throw new Error("Failed to check data version.");
+                }
 
-        if (effectiveStart) {
-            params.set("start", effectiveStart);
-        }
+                const { version } = await versionResponse.json() as any;
+                const newVersion = String(version);
 
-        if (effectiveEnd) {
-            params.set("end", effectiveEnd);
-        }
+                // No new hourly data means keep existing games
+                if (currentVersion === newVersion) return;
 
-        fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`,
-            {
-                signal: controller.signal,
-            }
-        )
-            .then(async (res) => {
-                const data: { error?: string } | Game[] =
-                    await res.json();
+                const params = new URLSearchParams();
 
-                if (!res.ok) {
+                if (sport) {
+                    params.set("sport", slugify(sport));
+                } else if (league) {
+                    params.set("league", league);
+                }
+
+                if (effectiveStart) {
+                    params.set("start", effectiveStart);
+                }
+
+                if (effectiveEnd) {
+                    params.set("end", effectiveEnd);
+                }
+
+                params.set("version", newVersion);
+
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`,
+                    {
+                        signal: controller.signal,
+                    }
+                );
+
+                if (!response.ok) {
+                    const data: { error?: string } = await response.json();
+
                     throw new Error(
-                        "error" in data && data.error
-                            ? data.error
-                            : "Failed to fetch games"
+                        data.error || "Failed to fetch games."
                     );
                 }
 
-                return data;
-            })
-            .then((data) => {
-                const filteredGames = (data as Game[]).filter((game) => {
+                const data: Game[] = await response.json();
+
+                if (controller.signal.aborted) return;
+
+                const filteredGames = data.filter((game) => {
                     const gameDate = new Date(game.date);
 
                     const localGameDate =
@@ -196,22 +220,51 @@ function GamesContent() {
                     return true;
                 });
 
+                // Only mark version as loaded after successful fetch
+                currentVersion = newVersion;
+
                 setGames(filteredGames);
-                setLoading(false);
-            })
-            .catch((err) => {
-                if (err.name === "AbortError") {
+                setError(null);
+
+            } catch (err) {
+                if (
+                    err instanceof Error &&
+                    err.name === "AbortError"
+                ) {
                     return;
                 }
 
-                setError(err.message);
-                setLoading(false);
-            });
+                console.error("Failed to load games:", err);
+
+                if (initialLoad) {
+                    setError(
+                        err instanceof Error
+                            ? err.message
+                            : "Something went wrong."
+                    );
+                }
+            } finally {
+                if (initialLoad && !controller.signal.aborted) {
+                    initialLoad = false;
+                    setLoading(false);
+                }
+            }
+        };
+
+        // Initial load
+        loadGames();
+
+        // Check for new games hourly
+        const interval = setInterval(
+            loadGames,
+            5 * 60 * 1000
+        );
 
         return () => {
             controller.abort();
+            clearInterval(interval);
         };
-    }, [league, sport, start, end, defaultDays]);
+    }, [league, sport, effectiveStart, effectiveEnd]);
 
     const gamesRef = useRef<Game[]>([]);
 
@@ -220,69 +273,95 @@ function GamesContent() {
     }, [games]);
 
     useEffect(() => {
-        if (games.length === 0) {
-            return;
-        }
+        if (games.length === 0) return;
+
+        const controller = new AbortController();
+
+        let updating = false;
 
         const updateLiveGames = async () => {
-            const now = new Date();
+            if (updating) return;
 
-            const liveGames = gamesRef.current.filter((game) => {
-                const gameDate = new Date(game.date);
-                const age = now.getTime() - gameDate.getTime();
+            updating = true;
 
-                return (
-                    age >= 30 * 60 * 1000 &&
-                    age <= 6 * 60 * 60 * 1000
-                );
-            });
+            try {
+                const now = Date.now();
 
-            for (const game of liveGames) {
-                try {
-                    const response = await fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?league=${game.league}&date=${encodeURIComponent(game.date)}`,
-                        {
-                            cache: "no-store",
+                const liveGames = gamesRef.current.filter((game) => {
+                    return (
+                        game.actual_slop === null &&
+                        new Date(game.date).getTime() <= now
+                    );
+                });
+
+                // Fetch all relevant scores concurrently
+                await Promise.allSettled(
+                    liveGames.map(async (game) => {
+                        const params = new URLSearchParams({
+                            league: game.league,
+                            date: game.date,
+                        });
+
+                        const response = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
+                            {
+                                cache: "no-store",
+                                signal: controller.signal,
+                            }
+                        );
+
+                        if (!response.ok) {
+                            throw new Error(
+                                `Failed to fetch score for game ${game.game_id}`
+                            );
                         }
-                    );
 
-                    if (!response.ok) {
-                        continue;
-                    }
+                        const liveGame: LiveScore = await response.json();
 
-                    const liveGame = await response.json() as Game;
+                        if (controller.signal.aborted) return;
 
-                    setGames((currentGames) =>
-                        currentGames.map((currentGame) =>
-                            String(currentGame.game_id) === String(liveGame.game_id)
-                                ? {
-                                    ...currentGame,
-                                    home_score: liveGame.home_score,
-                                    away_score: liveGame.away_score,
-                                }
-                                : currentGame
-                        )
-                    );
+                        setGames((currentGames) =>
+                            currentGames.map((currentGame) =>
+                                String(currentGame.game_id) ===
+                                    String(liveGame.game_id) &&
+                                currentGame.league === game.league
+                                    ? {
+                                        ...currentGame,
+                                        home_score: liveGame.home_score,
+                                        away_score: liveGame.away_score,
+                                    }
+                                    : currentGame
+                            )
+                        );
+                    })
+                );
 
-                } catch (error) {
+            } catch (error) {
+                if (
+                    error instanceof Error &&
+                    error.name !== "AbortError"
+                ) {
                     console.error(
-                        `Failed to update live game ${game.game_id}:`,
+                        "Failed to update live scores:",
                         error
                     );
                 }
+            } finally {
+                updating = false;
             }
         };
 
-        // Run after the games have rendered.
+        // Fetch scores immediately after games load
         updateLiveGames();
 
-        // Continue updating every 2 minutes.
+        // Refresh scores every minute
         const interval = setInterval(
             updateLiveGames,
-            2 * 60 * 1000
+            60 * 1000
         );
 
         return () => {
+            controller.abort();
             clearInterval(interval);
         };
     }, [games.length]);
@@ -642,10 +721,14 @@ function GamesContent() {
                                     {(sport || (!league && !sport)) && currentLeague && (
                                         <div className="mb-3 text-lg font-semibold text-white">
                                             <div
-                                                onClick={() => window.open(
-                                                    `/games?league=${currentLeague}`,
-                                                    "_blank"
-                                                )}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `/games?league=${currentLeague}`,
+                                                        "_blank"
+                                                    );
+                                                }}
+                                                className="link w-fit"
                                             >
                                                 {leagues.find((item) => item.id === game.league)?.name}
                                             </div>
@@ -659,10 +742,13 @@ function GamesContent() {
                                                 HOME
                                             </div>
                                             <div
-                                                onClick={() => window.open(
-                                                    `/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`,
-                                                    "_blank"
-                                                )}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `/${currentLeague}/teams/${slugify(game.home_name)}?id=${game.home_id}${ref ? `&ref=${ref}` : ""}`,
+                                                        "_blank"
+                                                    );
+                                                }}
                                                 className="
                                                     text-xl 
                                                     font-semibold 
@@ -678,10 +764,13 @@ function GamesContent() {
                                                 AWAY
                                             </div>
                                             <div
-                                                onClick={() => window.open(
-                                                    `/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`,
-                                                    "_blank"
-                                                )}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `/${currentLeague}/teams/${slugify(game.away_name)}?id=${game.away_id}${ref ? `&ref=${ref}` : ""}`,
+                                                        "_blank"
+                                                    );
+                                                }}
                                                 className="
                                                     text-xl 
                                                     font-semibold
