@@ -108,8 +108,15 @@ def warm_cache(version: int):
         )
 
         print(
-            f"Games cache warm: HTTP {response.status_code}, "
-            f"CF status: {response.headers.get('CF-Cache-Status')}"
+            f"Games cache warm:\n"
+            f"URL: {response.url}\n"
+            f"HTTP: {response.status_code}\n"
+            f"CF-Cache-Status: {response.headers.get('CF-Cache-Status')}\n"
+            f"Age: {response.headers.get('Age')}\n"
+            f"Cache-Control: {response.headers.get('Cache-Control')}\n"
+            f"CF-CDN-Cache-Control: "
+            f"{response.headers.get('Cloudflare-CDN-Cache-Control')}",
+            flush=True
         )
 
         response.raise_for_status()
@@ -993,5 +1000,4 @@ if __name__ == "__main__":
         "app:app",
         host="127.0.0.1",
         port=5002,
-        reload=True
     )
