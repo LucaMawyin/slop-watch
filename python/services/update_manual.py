@@ -2,8 +2,7 @@ from config.sports import SPORT_CONFIG
 from services.update_data import update_data
 from services.model import train_model
 
-
-if __name__ == "__main__":
+def update_manual():
     for league in SPORT_CONFIG:
         print(f"\n{'=' * 50}")
         print(f"Updating {league.upper()}")
@@ -13,3 +12,6 @@ if __name__ == "__main__":
 
         print(f"Retraining {league.upper()} model...")
         train_model(league)
+
+if __name__ == "__main__":
+    update_manual()

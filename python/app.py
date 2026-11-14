@@ -23,8 +23,7 @@ from config.sports import (
     GAME_FEATURES,
     PREDICTION_FEATURES,
 )
-from services.update_data import update_data
-from services.model import train_model
+from services.update_manual import update_manual
 from services.teams import get_teams
 from services.predict import predict
 from services.live import get_live_metrics, get_live_score
@@ -175,12 +174,7 @@ def update(request: Request):
         with lock:
 
             # Update every league
-            for league in SPORT_CONFIG:
-                update_data(league=league)
-
-            # Retrain every model
-            for league in SPORT_CONFIG:
-                train_model(league=league)
+            update_manual()
 
             # Publish new version after everything succeeds
             version = increment_data_version()
