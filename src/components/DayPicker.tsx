@@ -103,7 +103,8 @@ export default function DayPickerClient({
                                     "rounded-md border border-zinc-700 bg-zinc-900 px-2 py-1 text-white",
                                 dropdowns: "flex gap-2",
                                 caption_label: "hidden",
-                                button_next:"ml-2",
+                                button_previous: "ml-2",
+                                button_next: "ml-2",
                             }}
                         />
 

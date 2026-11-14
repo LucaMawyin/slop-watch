@@ -24,9 +24,16 @@ function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
     const [sortBy, setSortBy] = useState<
-        "slop" | "date" | "watchability" | "overall" | "live"
+        "slop" 
+        | "date" 
+        | "watchability" 
+        | "overall" 
+        | "live" 
+        | "watchable-slop"
     >("live");
+
     const [visibleCount, setVisibleCount] = useState(9);
     const [ sortDirection, setSortDirection ] = useState("asc");
 
@@ -381,22 +388,31 @@ function GamesContent() {
         let comparison: number;
 
         if (sortBy === "live") {
-            const aLive =
-                new Date(a.date) <= new Date() &&
-                a.actual_slop === null;
+            const now = Date.now();
 
-            const bLive =
-                new Date(b.date) <= new Date() &&
-                b.actual_slop === null;
+            const aTime = new Date(a.date).getTime();
+            const bTime = new Date(b.date).getTime();
 
-            comparison = Number(bLive) - Number(aLive);
+            const aLive = aTime <= now && a.actual_slop === null;
+            const bLive = bTime <= now && b.actual_slop === null;
 
-            // If both have the same live status sort by date
-            if (comparison === 0) {
-                comparison =
-                    new Date(a.date).getTime() -
-                    new Date(b.date).getTime();
+            const aCompleted = a.actual_slop !== null;
+            const bCompleted = b.actual_slop !== null;
+
+            // Group priority: Live → Completed → Upcoming
+            const aGroup = aLive ? 0 : aCompleted ? 1 : 2;
+            const bGroup = bLive ? 0 : bCompleted ? 1 : 2;
+
+            if (aGroup !== bGroup) {
+                return aGroup - bGroup;
             }
+
+            // Sort within each group
+            comparison = aTime - bTime;
+
+            return sortDirection === "asc"
+                ? comparison
+                : -comparison;
         }
 
         else if (sortBy === "slop") {
@@ -411,6 +427,13 @@ function GamesContent() {
             const bWatchability = b.watchability_percentile;
 
             comparison = aWatchability - bWatchability;
+        }
+
+        else if (sortBy === "watchable-slop") {
+            const aScore = a.slop_percentile * a.watchability_percentile;
+            const bScore = b.slop_percentile * b.watchability_percentile;
+
+            comparison = aScore - bScore;
         }
 
         else if (sortBy === "overall") {
@@ -551,14 +574,18 @@ function GamesContent() {
                                         "slop" 
                                         | "date" 
                                         | "watchability" 
+                                        | "watchable-slop"
                                         | "overall"
                                         | "live";
 
                                     setSortBy(value);
                                     setSortDirection(
-                                        value === "slop" || value === "overall" 
-                                        ? "desc" 
-                                        : "asc"
+                                        value === "slop" ||
+                                        value === "watchability" ||
+                                        value === "watchable-slop" ||
+                                        value === "overall"
+                                            ? "desc"
+                                            : "asc"
                                     );
                                 }}
                                 className="
@@ -578,11 +605,12 @@ function GamesContent() {
                                     focus:border-zinc-500
                                 "
                             >
-                                <option value="live">Sort by Live</option>
-                                <option value="date">Sort by Date</option>
-                                <option value="slop">Sort by Slop</option>
-                                <option value="watchability">Sort by Watchability</option>
-                                <option value="overall">Sort by Overall</option>
+                                <option value="live">Live</option>
+                                <option value="date">Date</option>
+                                <option value="slop">Best Slop</option>
+                                <option value="watchability">Best Watchability</option>
+                                <option value="watchable-slop">Watchable Slop</option>
+                                <option value="overall">Overall</option>
 
                             </select>
                             <ChevronDown
