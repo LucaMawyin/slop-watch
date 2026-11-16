@@ -423,16 +423,52 @@ export default function PreviewPage({ params }: Props) {
 
                         {/* HEADER */}
                         <div className="grid grid-cols-3 border-b border-zinc-800 p-5 text-center">
-                            <div className="text-left font-semibold">
-                                {game.home_full_name}
+
+                            <div className="
+                                font-semibold 
+                                flex
+                                flex-col
+                                sm:flex-row
+                                items-center 
+                                justify-start
+                                gap-2
+                            ">
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.home_id}
+                                    teamName={game.home_full_name}
+                                    className="h-5 w-5"
+                                />
+
+                                <div className="font-semibold">
+                                    {game.home_full_name}
+                                </div>
                             </div>
+                            
 
                             <div className="my-auto text-xs text-zinc-500">
                                 TEAM
                             </div>
 
-                            <div className="text-right font-semibold">
-                                {game.away_full_name}
+                            <div className="
+                                font-semibold 
+                                flex 
+                                flex-col
+                                sm:flex-row
+                                justify-end
+                                items-center 
+                                gap-2
+                            ">
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.away_id}
+                                    teamName={game.away_full_name}
+                                    className="h-5 w-5"
+                                />
+
+                                <div className="font-semibold">
+                                    {game.away_full_name}
+                                </div>
                             </div>
                         </div>
 
@@ -513,9 +549,19 @@ export default function PreviewPage({ params }: Props) {
 
                         {/* HOME RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                            <h3 className="font-semibold">
-                                {game.home_full_name}
-                            </h3>
+
+                            <div className="flex items-center gap-2">
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.home_id}
+                                    teamName={game.home_full_name}
+                                    className="h-5 w-5"
+                                />
+
+                                <h3 className="font-semibold">
+                                    {game.home_full_name}
+                                </h3>
+                            </div>
 
                             <div className="mt-4">
                                 {!!game.home_recent_games && game.home_recent_games.length === 0 ? (
@@ -629,9 +675,18 @@ export default function PreviewPage({ params }: Props) {
 
                         {/* AWAY RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                            <h3 className="font-semibold">
-                                {game.away_name}
-                            </h3>
+                            <div className="flex items-center gap-2">
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.away_id}
+                                    teamName={game.away_full_name}
+                                    className="h-5 w-5"
+                                />
+
+                                <h3 className="font-semibold">
+                                    {game.away_full_name}
+                                </h3>
+                            </div>
 
                             <div className="mt-4">
                                 {!!game.away_recent_games && game.away_recent_games.length === 0 ? (

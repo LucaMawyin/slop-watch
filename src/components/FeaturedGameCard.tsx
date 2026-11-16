@@ -10,6 +10,7 @@ import { slugify } from "@/lib/slugify";
 import { leagues } from "@/lib/leagues";
 import AddToCalendar from "@/components/AddToCalendar";
 import { useRouter } from "next/navigation";
+import TeamLogo from "./TeamLogo";
 
 interface FeaturedGameCardProps {
     game: Game;
@@ -47,7 +48,7 @@ export default function FeaturedGameCard({
         <div
             role="link"
             tabIndex={0}
-            onClick={() => router.push(gameUrl)}
+            onClick={() => window.open(gameUrl, "_blank", "noopener,noreferrer")}
             onKeyDown={(e) => {
                 if (e.key === "Enter") {
                     router.push(gameUrl);
@@ -112,9 +113,23 @@ export default function FeaturedGameCard({
                         href={`/${game.league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
                         target="_blank"
                         onClick={(e) => e.stopPropagation()}
-                        className="text-xl font-semibold hover:text-zinc-300"
+                        className="
+                            text-xl 
+                            font-semibold 
+                            link
+                            flex
+                            flex-col
+                            justify-center
+                            items-center
+                            gap-2
+                        "
                     >
                         {game.home_name}
+                        <TeamLogo
+                            league={game.league}
+                            teamId={game.home_id}
+                            teamName={game.home_name}
+                        />
                     </Link>
                 </div>
 
@@ -127,9 +142,23 @@ export default function FeaturedGameCard({
                         href={`/${game.league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
                         target="_blank"
                         onClick={(e) => e.stopPropagation()}
-                        className="text-xl font-semibold hover:text-zinc-300"
+                        className="
+                            text-xl 
+                            font-semibold 
+                            link
+                            flex
+                            flex-col
+                            justify-center
+                            items-center
+                            gap-2
+                        "
                     >
                         {game.away_name}
+                        <TeamLogo
+                            league={game.league}
+                            teamId={game.away_id}
+                            teamName={game.away_name}
+                        />
                     </Link>
                 </div>
             </div>
