@@ -26,7 +26,12 @@ from config.sports import (
 from services.update_manual import update_manual
 from services.teams import get_teams
 from services.predict import predict
-from services.live import get_live_metrics, get_live_score
+from services.live import get_live_score
+from services.cache import (
+    make_cache_key,
+    get_cached,
+    set_cached,
+)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_VERSION_FILE = Path(__file__).resolve().parent / "data_version.json"
@@ -69,8 +74,8 @@ def increment_data_version():
 
 def cached_response(
     content,
-    max_age: int = 60,
-    stale_while_revalidate: int = 120
+    max_age=31536000,
+    stale_while_revalidate=0,
 ):
     return JSONResponse(
         content=jsonable_encoder(content),
@@ -220,8 +225,37 @@ async def games(request: Request):
     game_id = request.query_params.get("id")
 
     # ---------------------------------
+    # CHECKING IF CACHED
+    # ---------------------------------
+
+    version = get_data_version()
+
+    cache_key = make_cache_key(
+        "games",
+        version,
+        {
+            "league": league,
+            "sport": sport,
+            "start": start_date,
+            "end": end_date,
+            "team": team,
+            "id": game_id,
+        }
+    )
+
+    cached = get_cached(cache_key)
+
+    if cached is not None:
+        return cached_response(
+            cached,
+            max_age=31536000,
+            stale_while_revalidate=0,
+        )
+
+    # ---------------------------------
     # GETTING SPORT OR LEAGUE
     # ---------------------------------
+
     if sport:
         leagues = SPORT_LEAGUES.get(sport.lower())
 
@@ -324,10 +358,17 @@ async def games(request: Request):
     # ---------------------------------
     # RETURN GAMES
     # ---------------------------------
-
     if not all_games:
+
+        set_cached(cache_key, [])
+
         print(f"Games took {time.perf_counter() - start_time:.3f}s")
-        return cached_response([], max_age=3600)
+
+        return cached_response(
+            [],
+            max_age=31536000,
+            stale_while_revalidate=0,
+        )
 
     games = pd.concat(
         all_games, 
@@ -344,10 +385,14 @@ async def games(request: Request):
     elapsed = time.perf_counter() - start_time
     print(f"Games took {elapsed:.3f}s")
 
+    result = games.to_dict(orient="records")
+
+    set_cached(cache_key, result)
+
     return cached_response(
-        games.to_dict(orient="records"),
-        max_age=3600,
-        stale_while_revalidate=3600
+        result,
+        max_age=31536000,
+        stale_while_revalidate=0,
     )
 
 @router.get("/api/team/{league}/{team_slug}")
@@ -357,6 +402,27 @@ async def team(league: str, team_slug: str, request: Request):
 
     team_id = request.query_params.get("id")
     team_name = unslugify(team_slug)
+
+    # ---------------------------------
+    # CHECKING IF CACHED
+    # ---------------------------------
+
+    version = get_data_version()
+
+    cache_key = make_cache_key(
+        "team",
+        version,
+        {
+            "league": league,
+            "team_slug": team_slug,
+            "id": team_id,
+        },
+    )
+
+    cached = get_cached(cache_key)
+
+    if cached is not None:
+        return cached_response(cached)
 
     if league not in SPORT_CONFIG:
         return JSONResponse(
@@ -639,36 +705,37 @@ async def team(league: str, team_slug: str, request: Request):
     # RETURN
     # ---------------------------------
 
-    return cached_response (
-        {
-            "team": {
-                "name": team_name,
-                "full_name": team_full_name,
-            },
-            "team_badness": (
-                float(team_badness)
-                if pd.notna(team_badness)
-                else None
-            ),
-            "record": {
-                "wins": int(wins),
-                "losses": int(losses),
-            },
-            "league": league,
-            "season": str(season) if season is not None else None,
-            "win_pct": (
-                wins / (wins + losses)
-                if wins + losses > 0
-                else 0
-            ),
-            "point_diff": int(point_diff),
-            "games_played": wins + losses,
-            "recent_games": previous_games,
-            "upcoming_games": upcoming_games,
+    result = {
+        "team": {
+            "name": team_name,
+            "full_name": team_full_name,
         },
-        max_age=300,
-        stale_while_revalidate=300
-    )
+        "team_badness": (
+            float(team_badness)
+            if pd.notna(team_badness)
+            else None
+        ),
+        "record": {
+            "wins": int(wins),
+            "losses": int(losses),
+        },
+        "league": league,
+        "season": str(season) if season is not None else None,
+        "win_pct": (
+            wins / (wins + losses)
+            if wins + losses > 0
+            else 0
+        ),
+        "point_diff": int(point_diff),
+        "games_played": wins + losses,
+        "recent_games": previous_games,
+        "upcoming_games": upcoming_games,
+    }
+
+    set_cached(cache_key, result)
+
+    return cached_response(result)
+
 
 @router.get("/api/game/{game_id}")
 async def game(game_id: str, request: Request):
@@ -707,6 +774,27 @@ async def game(game_id: str, request: Request):
             status_code=400,
             content={"error": f"Invalid date"}
         )
+
+    # ---------------------------------
+    # CHECKING IF CACHED
+    # ---------------------------------
+
+    version = get_data_version()
+
+    cache_key = make_cache_key(
+        "game",
+        version,
+        {
+            "game_id": game_id,
+            "league": league,
+            "date": game_date.isoformat(),
+        },
+    )
+
+    cached = get_cached(cache_key)
+
+    if cached is not None:
+        return cached_response(cached)
 
     # ---------------------------------
     # GET GAME PREDICTION
@@ -885,11 +973,9 @@ async def game(game_id: str, request: Request):
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
 
-    return cached_response(
-        result,
-        max_age=3600,
-        stale_while_revalidate=3600
-    )
+    set_cached(cache_key, result)
+
+    return cached_response(result)
 
 @router.get("/api/game/{game_id}/score")
 async def game_score(game_id: str, request: Request):
@@ -957,11 +1043,26 @@ def teams(request: Request):
             content={"error": "Invalid league"}
         )
 
-    return cached_response(
-        get_teams(league),
-        max_age=3600,
-        stale_while_revalidate=3600
+    version = get_data_version()
+
+    cache_key = make_cache_key(
+        "teams",
+        version,
+        {
+            "league": league,
+        },
     )
+
+    cached = get_cached(cache_key)
+
+    if cached is not None:
+        return cached_response(cached)
+
+    result = get_teams(league)
+
+    set_cached(cache_key, result)
+
+    return cached_response(result)
 
 def slugify(value):
     return re.sub(

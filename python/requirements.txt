@@ -10,3 +10,4 @@ filelock
 fastapi
 uvicorn[standard]
 cachetools
+redis
