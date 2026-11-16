@@ -60,9 +60,11 @@ def get_data_version():
         return 0
 
 
-def increment_data_version():
-    version = time.time_ns()
+def generate_data_version():
+    return time.time_ns()
 
+
+def set_data_version(version: int):
     temp_file = DATA_VERSION_FILE.with_suffix(".tmp")
 
     with open(temp_file, "w") as f:
@@ -70,7 +72,23 @@ def increment_data_version():
 
     temp_file.replace(DATA_VERSION_FILE)
 
-    return version
+def get_request_cache_version(request: Request):
+    provided_secret = request.headers.get("X-Cache-Warm-Key")
+    expected_secret = os.environ.get("CACHE_WARM_KEY")
+
+    candidate_version = request.headers.get("X-Cache-Version")
+
+    if (
+        expected_secret
+        and provided_secret == expected_secret
+        and candidate_version
+    ):
+        try:
+            return int(candidate_version)
+        except ValueError:
+            pass
+
+    return get_data_version()
 
 def cached_response(
     content,
@@ -90,10 +108,18 @@ def cached_response(
 
 def warm_cache(version: int):
     base_url = os.environ.get("NEXT_PUBLIC_API_URL")
+    secret = os.environ.get("CACHE_WARM_KEY")
 
-    if not base_url:
-        print("PUBLIC_API_URL is not configured. Skipping cache warming.")
-        return
+    if not base_url or not secret:
+        print("Cache warming configuration is missing.", flush=True)
+        return False
+
+    headers = {
+        "X-Cache-Warm-Key": secret,
+        "X-Cache-Version": str(version),
+    }
+
+    success = True
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
     start = (today - timedelta(days=30)).isoformat()
@@ -106,10 +132,12 @@ def warm_cache(version: int):
             params={
                 "start": start,
                 "end": end,
-                "version": version,
             },
+            headers=headers,
             timeout=120,
         )
+
+        response.raise_for_status()
 
         print(
             f"Games cache warm:\n"
@@ -123,10 +151,9 @@ def warm_cache(version: int):
             flush=True
         )
 
-        response.raise_for_status()
-
     except Exception as e:
-        print(f"Failed to warm games cache: {e}")
+        success = False
+        print(f"Failed to warm games cache: {e}", flush=True)
 
     # Warm teams for every league
     for league in SPORT_CONFIG:
@@ -141,16 +168,23 @@ def warm_cache(version: int):
             )
 
             print(
+                f"{league} teams warmed for version {version}\n",
                 f"{league} teams cache warm: "
                 f"HTTP {response.status_code}, "
-                f"CF status: {response.headers.get('CF-Cache-Status')}"
+                f"CF status: {response.headers.get('CF-Cache-Status')}",
+                flush=True,
             )
 
             response.raise_for_status()
 
         except Exception as e:
-            print(f"Failed to warm {league} teams cache: {e}")
+            success = False
+            print(
+                f"Failed to warm {league} teams: {e}",
+                flush=True,
+            )
 
+    return success
 
 @router.get("/api/version")
 def version():
@@ -183,25 +217,58 @@ def update(request: Request):
 
             print("UPDATE: Manual update finished", flush=True)
 
-            version = increment_data_version()
+            candidate_version = generate_data_version()
 
-            print(f"UPDATE: Version incremented to {version}", flush=True)
+            print(
+                f"UPDATE: Candidate version {candidate_version}",
+                flush=True,
+            )
 
-        # Warm cache after releasing
-        print("UPDATE: Starting cache warm", flush=True)
+        # ---------------------------------
+        # WARM CANDIDATE CACHE
+        # ---------------------------------
 
-        warm_cache(version)
+        print("UPDATE: Starting candidate cache warm", flush=True)
 
-        print("UPDATE: Complete", flush=True)
+        warm_success = warm_cache(candidate_version)
+
+        if not warm_success:
+            print(
+                "UPDATE: Cache warming failed. "
+                "Keeping the previous active version.",
+                flush=True,
+            )
+
+            return JSONResponse(
+                status_code=500,
+                content={
+                    "success": False,
+                    "message": "Data updated, but cache warming failed. Previous version remains active.",
+                    "candidate_version": candidate_version,
+                    "active_version": get_data_version(),
+                },
+            )
+
+        # ---------------------------------
+        # ACTIVATE CANDIDATE VERSION
+        # ---------------------------------
+
+        with lock:
+            set_data_version(candidate_version)
+
+        print(
+            f"UPDATE: Activated version {candidate_version}",
+            flush=True,
+        )
 
         return {
             "success": True,
-            "message": "Data updated, models retrained, and cache warmed.",
-            "version": version,
+            "message": "Data updated, cache warmed, and new version activated.",
+            "version": candidate_version,
         }
 
     except Exception as e:
-        print(f"Update failed: {e}")
+        print(f"Update failed: {e}", flush=True)
 
         return JSONResponse(
             status_code=500,
@@ -228,7 +295,7 @@ async def games(request: Request):
     # CHECKING IF CACHED
     # ---------------------------------
 
-    version = get_data_version()
+    version = get_request_cache_version(request)
 
     cache_key = make_cache_key(
         "games",
@@ -407,7 +474,7 @@ async def team(league: str, team_slug: str, request: Request):
     # CHECKING IF CACHED
     # ---------------------------------
 
-    version = get_data_version()
+    version = get_request_cache_version(request)
 
     cache_key = make_cache_key(
         "team",
@@ -779,7 +846,7 @@ async def game(game_id: str, request: Request):
     # CHECKING IF CACHED
     # ---------------------------------
 
-    version = get_data_version()
+    version = get_request_cache_version(request)
 
     cache_key = make_cache_key(
         "game",
@@ -1043,7 +1110,7 @@ def teams(request: Request):
             content={"error": "Invalid league"}
         )
 
-    version = get_data_version()
+    version = get_request_cache_version(request)
 
     cache_key = make_cache_key(
         "teams",
