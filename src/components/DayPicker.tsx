@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -18,12 +19,25 @@ export default function DayPickerClient({
     const [range, setRange] = useState<DateRange | undefined>(
         initialRange
     );
-    
-    useEffect(() => {
-        setRange(initialRange);
-    }, [initialRange]);
+
+    const [month, setMonth] = useState<Date>(
+        initialMonth ?? new Date()
+    );
 
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        setRange(initialRange);
+    }, [
+        initialRange?.from?.getTime(),
+        initialRange?.to?.getTime(),
+    ]);
+
+    useEffect(() => {
+        if (initialMonth) {
+            setMonth(initialMonth);
+        }
+    }, [initialMonth?.getTime()]);
 
     const formatDate = (date: Date) =>
         `${String(date.getMonth() + 1).padStart(2, "0")}/${String(
@@ -51,18 +65,10 @@ export default function DayPickerClient({
                 type="button"
                 onClick={() => setOpen(true)}
                 className="
-                    rounded-lg
-                    border
-                    border-zinc-700
-                    bg-zinc-900
-                    px-3
-                    py-2
-                    text-sm
-                    text-white
-                    outline-none
-                    transition
-                    hover:border-zinc-600
-                    focus:border-zinc-500
+                    rounded-lg border border-zinc-700
+                    bg-zinc-900 px-3 py-2 text-sm
+                    text-white outline-none transition
+                    hover:border-zinc-600 focus:border-zinc-500
                 "
             >
                 📅 {dateLabel}
@@ -77,27 +83,29 @@ export default function DayPickerClient({
 
                     <div
                         className="
-                            fixed
-                            left-1/2
-                            top-1/4
-                            z-50
-                            -translate-x-1/2
-                            rounded-xl
-                            border
-                            border-zinc-800
-                            bg-zinc-950
-                            p-4
-                            shadow-2xl
+                            fixed left-1/2 top-1/4 z-50
+                            -translate-x-1/2 rounded-xl
+                            border border-zinc-800
+                            bg-zinc-950 p-4 shadow-2xl
                         "
                     >
                         <DayPicker
                             mode="range"
                             selected={range}
                             onSelect={setRange}
-                            defaultMonth={initialMonth}
+                            month={month}
+                            onMonthChange={setMonth}
                             captionLayout="dropdown"
-                            startMonth={new Date(today.getFullYear() - 5, today.getMonth(), 1)}
-                            endMonth={new Date(today.getFullYear() + 1, today.getMonth(), 1)}
+                            startMonth={new Date(
+                                today.getFullYear() - 5,
+                                today.getMonth(),
+                                1
+                            )}
+                            endMonth={new Date(
+                                today.getFullYear() + 1,
+                                today.getMonth(),
+                                1
+                            )}
                             classNames={{
                                 dropdown:
                                     "rounded-md border border-zinc-700 bg-zinc-900 px-2 py-1 text-white",
@@ -113,17 +121,9 @@ export default function DayPickerClient({
                             disabled={!range?.from || !range?.to}
                             onClick={handleApply}
                             className="
-                                mt-2
-                                w-full
-                                rounded-lg
-                                bg-white
-                                px-4
-                                py-2
-                                text-sm
-                                font-semibold
-                                text-black
-                                transition
-                                hover:bg-zinc-200
+                                mt-2 w-full rounded-lg bg-white
+                                px-4 py-2 text-sm font-semibold
+                                text-black transition hover:bg-zinc-200
                                 disabled:cursor-not-allowed
                                 disabled:opacity-40
                             "

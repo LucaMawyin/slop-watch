@@ -15,6 +15,7 @@ import ProgressCircle from "@/components/ProgressCircle";
 import { slugify } from "@/lib/slugify";
 import AddToCalendar from "@/components/AddToCalendar";
 import useSwipeNavigation from "@/lib/useSwipeNavigation";
+import TeamLogo from "./TeamLogo";
 
 function GamesContent() {
 
@@ -49,6 +50,12 @@ function GamesContent() {
     const sport = league
         ? null
         : category ?? searchParams.get("sport")?.toLowerCase();
+
+    const gamesBaseUrl = league
+        ? `/games/${league}`
+        : sport
+            ? `/games/${sport}`
+            : "/games";
 
     const displayName = leagues.find((item) => item.id === league)?.name || sport;
 
@@ -115,7 +122,7 @@ function GamesContent() {
             isNaN(startDate.getTime()) ||
             isNaN(endDate.getTime())
         ) {
-            return "/games";
+            return gamesBaseUrl;
         }
 
         // Shift both dates while preserving selected range
@@ -127,9 +134,7 @@ function GamesContent() {
         params.set("start", formatDate(startDate));
         params.set("end", formatDate(endDate));
 
-        const basePath = category ? `/games/${category}` : "/games";
-
-        return `${basePath}?${params.toString()}`;
+        return `${gamesBaseUrl}?${params.toString()}`;
     };
 
     const swipeHandlers = useSwipeNavigation({
@@ -538,13 +543,10 @@ function GamesContent() {
 
                                 const params = new URLSearchParams(searchParams.toString());
 
-                                const formatDate = (date: Date) =>
-                                    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-
                                 params.set("start", formatDate(range.from));
                                 params.set("end", formatDate(range.to));
 
-                                window.location.href = `/games?${params.toString()}`;
+                                router.push(`${gamesBaseUrl}?${params.toString()}`);
                             }}
                         />
 
@@ -777,6 +779,7 @@ function GamesContent() {
                                             <div className="mb-1 text-xs text-zinc-500">
                                                 HOME
                                             </div>
+
                                             <div
                                                 onClick={(e) => {
                                                     e.preventDefault();
@@ -789,9 +792,19 @@ function GamesContent() {
                                                     text-xl 
                                                     font-semibold 
                                                     link
+                                                    flex
+                                                    flex-col
+                                                    justify-center
+                                                    items-center
+                                                    gap-2
                                                 "
                                             >
                                                 {game.home_name}
+                                                <TeamLogo
+                                                    league={game.league}
+                                                    teamId={game.home_id}
+                                                    teamName={game.home_name}
+                                                />
                                             </div>
                                         </div>
 
@@ -809,11 +822,21 @@ function GamesContent() {
                                                 }}
                                                 className="
                                                     text-xl 
-                                                    font-semibold
+                                                    font-semibold 
                                                     link
+                                                    flex
+                                                    flex-col
+                                                    justify-center
+                                                    items-center
+                                                    gap-2
                                                 "
                                             >
                                                 {game.away_name}
+                                                <TeamLogo
+                                                    league={game.league}
+                                                    teamId={game.away_id}
+                                                    teamName={game.away_name}
+                                                />
                                             </div>
                                         </div>
                                     </div>

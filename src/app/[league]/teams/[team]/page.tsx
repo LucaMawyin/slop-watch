@@ -2,6 +2,7 @@
 
 import Badge from "@/components/Badge";
 import ShowMoreButton from "@/components/ShowMoreButton";
+import TeamLogo from "@/components/TeamLogo";
 import TeamSkeleton from "@/components/TeamSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
@@ -37,6 +38,7 @@ export default function TeamPage({ params }: Props) {
     const slug = slugify(teamSlug);
 
     const displayTeamName = team?.team.full_name ?? unslugify(teamSlug);
+    const teamName = team?.team.name ?? unslugify(teamSlug);
 
     useEffect(() => {
         if (teamSlug !== slug) {
@@ -215,19 +217,39 @@ export default function TeamPage({ params }: Props) {
                 <div className="mb-8">
 
                     <Link
-                        href={`/games/${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
                     </Link>
 
-                    <div className="text-sm uppercase text-zinc-500">
-                        {league}
-                    </div>
+                    <div className="mt-1 flex items-center gap-4">
+                        <TeamLogo
+                            league={league}
+                            teamId={teamId}
+                            teamName={teamName}
+                            displayName={displayTeamName}
+                        />
 
-                    <h1 className="mt-1 text-4xl font-bold">
-                        {displayTeamName}
-                    </h1>
+                        <div>
+                            <Link
+                                href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                                className="
+                                    mb-1 
+                                    block
+                                    w-fit 
+                                    font-medium 
+                                    text-zinc-400 
+                                "
+                            >
+                                {leagues.find((item) => item.id === league)?.name ?? league}
+                            </Link>
+
+                            <h1 className="text-4xl font-bold">
+                                {displayTeamName}
+                            </h1>
+                        </div>
+                    </div>
                 </div>
 
                 {loading ? (

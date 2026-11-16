@@ -82,12 +82,14 @@ export default function HomeStats({ games }: HomeStatsProps) {
             value: stats.todayCount,
             description: "Scheduled matchups",
             color: "text-white!",
+            href: "/games",
         },
         {
             label: "High Slop",
             value: stats.highSlopCount,
             description: "90th percentile or higher",
             color: "text-red-400!",
+            href: "/games",
         },
         {
             label: "Most Watchable",
@@ -180,6 +182,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
                             key={card.label}
                             href={card.href}
                             className={className}
+                            target="_blank"
                         >
                             {content}
                         </Link>

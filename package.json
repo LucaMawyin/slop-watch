@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.9",
+    "@sportsdataverse/sdvplot": "^0.2.0",
     "lucide-react": "^1.34.0",
     "next": "16.2.11",
     "react": "^19.1.7",

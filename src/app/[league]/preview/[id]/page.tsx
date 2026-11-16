@@ -2,6 +2,7 @@
 
 import Badge from "@/components/Badge";
 import PreviewSkeleton from "@/components/PreviewSkeleton";
+import TeamLogo from "@/components/TeamLogo";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { leagues } from "@/lib/leagues";
@@ -187,7 +188,7 @@ export default function PreviewPage({ params }: Props) {
                 <div className="mx-auto max-w-5xl">
                     {/* BACK */}
                     <Link
-                        href={`/games/${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -207,7 +208,7 @@ export default function PreviewPage({ params }: Props) {
                     </p>
 
                     <Link
-                        href={`/games/${league}${start ? `&start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mt-4 inline-block hover:underline"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -285,8 +286,10 @@ export default function PreviewPage({ params }: Props) {
                                 target="_blank"
                                 className="
                                     flex
+                                    flex-col
                                     w-full
                                     justify-center
+                                    items-center
                                     wrap-break-words 
                                     text-[clamp(1.25rem,4vw,2.25rem)]
                                     font-bold 
@@ -294,6 +297,11 @@ export default function PreviewPage({ params }: Props) {
                                 "
                             >
                                 {game.home_full_name}
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.home_id}
+                                    teamName={game.home_name}
+                                />
                             </Link>
                         </div>
 
@@ -333,15 +341,22 @@ export default function PreviewPage({ params }: Props) {
                                 target="_blank"
                                 className="
                                     flex
+                                    flex-col
                                     w-full
                                     justify-center
+                                    items-center
                                     wrap-break-words 
-                                    text-[clamp(1.25rem,4vw,2.25rem)] 
+                                    text-[clamp(1.25rem,4vw,2.25rem)]
                                     font-bold 
                                     hover:underline 
                                 "
                             >
                                 {game.away_full_name}
+                                <TeamLogo
+                                    league={game.league}
+                                    teamId={game.away_id}
+                                    teamName={game.away_name}
+                                />
                             </Link>
                         </div>
 
