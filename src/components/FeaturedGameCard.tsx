@@ -128,9 +128,12 @@ export default function FeaturedGameCard({
                             font-semibold 
                             link
                             flex
+                            flex-1
                             flex-col
                             items-center
+                            justify-center
                             text-center
+                            gap-1
                         "
                     >
                         {game.home_name}
@@ -208,9 +211,12 @@ export default function FeaturedGameCard({
                             font-semibold 
                             link
                             flex
+                            flex-1
                             flex-col
                             items-center
+                            justify-center
                             text-center
+                            gap-1
                         "
                     >
                         {game.away_name}

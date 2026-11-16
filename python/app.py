@@ -16,6 +16,7 @@ import json
 import requests
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from config.sports import (
     SPORT_CONFIG,
@@ -73,22 +74,39 @@ def set_data_version(version: int):
     temp_file.replace(DATA_VERSION_FILE)
 
 def get_request_cache_version(request: Request):
+
     provided_secret = request.headers.get("X-Cache-Warm-Key")
     expected_secret = os.environ.get("CACHE_WARM_KEY")
 
-    candidate_version = request.headers.get("X-Cache-Version")
+    candidate_version = request.query_params.get("version")
 
-    if (
+    authorized = (
         expected_secret
         and provided_secret == expected_secret
-        and candidate_version
-    ):
+    )
+
+    if authorized and candidate_version:
         try:
-            return int(candidate_version)
+            version = int(candidate_version)
+
+            print(
+                f"CACHE VERSION: Candidate {version}",
+                flush=True,
+            )
+
+            return version
+
         except ValueError:
             pass
 
-    return get_data_version()
+    version = get_data_version()
+
+    print(
+        f"CACHE VERSION: Active {version}",
+        flush=True,
+    )
+
+    return version
 
 def cached_response(
     content,
@@ -116,7 +134,6 @@ def warm_cache(version: int):
 
     headers = {
         "X-Cache-Warm-Key": secret,
-        "X-Cache-Version": str(version),
     }
 
     success = True
@@ -125,13 +142,19 @@ def warm_cache(version: int):
     start = (today - timedelta(days=30)).isoformat()
     end = (today + timedelta(days=30)).isoformat()
 
-    # Warm home page games
+    # ---------------------------------
+    # WARM ALL GAMES
+    # ---------------------------------
+
+    all_games = []
+    
     try:
         response = requests.get(
             f"{base_url}/api/games",
             params={
                 "start": start,
                 "end": end,
+                "version": version,
             },
             headers=headers,
             timeout=120,
@@ -139,23 +162,24 @@ def warm_cache(version: int):
 
         response.raise_for_status()
 
+        all_games = response.json()
+
         print(
-            f"Games cache warm:\n"
-            f"URL: {response.url}\n"
-            f"HTTP: {response.status_code}\n"
-            f"CF-Cache-Status: {response.headers.get('CF-Cache-Status')}\n"
-            f"Age: {response.headers.get('Age')}\n"
-            f"Cache-Control: {response.headers.get('Cache-Control')}\n"
-            f"CF-CDN-Cache-Control: "
-            f"{response.headers.get('Cloudflare-CDN-Cache-Control')}",
-            flush=True
+            f"All games warmed: "
+            f"{len(all_games)} games, "
+            f"version={version}, "
+            f"CF={response.headers.get('CF-Cache-Status')}",
+            flush=True,
         )
 
     except Exception as e:
         success = False
         print(f"Failed to warm games cache: {e}", flush=True)
 
-    # Warm games for every league
+    # ---------------------------------
+    # WARM GAMES FOR EVERY LEAGUE
+    # ---------------------------------
+
     for league in SPORT_CONFIG:
         try:
             response = requests.get(
@@ -164,6 +188,7 @@ def warm_cache(version: int):
                     "league": league,
                     "start": start,
                     "end": end,
+                    "version": version,
                 },
                 headers=headers,
                 timeout=120,
@@ -184,13 +209,17 @@ def warm_cache(version: int):
                 flush=True,
             )
 
-    # Warm teams for every league
+    # ---------------------------------
+    # WARM TEAM LISTS
+    # ---------------------------------
+
     for league in SPORT_CONFIG:
         try:
             response = requests.get(
                 f"{base_url}/api/teams",
                 params={
                     "league": league,
+                    "version": version,
                 },
                 headers=headers,
                 timeout=60,
@@ -199,10 +228,8 @@ def warm_cache(version: int):
             response.raise_for_status()
 
             print(
-                f"{league} teams warmed for version {version}\n",
-                f"{league} teams cache warm: "
-                f"HTTP {response.status_code}, "
-                f"CF status: {response.headers.get('CF-Cache-Status')}",
+                f"{league} teams list warmed: "
+                f"version={version}",
                 flush=True,
             )
 
@@ -212,6 +239,150 @@ def warm_cache(version: int):
                 f"Failed to warm {league} teams: {e}",
                 flush=True,
             )
+
+    # ---------------------------------
+    # COLLECT UNIQUE TEAMS AND GAMES
+    # ---------------------------------
+
+    teams_to_warm = set()
+    games_to_warm = set()
+
+    for game in all_games:
+
+        league = game.get("league")
+        game_id = game.get("game_id")
+        game_date = game.get("date")
+
+        if not league:
+            continue
+
+        # Collect game details
+        if game_id is not None and game_date:
+            games_to_warm.add((
+                str(game_id),
+                league,
+                str(game_date),
+            ))
+
+        # Collect home and away teams
+        for side in ("home", "away"):
+
+            team_name = game.get(f"{side}_name")
+            team_id = game.get(f"{side}_id")
+
+            if not team_name:
+                continue
+
+            teams_to_warm.add((
+                league,
+                str(team_name),
+                str(team_id) if team_id is not None else None,
+            ))
+
+    # ---------------------------------
+    # WARM TEAM PAGES
+    # ---------------------------------
+
+    def warm_team(team_data):
+
+        league, team_name, team_id = team_data
+
+        slug = slugify(team_name)
+
+        params = {
+            "version": version,
+        }
+
+        if team_id:
+            params["id"] = team_id
+
+        response = requests.get(
+            f"{base_url}/api/team/{league}/{slug}",
+            params=params,
+            headers=headers,
+            timeout=120,
+        )
+
+        response.raise_for_status()
+
+        return f"{league} / {team_name}"
+
+    print(
+        f"Preparing detail cache warming: "
+        f"{len(teams_to_warm)} teams, "
+        f"{len(games_to_warm)} games",
+        flush=True,
+    )
+
+    # ---------------------------------
+    # WARM GAME PAGES
+    # ---------------------------------
+
+    def warm_game(game_data):
+
+        game_id, league, game_date = game_data
+
+        response = requests.get(
+            f"{base_url}/api/game/{game_id}",
+            params={
+                "league": league,
+                "date": game_date,
+                "version": version,
+            },
+            headers=headers,
+            timeout=120,
+        )
+
+        response.raise_for_status()
+
+        return f"{league} / Game {game_id}"
+
+    # ---------------------------------
+    # EXECUTE FULL WARMING
+    # ---------------------------------
+
+    with ThreadPoolExecutor(max_workers=3) as executor:
+
+        tasks = {}
+
+        for team_data in teams_to_warm:
+            future = executor.submit(warm_team, team_data)
+            tasks[future] = "team"
+
+        for game_data in games_to_warm:
+            future = executor.submit(warm_game, game_data)
+            tasks[future] = "game"
+
+        completed_teams = 0
+        completed_games = 0
+
+        for future in as_completed(tasks):
+
+            task_type = tasks[future]
+
+            try:
+                result = future.result()
+
+                if task_type == "team":
+                    completed_teams += 1
+                else:
+                    completed_games += 1
+
+            except Exception as e:
+
+                success = False
+
+                print(
+                    f"Failed to warm {task_type} detail: {e}",
+                    flush=True,
+                )
+
+    print(
+        f"Detail cache warming finished: "
+        f"{completed_teams}/{len(teams_to_warm)} teams, "
+        f"{completed_games}/{len(games_to_warm)} games",
+        flush=True,
+    )
 
     return success
 
