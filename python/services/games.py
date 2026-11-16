@@ -65,30 +65,18 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
         processed_games = pd.DataFrame()
 
     # ---------------------------------
-    # RETURN IF DATE RANGE IS COVERED
-    # ---------------------------------
-
-    if (
-        start_date >= data_start_date
-        and latest_date > end_date
-    ):
-        print(
-            f"get_games took "
-            f"{time.perf_counter() - start_time:.3f}s"
-        )
-
-        return processed_games
-
-    # ---------------------------------
     # FETCH MISSING GAMES FROM API
     # ---------------------------------
 
-    if start_date >= data_start_date:
+    if start_date >= data_start_date and not processed.empty:
+
         fetch_start = max(
             start_date,
-            latest_date.normalize()
+            latest_date.normalize() - pd.Timedelta(days=1)
         )
+
     else:
+
         fetch_start = start_date
 
     fetch_end = end_date

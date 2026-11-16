@@ -46,11 +46,18 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
             print("\n========== PREDICTION DEBUG ==========")
             print(f"Start date: {start_date}")
             print(f"Days ahead: {days_ahead}")
+
             print(
                 debug_game[
-                    ["game_id", "date"] + MODEL_FEATURES
+                    [
+                        "game_id",
+                        "date",
+                        "slop_percentile",
+                        "watchability_percentile",
+                    ]
                 ].to_string(index=False)
             )
+
             print("======================================\n")
 
     # Return if no games
@@ -78,6 +85,8 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
         .str.strip()
     )
 
+    games["slop_percentile"] = np.nan
+    games["watchability_percentile"] = np.nan
     games["predicted_slop"] = np.nan
     games["predicted_watchability"] = np.nan
 
