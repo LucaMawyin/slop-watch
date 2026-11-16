@@ -155,6 +155,35 @@ def warm_cache(version: int):
         success = False
         print(f"Failed to warm games cache: {e}", flush=True)
 
+    # Warm games for every league
+    for league in SPORT_CONFIG:
+        try:
+            response = requests.get(
+                f"{base_url}/api/games",
+                params={
+                    "league": league,
+                    "start": start,
+                    "end": end,
+                },
+                headers=headers,
+                timeout=120,
+            )
+
+            response.raise_for_status()
+
+            print(
+                f"{league} games warmed: "
+                f"{len(response.json())} games",
+                flush=True,
+            )
+
+        except Exception as e:
+            success = False
+            print(
+                f"Failed to warm {league} games: {e}",
+                flush=True,
+            )
+
     # Warm teams for every league
     for league in SPORT_CONFIG:
         try:
@@ -162,10 +191,12 @@ def warm_cache(version: int):
                 f"{base_url}/api/teams",
                 params={
                     "league": league,
-                    "version": version,
                 },
+                headers=headers,
                 timeout=60,
             )
+
+            response.raise_for_status()
 
             print(
                 f"{league} teams warmed for version {version}\n",
@@ -174,8 +205,6 @@ def warm_cache(version: int):
                 f"CF status: {response.headers.get('CF-Cache-Status')}",
                 flush=True,
             )
-
-            response.raise_for_status()
 
         except Exception as e:
             success = False

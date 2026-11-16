@@ -1,21 +1,15 @@
 "use client";
 
-import { getSlopBadge } from "@/lib/getSlopBadge";
 import { Game, LiveScore } from "@/lib/types";
 import Link from "next/link";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
-import Badge from "@/components/Badge";
 import GamesSkeleton from "@/components/GamesSkeleton";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { leagues } from "@/lib/leagues";
-import { getHeatColour } from "@/lib/getHeatColour";
-import ProgressCircle from "@/components/ProgressCircle";
 import { slugify } from "@/lib/slugify";
-import AddToCalendar from "@/components/AddToCalendar";
 import useSwipeNavigation from "@/lib/useSwipeNavigation";
-import TeamLogo from "./TeamLogo";
 import FeaturedGameCard from "./FeaturedGameCard";
 
 function GamesContent() {
