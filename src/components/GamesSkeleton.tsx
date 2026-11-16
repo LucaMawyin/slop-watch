@@ -42,15 +42,25 @@ export default function GamesSkeleton({
                     )}
 
                     {/* Teams */}
-                    <div className="flex justify-between -mb-1">
-                        <div className="max-w-[50%]">
+                    <div className="flex justify-between gap-4">
+                        {/* HOME */}
+                        <div className="w-1/2 flex flex-col items-center">
                             <div className="mb-2 h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
-                            <div className="h-6 w-28 rounded bg-zinc-800 skeleton-glow" />
+
+                            <div className="mb-3 h-6 w-28 max-w-full rounded bg-zinc-800 skeleton-glow" />
+
+                            {/* Team Logo */}
+                            <div className="h-16 w-16 rounded-full bg-zinc-800 skeleton-glow" />
                         </div>
 
-                        <div className="flex max-w-[50%] flex-col items-end">
+                        {/* AWAY */}
+                        <div className="w-1/2 flex flex-col items-center">
                             <div className="mb-2 h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
-                            <div className="h-6 w-28 rounded bg-zinc-800 skeleton-glow" />
+
+                            <div className="mb-3 h-6 w-28 max-w-full rounded bg-zinc-800 skeleton-glow" />
+
+                            {/* Team Logo */}
+                            <div className="h-16 w-16 rounded-full bg-zinc-800 skeleton-glow" />
                         </div>
                     </div>
 

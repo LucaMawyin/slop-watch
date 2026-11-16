@@ -103,8 +103,18 @@ export default function FeaturedGameCard({
             )}
 
             {/* Teams */}
-            <div className="flex justify-between">
-                <div className="max-w-[50%]">
+            <div className="
+                flex 
+                justify-between
+                gap-4
+            ">
+                <div className="
+                    w-1/2
+                    flex
+                    flex-col
+                    items-center
+                    gap-1
+                ">
                     <div className="mb-1 text-xs text-zinc-500">
                         HOME
                     </div>
@@ -119,9 +129,8 @@ export default function FeaturedGameCard({
                             link
                             flex
                             flex-col
-                            justify-center
                             items-center
-                            gap-2
+                            text-center
                         "
                     >
                         {game.home_name}
@@ -131,9 +140,61 @@ export default function FeaturedGameCard({
                             teamName={game.home_name}
                         />
                     </Link>
+
+                    {showScores && (
+                        <div className="text-3xl font-semibold">
+                            {game.home_score ?? "-"}
+                        </div>
+                    )}
                 </div>
 
-                <div className="max-w-[50%] text-right">
+                {/* Scores */}
+                {showScores && (
+                    <div className="
+                        mt-4
+                        flex
+                        py-4
+                        justify-evenly
+                        items-center
+                    ">
+
+                        <Badge
+                            title={isFinal ? "FINAL" : "LIVE"}
+                            x={3}
+                            y={1}
+                            className="border-none"
+                            bgColour={
+                                isFinal
+                                    ? "bg-sky-950"
+                                    : "bg-green-950"
+                            }
+                            textColour={
+                                isFinal
+                                    ? "text-sky-400"
+                                    : "text-green-400"
+                            }
+                        >
+                            {isLive && (
+                                <span className="
+                                    h-1.5
+                                    w-1.5
+                                    animate-pulse
+                                    rounded-full
+                                    bg-green-400
+                                " />
+                            )}
+                        </Badge>
+
+                    </div>
+                )}
+
+                <div className="
+                    w-1/2
+                    flex
+                    flex-col
+                    items-center
+                    gap-1
+                ">
                     <div className="mb-1 text-xs text-zinc-500">
                         AWAY
                     </div>
@@ -148,9 +209,8 @@ export default function FeaturedGameCard({
                             link
                             flex
                             flex-col
-                            justify-center
                             items-center
-                            gap-2
+                            text-center
                         "
                     >
                         {game.away_name}
@@ -160,54 +220,14 @@ export default function FeaturedGameCard({
                             teamName={game.away_name}
                         />
                     </Link>
+
+                    {showScores && (
+                        <div className="text-3xl font-semibold">
+                            {game.away_score ?? "-"}
+                        </div>
+                    )}
                 </div>
             </div>
-
-            {/* Scores */}
-            {showScores && (
-                <div className="
-                    mt-4
-                    flex
-                    items-center
-                    justify-between
-                    py-4
-                ">
-                    <div className="text-3xl font-semibold">
-                        {game.home_score ?? "-"}
-                    </div>
-
-                    <Badge
-                        title={isFinal ? "FINAL" : "LIVE"}
-                        x={3}
-                        y={1}
-                        className="border-none"
-                        bgColour={
-                            isFinal
-                                ? "bg-sky-950"
-                                : "bg-green-950"
-                        }
-                        textColour={
-                            isFinal
-                                ? "text-sky-400"
-                                : "text-green-400"
-                        }
-                    >
-                        {isLive && (
-                            <span className="
-                                h-1.5
-                                w-1.5
-                                animate-pulse
-                                rounded-full
-                                bg-green-400
-                            " />
-                        )}
-                    </Badge>
-
-                    <div className="text-3xl font-semibold">
-                        {game.away_score ?? "-"}
-                    </div>
-                </div>
-            )}
 
             {/* Venue and Statistics */}
             <div className="my-auto">

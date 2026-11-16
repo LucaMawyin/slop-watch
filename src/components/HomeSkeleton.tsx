@@ -86,15 +86,30 @@ function GameCardSkeleton() {
 
             <div className="mb-4 h-5 w-16 rounded bg-zinc-800 skeleton-glow" />
 
+            {/* Teams */}
             <div className="flex justify-between gap-4">
-                <div className="w-2/5 space-y-2">
-                    <div className="h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
-                    <div className="h-6 w-full rounded bg-zinc-800 skeleton-glow" />
+                {/* HOME */}
+                <div className="flex w-1/2 flex-col items-center text-center">
+                    <div className="mb-2 h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
+
+                    <div className="mb-3 flex min-h-12 w-full items-center justify-center">
+                        <div className="h-6 w-28 max-w-full rounded bg-zinc-800 skeleton-glow" />
+                    </div>
+
+                    {/* Home Logo */}
+                    <div className="h-16 w-16 rounded-full bg-zinc-800 skeleton-glow" />
                 </div>
 
-                <div className="w-2/5 space-y-2">
-                    <div className="ml-auto h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
-                    <div className="ml-auto h-6 w-full rounded bg-zinc-800 skeleton-glow" />
+                {/* AWAY */}
+                <div className="flex w-1/2 flex-col items-center text-center">
+                    <div className="mb-2 h-3 w-10 rounded bg-zinc-800 skeleton-glow" />
+
+                    <div className="mb-3 flex min-h-12 w-full items-center justify-center">
+                        <div className="h-6 w-28 max-w-full rounded bg-zinc-800 skeleton-glow" />
+                    </div>
+
+                    {/* Away Logo */}
+                    <div className="h-16 w-16 rounded-full bg-zinc-800 skeleton-glow" />
                 </div>
             </div>
 

@@ -217,7 +217,7 @@ export default function TeamPage({ params }: Props) {
                 <div className="mb-8">
 
                     <Link
-                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/games/${league}`}
                         className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -233,7 +233,7 @@ export default function TeamPage({ params }: Props) {
 
                         <div>
                             <Link
-                                href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                                href={`/games/${league}`}
                                 className="
                                     mb-1 
                                     block

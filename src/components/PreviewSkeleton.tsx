@@ -13,18 +13,33 @@ export default function PreviewSkeleton() {
                     <div className="mx-auto mt-3 h-4 w-48 rounded bg-zinc-800 skeleton-glow" />
 
                     {/* TEAMS */}
-                    <div className="mx-auto mt-6 grid w-full max-w-3xl grid-cols-3 items-center gap-6 sm:gap-12">
+                    <div className="mx-auto mt-6 grid w-full max-w-3xl grid-cols-3 items-center gap-4 sm:gap-12">
 
-                        <div className="min-w-0 space-y-2">
-                            <div className="mx-auto h-4 w-12 max-w-full rounded bg-zinc-800 skeleton-glow" />
-                            <div className="mx-auto h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                        {/* HOME */}
+                        <div className="flex min-w-0 flex-col items-center text-center">
+                            <div className="mb-2 h-4 w-12 rounded bg-zinc-800 skeleton-glow" />
+
+                            <div className="flex min-h-20 w-full items-center justify-center">
+                                <div className="h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                            </div>
+
+                            {/* Home Logo */}
+                            <div className="mt-2 h-20 w-20 rounded-full bg-zinc-800 skeleton-glow" />
                         </div>
 
+                        {/* SCORE / VS */}
                         <div className="mx-auto h-12 w-20 rounded bg-zinc-800 skeleton-glow" />
 
-                        <div className="min-w-0 space-y-2">
-                            <div className="mx-auto h-4 w-12 max-w-full rounded bg-zinc-800 skeleton-glow" />
-                            <div className="mx-auto h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                        {/* AWAY */}
+                        <div className="flex min-w-0 flex-col items-center text-center">
+                            <div className="mb-2 h-4 w-12 rounded bg-zinc-800 skeleton-glow" />
+
+                            <div className="flex min-h-20 w-full items-center justify-center">
+                                <div className="h-10 w-32 max-w-full rounded bg-zinc-800 skeleton-glow sm:w-40" />
+                            </div>
+
+                            {/* Away Logo */}
+                            <div className="mt-2 h-20 w-20 rounded-full bg-zinc-800 skeleton-glow" />
                         </div>
 
                     </div>

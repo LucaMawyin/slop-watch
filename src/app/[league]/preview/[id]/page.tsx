@@ -1,5 +1,6 @@
 "use client";
 
+import AddToCalendar from "@/components/AddToCalendar";
 import Badge from "@/components/Badge";
 import PreviewSkeleton from "@/components/PreviewSkeleton";
 import TeamLogo from "@/components/TeamLogo";
@@ -248,10 +249,26 @@ export default function PreviewPage({ params }: Props) {
                 </Link>
 
                 {/* HEADER */}
-                <div className="text-center">
-                    <div className="uppercase text-zinc-500">
-                        {league}
-                    </div>
+                <div className="
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    text-center
+                ">
+
+                    <Link
+                        href={`/games/${league}`}
+                        className="
+                            mb-1 
+                            block
+                            w-fit 
+                            font-medium 
+                            text-zinc-400 
+                        "
+                    >
+                        {leagues.find((item) => item.id === league)?.name ?? league}
+                    </Link>
 
                     <div className="mt-2 text-sm text-zinc-400">
                         {new Date(game.date).toLocaleString([], {
@@ -374,6 +391,12 @@ export default function PreviewPage({ params }: Props) {
                             colour={badge.colour}
                         />
                     </div>
+
+                    {new Date(game.date) > new Date() && (
+                        <div className="mt-4 w-full max-w-xs">
+                            <AddToCalendar game={game} />
+                        </div>
+                    )}
                 </div>
 
                 {/* PREDICTION */}
@@ -424,15 +447,19 @@ export default function PreviewPage({ params }: Props) {
                         {/* HEADER */}
                         <div className="grid grid-cols-3 border-b border-zinc-800 p-5 text-center">
 
-                            <div className="
-                                font-semibold 
-                                flex
-                                flex-col
-                                sm:flex-row
-                                items-center 
-                                justify-start
-                                gap-2
-                            ">
+                            <Link
+                                href={`/${league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
+                                target="_blank"
+                                className="
+                                    font-semibold 
+                                    flex
+                                    flex-col
+                                    sm:flex-row
+                                    items-center 
+                                    justify-start
+                                    gap-2
+                                "
+                            >
                                 <TeamLogo
                                     league={game.league}
                                     teamId={game.home_id}
@@ -443,22 +470,26 @@ export default function PreviewPage({ params }: Props) {
                                 <div className="font-semibold">
                                     {game.home_full_name}
                                 </div>
-                            </div>
+                            </Link>
                             
 
                             <div className="my-auto text-xs text-zinc-500">
                                 TEAM
                             </div>
 
-                            <div className="
-                                font-semibold 
-                                flex 
-                                flex-col
-                                sm:flex-row
-                                justify-end
-                                items-center 
-                                gap-2
-                            ">
+                            <Link
+                                href={`/${league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
+                                target="_blank"
+                                className="
+                                    font-semibold 
+                                    flex
+                                    flex-col
+                                    sm:flex-row
+                                    items-center 
+                                    justify-end
+                                    gap-2
+                                "
+                            >
                                 <TeamLogo
                                     league={game.league}
                                     teamId={game.away_id}
@@ -469,7 +500,7 @@ export default function PreviewPage({ params }: Props) {
                                 <div className="font-semibold">
                                     {game.away_full_name}
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
                         {/* RECORD */}
@@ -550,7 +581,11 @@ export default function PreviewPage({ params }: Props) {
                         {/* HOME RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
 
-                            <div className="flex items-center gap-2">
+                            <Link
+                                href={`/${league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
+                                target="_blank"
+                                className="flex items-center gap-2"
+                            >
                                 <TeamLogo
                                     league={game.league}
                                     teamId={game.home_id}
@@ -561,7 +596,7 @@ export default function PreviewPage({ params }: Props) {
                                 <h3 className="font-semibold">
                                     {game.home_full_name}
                                 </h3>
-                            </div>
+                            </Link>
 
                             <div className="mt-4">
                                 {!!game.home_recent_games && game.home_recent_games.length === 0 ? (
@@ -675,7 +710,11 @@ export default function PreviewPage({ params }: Props) {
 
                         {/* AWAY RECENT */}
                         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                            <div className="flex items-center gap-2">
+                            <Link
+                                href={`/${league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
+                                target="_blank"
+                                className="flex items-center gap-2"
+                            >
                                 <TeamLogo
                                     league={game.league}
                                     teamId={game.away_id}
@@ -686,7 +725,7 @@ export default function PreviewPage({ params }: Props) {
                                 <h3 className="font-semibold">
                                     {game.away_full_name}
                                 </h3>
-                            </div>
+                            </Link>
 
                             <div className="mt-4">
                                 {!!game.away_recent_games && game.away_recent_games.length === 0 ? (
