@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+
+    const router = useRouter();
+
     return (
         <main className="flex min-h-[80vh] flex-col items-center justify-center gap-6 px-6 text-center text-white">
             <div className="space-y-2">
@@ -20,8 +23,8 @@ export default function NotFound() {
                 </p>
             </div>
 
-            <Link
-                href="/"
+            <button
+                onClick={() => router.push("/")}
                 className="
                     rounded-lg
                     border
@@ -37,7 +40,7 @@ export default function NotFound() {
                 "
             >
                 Back to Home
-            </Link>
+            </button>
         </main>
     );
 }

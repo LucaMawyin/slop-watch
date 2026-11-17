@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { notFound, useParams, useRouter } from "next/navigation";
 import { leagues } from "@/lib/leagues";
 import SportHeader from "@/components/sport/SportHeader";
 import SportNavigation from "@/components/sport/SportNavigation";
@@ -27,6 +27,15 @@ export default function SportPage() {
         : [...new Set(leagues.map((item) => item.sport.toLowerCase()))]
             .find((item) => item === category)
             ?.replace(/^./, (char) => char.toUpperCase());
+
+    const isValidLeague = !!league;
+    const isValidSport = leagues.some(
+        (item) => item.sport.toLowerCase() === category
+    );
+
+    if (!isValidLeague && !isValidSport) {
+        notFound();
+    }
 
     const selectedLeagues = league
         ? [league.id]
