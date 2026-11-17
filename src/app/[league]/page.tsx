@@ -7,6 +7,7 @@ import SportTeams from "@/components/sport/SportTeams";
 import UpcomingGames from "@/components/UpcomingGames";
 import { Game } from "@/lib/types";
 import { useEffect, useState } from "react";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function SportPage() {
 
@@ -150,12 +151,14 @@ export default function SportPage() {
                 items-center
 
             ">
-                <UpcomingGames
-                    games={games}
-                    category={category}
-                    name={name}
-                    loading={loading}
-                />        
+                <ErrorBoundary>
+                    <UpcomingGames
+                        games={games}
+                        category={category}
+                        name={name}
+                        loading={loading}
+                    />
+                </ErrorBoundary>  
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
