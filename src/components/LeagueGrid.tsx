@@ -39,7 +39,7 @@ export default function LeagueGrid() {
 
                                 <Link 
                                     className="text-sm font-semibold text-zinc-300"
-                                    href={`/${encodeURIComponent(sport).toLowerCase()}/games`}
+                                    href={`/${encodeURIComponent(sport).toLowerCase()}`}
                                 >
                                     {sport}
                                 </Link>
@@ -51,7 +51,7 @@ export default function LeagueGrid() {
                                 {sportLeagues.map((league) => (
                                     <Link
                                         key={league.id}
-                                        href={`/${encodeURIComponent(league.id)}/games`}
+                                        href={`/${encodeURIComponent(league.id)}`}
                                         className="
                                             group
                                             flex
