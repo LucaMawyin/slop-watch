@@ -257,7 +257,7 @@ export default function Home() {
                 <>
                     <HomeStats games={games} />
                     <FeaturedGames games={games} />
-                    <UpcomingGames />
+                    <UpcomingGames games={games} />
                     <LeagueGrid />
                 </>
             )}

@@ -147,9 +147,7 @@ export default function SportPage() {
                 items-center
 
             ">
-                <UpcomingGames
 
-                />
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
