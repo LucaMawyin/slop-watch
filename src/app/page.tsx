@@ -53,8 +53,11 @@ export default function Home() {
                     version: number;
                 };
 
-                console.log("Current backend version:", version);
-                console.log("Previously loaded version:", currentVersion);
+                console.log("Homepage version check:", {
+                    received: String(version),
+                    previous: currentVersion,
+                    changed: currentVersion !== String(version),
+                });
 
                 // Nothing changed so dont download the games again
                 if (currentVersion === String(version)) return;
@@ -76,6 +79,7 @@ export default function Home() {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
                     {
+                        cache: "no-store",
                         signal: controller.signal,
                     }
                 );
@@ -85,6 +89,12 @@ export default function Home() {
                 }
 
                 const data: Game[] = await response.json();
+
+                console.log("Homepage games fetched:", {
+                    version,
+                    count: data.length,
+                    firstGame: data[0],
+                });
 
                 if (controller.signal.aborted) return;
 
