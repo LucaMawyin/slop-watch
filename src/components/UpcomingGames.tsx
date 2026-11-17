@@ -19,21 +19,7 @@ export default function UpcomingGames({
     loading=false,
     name,
 }: UpcomingGamesProps) {
-    const upcomingGames = useMemo(() => {
-        const now = Date.now();
-
-        return games
-            .filter((game) => {
-                const date = new Date(game.date).getTime();
-                return Number.isFinite(date) && date > now;
-            })
-            .sort(
-                (a, b) =>
-                    new Date(a.date).getTime() -
-                    new Date(b.date).getTime()
-            )
-            .slice(0, 6);
-    }, [games]);
+    const upcomingGames = useMemo(() => games.slice(0, 6), [games]);
 
     return (
         <section className="space-y-5 w-full">
@@ -92,9 +78,10 @@ export default function UpcomingGames({
                     lg:grid-cols-3
                 ">
                     {upcomingGames.map((game) => (
-                        <div key={`${game.league}-${game.game_id}`}>
-                            {game.home_name} vs {game.away_name}
-                        </div>
+                        <FeaturedGameCard
+                            key={`${game.league}-${game.game_id}`}
+                            game={game}
+                        />
                     ))}
                 </div>
             )}
