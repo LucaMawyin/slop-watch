@@ -36,16 +36,6 @@ export default function UpcomingGames({
     }, [games]);
 
     return (
-        <div className="text-white">
-            {games.slice(0, 6).map((game, index) => (
-                <div key={index}>
-                    {String(game.game_id)} - {String(game.date)}
-                </div>
-            ))}
-        </div>
-    );
-
-    return (
         <section className="space-y-5 w-full">
 
             <div className="
