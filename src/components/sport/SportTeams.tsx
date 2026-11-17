@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -19,7 +18,18 @@ interface Team {
     league: string;
 }
 
-export default function SportTeams({ leagues }: SportTeamsProps) {
+const getVisibleCount = (grid: HTMLDivElement) => {
+    const columns = getComputedStyle(grid)
+        .gridTemplateColumns
+        .split(" ").length;
+
+    return columns * 2;
+};
+
+export default function SportTeams({
+    leagues,
+}: SportTeamsProps) {
+
     const params = useParams<{ league: string }>();
 
     const isSportPage = !leagueConfig.some(
@@ -90,10 +100,59 @@ export default function SportTeams({ leagues }: SportTeamsProps) {
         return () => controller.abort();
     }, [leagueKey]);
 
-    const groupedTeams = leagues.map((league) => ({
-        league,
-        teams: teams.filter((team) => team.league === league),
-    }));
+    const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
+
+    const groupedTeams = leagues.map((league) => {
+        const leagueTeams = teams.filter((team) => team.league === league);
+
+        return {
+            league,
+            teams: leagueTeams.slice(0, visibleCounts[league] ?? 0),
+            total: leagueTeams.length,
+        };
+    });
+
+    useEffect(() => {
+        if (loading) return;
+
+        const grids = document.querySelectorAll<HTMLDivElement>(
+            "[data-team-grid]"
+        );
+
+        const observers: ResizeObserver[] = [];
+
+        grids.forEach((grid) => {
+            const league = grid.dataset.teamGrid;
+            if (!league) return;
+
+            let previousWidth = 0;
+
+            const updateVisibleCount = () => {
+                const width = grid.clientWidth;
+
+                if (width === previousWidth) return;
+
+                previousWidth = width;
+
+                setVisibleCounts((prev) => ({
+                    ...prev,
+                    [league]: Math.max(
+                        prev[league] ?? 0,
+                        getVisibleCount(grid)
+                    ),
+                }));
+            };
+
+            updateVisibleCount();
+
+            const observer = new ResizeObserver(updateVisibleCount);
+            observer.observe(grid);
+
+            observers.push(observer);
+        });
+
+        return () => observers.forEach((observer) => observer.disconnect());
+    }, [loading, leagueKey]);
 
     return (
         <section className="space-y-6">
@@ -125,77 +184,118 @@ export default function SportTeams({ leagues }: SportTeamsProps) {
                                 p-5
                             "
                         >
-                            <div className="h-16 w-16 rounded-full bg-zinc-800 sm:h-20 sm:w-20 skeleton-glow" />
-                            <div className="h-4 w-3/4 rounded-md bg-zinc-800 skeleton-glow" />
+                            <div className="h-16 w-16 rounded-full bg-zinc-800 sm:h-20 sm:w-20 skeleton-glow"/>
+
+                            <div className="h-4 w-3/4 rounded-md bg-zinc-800 skeleton-glow"/>
                         </div>
                     ))}
                 </div>
             ) : (
-                <div className="space-y-10">
-                    {groupedTeams.map(({ league, teams: leagueTeams }) => (
-                        <div key={league} className="space-y-4">
-                            <div className="flex flex-row items-center justify-between">
-                                <h3 className="text-xl font-semibold">
-                                    {leagueConfig.find((item) => item.id === league)?.name ?? league}
-                                </h3>
+                <>
+                    <div className="space-y-10">
+                        {groupedTeams.map(({ league, teams: leagueTeams, total }) => (
+                            <div key={league} className="space-y-4">
+                                <div className="flex flex-row items-center justify-between">
+                                    <h3 className="text-xl font-semibold">
+                                        {leagueConfig.find((item) => item.id === league)?.name ?? league}
+                                    </h3>
+                                    {isSportPage && (
+                                        <Link
+                                            className="shrink-0 text-sm font-medium transition"
+                                            href={`${league}`}
+                                        >
+                                            View {leagueConfig.find((item) => item.id === league)?.name ?? league} →
+                                        </Link>
+                                    )}
+                                </div>
 
-                                {isSportPage && (
-                                    <Link
-                                        className="shrink-0 text-sm font-medium transition"
-                                        href={league}
-                                    >
-                                        View {leagueConfig.find((item) => item.id === league)?.name ?? league} →
-                                    </Link>
+
+                                <div
+                                    data-team-grid={league}
+                                    className="
+                                        grid
+                                        grid-cols-2
+                                        gap-4
+                                        sm:grid-cols-3
+                                        lg:grid-cols-4
+                                        3xl:grid-cols-6
+                                        5xl:grid-cols-8
+                                    "
+                                >
+                                    {leagueTeams.map((team) => (
+                                        <Link
+                                            key={`${team.league}-${team.id}`}
+                                            href={`/${team.league}/teams/${slugify(team.name)}?id=${team.id}`}
+                                            target="_blank"
+                                            className="
+                                                flex
+                                                flex-col
+                                                items-center
+                                                justify-center
+                                                gap-3
+                                                rounded-xl
+                                                border
+                                                border-zinc-800
+                                                bg-zinc-900
+                                                p-5
+                                                text-center
+                                                transition
+                                                hover:border-zinc-700
+                                                hover:bg-zinc-800
+                                            "
+                                        >
+                                            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-zinc-800">
+                                                {team.name}
+                                            </div>
+
+                                            <span className="font-medium text-zinc-200">
+                                                {team.full_name}
+                                            </span>
+                                        </Link>
+                                    ))}
+                                </div>
+
+                                {total > (visibleCounts[league] ?? 0) && (
+                                    <div className="flex justify-center">
+                                        <button
+                                            onClick={() => {
+                                                const grid = document.querySelector<HTMLDivElement>(
+                                                    `[data-team-grid="${league}"]`
+                                                );
+
+                                                if (!grid) return;
+
+                                                setVisibleCounts((prev) => ({
+                                                    ...prev,
+                                                    [league]: Math.min(
+                                                        (prev[league] ?? 0) + getVisibleCount(grid) * 2,
+                                                        total
+                                                    ),
+                                                }));
+                                            }}
+                                            className="
+                                                rounded-lg
+                                                border
+                                                border-zinc-700
+                                                bg-zinc-900
+                                                px-6
+                                                py-2
+                                                text-sm
+                                                font-medium
+                                                text-zinc-200
+                                                transition
+                                                hover:bg-zinc-800
+                                            "
+                                        >
+                                            Show More
+                                        </button>
+                                    </div>
                                 )}
                             </div>
+                        ))}
+                    </div>
+                </>
 
-                            <div className="
-                                grid
-                                grid-cols-2
-                                gap-4
-                                sm:grid-cols-3
-                                lg:grid-cols-4
-                                3xl:grid-cols-6
-                                5xl:grid-cols-8
-                            ">
-                                {leagueTeams.map((team) => (
-                                    <Link
-                                        key={`${team.league}-${team.id}`}
-                                        href={`/${team.league}/teams/${slugify(team.name)}?id=${team.id}`}
-                                        target="_blank"
-                                        className="
-                                            flex
-                                            flex-col
-                                            items-center
-                                            justify-center
-                                            gap-3
-                                            rounded-xl
-                                            border
-                                            border-zinc-800
-                                            bg-zinc-900
-                                            p-5
-                                            text-center
-                                            transition
-                                            hover:border-zinc-700
-                                            hover:bg-zinc-800
-                                        "
-                                    >
-                                        <TeamLogo
-                                            league={team.league}
-                                            teamId={team.id}
-                                            teamName={team.name}
-                                            displayName={team.full_name}
-                                        />
-
-                                        <span className="font-medium text-zinc-200">
-                                            {team.full_name}
-                                        </span>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
             )}
         </section>
     );
