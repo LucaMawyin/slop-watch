@@ -59,10 +59,3 @@ def set_cached(key: str, content, ttl: int = 86400):
 
     except (redis.RedisError, TypeError, ValueError) as e:
         print(f"Redis write failed: {e}", flush=True)
-
-def delete_old_versions(current_version: int):
-
-    # Optional cleanup of old version keys.
-    # Do not call during an update or before new
-    # cache entries are ready.
-    pass
