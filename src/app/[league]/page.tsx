@@ -172,7 +172,9 @@ export default function SportPage() {
                 </button>    
             </div>
 
-
+            <SportTeams
+                leagues={selectedLeagues}
+            />
 
         </main>
     );
