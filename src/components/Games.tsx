@@ -35,23 +35,20 @@ function GamesContent() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
-    const routeParams = useParams<{ category?: string }>();
-    const category = routeParams.category ?? null;
-    
+    const routeParams = useParams<{ league: string }>();
+
+    const category = routeParams.league?.toLowerCase() ?? null;
+
     const league = leagues.some((item) => item.id === category)
         ? category
         : null;
 
-    const sport = league
-        ? null
-        : category ?? searchParams.get("sport")?.toLowerCase();
+    const sport = league ? null : category;
 
-    const gamesBaseUrl = league
-        ? `/games/${league}`
-        : sport
-            ? `/games/${sport}`
-            : "/games";
-
+    const gamesBaseUrl = category
+        ? `/${category}/games`
+        : "/games";
+        
     const displayName = leagues.find((item) => item.id === league)?.name || sport;
 
     const DEFAULT_LEAGUE_DAYS = 1;

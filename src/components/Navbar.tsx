@@ -79,7 +79,7 @@ export default function Navbar() {
                         onClick={handleNavigation}
                         className="text-sm text-zinc-300 hover:text-white"
                     >
-                        All Leagues
+                        All Games
                     </Link>
 
                     {sports.map((sport) => {
@@ -110,7 +110,7 @@ export default function Navbar() {
                                     className="flex items-center"
                                 >
                                     <Link
-                                        href={`/games/${encodeURIComponent(sport).toLowerCase()}`}
+                                        href={`/${encodeURIComponent(sport).toLowerCase()}`}
                                         onClick={handleNavigation}
                                         className="text-sm text-zinc-300"
                                     >
@@ -170,7 +170,7 @@ export default function Navbar() {
                                         {sportLeagues.map((league) => (
                                             <Link
                                                 key={league.id}
-                                                href={`/games/${league.id}`}
+                                                href={`/${league.id}`}
                                                 onClick={handleNavigation}
                                                 className="
                                                     block
@@ -253,7 +253,7 @@ export default function Navbar() {
                             hover:text-white
                         "
                     >
-                        All Leagues
+                        All Games
                     </a>
                 </div>
                 {sports.map((sport) => {
@@ -268,7 +268,7 @@ export default function Navbar() {
                                 py-4
                             ">
                                 <Link
-                                    href={`/games/${encodeURIComponent(sport).toLowerCase()}`}
+                                    href={`/${encodeURIComponent(sport).toLowerCase()}`}
                                     className="
                                         text-sm
                                         font-medium
@@ -319,7 +319,7 @@ export default function Navbar() {
                                         .map((league) => (
                                             <Link
                                                 key={league.id}
-                                                href={`/games/${league.id}`}
+                                                href={`/${league.id}`}
                                                 onClick={handleNavigation}
                                                 className="
                                                     block

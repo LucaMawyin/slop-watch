@@ -1,9 +1,11 @@
 type GamesSkeletonProps = {
     showLeague?: boolean;
+    count?: number;
 };
 
 export default function GamesSkeleton({
     showLeague = false,
+    count=9,
 }: GamesSkeletonProps) {
     return (
         <div className="
@@ -15,7 +17,7 @@ export default function GamesSkeleton({
             sm:grid-cols-2
             lg:grid-cols-3
         ">
-            {Array.from({ length: 9 }).map((_, i) => (
+            {Array.from({ length: count }).map((_, i) => (
                 <div
                     key={i}
                     className="

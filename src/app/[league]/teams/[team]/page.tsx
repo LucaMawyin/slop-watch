@@ -602,7 +602,7 @@ export default function TeamPage({ params }: Props) {
                                         )
                                     })
                                 ) : (
-                                    <div className="p-6">
+                                    <div className="p-6 text-zinc-500">
                                         No upcoming games.
                                     </div>
                                 )}
@@ -755,7 +755,7 @@ export default function TeamPage({ params }: Props) {
                                         );
                                     })
                                 ) : (
-                                    <div className="p-6">
+                                    <div className="p-6 text-zinc-500">
                                         No recent games.
                                     </div>
                                 )}

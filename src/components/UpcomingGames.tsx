@@ -4,12 +4,21 @@ import { useMemo } from "react";
 import Link from "next/link";
 import type { Game } from "@/lib/types";
 import FeaturedGameCard from "./FeaturedGameCard";
+import GamesSkeleton from "./GamesSkeleton";
 
 interface UpcomingGamesProps {
     games: Game[];
+    category?: string;
+    loading?:boolean;
+    name?:string;
 }
 
-export default function UpcomingGames({ games }: UpcomingGamesProps) {
+export default function UpcomingGames({
+    games,
+    category,
+    loading=false,
+    name,
+}: UpcomingGamesProps) {
     const upcomingGames = useMemo(() => {
         const now = Date.now();
 
@@ -27,14 +36,14 @@ export default function UpcomingGames({ games }: UpcomingGamesProps) {
     }, [games]);
 
     return (
-        <section className="space-y-5">
+        <section className="space-y-5 w-full">
             <div className="flex items-end justify-between gap-4">
                 <h2 className="mt-1 text-2xl font-bold tracking-tight text-white">
-                    Upcoming Games
+                    Upcoming{name ? ` ${name}` : ""} Games
                 </h2>
 
                 <Link
-                    href="/games"
+                    href={category ? `/${category}/games` : "/games"}
                     className="
                         shrink-0
                         text-sm
@@ -42,11 +51,13 @@ export default function UpcomingGames({ games }: UpcomingGamesProps) {
                         transition
                     "
                 >
-                    All games →
+                    All{name ? ` ${name}` : ""} Games →
                 </Link>
             </div>
 
-            {upcomingGames.length === 0 ? (
+            {loading ? (
+                <GamesSkeleton count={6} />
+            ) : upcomingGames.length === 0 ? (
                 <div className="
                     rounded-xl
                     border
