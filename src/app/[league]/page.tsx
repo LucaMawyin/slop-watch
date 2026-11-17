@@ -3,10 +3,7 @@
 import { notFound, useParams, useRouter } from "next/navigation";
 import { leagues } from "@/lib/leagues";
 import SportHeader from "@/components/sport/SportHeader";
-import SportNavigation from "@/components/sport/SportNavigation";
 import SportTeams from "@/components/sport/SportTeams";
-import LeagueLeaders from "@/components/sport/LeagueLeaders";
-import LeagueStandings from "@/components/sport/LeagueStandings";
 import UpcomingGames from "@/components/UpcomingGames";
 import { Game } from "@/lib/types";
 import { useEffect, useState } from "react";
@@ -178,10 +175,6 @@ export default function SportPage() {
             <SportTeams
                 leagues={selectedLeagues}
             />
-
-            <LeagueStandings/>
-
-            <LeagueLeaders />
 
         </main>
     );
