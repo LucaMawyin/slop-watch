@@ -143,12 +143,11 @@ export default function SportPage() {
                 items-center
 
             ">
-                <UpcomingGames
-                    games={games}
-                    category={category}
-                    name={name}
-                    loading={loading}
-                />        
+                <div>
+                    <p>Sport: {category}</p>
+                    <p>League: {league?.id ?? "None"}</p>
+                    <p>Games loaded: {games.length}</p>
+                </div>
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
