@@ -143,11 +143,12 @@ export default function SportPage() {
                 items-center
 
             ">
-                <div>
-                    <p>Sport: {category}</p>
-                    <p>League: {league?.id ?? "None"}</p>
-                    <p>Games loaded: {games.length}</p>
-                </div>
+                <UpcomingGames
+                    games={games}
+                    category={category}
+                    name={name}
+                    loading={loading}
+                />        
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
@@ -171,7 +172,9 @@ export default function SportPage() {
                 </button>    
             </div>
 
-            {/* <SportTeams leagues={selectedLeagues} /> */}
+            <SportTeams
+                leagues={selectedLeagues}
+            />
 
         </main>
     );

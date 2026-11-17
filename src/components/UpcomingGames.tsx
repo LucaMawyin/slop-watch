@@ -92,10 +92,9 @@ export default function UpcomingGames({
                     lg:grid-cols-3
                 ">
                     {upcomingGames.map((game) => (
-                        <FeaturedGameCard
-                            key={`${game.league}-${game.game_id}`}
-                            game={game}
-                        />
+                        <div key={`${game.league}-${game.game_id}`}>
+                            {game.home_name} vs {game.away_name}
+                        </div>
                     ))}
                 </div>
             )}
