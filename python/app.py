@@ -389,7 +389,7 @@ def warm_cache(version: int):
 @router.get("/api/version")
 def version():
     return JSONResponse(
-        content={"version": get_data_version()},
+        content={"version": str(get_data_version())},
         headers={
             "Cache-Control": "no-store",
             "Cloudflare-CDN-Cache-Control": "no-store",

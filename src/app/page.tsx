@@ -49,9 +49,7 @@ export default function Home() {
                     throw new Error("Failed to check data version.");
                 }
 
-                const { version } = await versionResponse.json() as {
-                    version: number;
-                };
+                const { version } = await versionResponse.json() as any;
 
                 console.log("Homepage version check:", {
                     received: String(version),
