@@ -10,6 +10,8 @@ cache = redis.Redis.from_url(
     decode_responses=True,
     socket_connect_timeout=2,
     socket_timeout=2,
+    health_check_interval=30,
+    max_connections=20,
 )
 
 def make_cache_key(endpoint: str, version: int, params: dict):
@@ -38,22 +40,22 @@ def get_cached(key: str):
 
         return json.loads(result)
 
-    except redis.RedisError as e:
+    except (redis.RedisError, json.JSONDecodeError) as e:
         print(f"Redis read failed: {e}", flush=True)
         return None
 
 
-def set_cached(key: str, content):
+def set_cached(key: str, content, ttl: int = 86400):
 
     try:
         cache.set(
             key,
             json.dumps(content, default=str),
+            ex=max(1, ttl),
         )
 
-    except redis.RedisError as e:
+    except (redis.RedisError, TypeError, ValueError) as e:
         print(f"Redis write failed: {e}", flush=True)
-
 
 def delete_old_versions(current_version: int):
 
