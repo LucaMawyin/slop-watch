@@ -189,7 +189,7 @@ export default function PreviewPage({ params }: Props) {
                 <div className="mx-auto max-w-5xl">
                     {/* BACK */}
                     <Link
-                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mb-4 block hover:underline w-fit"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -209,7 +209,7 @@ export default function PreviewPage({ params }: Props) {
                     </p>
 
                     <Link
-                        href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                        href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                         className="mt-4 inline-block hover:underline"
                     >
                         &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -242,7 +242,7 @@ export default function PreviewPage({ params }: Props) {
 
                 {/* BACK */}
                 <Link
-                    href={`/games/${league}${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                    href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
                     className="mb-4 block hover:underline w-fit"
                 >
                     &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
@@ -258,7 +258,7 @@ export default function PreviewPage({ params }: Props) {
                 ">
 
                     <Link
-                        href={`/games/${league}`}
+                        href={`/${league}/games`}
                         className="
                             mb-1 
                             block
