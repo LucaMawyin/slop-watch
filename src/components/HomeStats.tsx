@@ -35,8 +35,20 @@ export default function HomeStats({ games }: HomeStatsProps) {
             }
         );
 
-        const highSlopGames = todaysGames.filter(
-            (game) => (game.slop_percentile ?? 0) >= 90
+        const highestSlop = todaysGames.reduce<Game | null>(
+            (best, game) => {
+                if (game.slop_percentile == null) return best;
+
+                if (
+                    !best ||
+                    game.slop_percentile > (best.slop_percentile ?? -1)
+                ) {
+                    return game;
+                }
+
+                return best;
+            },
+            null
         );
 
         const mostWatchable = todaysGames.reduce<Game | null>(
@@ -70,7 +82,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
 
         return {
             todayCount: todaysGames.length,
-            highSlopCount: highSlopGames.length,
+            highestSlop,
             mostWatchable,
             liveCount: liveGames.length,
         };
@@ -85,16 +97,22 @@ export default function HomeStats({ games }: HomeStatsProps) {
             href: "/games",
         },
         {
-            label: "High Slop",
-            value: stats.highSlopCount,
-            description: "90th percentile or higher",
+            label: "Highest Slop",
+            value: stats.highestSlop
+                ? `${(stats.highestSlop.slop_percentile! * 100).toFixed(1)}%`
+                : "—",
+            description: stats.highestSlop
+                ? `${stats.highestSlop.away_name} @ ${stats.highestSlop.home_name}`
+                : "No predictions available",
             color: "text-red-400!",
-            href: "/games",
+            href: stats.highestSlop
+                ? `/${stats.highestSlop.league}/preview/${stats.highestSlop.game_id}?date=${stats.highestSlop.date.slice(0, 10)}`
+                : undefined,
         },
         {
             label: "Most Watchable",
             value: stats.mostWatchable
-                ? `${Math.round(stats.mostWatchable.watchability_percentile * 100)}%`
+                ? `${(stats.mostWatchable.watchability_percentile * 100).toFixed(1)}%`
                 : "—",
             description: stats.mostWatchable
                 ? `${stats.mostWatchable.away_name} @ ${stats.mostWatchable.home_name}`
