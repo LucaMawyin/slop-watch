@@ -30,10 +30,6 @@ export default function SportPage() {
         (item) => item.sport.toLowerCase() === category
     );
 
-    if (!isValidLeague && !isValidSport) {
-        notFound();
-    }
-
     const selectedLeagues = league
         ? [league.id]
         : leagues
@@ -125,6 +121,10 @@ export default function SportPage() {
 
         return () => controller.abort();
     }, [category, league]);
+
+    if (!isValidLeague && !isValidSport) {
+        notFound();
+    }
 
     return (
         <main className="space-y-10 p-6 text-white">
