@@ -36,11 +36,14 @@ def get_cached(key: str):
         result = cache.get(key)
 
         if result is None:
+            print(f"REDIS CACHE MISS: {key}", flush=True)
             return None
+
+        print(f"REDIS CACHE HIT: {key}", flush=True)
 
         return json.loads(result)
 
-    except (redis.RedisError, json.JSONDecodeError) as e:
+    except redis.RedisError as e:
         print(f"Redis read failed: {e}", flush=True)
         return None
 
