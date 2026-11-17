@@ -93,7 +93,7 @@ export default function FeaturedGameCard({
             {currentLeague && (
                 <div className="mb-3 text-lg font-semibold text-white">
                     <Link
-                        href={`/${currentLeague}/games`}
+                        href={`/${currentLeague}`}
                         onClick={(e) => e.stopPropagation()}
                         className="hover:text-zinc-300"
                     >
