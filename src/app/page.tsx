@@ -49,7 +49,12 @@ export default function Home() {
                     throw new Error("Failed to check data version.");
                 }
 
-                const { version } = await versionResponse.json() as any;
+                const { version } = await versionResponse.json() as {
+                    version: number;
+                };
+
+                console.log("Current backend version:", version);
+                console.log("Previously loaded version:", currentVersion);
 
                 // Nothing changed so dont download the games again
                 if (currentVersion === String(version)) return;
