@@ -21,6 +21,17 @@ def get_teams(league):
             & ~df["away_name"].str.contains("All-Star", case=False, na=False)
         ]
 
+    # Exclude wnba all star teams
+    if league == "wnba":
+        df = df[
+            ~df["home_name"].str.contains(
+                r"Team Spoon|Team Coop", case=False, na=False
+            )
+            & ~df["away_name"].str.contains(
+                r"Team Spoon|Team Coop", case=False, na=False
+            )
+        ]
+
     if df.empty:
         return []
 
