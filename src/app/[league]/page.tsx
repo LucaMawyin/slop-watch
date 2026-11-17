@@ -7,7 +7,6 @@ import SportTeams from "@/components/sport/SportTeams";
 import UpcomingGames from "@/components/UpcomingGames";
 import { Game } from "@/lib/types";
 import { useEffect, useState } from "react";
-import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function SportPage() {
 
@@ -103,9 +102,6 @@ export default function SportPage() {
 
                 const data: unknown = await response.json();
 
-                console.log("Games API response:", category, data);
-                console.log("Is array:", Array.isArray(data));
-
                 if (!Array.isArray(data)) {
                     throw new Error(`Expected games array for ${category}`);
                 }
@@ -151,14 +147,9 @@ export default function SportPage() {
                 items-center
 
             ">
-                <ErrorBoundary>
-                    <UpcomingGames
-                        games={games}
-                        category={category}
-                        name={name}
-                        loading={loading}
-                    />
-                </ErrorBoundary>  
+                <UpcomingGames
+
+                />
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
