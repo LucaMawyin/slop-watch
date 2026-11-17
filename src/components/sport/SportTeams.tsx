@@ -87,7 +87,7 @@ export default function SportTeams({ leagues }: SportTeamsProps) {
                     {teams.map((team, index) => (
                         <Link
                             key={`${team.league}-${team.id}-${index}`}
-                            href="/"
+                            href={`/${team.league}/teams/test?id=${team.id}`}
                             className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 text-center"
                         >
                             {team.full_name}
