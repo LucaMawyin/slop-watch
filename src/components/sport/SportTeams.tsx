@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -18,20 +19,7 @@ interface Team {
     league: string;
 }
 
-const getVisibleCount = (grid: HTMLDivElement) => {
-    const columns = getComputedStyle(grid)
-        .gridTemplateColumns
-        .split(/\s+/)
-        .filter(Boolean)
-        .length;
-
-    return columns * 2;
-};
-
-export default function SportTeams({
-    leagues,
-}: SportTeamsProps) {
-
+export default function SportTeams({ leagues }: SportTeamsProps) {
     const params = useParams<{ league: string }>();
 
     const isSportPage = !leagueConfig.some(
@@ -102,22 +90,10 @@ export default function SportTeams({
         return () => controller.abort();
     }, [leagueKey]);
 
-    const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
-    const INITIAL_ROWS = 2;
-    const ROWS_PER_CLICK = 2;
-
-    const groupedTeams = leagues.map((league) => {
-        const leagueTeams = teams.filter((team) => team.league === league);
-
-        return {
-            league,
-            teams: leagueTeams.slice(
-                0,
-                visibleCounts[league] ?? INITIAL_ROWS * 2
-            ),
-            total: leagueTeams.length,
-        };
-    });
+    const groupedTeams = leagues.map((league) => ({
+        league,
+        teams: teams.filter((team) => team.league === league),
+    }));
 
     return (
         <section className="space-y-6">
@@ -149,116 +125,77 @@ export default function SportTeams({
                                 p-5
                             "
                         >
-                            <div className="h-16 w-16 rounded-full bg-zinc-800 sm:h-20 sm:w-20 skeleton-glow"/>
-
-                            <div className="h-4 w-3/4 rounded-md bg-zinc-800 skeleton-glow"/>
+                            <div className="h-16 w-16 rounded-full bg-zinc-800 sm:h-20 sm:w-20 skeleton-glow" />
+                            <div className="h-4 w-3/4 rounded-md bg-zinc-800 skeleton-glow" />
                         </div>
                     ))}
                 </div>
             ) : (
-                <>
-                    <div className="space-y-10">
-                        {groupedTeams.map(({ league, teams: leagueTeams, total }) => (
-                            <div key={league} className="space-y-4">
-                                <div className="flex flex-row items-center justify-between">
-                                    <h3 className="text-xl font-semibold">
-                                        {leagueConfig.find((item) => item.id === league)?.name ?? league}
-                                    </h3>
-                                    {isSportPage && (
-                                        <Link
-                                            className="shrink-0 text-sm font-medium transition"
-                                            href={`${league}`}
-                                        >
-                                            View {leagueConfig.find((item) => item.id === league)?.name ?? league} →
-                                        </Link>
-                                    )}
-                                </div>
+                <div className="space-y-10">
+                    {groupedTeams.map(({ league, teams: leagueTeams }) => (
+                        <div key={league} className="space-y-4">
+                            <div className="flex flex-row items-center justify-between">
+                                <h3 className="text-xl font-semibold">
+                                    {leagueConfig.find((item) => item.id === league)?.name ?? league}
+                                </h3>
 
-
-                                <div
-                                    data-team-grid={league}
-                                    className="
-                                        grid
-                                        grid-cols-2
-                                        gap-4
-                                        sm:grid-cols-3
-                                        lg:grid-cols-4
-                                        3xl:grid-cols-6
-                                        5xl:grid-cols-8
-                                    "
-                                >
-                                    {leagueTeams.map((team) => (
-                                        <Link
-                                            key={`${team.league}-${team.id}`}
-                                            href={`/${team.league}/teams/${slugify(team.name)}?id=${team.id}`}
-                                            target="_blank"
-                                            className="
-                                                flex
-                                                flex-col
-                                                items-center
-                                                justify-center
-                                                gap-3
-                                                rounded-xl
-                                                border
-                                                border-zinc-800
-                                                bg-zinc-900
-                                                p-5
-                                                text-center
-                                                transition
-                                                hover:border-zinc-700
-                                                hover:bg-zinc-800
-                                            "
-                                        >
-                                            <TeamLogo
-                                                league={team.league}
-                                                teamId={team.id}
-                                                teamName={team.name}
-                                                displayName={team.full_name}
-                                            />
-
-                                            <span className="font-medium text-zinc-200">
-                                                {team.full_name}
-                                            </span>
-                                        </Link>
-                                    ))}
-                                </div>
-
-                                {total > (visibleCounts[league] ?? INITIAL_ROWS * 2) && (
-                                    <div className="flex justify-center">
-                                        <button
-                                            onClick={() => {
-                                                setVisibleCounts((prev) => ({
-                                                    ...prev,
-                                                    [league]: Math.min(
-                                                        (prev[league] ?? INITIAL_ROWS * 2) +
-                                                            ROWS_PER_CLICK * 2,
-                                                        total
-                                                    ),
-                                                }));
-                                            }}
-                                            className="
-                                                rounded-lg
-                                                border
-                                                border-zinc-700
-                                                bg-zinc-900
-                                                px-6
-                                                py-2
-                                                text-sm
-                                                font-medium
-                                                text-zinc-200
-                                                transition
-                                                hover:bg-zinc-800
-                                            "
-                                        >
-                                            Show More
-                                        </button>
-                                    </div>
+                                {isSportPage && (
+                                    <Link
+                                        className="shrink-0 text-sm font-medium transition"
+                                        href={league}
+                                    >
+                                        View {leagueConfig.find((item) => item.id === league)?.name ?? league} →
+                                    </Link>
                                 )}
                             </div>
-                        ))}
-                    </div>
-                </>
 
+                            <div className="
+                                grid
+                                grid-cols-2
+                                gap-4
+                                sm:grid-cols-3
+                                lg:grid-cols-4
+                                3xl:grid-cols-6
+                                5xl:grid-cols-8
+                            ">
+                                {leagueTeams.map((team) => (
+                                    <Link
+                                        key={`${team.league}-${team.id}`}
+                                        href={`/${team.league}/teams/${slugify(team.name)}?id=${team.id}`}
+                                        target="_blank"
+                                        className="
+                                            flex
+                                            flex-col
+                                            items-center
+                                            justify-center
+                                            gap-3
+                                            rounded-xl
+                                            border
+                                            border-zinc-800
+                                            bg-zinc-900
+                                            p-5
+                                            text-center
+                                            transition
+                                            hover:border-zinc-700
+                                            hover:bg-zinc-800
+                                        "
+                                    >
+                                        <TeamLogo
+                                            league={team.league}
+                                            teamId={team.id}
+                                            teamName={team.name}
+                                            displayName={team.full_name}
+                                        />
+
+                                        <span className="font-medium text-zinc-200">
+                                            {team.full_name}
+                                        </span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             )}
         </section>
     );
