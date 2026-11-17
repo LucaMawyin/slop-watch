@@ -21,7 +21,9 @@ interface Team {
 const getVisibleCount = (grid: HTMLDivElement) => {
     const columns = getComputedStyle(grid)
         .gridTemplateColumns
-        .split(" ").length;
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
 
     return columns * 2;
 };
@@ -112,47 +114,7 @@ export default function SportTeams({
         };
     });
 
-    useEffect(() => {
-        if (loading) return;
 
-        const grids = document.querySelectorAll<HTMLDivElement>(
-            "[data-team-grid]"
-        );
-
-        const observers: ResizeObserver[] = [];
-
-        grids.forEach((grid) => {
-            const league = grid.dataset.teamGrid;
-            if (!league) return;
-
-            let previousWidth = 0;
-
-            const updateVisibleCount = () => {
-                const width = grid.clientWidth;
-
-                if (width === previousWidth) return;
-
-                previousWidth = width;
-
-                setVisibleCounts((prev) => ({
-                    ...prev,
-                    [league]: Math.max(
-                        prev[league] ?? 0,
-                        getVisibleCount(grid)
-                    ),
-                }));
-            };
-
-            updateVisibleCount();
-
-            const observer = new ResizeObserver(updateVisibleCount);
-            observer.observe(grid);
-
-            observers.push(observer);
-        });
-
-        return () => observers.forEach((observer) => observer.disconnect());
-    }, [loading, leagueKey]);
 
     return (
         <section className="space-y-6">
