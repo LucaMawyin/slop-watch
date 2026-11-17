@@ -133,11 +133,7 @@ export default function SportPage() {
     return (
         <main className="space-y-10 p-6 text-white">
 
-            <SportHeader
-                name={name}
-                description={description}
-                image={image}
-            />
+
 
             <div className="
                 flex
@@ -147,7 +143,12 @@ export default function SportPage() {
                 items-center
 
             ">
-
+                <UpcomingGames
+                    games={games}
+                    category={category}
+                    name={name}
+                    loading={loading}
+                />
                 <button
                     onClick={() => router.push(`${category ? `/${category}/games` : "/games"}`)}
                     className="
@@ -171,9 +172,7 @@ export default function SportPage() {
                 </button>    
             </div>
 
-            <SportTeams
-                leagues={selectedLeagues}
-            />
+
 
         </main>
     );
