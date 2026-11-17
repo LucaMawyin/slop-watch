@@ -1,6 +1,7 @@
 
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface SportTeamsProps {
@@ -84,12 +85,13 @@ export default function SportTeams({ leagues }: SportTeamsProps) {
             ) : (
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     {teams.map((team, index) => (
-                        <div
+                        <Link
                             key={`${team.league}-${team.id}-${index}`}
+                            href="/"
                             className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 text-center"
                         >
                             {team.full_name}
-                        </div>
+                        </Link>
                     ))}
                 </div>
             )}
