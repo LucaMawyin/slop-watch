@@ -102,57 +102,12 @@ export default function SportTeams({
 
     const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
 
-    const groupedTeams = leagues.map((league) => {
-        const leagueTeams = teams.filter((team) => team.league === league);
-
-        return {
-            league,
-            teams: leagueTeams.slice(0, visibleCounts[league] ?? 0),
-            total: leagueTeams.length,
-        };
-    });
-
-    useEffect(() => {
-        if (loading) return;
-
-        const grids = document.querySelectorAll<HTMLDivElement>(
-            "[data-team-grid]"
-        );
-
-        const observers: ResizeObserver[] = [];
-
-        grids.forEach((grid) => {
-            const league = grid.dataset.teamGrid;
-            if (!league) return;
-
-            let previousWidth = 0;
-
-            const updateVisibleCount = () => {
-                const width = grid.clientWidth;
-
-                if (width === previousWidth) return;
-
-                previousWidth = width;
-
-                setVisibleCounts((prev) => ({
-                    ...prev,
-                    [league]: Math.max(
-                        prev[league] ?? 0,
-                        getVisibleCount(grid)
-                    ),
-                }));
-            };
-
-            updateVisibleCount();
-
-            const observer = new ResizeObserver(updateVisibleCount);
-            observer.observe(grid);
-
-            observers.push(observer);
-        });
-
-        return () => observers.forEach((observer) => observer.disconnect());
-    }, [loading, leagueKey]);
+    const groupedTeams = leagues.map((league) => ({
+        league,
+        teams: teams
+            .filter((team) => team.league === league)
+            .slice(0, 8),
+    }));
 
     return (
         <section className="space-y-6">
@@ -193,7 +148,7 @@ export default function SportTeams({
             ) : (
                 <>
                     <div className="space-y-10">
-                        {groupedTeams.map(({ league, teams: leagueTeams, total }) => (
+                        {groupedTeams.map(({ league, teams: leagueTeams }) => (
                             <div key={league} className="space-y-4">
                                 <div className="flex flex-row items-center justify-between">
                                     <h3 className="text-xl font-semibold">
@@ -244,9 +199,12 @@ export default function SportTeams({
                                                 hover:bg-zinc-800
                                             "
                                         >
-                                            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-zinc-800">
-                                                {team.name}
-                                            </div>
+                                            <TeamLogo
+                                                league={team.league}
+                                                teamId={team.id}
+                                                teamName={team.name}
+                                                displayName={team.full_name}
+                                            />
 
                                             <span className="font-medium text-zinc-200">
                                                 {team.full_name}
@@ -254,43 +212,6 @@ export default function SportTeams({
                                         </Link>
                                     ))}
                                 </div>
-
-                                {total > (visibleCounts[league] ?? 0) && (
-                                    <div className="flex justify-center">
-                                        <button
-                                            onClick={() => {
-                                                const grid = document.querySelector<HTMLDivElement>(
-                                                    `[data-team-grid="${league}"]`
-                                                );
-
-                                                if (!grid) return;
-
-                                                setVisibleCounts((prev) => ({
-                                                    ...prev,
-                                                    [league]: Math.min(
-                                                        (prev[league] ?? 0) + getVisibleCount(grid) * 2,
-                                                        total
-                                                    ),
-                                                }));
-                                            }}
-                                            className="
-                                                rounded-lg
-                                                border
-                                                border-zinc-700
-                                                bg-zinc-900
-                                                px-6
-                                                py-2
-                                                text-sm
-                                                font-medium
-                                                text-zinc-200
-                                                transition
-                                                hover:bg-zinc-800
-                                            "
-                                        >
-                                            Show More
-                                        </button>
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>
