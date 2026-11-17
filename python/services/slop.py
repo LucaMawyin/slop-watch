@@ -106,8 +106,8 @@ def get_slop(league="nba"):
             team_playoff_wins = {}
             current_season = season
 
-        home = game["home_name"]
-        away = game["away_name"]
+        home = game["home_full_name"]
+        away = game["away_full_name"]
 
         home_wins = team_playoff_wins.get(home, 0)
         away_wins = team_playoff_wins.get(away, 0)
@@ -183,8 +183,8 @@ def get_slop(league="nba"):
             team_season_stats = {}
             current_season = season
 
-        home = game["home_name"]
-        away = game["away_name"]
+        home = game["home_full_name"]
+        away = game["away_full_name"]
 
         # ---------------------------------
         # LAST COMPLETED GAME

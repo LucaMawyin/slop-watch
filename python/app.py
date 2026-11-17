@@ -733,8 +733,8 @@ async def team(league: str, team_slug: str, request: Request):
         ].copy()
     else:
         team_games = processed[
-            (processed["home_name"] == team_name) |
-            (processed["away_name"] == team_name)
+            (processed["home_full_name"] == team_full_name) |
+            (processed["away_full_name"] == team_full_name)
         ].copy()
 
     # Only completed games
@@ -767,7 +767,7 @@ async def team(league: str, team_slug: str, request: Request):
             )
         else:
             is_home = (
-                latest_game["home_name"] == team_name
+                latest_game["home_full_name"] == team_full_name
             )
 
         # Get team's badness
@@ -843,7 +843,7 @@ async def team(league: str, team_slug: str, request: Request):
                 )
             else:
                 is_home = (
-                    current_game["home_name"] == team_name
+                    current_game["home_full_name"] == team_full_name
                 )
 
             # Add the CURRENT game first
@@ -927,8 +927,8 @@ async def team(league: str, team_slug: str, request: Request):
             ].copy()
         else:
             games = games[
-                (games["home_name"] == team_name) |
-                (games["away_name"] == team_name)
+                (games["home_full_name"] == team_full_name) |
+                (games["away_full_name"] == team_full_name)
             ].copy()
 
         # Live + upcoming games
@@ -1123,8 +1123,8 @@ async def game(game_id: str, request: Request):
     home_recent_games = (
         processed[
             (
-                (processed["home_name"] == game["home_name"]) |
-                (processed["away_name"] == game["home_name"])
+                (processed["home_full_name"] == game["home_full_name"]) |
+                (processed["away_full_name"] == game["home_full_name"])
             )
             &
             (processed["date"] < current_game_date)
@@ -1169,8 +1169,8 @@ async def game(game_id: str, request: Request):
     away_recent_games = (
         processed[
             (
-                (processed["home_name"] == game["away_name"]) |
-                (processed["away_name"] == game["away_name"])
+                (processed["home_full_name"] == game["away_full_name"]) |
+                (processed["away_full_name"] == game["away_full_name"])
             )
             &
             (processed["date"] < current_game_date)
