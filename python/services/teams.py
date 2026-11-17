@@ -14,13 +14,6 @@ def get_teams(league):
     else:
         df = df[df["is_postseason"] == 0]
 
-    # Exclude mlb all star
-    if league == "mlb":
-        df = df[
-            ~df["home_name"].str.contains("All-Star", case=False, na=False)
-            & ~df["away_name"].str.contains("All-Star", case=False, na=False)
-        ]
-
     # Exclude wnba all star teams
     if league == "wnba":
         df = df[
@@ -55,6 +48,11 @@ def get_teams(league):
     })
 
     teams = pd.concat([home_teams, away_teams], ignore_index=True)
+
+    # Exclude any team containing all star
+    teams = teams[
+        ~teams["name"].str.contains("all star", case=False, na=False)
+    ]
 
     teams = teams.dropna(subset=["id", "name"])
     teams["name"] = teams["name"].astype(str).str.strip()
