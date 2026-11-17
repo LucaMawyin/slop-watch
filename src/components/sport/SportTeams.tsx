@@ -1,6 +1,7 @@
 
 "use client";
 
+import { slugify } from "@/lib/slugify";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -87,7 +88,7 @@ export default function SportTeams({ leagues }: SportTeamsProps) {
                     {teams.map((team, index) => (
                         <Link
                             key={`${team.league}-${team.id}-${index}`}
-                            href={`/${team.league}/teams/test?id=${team.id}`}
+                            href={`/${team.league}/teams/${slugify(team.name)}`}
                             className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 text-center"
                         >
                             {team.full_name}
