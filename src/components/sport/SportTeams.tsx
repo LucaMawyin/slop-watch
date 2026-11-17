@@ -114,7 +114,41 @@ export default function SportTeams({
         };
     });
 
+    useEffect(() => {
+        if (loading) return;
 
+        const grids = document.querySelectorAll<HTMLDivElement>(
+            "[data-team-grid]"
+        );
+
+        const observers: ResizeObserver[] = [];
+
+        grids.forEach((grid) => {
+            const league = grid.dataset.teamGrid;
+            if (!league) return;
+
+            const updateVisibleCount = () => {
+                const count = getVisibleCount(grid);
+
+                setVisibleCounts((prev) => {
+                    if (prev[league] !== undefined) return prev;
+
+                    return {
+                        ...prev,
+                        [league]: count,
+                    };
+                });
+            };
+
+            updateVisibleCount();
+
+            const observer = new ResizeObserver(updateVisibleCount);
+            observer.observe(grid);
+            observers.push(observer);
+        });
+
+        return () => observers.forEach((observer) => observer.disconnect());
+    }, [loading, leagueKey]);
 
     return (
         <section className="space-y-6">
@@ -230,10 +264,12 @@ export default function SportTeams({
 
                                                 if (!grid) return;
 
+                                                const increment = getVisibleCount(grid);
+
                                                 setVisibleCounts((prev) => ({
                                                     ...prev,
                                                     [league]: Math.min(
-                                                        (prev[league] ?? 0) + getVisibleCount(grid) * 2,
+                                                        (prev[league] ?? increment) + increment,
                                                         total
                                                     ),
                                                 }));
