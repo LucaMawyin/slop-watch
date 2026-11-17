@@ -100,9 +100,16 @@ export default function SportPage() {
                     throw new Error("Failed to load games.");
                 }
 
-                const data: Game[] = await response.json();
+                const data: unknown = await response.json();
 
-                setGames(data);
+                console.log("Games API response:", category, data);
+                console.log("Is array:", Array.isArray(data));
+
+                if (!Array.isArray(data)) {
+                    throw new Error(`Expected games array for ${category}`);
+                }
+
+                setGames(data as Game[]);
             } catch (error) {
                 if (
                     error instanceof Error &&
