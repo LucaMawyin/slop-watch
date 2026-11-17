@@ -103,52 +103,21 @@ export default function SportTeams({
     }, [leagueKey]);
 
     const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
+    const INITIAL_ROWS = 2;
+    const ROWS_PER_CLICK = 2;
 
     const groupedTeams = leagues.map((league) => {
         const leagueTeams = teams.filter((team) => team.league === league);
 
         return {
             league,
-            teams: leagueTeams.slice(0, visibleCounts[league] ?? 0),
+            teams: leagueTeams.slice(
+                0,
+                visibleCounts[league] ?? INITIAL_ROWS * 2
+            ),
             total: leagueTeams.length,
         };
     });
-
-    useEffect(() => {
-        if (loading) return;
-
-        const grids = document.querySelectorAll<HTMLDivElement>(
-            "[data-team-grid]"
-        );
-
-        const observers: ResizeObserver[] = [];
-
-        grids.forEach((grid) => {
-            const league = grid.dataset.teamGrid;
-            if (!league) return;
-
-            const updateVisibleCount = () => {
-                const count = getVisibleCount(grid);
-
-                setVisibleCounts((prev) => {
-                    if (prev[league] !== undefined) return prev;
-
-                    return {
-                        ...prev,
-                        [league]: count,
-                    };
-                });
-            };
-
-            updateVisibleCount();
-
-            const observer = new ResizeObserver(updateVisibleCount);
-            observer.observe(grid);
-            observers.push(observer);
-        });
-
-        return () => observers.forEach((observer) => observer.disconnect());
-    }, [loading, leagueKey]);
 
     return (
         <section className="space-y-6">
@@ -254,22 +223,15 @@ export default function SportTeams({
                                     ))}
                                 </div>
 
-                                {total > (visibleCounts[league] ?? 0) && (
+                                {total > (visibleCounts[league] ?? INITIAL_ROWS * 2) && (
                                     <div className="flex justify-center">
                                         <button
                                             onClick={() => {
-                                                const grid = document.querySelector<HTMLDivElement>(
-                                                    `[data-team-grid="${league}"]`
-                                                );
-
-                                                if (!grid) return;
-
-                                                const increment = getVisibleCount(grid);
-
                                                 setVisibleCounts((prev) => ({
                                                     ...prev,
                                                     [league]: Math.min(
-                                                        (prev[league] ?? increment) + increment,
+                                                        (prev[league] ?? INITIAL_ROWS * 2) +
+                                                            ROWS_PER_CLICK * 2,
                                                         total
                                                     ),
                                                 }));
