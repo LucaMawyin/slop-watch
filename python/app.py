@@ -572,11 +572,15 @@ async def games(request: Request):
             content={"error": "Invalid date range"}
         )
 
+    # Pad dates by 1 day on each side
+    cache_start = first_date - pd.Timedelta(days=1)
+    cache_end = last_date + pd.Timedelta(days=1)
+
     dates = [
         date.strftime("%Y-%m-%d")
         for date in pd.date_range(
-            first_date,
-            last_date,
+            cache_start,
+            cache_end,
             freq="D",
         )
     ]
