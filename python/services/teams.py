@@ -51,7 +51,12 @@ def get_teams(league):
 
     # Exclude any team containing all star
     teams = teams[
-        ~teams["name"].str.contains("all star", case=False, na=False)
+        ~teams["name"].str.contains(
+            r"all[- ]?star", case=False, na=False, regex=True
+        )
+        & ~teams["full_name"].str.contains(
+            r"all[- ]?star", case=False, na=False, regex=True
+        )
     ]
 
     teams = teams.dropna(subset=["id", "name"])
