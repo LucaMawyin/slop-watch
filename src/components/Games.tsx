@@ -192,6 +192,7 @@ function GamesContent() {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`,
                     {
+                        cache: "no-store",
                         signal: controller.signal,
                     }
                 );
