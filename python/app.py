@@ -491,11 +491,11 @@ async def games(request: Request):
     team = request.query_params.get("team")
     game_id = request.query_params.get("id")
 
+    version = get_request_cache_version(request)
+
     # ---------------------------------
     # CHECKING IF CACHED
     # ---------------------------------
-
-    version = get_request_cache_version(request)
 
     cache_key = make_cache_key(
         "games",
@@ -546,115 +546,257 @@ async def games(request: Request):
         leagues = list(SPORT_CONFIG.keys())
 
     # ---------------------------------
-    # TIMEFRAME
+    # GET DATE RANGE
     # ---------------------------------
-    
-    if start_date:
-        prediction_date = (
-            pd.Timestamp(start_date).normalize()
-            - pd.Timedelta(days=1)
-        )
-    else:
-        prediction_date = pd.Timestamp.now().normalize()
 
-    if end_date:
-        end_date = (
-            pd.Timestamp(end_date).normalize()
-            + pd.Timedelta(days=1)
+    try:
+        if start_date:
+            first_date = pd.Timestamp(start_date).normalize()
+        else:
+            first_date = pd.Timestamp.now(tz="UTC").normalize()
+
+        if end_date:
+            last_date = pd.Timestamp(end_date).normalize()
+        else:
+            last_date = first_date + pd.Timedelta(days=6)
+
+        if last_date < first_date:
+            return JSONResponse(
+                status_code=400,
+                content={"error": "End date must be on or after start date"}
+            )
+
+    except Exception:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "Invalid date range"}
         )
 
-        days_ahead = (
-            end_date - prediction_date
-        ).days
-    else:
-        days_ahead = 7
+    dates = [
+        date.strftime("%Y-%m-%d")
+        for date in pd.date_range(
+            first_date,
+            last_date,
+            freq="D",
+        )
+    ]
 
     all_games = []
 
     # ---------------------------------
-    # GET GAMES & PREDICTIONS
+    # GET CACHED GAMES BY DATE
     # ---------------------------------
 
-    for league in leagues:
+    for current_league in leagues:
 
-        predictions = await run_in_threadpool(
-            predict,
-            start_date=prediction_date,
-            league=league,
-            days_ahead=days_ahead,
+        cached_by_date = {}
+        missing_dates = []
+
+        for date in dates:
+
+            date_cache_key = make_cache_key(
+                "games",
+                version,
+                {
+                    "league": current_league,
+                    "date": date,
+                }
+            )
+
+            cached_date = get_cached(date_cache_key)
+
+            if cached_date is not None:
+                cached_by_date[date] = cached_date
+            else:
+                missing_dates.append(date)
+
+        print(
+            f"{current_league}: "
+            f"{len(cached_by_date)} cached dates, "
+            f"{len(missing_dates)} missing dates",
+            flush=True,
         )
 
-        if predictions.empty:
-            continue
+        # ---------------------------------
+        # GROUP CONSECUTIVE MISSING DATES
+        # ---------------------------------
 
-        predictions["game_id"] = (
-            predictions["game_id"].astype(str)
-        )
+        missing_groups = []
 
-        # Make sure all prediction feature columns exist
-        for column in PREDICTION_FEATURES:
-            if column not in predictions.columns:
-                predictions[column] = None
+        for date in missing_dates:
 
-        # Select cols
-        league_games = predictions[PREDICTION_FEATURES].copy()
+            if not missing_groups:
+                missing_groups.append([date])
+                continue
+
+            previous_date = pd.Timestamp(
+                missing_groups[-1][-1]
+            )
+
+            current_date = pd.Timestamp(date)
+
+            if (current_date - previous_date).days == 1:
+                missing_groups[-1].append(date)
+            else:
+                missing_groups.append([date])
 
         # ---------------------------------
-        # FILTER FOR GAME
+        # FETCH MISSING DATE RANGES
         # ---------------------------------
+
+        for date_group in missing_groups:
+
+            group_start = pd.Timestamp(
+                date_group[0]
+            )
+
+            group_end = pd.Timestamp(
+                date_group[-1]
+            )
+
+            # Start one day before requested date
+            prediction_start = (
+                group_start - pd.Timedelta(days=1)
+            )
+
+            # Headroom to account for timezone differences
+            days_ahead = (
+                (group_end - prediction_start).days + 2
+            )
+
+            predictions = await run_in_threadpool(
+                predict,
+                start_date=prediction_start,
+                days_ahead=days_ahead,
+                league=current_league,
+            )
+
+            # Make sure prediction columns exist
+            if predictions.empty:
+                predictions = pd.DataFrame(
+                    columns=PREDICTION_FEATURES
+                )
+            else:
+                predictions["game_id"] = (
+                    predictions["game_id"]
+                    .astype(str)
+                )
+
+                predictions["date"] = pd.to_datetime(
+                    predictions["date"],
+                    utc=True,
+                    errors="coerce",
+                )
+
+            for column in PREDICTION_FEATURES:
+                if column not in predictions.columns:
+                    predictions[column] = None
+
+            # ---------------------------------
+            # CACHE EACH DATE SEPARATELY
+            # ---------------------------------
+
+            for date in date_group:
+
+                if predictions.empty:
+                    date_games = pd.DataFrame(
+                        columns=PREDICTION_FEATURES
+                    )
+                else:
+                    date_games = predictions[
+                        predictions["date"].dt.strftime(
+                            "%Y-%m-%d"
+                        ) == date
+                    ].copy()
+
+                date_games = date_games[
+                    PREDICTION_FEATURES
+                ].copy()
+
+                date_games["league"] = current_league
+
+                date_games = date_games.astype(
+                    object
+                ).where(
+                    pd.notna(date_games),
+                    None,
+                )
+
+                date_result = date_games.to_dict(
+                    orient="records"
+                )
+
+                date_cache_key = make_cache_key(
+                    "games",
+                    version,
+                    {
+                        "league": current_league,
+                        "date": date,
+                    }
+                )
+
+                set_cached(
+                    date_cache_key,
+                    date_result,
+                )
+
+                cached_by_date[date] = date_result
+
+        # ---------------------------------
+        # COMBINE DATES FOR LEAGUE
+        # ---------------------------------
+
+        for date in dates:
+            all_games.extend(
+                cached_by_date.get(date, [])
+            )
+
+    # ---------------------------------
+    # APPLY REQUEST FILTERS
+    # ---------------------------------
+
+    if all_games:
+        games_df = pd.DataFrame(all_games)
 
         if game_id:
-            league_games = league_games[
-                league_games["game_id"].astype(str) == str(game_id)
-            ].copy()
-
-        # ---------------------------------
-        # FILTER FOR TEAM
-        # ---------------------------------
+            games_df = games_df[
+                games_df["game_id"].astype(str) == str(game_id)
+            ]
 
         if team:
-            league_games = league_games[
-                (league_games["home_name"] == team) | 
-                (league_games["away_name"] == team)
-            ].copy()
+            games_df = games_df[
+                (games_df["home_name"] == team) |
+                (games_df["away_name"] == team)
+            ]
 
-        league_games["league"] = league
-
-        all_games.append(league_games)
-
-    # ---------------------------------
-    # RETURN GAMES
-    # ---------------------------------
-    if not all_games:
-
-        set_cached(cache_key, [])
-
-        print(f"Games took {time.perf_counter() - start_time:.3f}s")
-
-        return cached_response(
-            [],
-            max_age=31536000,
-            stale_while_revalidate=0,
+        games_df = games_df.astype(object).where(
+            pd.notna(games_df),
+            None,
         )
 
-    games = pd.concat(
-        all_games, 
-        ignore_index=True
-    )
+        result = games_df.to_dict(
+            orient="records"
+        )
 
-    games["date"] = games["date"].astype(str)
+    else:
+        result = []
 
-    games = games.astype(object).where(
-        pd.notna(games),
-        None
+    # ---------------------------------
+    # CACHE COMPLETE REQUEST
+    # ---------------------------------
+
+    set_cached(
+        cache_key,
+        result,
     )
 
     elapsed = time.perf_counter() - start_time
-    print(f"Games took {elapsed:.3f}s")
 
-    result = games.to_dict(orient="records")
-
-    set_cached(cache_key, result)
+    print(
+        f"Games took {elapsed:.3f}s "
+        f"({len(result)} games)",
+        flush=True,
+    )
 
     return cached_response(
         result,
@@ -1283,14 +1425,16 @@ async def game_score(game_id: str, request: Request):
         game_date=game_date,
     )
 
-    return cached_response(
-        {
+    return JSONResponse(
+        content={
             "game_id": int(game_id),
             "home_score": score["home_score"],
             "away_score": score["away_score"],
         },
-        max_age=5,
-        stale_while_revalidate=5
+        headers={
+            "Cache-Control": "no-store",
+            "Cloudflare-CDN-Cache-Control": "no-store",
+        }
     )
 
 @router.get("/api/teams")
