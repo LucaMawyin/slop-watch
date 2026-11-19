@@ -24,7 +24,7 @@ from config.sports import (
     GAME_FEATURES,
     PREDICTION_FEATURES,
 )
-from services.update_manual import update_manual
+from services.update_data import update_all_data, update_all_models
 from services.teams import get_teams
 from services.predict import predict
 from services.live import get_live_score
@@ -397,48 +397,35 @@ def version():
     )
 
     
-@router.post("/api/update")
-def update(request: Request):
+@router.post("/api/update/data")
+def update_data_route(request: Request):
 
     provided_secret = request.headers.get("X-Update-Secret")
     expected_secret = os.environ.get("UPDATE_KEY")
 
     if not expected_secret or provided_secret != expected_secret:
-        raise HTTPException(
-            status_code=401,
-            detail="Unauthorized"
-        )
+        raise HTTPException(status_code=401, detail="Unauthorized")
 
     try:
         with lock:
-            print("UPDATE: Starting", flush=True)
+            print("UPDATE DATA: Starting", flush=True)
 
-            update_manual()
+            update_all_data()
 
-            print("UPDATE: Manual update finished", flush=True)
+            print("UPDATE DATA: Finished", flush=True)
 
             candidate_version = generate_data_version()
 
             print(
-                f"UPDATE: Candidate version {candidate_version}",
+                f"UPDATE DATA: Candidate version {candidate_version}",
                 flush=True,
             )
 
-        # ---------------------------------
-        # WARM CANDIDATE CACHE
-        # ---------------------------------
-
-        print("UPDATE: Starting candidate cache warm", flush=True)
+        print("UPDATE DATA: Starting candidate cache warm", flush=True)
 
         warm_success = warm_cache(candidate_version)
 
         if not warm_success:
-            print(
-                "UPDATE: Cache warming failed. "
-                "Keeping the previous active version.",
-                flush=True,
-            )
-
             return JSONResponse(
                 status_code=500,
                 content={
@@ -449,15 +436,11 @@ def update(request: Request):
                 },
             )
 
-        # ---------------------------------
-        # ACTIVATE CANDIDATE VERSION
-        # ---------------------------------
-
         with lock:
             set_data_version(candidate_version)
 
         print(
-            f"UPDATE: Activated version {candidate_version}",
+            f"UPDATE DATA: Activated version {candidate_version}",
             flush=True,
         )
 
@@ -468,14 +451,78 @@ def update(request: Request):
         }
 
     except Exception as e:
-        print(f"Update failed: {e}", flush=True)
+        print(f"Data update failed: {e}", flush=True)
 
         return JSONResponse(
             status_code=500,
             content={
                 "success": False,
-                "error": str(e)
-            }
+                "error": str(e),
+            },
+        )
+
+@router.post("/api/update/model")
+def update_model_route(request: Request):
+
+    provided_secret = request.headers.get("X-Update-Secret")
+    expected_secret = os.environ.get("UPDATE_KEY")
+
+    if not expected_secret or provided_secret != expected_secret:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    try:
+        with lock:
+            print("UPDATE MODEL: Starting", flush=True)
+
+            update_all_models()
+
+            print("UPDATE MODEL: Finished", flush=True)
+
+            candidate_version = generate_data_version()
+
+            print(
+                f"UPDATE MODEL: Candidate version {candidate_version}",
+                flush=True,
+            )
+
+        print("UPDATE MODEL: Starting candidate cache warm", flush=True)
+
+        warm_success = warm_cache(candidate_version)
+
+        if not warm_success:
+            return JSONResponse(
+                status_code=500,
+                content={
+                    "success": False,
+                    "message": "Models updated, but cache warming failed. Previous version remains active.",
+                    "candidate_version": candidate_version,
+                    "active_version": get_data_version(),
+                },
+            )
+
+        with lock:
+            set_data_version(candidate_version)
+
+        print(
+            f"UPDATE MODEL: Activated version {candidate_version}",
+            flush=True,
+        )
+
+        return {
+            "success": True,
+            "message": "Models updated, cache warmed, and new version activated.",
+            "version": candidate_version,
+        }
+
+    except Exception as e:
+        print(f"Model update failed: {e}", flush=True)
+
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": str(e),
+            },
         )
 
 

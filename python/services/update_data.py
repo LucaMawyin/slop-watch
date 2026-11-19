@@ -1,11 +1,11 @@
-from config.sports import SPORT_CONFIG
+from config.sports import SPORT_CONFIG, DATA_RANGE_YEARS
 from pathlib import Path
 import pandas as pd
 from datetime import date, timedelta
 import os
 
 from services.process_league import process_league
-from config.sports import DATA_RANGE_YEARS
+from services.model import train_model
 
 previous_game_days = 10
 
@@ -302,3 +302,20 @@ def update_data(league="nba"):
         f"{league.upper()}: refreshed {len(new_games)} games, "
         f"removed {removed_count} games before {cutoff_date.date()}\n"
     )
+
+def update_all_data():
+    for league in SPORT_CONFIG:
+        print(f"\n{'=' * 50}")
+        print(f"Updating {league.upper()} data")
+        print(f"{'=' * 50}")
+
+        update_data(league)
+
+
+def update_all_models():
+    for league in SPORT_CONFIG:
+        print(f"\n{'=' * 50}")
+        print(f"Training {league.upper()} model")
+        print(f"{'=' * 50}")
+
+        train_model(league)
