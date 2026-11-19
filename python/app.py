@@ -918,13 +918,43 @@ async def team(league: str, team_slug: str, request: Request):
         utc=True
     )
 
-    # Filter games for this team
+    # ---------------------------------
+    # RESOLVE TEAM FULL NAME
+    # ---------------------------------
+
+    team_full_name = team_name
+
     if team_id:
         team_games = processed[
             (processed["home_id"].astype(str) == str(team_id)) |
             (processed["away_id"].astype(str) == str(team_id))
         ].copy()
+
     else:
+        # Match against short names and full names
+        home_matches = (
+            processed["home_name"].fillna("").map(slugify) == team_slug
+        ) | (
+            processed["home_full_name"].fillna("").map(slugify) == team_slug
+        )
+
+        away_matches = (
+            processed["away_name"].fillna("").map(slugify) == team_slug
+        ) | (
+            processed["away_full_name"].fillna("").map(slugify) == team_slug
+        )
+
+        matches = processed[home_matches | away_matches]
+
+        if not matches.empty:
+            first_match = matches.iloc[0]
+
+            if home_matches.loc[first_match.name]:
+                team_full_name = first_match["home_full_name"]
+            else:
+                team_full_name = first_match["away_full_name"]
+
+        # Filter using the resolved full name
         team_games = processed[
             (processed["home_full_name"] == team_full_name) |
             (processed["away_full_name"] == team_full_name)
@@ -940,7 +970,6 @@ async def team(league: str, team_slug: str, request: Request):
     wins = 0
     losses = 0
     point_diff = 0
-    team_full_name = team_name
 
     if team_games.empty:
         print(f"No completed games found for team ID {team_id}")

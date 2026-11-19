@@ -11,6 +11,7 @@ import { leagues } from "@/lib/leagues";
 import AddToCalendar from "@/components/AddToCalendar";
 import { useRouter } from "next/navigation";
 import TeamLogo from "./TeamLogo";
+import { getLocalDate } from "@/lib/getLocalDate";
 
 interface FeaturedGameCardProps {
     game: Game;
@@ -41,16 +42,8 @@ export default function FeaturedGameCard({
     const isLive = !isFinal && new Date(game.date) <= new Date();
 
     const showScores = new Date() >= new Date(game.date);
-    console.log({
-        showScores,
-        gameDate: game.date,
-        now: new Date().toISOString(),
-        homeScore: game.home_score,
-        awayScore: game.away_score,
-        actualSlop: game.actual_slop,
-    });
 
-    const gameUrl = `/${game.league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`;
+    const gameUrl = `/${game.league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`;
 
     return (
         <div
@@ -324,6 +317,7 @@ export default function FeaturedGameCard({
                 <Link
                     href={gameUrl}
                     onClick={(e) => e.stopPropagation()}
+                    target="_blank"
                     className="
                         block
                         w-full

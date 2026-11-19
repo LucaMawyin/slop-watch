@@ -5,10 +5,12 @@ import ShowMoreButton from "@/components/ShowMoreButton";
 import TeamLogo from "@/components/TeamLogo";
 import TeamSkeleton from "@/components/TeamSkeleton";
 import { getHeatColour } from "@/lib/getHeatColour";
+import { getLocalDate } from "@/lib/getLocalDate";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { leagues } from "@/lib/leagues";
 import { slugify, unslugify } from "@/lib/slugify";
 import { Game, Team } from "@/lib/types";
+import { AlertCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
@@ -34,6 +36,7 @@ export default function TeamPage({ params }: Props) {
     const [loading, setLoading] = useState(true);
     const [ recentGamesCount, setRecentGamesCount ] = useState(3);
     const [ upcomingGamesCount, setUpcomingGamesCount ] = useState(3);
+    const [error, setError] = useState<string | null>(null);
 
     const slug = slugify(teamSlug);
 
@@ -59,6 +62,7 @@ export default function TeamPage({ params }: Props) {
         async function fetchTeam() {
             try {
                 setLoading(true);
+                setError(null);
 
                 // Get current data version
                 const versionResponse = await fetch(
@@ -87,7 +91,11 @@ export default function TeamPage({ params }: Props) {
                 );
 
                 if (!response.ok) {
-                    throw new Error(`Team API failed: ${response.status}`);
+                    throw new Error(
+                        response.status === 404
+                            ? "Team not found."
+                            : "Failed to load team data."
+                    );
                 }
 
                 const data: Team = await response.json();
@@ -101,6 +109,14 @@ export default function TeamPage({ params }: Props) {
                 }
 
                 console.error(error);
+
+                if (!controller.signal.aborted) {
+                    setError(
+                        error instanceof Error
+                            ? error.message
+                            : "An unexpected error occurred."
+                    );
+                }
             } finally {
                 if (!controller.signal.aborted) {
                     setLoading(false);
@@ -216,13 +232,6 @@ export default function TeamPage({ params }: Props) {
                 {/* PAGE HEADER */}
                 <div className="mb-8">
 
-                    <Link
-                        href={`/${league}/games`}
-                        className="mb-4 block hover:underline w-fit"
-                    >
-                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
-                    </Link>
-
                     <div className="mt-1 flex items-center gap-4">
                         <TeamLogo
                             league={league}
@@ -321,7 +330,7 @@ export default function TeamPage({ params }: Props) {
 
                                         return (
                                             <Link
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
+                                                href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
                                                 target="_blank"
                                                 key={game.game_id}
                                                 className="
@@ -519,7 +528,7 @@ export default function TeamPage({ params }: Props) {
                                         return (
 
                                             <Link
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
+                                                href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
                                                 target="_blank"
                                                 key={game.game_id}
                                                 className="
@@ -654,7 +663,7 @@ export default function TeamPage({ params }: Props) {
 
                                         return (
                                             <Link
-                                                href={`/${league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}${ref ? `&ref=${ref}` : ""}`}
+                                                href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
                                                 target="_blank"
                                                 key={game.game_id}
                                                 className="
@@ -770,8 +779,74 @@ export default function TeamPage({ params }: Props) {
                         </section>
                     </>
                 ) : (
-                    <div className="text-red-400">
-                        Failed to load team.
+                    <div className="
+                        flex 
+                        flex-1
+                        items-center 
+                        justify-center 
+                        px-6 py-12 
+                        text-white
+                    ">
+                        <div className="
+                            w-full 
+                            max-w-md 
+                            text-center
+                        ">
+                            <div className="
+                                mx-auto 
+                                mb-5 
+                                flex 
+                                h-16 
+                                w-16 
+                                items-center 
+                                justify-center 
+                                rounded-full 
+                                bg-red-500/10
+                            ">
+                                <AlertCircle className="h-8 w-8 text-red-400" />
+                            </div>
+
+                            <h1 className="
+                                text-2xl 
+                                font-bold 
+                                tracking-tight
+                            ">
+                                Unable to Load Team
+                            </h1>
+
+                            <p className="
+                                mt-3 
+                                text-sm 
+                                leading-relaxed 
+                                text-gray-400
+                            ">
+                                {error ?? "We couldn't load this team. It may be unavailable or no longer exist."}
+                            </p>
+
+                            <Link
+                                href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
+                                className="
+                                    mt-7 
+                                    inline-flex 
+                                    items-center 
+                                    gap-2 
+                                    rounded-lg 
+                                    bg-white 
+                                    px-5 
+                                    py-3 
+                                    text-sm 
+                                    font-semibold 
+                                    text-black 
+                                    transition 
+                                    hover:bg-gray-200
+                                    hover:no-underline!
+                                    hover:text-black!
+                                "
+                            >
+                                <ArrowLeft className="h-4 w-4" />
+                                Back to Games
+                            </Link>
+                        </div>
                     </div>
                 )}
 

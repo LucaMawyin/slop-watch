@@ -5,10 +5,12 @@ import Badge from "@/components/Badge";
 import PreviewSkeleton from "@/components/PreviewSkeleton";
 import TeamLogo from "@/components/TeamLogo";
 import { getHeatColour } from "@/lib/getHeatColour";
+import { getLocalDate } from "@/lib/getLocalDate";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { leagues } from "@/lib/leagues";
 import { slugify } from "@/lib/slugify";
 import { Game } from "@/lib/types";
+import { AlertCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
@@ -187,13 +189,7 @@ export default function PreviewPage({ params }: Props) {
             <main className="p-6 text-white">
 
                 <div className="mx-auto max-w-5xl">
-                    {/* BACK */}
-                    <Link
-                        href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
-                        className="mb-4 block hover:underline w-fit"
-                    >
-                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
-                    </Link>
+
                     <PreviewSkeleton />
                 </div>
             </main>
@@ -202,17 +198,72 @@ export default function PreviewPage({ params }: Props) {
 
     if (error || !game) {
         return (
-            <main className="p-6 text-white">
-                <div className="mx-auto max-w-5xl">
-                    <p className="text-red-400">
-                        {error ?? "Failed to load game preview."}
+            <main className="
+                flex 
+                flex-1
+                items-center 
+                justify-center 
+                px-6 py-12 
+                text-white
+            ">
+                <div className="
+                    w-full 
+                    max-w-md 
+                    text-center
+                ">
+                    <div className="
+                        mx-auto 
+                        mb-5 
+                        flex 
+                        h-16 
+                        w-16 
+                        items-center 
+                        justify-center 
+                        rounded-full 
+                        bg-red-500/10
+                    ">
+                        <AlertCircle className="h-8 w-8 text-red-400" />
+                    </div>
+
+                    <h1 className="
+                        text-2xl 
+                        font-bold 
+                        tracking-tight
+                    ">
+                        Unable to Load Game
+                    </h1>
+
+                    <p className="
+                        mt-3 
+                        text-sm 
+                        leading-relaxed 
+                        text-gray-400
+                    ">
+                        {error ?? "We couldn't load this game preview. It may be unavailable or no longer exist."}
                     </p>
 
                     <Link
                         href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
-                        className="mt-4 inline-block hover:underline"
+                        className="
+                            mt-7 
+                            inline-flex 
+                            items-center 
+                            gap-2 
+                            rounded-lg 
+                            bg-white 
+                            px-5 
+                            py-3 
+                            text-sm 
+                            font-semibold 
+                            text-black 
+                            transition 
+                            hover:bg-gray-200
+                            hover:no-underline!
+                            hover:text-black!
+                        "
                     >
-                        &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
+                        <ArrowLeft className="h-4 w-4" />
+                        Back to Games
                     </Link>
                 </div>
             </main>
@@ -236,17 +287,12 @@ export default function PreviewPage({ params }: Props) {
 
     const badge = getSlopBadge(slop, watchability);
 
+    const isFinal = game.actual_slop !== null;
+    const isLive = !isFinal && new Date(game.date) <= new Date();
+
     return (
         <main className="w-full p-6 text-white">
             <div className="mx-auto max-w-5xl">
-
-                {/* BACK */}
-                <Link
-                    href={`/${league}/games${start ? `?start=${start}` : ""}${end ? `&end=${end}` : ""}`}
-                    className="mb-4 block hover:underline w-fit"
-                >
-                    &lt; Back to {leagues.find((item) => item.id === league)?.name} Games
-                </Link>
 
                 {/* HEADER */}
                 <div className="
@@ -287,10 +333,12 @@ export default function PreviewPage({ params }: Props) {
                         flex 
                         w-full 
                         max-w-3xl 
+                        flex-wrap
                         items-center 
                         justify-between 
                         gap-4 
                         sm:gap-8
+                        sm:flex-nowrap
                     ">
 
                         {/* HOME */}
@@ -322,30 +370,70 @@ export default function PreviewPage({ params }: Props) {
                             </Link>
                         </div>
 
-                        {/* SCORE / VS */}
-                        <div className="shrink-0 text-center text-lg font-semibold text-zinc-500">
-                            {(
-                                game.actual_slop !== null ||
-                                (
-                                    new Date(game.date) <= new Date() &&
-                                    game.home_score !== null &&
-                                    game.away_score !== null
-                                )
-                            ) ? (
-                                <div>
-                                    {game.actual_slop === null && (
-                                        <div className="mb-1 text-xs font-semibold text-green-400">
-                                            ● LIVE
-                                        </div>
-                                    )}
+                        {/* VS / DESKTOP SCORE */}
+                        <div className="
+                            flex
+                            shrink-0
+                            flex-col
+                            items-center
+                            justify-center
+                            text-center
+                        ">
+                            <div className="
+                                text-lg
+                                font-semibold
+                                text-zinc-500
+                                sm:hidden
+                                px-1
+                            ">
+                                VS
+                            </div>
 
-                                    <div className="text-4xl font-bold text-white">
-                                        {game.home_score} - {game.away_score}
+                            <div className="hidden sm:block">
+                                {(
+                                    game.actual_slop !== null ||
+                                    (
+                                        new Date(game.date) <= new Date() &&
+                                        game.home_score !== null &&
+                                        game.away_score !== null
+                                    )
+                                ) ? (
+                                    <>
+                                        {game.actual_slop === null && (
+                                            <div className="mb-1 flex items-center justify-center text-xs font-semibold text-green-400">
+                                                <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
+                                                LIVE
+                                            </div>
+                                        )}
+                                        <div className="
+                                            flex
+                                            flex-col
+                                            items-center
+                                            gap-2
+                                            text-4xl 
+                                            font-bold 
+                                            text-white
+                                        ">
+                                            {isFinal && (
+                                                <Badge
+                                                    title={"FINAL"}
+                                                    x={3}
+                                                    y={1}
+                                                    className="border-none w-fit"
+                                                    bgColour={"bg-sky-950"}
+                                                    textColour={"text-sky-400"}
+                                                />                                                
+                                            )}
+
+                                            {game.home_score} - {game.away_score}
+                                        </div>
+                                    </>
+                                ) : (
+                                    <div className="text-lg font-semibold text-zinc-500">
+                                        VS
                                     </div>
-                                </div>
-                            ) : (
-                                "VS"
-                            )}
+                                )}
+                            </div>
                         </div>
 
                         {/* AWAY */}
@@ -378,6 +466,79 @@ export default function PreviewPage({ params }: Props) {
                         </div>
 
                     </div>
+
+                    {/* MOBILE SCORE */}
+                    {(
+                        game.actual_slop !== null ||
+                        (
+                            new Date(game.date) <= new Date() &&
+                            game.home_score !== null &&
+                            game.away_score !== null
+                        )
+                    ) && (
+                        <div className="
+                            mt-4
+                            text-center
+                            flex
+                            flex-col
+                            sm:hidden
+                            w-full
+                            gap-4
+                        ">
+                            {isLive && (
+                                <Badge
+                                    title={isFinal ? "FINAL" : "LIVE"}
+                                    x={3}
+                                    y={1}
+                                    className="border-none w-fit self-center"
+                                    bgColour={"bg-green-950"}
+                                    textColour={"text-green-400"}
+                                >
+                                    <span className="
+                                        h-1.5
+                                        w-1.5
+                                        animate-pulse
+                                        rounded-full
+                                        bg-green-400
+                                    " />
+                                </Badge>
+                            )}
+
+
+                                
+                            <div className="
+                                flex
+                                flex-row
+                                w-full
+                                items-center
+                                justify-center
+                                text-4xl 
+                                font-bold 
+                                text-white
+                                gap-8
+                            ">
+                                <div className="w-0 flex-1 text-center">
+                                    {game.home_score}
+                                </div>
+                                {isFinal ? (
+                                    <Badge
+                                        title={"FINAL"}
+                                        x={3}
+                                        y={1}
+                                        className="border-none w-fit mt-1"
+                                        bgColour={"bg-sky-950"}
+                                        textColour={"text-sky-400"}
+                                    />                                                
+                                ) : (
+                                    <div>-</div>
+                                )}
+                                <div className="w-0 flex-1 text-center">
+                                    {game.away_score}
+                                </div>   
+                            </div>
+
+                        </div>
+                    )}
 
                     <div className="mt-4 text-sm text-zinc-500">
                         {game.venue_full_name}
@@ -630,7 +791,7 @@ export default function PreviewPage({ params }: Props) {
                                         return (
                                             <Link
                                                 key={recent_game.game_id}
-                                                href={`/${league}/preview/${recent_game.game_id}?date=${recent_game.date.slice(0, 10)}`}
+                                                href={`/${league}/preview/${recent_game.game_id}?date=${getLocalDate(recent_game.date)}`}
                                                 target="_blank"
                                                 className="
                                                     no-underline!
@@ -759,7 +920,7 @@ export default function PreviewPage({ params }: Props) {
                                         return (
                                             <Link
                                                 key={recent_game.game_id}
-                                                href={`/${league}/preview/${recent_game.game_id}?date=${recent_game.date.slice(0, 10)}`}
+                                                href={`/${league}/preview/${recent_game.game_id}?date=${getLocalDate(recent_game.date)}`}
                                                 target="_blank"
                                                 className="
                                                     no-underline!
