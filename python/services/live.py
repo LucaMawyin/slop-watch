@@ -395,17 +395,37 @@ def get_live_score(
 
     elif "league" in config:
 
-        games = schedule_function(
-            league=config["league"],
-            dates=game_date.strftime("%Y%m%d"),
-            return_as_pandas=True,
-            limit=500
+        date_range = pd.date_range(
+            start=game_date - pd.Timedelta(days=1),
+            end=game_date + pd.Timedelta(days=1),
+            freq="D",
         )
 
-        if games is not None and not games.empty:
-            games = games.rename(columns={
-                "event_id": "game_id",
-            })
+        game_frames = []
+
+        for date in date_range:
+            result = schedule_function(
+                league=config["league"],
+                dates=date.strftime("%Y%m%d"),
+                return_as_pandas=True,
+                limit=500,
+            )
+
+            if result is not None and not result.empty:
+                result = result.rename(columns={
+                    "event_id": "game_id",
+                })
+
+                game_frames.append(result)
+
+        games = (
+            pd.concat(game_frames, ignore_index=True)
+            if game_frames
+            else pd.DataFrame()
+        )
+
+        if not games.empty:
+            games = games.drop_duplicates(subset=["game_id"])
 
     # ---------------------------------
     # ESPN
@@ -413,11 +433,32 @@ def get_live_score(
 
     else:
 
-        games = schedule_function(
-            dates=game_date.strftime("%Y%m%d"),
-            return_as_pandas=True,
-            limit=50
+        date_range = pd.date_range(
+            start=game_date - pd.Timedelta(days=1),
+            end=game_date + pd.Timedelta(days=1),
+            freq="D",
         )
+
+        game_frames = []
+
+        for date in date_range:
+            result = schedule_function(
+                dates=date.strftime("%Y%m%d"),
+                return_as_pandas=True,
+                limit=500,
+            )
+
+            if result is not None and not result.empty:
+                game_frames.append(result)
+
+        games = (
+            pd.concat(game_frames, ignore_index=True)
+            if game_frames
+            else pd.DataFrame()
+        )
+
+        if not games.empty:
+            games = games.drop_duplicates(subset=["game_id"])
 
     if games is None or games.empty:
         return {

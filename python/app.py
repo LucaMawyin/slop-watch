@@ -108,12 +108,19 @@ def get_request_cache_version(request: Request):
 
     return version
 
-def cached_response(content):
+def cached_response(
+    content,
+    max_age=31536000,
+    stale_while_revalidate=0,
+):
     return JSONResponse(
         content=jsonable_encoder(content),
         headers={
-            "Cache-Control": "no-store",
-            "Cloudflare-CDN-Cache-Control": "no-store",
+            "Cache-Control": "public, max-age=0",
+            "Cloudflare-CDN-Cache-Control": (
+                f"public, max-age={max_age}, "
+                f"stale-while-revalidate={stale_while_revalidate}"
+            )
         }
     )
 
@@ -506,7 +513,11 @@ async def games(request: Request):
     cached = get_cached(cache_key)
 
     if cached is not None:
-        return cached_response(cached)
+        return cached_response(
+            cached,
+            max_age=31536000,
+            stale_while_revalidate=0,
+        )
 
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
@@ -728,16 +739,9 @@ async def games(request: Request):
                     }
                 )
 
-                today = datetime.now(
-                    ZoneInfo("America/Toronto")
-                ).strftime("%Y-%m-%d")
-
-                ttl = 60 if date == today else 86400
-
                 set_cached(
                     date_cache_key,
                     date_result,
-                    ttl=ttl,
                 )
 
                 cached_by_date[date] = date_result
@@ -788,7 +792,6 @@ async def games(request: Request):
     set_cached(
         cache_key,
         result,
-        ttl=60,
     )
 
     elapsed = time.perf_counter() - start_time
@@ -799,7 +802,11 @@ async def games(request: Request):
         flush=True,
     )
 
-    return cached_response(result)
+    return cached_response(
+        result,
+        max_age=31536000,
+        stale_while_revalidate=0,
+    )
 
 @router.get("/api/team/{league}/{team_slug}")
 async def team(league: str, team_slug: str, request: Request):
@@ -865,8 +872,6 @@ async def team(league: str, team_slug: str, request: Request):
     )
 
     # Filter games for this team
-    team_full_name = team_name
-
     if team_id:
         team_games = processed[
             (processed["home_id"].astype(str) == str(team_id)) |
@@ -888,6 +893,7 @@ async def team(league: str, team_slug: str, request: Request):
     wins = 0
     losses = 0
     point_diff = 0
+    team_full_name = team_name
 
     if team_games.empty:
         print(f"No completed games found for team ID {team_id}")

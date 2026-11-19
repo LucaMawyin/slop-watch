@@ -40,7 +40,15 @@ export default function FeaturedGameCard({
     const isFinal = game.actual_slop !== null;
     const isLive = !isFinal && new Date(game.date) <= new Date();
 
-    const showScores = isLive || isFinal;
+    const showScores = new Date() >= new Date(game.date);
+    console.log({
+        showScores,
+        gameDate: game.date,
+        now: new Date().toISOString(),
+        homeScore: game.home_score,
+        awayScore: game.away_score,
+        actualSlop: game.actual_slop,
+    });
 
     const gameUrl = `/${game.league}/preview/${game.game_id}?date=${game.date.slice(0, 10)}`;
 

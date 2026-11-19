@@ -310,45 +310,72 @@ function GamesContent() {
                     );
                 });
 
-                // Fetch all relevant scores concurrently
-                await Promise.allSettled(
+                const results = await Promise.allSettled(
                     liveGames.map(async (game) => {
                         const params = new URLSearchParams({
                             league: game.league,
                             date: game.date,
                         });
 
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
-                            {
-                                cache: "no-store",
-                                signal: controller.signal,
-                            }
-                        );
+                        const url =
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
+
+                        const response = await fetch(url, {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        });
 
                         if (!response.ok) {
                             throw new Error(
-                                `Failed to fetch score for game ${game.game_id}`
+                                `Game ${game.game_id}: HTTP ${response.status}`
                             );
                         }
 
-                        const liveGame: LiveScore = await response.json();
+                        const score: LiveScore = await response.json();
 
-                        if (controller.signal.aborted) return;
+                        console.log("Score response:", {
+                            game_id: game.game_id,
+                            league: game.league,
+                            score,
+                        });
 
-                        setGames((currentGames) =>
-                            currentGames.map((currentGame) =>
-                                String(currentGame.game_id) ===
-                                    String(liveGame.game_id) &&
-                                currentGame.league === game.league
-                                    ? {
-                                        ...currentGame,
-                                        home_score: liveGame.home_score,
-                                        away_score: liveGame.away_score,
-                                    }
-                                    : currentGame
-                            )
+                        return {
+                            ...score,
+                            league: game.league,
+                        };
+                    })
+                );
+
+                const scores: (LiveScore & { league: string })[] = [];
+
+                results.forEach((result, index) => {
+                    if (result.status === "fulfilled") {
+                        scores.push(result.value);
+                    } else {
+                        console.error(
+                            `Score request failed for game ${liveGames[index].game_id}:`,
+                            result.reason
                         );
+                    }
+                });
+
+                if (controller.signal.aborted) return;
+
+                setGames((currentGames) =>
+                    currentGames.map((game) => {
+                        const score = scores.find(
+                            (item) =>
+                                String(item.game_id) === String(game.game_id) &&
+                                item.league === game.league
+                        );
+
+                        if (!score) return game;
+
+                        return {
+                            ...game,
+                            home_score: score.home_score,
+                            away_score: score.away_score,
+                        };
                     })
                 );
 
@@ -357,10 +384,7 @@ function GamesContent() {
                     error instanceof Error &&
                     error.name !== "AbortError"
                 ) {
-                    console.error(
-                        "Failed to update live scores:",
-                        error
-                    );
+                    console.error("Failed to update live scores:", error);
                 }
             } finally {
                 updating = false;
