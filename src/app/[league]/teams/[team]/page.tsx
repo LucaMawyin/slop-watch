@@ -181,12 +181,12 @@ export default function TeamPage({ params }: Props) {
                                 String(currentGame.game_id) === String(game.game_id)
                                     ? {
                                         ...currentGame,
-                                        home_score: updatedGame.home_score,
-                                        away_score: updatedGame.away_score,
-                                        actual_slop: updatedGame.actual_slop,
-                                        actual_watchability: updatedGame.actual_watchability,
-                                        watchability_percentile: updatedGame.watchability_percentile,
-                                        slop_percentile: updatedGame.slop_percentile,
+                                        home_score: updatedGame.home_score ?? currentGame.home_score,
+                                        away_score: updatedGame.away_score ?? currentGame.away_score,
+                                        actual_slop: updatedGame.actual_slop ?? currentGame.actual_slop,
+                                        actual_watchability: updatedGame.actual_watchability ?? currentGame.actual_watchability,
+                                        watchability_percentile: updatedGame.watchability_percentile ?? currentGame.watchability_percentile,
+                                        slop_percentile: updatedGame.slop_percentile ?? currentGame.slop_percentile,
                                     }
                                     : currentGame
                             ),
@@ -481,13 +481,13 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: game.watchability_percentile !== null
-                                                                        ? getHeatColour(1 - game.watchability_percentile)
+                                                                    color: game.slop_percentile !== null
+                                                                        ? getHeatColour(game.slop_percentile)
                                                                         : undefined,
                                                                 }}
                                                             >
-                                                                {game.watchability_percentile !== null
-                                                                    ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                {game.slop_percentile !== null
+                                                                    ? `${(game.slop_percentile * 100).toFixed(1)}%`
                                                                     : "—"}
                                                             </p>
                                                         </div>

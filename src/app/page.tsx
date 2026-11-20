@@ -164,7 +164,12 @@ export default function Home() {
 
                     return {
                         ...game,
-                        ...result.value.updatedGame,
+                        ...Object.fromEntries(
+                            Object.entries(result.value.updatedGame).map(([key, value]) => [
+                                key,
+                                value ?? game[key as keyof Game],
+                            ])
+                        ),
                     };
                 });
 
@@ -297,7 +302,15 @@ export default function Home() {
                         );
 
                         return result?.status === "fulfilled"
-                            ? { ...game, ...result.value.updatedGame }
+                            ? {
+                                ...game,
+                                ...Object.fromEntries(
+                                    Object.entries(result.value.updatedGame).map(([key, value]) => [
+                                        key,
+                                        value ?? game[key as keyof Game],
+                                    ])
+                                ),
+                            }
                             : game;
                     })
                 );
