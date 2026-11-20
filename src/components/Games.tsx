@@ -481,20 +481,22 @@ function GamesContent() {
             const aCompleted = a.actual_slop !== null;
             const bCompleted = b.actual_slop !== null;
 
-            // Group priority: Live → Upcoming → Completed
+            // Desc: Live -> Upcoming -> Completed
+            // Asc: Completed -> Upcoming -> Live
             const aGroup = aLive ? 0 : aCompleted ? 2 : 1;
             const bGroup = bLive ? 0 : bCompleted ? 2 : 1;
 
             if (aGroup !== bGroup) {
-                return aGroup - bGroup;
+                return sortDirection === "desc"
+                    ? aGroup - bGroup
+                    : bGroup - aGroup;
             }
 
-            // Sort within each group
-            comparison = aTime - bTime;
+            const comparison = aTime - bTime;
 
             return sortDirection === "desc"
-                ? comparison
-                : -comparison;
+                ? -comparison
+                : comparison;
         }
 
         else if (sortBy === "slop") {
