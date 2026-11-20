@@ -64,3 +64,5 @@ deploy.sh
 
 python/data/
 .slop-watch.lock
+
+data_version.json

@@ -322,10 +322,10 @@ function GamesContent() {
         // Initial load
         loadGames();
 
-        // Check for new games every 5 minutes
+        // Check for new games every minute
         const interval = setInterval(
             loadGames,
-            5 * 60 * 1000
+            60 * 1000
         );
 
         return () => {
@@ -492,7 +492,7 @@ function GamesContent() {
             // Sort within each group
             comparison = aTime - bTime;
 
-            return sortDirection === "asc"
+            return sortDirection === "desc"
                 ? comparison
                 : -comparison;
         }

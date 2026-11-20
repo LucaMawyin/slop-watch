@@ -1267,16 +1267,18 @@ async def game(game_id: str, request: Request):
     # GET GAME PREDICTION
     # ---------------------------------
 
-    prediction_date = (
-        game_date
-        - pd.Timedelta(days=1)
+    prediction_start = game_date - pd.Timedelta(days=1)
+    prediction_end = game_date + pd.Timedelta(days=1)
+
+    days_ahead = (
+        (prediction_end - prediction_start).days + 2
     )
 
     games = await run_in_threadpool(
         predict,
         league=league,
-        start_date=prediction_date,
-        days_ahead=2,
+        start_date=prediction_start,
+        days_ahead=days_ahead,
     )
 
     if games.empty:
