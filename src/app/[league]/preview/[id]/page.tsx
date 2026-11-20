@@ -2,6 +2,7 @@
 
 import AddToCalendar from "@/components/AddToCalendar";
 import Badge from "@/components/Badge";
+import { useNotifications } from "@/components/NotificationProvider";
 import PreviewSkeleton from "@/components/PreviewSkeleton";
 import TeamLogo from "@/components/TeamLogo";
 import { getHeatColour } from "@/lib/getHeatColour";
@@ -24,6 +25,8 @@ type Props = {
 
 export default function PreviewPage({ params }: Props) {
 
+    const { notify, dismiss, dismissAll } = useNotifications();
+
     const { league, id } = use(params);
     const searchParams = useSearchParams();
     const date = searchParams.get("date");
@@ -33,6 +36,7 @@ export default function PreviewPage({ params }: Props) {
 
     const [game, setGame] = useState<Game | null>(null);
     const gameRef = useRef<Game | null>(null);
+    const hasFetchedScore = useRef(false);
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -46,6 +50,7 @@ export default function PreviewPage({ params }: Props) {
                 gameRef.current = null;
                 setGame(null);
                 setError(null);
+                hasFetchedScore.current = false;
 
                 if (!date) {
                     throw new Error("Missing game date");
@@ -136,6 +141,12 @@ export default function PreviewPage({ params }: Props) {
 
             updating = true;
 
+            const notificationId = !hasFetchedScore.current
+                ? notify("Fetching live score...", "info", null)
+                : null;
+
+            hasFetchedScore.current = true;
+
             try {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${encodeURIComponent(league)}&date=${encodeURIComponent(currentGame.date)}`,
@@ -171,9 +182,14 @@ export default function PreviewPage({ params }: Props) {
                     error.name !== "AbortError"
                 ) {
                     console.error(`Failed to fetch score for ${id}:`, error);
+                    notify("Failed to fetch live score.", "error");
                 }
             } finally {
                 updating = false;
+
+                if (notificationId !== null) {
+                    dismiss(notificationId);
+                }
             }
         };
 
