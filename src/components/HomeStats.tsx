@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { Game } from "@/lib/types";
 import Link from "next/link";
 import { getLocalDate } from "@/lib/getLocalDate";
+import { leagues } from "@/lib/leagues";
 
 interface HomeStatsProps {
     games: Game[];
@@ -52,6 +53,10 @@ export default function HomeStats({ games }: HomeStatsProps) {
             null
         );
 
+        const highestSlopLeague = leagues.find(
+            (item) => item.id === highestSlop?.league
+        );
+
         const mostWatchable = todaysGames.reduce<Game | null>(
             (best, game) => {
                 if (game.watchability_percentile == null) return best;
@@ -69,6 +74,10 @@ export default function HomeStats({ games }: HomeStatsProps) {
             null
         );
 
+        const mostWatchableLeague = leagues.find(
+            (item) => item.id === mostWatchable?.league
+        );
+
         const liveGames = todaysGames.filter((game) => {
             const date = new Date(game.date).getTime();
             const now = Date.now();
@@ -84,7 +93,9 @@ export default function HomeStats({ games }: HomeStatsProps) {
         return {
             todayCount: todaysGames.length,
             highestSlop,
+            highestSlopLeague,
             mostWatchable,
+            mostWatchableLeague,
             liveCount: liveGames.length,
         };
     }, [games]);
@@ -103,7 +114,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
                 ? `${(stats.highestSlop.slop_percentile! * 100).toFixed(1)}%`
                 : "—",
             description: stats.highestSlop
-                ? `${stats.highestSlop.away_name} @ ${stats.highestSlop.home_name}`
+                ? `${stats.highestSlop.away_name} @ ${stats.highestSlop.home_name} • ${stats.highestSlopLeague?.name}`
                 : "No predictions available",
             color: "text-red-400!",
             href: stats.highestSlop
@@ -116,7 +127,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
                 ? `${(stats.mostWatchable.watchability_percentile * 100).toFixed(1)}%`
                 : "—",
             description: stats.mostWatchable
-                ? `${stats.mostWatchable.away_name} @ ${stats.mostWatchable.home_name}`
+                ? `${stats.mostWatchable.away_name} @ ${stats.mostWatchable.home_name} • ${stats.mostWatchableLeague?.name}`
                 : "No predictions available",
             color: "text-emerald-400!",
             href: stats.mostWatchable
