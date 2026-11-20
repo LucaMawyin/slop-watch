@@ -340,7 +340,7 @@ export default function PreviewPage({ params }: Props) {
                 ">
 
                     <Link
-                        href={`/${league}/games`}
+                        href={`/${league}`}
                         className="
                             mb-1 
                             block

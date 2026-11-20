@@ -247,7 +247,7 @@ export default function TeamPage({ params }: Props) {
 
                         <div>
                             <Link
-                                href={`/${league}/games`}
+                                href={`/${league}`}
                                 className="
                                     mb-1 
                                     block
