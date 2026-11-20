@@ -12,80 +12,6 @@ import { slugify } from "@/lib/slugify";
 import useSwipeNavigation from "@/lib/useSwipeNavigation";
 import FeaturedGameCard from "./FeaturedGameCard";
 
-const fetchLiveScores = async (
-    games: Game[],
-    signal?: AbortSignal
-): Promise<Game[]> => {
-    const liveGames = games.filter((game) =>
-        game.actual_slop === null &&
-        new Date(game.date).getTime() <= Date.now()
-    );
-
-    if (liveGames.length === 0) return games;
-
-    const results = await Promise.allSettled(
-        liveGames.map(async (game) => {
-            const params = new URLSearchParams({
-                league: game.league,
-                date: game.date,
-            });
-
-            const url =
-                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
-
-            const response = await fetch(url, {
-                cache: "no-store",
-                signal,
-            });
-
-            if (!response.ok) {
-                throw new Error(
-                    `Game ${game.game_id}: HTTP ${response.status}`
-                );
-            }
-
-            const score: LiveScore = await response.json();
-
-            return {
-                ...score,
-                league: game.league,
-            };
-        })
-    );
-
-    results.forEach((result, index) => {
-        if (result.status === "rejected") {
-            console.error(
-                `Score request failed for game ${liveGames[index].game_id}:`,
-                result.reason
-            );
-        }
-    });
-
-    const scores = results
-        .filter(
-            (result): result is PromiseFulfilledResult<LiveScore & { league: string }> =>
-                result.status === "fulfilled"
-        )
-        .map((result) => result.value);
-
-    return games.map((game) => {
-        const score = scores.find(
-            (item) =>
-                String(item.game_id) === String(game.game_id) &&
-                item.league === game.league
-        );
-
-        if (!score) return game;
-
-        return {
-            ...game,
-            home_score: score.home_score,
-            away_score: score.away_score,
-        };
-    });
-};
-
 function GamesContent() {
 
     const formatDate = (date: Date) =>
@@ -242,7 +168,6 @@ function GamesContent() {
                 const { version } = await versionResponse.json() as any;
                 const newVersion = String(version);
 
-                // No new hourly data means keep existing games
                 if (currentVersion === newVersion) return;
 
                 const params = new URLSearchParams();
@@ -264,7 +189,7 @@ function GamesContent() {
                 params.set("version", newVersion);
 
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params.toString()}`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
                     {
                         cache: "no-store",
                         signal: controller.signal,
@@ -293,31 +218,75 @@ function GamesContent() {
                             gameDate.getDate()
                         ).padStart(2, "0")}`;
 
-                    if (
-                        effectiveStart &&
-                        localGameDate < effectiveStart
-                    ) {
-                        return false;
-                    }
-
-                    if (
-                        effectiveEnd &&
-                        localGameDate > effectiveEnd
-                    ) {
-                        return false;
-                    }
-
-                    return true;
+                    return (
+                        (!effectiveStart || localGameDate >= effectiveStart) &&
+                        (!effectiveEnd || localGameDate <= effectiveEnd)
+                    );
                 });
 
-                // Only mark version as loaded after successful fetch
-                const updatedGames = await fetchLiveScores(
-                    filteredGames,
-                    controller.signal
+                // Fetch initial live scores BEFORE displaying games
+                const now = Date.now();
+
+                const liveGames = filteredGames.filter((game) => {
+                    return (
+                        game.actual_slop === null &&
+                        new Date(game.date).getTime() <= now
+                    );
+                });
+
+                const scores = await Promise.allSettled(
+                    liveGames.map(async (game) => {
+                        const params = new URLSearchParams({
+                            league: game.league,
+                            date: game.date,
+                        });
+
+                        const url =
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
+
+                        const scoreResponse = await fetch(url, {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        });
+
+                        if (!scoreResponse.ok) {
+                            throw new Error(
+                                `Game ${game.game_id}: HTTP ${scoreResponse.status}`
+                            );
+                        }
+
+                        const score: LiveScore = await scoreResponse.json();
+
+                        return {
+                            ...score,
+                            league: game.league,
+                        };
+                    })
                 );
 
                 if (controller.signal.aborted) return;
 
+                // Apply successfully retrieved scores
+                const updatedGames = filteredGames.map((game) => {
+                    const result = scores.find(
+                        (item) =>
+                            item.status === "fulfilled" &&
+                            String(item.value.game_id) === String(game.game_id) &&
+                            item.value.league === game.league
+                    );
+
+                    if (!result || result.status !== "fulfilled") {
+                        return game;
+                    }
+
+                    return {
+                        ...game,
+                        home_score: result.value.home_score,
+                        away_score: result.value.away_score,
+                    };
+                });
+
+                // Mark version as loaded only after successful game fetch
                 currentVersion = newVersion;
 
                 setGames(updatedGames);
@@ -351,7 +320,7 @@ function GamesContent() {
         // Initial load
         loadGames();
 
-        // Check for new games hourly
+        // Check for new games every 5 minutes
         const interval = setInterval(
             loadGames,
             5 * 60 * 1000
@@ -364,66 +333,128 @@ function GamesContent() {
     }, [league, sport, effectiveStart, effectiveEnd]);
 
     const gamesRef = useRef<Game[]>([]);
-    const updatingRef = useRef(false);
 
     useEffect(() => {
         gamesRef.current = games;
     }, [games]);
 
     useEffect(() => {
-        if (games.length === 0) return;
+        if (loading || games.length === 0) return;
 
         const controller = new AbortController();
 
-        const updateLiveGames = async () => {
-            if (updatingRef.current) return;
+        let updating = false;
 
-            updatingRef.current = true;
+        const updateLiveGames = async () => {
+            if (updating) return;
+
+            updating = true;
 
             try {
-                const updatedGames = await fetchLiveScores(
-                    gamesRef.current,
-                    controller.signal
+                const now = Date.now();
+
+                const liveGames = gamesRef.current.filter((game) => {
+                    return (
+                        game.actual_slop === null &&
+                        new Date(game.date).getTime() <= now
+                    );
+                });
+
+                const results = await Promise.allSettled(
+                    liveGames.map(async (game) => {
+                        const params = new URLSearchParams({
+                            league: game.league,
+                            date: game.date,
+                        });
+
+                        const url =
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
+
+                        const response = await fetch(url, {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(
+                                `Game ${game.game_id}: HTTP ${response.status}`
+                            );
+                        }
+
+                        const score: LiveScore = await response.json();
+
+                        console.log("Score response:", {
+                            game_id: game.game_id,
+                            league: game.league,
+                            score,
+                        });
+
+                        return {
+                            ...score,
+                            league: game.league,
+                        };
+                    })
                 );
 
-                if (!controller.signal.aborted) {
-                    setGames((currentGames) =>
-                        currentGames.map((game) => {
-                            const updated = updatedGames.find(
-                                (item) =>
-                                    String(item.game_id) === String(game.game_id) &&
-                                    item.league === game.league
-                            );
+                const scores: (LiveScore & { league: string })[] = [];
 
-                            if (!updated) return game;
+                results.forEach((result, index) => {
+                    if (result.status === "fulfilled") {
+                        scores.push(result.value);
+                    } else {
+                        console.error(
+                            `Score request failed for game ${liveGames[index].game_id}:`,
+                            result.reason
+                        );
+                    }
+                });
 
-                            return {
-                                ...game,
-                                home_score: updated.home_score,
-                                away_score: updated.away_score,
-                            };
-                        })
-                    );
-                }
-            } catch (err) {
+                if (controller.signal.aborted) return;
+
+                setGames((currentGames) =>
+                    currentGames.map((game) => {
+                        const score = scores.find(
+                            (item) =>
+                                String(item.game_id) === String(game.game_id) &&
+                                item.league === game.league
+                        );
+
+                        if (!score) return game;
+
+                        return {
+                            ...game,
+                            home_score: score.home_score,
+                            away_score: score.away_score,
+                        };
+                    })
+                );
+
+            } catch (error) {
                 if (
-                    err instanceof Error &&
-                    err.name !== "AbortError"
+                    error instanceof Error &&
+                    error.name !== "AbortError"
                 ) {
-                    console.error("Failed to update live scores:", err);
+                    console.error("Failed to update live scores:", error);
                 }
             } finally {
-                updatingRef.current = false;
+                updating = false;
             }
         };
 
-        const interval = setInterval(updateLiveGames, 60 * 1000);
+        // Fetch scores immediately after games load
+        updateLiveGames();
+
+        // Refresh scores every minute
+        const interval = setInterval(
+            updateLiveGames,
+            60 * 1000
+        );
 
         return () => {
             controller.abort();
             clearInterval(interval);
         };
-    }, [games.length]);
+    }, [games.length, loading]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;

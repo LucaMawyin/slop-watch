@@ -57,7 +57,7 @@ export default function Home() {
                     changed: currentVersion !== String(version),
                 });
 
-                // Nothing changed so dont download the games again
+                // Nothing changed, so don't download the games again
                 if (currentVersion === String(version)) return;
 
                 const today = new Date();
@@ -88,19 +88,99 @@ export default function Home() {
 
                 const data: Game[] = await response.json();
 
+                if (controller.signal.aborted) return;
+
                 console.log("Homepage games fetched:", {
                     version,
                     count: data.length,
-                    firstGame: data[0],
                 });
+
+                // Identify games that may currently be live
+                const now = Date.now();
+
+                const liveGames = data
+                    .filter((game) => {
+                        const age = now - new Date(game.date).getTime();
+
+                        return (
+                            age >= -30 * 60 * 1000 &&
+                            age <= 6 * 60 * 60 * 1000
+                        );
+                    })
+                    .sort((a, b) => b.slop_percentile - a.slop_percentile)
+                    .slice(0, 3);
+
+                // Fetch initial live scores
+                const results = await Promise.allSettled(
+                    liveGames.map(async (game) => {
+                        const params = new URLSearchParams({
+                            league: game.league,
+                            date: game.date,
+                        });
+
+                        const scoreResponse = await fetch(
+                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
+                            {
+                                cache: "no-store",
+                                signal: controller.signal,
+                            }
+                        );
+
+                        if (!scoreResponse.ok) {
+                            throw new Error(
+                                `Failed to fetch score for ${game.game_id}: ${scoreResponse.status}`
+                            );
+                        }
+
+                        const updatedGame: Partial<Game> =
+                            await scoreResponse.json();
+
+                        return {
+                            game_id: game.game_id,
+                            league: game.league,
+                            updatedGame,
+                        };
+                    })
+                );
 
                 if (controller.signal.aborted) return;
 
-                // Only mark version as loaded after successful response
+                // Apply initial live scores
+                const updatedGames = data.map((game) => {
+                    const result = results.find(
+                        (item) =>
+                            item.status === "fulfilled" &&
+                            String(item.value.game_id) === String(game.game_id) &&
+                            item.value.league === game.league
+                    );
+
+                    if (!result || result.status !== "fulfilled") {
+                        return game;
+                    }
+
+                    return {
+                        ...game,
+                        ...result.value.updatedGame,
+                    };
+                });
+
+                // Only mark version as loaded after everything succeeds
+                // at the dataset level
                 currentVersion = String(version);
 
-                setGames(data);
+                setGames(updatedGames);
                 setError(null);
+
+                console.log("Homepage initial scores loaded:", {
+                    liveGames: liveGames.length,
+                    successful: results.filter(
+                        (result) => result.status === "fulfilled"
+                    ).length,
+                    failed: results.filter(
+                        (result) => result.status === "rejected"
+                    ).length,
+                });
+
             } catch (err) {
                 if (
                     err instanceof Error &&
@@ -126,11 +206,14 @@ export default function Home() {
             }
         };
 
-        // Load the initial games
+        // Load initial games and scores
         loadGames();
 
         // Check for new games every five minutes
-        const interval = setInterval(loadGames, 5 * 60 * 1000);
+        const interval = setInterval(
+            loadGames,
+            5 * 60 * 1000
+        );
 
         return () => {
             controller.abort();
@@ -139,7 +222,7 @@ export default function Home() {
     }, []);
 
     useEffect(() => {
-        if (games.length === 0) return;
+        if (loading || games.length === 0) return;
 
         const controller = new AbortController();
 
@@ -154,14 +237,17 @@ export default function Home() {
                 const now = Date.now();
 
                 // Only check live, completed, or starting games
-                const liveGames = gamesRef.current.filter((game) => {
-                    const age = now - new Date(game.date).getTime();
+                const liveGames = gamesRef.current
+                    .filter((game) => {
+                        const age = now - new Date(game.date).getTime();
 
-                    return (
-                        age >= -30 * 60 * 1000 &&
-                        age <= 6 * 60 * 60 * 1000
-                    );
-                });
+                        return (
+                            age >= -30 * 60 * 1000 &&
+                            age <= 6 * 60 * 60 * 1000
+                        );
+                    })
+                    .sort((a, b) => b.slop_percentile - a.slop_percentile)
+                    .slice(0, 3);
 
                 await Promise.all(
                     liveGames.map(async (game) => {
@@ -219,7 +305,7 @@ export default function Home() {
             controller.abort();
             clearInterval(interval);
         };
-    }, [games.length]);
+    }, [games.length, loading]);
 
     return (
         <div className="

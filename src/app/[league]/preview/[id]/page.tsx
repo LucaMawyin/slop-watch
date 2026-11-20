@@ -9,7 +9,7 @@ import { getLocalDate } from "@/lib/getLocalDate";
 import { getSlopBadge } from "@/lib/getSlopBadge";
 import { leagues } from "@/lib/leagues";
 import { slugify } from "@/lib/slugify";
-import { Game } from "@/lib/types";
+import { Game, LiveScore } from "@/lib/types";
 import { AlertCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -71,21 +71,57 @@ export default function PreviewPage({ params }: Props) {
 
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}?${params}`,
-                    { signal: controller.signal }
+                    {
+                        cache: "no-store",
+                        signal: controller.signal,
+                    }
                 );
 
                 if (!response.ok) {
                     throw new Error(`Games API failed: ${response.status}`);
                 }
 
-                const gameData: Game = await response.json();
+                let gameData: Game = await response.json();
+
+                if (controller.signal.aborted) return;
+
+                // Immediately fetch live score if game has started
+                if (
+                    gameData.actual_slop === null &&
+                    new Date(gameData.date).getTime() <= Date.now()
+                ) {
+                    const scoreResponse = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${encodeURIComponent(league)}&date=${encodeURIComponent(gameData.date)}`,
+                        {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        }
+                    );
+
+                    if (!scoreResponse.ok) {
+                        throw new Error(
+                            `Score request failed: ${scoreResponse.status}`
+                        );
+                    }
+
+                    const score: LiveScore = await scoreResponse.json();
+
+                    gameData = {
+                        ...gameData,
+                        home_score: score.home_score,
+                        away_score: score.away_score,
+                    };
+                }
 
                 if (controller.signal.aborted) return;
 
                 setGame(gameData);
 
             } catch (error) {
-                if (error instanceof Error && error.name === "AbortError") {
+                if (
+                    error instanceof Error &&
+                    error.name === "AbortError"
+                ) {
                     return;
                 }
 
@@ -115,71 +151,65 @@ export default function PreviewPage({ params }: Props) {
     }, [game]);
 
     useEffect(() => {
+        const controller = new AbortController();
+        let updating = false;
+
         const updateScore = async () => {
             const currentGame = gameRef.current;
 
-            if (!currentGame) {
-                return;
-            }
-
-            const gameDate = new Date(currentGame.date);
-            const now = new Date();
-
-            // Dont query games that havent started or are completed
             if (
+                !currentGame ||
                 currentGame.actual_slop !== null ||
-                gameDate.getTime() > now.getTime()
+                new Date(currentGame.date).getTime() > Date.now() ||
+                updating
             ) {
                 return;
             }
 
+            updating = true;
+
             try {
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${league}&date=${encodeURIComponent(currentGame.date)}`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${encodeURIComponent(league)}&date=${encodeURIComponent(currentGame.date)}`,
                     {
                         cache: "no-store",
+                        signal: controller.signal,
                     }
                 );
 
                 if (!response.ok) {
-                    console.error(
-                        `Score request failed: ${response.status}`
-                    );
-                    return;
+                    throw new Error(`Score request failed: ${response.status}`);
                 }
 
-                const score: {
-                    home_score: number;
-                    away_score: number;
-                } = await response.json();
+                const score: LiveScore = await response.json();
 
-                setGame((currentGame) => {
-                    if (!currentGame) {
-                        return currentGame;
-                    }
+                if (!controller.signal.aborted) {
+                    setGame((current) => {
+                        if (!current) return current;
 
-                    return {
-                        ...currentGame,
-                        home_score: score.home_score,
-                        away_score: score.away_score,
-                    };
-                });
+                        return {
+                            ...current,
+                            home_score: score.home_score,
+                            away_score: score.away_score,
+                        };
+                    });
+                }
             } catch (error) {
-                console.error(
-                    `Failed to fetch score for ${id}:`,
-                    error
-                );
+                if (
+                    error instanceof Error &&
+                    error.name !== "AbortError"
+                ) {
+                    console.error(`Failed to fetch score for ${id}:`, error);
+                }
+            } finally {
+                updating = false;
             }
         };
 
-        // Wait until initial render has completed
-        const timeout = setTimeout(updateScore, 0);
-
-        // Query every minute
         const interval = setInterval(updateScore, 60 * 1000);
 
         return () => {
-            clearTimeout(timeout);
+            controller.abort();
             clearInterval(interval);
         };
     }, [id, league]);
