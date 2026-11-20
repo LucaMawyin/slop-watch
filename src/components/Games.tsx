@@ -277,12 +277,12 @@ function GamesContent() {
                                     item.league === game.league
                                         ? {
                                             ...item,
-                                            home_score: score.home_score,
-                                            away_score: score.away_score,
-                                            actual_slop: score.actual_slop,
-                                            actual_watchability: score.actual_watchability,
-                                            watchability_percentile: score.watchability_percentile,
-                                            slop_percentile: score.slop_percentile,
+                                            home_score: score.home_score ?? item.home_score,
+                                            away_score: score.away_score ?? item.away_score,
+                                            actual_slop: score.actual_slop ?? item.actual_slop,
+                                            actual_watchability: score.actual_watchability ?? item.actual_watchability,
+                                            watchability_percentile: score.watchability_percentile ?? item.watchability_percentile,
+                                            slop_percentile: score.slop_percentile ?? item.slop_percentile,
                                         }
                                         : item
                                 )
@@ -429,12 +429,12 @@ function GamesContent() {
 
                         return {
                             ...game,
-                            home_score: score.home_score,
-                            away_score: score.away_score,
-                            actual_slop: score.actual_slop,
-                            actual_watchability: score.actual_watchability,
-                            watchability_percentile: score.watchability_percentile,
-                            slop_percentile: score.slop_percentile,
+                            home_score: score.home_score ?? game.home_score,
+                            away_score: score.away_score ?? game.away_score,
+                            actual_slop: score.actual_slop ?? game.actual_slop,
+                            actual_watchability: score.actual_watchability ?? game.actual_watchability,
+                            watchability_percentile: score.watchability_percentile ?? game.watchability_percentile,
+                            slop_percentile: score.slop_percentile ?? game.slop_percentile,
                         };
                     })
                 );
