@@ -112,7 +112,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
         },
         {
             label: "Most Watchable",
-            value: stats.mostWatchable
+            value: stats.mostWatchable?.watchability_percentile != null
                 ? `${(stats.mostWatchable.watchability_percentile * 100).toFixed(1)}%`
                 : "—",
             description: stats.mostWatchable

@@ -16,8 +16,8 @@ export default function FeaturedGames({
             new Date(game.date) <= new Date()
         )
         .sort((a, b) => {
-            const aSlop = a.live_slop ?? a.slop_percentile;
-            const bSlop = b.live_slop ?? b.slop_percentile;
+            const aSlop = a.live_slop ?? a.slop_percentile ?? 0;
+            const bSlop = b.live_slop ?? b.slop_percentile ?? 0;
 
             return bSlop - aSlop;
         })
