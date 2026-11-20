@@ -182,6 +182,12 @@ export default function PreviewPage({ params }: Props) {
 
                     gameRef.current = updatedGame;
                     setGame(updatedGame);
+
+                    if (notificationId !== null) {
+                        dismiss(notificationId);
+                    }
+
+                    notify("Live score updated successfully.", "success");
                 }
             } catch (error) {
                 if (
@@ -193,10 +199,6 @@ export default function PreviewPage({ params }: Props) {
                 }
             } finally {
                 updating = false;
-
-                if (notificationId !== null) {
-                    dismiss(notificationId);
-                }
             }
         };
 
