@@ -171,6 +171,13 @@ export default function PreviewPage({ params }: Props) {
                         ...latestGame,
                         home_score: score.home_score,
                         away_score: score.away_score,
+                        actual_slop: score.actual_slop ?? latestGame.actual_slop,
+                        actual_watchability:
+                            score.actual_watchability ?? latestGame.actual_watchability,
+                        watchability_percentile:
+                            score.watchability_percentile ?? latestGame.watchability_percentile,
+                        slop_percentile:
+                            score.slop_percentile ?? latestGame.slop_percentile,
                     };
 
                     gameRef.current = updatedGame;
@@ -293,22 +300,26 @@ export default function PreviewPage({ params }: Props) {
         );
     }
 
-    const slop =
-        typeof game.slop_percentile === "number" &&
-        Number.isFinite(game.slop_percentile)
-            ? game.slop_percentile
-            : 0;
+    const slop = game.slop_percentile;
+    const watchability = game.watchability_percentile;
 
-    const watchability =
-        typeof game.watchability_percentile === "number" &&
-        Number.isFinite(game.watchability_percentile)
-            ? game.watchability_percentile
-            : 0;
+    const hasPercentiles =
+        slop !== null &&
+        watchability !== null &&
+        Number.isFinite(slop) &&
+        Number.isFinite(watchability);
 
-    const slopColour = getHeatColour(slop);
-    const watchabilityColour = getHeatColour(1 - watchability);
+    const badge = hasPercentiles
+        ? getSlopBadge(slop, watchability)
+        : null;
 
-    const badge = getSlopBadge(slop, watchability);
+    const slopColour = slop !== null
+        ? getHeatColour(slop)
+        : undefined;
+
+    const watchabilityColour = watchability !== null
+        ? getHeatColour(1 - watchability)
+        : undefined;
 
     const isFinal = game.actual_slop !== null;
     const isLive = !isFinal && new Date(game.date) <= new Date();
@@ -567,14 +578,16 @@ export default function PreviewPage({ params }: Props) {
                         {game.venue_full_name}
                     </div>
 
-                    <div className="mt-5">
-                        <Badge
-                            title={badge.title}
-                            x={3}
-                            y={1}
-                            colour={badge.colour}
-                        />
-                    </div>
+                    {badge && (
+                        <div className="mt-5">
+                            <Badge
+                                title={badge.title}
+                                x={3}
+                                y={1}
+                                colour={badge.colour}
+                            />
+                        </div>
+                    )}
 
                     {new Date(game.date) > new Date() && (
                         <div className="mt-4 w-full max-w-xs">
@@ -600,7 +613,9 @@ export default function PreviewPage({ params }: Props) {
                                 className="mt-2 text-3xl font-bold"
                                 style={{ color: slopColour }}
                             >
-                                {(slop * 100).toFixed(1)}%
+                                {slop !== null
+                                    ? `${(slop * 100).toFixed(1)}%`
+                                    : "—"}
                             </div>
                         </div>
 
@@ -613,7 +628,9 @@ export default function PreviewPage({ params }: Props) {
                                 className="mt-2 text-3xl font-bold"
                                 style={{ color: watchabilityColour }}
                             >
-                                {(watchability * 100).toFixed(1)}%
+                                {watchability !== null
+                                    ? `${(watchability * 100).toFixed(1)}%`
+                                    : "—"}
                             </div>
                         </div>
 
@@ -864,25 +881,33 @@ export default function PreviewPage({ params }: Props) {
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(recent_game.slop_percentile),
+                                                            color: recent_game.slop_percentile !== null
+                                                                ? getHeatColour(recent_game.slop_percentile)
+                                                                : undefined,
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             SLOP
                                                         </div>
-                                                        {(recent_game.slop_percentile * 100).toFixed(0)}%
+                                                        {recent_game.slop_percentile !== null
+                                                            ? `${(recent_game.slop_percentile * 100).toFixed(0)}%`
+                                                            : "—"}
                                                     </div>
 
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(1 - recent_game.watchability_percentile),
+                                                            color: recent_game.watchability_percentile !== null
+                                                                ? getHeatColour(1 - recent_game.watchability_percentile)
+                                                                : undefined,
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             WATCHABILITY
                                                         </div>
-                                                        {(recent_game.watchability_percentile * 100).toFixed(0)}%
+                                                        {recent_game.watchability_percentile !== null
+                                                            ? `${(recent_game.watchability_percentile * 100).toFixed(0)}%`
+                                                            : "—"}
                                                     </div>
                                                 </div>
                                             </Link>
@@ -993,25 +1018,33 @@ export default function PreviewPage({ params }: Props) {
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(recent_game.slop_percentile),
+                                                            color: recent_game.slop_percentile !== null
+                                                                ? getHeatColour(recent_game.slop_percentile)
+                                                                : undefined,
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             SLOP
                                                         </div>
-                                                        {(recent_game.slop_percentile * 100).toFixed(0)}%
+                                                        {recent_game.slop_percentile !== null
+                                                            ? `${(recent_game.slop_percentile * 100).toFixed(0)}%`
+                                                            : "—"}
                                                     </div>
 
                                                     <div
                                                         className="text-center"
                                                         style={{
-                                                            color: getHeatColour(1 - recent_game.watchability_percentile),
+                                                            color: recent_game.watchability_percentile !== null
+                                                                ? getHeatColour(1 - recent_game.watchability_percentile)
+                                                                : undefined,
                                                         }}
                                                     >
                                                         <div className="text-[10px] text-zinc-500">
                                                             WATCHABILITY
                                                         </div>
-                                                        {(recent_game.watchability_percentile * 100).toFixed(0)}%
+                                                        {recent_game.watchability_percentile !== null
+                                                            ? `${(recent_game.watchability_percentile * 100).toFixed(0)}%`
+                                                            : "—"}
                                                     </div>
                                                 </div>
                                             </Link>

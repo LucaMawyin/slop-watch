@@ -4,6 +4,7 @@ import Badge from "@/components/Badge";
 import ShowMoreButton from "@/components/ShowMoreButton";
 import TeamLogo from "@/components/TeamLogo";
 import TeamSkeleton from "@/components/TeamSkeleton";
+import { getGameBadge } from "@/lib/getGameBadge";
 import { getHeatColour } from "@/lib/getHeatColour";
 import { getLocalDate } from "@/lib/getLocalDate";
 import { getSlopBadge } from "@/lib/getSlopBadge";
@@ -182,6 +183,10 @@ export default function TeamPage({ params }: Props) {
                                         ...currentGame,
                                         home_score: updatedGame.home_score,
                                         away_score: updatedGame.away_score,
+                                        actual_slop: updatedGame.actual_slop,
+                                        actual_watchability: updatedGame.actual_watchability,
+                                        watchability_percentile: updatedGame.watchability_percentile,
+                                        slop_percentile: updatedGame.slop_percentile,
                                     }
                                     : currentGame
                             ),
@@ -326,7 +331,7 @@ export default function TeamPage({ params }: Props) {
                                         const slop = game.slop_percentile;
                                         const watchability = game.watchability_percentile;
 
-                                        const badge = getSlopBadge(slop, watchability);
+                                        const badge = getGameBadge(game);
 
                                         return (
                                             <Link
@@ -363,13 +368,15 @@ export default function TeamPage({ params }: Props) {
                                                         flex-col
                                                         gap-1
                                                     ">
-                                                        <Badge
-                                                            title={badge.title}
-                                                            x={3}
-                                                            y={1}
-                                                            colour={badge.colour}
-                                                            className="w-fit mb-1"
-                                                        />
+                                                        {badge && (
+                                                            <Badge
+                                                                title={badge.title}
+                                                                x={3}
+                                                                y={1}
+                                                                colour={badge.colour}
+                                                                className="w-fit mb-1"
+                                                            />
+                                                        )}
 
                                                         <p className="text-sm">
                                                             {new Date(game.date).toLocaleDateString()}
@@ -404,12 +411,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(
-                                                                        game.slop_percentile
-                                                                    ),
+                                                                    color: game.slop_percentile !== null
+                                                                        ? getHeatColour(game.slop_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.slop_percentile * 100).toFixed(1)}%
+                                                                {game.slop_percentile !== null
+                                                                    ? `${(game.slop_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
 
@@ -421,12 +430,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(
-                                                                        1 - game.watchability_percentile
-                                                                    ),
+                                                                    color: game.watchability_percentile !== null
+                                                                        ? getHeatColour(1 - game.watchability_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.watchability_percentile * 100).toFixed(1)}%
+                                                                {game.watchability_percentile !== null
+                                                                    ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -470,12 +481,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(
-                                                                        game.slop_percentile
-                                                                    ),
+                                                                    color: game.watchability_percentile !== null
+                                                                        ? getHeatColour(1 - game.watchability_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.slop_percentile * 100).toFixed(1)}%
+                                                                {game.watchability_percentile !== null
+                                                                    ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
 
@@ -487,12 +500,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(
-                                                                        1 - game.watchability_percentile
-                                                                    ),
+                                                                    color: game.watchability_percentile !== null
+                                                                        ? getHeatColour(1 - game.watchability_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.watchability_percentile * 100).toFixed(1)}%
+                                                                {game.watchability_percentile !== null
+                                                                    ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -517,7 +532,7 @@ export default function TeamPage({ params }: Props) {
                                         const slop = game.slop_percentile;
                                         const watchability = game.watchability_percentile;
 
-                                        const badge = getSlopBadge(slop, watchability);
+                                        const badge = getGameBadge(game);
 
 
                                         const isHome = game.home_full_name === team.team.full_name;
@@ -548,13 +563,15 @@ export default function TeamPage({ params }: Props) {
 
                                                 {/* Game Info */}
                                                 <div className="flex flex-col gap-1">
-                                                    <Badge
-                                                        title={badge.title}
-                                                        x={3}
-                                                        y={1}
-                                                        colour={badge.colour}
-                                                        className="w-fit mb-1"
-                                                    />
+                                                    {badge && (
+                                                        <Badge
+                                                            title={badge.title}
+                                                            x={3}
+                                                            y={1}
+                                                            colour={badge.colour}
+                                                            className="w-fit mb-1"
+                                                        />
+                                                    )}
 
                                                     <p className="text-sm">
                                                         {new Date(game.date).toLocaleDateString()}
@@ -584,10 +601,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(game.slop_percentile),
+                                                                    color: game.slop_percentile !== null
+                                                                        ? getHeatColour(game.slop_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.slop_percentile * 100).toFixed(1)}%
+                                                                {game.slop_percentile !== null
+                                                                    ? `${(game.slop_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
 
@@ -599,10 +620,14 @@ export default function TeamPage({ params }: Props) {
                                                             <p
                                                                 className="text-lg font-semibold"
                                                                 style={{
-                                                                    color: getHeatColour(1 - game.watchability_percentile),
+                                                                    color: game.watchability_percentile !== null
+                                                                        ? getHeatColour(1 - game.watchability_percentile)
+                                                                        : undefined,
                                                                 }}
                                                             >
-                                                                {(game.watchability_percentile * 100).toFixed(1)}%
+                                                                {game.watchability_percentile !== null
+                                                                    ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                    : "—"}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -639,7 +664,7 @@ export default function TeamPage({ params }: Props) {
                                         const slop = game.slop_percentile;
                                         const watchability = game.watchability_percentile;
 
-                                        const badge = getSlopBadge(slop, watchability);
+                                        const badge = getGameBadge(game);
 
                                         const isHome = game.home_full_name === team.team.full_name;
                                         const opponent = isHome
@@ -681,13 +706,15 @@ export default function TeamPage({ params }: Props) {
                                                 "
                                             >
                                                 <div className="flex flex-col gap-1">
-                                                    <Badge
-                                                        title={badge.title}
-                                                        x={3}
-                                                        y={1}
-                                                        colour={badge.colour}
-                                                        className="w-fit mb-1"
-                                                    />
+                                                    {badge && (
+                                                        <Badge
+                                                            title={badge.title}
+                                                            x={3}
+                                                            y={1}
+                                                            colour={badge.colour}
+                                                            className="w-fit mb-1"
+                                                        />
+                                                    )}
 
                                                     <p className="text-sm">
                                                         {new Date(game.date).toLocaleDateString()}
@@ -736,10 +763,14 @@ export default function TeamPage({ params }: Props) {
                                                                 <p
                                                                     className="text-lg font-semibold"
                                                                     style={{
-                                                                        color: getHeatColour(game.slop_percentile),
+                                                                        color: game.slop_percentile !== null
+                                                                            ? getHeatColour(game.slop_percentile)
+                                                                            : undefined,
                                                                     }}
                                                                 >
-                                                                    {(game.slop_percentile * 100).toFixed(1)}%
+                                                                    {game.slop_percentile !== null
+                                                                        ? `${(game.slop_percentile * 100).toFixed(1)}%`
+                                                                        : "—"}
                                                                 </p>
                                                             </div>
 
@@ -751,10 +782,14 @@ export default function TeamPage({ params }: Props) {
                                                                 <p
                                                                     className="text-lg font-semibold"
                                                                     style={{
-                                                                        color: getHeatColour(1 - game.watchability_percentile),
+                                                                        color: game.watchability_percentile !== null
+                                                                            ? getHeatColour(1 - game.watchability_percentile)
+                                                                            : undefined,
                                                                     }}
                                                                 >
-                                                                    {(game.watchability_percentile * 100).toFixed(1)}%
+                                                                    {game.watchability_percentile !== null
+                                                                        ? `${(game.watchability_percentile * 100).toFixed(1)}%`
+                                                                        : "—"}
                                                                 </p>
                                                             </div>
                                                         </div>

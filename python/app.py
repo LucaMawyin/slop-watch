@@ -1478,7 +1478,7 @@ async def game_score(game_id: str, request: Request):
             ZoneInfo("America/Toronto")
         ).strftime("%Y-%m-%d")
 
-        game_date = parsed_date.normalize()
+        normalized_date = parsed_date.normalize()
 
     except Exception:
         return JSONResponse(
@@ -1486,11 +1486,172 @@ async def game_score(game_id: str, request: Request):
             content={"error": "Invalid date"}
         )
 
+    version = get_data_version()
+
+    # ---------------------------------
+    # CHECK PROCESSED CSV FOR COMPLETED GAME
+    # ---------------------------------
+
+    processed = await run_in_threadpool(
+        pd.read_csv,
+        SPORT_CONFIG[league]["processed_output"],
+        usecols=[
+            "game_id",
+            "actual_slop",
+            "actual_watchability",
+            "watchability_percentile",
+            "slop_percentile",
+            "home_score",
+            "away_score",
+        ],
+    )
+
+    processed["game_id"] = (
+        processed["game_id"]
+        .astype(str)
+        .str.replace(r"\.0$", "", regex=True)
+    )
+
+    completed_game = processed[
+        processed["game_id"] == str(game_id)
+    ]
+
+    if not completed_game.empty:
+
+        completed_game = completed_game.iloc[-1]
+
+        if pd.notna(completed_game["actual_slop"]):
+
+            home_score = (
+                int(completed_game["home_score"])
+                if pd.notna(completed_game["home_score"])
+                else None
+            )
+
+            away_score = (
+                int(completed_game["away_score"])
+                if pd.notna(completed_game["away_score"])
+                else None
+            )
+
+            actual_slop = float(completed_game["actual_slop"])
+
+            actual_watchability = (
+                float(completed_game["actual_watchability"])
+                if pd.notna(completed_game["actual_watchability"])
+                else None
+            )
+
+            watchability_percentile = (
+                float(completed_game["watchability_percentile"])
+                if pd.notna(completed_game["watchability_percentile"])
+                else None
+            )
+
+            slop_percentile = (
+                float(completed_game["slop_percentile"])
+                if pd.notna(completed_game["slop_percentile"])
+                else None
+            )
+
+            print(
+                f"Completed game found in processed CSV: "
+                f"{league} / Game {game_id} "
+                f"({home_score}-{away_score})",
+                flush=True,
+            )
+
+            # ---------------------------------
+            # UPDATE PER-DATE REDIS CACHE
+            # ---------------------------------
+
+            date_cache_key = make_cache_key(
+                "games",
+                version,
+                {
+                    "league": league,
+                    "date": cache_date,
+                    "timezone": "America/Toronto",
+                }
+            )
+
+            cached_games = get_cached(date_cache_key)
+
+            if cached_games is not None:
+
+                for cached_game in cached_games:
+
+                    if str(cached_game.get("game_id")) == str(game_id):
+
+                        cached_game["home_score"] = home_score
+                        cached_game["away_score"] = away_score
+                        cached_game["actual_slop"] = actual_slop
+                        cached_game["actual_watchability"] = actual_watchability
+                        cached_game["watchability_percentile"] = watchability_percentile
+                        cached_game["slop_percentile"] = slop_percentile
+
+                        set_cached(
+                            date_cache_key,
+                            cached_games,
+                        )
+
+                        print(
+                            f"Updated completed game in date cache: "
+                            f"{league} / Game {game_id}",
+                            flush=True,
+                        )
+
+                        break
+
+            # ---------------------------------
+            # UPDATE INDIVIDUAL GAME CACHE
+            # ---------------------------------
+
+            game_cache_key = make_cache_key(
+                "game",
+                version,
+                {
+                    "game_id": game_id,
+                    "league": league,
+                    "date": normalized_date.isoformat(),
+                },
+            )
+
+            cached_game = get_cached(game_cache_key)
+
+            if cached_game is not None:
+
+                cached_game["home_score"] = home_score
+                cached_game["away_score"] = away_score
+                cached_game["actual_slop"] = actual_slop
+                cached_game["actual_watchability"] = actual_watchability
+                cached_game["watchability_percentile"] = watchability_percentile
+                cached_game["slop_percentile"] = slop_percentile
+
+                set_cached(
+                    game_cache_key,
+                    cached_game,
+                )
+
+                print(
+                    f"Updated completed game detail cache: "
+                    f"{league} / Game {game_id}",
+                    flush=True,
+                )
+
+            return cached_response({
+                "game_id": int(game_id),
+                "home_score": home_score,
+                "away_score": away_score,
+                "actual_slop": actual_slop,
+                "actual_watchability": actual_watchability,
+                "watchability_percentile": watchability_percentile,
+                "slop_percentile": slop_percentile,
+            })
+
     # ---------------------------------
     # CHECK PER DATE REDIS CACHE FIRST
     # ---------------------------------
-
-    version = get_data_version()
 
     date_cache_key = make_cache_key(
         "games",
@@ -1526,6 +1687,10 @@ async def game_score(game_id: str, request: Request):
                         "game_id": int(game_id),
                         "home_score": home_score,
                         "away_score": away_score,
+                        "actual_slop": cached_game.get("actual_slop"),
+                        "actual_watchability": cached_game.get("actual_watchability"),
+                        "watchability_percentile": cached_game.get("watchability_percentile"),
+                        "slop_percentile": cached_game.get("slop_percentile"),
                     })
 
                 break
@@ -1538,7 +1703,7 @@ async def game_score(game_id: str, request: Request):
         get_live_score,
         league=league,
         game_id=game_id,
-        game_date=game_date,
+        game_date=normalized_date,
     )
 
     # ---------------------------------
@@ -1571,6 +1736,10 @@ async def game_score(game_id: str, request: Request):
         "game_id": int(game_id),
         "home_score": score["home_score"],
         "away_score": score["away_score"],
+        "actual_slop": None,
+        "actual_watchability": None,
+        "watchability_percentile": None,
+        "slop_percentile": None,
     })
 
 @router.get("/api/teams")

@@ -279,6 +279,10 @@ function GamesContent() {
                                             ...item,
                                             home_score: score.home_score,
                                             away_score: score.away_score,
+                                            actual_slop: score.actual_slop,
+                                            actual_watchability: score.actual_watchability,
+                                            watchability_percentile: score.watchability_percentile,
+                                            slop_percentile: score.slop_percentile,
                                         }
                                         : item
                                 )
@@ -427,6 +431,10 @@ function GamesContent() {
                             ...game,
                             home_score: score.home_score,
                             away_score: score.away_score,
+                            actual_slop: score.actual_slop,
+                            actual_watchability: score.actual_watchability,
+                            watchability_percentile: score.watchability_percentile,
+                            slop_percentile: score.slop_percentile,
                         };
                     })
                 );
@@ -490,29 +498,35 @@ function GamesContent() {
         }
 
         else if (sortBy === "slop") {
-            const aSlop = a.slop_percentile;
-            const bSlop = b.slop_percentile;
+            const aSlop = a.slop_percentile ?? 0;
+            const bSlop = b.slop_percentile ?? 0;
 
             comparison = aSlop - bSlop;
         }
 
         else if (sortBy === "watchability") {
-            const aWatchability = a.watchability_percentile;
-            const bWatchability = b.watchability_percentile;
+            const aWatchability = a.watchability_percentile ?? 0;
+            const bWatchability = b.watchability_percentile ?? 0;
 
             comparison = aWatchability - bWatchability;
         }
 
         else if (sortBy === "watchable-slop") {
-            const aScore = a.slop_percentile * a.watchability_percentile;
-            const bScore = b.slop_percentile * b.watchability_percentile;
+            const aScore = (a.slop_percentile ?? 0) * (a.watchability_percentile ?? 0);
+            const bScore = (b.slop_percentile ?? 0) * (b.watchability_percentile ?? 0);
 
             comparison = aScore - bScore;
         }
 
         else if (sortBy === "overall") {
-            const aOverall = 1 - (a.slop_percentile * (1 - a.watchability_percentile));
-            const bOverall = 1- (b.slop_percentile * (1 - b.watchability_percentile));
+            const aSlop = a.slop_percentile ?? 0;
+            const bSlop = b.slop_percentile ?? 0;
+
+            const aWatchability = a.watchability_percentile ?? 0;
+            const bWatchability = b.watchability_percentile ?? 0;
+
+            const aOverall = 1 - (aSlop * (1 - aWatchability));
+            const bOverall = 1 - (bSlop * (1 - bWatchability));
 
             comparison = aOverall - bOverall;
         }

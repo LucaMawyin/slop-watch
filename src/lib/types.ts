@@ -31,12 +31,12 @@ export type Game = {
     // Pregame Slop
     predicted_slop: number;
     actual_slop: number | null;
-    slop_percentile: number;
+    slop_percentile: number | null;
 
     // Pregame Watchability
     predicted_watchability: number;
     actual_watchability: number | null;
-    watchability_percentile: number;
+    watchability_percentile: number | null;
 
     // Live
     live_slop: number | null;
@@ -154,7 +154,11 @@ export type Notification = {
 };
 
 export type LiveScore = {
-    game_id: string;
-    home_score: number;
-    away_score: number;
+    game_id: number;
+    home_score: number | null;
+    away_score: number | null;
+    actual_slop: number | null;
+    actual_watchability: number | null;
+    watchability_percentile: number | null;
+    slop_percentile: number | null;
 };
