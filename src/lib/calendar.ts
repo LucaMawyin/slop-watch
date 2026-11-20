@@ -28,7 +28,11 @@ export function addToICS(game: Game) {
         `DTEND:${formatDate(end)}`,
         `SUMMARY:${game.away_name} @ ${game.home_name}`,
         `LOCATION:${game.venue_full_name}`,
-        `DESCRIPTION:Slop Score: ${(game.slop_percentile * 100).toFixed(1)}%`,
+        `DESCRIPTION:Slop Score: ${
+            game.slop_percentile != null
+                ? `${(game.slop_percentile * 100).toFixed(1)}%`
+                : "N/A"
+        }`,
         "END:VEVENT",
         "END:VCALENDAR",
     ].join("\r\n");
@@ -56,7 +60,11 @@ export function addToGoogleCalendar(game: Game) {
         text: `${game.away_name} @ ${game.home_name}`,
         dates: `${formatDate(start)}/${formatDate(end)}`,
         location: game.venue_full_name,
-        details: `Slop Score: ${(game.slop_percentile * 100).toFixed(1)}%`,
+        details: `Slop Score: ${
+            game.slop_percentile != null
+                ? `${(game.slop_percentile * 100).toFixed(1)}%`
+                : "N/A"
+        }`,
     });
 
     window.open(
