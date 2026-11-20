@@ -25,10 +25,21 @@ export default function FeaturedGameCard({
     const slop = game.slop_percentile;
     const watchability = game.watchability_percentile;
 
-    const slopColour = getHeatColour(slop);
-    const watchabilityColour = getHeatColour(1 - watchability);
+    const slopColour =
+        slop !== null ? getHeatColour(slop) : "transparent";
 
-    const badge = getSlopBadge(slop, watchability);
+    const watchabilityColour =
+        watchability !== null
+            ? getHeatColour(1 - watchability)
+            : "transparent";
+
+    const badge =
+        slop !== null &&
+        watchability !== null &&
+        Number.isFinite(slop) &&
+        Number.isFinite(watchability)
+            ? getSlopBadge(slop, watchability)
+            : null;
 
     const currentLeague = leagues.find(
         (item) => item.id === game.league
@@ -82,12 +93,14 @@ export default function FeaturedGameCard({
                     })}
                 </div>
 
-                <Badge
-                    title={badge.title}
-                    x={3}
-                    y={1}
-                    colour={badge.colour}
-                />
+                {badge && (
+                    <Badge
+                        title={badge.title}
+                        x={3}
+                        y={1}
+                        colour={badge.colour}
+                    />
+                )}
             </div>
 
             {/* League */}
@@ -259,25 +272,41 @@ export default function FeaturedGameCard({
                         </div>
 
                         <div className="relative mx-auto mt-3 h-24 w-24">
-                            <ProgressCircle
-                                progress={slop}
-                                progressColour={slopColour}
-                            />
+                            {slop !== null ? (
+                                <>
+                                    <ProgressCircle
+                                        progress={slop}
+                                        progressColour={slopColour}
+                                    />
 
-                            <div
-                                className="
-                                    absolute
-                                    inset-0
+                                    <div
+                                        className="
+                                            absolute
+                                            inset-0
+                                            flex
+                                            items-center
+                                            justify-center
+                                            text-xl
+                                            font-bold
+                                        "
+                                        style={{ color: slopColour }}
+                                    >
+                                        {(slop * 100).toFixed(1)}%
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="
                                     flex
+                                    h-full
                                     items-center
                                     justify-center
                                     text-xl
                                     font-bold
-                                "
-                                style={{ color: slopColour }}
-                            >
-                                {(slop * 100).toFixed(1)}%
-                            </div>
+                                    text-zinc-500
+                                ">
+                                    —
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -288,25 +317,41 @@ export default function FeaturedGameCard({
                         </div>
 
                         <div className="relative mx-auto mt-3 h-24 w-24">
-                            <ProgressCircle
-                                progress={watchability}
-                                progressColour={watchabilityColour}
-                            />
+                            {watchability !== null ? (
+                                <>
+                                    <ProgressCircle
+                                        progress={watchability}
+                                        progressColour={watchabilityColour}
+                                    />
 
-                            <div
-                                className="
-                                    absolute
-                                    inset-0
+                                    <div
+                                        className="
+                                            absolute
+                                            inset-0
+                                            flex
+                                            items-center
+                                            justify-center
+                                            text-xl
+                                            font-bold
+                                        "
+                                        style={{ color: watchabilityColour }}
+                                    >
+                                        {(watchability * 100).toFixed(1)}%
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="
                                     flex
+                                    h-full
                                     items-center
                                     justify-center
                                     text-xl
                                     font-bold
-                                "
-                                style={{ color: watchabilityColour }}
-                            >
-                                {(watchability * 100).toFixed(1)}%
-                            </div>
+                                    text-zinc-500
+                                ">
+                                    —
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

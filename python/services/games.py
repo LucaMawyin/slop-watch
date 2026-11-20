@@ -91,14 +91,25 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     # ---------------------------------
 
     if league == "pwhl":
+
+        first_season = 2024
+
         for season in range(
-            fetch_start.year,
+            max(fetch_start.year, first_season),
             fetch_end.year + 1
         ):
-            df = schedule_function(
-                season=season,
-                return_as_pandas=True
-            )
+
+            try:
+                df = schedule_function(
+                    season=season,
+                    return_as_pandas=True
+                )
+
+            except ValueError as e:
+                if "no pwhl season" in str(e).lower():
+                    continue
+
+                raise
 
             if df is not None and not df.empty:
 
