@@ -107,7 +107,11 @@ export default function Home() {
                             age <= 6 * 60 * 60 * 1000
                         );
                     })
-                    .sort((a, b) => b.slop_percentile - a.slop_percentile)
+                    .sort(
+                        (a, b) =>
+                            (b.slop_percentile ?? 0) -
+                            (a.slop_percentile ?? 0)
+                    )
                     .slice(0, 3);
 
                 // Fetch initial live scores
@@ -246,7 +250,11 @@ export default function Home() {
                             age <= 6 * 60 * 60 * 1000
                         );
                     })
-                    .sort((a, b) => b.slop_percentile - a.slop_percentile)
+                    .sort(
+                        (a, b) =>
+                            (b.slop_percentile ?? 0) -
+                            (a.slop_percentile ?? 0)
+                    )
                     .slice(0, 3);
 
                 const results = await Promise.allSettled(

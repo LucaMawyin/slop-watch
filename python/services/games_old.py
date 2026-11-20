@@ -46,8 +46,14 @@ def get_games(league="nba"):
         "bundesliga",
         "ligue_1",
     ]:
+        completed_statuses = [
+            "STATUS_FULL_TIME",
+            "STATUS_FINAL",
+            "STATUS_FINAL_PEN",
+        ]
+
         df = df[
-            df["status"] == "STATUS_FULL_TIME"
+            df["status"].isin(completed_statuses)
         ].copy()
 
     else:
