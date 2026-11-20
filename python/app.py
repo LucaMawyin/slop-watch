@@ -548,29 +548,6 @@ async def games(request: Request):
     version = get_request_cache_version(request)
 
     # ---------------------------------
-    # CHECKING IF CACHED
-    # ---------------------------------
-
-    cache_key = make_cache_key(
-        "games",
-        version,
-        {
-            "league": league,
-            "sport": sport,
-            "start": start_date,
-            "end": end_date,
-            "team": team,
-            "id": game_id,
-            "timezone": timezone,
-        }
-    )
-
-    cached = get_cached(cache_key)
-
-    if cached is not None:
-        return cached_response(cached)
-
-    # ---------------------------------
     # GETTING SPORT OR LEAGUE
     # ---------------------------------
 
@@ -845,11 +822,6 @@ async def games(request: Request):
     # ---------------------------------
     # CACHE COMPLETE REQUEST
     # ---------------------------------
-
-    set_cached(
-        cache_key,
-        result,
-    )
 
     elapsed = time.perf_counter() - start_time
 
@@ -1481,13 +1453,13 @@ async def game_score(game_id: str, request: Request):
     if not league:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Missing league"}
+            content={"error": "Missing league"}
         )
 
     if not game_date:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Missing date"}
+            content={"error": "Missing date"}
         )
 
     if league not in SPORT_CONFIG:
@@ -1497,12 +1469,70 @@ async def game_score(game_id: str, request: Request):
         )
 
     try:
-        game_date = pd.Timestamp(game_date).normalize()
+        parsed_date = pd.Timestamp(game_date)
+
+        if parsed_date.tzinfo is None:
+            parsed_date = parsed_date.tz_localize("UTC")
+
+        cache_date = parsed_date.tz_convert(
+            ZoneInfo("America/Toronto")
+        ).strftime("%Y-%m-%d")
+
+        game_date = parsed_date.normalize()
+
     except Exception:
         return JSONResponse(
             status_code=400,
-            content={"error": f"Invalid date"}
+            content={"error": "Invalid date"}
         )
+
+    # ---------------------------------
+    # CHECK PER DATE REDIS CACHE FIRST
+    # ---------------------------------
+
+    version = get_data_version()
+
+    date_cache_key = make_cache_key(
+        "games",
+        version,
+        {
+            "league": league,
+            "date": cache_date,
+            "timezone": "America/Toronto",
+        }
+    )
+
+    cached_games = get_cached(date_cache_key)
+
+    if cached_games is not None:
+
+        for cached_game in cached_games:
+
+            if str(cached_game.get("game_id")) == str(game_id):
+
+                home_score = cached_game.get("home_score")
+                away_score = cached_game.get("away_score")
+
+                if home_score is not None and away_score is not None:
+
+                    print(
+                        f"Using cached Redis score: "
+                        f"{league} / Game {game_id} "
+                        f"({home_score}-{away_score})",
+                        flush=True,
+                    )
+
+                    return cached_response({
+                        "game_id": int(game_id),
+                        "home_score": home_score,
+                        "away_score": away_score,
+                    })
+
+                break
+
+    # ---------------------------------
+    # FALL BACK TO LIVE SCORE FETCH
+    # ---------------------------------
 
     score = await run_in_threadpool(
         get_live_score,
@@ -1511,17 +1541,37 @@ async def game_score(game_id: str, request: Request):
         game_date=game_date,
     )
 
-    return JSONResponse(
-        content={
-            "game_id": int(game_id),
-            "home_score": score["home_score"],
-            "away_score": score["away_score"],
-        },
-        headers={
-            "Cache-Control": "no-store",
-            "Cloudflare-CDN-Cache-Control": "no-store",
-        }
-    )
+    # ---------------------------------
+    # UPDATE PER DATE REDIS CACHE
+    # ---------------------------------
+
+    if cached_games is not None:
+
+        for cached_game in cached_games:
+
+            if str(cached_game.get("game_id")) == str(game_id):
+
+                cached_game["home_score"] = score["home_score"]
+                cached_game["away_score"] = score["away_score"]
+
+                set_cached(
+                    date_cache_key,
+                    cached_games,
+                )
+
+                print(
+                    f"Updated Redis score cache: "
+                    f"{league} / Game {game_id}",
+                    flush=True,
+                )
+
+                break
+
+    return cached_response({
+        "game_id": int(game_id),
+        "home_score": score["home_score"],
+        "away_score": score["away_score"],
+    })
 
 @router.get("/api/teams")
 def teams(request: Request):

@@ -32,6 +32,7 @@ export default function PreviewPage({ params }: Props) {
     const [start, end] = ref?.split("_") ?? [];
 
     const [game, setGame] = useState<Game | null>(null);
+    const gameRef = useRef<Game | null>(null);
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -42,6 +43,8 @@ export default function PreviewPage({ params }: Props) {
         const fetchPreview = async () => {
             try {
                 setLoading(true);
+                gameRef.current = null;
+                setGame(null);
                 setError(null);
 
                 if (!date) {
@@ -80,41 +83,12 @@ export default function PreviewPage({ params }: Props) {
                 if (!response.ok) {
                     throw new Error(`Games API failed: ${response.status}`);
                 }
-
-                let gameData: Game = await response.json();
-
-                if (controller.signal.aborted) return;
-
-                // Immediately fetch live score if game has started
-                if (
-                    gameData.actual_slop === null &&
-                    new Date(gameData.date).getTime() <= Date.now()
-                ) {
-                    const scoreResponse = await fetch(
-                        `${process.env.NEXT_PUBLIC_API_URL}/api/game/${id}/score?league=${encodeURIComponent(league)}&date=${encodeURIComponent(gameData.date)}`,
-                        {
-                            cache: "no-store",
-                            signal: controller.signal,
-                        }
-                    );
-
-                    if (!scoreResponse.ok) {
-                        throw new Error(
-                            `Score request failed: ${scoreResponse.status}`
-                        );
-                    }
-
-                    const score: LiveScore = await scoreResponse.json();
-
-                    gameData = {
-                        ...gameData,
-                        home_score: score.home_score,
-                        away_score: score.away_score,
-                    };
-                }
+                const gameData: Game = await response.json();
 
                 if (controller.signal.aborted) return;
 
+                // Render game without waiting for live score
+                gameRef.current = gameData;
                 setGame(gameData);
 
             } catch (error) {
@@ -143,12 +117,6 @@ export default function PreviewPage({ params }: Props) {
 
         return () => controller.abort();
     }, [id, league, date]);
-
-    const gameRef = useRef<Game | null>(null);
-
-    useEffect(() => {
-        gameRef.current = game;
-    }, [game]);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -184,15 +152,18 @@ export default function PreviewPage({ params }: Props) {
                 const score: LiveScore = await response.json();
 
                 if (!controller.signal.aborted) {
-                    setGame((current) => {
-                        if (!current) return current;
+                    const latestGame = gameRef.current;
 
-                        return {
-                            ...current,
-                            home_score: score.home_score,
-                            away_score: score.away_score,
-                        };
-                    });
+                    if (!latestGame) return;
+
+                    const updatedGame = {
+                        ...latestGame,
+                        home_score: score.home_score,
+                        away_score: score.away_score,
+                    };
+
+                    gameRef.current = updatedGame;
+                    setGame(updatedGame);
                 }
             } catch (error) {
                 if (
@@ -206,13 +177,19 @@ export default function PreviewPage({ params }: Props) {
             }
         };
 
-        const interval = setInterval(updateScore, 60 * 1000);
+        // Fetch immediately then refresh every minute
+        updateScore();
+
+        const interval = setInterval(
+            updateScore,
+            60 * 1000
+        );
 
         return () => {
             controller.abort();
             clearInterval(interval);
         };
-    }, [id, league]);
+    }, [id, league, game !== null]);
 
     if (loading) {
         return (
