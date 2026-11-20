@@ -12,6 +12,80 @@ import { slugify } from "@/lib/slugify";
 import useSwipeNavigation from "@/lib/useSwipeNavigation";
 import FeaturedGameCard from "./FeaturedGameCard";
 
+const fetchLiveScores = async (
+    games: Game[],
+    signal?: AbortSignal
+): Promise<Game[]> => {
+    const liveGames = games.filter((game) =>
+        game.actual_slop === null &&
+        new Date(game.date).getTime() <= Date.now()
+    );
+
+    if (liveGames.length === 0) return games;
+
+    const results = await Promise.allSettled(
+        liveGames.map(async (game) => {
+            const params = new URLSearchParams({
+                league: game.league,
+                date: game.date,
+            });
+
+            const url =
+                `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
+
+            const response = await fetch(url, {
+                cache: "no-store",
+                signal,
+            });
+
+            if (!response.ok) {
+                throw new Error(
+                    `Game ${game.game_id}: HTTP ${response.status}`
+                );
+            }
+
+            const score: LiveScore = await response.json();
+
+            return {
+                ...score,
+                league: game.league,
+            };
+        })
+    );
+
+    results.forEach((result, index) => {
+        if (result.status === "rejected") {
+            console.error(
+                `Score request failed for game ${liveGames[index].game_id}:`,
+                result.reason
+            );
+        }
+    });
+
+    const scores = results
+        .filter(
+            (result): result is PromiseFulfilledResult<LiveScore & { league: string }> =>
+                result.status === "fulfilled"
+        )
+        .map((result) => result.value);
+
+    return games.map((game) => {
+        const score = scores.find(
+            (item) =>
+                String(item.game_id) === String(game.game_id) &&
+                item.league === game.league
+        );
+
+        if (!score) return game;
+
+        return {
+            ...game,
+            home_score: score.home_score,
+            away_score: score.away_score,
+        };
+    });
+};
+
 function GamesContent() {
 
     const formatDate = (date: Date) =>
@@ -237,9 +311,16 @@ function GamesContent() {
                 });
 
                 // Only mark version as loaded after successful fetch
+                const updatedGames = await fetchLiveScores(
+                    filteredGames,
+                    controller.signal
+                );
+
+                if (controller.signal.aborted) return;
+
                 currentVersion = newVersion;
 
-                setGames(filteredGames);
+                setGames(updatedGames);
                 setError(null);
 
             } catch (err) {
@@ -283,6 +364,7 @@ function GamesContent() {
     }, [league, sport, effectiveStart, effectiveEnd]);
 
     const gamesRef = useRef<Game[]>([]);
+    const updatingRef = useRef(false);
 
     useEffect(() => {
         gamesRef.current = games;
@@ -293,112 +375,49 @@ function GamesContent() {
 
         const controller = new AbortController();
 
-        let updating = false;
-
         const updateLiveGames = async () => {
-            if (updating) return;
+            if (updatingRef.current) return;
 
-            updating = true;
+            updatingRef.current = true;
 
             try {
-                const now = Date.now();
+                const updatedGames = await fetchLiveScores(
+                    gamesRef.current,
+                    controller.signal
+                );
 
-                const liveGames = gamesRef.current.filter((game) => {
-                    return (
-                        game.actual_slop === null &&
-                        new Date(game.date).getTime() <= now
-                    );
-                });
-
-                const results = await Promise.allSettled(
-                    liveGames.map(async (game) => {
-                        const params = new URLSearchParams({
-                            league: game.league,
-                            date: game.date,
-                        });
-
-                        const url =
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`;
-
-                        const response = await fetch(url, {
-                            cache: "no-store",
-                            signal: controller.signal,
-                        });
-
-                        if (!response.ok) {
-                            throw new Error(
-                                `Game ${game.game_id}: HTTP ${response.status}`
+                if (!controller.signal.aborted) {
+                    setGames((currentGames) =>
+                        currentGames.map((game) => {
+                            const updated = updatedGames.find(
+                                (item) =>
+                                    String(item.game_id) === String(game.game_id) &&
+                                    item.league === game.league
                             );
-                        }
 
-                        const score: LiveScore = await response.json();
+                            if (!updated) return game;
 
-                        console.log("Score response:", {
-                            game_id: game.game_id,
-                            league: game.league,
-                            score,
-                        });
-
-                        return {
-                            ...score,
-                            league: game.league,
-                        };
-                    })
-                );
-
-                const scores: (LiveScore & { league: string })[] = [];
-
-                results.forEach((result, index) => {
-                    if (result.status === "fulfilled") {
-                        scores.push(result.value);
-                    } else {
-                        console.error(
-                            `Score request failed for game ${liveGames[index].game_id}:`,
-                            result.reason
-                        );
-                    }
-                });
-
-                if (controller.signal.aborted) return;
-
-                setGames((currentGames) =>
-                    currentGames.map((game) => {
-                        const score = scores.find(
-                            (item) =>
-                                String(item.game_id) === String(game.game_id) &&
-                                item.league === game.league
-                        );
-
-                        if (!score) return game;
-
-                        return {
-                            ...game,
-                            home_score: score.home_score,
-                            away_score: score.away_score,
-                        };
-                    })
-                );
-
-            } catch (error) {
+                            return {
+                                ...game,
+                                home_score: updated.home_score,
+                                away_score: updated.away_score,
+                            };
+                        })
+                    );
+                }
+            } catch (err) {
                 if (
-                    error instanceof Error &&
-                    error.name !== "AbortError"
+                    err instanceof Error &&
+                    err.name !== "AbortError"
                 ) {
-                    console.error("Failed to update live scores:", error);
+                    console.error("Failed to update live scores:", err);
                 }
             } finally {
-                updating = false;
+                updatingRef.current = false;
             }
         };
 
-        // Fetch scores immediately after games load
-        updateLiveGames();
-
-        // Refresh scores every minute
-        const interval = setInterval(
-            updateLiveGames,
-            60 * 1000
-        );
+        const interval = setInterval(updateLiveGames, 60 * 1000);
 
         return () => {
             controller.abort();
