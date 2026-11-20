@@ -78,11 +78,12 @@ export default function SportPage() {
 
                 const formatDate = (date: Date) =>
                     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-
+                
                 const params = new URLSearchParams({
                     start: formatDate(today),
                     end: formatDate(end),
                     version: String(version),
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 });
 
                 if (league) {
@@ -125,6 +126,19 @@ export default function SportPage() {
 
         return () => controller.abort();
     }, [category, league]);
+
+    useEffect(() => {
+        console.table(
+            games.map((game) => ({
+                game_id: game.game_id,
+                league: game.league,
+                date: game.date,
+                local_date: new Date(game.date).toLocaleString(),
+                home_team: game.home_name,
+                away_team: game.away_name,
+            }))
+        );
+    }, [games]);
 
     if (!isValidLeague && !isValidSport) {
         notFound();

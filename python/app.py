@@ -538,6 +538,19 @@ async def games(request: Request):
     team = request.query_params.get("team")
     game_id = request.query_params.get("id")
 
+    timezone = request.query_params.get(
+        "timezone",
+        "America/Toronto",
+    )
+
+    try:
+        local_tz = ZoneInfo(timezone)
+    except Exception:
+        return JSONResponse(
+            status_code=400,
+            content={"error": f"Invalid timezone: {timezone}"},
+        )
+
     version = get_request_cache_version(request)
 
     # ---------------------------------
@@ -554,6 +567,7 @@ async def games(request: Request):
             "end": end_date,
             "team": team,
             "id": game_id,
+            "timezone": timezone,
         }
     )
 
@@ -651,6 +665,7 @@ async def games(request: Request):
                 {
                     "league": current_league,
                     "date": date,
+                    "timezone": timezone,
                 }
             )
 
@@ -754,10 +769,14 @@ async def games(request: Request):
                         columns=PREDICTION_FEATURES
                     )
                 else:
+                    local_dates = (
+                        predictions["date"]
+                        .dt.tz_convert(local_tz)
+                        .dt.strftime("%Y-%m-%d")
+                    )
+
                     date_games = predictions[
-                        predictions["date"].dt.strftime(
-                            "%Y-%m-%d"
-                        ) == date
+                        local_dates == date
                     ].copy()
 
                 date_games = date_games[
@@ -783,6 +802,7 @@ async def games(request: Request):
                     {
                         "league": current_league,
                         "date": date,
+                        "timezone": timezone,
                     }
                 )
 

@@ -249,7 +249,7 @@ export default function Home() {
                     .sort((a, b) => b.slop_percentile - a.slop_percentile)
                     .slice(0, 3);
 
-                await Promise.all(
+                const results = await Promise.allSettled(
                     liveGames.map(async (game) => {
                         const params = new URLSearchParams({
                             league: game.league,
@@ -264,21 +264,33 @@ export default function Home() {
                             }
                         );
 
-                        if (!response.ok) return;
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch score for ${game.game_id}`);
+                        }
 
-                        const updatedGame: Partial<Game> =
-                            await response.json();
+                        const updatedGame: Partial<Game> = await response.json();
 
-                        if (controller.signal.aborted) return;
+                        return {
+                            game,
+                            updatedGame,
+                        };
+                    })
+                );
 
-                        setGames((current) =>
-                            current.map((item) =>
-                                item.game_id === game.game_id &&
-                                item.league === game.league
-                                    ? { ...item, ...updatedGame }
-                                    : item
-                            )
+                if (controller.signal.aborted) return;
+
+                setGames((current) =>
+                    current.map((game) => {
+                        const result = results.find(
+                            (item) =>
+                                item.status === "fulfilled" &&
+                                item.value.game.game_id === game.game_id &&
+                                item.value.game.league === game.league
                         );
+
+                        return result?.status === "fulfilled"
+                            ? { ...game, ...result.value.updatedGame }
+                            : game;
                     })
                 );
             } catch (error) {

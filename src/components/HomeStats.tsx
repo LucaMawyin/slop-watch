@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import type { Game } from "@/lib/types";
 import Link from "next/link";
+import { getLocalDate } from "@/lib/getLocalDate";
 
 interface HomeStatsProps {
     games: Game[];
@@ -106,7 +107,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
                 : "No predictions available",
             color: "text-red-400!",
             href: stats.highestSlop
-                ? `/${stats.highestSlop.league}/preview/${stats.highestSlop.game_id}?date=${stats.highestSlop.date.slice(0, 10)}`
+                ? `/${stats.highestSlop.league}/preview/${stats.highestSlop.game_id}?date=${getLocalDate(stats.highestSlop.date)}`
                 : undefined,
         },
         {
@@ -119,7 +120,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
                 : "No predictions available",
             color: "text-emerald-400!",
             href: stats.mostWatchable
-                ? `/${stats.mostWatchable.league}/preview/${stats.mostWatchable.game_id}?date=${stats.mostWatchable.date.slice(0, 10)}`
+                ? `/${stats.mostWatchable.league}/preview/${stats.mostWatchable.game_id}?date=${getLocalDate(stats.mostWatchable.date)}`
                 : undefined,
         },
         {
