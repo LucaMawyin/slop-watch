@@ -7,7 +7,7 @@ import os
 from services.process_league import process_league
 from services.model import train_model
 
-previous_game_days = 30
+previous_game_days = 10
 
 def update_data(league="nba"):
 
