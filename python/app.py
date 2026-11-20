@@ -12,7 +12,6 @@ from lock import lock
 import re
 import numpy as np
 import time
-import json
 import requests
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -32,10 +31,11 @@ from services.cache import (
     make_cache_key,
     get_cached,
     set_cached,
+    get_active_version,
+    set_active_version,
 )
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-DATA_VERSION_FILE = Path(__file__).resolve().parent / "data_version.json"
 
 load_dotenv(ROOT_DIR / ".env.local")
 
@@ -51,14 +51,7 @@ app.add_middleware(
 )
 
 def get_data_version():
-    if not DATA_VERSION_FILE.exists():
-        return 0
-
-    try:
-        with open(DATA_VERSION_FILE, "r") as f:
-            return json.load(f)["version"]
-    except Exception:
-        return 0
+    return get_active_version()
 
 
 def generate_data_version():
@@ -66,12 +59,7 @@ def generate_data_version():
 
 
 def set_data_version(version: int):
-    temp_file = DATA_VERSION_FILE.with_suffix(".tmp")
-
-    with open(temp_file, "w") as f:
-        json.dump({"version": version}, f)
-
-    temp_file.replace(DATA_VERSION_FILE)
+    set_active_version(version)
 
 def get_request_cache_version(request: Request):
 
