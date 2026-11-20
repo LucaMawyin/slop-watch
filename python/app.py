@@ -1652,7 +1652,7 @@ async def game_score(game_id: str, request: Request):
             })
 
     # ---------------------------------
-    # CHECK PER DATE REDIS CACHE FIRST
+    # GET EXISTING REDIS SCORE
     # ---------------------------------
 
     date_cache_key = make_cache_key(
@@ -1667,38 +1667,18 @@ async def game_score(game_id: str, request: Request):
 
     cached_games = get_cached(date_cache_key)
 
+    cached_home_score = None
+    cached_away_score = None
+
     if cached_games is not None:
-
         for cached_game in cached_games:
-
             if str(cached_game.get("game_id")) == str(game_id):
-
-                home_score = cached_game.get("home_score")
-                away_score = cached_game.get("away_score")
-
-                if home_score is not None and away_score is not None:
-
-                    print(
-                        f"Using cached Redis score: "
-                        f"{league} / Game {game_id} "
-                        f"({home_score}-{away_score})",
-                        flush=True,
-                    )
-
-                    return cached_response({
-                        "game_id": int(game_id),
-                        "home_score": home_score,
-                        "away_score": away_score,
-                        "actual_slop": cached_game.get("actual_slop"),
-                        "actual_watchability": cached_game.get("actual_watchability"),
-                        "watchability_percentile": cached_game.get("watchability_percentile"),
-                        "slop_percentile": cached_game.get("slop_percentile"),
-                    })
-
+                cached_home_score = cached_game.get("home_score")
+                cached_away_score = cached_game.get("away_score")
                 break
 
     # ---------------------------------
-    # FALL BACK TO LIVE SCORE FETCH
+    # ALWAYS FETCH A FRESH LIVE SCORE
     # ---------------------------------
 
     score = await run_in_threadpool(
@@ -1708,8 +1688,23 @@ async def game_score(game_id: str, request: Request):
         game_date=normalized_date,
     )
 
+    # Use the fresh score when available.
+    # Fall back to Redis only if the live provider
+    # doesn't return a score.
+    home_score = (
+        score.get("home_score")
+        if score.get("home_score") is not None
+        else cached_home_score
+    )
+
+    away_score = (
+        score.get("away_score")
+        if score.get("away_score") is not None
+        else cached_away_score
+    )
+
     # ---------------------------------
-    # UPDATE PER DATE REDIS CACHE
+    # UPDATE PER-DATE REDIS CACHE
     # ---------------------------------
 
     if cached_games is not None:
@@ -1718,8 +1713,8 @@ async def game_score(game_id: str, request: Request):
 
             if str(cached_game.get("game_id")) == str(game_id):
 
-                cached_game["home_score"] = score["home_score"]
-                cached_game["away_score"] = score["away_score"]
+                cached_game["home_score"] = home_score
+                cached_game["away_score"] = away_score
 
                 set_cached(
                     date_cache_key,
@@ -1728,16 +1723,24 @@ async def game_score(game_id: str, request: Request):
 
                 print(
                     f"Updated Redis score cache: "
-                    f"{league} / Game {game_id}",
+                    f"{league} / Game {game_id} "
+                    f"({home_score}-{away_score})",
                     flush=True,
                 )
 
                 break
 
+    print(
+        f"Live score response: "
+        f"{league} / Game {game_id} "
+        f"({home_score}-{away_score})",
+        flush=True,
+    )
+
     return cached_response({
         "game_id": int(game_id),
-        "home_score": score["home_score"],
-        "away_score": score["away_score"],
+        "home_score": home_score,
+        "away_score": away_score,
         "actual_slop": None,
         "actual_watchability": None,
         "watchability_percentile": None,
