@@ -108,21 +108,15 @@ def get_request_cache_version(request: Request):
 
     return version
 
-def cached_response(
-    content,
-    max_age=31536000,
-    stale_while_revalidate=0,
-):
+def cached_response(content):
     return JSONResponse(
         content=jsonable_encoder(content),
         headers={
-            "Cache-Control": "public, max-age=0",
-            "Cloudflare-CDN-Cache-Control": (
-                f"public, max-age={max_age}, "
-                f"stale-while-revalidate={stale_while_revalidate}"
-            )
+            "Cache-Control": "no-store",
+            "Cloudflare-CDN-Cache-Control": "no-store",
         }
     )
+
 
 def warm_cache(version: int):
     base_url = os.environ.get("NEXT_PUBLIC_API_URL")
@@ -574,11 +568,7 @@ async def games(request: Request):
     cached = get_cached(cache_key)
 
     if cached is not None:
-        return cached_response(
-            cached,
-            max_age=31536000,
-            stale_while_revalidate=0,
-        )
+        return cached_response(cached)
 
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
@@ -869,11 +859,7 @@ async def games(request: Request):
         flush=True,
     )
 
-    return cached_response(
-        result,
-        max_age=31536000,
-        stale_while_revalidate=0,
-    )
+    return cached_response(result)
 
 @router.get("/api/team/{league}/{team_slug}")
 async def team(league: str, team_slug: str, request: Request):
