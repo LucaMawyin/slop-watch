@@ -133,8 +133,8 @@ def warm_cache(version: int):
     success = True
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
-    start = (today - timedelta(days=1)).isoformat()
-    end = (today + timedelta(days=1)).isoformat()
+    start = (today - timedelta(days=30)).isoformat()
+    end = (today + timedelta(days=30)).isoformat()
 
     # ---------------------------------
     # WARM ALL GAMES
