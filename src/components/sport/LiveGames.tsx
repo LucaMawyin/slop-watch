@@ -88,12 +88,12 @@ export default function LiveGames({
                     p-8
                     text-center
                 ">
-                    <p className="font-medium text-zinc-300">
+                    <p className="font-medium text-white!">
                         No live {name} games.
                     </p>
 
                     <p className="mt-2 text-sm text-zinc-500">
-                        <i>Nothing happening right now. Stay tuned.</i>
+                        Nothing happening right now. Stay tuned.
                     </p>
                 </div>
             )}
