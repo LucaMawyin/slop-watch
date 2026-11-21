@@ -492,6 +492,11 @@ function GamesContent() {
                     : bGroup - aGroup;
             }
 
+            // Upcoming and completed - earliest first
+            if (aGroup === 1 || aGroup === 2) {
+                return aTime - bTime;
+            }
+
             const comparison = aTime - bTime;
 
             return sortDirection === "desc"
