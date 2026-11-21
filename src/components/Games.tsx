@@ -130,7 +130,15 @@ function GamesContent() {
         return `${gamesBaseUrl}?${params.toString()}`;
     };
 
-    const swipeHandlers = useSwipeNavigation({
+    const {
+        offset,
+        dragging,
+        direction,
+        transitioning,
+        transitionKey,
+        finishTransition,
+        ...swipeHandlers
+    } = useSwipeNavigation({
         onSwipeLeft: () => router.push(getShiftedDateUrl(1)),
         onSwipeRight: () => router.push(getShiftedDateUrl(-1)),
     });
@@ -328,6 +336,7 @@ function GamesContent() {
                 if (initialLoad && !controller.signal.aborted) {
                     initialLoad = false;
                     setLoading(false);
+                    finishTransition();
                 }
             }
         };
@@ -345,7 +354,7 @@ function GamesContent() {
             controller.abort();
             clearInterval(interval);
         };
-    }, [league, sport, effectiveStart, effectiveEnd]);
+    }, [league, sport, effectiveStart, effectiveEnd, finishTransition]);
 
     const gamesRef = useRef<Game[]>([]);
 
@@ -571,10 +580,7 @@ function GamesContent() {
     });
 
     return (
-        <main 
-            className="p-6 text-white"
-            {...swipeHandlers}
-        >
+        <main className="p-6 text-white">
 
             {/* HEADER */}
             <div className="
@@ -784,74 +790,106 @@ function GamesContent() {
                 </div>
             </div>
             
-            {loading ? (
-                <GamesSkeleton showLeague={!!sport}/>
-            ) : error ? (
-                <p className="mt-4 text-red-400!">{error}</p>
-            ) : games.length === 0 ? (
-                <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
-                    <h2 className="text-lg font-semibold">
-                        No games found
-                    </h2>
-
-                    <p className="mt-2 text-sm text-zinc-500">
-                        There are no upcoming games for this league.
-                    </p>
-
-                    <Link
-                        className="mt-2 inline-block"
-                        href="/"
+            <div
+                className="relative overflow-hidden"
+                {...swipeHandlers}
+            >
+                {/* Incoming skeleton */}
+                {transitioning && !dragging && (
+                    <div
+                        key={transitionKey}
+                        className="absolute inset-0 z-10"
+                        style={{
+                            transform: `translateX(${
+                                direction === "left" ? "100%" : "-100%"
+                            })`,
+                            animation: "slide-in 250ms forwards",
+                            pointerEvents: "none",
+                        }}
                     >
-                        &lt; Return to Home
-                    </Link>
-                </div>
-            ) : ( 
-                <>
-                    <div className="
-                        mt-8 
-                        grid 
-                        auto-rows-fr
-                        grid-cols-1 
-                        gap-4 
-                        sm:grid-cols-2 
-                        lg:grid-cols-3
-                    ">
-                        {sortedGames.slice(0, visibleCount).map((game) => {
-
-                            return (
-                                <FeaturedGameCard
-                                    key={game.game_id}
-                                    game={game}
-                                    now={now}
-                                />
-                            );
-                        })}
+                        <GamesSkeleton showLeague={!!sport} />
                     </div>
-                    {visibleCount < sortedGames.length && (
-                        <div className="mt-6 flex justify-center">
-                            <button
-                                onClick={() => setVisibleCount((count) => count + 9)}
-                                className="
-                                    rounded-lg
-                                    border
-                                    border-zinc-800
-                                    bg-zinc-900
-                                    px-5
-                                    py-2.5
-                                    text-sm
-                                    font-medium
-                                    text-zinc-200
-                                    transition
-                                    hover:border-zinc-700
-                                    hover:bg-zinc-800
-                                "
+                )}
+
+                {/* Current content */}
+                <div
+                    style={{
+                        transform: `translateX(${offset}px)`,
+                        transition: dragging
+                            ? "none"
+                            : "transform 250ms ease-out",
+                    }}
+                >
+                    {loading ? (
+                        <GamesSkeleton showLeague={!!sport}/>
+                    ) : error ? (
+                        <p className="mt-4 text-red-400!">{error}</p>
+                    ) : games.length === 0 ? (
+                        <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+                            <h2 className="text-lg font-semibold">
+                                No games found
+                            </h2>
+
+                            <p className="mt-2 text-sm text-zinc-500">
+                                There are no upcoming games for this league.
+                            </p>
+
+                            <Link
+                                className="mt-2 inline-block"
+                                href="/"
                             >
-                                Show More
-                            </button>
+                                &lt; Return to Home
+                            </Link>
                         </div>
+                    ) : ( 
+                        <>
+                            <div className="
+                                mt-8 
+                                grid 
+                                auto-rows-fr
+                                grid-cols-1 
+                                gap-4 
+                                sm:grid-cols-2 
+                                lg:grid-cols-3
+                            ">
+                                {sortedGames.slice(0, visibleCount).map((game) => {
+
+                                    return (
+                                        <FeaturedGameCard
+                                            key={game.game_id}
+                                            game={game}
+                                            now={now}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            {visibleCount < sortedGames.length && (
+                                <div className="mt-6 flex justify-center">
+                                    <button
+                                        onClick={() => setVisibleCount((count) => count + 9)}
+                                        className="
+                                            rounded-lg
+                                            border
+                                            border-zinc-800
+                                            bg-zinc-900
+                                            px-5
+                                            py-2.5
+                                            text-sm
+                                            font-medium
+                                            text-zinc-200
+                                            transition
+                                            hover:border-zinc-700
+                                            hover:bg-zinc-800
+                                        "
+                                    >
+                                        Show More
+                                    </button>
+                                </div>
+                            )}
+                        </>
                     )}
-                </>
-            )}
+                </div>
+            </div>
 
         </main>
 

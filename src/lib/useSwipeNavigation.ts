@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 
 interface UseSwipeNavigationOptions {
     onSwipeLeft: () => void;
@@ -11,56 +12,120 @@ interface UseSwipeNavigationOptions {
 export default function useSwipeNavigation({
     onSwipeLeft,
     onSwipeRight,
-    minSwipeDistance = 60,
+    minSwipeDistance = 80,
 }: UseSwipeNavigationOptions) {
     const touchStartX = useRef<number | null>(null);
     const touchStartY = useRef<number | null>(null);
+    const offsetRef = useRef(0);
+    const navigationLocked = useRef(false);
 
-    const handleTouchStart = (
-        e: React.TouchEvent<HTMLElement>
-    ) => {
+    const [offset, setOffset] = useState(0);
+    const [dragging, setDragging] = useState(false);
+    const [direction, setDirection] = useState<"left" | "right" | null>(null);
+    const [transitioning, setTransitioning] = useState(false);
+    const [transitionKey, setTransitionKey] = useState(0);
+
+    const updateOffset = (value: number) => {
+        offsetRef.current = value;
+        setOffset(value);
+    };
+
+    const finishTransition = useCallback(() => {
+        setTransitioning(false);
+        setDirection(null);
+        updateOffset(0);
+    }, []);
+
+    const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+        if (navigationLocked.current) return;
+
         const touch = e.touches[0];
 
         touchStartX.current = touch.clientX;
         touchStartY.current = touch.clientY;
+
+        updateOffset(0);
+        setDragging(true);
     };
 
-    const handleTouchEnd = (
-        e: React.TouchEvent<HTMLElement>
-    ) => {
+    const handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
         if (
             touchStartX.current === null ||
             touchStartY.current === null
-        ) {
-            return;
-        }
+        ) return;
 
-        const touch = e.changedTouches[0];
+        const touch = e.touches[0];
 
         const deltaX = touch.clientX - touchStartX.current;
         const deltaY = touch.clientY - touchStartY.current;
 
-        // Reset touch state
+        if (Math.abs(deltaY) > Math.abs(deltaX) * 1.5) return;
+
+        updateOffset(deltaX * 0.85);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX.current === null) return;
+
+        const deltaX = offsetRef.current / 0.85;
+
         touchStartX.current = null;
         touchStartY.current = null;
+        setDragging(false);
 
-        // Ignore short swipes and primarily vertical gestures
-        if (
-            Math.abs(deltaX) < minSwipeDistance ||
-            Math.abs(deltaX) < Math.abs(deltaY) * 1.5
-        ) {
+        if (Math.abs(deltaX) < minSwipeDistance) {
+            updateOffset(0);
             return;
         }
 
-        if (deltaX < 0) {
-            onSwipeLeft();
-        } else {
-            onSwipeRight();
+        if (navigationLocked.current) {
+            updateOffset(0);
+            return;
         }
+
+        navigationLocked.current = true;
+
+        const swipeDirection = deltaX < 0 ? "left" : "right";
+
+        setDirection(swipeDirection);
+        setTransitioning(true);
+        setTransitionKey((key) => key + 1);
+
+        updateOffset(
+            swipeDirection === "left"
+                ? -window.innerWidth
+                : window.innerWidth
+        );
+
+        setTimeout(() => {
+            if (swipeDirection === "left") {
+                onSwipeLeft();
+            } else {
+                onSwipeRight();
+            }
+
+            // Unlock after the slide animation, not after the fetch.
+            navigationLocked.current = false;
+        }, 250);
+    };
+
+    const handleTouchCancel = () => {
+        touchStartX.current = null;
+        touchStartY.current = null;
+        setDragging(false);
+        updateOffset(0);
     };
 
     return {
+        offset,
+        dragging,
+        direction,
+        transitioning,
+        transitionKey,
+        finishTransition,
         onTouchStart: handleTouchStart,
+        onTouchMove: handleTouchMove,
         onTouchEnd: handleTouchEnd,
+        onTouchCancel: handleTouchCancel,
     };
 }
