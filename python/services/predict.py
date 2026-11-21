@@ -36,30 +36,6 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
         league=league
     )
 
-    if not games.empty and "game_id" in games.columns:
-
-        debug_game = games[
-            games["game_id"].astype(str).str.strip() == "401891808"
-        ]
-
-        if not debug_game.empty:
-            print("\n========== PREDICTION DEBUG ==========")
-            print(f"Start date: {start_date}")
-            print(f"Days ahead: {days_ahead}")
-
-            print(
-                debug_game[
-                    [
-                        "game_id",
-                        "date",
-                        "slop_percentile",
-                        "watchability_percentile",
-                    ]
-                ].to_string(index=False)
-            )
-
-            print("======================================\n")
-
     # Return if no games
     if games.empty:
         print(f"Predict took {time.perf_counter() - start_time:.3f}s")
@@ -183,6 +159,15 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
             prediction_distribution = joblib.load(
                 f"models/{league}_prediction_distribution.pkl"
             )
+
+            debug_game = games.loc[
+                valid_indices[games.loc[valid_indices, "game_id"] == "401882799"]
+            ]
+
+            if not debug_game.empty:
+                print("\n========== MODEL INPUT DEBUG ==========")
+                print(debug_game[["game_id"] + MODEL_FEATURES].to_string(index=False))
+                print("=======================================\n")
 
             predictions = model.predict(
                 games.loc[
