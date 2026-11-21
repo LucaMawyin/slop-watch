@@ -169,6 +169,12 @@ function GamesContent() {
                 const { version } = await versionResponse.json() as any;
                 const newVersion = String(version);
 
+                console.log("VERSION CHECK:", {
+                    currentVersion,
+                    newVersion,
+                    changed: currentVersion !== newVersion,
+                });
+
                 if (currentVersion === newVersion) return;
 
                 const params = new URLSearchParams();
@@ -206,6 +212,12 @@ function GamesContent() {
                 }
 
                 const data: Game[] = await response.json();
+
+                console.log("NEW GAMES DATA:", data.slice(0, 3).map(game => ({
+                    game_id: game.game_id,
+                    slop_percentile: game.slop_percentile,
+                    watchability_percentile: game.watchability_percentile,
+                })));
 
                 if (controller.signal.aborted) return;
 

@@ -121,8 +121,8 @@ def warm_cache(version: int):
     success = True
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
-    start = (today - timedelta(days=30)).isoformat()
-    end = (today + timedelta(days=30)).isoformat()
+    start = (today - timedelta(days=1)).isoformat()
+    end = (today + timedelta(days=1)).isoformat()
 
     # ---------------------------------
     # WARM ALL GAMES
@@ -370,14 +370,20 @@ def warm_cache(version: int):
 
 @router.get("/api/version")
 def version():
+    active_version = get_data_version()
+
+    print(
+        f"VERSION REQUEST: Active version = {active_version}",
+        flush=True,
+    )
+
     return JSONResponse(
-        content={"version": str(get_data_version())},
+        content={"version": str(active_version)},
         headers={
             "Cache-Control": "no-store",
             "Cloudflare-CDN-Cache-Control": "no-store",
         }
     )
-
     
 @router.post("/api/update/data")
 def update_data_route(request: Request):

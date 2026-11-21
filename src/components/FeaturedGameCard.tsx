@@ -126,9 +126,11 @@ export default function FeaturedGameCard({
                 flex 
                 justify-between
                 gap-4
+                max-w-full
             ">
                 <div className="
-                    w-1/2
+                    w-1/2 
+                    min-w-0
                     flex
                     flex-col
                     items-center
@@ -143,19 +145,30 @@ export default function FeaturedGameCard({
                         target="_blank"
                         onClick={(e) => e.stopPropagation()}
                         className="
-                            text-xl 
-                            font-semibold 
-                            link
+                            min-w-0
+                            w-full
                             flex
                             flex-1
                             flex-col
                             items-center
                             justify-center
-                            text-center
                             gap-1
+                            text-center
+                            text-xl
+                            font-semibold
+                            link
                         "
                     >
-                        {game.home_name}
+                        <span className="
+                            block 
+                            w-full 
+                            min-w-0 
+                            whitespace-normal 
+                            wrap-break-word
+                        ">
+                            {game.home_name}
+                        </span>
+                        
                         <TeamLogo
                             league={game.league}
                             teamId={game.home_id}
@@ -211,7 +224,8 @@ export default function FeaturedGameCard({
                 )}
 
                 <div className="
-                    w-1/2
+                    w-1/2 
+                    min-w-0
                     flex
                     flex-col
                     items-center
@@ -226,19 +240,30 @@ export default function FeaturedGameCard({
                         target="_blank"
                         onClick={(e) => e.stopPropagation()}
                         className="
-                            text-xl 
-                            font-semibold 
-                            link
+                            min-w-0
+                            w-full
                             flex
                             flex-1
                             flex-col
                             items-center
                             justify-center
-                            text-center
                             gap-1
+                            text-center
+                            text-xl
+                            font-semibold
+                            link
                         "
                     >
-                        {game.away_name}
+                        <span className="
+                            block 
+                            w-full 
+                            min-w-0 
+                            whitespace-normal 
+                            wrap-break-word
+                        ">
+                            {game.away_name}
+                        </span>
+
                         <TeamLogo
                             league={game.league}
                             teamId={game.away_id}
