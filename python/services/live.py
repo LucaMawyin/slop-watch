@@ -3,6 +3,49 @@ import pandas as pd
 
 from config.sports import SPORT_CONFIG
 
+from services.cache import (
+    make_cache_key,
+    get_cached,
+    set_cached,
+)
+
+def get_cached_schedule(
+    league,
+    schedule_id,
+    fetch_function,
+):
+    key = make_cache_key(
+        "live-schedule",
+        1,
+        {
+            "league": league,
+            "schedule_id": str(schedule_id),
+        },
+    )
+
+    cached = get_cached(key)
+
+    if cached is not None:
+        return pd.DataFrame(cached)
+
+    games = fetch_function()
+
+    if games is None:
+        return pd.DataFrame()
+
+    if not isinstance(games, pd.DataFrame):
+        games = pd.DataFrame(games)
+
+    # Cache even valid empty schedules to avoid repeatedly
+    # requesting dates with no games.
+    set_cached(
+        key,
+        games.to_dict(orient="records"),
+        ttl=30,
+    )
+
+    return games
+
 def get_last_team_games(
     processed,
     home_name,
@@ -384,9 +427,13 @@ def get_live_score(
 
     if league == "pwhl":
 
-        games = schedule_function(
-            season=game_date.year,
-            return_as_pandas=True
+        games = get_cached_schedule(
+            league,
+            f"season-{game_date.year}",
+            lambda: schedule_function(
+                season=game_date.year,
+                return_as_pandas=True,
+            ),
         )
 
     # ---------------------------------
@@ -404,11 +451,17 @@ def get_live_score(
         game_frames = []
 
         for date in date_range:
-            result = schedule_function(
-                league=config["league"],
-                dates=date.strftime("%Y%m%d"),
-                return_as_pandas=True,
-                limit=500,
+            schedule_date = date.strftime("%Y%m%d")
+
+            result = get_cached_schedule(
+                league,
+                schedule_date,
+                lambda: schedule_function(
+                    league=config["league"],
+                    dates=schedule_date,
+                    return_as_pandas=True,
+                    limit=500,
+                ),
             )
 
             if result is not None and not result.empty:
@@ -442,10 +495,16 @@ def get_live_score(
         game_frames = []
 
         for date in date_range:
-            result = schedule_function(
-                dates=date.strftime("%Y%m%d"),
-                return_as_pandas=True,
-                limit=500,
+            schedule_date = date.strftime("%Y%m%d")
+
+            result = get_cached_schedule(
+                league,
+                schedule_date,
+                lambda: schedule_function(
+                    dates=schedule_date,
+                    return_as_pandas=True,
+                    limit=500,
+                ),
             )
 
             if result is not None and not result.empty:

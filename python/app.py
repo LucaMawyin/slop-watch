@@ -44,6 +44,9 @@ from services.model import (
     discard_model_candidates,
 )
 
+LIVE_SCORE_CACHE_SECONDS = 30
+LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(4)
+
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(ROOT_DIR / ".env.local")
@@ -929,16 +932,55 @@ async def games(request: Request):
         result = []
 
     # ---------------------------------
-    # APPLY LATEST LIVE SCORES
+    # APPLY LATEST LIVE SCORES (BATCHED)
     # ---------------------------------
 
-    for game in result:
-        if game.get("date") and game.get("league"):
-            apply_live_score(
-                game,
-                game["league"],
-                game["date"],
+    score_games = [
+        game for game in result
+        if game.get("date") and game.get("league")
+    ]
+
+    score_keys = []
+
+    for game in score_games:
+        timestamp = pd.Timestamp(game["date"])
+
+        if timestamp.tzinfo is None:
+            timestamp = timestamp.tz_localize("UTC")
+
+        cache_date = timestamp.tz_convert(
+            ZoneInfo("America/Toronto")
+        ).strftime("%Y-%m-%d")
+
+        score_keys.append(
+            make_cache_key(
+                "live-score",
+                1,
+                {
+                    "league": game["league"],
+                    "game_id": str(game["game_id"]),
+                    "date": cache_date,
+                },
             )
+        )
+
+    score_results = await run_in_threadpool(
+        get_cached_many,
+        score_keys,
+    )
+
+    for game, cached_score in zip(score_games, score_results):
+        if cached_score is None:
+            continue
+
+        game["home_score"] = cached_score.get("home_score")
+        game["away_score"] = cached_score.get("away_score")
+
+        if cached_score.get("actual_slop") is not None:
+            game["actual_slop"] = cached_score.get("actual_slop")
+            game["actual_watchability"] = cached_score.get("actual_watchability")
+            game["watchability_percentile"] = cached_score.get("watchability_percentile")
+            game["slop_percentile"] = cached_score.get("slop_percentile")
 
     # ---------------------------------
     # CACHE COMPLETE REQUEST
@@ -1638,6 +1680,45 @@ async def game_score(game_id: str, request: Request):
 
     version = get_data_version()
 
+    score_start = time.perf_counter()
+
+    # ---------------------------------
+    # CHECK REDIS BEFORE READING CSV
+    # ---------------------------------
+
+    cached_score = get_cached(score_cache_key)
+
+    if cached_score is not None:
+
+        fetched_at = cached_score.get("fetched_at")
+
+        is_completed = cached_score.get("actual_slop") is not None
+
+        is_fresh = (
+            fetched_at is not None
+            and time.time() - float(fetched_at) < LIVE_SCORE_CACHE_SECONDS
+        )
+
+        if is_completed or is_fresh:
+
+            print(
+                f"SCORE {game_id}: returning Redis cache "
+                f"(completed={is_completed}, fresh={is_fresh})",
+                flush=True,
+            )
+
+            return cached_response({
+                "game_id": int(game_id),
+                "home_score": cached_score.get("home_score"),
+                "away_score": cached_score.get("away_score"),
+                "actual_slop": cached_score.get("actual_slop"),
+                "actual_watchability": cached_score.get("actual_watchability"),
+                "watchability_percentile": cached_score.get("watchability_percentile"),
+                "slop_percentile": cached_score.get("slop_percentile"),
+            })
+
+    print(f"SCORE {game_id}: starting CSV read", flush=True)
+
     # ---------------------------------
     # CHECK PROCESSED CSV FOR COMPLETED GAME
     # ---------------------------------
@@ -1654,6 +1735,12 @@ async def game_score(game_id: str, request: Request):
             "home_score",
             "away_score",
         ],
+    )
+
+    print(
+        f"SCORE {game_id}: CSV read took "
+        f"{time.perf_counter() - score_start:.3f}s",
+        flush=True,
     )
 
     processed["game_id"] = (
@@ -1817,8 +1904,6 @@ async def game_score(game_id: str, request: Request):
     # GET EXISTING REDIS SCORE
     # ---------------------------------
 
-    cached_score = get_cached(score_cache_key)
-
     cached_home_score = (
         cached_score.get("home_score")
         if cached_score is not None
@@ -1855,19 +1940,29 @@ async def game_score(game_id: str, request: Request):
     # ALWAYS FETCH A FRESH LIVE SCORE
     # ---------------------------------
 
+    provider_start = time.perf_counter()
+    print(f"SCORE {game_id}: fetching provider score", flush=True)
+
     try:
-        score = await run_in_threadpool(
-            get_live_score,
-            league=league,
-            game_id=game_id,
-            game_date=normalized_date,
-        )
+        async with LIVE_SCORE_SEMAPHORE:
+            score = await run_in_threadpool(
+                get_live_score,
+                league,
+                game_id,
+                game_date,
+            )
     except Exception as e:
         print(
             f"Live score provider failed: {e}",
             flush=True,
         )
         score = {}
+
+    print(
+        f"SCORE {game_id}: provider took "
+        f"{time.perf_counter() - provider_start:.3f}s",
+        flush=True,
+    )
 
     score = score or {}
 
@@ -1887,7 +1982,10 @@ async def game_score(game_id: str, request: Request):
     # UPDATE DEDICATED LIVE SCORE CACHE
     # ---------------------------------
 
-    if home_score is not None or away_score is not None:
+    if (
+        score.get("home_score") is not None
+        or score.get("away_score") is not None
+    ):
         set_cached(
             score_cache_key,
             {
@@ -1898,6 +1996,7 @@ async def game_score(game_id: str, request: Request):
                 "actual_watchability": None,
                 "watchability_percentile": None,
                 "slop_percentile": None,
+                "fetched_at": time.time(),
             },
             ttl=86400,
         )
@@ -1949,9 +2048,8 @@ async def game_score(game_id: str, request: Request):
         )
 
     print(
-        f"Live score response: "
-        f"{league} / Game {game_id} "
-        f"({home_score}-{away_score})",
+        f"SCORE {game_id}: total took "
+        f"{time.perf_counter() - score_start:.3f}s",
         flush=True,
     )
 
