@@ -41,6 +41,18 @@ export default function PreviewPage({ params }: Props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const [now, setNow] = useState(() => Date.now());
+    const nowRef = useRef(Date.now());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nowRef.current = Date.now();
+            setNow(nowRef.current);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     useEffect(() => {
         const controller = new AbortController();
 
@@ -133,7 +145,7 @@ export default function PreviewPage({ params }: Props) {
             if (
                 !currentGame ||
                 currentGame.actual_slop !== null ||
-                new Date(currentGame.date).getTime() > Date.now() ||
+                new Date(currentGame.date).getTime() > nowRef.current ||
                 updating
             ) {
                 return;
@@ -323,8 +335,8 @@ export default function PreviewPage({ params }: Props) {
         ? getHeatColour(1 - watchability)
         : undefined;
 
-    const isFinal = game.actual_slop !== null;
-    const isLive = !isFinal && new Date(game.date) <= new Date();
+    const isFinal = game.actual_slop != null;
+    const isLive = !isFinal && new Date(game.date).getTime() <= now;
 
     return (
         <main className="w-full p-6 text-white">
@@ -429,7 +441,7 @@ export default function PreviewPage({ params }: Props) {
                                 {(
                                     game.actual_slop !== null ||
                                     (
-                                        new Date(game.date) <= new Date() &&
+                                        new Date(game.date).getTime() <= now &&
                                         game.home_score !== null &&
                                         game.away_score !== null
                                     )
@@ -507,7 +519,7 @@ export default function PreviewPage({ params }: Props) {
                     {(
                         game.actual_slop !== null ||
                         (
-                            new Date(game.date) <= new Date() &&
+                            new Date(game.date).getTime() <= now &&
                             game.home_score !== null &&
                             game.away_score !== null
                         )
@@ -591,7 +603,7 @@ export default function PreviewPage({ params }: Props) {
                         </div>
                     )}
 
-                    {new Date(game.date) > new Date() && (
+                    {new Date(game.date).getTime() > now && (
                         <div className="mt-4 w-full max-w-xs">
                             <AddToCalendar game={game} />
                         </div>

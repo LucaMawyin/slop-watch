@@ -15,10 +15,12 @@ import { getLocalDate } from "@/lib/getLocalDate";
 
 interface FeaturedGameCardProps {
     game: Game;
+    now: number;
 }
 
 export default function FeaturedGameCard({
     game,
+    now,
 }: FeaturedGameCardProps) {
     const router = useRouter();
 
@@ -49,10 +51,13 @@ export default function FeaturedGameCard({
         (item) => item.id === game.league
     )?.name;
 
-    const isFinal = game.actual_slop !== null;
-    const isLive = !isFinal && new Date(game.date) <= new Date();
+    const isFinal = game.actual_slop != null;
+    const isLive =
+        !isFinal &&
+        new Date(game.date).getTime() <= now;
 
-    const showScores = new Date() >= new Date(game.date);
+    const showScores =
+        new Date(game.date).getTime() <= now;
 
     const gameUrl = `/${game.league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`;
 
@@ -382,8 +387,8 @@ export default function FeaturedGameCard({
                     View Game
                 </Link>
 
-                {game.actual_slop === null &&
-                    new Date(game.date) >= new Date() && (
+                    {game.actual_slop == null &&
+                        new Date(game.date).getTime() > now && (
                         <div onClick={(e) => e.stopPropagation()}>
                             <AddToCalendar game={game} />
                         </div>

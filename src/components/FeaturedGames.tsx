@@ -4,16 +4,18 @@ import Link from "next/link";
 
 interface FeaturedGamesProps {
     games: Game[];
+    now: number;
 }
 
 export default function FeaturedGames({
     games,
+    now,
 }: FeaturedGamesProps) {
 
     const featuredGames = [...games]
         .filter((game) =>
             game.actual_slop === null &&
-            new Date(game.date) <= new Date()
+            new Date(game.date).getTime() <= now
         )
         .sort((a, b) => {
             const aSlop = a.live_slop ?? a.slop_percentile ?? 0;
@@ -59,6 +61,7 @@ export default function FeaturedGames({
                         <FeaturedGameCard
                             key={`${game.league}-${game.game_id}`}
                             game={game}
+                            now={now}
                         />
                     ))}
                 </div>

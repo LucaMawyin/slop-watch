@@ -44,6 +44,21 @@ export default function TeamPage({ params }: Props) {
     const displayTeamName = team?.team.full_name ?? unslugify(teamSlug);
     const teamName = team?.team.name ?? unslugify(teamSlug);
 
+    const [now, setNow] = useState(() => Date.now());
+
+    const nowRef = useRef(now);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const currentTime = Date.now();
+
+            nowRef.current = currentTime;
+            setNow(currentTime);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     useEffect(() => {
         if (teamSlug !== slug) {
             const params = new URLSearchParams();
@@ -148,11 +163,10 @@ export default function TeamPage({ params }: Props) {
                 return;
             }
 
-            const now = new Date();
-
             const liveGames = currentTeam.upcoming_games.filter(
-                (game) => game.actual_slop === null &&
-                        new Date(game.date).getTime() <= now.getTime()
+                (game) =>
+                    game.actual_slop === null &&
+                    new Date(game.date).getTime() <= nowRef.current
             );
 
             for (const game of liveGames) {
@@ -216,17 +230,18 @@ export default function TeamPage({ params }: Props) {
         };
     }, [team !== null, league]);
 
-    const liveGames = team?.upcoming_games.filter(
-        (game) => {
-            const age = Date.now() - new Date(game.date).getTime();
+    const liveGames = team?.upcoming_games.filter((game) => {
+        const age = now - new Date(game.date).getTime();
 
-            return age >= 0 && age <= 6 * 60 * 60 * 1000;
-        }
-    );
+        return (
+            age >= 0 &&
+            age <= 6 * 60 * 60 * 1000 &&
+            game.actual_slop == null
+        );
+    });
 
     const upcomingGames = team?.upcoming_games.filter(
-        (game) =>
-            new Date(game.date) > new Date()
+        (game) => new Date(game.date).getTime() > now
     );
 
 

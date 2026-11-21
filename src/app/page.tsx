@@ -17,6 +17,7 @@ export default function Home() {
     const { notify, dismiss, dismissAll } = useNotifications();
 
     const gamesRef = useRef<Game[]>([]);
+    const [now, setNow] = useState(() => Date.now());
 
     useEffect(() => {
         gamesRef.current = games;
@@ -96,11 +97,11 @@ export default function Home() {
                 });
 
                 // Identify games that may currently be live
-                const now = Date.now();
+                const currentTime = Date.now();
 
                 const liveGames = data
                     .filter((game) => {
-                        const age = now - new Date(game.date).getTime();
+                        const age = currentTime - new Date(game.date).getTime();
 
                         return (
                             age >= -30 * 60 * 1000 &&
@@ -340,6 +341,14 @@ export default function Home() {
         };
     }, [games.length, loading]);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNow(Date.now());
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="
             mx-auto
@@ -374,9 +383,9 @@ export default function Home() {
                 <HomeSkeleton />
             ) : (
                 <>
-                    <HomeStats games={games} />
-                    <FeaturedGames games={games} />
-                    <UpcomingGames games={games} />
+                    <HomeStats games={games} now={now} />
+                    <FeaturedGames games={games} now={now} />
+                    <UpcomingGames games={games} now={now} />
                     <LeagueGrid />
                 </>
             )}

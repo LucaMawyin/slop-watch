@@ -8,9 +8,10 @@ import { leagues } from "@/lib/leagues";
 
 interface HomeStatsProps {
     games: Game[];
+    now: number;
 }
 
-export default function HomeStats({ games }: HomeStatsProps) {
+export default function HomeStats({ games, now }: HomeStatsProps) {
     const stats = useMemo(() => {
 
         const today = (() => {
@@ -80,7 +81,6 @@ export default function HomeStats({ games }: HomeStatsProps) {
 
         const liveGames = todaysGames.filter((game) => {
             const date = new Date(game.date).getTime();
-            const now = Date.now();
 
             return (
                 date <= now &&
@@ -98,7 +98,7 @@ export default function HomeStats({ games }: HomeStatsProps) {
             mostWatchableLeague,
             liveCount: liveGames.length,
         };
-    }, [games]);
+    }, [games, now]);
 
     const cards = [
         {

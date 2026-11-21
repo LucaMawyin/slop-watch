@@ -20,6 +20,7 @@ function GamesContent() {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [now, setNow] = useState(() => Date.now());
 
     const [sortBy, setSortBy] = useState<
         "slop" 
@@ -402,6 +403,8 @@ function GamesContent() {
                     })
                 );
 
+                if (controller.signal.aborted) return;
+
                 const scores: (LiveScore & { league: string })[] = [];
 
                 results.forEach((result, index) => {
@@ -414,8 +417,6 @@ function GamesContent() {
                         );
                     }
                 });
-
-                if (controller.signal.aborted) return;
 
                 setGames((currentGames) =>
                     currentGames.map((game) => {
@@ -466,20 +467,28 @@ function GamesContent() {
         };
     }, [games.length, loading]);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNow(Date.now());
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
 
         if (sortBy === "live") {
-            const now = Date.now();
+            const currentTime = now;
 
             const aTime = new Date(a.date).getTime();
             const bTime = new Date(b.date).getTime();
 
-            const aLive = aTime <= now && a.actual_slop === null;
-            const bLive = bTime <= now && b.actual_slop === null;
+            const aLive = aTime <= currentTime && a.actual_slop == null;
+            const bLive = bTime <= currentTime && b.actual_slop == null;
 
-            const aCompleted = a.actual_slop !== null;
-            const bCompleted = b.actual_slop !== null;
+            const aCompleted = a.actual_slop != null;
+            const bCompleted = b.actual_slop != null;
 
             // Desc: Live -> Upcoming -> Completed
             // Asc: Completed -> Upcoming -> Live
@@ -798,9 +807,10 @@ function GamesContent() {
                         {sortedGames.slice(0, visibleCount).map((game) => {
 
                             return (
-                                <FeaturedGameCard 
+                                <FeaturedGameCard
                                     key={game.game_id}
                                     game={game}
+                                    now={now}
                                 />
                             );
                         })}

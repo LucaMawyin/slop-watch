@@ -8,20 +8,20 @@ import GamesSkeleton from "./GamesSkeleton";
 
 interface UpcomingGamesProps {
     games: Game[];
+    now: number;
     category?: string;
-    loading?:boolean;
-    name?:string;
+    loading?: boolean;
+    name?: string;
 }
 
 export default function UpcomingGames({
     games,
+    now,
     category,
-    loading=false,
+    loading = false,
     name,
 }: UpcomingGamesProps) {
     const upcomingGames = useMemo(() => {
-        const now = Date.now();
-
         return games
             .filter((game) => {
                 const date = new Date(game.date).getTime();
@@ -33,7 +33,7 @@ export default function UpcomingGames({
                     new Date(b.date).getTime()
             )
             .slice(0, 6);
-    }, [games]);
+    }, [games, now]);
 
     return (
         <section className="space-y-5 w-full">
@@ -95,6 +95,7 @@ export default function UpcomingGames({
                         <FeaturedGameCard
                             key={`${game.league}-${game.game_id}`}
                             game={game}
+                            now={now}
                         />
                     ))}
                 </div>
