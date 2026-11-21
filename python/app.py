@@ -133,8 +133,12 @@ def warm_cache(version: int):
     success = True
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
-    start = (today - timedelta(days=30)).isoformat()
-    end = (today + timedelta(days=30)).isoformat()
+    start = (today - timedelta(days=1)).isoformat()
+    end = (today + timedelta(days=1)).isoformat()
+
+    print("DEBUG: NEW WARM_CACHE VERSION RUNNING", flush=True)
+    print(f"DEBUG: API URL = {base_url}", flush=True)
+    print(f"DEBUG: DATE RANGE = {start} to {end}", flush=True)
 
     # ---------------------------------
     # WARM ALL GAMES
@@ -158,11 +162,14 @@ def warm_cache(version: int):
 
         all_games = response.json()
 
+        print(f"DEBUG: ALL GAMES COUNT = {len(all_games)}", flush=True)
+
+        if all_games:
+            print(f"DEBUG: FIRST GAME = {all_games[0]}", flush=True)
+
         print(
-            f"All games warmed: "
-            f"{len(all_games)} games, "
-            f"version={version}, "
-            f"CF={response.headers.get('CF-Cache-Status')}",
+            f"ALL GAMES RESPONSE: type={type(all_games).__name__}, "
+            f"count={len(all_games) if isinstance(all_games, list) else 'not a list'}",
             flush=True,
         )
 
@@ -190,9 +197,18 @@ def warm_cache(version: int):
 
             response.raise_for_status()
 
+            league_games = response.json()
+
+            print(
+                f"DEBUG: {league} returned {len(league_games)} games",
+                flush=True,
+            )
+
+            all_games.extend(league_games)
+
             print(
                 f"{league} games warmed: "
-                f"{len(response.json())} games",
+                f"{len(league_games)} games",
                 flush=True,
             )
 
@@ -202,6 +218,18 @@ def warm_cache(version: int):
                 f"Failed to warm {league} games: {e}",
                 flush=True,
             )
+
+    # Remove duplicates
+    unique_games = {}
+
+    for game in all_games:
+        key = (
+            game.get("league"),
+            str(game.get("game_id")),
+        )
+        unique_games[key] = game
+
+    all_games = list(unique_games.values())
 
     # ---------------------------------
     # WARM TEAM LISTS
@@ -355,6 +383,7 @@ def warm_cache(version: int):
             task_type = tasks[future]
 
             try:
+                future.result()
 
                 if task_type == "team":
                     completed_teams += 1
@@ -362,7 +391,6 @@ def warm_cache(version: int):
                     completed_games += 1
 
             except Exception as e:
-
                 success = False
 
                 print(
