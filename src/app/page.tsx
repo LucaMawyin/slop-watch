@@ -96,7 +96,13 @@ export default function Home() {
                     count: data.length,
                 });
 
-                // Identify games that may currently be live
+                // Mark the dataset as loaded
+                currentVersion = String(version);
+
+                setGames(data);
+                setError(null);
+
+                // Fetch initial live scores in the background
                 const currentTime = Date.now();
 
                 const liveGames = data
@@ -115,15 +121,14 @@ export default function Home() {
                     )
                     .slice(0, 3);
 
-                // Fetch initial live scores
-                const results = await Promise.allSettled(
+                Promise.allSettled(
                     liveGames.map(async (game) => {
                         const params = new URLSearchParams({
                             league: game.league,
                             date: game.date,
                         });
 
-                        const scoreResponse = await fetch(
+                        const response = await fetch(
                             `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
                             {
                                 cache: "no-store",
@@ -131,64 +136,56 @@ export default function Home() {
                             }
                         );
 
-                        if (!scoreResponse.ok) {
+                        if (!response.ok) {
                             throw new Error(
-                                `Failed to fetch score for ${game.game_id}: ${scoreResponse.status}`
+                                `Failed to fetch score for ${game.game_id}: ${response.status}`
                             );
                         }
 
-                        const updatedGame: Partial<Game> =
-                            await scoreResponse.json();
+                        const updatedGame: Partial<Game> = await response.json();
 
                         return {
-                            game_id: game.game_id,
-                            league: game.league,
+                            game,
                             updatedGame,
                         };
                     })
-                );
+                ).then((results) => {
+                    if (controller.signal.aborted) return;
 
-                if (controller.signal.aborted) return;
+                    setGames((current) =>
+                        current.map((game) => {
+                            const result = results.find(
+                                (item) =>
+                                    item.status === "fulfilled" &&
+                                    item.value.game.game_id === game.game_id &&
+                                    item.value.game.league === game.league
+                            );
 
-                // Apply initial live scores
-                const updatedGames = data.map((game) => {
-                    const result = results.find(
-                        (item) =>
-                            item.status === "fulfilled" &&
-                            String(item.value.game_id) === String(game.game_id) &&
-                            item.value.league === game.league
+                            if (!result || result.status !== "fulfilled") {
+                                return game;
+                            }
+
+                            return {
+                                ...game,
+                                ...Object.fromEntries(
+                                    Object.entries(result.value.updatedGame).map(([key, value]) => [
+                                        key,
+                                        value ?? game[key as keyof Game],
+                                    ])
+                                ),
+                            };
+                        })
                     );
 
-                    if (!result || result.status !== "fulfilled") {
-                        return game;
-                    }
-
-                    return {
-                        ...game,
-                        ...Object.fromEntries(
-                            Object.entries(result.value.updatedGame).map(([key, value]) => [
-                                key,
-                                value ?? game[key as keyof Game],
-                            ])
-                        ),
-                    };
-                });
-
-                // Only mark version as loaded after everything succeeds
-                // at the dataset level
-                currentVersion = String(version);
-
-                setGames(updatedGames);
-                setError(null);
-
-                console.log("Homepage initial scores loaded:", {
-                    liveGames: liveGames.length,
-                    successful: results.filter(
-                        (result) => result.status === "fulfilled"
-                    ).length,
-                    failed: results.filter(
-                        (result) => result.status === "rejected"
-                    ).length,
+                    console.log("Homepage initial scores loaded:", {
+                        liveGames: liveGames.length,
+                        successful: results.filter(
+                            (result) => result.status === "fulfilled"
+                        ).length,
+                        failed: results.filter(
+                            (result) => result.status === "rejected"
+                        ).length,
+                    });
                 });
 
             } catch (err) {
