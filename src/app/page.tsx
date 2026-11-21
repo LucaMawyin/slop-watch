@@ -35,31 +35,29 @@ export default function Home() {
         let currentVersion: string | null = null;
         let initialLoad = true;
 
-        const loadGames = async () => {
+        const loadGames = async (checkVersion = true) => {
             try {
-                // Check which hourly dataset is currently published
-                const versionResponse = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
-                    {
-                        cache: "no-store",
-                        signal: controller.signal,
+                let version: string | null = null;
+
+                // Only check the version during background updates
+                if (checkVersion) {
+                    const versionResponse = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
+                        {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        }
+                    );
+
+                    if (!versionResponse.ok) {
+                        throw new Error("Failed to check data version.");
                     }
-                );
 
-                if (!versionResponse.ok) {
-                    throw new Error("Failed to check data version.");
+                    const result = await versionResponse.json() as any;
+                    version = String(result.version);
+
+                    if (currentVersion === version) return;
                 }
-
-                const { version } = await versionResponse.json() as any;
-
-                console.log("Homepage version check:", {
-                    received: String(version),
-                    previous: currentVersion,
-                    changed: currentVersion !== String(version),
-                });
-
-                // Nothing changed, so don't download the games again
-                if (currentVersion === String(version)) return;
 
                 const today = new Date();
                 const end = new Date(today);
@@ -72,9 +70,9 @@ export default function Home() {
                 const params = new URLSearchParams({
                     start: formatDate(today),
                     end: formatDate(end),
-                    version: String(version),
                 });
 
+                // Fetch games directly using the backend's active dataset version
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
                     {
@@ -92,107 +90,22 @@ export default function Home() {
                 if (controller.signal.aborted) return;
 
                 console.log("Homepage games fetched:", {
-                    version,
+                    version: version ?? "active",
                     count: data.length,
                 });
 
-                // Mark the dataset as loaded
-                currentVersion = String(version);
+                if (version !== null) {
+                    currentVersion = version;
+                }
 
                 setGames(data);
                 setError(null);
 
-                // Fetch initial live scores in the background
-                const currentTime = Date.now();
-
-                const liveGames = data
-                    .filter((game) => {
-                        const age = currentTime - new Date(game.date).getTime();
-
-                        return (
-                            age >= -30 * 60 * 1000 &&
-                            age <= 6 * 60 * 60 * 1000
-                        );
-                    })
-                    .sort(
-                        (a, b) =>
-                            (b.slop_percentile ?? 0) -
-                            (a.slop_percentile ?? 0)
-                    )
-                    .slice(0, 3);
-
-                Promise.allSettled(
-                    liveGames.map(async (game) => {
-                        const params = new URLSearchParams({
-                            league: game.league,
-                            date: game.date,
-                        });
-
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
-                            {
-                                cache: "no-store",
-                                signal: controller.signal,
-                            }
-                        );
-
-                        if (!response.ok) {
-                            throw new Error(
-                                `Failed to fetch score for ${game.game_id}: ${response.status}`
-                            );
-                        }
-
-                        const updatedGame: Partial<Game> = await response.json();
-
-                        return {
-                            game,
-                            updatedGame,
-                        };
-                    })
-                ).then((results) => {
-                    if (controller.signal.aborted) return;
-
-                    setGames((current) =>
-                        current.map((game) => {
-                            const result = results.find(
-                                (item) =>
-                                    item.status === "fulfilled" &&
-                                    item.value.game.game_id === game.game_id &&
-                                    item.value.game.league === game.league
-                            );
-
-                            if (!result || result.status !== "fulfilled") {
-                                return game;
-                            }
-
-                            return {
-                                ...game,
-                                ...Object.fromEntries(
-                                    Object.entries(result.value.updatedGame).map(([key, value]) => [
-                                        key,
-                                        value ?? game[key as keyof Game],
-                                    ])
-                                ),
-                            };
-                        })
-                    );
-
-                    console.log("Homepage initial scores loaded:", {
-                        liveGames: liveGames.length,
-                        successful: results.filter(
-                            (result) => result.status === "fulfilled"
-                        ).length,
-                        failed: results.filter(
-                            (result) => result.status === "rejected"
-                        ).length,
-                    });
-                });
+                // Keep your existing initial live-score fetching code here,
+                // unchanged.
 
             } catch (err) {
-                if (
-                    err instanceof Error &&
-                    err.name === "AbortError"
-                ) {
+                if (err instanceof Error && err.name === "AbortError") {
                     return;
                 }
 
@@ -213,12 +126,12 @@ export default function Home() {
             }
         };
 
-        // Load initial games and scores
-        loadGames();
+        // Load games immediately without waiting for a version check
+        loadGames(false);
 
         // Check for new games every five minutes
         const interval = setInterval(
-            loadGames,
+            () => loadGames(true),
             5 * 60 * 1000
         );
 
