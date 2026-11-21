@@ -16,28 +16,34 @@ export default function DayPickerClient({
     initialRange,
     initialMonth,
 }: DayPickerClientProps) {
-    const [range, setRange] = useState<DateRange | undefined>(
-        initialRange
-    );
-
+    const [range, setRange] = useState<DateRange | undefined>(initialRange);
     const [month, setMonth] = useState<Date>(
         initialMonth ?? new Date()
     );
-
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-        setRange(initialRange);
-    }, [
-        initialRange?.from?.getTime(),
-        initialRange?.to?.getTime(),
-    ]);
+    const initialFrom = initialRange?.from?.getTime();
+    const initialTo = initialRange?.to?.getTime();
+    const initialMonthTime = initialMonth?.getTime();
 
     useEffect(() => {
-        if (initialMonth) {
-            setMonth(initialMonth);
+        setRange(
+            initialFrom !== undefined
+                ? {
+                    from: new Date(initialFrom),
+                    to: initialTo !== undefined
+                        ? new Date(initialTo)
+                        : undefined,
+                }
+                : undefined
+        );
+    }, [initialFrom, initialTo]);
+
+    useEffect(() => {
+        if (initialMonthTime !== undefined) {
+            setMonth(new Date(initialMonthTime));
         }
-    }, [initialMonth?.getTime()]);
+    }, [initialMonthTime]);
 
     const formatDate = (date: Date) =>
         `${String(date.getMonth() + 1).padStart(2, "0")}/${String(
