@@ -507,6 +507,42 @@ def update_model_route(request: Request):
             },
         )
 
+def apply_live_score(game: dict, league: str, game_date: str):
+    timestamp = pd.Timestamp(game_date)
+
+    if timestamp.tzinfo is None:
+        timestamp = timestamp.tz_localize("UTC")
+
+    cache_date = timestamp.tz_convert(
+        ZoneInfo("America/Toronto")
+    ).strftime("%Y-%m-%d")
+
+    score_cache_key = make_cache_key(
+        "live-score",
+        1,
+        {
+            "league": league,
+            "game_id": str(game["game_id"]),
+            "date": cache_date,
+        },
+    )
+
+    cached_score = get_cached(score_cache_key)
+
+    if cached_score is None:
+        return game
+
+    game["home_score"] = cached_score.get("home_score")
+    game["away_score"] = cached_score.get("away_score")
+
+    if cached_score.get("actual_slop") is not None:
+        game["actual_slop"] = cached_score.get("actual_slop")
+        game["actual_watchability"] = cached_score.get("actual_watchability")
+        game["watchability_percentile"] = cached_score.get("watchability_percentile")
+        game["slop_percentile"] = cached_score.get("slop_percentile")
+
+    return game
+
 
 @router.get("/api/games")
 async def games(request: Request):
@@ -806,6 +842,18 @@ async def games(request: Request):
 
     else:
         result = []
+
+    # ---------------------------------
+    # APPLY LATEST LIVE SCORES
+    # ---------------------------------
+
+    for game in result:
+        if game.get("date") and game.get("league"):
+            apply_live_score(
+                game,
+                game["league"],
+                game["date"],
+            )
 
     # ---------------------------------
     # CACHE COMPLETE REQUEST
@@ -1249,6 +1297,12 @@ async def game(game_id: str, request: Request):
     cached = get_cached(cache_key)
 
     if cached is not None:
+        apply_live_score(
+            cached,
+            league,
+            cached.get("date", game_date),
+        )
+
         return cached_response(cached)
 
     # ---------------------------------
@@ -1430,7 +1484,15 @@ async def game(game_id: str, request: Request):
     elapsed = time.perf_counter() - start_time
     print(f"Game {game_id} took {elapsed:.3f}s")
 
+    # Cache the original prediction response
     set_cached(cache_key, result)
+
+    # Overlay the latest independently cached score
+    apply_live_score(
+        result,
+        league,
+        result["date"],
+    )
 
     return cached_response(result)
 
@@ -1462,19 +1524,30 @@ async def game_score(game_id: str, request: Request):
         parsed_date = pd.Timestamp(game_date)
 
         if parsed_date.tzinfo is None:
-            parsed_date = parsed_date.tz_localize("UTC")
+            cache_date = parsed_date.strftime("%Y-%m-%d")
+            normalized_date = parsed_date.tz_localize("UTC").normalize()
+        else:
+            cache_date = parsed_date.tz_convert(
+                ZoneInfo("America/Toronto")
+            ).strftime("%Y-%m-%d")
 
-        cache_date = parsed_date.tz_convert(
-            ZoneInfo("America/Toronto")
-        ).strftime("%Y-%m-%d")
-
-        normalized_date = parsed_date.normalize()
+            normalized_date = parsed_date.normalize()
 
     except Exception:
         return JSONResponse(
             status_code=400,
             content={"error": "Invalid date"}
         )
+
+    score_cache_key = make_cache_key(
+        "live-score",
+        1,  # Stable version; independent of prediction versions
+        {
+            "league": league,
+            "game_id": str(game_id),
+            "date": cache_date,
+        },
+    )
 
     version = get_data_version()
 
@@ -1629,6 +1702,20 @@ async def game_score(game_id: str, request: Request):
                     flush=True,
                 )
 
+            set_cached(
+                score_cache_key,
+                {
+                    "game_id": int(game_id),
+                    "home_score": home_score,
+                    "away_score": away_score,
+                    "actual_slop": actual_slop,
+                    "actual_watchability": actual_watchability,
+                    "watchability_percentile": watchability_percentile,
+                    "slop_percentile": slop_percentile,
+                },
+                ttl=86400,
+            )
+
             return cached_response({
                 "game_id": int(game_id),
                 "home_score": home_score,
@@ -1643,6 +1730,21 @@ async def game_score(game_id: str, request: Request):
     # GET EXISTING REDIS SCORE
     # ---------------------------------
 
+    cached_score = get_cached(score_cache_key)
+
+    cached_home_score = (
+        cached_score.get("home_score")
+        if cached_score is not None
+        else None
+    )
+
+    cached_away_score = (
+        cached_score.get("away_score")
+        if cached_score is not None
+        else None
+    )
+
+    # Fall back to the old per-date cache if needed
     date_cache_key = make_cache_key(
         "games",
         version,
@@ -1655,10 +1757,7 @@ async def game_score(game_id: str, request: Request):
 
     cached_games = get_cached(date_cache_key)
 
-    cached_home_score = None
-    cached_away_score = None
-
-    if cached_games is not None:
+    if cached_games is not None and cached_score is None:
         for cached_game in cached_games:
             if str(cached_game.get("game_id")) == str(game_id):
                 cached_home_score = cached_game.get("home_score")
@@ -1669,16 +1768,22 @@ async def game_score(game_id: str, request: Request):
     # ALWAYS FETCH A FRESH LIVE SCORE
     # ---------------------------------
 
-    score = await run_in_threadpool(
-        get_live_score,
-        league=league,
-        game_id=game_id,
-        game_date=normalized_date,
-    )
+    try:
+        score = await run_in_threadpool(
+            get_live_score,
+            league=league,
+            game_id=game_id,
+            game_date=normalized_date,
+        )
+    except Exception as e:
+        print(
+            f"Live score provider failed: {e}",
+            flush=True,
+        )
+        score = {}
 
-    # Use the fresh score when available.
-    # Fall back to Redis only if the live provider
-    # doesn't return a score.
+    score = score or {}
+
     home_score = (
         score.get("home_score")
         if score.get("home_score") is not None
@@ -1690,6 +1795,25 @@ async def game_score(game_id: str, request: Request):
         if score.get("away_score") is not None
         else cached_away_score
     )
+
+    # ---------------------------------
+    # UPDATE DEDICATED LIVE SCORE CACHE
+    # ---------------------------------
+
+    if home_score is not None or away_score is not None:
+        set_cached(
+            score_cache_key,
+            {
+                "game_id": int(game_id),
+                "home_score": home_score,
+                "away_score": away_score,
+                "actual_slop": None,
+                "actual_watchability": None,
+                "watchability_percentile": None,
+                "slop_percentile": None,
+            },
+            ttl=86400,
+        )
 
     # ---------------------------------
     # UPDATE PER-DATE REDIS CACHE
@@ -1709,14 +1833,33 @@ async def game_score(game_id: str, request: Request):
                     cached_games,
                 )
 
-                print(
-                    f"Updated Redis score cache: "
-                    f"{league} / Game {game_id} "
-                    f"({home_score}-{away_score})",
-                    flush=True,
-                )
-
                 break
+
+    # ---------------------------------
+    # UPDATE INDIVIDUAL GAME CACHE
+    # ---------------------------------
+
+    game_cache_key = make_cache_key(
+        "game",
+        version,
+        {
+            "game_id": game_id,
+            "league": league,
+            "date": normalized_date.isoformat(),
+        },
+    )
+
+    cached_game = get_cached(game_cache_key)
+
+    if cached_game is not None:
+
+        cached_game["home_score"] = home_score
+        cached_game["away_score"] = away_score
+
+        set_cached(
+            game_cache_key,
+            cached_game,
+        )
 
     print(
         f"Live score response: "
