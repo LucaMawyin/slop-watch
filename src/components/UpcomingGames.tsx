@@ -80,7 +80,7 @@ export default function UpcomingGames({
                     </p>
 
                     <p className="mt-1 text-sm text-zinc-500">
-                        Check back when more games are scheduled.
+                        <i>Check back when more games are scheduled.</i>
                     </p>
                 </div>
             ) : (

@@ -29,7 +29,15 @@ export default function FeaturedGames({
         <section className="space-y-5">
 
             {/* Section heading */}
-            <div className="flex items-end justify-between gap-4">
+            <div className="
+                flex
+                flex-col
+                items-start
+                gap-4
+                sm:flex-row
+                sm:items-end
+                sm:justify-between
+            ">
 
 
                 <h2 className="text-2xl font-bold">
@@ -79,7 +87,7 @@ export default function FeaturedGames({
                     </p>
 
                     <p className="mt-2 text-sm text-zinc-500">
-                        Nothing happening right now. Stay tuned.
+                        <i>Nothing happening right now. Stay tuned.</i>
                     </p>
                 </div>
             )}

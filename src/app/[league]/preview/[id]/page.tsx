@@ -816,7 +816,7 @@ export default function PreviewPage({ params }: Props) {
                             <div className="mt-4">
                                 {!!game.home_recent_games && game.home_recent_games.length === 0 ? (
                                     <div className="py-4 text-sm text-zinc-500">
-                                        No recent games.
+                                        <i>No recent games.</i>
                                     </div>
                                 ) : (
                                     game.home_recent_games?.slice(0, 5).map((recent_game) => {
@@ -953,7 +953,7 @@ export default function PreviewPage({ params }: Props) {
                             <div className="mt-4">
                                 {!!game.away_recent_games && game.away_recent_games.length === 0 ? (
                                     <div className="py-4 text-sm text-zinc-500">
-                                        No recent games.
+                                        <i>No recent games.</i>
                                     </div>
                                 ) : (
                                     game.away_recent_games?.slice(0, 5).map((recent_game) => {

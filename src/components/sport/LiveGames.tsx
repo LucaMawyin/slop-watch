@@ -36,7 +36,15 @@ export default function LiveGames({
     return (
         <section className="w-full space-y-5">
 
-            <div className="flex items-end justify-between gap-4">
+            <div className="
+                flex
+                flex-col
+                items-start
+                gap-4
+                sm:flex-row
+                sm:items-end
+                sm:justify-between
+            ">
                 <h2 className="text-2xl font-bold">
                     Live {name} Games
                 </h2>
@@ -81,11 +89,11 @@ export default function LiveGames({
                     text-center
                 ">
                     <p className="font-medium text-zinc-300">
-                        No live {name.toLowerCase()} games.
+                        No live {name} games.
                     </p>
 
                     <p className="mt-2 text-sm text-zinc-500">
-                        Nothing happening right now. Stay tuned.
+                        <i>Nothing happening right now. Stay tuned.</i>
                     </p>
                 </div>
             )}
