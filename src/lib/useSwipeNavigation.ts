@@ -36,6 +36,32 @@ export default function useSwipeNavigation({
         updateOffset(0);
     }, []);
 
+    const navigate = useCallback((swipeDirection: "left" | "right") => {
+        if (navigationLocked.current) return;
+
+        navigationLocked.current = true;
+
+        setDirection(swipeDirection);
+        setTransitioning(true);
+        setTransitionKey((key) => key + 1);
+
+        updateOffset(
+            swipeDirection === "left"
+                ? -window.innerWidth
+                : window.innerWidth
+        );
+
+        setTimeout(() => {
+            if (swipeDirection === "left") {
+                onSwipeLeft();
+            } else {
+                onSwipeRight();
+            }
+
+            navigationLocked.current = false;
+        }, 250);
+    }, [onSwipeLeft, onSwipeRight]);
+
     const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
         if (navigationLocked.current) return;
 
@@ -78,35 +104,7 @@ export default function useSwipeNavigation({
             return;
         }
 
-        if (navigationLocked.current) {
-            updateOffset(0);
-            return;
-        }
-
-        navigationLocked.current = true;
-
-        const swipeDirection = deltaX < 0 ? "left" : "right";
-
-        setDirection(swipeDirection);
-        setTransitioning(true);
-        setTransitionKey((key) => key + 1);
-
-        updateOffset(
-            swipeDirection === "left"
-                ? -window.innerWidth
-                : window.innerWidth
-        );
-
-        setTimeout(() => {
-            if (swipeDirection === "left") {
-                onSwipeLeft();
-            } else {
-                onSwipeRight();
-            }
-
-            // Unlock after the slide animation, not after the fetch.
-            navigationLocked.current = false;
-        }, 250);
+        navigate(deltaX < 0 ? "left" : "right");
     };
 
     const handleTouchCancel = () => {
@@ -123,6 +121,7 @@ export default function useSwipeNavigation({
         transitioning,
         transitionKey,
         finishTransition,
+        navigate,
         onTouchStart: handleTouchStart,
         onTouchMove: handleTouchMove,
         onTouchEnd: handleTouchEnd,

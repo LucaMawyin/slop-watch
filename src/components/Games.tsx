@@ -137,6 +137,7 @@ function GamesContent() {
         transitioning,
         transitionKey,
         finishTransition,
+        navigate,
         ...swipeHandlers
     } = useSwipeNavigation({
         onSwipeLeft: () => router.push(getShiftedDateUrl(1)),
@@ -251,6 +252,12 @@ function GamesContent() {
                 setGames(filteredGames);
                 setError(null);
 
+                if (initialLoad) {
+                    initialLoad = false;
+                    setLoading(false);
+                    finishTransition();
+                }
+
                 // Fetch scores in background
                 // Prioritize games that appear first in live sort order
                 const fetchInitialScores = async () => {
@@ -331,12 +338,6 @@ function GamesContent() {
                             ? err.message
                             : "Something went wrong."
                     );
-                }
-            } finally {
-                if (initialLoad && !controller.signal.aborted) {
-                    initialLoad = false;
-                    setLoading(false);
-                    finishTransition();
                 }
             }
         };
@@ -625,13 +626,14 @@ function GamesContent() {
                             sm:w-fit
                         "
                     >
-                        <Link
-                            href={getShiftedDateUrl(-1)}
+                        <button
+                            type="button"
+                            onClick={() => navigate("right")}
                             aria-label="Previous day"
                             className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
                         >
                             <ChevronLeft size={20} />
-                        </Link>
+                        </button>
 
                         {/* DATE RANGE */}
                         <DayPickerClient
@@ -667,13 +669,14 @@ function GamesContent() {
                             }}
                         />
 
-                        <Link
-                            href={getShiftedDateUrl(1)}
+                        <button
+                            type="button"
+                            onClick={() => navigate("left")}
                             aria-label="Next day"
                             className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
                         >
                             <ChevronRight size={20} />
-                        </Link>
+                        </button>
                     </div>
 
                     <div className="
