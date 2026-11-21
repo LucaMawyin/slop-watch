@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+import asyncio
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -30,6 +31,7 @@ from services.live import get_live_score
 from services.cache import (
     make_cache_key,
     get_cached,
+    get_cached_many,
     set_cached,
     get_active_version,
     set_active_version,
@@ -128,8 +130,8 @@ def warm_cache(version: int):
     success = True
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
-    start = (today - timedelta(days=30)).isoformat()
-    end = (today + timedelta(days=30)).isoformat()
+    start = (today - timedelta(days=1)).isoformat()
+    end = (today + timedelta(days=1)).isoformat()
 
     # ---------------------------------
     # WARM ALL GAMES
@@ -350,7 +352,6 @@ def warm_cache(version: int):
             task_type = tasks[future]
 
             try:
-                result = future.result()
 
                 if task_type == "team":
                     completed_teams += 1
@@ -700,7 +701,40 @@ async def games(request: Request):
     all_games = []
 
     # ---------------------------------
-    # GET CACHED GAMES BY DATE
+    # FETCH ALL CACHE HITS CONCURRENTLY
+    # ---------------------------------
+
+    cache_tasks = [
+        (current_league, date)
+        for current_league in leagues
+        for date in dates
+    ]
+
+    cache_keys = [
+        make_cache_key(
+            "games",
+            version,
+            {
+                "league": current_league,
+                "date": date,
+                "timezone": timezone,
+            },
+        )
+        for current_league, date in cache_tasks
+    ]
+
+    cache_results = await run_in_threadpool(
+        get_cached_many,
+        cache_keys,
+    )
+
+    cache_lookup = {
+        key: result
+        for key, result in zip(cache_tasks, cache_results)
+    }
+
+    # ---------------------------------
+    # PROCESS EACH LEAGUE
     # ---------------------------------
 
     for current_league in leagues:
@@ -710,17 +744,7 @@ async def games(request: Request):
 
         for date in dates:
 
-            date_cache_key = make_cache_key(
-                "games",
-                version,
-                {
-                    "league": current_league,
-                    "date": date,
-                    "timezone": timezone,
-                }
-            )
-
-            cached_date = get_cached(date_cache_key)
+            cached_date = cache_lookup[(current_league, date)]
 
             if cached_date is not None:
                 cached_by_date[date] = cached_date

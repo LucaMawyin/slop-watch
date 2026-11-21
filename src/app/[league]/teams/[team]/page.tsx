@@ -165,7 +165,7 @@ export default function TeamPage({ params }: Props) {
 
             const liveGames = currentTeam.upcoming_games.filter(
                 (game) =>
-                    game.actual_slop === null &&
+                    game.actual_slop == null &&
                     new Date(game.date).getTime() <= nowRef.current
             );
 
@@ -235,7 +235,6 @@ export default function TeamPage({ params }: Props) {
 
         return (
             age >= 0 &&
-            age <= 6 * 60 * 60 * 1000 &&
             game.actual_slop == null
         );
     });

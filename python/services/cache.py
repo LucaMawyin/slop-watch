@@ -50,6 +50,24 @@ def get_cached(key: str):
         print(f"Redis read failed: {e}", flush=True)
         return None
 
+def get_cached_many(keys: list[str]) -> list:
+
+    try:
+        with cache.pipeline(transaction=False) as pipe:
+            for key in keys:
+                pipe.get(key)
+
+            results = pipe.execute()
+
+        return [
+            json.loads(result) if result is not None else None
+            for result in results
+        ]
+
+    except redis.RedisError as e:
+        print(f"Redis bulk read failed: {e}", flush=True)
+        return [None] * len(keys)
+
 
 def set_cached(key: str, content, ttl: int = 86400):
 

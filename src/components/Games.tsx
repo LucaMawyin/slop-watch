@@ -19,6 +19,7 @@ function GamesContent() {
 
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
+    const hasLoadedOnce = useRef(false);
     const [error, setError] = useState<string | null>(null);
     const [now, setNow] = useState(() => Date.now());
 
@@ -131,7 +132,6 @@ function GamesContent() {
     };
 
     const {
-        offset,
         dragging,
         direction,
         transitioning,
@@ -143,6 +143,10 @@ function GamesContent() {
         onSwipeLeft: () => router.push(getShiftedDateUrl(1)),
         onSwipeRight: () => router.push(getShiftedDateUrl(-1)),
     });
+
+    const [loadedDateKey, setLoadedDateKey] = useState<string | null>(null);
+
+    const dateKey = `${league ?? sport ?? "all"}:${effectiveStart}:${effectiveEnd}`;
 
     // Reset filters on reload
     useEffect(() => {
@@ -156,7 +160,10 @@ function GamesContent() {
         let currentVersion: string | null = null;
         let initialLoad = true;
 
-        setLoading(true);
+        if (!hasLoadedOnce.current) {
+            setLoading(true);
+        }
+
         setVisibleCount(9);
         setError(null);
 
@@ -252,11 +259,10 @@ function GamesContent() {
                 setGames(filteredGames);
                 setError(null);
 
-                if (initialLoad) {
-                    initialLoad = false;
-                    setLoading(false);
-                    finishTransition();
-                }
+                hasLoadedOnce.current = true;
+                initialLoad = false;
+                setLoading(false);
+                setLoadedDateKey(dateKey);
 
                 // Fetch scores in background
                 // Prioritize games that appear first in live sort order
@@ -264,7 +270,7 @@ function GamesContent() {
                     const liveGames = filteredGames
                         .filter((game) => {
                             return (
-                                game.actual_slop === null &&
+                                game.actual_slop == null &&
                                 new Date(game.date).getTime() <= Date.now()
                             );
                         })
@@ -333,11 +339,14 @@ function GamesContent() {
                 console.error("Failed to load games:", err);
 
                 if (initialLoad) {
+                    initialLoad = false;
+                    setLoading(false);
                     setError(
                         err instanceof Error
                             ? err.message
                             : "Something went wrong."
                     );
+                    setLoadedDateKey(dateKey);
                 }
             }
         };
@@ -355,7 +364,7 @@ function GamesContent() {
             controller.abort();
             clearInterval(interval);
         };
-    }, [league, sport, effectiveStart, effectiveEnd, finishTransition]);
+    }, [dateKey, league, sport, effectiveStart, effectiveEnd]);
 
     const gamesRef = useRef<Game[]>([]);
 
@@ -379,7 +388,7 @@ function GamesContent() {
                 const liveGames = gamesRef.current
                     .filter((game) => {
                         return (
-                            game.actual_slop === null &&
+                            game.actual_slop == null &&
                             new Date(game.date).getTime() <= Date.now()
                         );
                     })
@@ -496,6 +505,22 @@ function GamesContent() {
 
         return () => clearInterval(interval);
     }, []);
+
+    const [animationDoneKey, setAnimationDoneKey] = useState<number | null>(null);
+
+    const dateLoaded = loadedDateKey === dateKey;
+    const animationDone = animationDoneKey === transitionKey;
+
+    useEffect(() => {
+        if (transitioning && dateLoaded && animationDone) {
+            finishTransition();
+        }
+    }, [
+        transitioning,
+        dateLoaded,
+        animationDone,
+        finishTransition,
+    ]);
 
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
@@ -797,101 +822,93 @@ function GamesContent() {
                 className="relative overflow-hidden"
                 {...swipeHandlers}
             >
-                {/* Incoming skeleton */}
-                {transitioning && !dragging && (
+                {transitioning ? (
                     <div
                         key={transitionKey}
-                        className="absolute inset-0 z-10"
+                        className="mt-8 w-full"
+                        onAnimationEnd={(e) => {
+                            if (e.target === e.currentTarget) {
+                                setAnimationDoneKey(transitionKey);
+                            }
+                        }}
                         style={{
-                            transform: `translateX(${
-                                direction === "left" ? "100%" : "-100%"
-                            })`,
-                            animation: "slide-in 250ms forwards",
-                            pointerEvents: "none",
+                            animation: `slide-in-${direction} 250ms ease-out both`,
                         }}
                     >
                         <GamesSkeleton showLeague={!!sport} />
                     </div>
-                )}
+                ) : (
+                    <div>
+                        {loading && !hasLoadedOnce.current ? (
+                            <GamesSkeleton showLeague={!!sport}/>
+                        ) : error && games.length === 0 ? (
+                            <p className="mt-4 text-red-400!">{error}</p>
+                        ) : games.length === 0 ? (
+                            <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+                                <h2 className="text-lg font-semibold">
+                                    No games found
+                                </h2>
 
-                {/* Current content */}
-                <div
-                    style={{
-                        transform: `translateX(${offset}px)`,
-                        transition: dragging
-                            ? "none"
-                            : "transform 250ms ease-out",
-                    }}
-                >
-                    {loading ? (
-                        <GamesSkeleton showLeague={!!sport}/>
-                    ) : error ? (
-                        <p className="mt-4 text-red-400!">{error}</p>
-                    ) : games.length === 0 ? (
-                        <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
-                            <h2 className="text-lg font-semibold">
-                                No games found
-                            </h2>
+                                <p className="mt-2 text-sm text-zinc-500">
+                                    There are no upcoming games for this league.
+                                </p>
 
-                            <p className="mt-2 text-sm text-zinc-500">
-                                There are no upcoming games for this league.
-                            </p>
-
-                            <Link
-                                className="mt-2 inline-block"
-                                href="/"
-                            >
-                                &lt; Return to Home
-                            </Link>
-                        </div>
-                    ) : ( 
-                        <>
-                            <div className="
-                                mt-8 
-                                grid 
-                                auto-rows-fr
-                                grid-cols-1 
-                                gap-4 
-                                sm:grid-cols-2 
-                                lg:grid-cols-3
-                            ">
-                                {sortedGames.slice(0, visibleCount).map((game) => {
-
-                                    return (
-                                        <FeaturedGameCard
-                                            key={game.game_id}
-                                            game={game}
-                                            now={now}
-                                        />
-                                    );
-                                })}
+                                <Link
+                                    className="mt-2 inline-block"
+                                    href="/"
+                                >
+                                    &lt; Return to Home
+                                </Link>
                             </div>
-                            {visibleCount < sortedGames.length && (
-                                <div className="mt-6 flex justify-center">
-                                    <button
-                                        onClick={() => setVisibleCount((count) => count + 9)}
-                                        className="
-                                            rounded-lg
-                                            border
-                                            border-zinc-800
-                                            bg-zinc-900
-                                            px-5
-                                            py-2.5
-                                            text-sm
-                                            font-medium
-                                            text-zinc-200
-                                            transition
-                                            hover:border-zinc-700
-                                            hover:bg-zinc-800
-                                        "
-                                    >
-                                        Show More
-                                    </button>
+                        ) : ( 
+                            <>
+                                <div className="
+                                    mt-8 
+                                    grid 
+                                    auto-rows-fr
+                                    grid-cols-1 
+                                    gap-4 
+                                    sm:grid-cols-2 
+                                    lg:grid-cols-3
+                                ">
+                                    {sortedGames.slice(0, visibleCount).map((game) => {
+
+                                        return (
+                                            <FeaturedGameCard
+                                                key={game.game_id}
+                                                game={game}
+                                                now={now}
+                                            />
+                                        );
+                                    })}
                                 </div>
-                            )}
-                        </>
-                    )}
-                </div>
+                                {visibleCount < sortedGames.length && (
+                                    <div className="mt-6 flex justify-center">
+                                        <button
+                                            onClick={() => setVisibleCount((count) => count + 9)}
+                                            className="
+                                                rounded-lg
+                                                border
+                                                border-zinc-800
+                                                bg-zinc-900
+                                                px-5
+                                                py-2.5
+                                                text-sm
+                                                font-medium
+                                                text-zinc-200
+                                                transition
+                                                hover:border-zinc-700
+                                                hover:bg-zinc-800
+                                            "
+                                        >
+                                            Show More
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </div>                    
+                )}
             </div>
 
         </main>

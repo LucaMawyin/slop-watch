@@ -17,7 +17,6 @@ export default function Home() {
     const { notify, dismiss, dismissAll } = useNotifications();
 
     const gamesRef = useRef<Game[]>([]);
-    const [now, setNow] = useState(() => Date.now());
 
     useEffect(() => {
         gamesRef.current = games;
@@ -162,8 +161,8 @@ export default function Home() {
                         const age = now - new Date(game.date).getTime();
 
                         return (
-                            age >= 0 &&
-                            age <= 6 * 60 * 60 * 1000
+                            game.actual_slop == null &&
+                            age >= 0
                         );
                     })
                     .sort(
@@ -251,10 +250,14 @@ export default function Home() {
         };
     }, [games.length, loading]);
 
+    const [now, setNow] = useState(() => Date.now());
+
     useEffect(() => {
-        const interval = setInterval(() => {
-            setNow(Date.now());
-        }, 1000);
+        const syncTime = () => setNow(Date.now());
+
+        syncTime();
+
+        const interval = setInterval(syncTime, 60 * 1000);
 
         return () => clearInterval(interval);
     }, []);

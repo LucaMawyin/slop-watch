@@ -16,61 +16,34 @@ export default function useSwipeNavigation({
 }: UseSwipeNavigationOptions) {
     const touchStartX = useRef<number | null>(null);
     const touchStartY = useRef<number | null>(null);
-    const offsetRef = useRef(0);
-    const navigationLocked = useRef(false);
 
-    const [offset, setOffset] = useState(0);
     const [dragging, setDragging] = useState(false);
-    const [direction, setDirection] = useState<"left" | "right" | null>(null);
+    const [direction, setDirection] = useState<"left" | "right">("left");
     const [transitioning, setTransitioning] = useState(false);
     const [transitionKey, setTransitionKey] = useState(0);
 
-    const updateOffset = (value: number) => {
-        offsetRef.current = value;
-        setOffset(value);
-    };
-
-    const finishTransition = useCallback(() => {
-        setTransitioning(false);
-        setDirection(null);
-        updateOffset(0);
-    }, []);
-
     const navigate = useCallback((swipeDirection: "left" | "right") => {
-        if (navigationLocked.current) return;
-
-        navigationLocked.current = true;
-
+        // Restart the animation, even if one is already running.
         setDirection(swipeDirection);
         setTransitioning(true);
         setTransitionKey((key) => key + 1);
 
-        updateOffset(
-            swipeDirection === "left"
-                ? -window.innerWidth
-                : window.innerWidth
-        );
-
-        setTimeout(() => {
-            if (swipeDirection === "left") {
-                onSwipeLeft();
-            } else {
-                onSwipeRight();
-            }
-
-            navigationLocked.current = false;
-        }, 250);
+        if (swipeDirection === "left") {
+            onSwipeLeft();
+        } else {
+            onSwipeRight();
+        }
     }, [onSwipeLeft, onSwipeRight]);
 
-    const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
-        if (navigationLocked.current) return;
+    const finishTransition = useCallback(() => {
+        setTransitioning(false);
+    }, []);
 
+    const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
         const touch = e.touches[0];
 
         touchStartX.current = touch.clientX;
         touchStartY.current = touch.clientY;
-
-        updateOffset(0);
         setDragging(true);
     };
 
@@ -85,24 +58,24 @@ export default function useSwipeNavigation({
         const deltaX = touch.clientX - touchStartX.current;
         const deltaY = touch.clientY - touchStartY.current;
 
+        // Ignore primarily vertical gestures.
         if (Math.abs(deltaY) > Math.abs(deltaX) * 1.5) return;
-
-        updateOffset(deltaX * 0.85);
     };
 
-    const handleTouchEnd = () => {
+    const handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
         if (touchStartX.current === null) return;
 
-        const deltaX = offsetRef.current / 0.85;
+        const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+        const deltaY = e.changedTouches[0].clientY - (touchStartY.current ?? 0);
 
         touchStartX.current = null;
         touchStartY.current = null;
         setDragging(false);
 
-        if (Math.abs(deltaX) < minSwipeDistance) {
-            updateOffset(0);
-            return;
-        }
+        if (
+            Math.abs(deltaX) < minSwipeDistance ||
+            Math.abs(deltaY) > Math.abs(deltaX) * 1.5
+        ) return;
 
         navigate(deltaX < 0 ? "left" : "right");
     };
@@ -111,17 +84,15 @@ export default function useSwipeNavigation({
         touchStartX.current = null;
         touchStartY.current = null;
         setDragging(false);
-        updateOffset(0);
     };
 
     return {
-        offset,
         dragging,
         direction,
         transitioning,
         transitionKey,
-        finishTransition,
         navigate,
+        finishTransition,
         onTouchStart: handleTouchStart,
         onTouchMove: handleTouchMove,
         onTouchEnd: handleTouchEnd,

@@ -144,7 +144,7 @@ export default function PreviewPage({ params }: Props) {
 
             if (
                 !currentGame ||
-                currentGame.actual_slop !== null ||
+                currentGame.actual_slop != null ||
                 new Date(currentGame.date).getTime() > nowRef.current ||
                 updating
             ) {

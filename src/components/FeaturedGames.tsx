@@ -14,7 +14,7 @@ export default function FeaturedGames({
 
     const featuredGames = [...games]
         .filter((game) =>
-            game.actual_slop === null &&
+            game.actual_slop == null &&
             new Date(game.date).getTime() <= now
         )
         .sort((a, b) => {
