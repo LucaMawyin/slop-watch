@@ -141,11 +141,12 @@ export default function SportPage() {
 
                 const liveGames = data
                     .filter((game) => {
-                        const age = currentTime - new Date(game.date).getTime();
+                        const gameTime = new Date(game.date).getTime();
 
                         return (
-                            age >= -30 * 60 * 1000 &&
-                            age <= 6 * 60 * 60 * 1000
+                            game.actual_slop === null &&
+                            gameTime >= currentTime &&
+                            gameTime <= currentTime + 6 * 60 * 60 * 1000
                         );
                     })
                     .sort(
@@ -253,12 +254,12 @@ export default function SportPage() {
 
                 const liveGames = gamesRef.current
                     .filter((game) => {
-                        const age =
-                            currentTime - new Date(game.date).getTime();
+                        const gameTime = new Date(game.date).getTime();
 
                         return (
-                            age >= -30 * 60 * 1000 &&
-                            age <= 6 * 60 * 60 * 1000
+                            game.actual_slop === null &&
+                            gameTime >= currentTime &&
+                            gameTime <= currentTime + 6 * 60 * 60 * 1000
                         );
                     })
                     .sort(
@@ -344,92 +345,6 @@ export default function SportPage() {
             clearInterval(interval);
         };
     }, [games.length, loading]);
-
-    useEffect(() => {
-        const controller = new AbortController();
-        let isFetching = false;
-
-        async function fetchLiveScores() {
-            if (isFetching) return;
-
-            isFetching = true;
-
-            try {
-                const currentGames = gamesRef.current;
-                const now = Date.now();
-
-                const liveCandidates = currentGames.filter((game) => {
-                    const gameTime = new Date(game.date).getTime();
-
-                    return (
-                        game.actual_slop === null &&
-                        gameTime >= now - 30 * 60 * 1000 &&
-                        gameTime <= now + 6 * 60 * 60 * 1000
-                    );
-                });
-
-                const updates = await Promise.all(
-                    liveCandidates.map(async (game) => {
-                        const date = new Date(game.date)
-                            .toISOString()
-                            .split("T")[0];
-
-                        const params = new URLSearchParams({
-                            league: game.league,
-                            date,
-                        });
-
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_API_URL}/api/game/${game.game_id}/score?${params}`,
-                            { signal: controller.signal }
-                        );
-
-                        if (!response.ok) return null;
-
-                        const data: Partial<Game> = await response.json();
-
-                        return {
-                            game_id: game.game_id,
-                            league: game.league,
-                            data,
-                        };
-                    })
-                );
-
-                setGames((previous) =>
-                    previous.map((game) => {
-                        const update = updates.find(
-                            (item) =>
-                                item?.game_id === game.game_id &&
-                                item?.league === game.league
-                        );
-
-                        return update
-                            ? { ...game, ...update.data }
-                            : game;
-                    })
-                );
-            } catch (error) {
-                if (
-                    error instanceof Error &&
-                    error.name !== "AbortError"
-                ) {
-                    console.error("Failed to fetch live scores:", error);
-                }
-            } finally {
-                isFetching = false;
-            }
-        }
-
-        fetchLiveScores();
-
-        const interval = setInterval(fetchLiveScores, 60_000);
-
-        return () => {
-            controller.abort();
-            clearInterval(interval);
-        };
-    }, []);
 
     if (!isValidLeague && !isValidSport) {
         notFound();

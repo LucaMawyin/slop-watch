@@ -162,7 +162,7 @@ export default function Home() {
                         const age = now - new Date(game.date).getTime();
 
                         return (
-                            age >= -30 * 60 * 1000 &&
+                            age >= 0 &&
                             age <= 6 * 60 * 60 * 1000
                         );
                     })
