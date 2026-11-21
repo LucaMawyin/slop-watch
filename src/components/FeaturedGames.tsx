@@ -45,7 +45,7 @@ export default function FeaturedGames({
                         transition
                     "
                 >
-                    All games →
+                    All Games →
                 </Link>
             </div>
 
