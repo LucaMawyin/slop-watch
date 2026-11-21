@@ -49,6 +49,15 @@ export default function SportPage() {
 
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
+    const [now, setNow] = useState(() => Date.now());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNow(Date.now());
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -163,6 +172,7 @@ export default function SportPage() {
             ">
                 <UpcomingGames
                     games={games}
+                    now={now}
                     category={category}
                     name={name}
                     loading={loading}
