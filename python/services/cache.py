@@ -105,3 +105,55 @@ def set_active_version(version: int):
         raise RuntimeError(
             f"Could not activate cache version: {e}"
         ) from e
+
+
+def set_model_versions(cache_version: int, model_versions: dict):
+    key = f"slop-watch:model-versions:{cache_version}"
+
+    try:
+        if not model_versions:
+            raise ValueError("Model versions cannot be empty")
+
+        mapping = {
+            league: str(version)
+            for league, version in model_versions.items()
+        }
+
+        with cache.pipeline(transaction=True) as pipe:
+            pipe.delete(key)
+            pipe.hset(key, mapping=mapping)
+            pipe.execute()
+
+    except redis.RedisError as e:
+        raise RuntimeError(
+            f"Could not save model versions: {e}"
+        ) from e
+
+
+def get_model_versions(cache_version: int):
+    key = f"slop-watch:model-versions:{cache_version}"
+
+    try:
+        versions = cache.hgetall(key)
+
+        if not versions:
+            return None
+
+        return versions
+
+    except redis.RedisError as e:
+        raise RuntimeError(
+            f"Could not retrieve model versions: {e}"
+        ) from e
+
+
+def get_model_version(cache_version: int, league: str):
+    versions = get_model_versions(cache_version)
+
+    if not versions or league not in versions:
+        raise RuntimeError(
+            f"No model version registered for "
+            f"{league} at cache version {cache_version}"
+        )
+
+    return versions[league]

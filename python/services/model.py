@@ -1,6 +1,8 @@
 import joblib
 from pathlib import Path
 import os
+import time
+import shutil
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
@@ -76,11 +78,6 @@ def train_model(league="nba"):
         "watchability": all_predictions[:, 1],
     }
 
-    joblib.dump(
-        prediction_distribution,
-        f"models/{league}_prediction_distribution.pkl"
-    )
-
     slop_error = mean_absolute_error(
         Y_test["actual_slop"],
         predictions[:, 0],
@@ -100,24 +97,146 @@ def train_model(league="nba"):
     )
 
     # ---------------------------------
-    # SAVE MODEL
+    # SAVE CANDIDATE MODEL ARTIFACT
     # ---------------------------------
 
-    model_path = Path(f"models/{league}_slop_model.pkl")
-    temp_path = Path(f"models/{league}_slop_model.pkl.tmp")
+    generation = str(time.time_ns())
 
-    joblib.dump(
-        model,
-        temp_path
+    models_dir = Path("models")
+    models_dir.mkdir(exist_ok=True)
+
+    candidate_path = models_dir / f"{league}_candidate.pkl"
+    temp_path = models_dir / f"{league}_candidate.tmp"
+
+    artifact = {
+        "version": generation,
+        "model": model,
+        "distribution": prediction_distribution,
+    }
+
+    try:
+        joblib.dump(artifact, temp_path)
+        os.replace(temp_path, candidate_path)
+
+    except Exception:
+        if temp_path.exists():
+            temp_path.unlink()
+
+        raise
+
+    print(
+        f"{league.upper()} candidate model saved. Version: {generation}"
     )
 
-    os.replace(
-        temp_path,
-        model_path
-    )
+    return generation
 
-    print(f"{league.upper()} model saved.")
+def promote_model(league: str, expected_version: str):
 
+    models_dir = Path("models")
+
+    candidate_path = models_dir / f"{league}_candidate.pkl"
+    current_path = models_dir / f"{league}_current.pkl"
+    previous_path = models_dir / f"{league}_previous.pkl"
+    previous_temp = models_dir / f"{league}_previous.tmp"
+
+    expected_version = str(expected_version)
+
+    # ---------------------------------
+    # CHECK IF ALREADY PROMOTED
+    # ---------------------------------
+
+    if current_path.exists():
+        current = joblib.load(current_path)
+
+        if current["version"] == expected_version:
+            print(
+                f"{league.upper()} model already promoted: {expected_version}",
+                flush=True,
+            )
+            return
+
+    # ---------------------------------
+    # VALIDATE CANDIDATE
+    # ---------------------------------
+
+    if not candidate_path.exists():
+        raise FileNotFoundError(
+            f"Candidate model not found: {candidate_path}"
+        )
+
+    candidate = joblib.load(candidate_path)
+
+    if candidate["version"] != expected_version:
+        raise RuntimeError(
+            f"Candidate version mismatch for {league}. "
+            f"Expected {expected_version}, "
+            f"found {candidate['version']}"
+        )
+
+    # ---------------------------------
+    # PRESERVE CURRENT MODEL
+    # ---------------------------------
+
+    try:
+        if current_path.exists():
+
+            shutil.copy2(
+                current_path,
+                previous_temp,
+            )
+
+            os.replace(
+                previous_temp,
+                previous_path,
+            )
+
+        # ---------------------------------
+        # PROMOTE CANDIDATE
+        # ---------------------------------
+
+        os.replace(
+            candidate_path,
+            current_path,
+        )
+
+        print(
+            f"{league.upper()} model promoted: {expected_version}",
+            flush=True,
+        )
+
+    except Exception:
+        if previous_temp.exists():
+            previous_temp.unlink()
+
+        raise
+
+def discard_model_candidate(league: str, expected_version: str):
+
+    candidate_path = Path("models") / f"{league}_candidate.pkl"
+
+    if not candidate_path.exists():
+        return
+
+    candidate = joblib.load(candidate_path)
+
+    if candidate["version"] == str(expected_version):
+        candidate_path.unlink()
+
+        print(
+            f"{league.upper()} candidate discarded: {expected_version}",
+            flush=True,
+        )
+
+def promote_all_models(model_versions: dict):
+
+    for league, generation in model_versions.items():
+        promote_model(league, generation)
+
+
+def discard_model_candidates(model_versions: dict):
+
+    for league, generation in model_versions.items():
+        discard_model_candidate(league, generation)
 
 if __name__ == "__main__":
     for league in SPORT_CONFIG:

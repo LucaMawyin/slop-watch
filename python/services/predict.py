@@ -3,13 +3,20 @@ import joblib
 import pandas as pd
 import numpy as np
 
+from pathlib import Path
+
 from config.sports import (
     SPORT_CONFIG, 
     MODEL_FEATURES,
 )
 from services.games import get_games
 
-def predict(start_date=None, days_ahead=100, league="mlb"):
+def predict(
+    start_date=None, 
+    days_ahead=100, 
+    league="mlb",
+    model_version=None,
+):
 
     start_time = time.perf_counter()
 
@@ -147,27 +154,78 @@ def predict(start_date=None, days_ahead=100, league="mlb"):
 
         if len(valid_indices) > 0:
 
-
             # ---------------------------------
-            # PREDICT FEATURES
+            # LOAD MODEL ARTIFACT
             # ---------------------------------
 
-            model = joblib.load(
-                f"models/{league}_slop_model.pkl"
+            models_dir = Path("models")
+
+            if model_version is None:
+                # Standalone use: default to the current model.
+                artifact_paths = [
+                    models_dir / f"{league}_current.pkl",
+                ]
+            else:
+                # Production: find the exact registered model generation.
+                artifact_paths = [
+                    models_dir / f"{league}_candidate.pkl",
+                    models_dir / f"{league}_current.pkl",
+                    models_dir / f"{league}_previous.pkl",
+                ]
+
+            artifact = None
+
+            for artifact_path in artifact_paths:
+
+                if not artifact_path.exists():
+                    continue
+
+                candidate_artifact = joblib.load(artifact_path)
+
+                if (
+                    model_version is None
+                    or candidate_artifact["version"] == str(model_version)
+                ):
+                    artifact = candidate_artifact
+                    break
+
+            if artifact is None:
+                raise FileNotFoundError(
+                    f"No model artifact found for "
+                    f"{league} version {model_version}"
+                )
+
+            model = artifact["model"]
+            prediction_distribution = artifact["distribution"]
+
+            print(
+                f"{league.upper()} model version: {artifact['version']}",
+                flush=True,
             )
 
-            prediction_distribution = joblib.load(
-                f"models/{league}_prediction_distribution.pkl"
-            )
+            # ---------------------------------
+            # DEBUG GAME
+            # ---------------------------------
 
             debug_game = games.loc[
-                valid_indices[games.loc[valid_indices, "game_id"] == "401882799"]
+                valid_indices[
+                    games.loc[valid_indices, "game_id"] == "401882799"
+                ]
             ]
 
             if not debug_game.empty:
                 print("\n========== MODEL INPUT DEBUG ==========")
-                print(debug_game[["game_id"] + MODEL_FEATURES].to_string(index=False))
+                print(
+                    debug_game[
+                        ["game_id"] + MODEL_FEATURES
+                    ].to_string(index=False)
+                )
                 print("=======================================\n")
+
+            # ---------------------------------
+            # PREDICTIONS
+            # ---------------------------------
+
 
             predictions = model.predict(
                 games.loc[

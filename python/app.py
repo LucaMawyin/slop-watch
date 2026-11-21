@@ -33,6 +33,13 @@ from services.cache import (
     set_cached,
     get_active_version,
     set_active_version,
+    set_model_versions,
+    get_model_versions,
+    get_model_version,
+)
+from services.model import (
+    promote_all_models,
+    discard_model_candidates,
 )
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -371,6 +378,7 @@ def warm_cache(version: int):
 @router.get("/api/version")
 def version():
     active_version = get_data_version()
+    model_versions = get_model_versions(active_version)
 
     print(
         f"VERSION REQUEST: Active version = {active_version}",
@@ -378,7 +386,10 @@ def version():
     )
 
     return JSONResponse(
-        content={"version": str(active_version)},
+        content={
+            "version": str(active_version),
+            "model_versions": model_versions,
+        },
         headers={
             "Cache-Control": "no-store",
             "Cloudflare-CDN-Cache-Control": "no-store",
@@ -398,45 +409,66 @@ def update_data_route(request: Request):
         with lock:
             print("UPDATE DATA: Starting", flush=True)
 
+            # Refresh source and processed data
             update_all_data()
 
             print("UPDATE DATA: Finished", flush=True)
 
+            # Create a new cache generation
             candidate_version = generate_data_version()
+
+            # Preserve the existing model generations
+            active_version = get_data_version()
+            model_versions = get_model_versions(active_version)
+
+            if not model_versions:
+                raise RuntimeError(
+                    f"No model versions registered for active version "
+                    f"{active_version}"
+                )
+
+            set_model_versions(
+                candidate_version,
+                model_versions,
+            )
 
             print(
                 f"UPDATE DATA: Candidate version {candidate_version}",
                 flush=True,
             )
 
-        print("UPDATE DATA: Starting candidate cache warm", flush=True)
+            # Warm the candidate while keeping the old version active
+            print("UPDATE DATA: Starting candidate cache warm", flush=True)
 
-        warm_success = warm_cache(candidate_version)
+            warm_success = warm_cache(candidate_version)
 
-        if not warm_success:
-            return JSONResponse(
-                status_code=500,
-                content={
-                    "success": False,
-                    "message": "Data updated, but cache warming failed. Previous version remains active.",
-                    "candidate_version": candidate_version,
-                    "active_version": get_data_version(),
-                },
-            )
+            if not warm_success:
+                return JSONResponse(
+                    status_code=500,
+                    content={
+                        "success": False,
+                        "message": (
+                            "Data updated, but cache warming failed. "
+                            "Previous version remains active."
+                        ),
+                        "candidate_version": candidate_version,
+                        "active_version": get_data_version(),
+                    },
+                )
 
-        with lock:
+            # Activate only after successful warming
             set_data_version(candidate_version)
 
-        print(
-            f"UPDATE DATA: Activated version {candidate_version}",
-            flush=True,
-        )
+            print(
+                f"UPDATE DATA: Activated version {candidate_version}",
+                flush=True,
+            )
 
-        return {
-            "success": True,
-            "message": "Data updated, cache warmed, and new version activated.",
-            "version": candidate_version,
-        }
+            return {
+                "success": True,
+                "message": "Data updated, cache warmed, and new version activated.",
+                "version": candidate_version,
+            }
 
     except Exception as e:
         print(f"Data update failed: {e}", flush=True)
@@ -448,7 +480,7 @@ def update_data_route(request: Request):
                 "error": str(e),
             },
         )
-
+    
 @router.post("/api/update/model")
 def update_model_route(request: Request):
 
@@ -458,49 +490,70 @@ def update_model_route(request: Request):
     if not expected_secret or provided_secret != expected_secret:
         raise HTTPException(status_code=401, detail="Unauthorized")
 
+    model_versions = None
+
     try:
         with lock:
             print("UPDATE MODEL: Starting", flush=True)
 
-            update_all_models()
+            # Train all candidate models
+            model_versions = update_all_models()
 
-            print("UPDATE MODEL: Finished", flush=True)
+            if not model_versions:
+                raise RuntimeError("No candidate models were generated")
 
+            # Create a new cache generation
             candidate_version = generate_data_version()
+
+            # Associate this cache generation with its model generations
+            set_model_versions(
+                candidate_version,
+                model_versions,
+            )
 
             print(
                 f"UPDATE MODEL: Candidate version {candidate_version}",
                 flush=True,
             )
 
-        print("UPDATE MODEL: Starting candidate cache warm", flush=True)
+            # Warm using candidate models
+            print("UPDATE MODEL: Starting candidate cache warm", flush=True)
 
-        warm_success = warm_cache(candidate_version)
+            warm_success = warm_cache(candidate_version)
 
-        if not warm_success:
-            return JSONResponse(
-                status_code=500,
-                content={
-                    "success": False,
-                    "message": "Models updated, but cache warming failed. Previous version remains active.",
-                    "candidate_version": candidate_version,
-                    "active_version": get_data_version(),
-                },
-            )
+            if not warm_success:
+                discard_model_candidates(model_versions)
 
-        with lock:
+                return JSONResponse(
+                    status_code=500,
+                    content={
+                        "success": False,
+                        "message": (
+                            "Model cache warming failed. "
+                            "Candidate models discarded; previous version remains active."
+                        ),
+                        "candidate_version": candidate_version,
+                        "active_version": get_data_version(),
+                    },
+                )
+
+            # Promote candidates only after successful warming
+            promote_all_models(model_versions)
+
+            # Activate only after promotion
             set_data_version(candidate_version)
 
-        print(
-            f"UPDATE MODEL: Activated version {candidate_version}",
-            flush=True,
-        )
+            print(
+                f"UPDATE MODEL: Activated version {candidate_version}",
+                flush=True,
+            )
 
-        return {
-            "success": True,
-            "message": "Models updated, cache warmed, and new version activated.",
-            "version": candidate_version,
-        }
+            return {
+                "success": True,
+                "message": "Models updated, cache warmed, and new version activated.",
+                "version": candidate_version,
+                "model_versions": model_versions,
+            }
 
     except Exception as e:
         print(f"Model update failed: {e}", flush=True)
@@ -510,9 +563,10 @@ def update_model_route(request: Request):
             content={
                 "success": False,
                 "error": str(e),
+                "active_version": get_data_version(),
             },
         )
-
+    
 def apply_live_score(game: dict, league: str, game_date: str):
     timestamp = pd.Timestamp(game_date)
 
@@ -732,6 +786,7 @@ async def games(request: Request):
                 start_date=prediction_start,
                 days_ahead=days_ahead,
                 league=current_league,
+                model_version=get_model_version(version, current_league),
             )
 
             # Make sure prediction columns exist
@@ -1150,6 +1205,7 @@ async def team(league: str, team_slug: str, request: Request):
         league=league,
         start_date=now,
         days_ahead=14,
+        model_version=get_model_version(version, league),
     )
 
     upcoming_games = []
@@ -1327,6 +1383,7 @@ async def game(game_id: str, request: Request):
         league=league,
         start_date=prediction_start,
         days_ahead=days_ahead,
+        model_version=get_model_version(version, league),
     )
 
     if games.empty:

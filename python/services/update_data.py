@@ -313,9 +313,17 @@ def update_all_data():
 
 
 def update_all_models():
+
+    model_versions = {}
+
     for league in SPORT_CONFIG:
         print(f"\n{'=' * 50}")
         print(f"Training {league.upper()} model")
         print(f"{'=' * 50}")
 
-        train_model(league)
+        generation = train_model(league)
+
+        model_versions[league] = generation
+
+    return model_versions
+
