@@ -45,7 +45,7 @@ from services.model import (
 )
 
 LIVE_SCORE_CACHE_SECONDS = 30
-LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(8)
+LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(4)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -406,7 +406,7 @@ def warm_cache(version: int):
     # ---------------------------------
 
     total_tasks = len(teams_to_warm) + len(games_to_warm)
-    log(f"Submitting {total_tasks} detail requests to 12 workers")
+    log(f"Submitting {total_tasks} detail requests to 8 workers")
 
     print(
         f"[WARM] Starting detail cache warming: "
@@ -463,7 +463,7 @@ def warm_cache(version: int):
             time.perf_counter() - task_start
         ), last_error
 
-    with ThreadPoolExecutor(max_workers=12) as executor:
+    with ThreadPoolExecutor(max_workers=8) as executor:
 
         tasks = {}
 
