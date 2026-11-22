@@ -45,7 +45,7 @@ from services.model import (
 )
 
 LIVE_SCORE_CACHE_SECONDS = 30
-LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(4)
+LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(8)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -132,6 +132,12 @@ def warm_cache(version: int):
 
     success = True
 
+    warm_start = time.perf_counter()
+
+    def log(message):
+        elapsed = time.perf_counter() - warm_start
+        print(f"[WARM +{elapsed:.2f}s] {message}", flush=True)
+
     today = datetime.now(ZoneInfo("America/Toronto")).date()
     start = (today - timedelta(days=30)).isoformat()
     end = (today + timedelta(days=30)).isoformat()
@@ -145,8 +151,10 @@ def warm_cache(version: int):
     # ---------------------------------
 
     all_games = []
-    
+
     try:
+        log(f"START all-games request: {start} to {end}")
+
         response = requests.get(
             f"{base_url}/api/games",
             params={
@@ -158,24 +166,17 @@ def warm_cache(version: int):
             timeout=120,
         )
 
+        log(f"All-games HTTP response: {response.status_code}")
+
         response.raise_for_status()
 
         all_games = response.json()
 
-        print(f"DEBUG: ALL GAMES COUNT = {len(all_games)}", flush=True)
-
-        if all_games:
-            print(f"DEBUG: FIRST GAME = {all_games[0]}", flush=True)
-
-        print(
-            f"ALL GAMES RESPONSE: type={type(all_games).__name__}, "
-            f"count={len(all_games) if isinstance(all_games, list) else 'not a list'}",
-            flush=True,
-        )
+        log(f"SUCCESS all-games request: {len(all_games)} games")
 
     except Exception as e:
         success = False
-        print(f"Failed to warm games cache: {e}", flush=True)
+        log(f"FAILED all-games request: {repr(e)}")
 
     # ---------------------------------
     # WARM GAMES FOR EVERY LEAGUE
@@ -183,6 +184,8 @@ def warm_cache(version: int):
 
     for league in SPORT_CONFIG:
         try:
+            log(f"START {league} games request")
+
             response = requests.get(
                 f"{base_url}/api/games",
                 params={
@@ -195,29 +198,18 @@ def warm_cache(version: int):
                 timeout=120,
             )
 
+            log(f"{league} games HTTP response: {response.status_code}")
+
             response.raise_for_status()
 
             league_games = response.json()
-
-            print(
-                f"DEBUG: {league} returned {len(league_games)} games",
-                flush=True,
-            )
-
             all_games.extend(league_games)
 
-            print(
-                f"{league} games warmed: "
-                f"{len(league_games)} games",
-                flush=True,
-            )
+            log(f"SUCCESS {league} games: {len(league_games)} games")
 
         except Exception as e:
             success = False
-            print(
-                f"Failed to warm {league} games: {e}",
-                flush=True,
-            )
+            log(f"FAILED {league} games: {repr(e)}")
 
     # Remove duplicates
     unique_games = {}
@@ -237,6 +229,8 @@ def warm_cache(version: int):
 
     for league in SPORT_CONFIG:
         try:
+            log(f"START {league} teams request")
+
             response = requests.get(
                 f"{base_url}/api/teams",
                 params={
@@ -247,24 +241,22 @@ def warm_cache(version: int):
                 timeout=60,
             )
 
+            log(f"{league} teams HTTP response: {response.status_code}")
+
             response.raise_for_status()
 
-            print(
-                f"{league} teams list warmed: "
-                f"version={version}",
-                flush=True,
-            )
+            teams = response.json()
+            log(f"SUCCESS {league} teams list: {len(teams)} teams")
 
         except Exception as e:
             success = False
-            print(
-                f"Failed to warm {league} teams: {e}",
-                flush=True,
-            )
+            log(f"FAILED {league} teams list: {repr(e)}")
 
     # ---------------------------------
     # COLLECT UNIQUE TEAMS AND GAMES
     # ---------------------------------
+
+    log(f"Starting collection from {len(all_games)} unique games")
 
     teams_to_warm = set()
     games_to_warm = set()
@@ -300,6 +292,12 @@ def warm_cache(version: int):
                 str(team_name),
                 str(team_id) if team_id is not None else None,
             ))
+
+    log(
+        f"Collection complete: "
+        f"{len(teams_to_warm)} teams, "
+        f"{len(games_to_warm)} games"
+    )
 
     # ---------------------------------
     # WARM TEAM PAGES
@@ -357,25 +355,78 @@ def warm_cache(version: int):
     # ---------------------------------
 
     total_tasks = len(teams_to_warm) + len(games_to_warm)
+    log(f"Submitting {total_tasks} detail requests to 12 workers")
 
     print(
-        f"Starting detail cache warming: "
+        f"[WARM] Starting detail cache warming: "
         f"{len(teams_to_warm)} teams, "
         f"{len(games_to_warm)} games, "
         f"{total_tasks} total requests",
         flush=True,
     )
 
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    def run_warm_task(task_number, task_type, task_data, warm_function):
+        task_start = time.perf_counter()
+
+        print(
+            f"[WARM {task_number}/{total_tasks}] START {task_type}: {task_data}",
+            flush=True,
+        )
+
+        try:
+            result = warm_function(task_data)
+
+            elapsed = time.perf_counter() - task_start
+
+            print(
+                f"[WARM {task_number}/{total_tasks}] SUCCESS {task_type}: "
+                f"{result} ({elapsed:.2f}s)",
+                flush=True,
+            )
+
+            return task_type, task_data, result, elapsed, None
+
+        except Exception as e:
+            elapsed = time.perf_counter() - task_start
+
+            print(
+                f"[WARM {task_number}/{total_tasks}] FAILED {task_type}: "
+                f"{task_data} ({elapsed:.2f}s) - {repr(e)}",
+                flush=True,
+            )
+
+            return task_type, task_data, None, elapsed, str(e)
+
+    with ThreadPoolExecutor(max_workers=12) as executor:
 
         tasks = {}
 
+        task_number = 0
+
         for team_data in teams_to_warm:
-            future = executor.submit(warm_team, team_data)
+            task_number += 1
+
+            future = executor.submit(
+                run_warm_task,
+                task_number,
+                "team",
+                team_data,
+                warm_team,
+            )
+
             tasks[future] = "team"
 
         for game_data in games_to_warm:
-            future = executor.submit(warm_game, game_data)
+            task_number += 1
+
+            future = executor.submit(
+                run_warm_task,
+                task_number,
+                "game",
+                game_data,
+                warm_game,
+            )
+
             tasks[future] = "game"
 
         completed_teams = 0
@@ -384,22 +435,24 @@ def warm_cache(version: int):
 
         for future in as_completed(tasks):
 
-            task_type, task_data = tasks[future]
+            task_type = tasks[future]
             completed += 1
 
             try:
-                result = future.result()
+                result_type, task_data, result, elapsed, error = future.result()
 
-                if task_type == "team":
+                if error:
+                    success = False
+                elif result_type == "team":
                     completed_teams += 1
                 else:
                     completed_games += 1
 
                 print(
-                    f"[{completed}/{total_tasks}] "
-                    f"Warmed {task_type}: {result} "
-                    f"(Teams: {completed_teams}/{len(teams_to_warm)}, "
-                    f"Games: {completed_games}/{len(games_to_warm)})",
+                    f"[WARM] PROGRESS {completed}/{total_tasks} "
+                    f"| Teams: {completed_teams}/{len(teams_to_warm)} "
+                    f"| Games: {completed_games}/{len(games_to_warm)} "
+                    f"| Elapsed: {time.perf_counter() - warm_start:.1f}s",
                     flush=True,
                 )
 
@@ -407,15 +460,15 @@ def warm_cache(version: int):
                 success = False
 
                 print(
-                    f"[{completed}/{total_tasks}] "
-                    f"FAILED warming {task_type} {task_data}: {e}",
+                    f"[WARM] UNEXPECTED ERROR {task_type}: {e}",
                     flush=True,
                 )
 
     print(
-        f"Detail cache warming finished: "
+        f"[WARM] Detail cache warming finished: "
         f"{completed_teams}/{len(teams_to_warm)} teams, "
-        f"{completed_games}/{len(games_to_warm)} games",
+        f"{completed_games}/{len(games_to_warm)} games "
+        f"in {time.perf_counter() - warm_start:.2f}s",
         flush=True,
     )
 
