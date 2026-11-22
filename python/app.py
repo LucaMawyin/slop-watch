@@ -329,13 +329,6 @@ def warm_cache(version: int):
 
         return f"{league} / {team_name}"
 
-    print(
-        f"Preparing detail cache warming: "
-        f"{len(teams_to_warm)} teams, "
-        f"{len(games_to_warm)} games",
-        flush=True,
-    )
-
     # ---------------------------------
     # WARM GAME PAGES
     # ---------------------------------
@@ -363,6 +356,16 @@ def warm_cache(version: int):
     # EXECUTE FULL WARMING
     # ---------------------------------
 
+    total_tasks = len(teams_to_warm) + len(games_to_warm)
+
+    print(
+        f"Starting detail cache warming: "
+        f"{len(teams_to_warm)} teams, "
+        f"{len(games_to_warm)} games, "
+        f"{total_tasks} total requests",
+        flush=True,
+    )
+
     with ThreadPoolExecutor(max_workers=3) as executor:
 
         tasks = {}
@@ -377,24 +380,35 @@ def warm_cache(version: int):
 
         completed_teams = 0
         completed_games = 0
+        completed = 0
 
         for future in as_completed(tasks):
 
-            task_type = tasks[future]
+            task_type, task_data = tasks[future]
+            completed += 1
 
             try:
-                future.result()
+                result = future.result()
 
                 if task_type == "team":
                     completed_teams += 1
                 else:
                     completed_games += 1
 
+                print(
+                    f"[{completed}/{total_tasks}] "
+                    f"Warmed {task_type}: {result} "
+                    f"(Teams: {completed_teams}/{len(teams_to_warm)}, "
+                    f"Games: {completed_games}/{len(games_to_warm)})",
+                    flush=True,
+                )
+
             except Exception as e:
                 success = False
 
                 print(
-                    f"Failed to warm {task_type} detail: {e}",
+                    f"[{completed}/{total_tasks}] "
+                    f"FAILED warming {task_type} {task_data}: {e}",
                     flush=True,
                 )
 
@@ -1450,9 +1464,19 @@ async def game(game_id: str, request: Request):
         },
     )
 
+    print(
+        f"GAME CACHE KEY: {cache_key}",
+        flush=True,
+    )
+
     cached = get_cached(cache_key)
 
     if cached is not None:
+        print(
+            f"GAME CACHE HIT: {league} / {game_id}",
+            flush=True,
+        )
+
         apply_live_score(
             cached,
             league,
@@ -1460,6 +1484,11 @@ async def game(game_id: str, request: Request):
         )
 
         return cached_response(cached)
+
+    print(
+        f"GAME CACHE MISS: {league} / {game_id}",
+        flush=True,
+    )
 
     # ---------------------------------
     # GET GAME PREDICTION

@@ -92,15 +92,18 @@ export default function SportPage() {
                 if (currentVersion === String(version)) return;
 
                 const today = new Date();
-                const end = new Date(today);
 
-                end.setDate(today.getDate() + 1);
+                const start = new Date(today);
+                start.setDate(start.getDate() - 1);
+
+                const end = new Date(today);
+                end.setDate(end.getDate() + 1);
 
                 const formatDate = (date: Date) =>
                     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
                 const params = new URLSearchParams({
-                    start: formatDate(today),
+                    start: formatDate(start),
                     end: formatDate(end),
                     version: String(version),
                     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -144,9 +147,9 @@ export default function SportPage() {
                         const gameTime = new Date(game.date).getTime();
 
                         return (
-                            game.actual_slop === null &&
-                            gameTime >= currentTime &&
-                            gameTime <= currentTime + 6 * 60 * 60 * 1000
+                            game.actual_slop == null &&
+                            gameTime <= currentTime &&
+                            gameTime >= currentTime - 24 * 60 * 60 * 1000
                         );
                     })
                     .sort(
@@ -257,9 +260,9 @@ export default function SportPage() {
                         const gameTime = new Date(game.date).getTime();
 
                         return (
-                            game.actual_slop === null &&
-                            gameTime >= currentTime &&
-                            gameTime <= currentTime + 6 * 60 * 60 * 1000
+                            game.actual_slop == null &&
+                            gameTime <= currentTime &&
+                            gameTime >= currentTime - 24 * 60 * 60 * 1000
                         );
                     })
                     .sort(

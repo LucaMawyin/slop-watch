@@ -59,15 +59,18 @@ export default function Home() {
                 }
 
                 const today = new Date();
-                const end = new Date(today);
 
-                end.setDate(today.getDate() + 1);
+                const start = new Date(today);
+                start.setDate(start.getDate() - 1);
+
+                const end = new Date(today);
+                end.setDate(end.getDate() + 1);
 
                 const formatDate = (date: Date) =>
                     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
                 const params = new URLSearchParams({
-                    start: formatDate(today),
+                    start: formatDate(start),
                     end: formatDate(end),
                 });
 
