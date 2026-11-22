@@ -163,7 +163,7 @@ def warm_cache(version: int):
                 "version": version,
             },
             headers=headers,
-            timeout=120,
+            timeout=(15, 300),
         )
 
         log(f"All-games HTTP response: {response.status_code}")
@@ -195,7 +195,7 @@ def warm_cache(version: int):
                     "version": version,
                 },
                 headers=headers,
-                timeout=120,
+                timeout=(15, 300),
             )
 
             log(f"{league} games HTTP response: {response.status_code}")
@@ -238,7 +238,7 @@ def warm_cache(version: int):
                     "version": version,
                 },
                 headers=headers,
-                timeout=60,
+                timeout=(15, 300),
             )
 
             log(f"{league} teams HTTP response: {response.status_code}")
@@ -320,7 +320,7 @@ def warm_cache(version: int):
             f"{base_url}/api/team/{league}/{slug}",
             params=params,
             headers=headers,
-            timeout=120,
+            timeout=(15, 300),
         )
 
         response.raise_for_status()
@@ -343,7 +343,7 @@ def warm_cache(version: int):
                 "version": version,
             },
             headers=headers,
-            timeout=120,
+            timeout=(15, 300),
         )
 
         response.raise_for_status()
@@ -366,36 +366,51 @@ def warm_cache(version: int):
     )
 
     def run_warm_task(task_number, task_type, task_data, warm_function):
-        task_start = time.perf_counter()
+        max_attempts = 5
+        last_error = None
 
-        print(
-            f"[WARM {task_number}/{total_tasks}] START {task_type}: {task_data}",
-            flush=True,
-        )
+        for attempt in range(1, max_attempts + 1):
+            task_start = time.perf_counter()
 
-        try:
-            result = warm_function(task_data)
+            try:
+                result = warm_function(task_data)
+                elapsed = time.perf_counter() - task_start
 
-            elapsed = time.perf_counter() - task_start
+                print(
+                    f"[WARM {task_number}/{total_tasks}] SUCCESS "
+                    f"{task_type}: {result} "
+                    f"(attempt {attempt}/{max_attempts}, {elapsed:.2f}s)",
+                    flush=True,
+                )
 
-            print(
-                f"[WARM {task_number}/{total_tasks}] SUCCESS {task_type}: "
-                f"{result} ({elapsed:.2f}s)",
-                flush=True,
-            )
+                return task_type, task_data, result, elapsed, None
 
-            return task_type, task_data, result, elapsed, None
+            except Exception as e:
+                last_error = repr(e)
+                elapsed = time.perf_counter() - task_start
 
-        except Exception as e:
-            elapsed = time.perf_counter() - task_start
+                print(
+                    f"[WARM {task_number}/{total_tasks}] FAILED "
+                    f"{task_type}: {task_data} "
+                    f"(attempt {attempt}/{max_attempts}, {elapsed:.2f}s) "
+                    f"- {last_error}",
+                    flush=True,
+                )
 
-            print(
-                f"[WARM {task_number}/{total_tasks}] FAILED {task_type}: "
-                f"{task_data} ({elapsed:.2f}s) - {repr(e)}",
-                flush=True,
-            )
+                if attempt < max_attempts:
+                    delay = min(attempt * 5, 30)
 
-            return task_type, task_data, None, elapsed, str(e)
+                    print(
+                        f"[WARM {task_number}/{total_tasks}] "
+                        f"Retrying in {delay}s...",
+                        flush=True,
+                    )
+
+                    time.sleep(delay)
+
+        return task_type, task_data, None, (
+            time.perf_counter() - task_start
+        ), last_error
 
     with ThreadPoolExecutor(max_workers=12) as executor:
 
@@ -443,8 +458,16 @@ def warm_cache(version: int):
 
                 if error:
                     success = False
+
+                    print(
+                        f"[WARM] PERMANENT FAILURE "
+                        f"{result_type}: {task_data} - {error}",
+                        flush=True,
+                    )
+
                 elif result_type == "team":
                     completed_teams += 1
+
                 else:
                     completed_games += 1
 
