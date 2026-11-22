@@ -142,6 +142,10 @@ def warm_cache(version: int):
     start = (today - timedelta(days=30)).isoformat()
     end = (today + timedelta(days=30)).isoformat()
 
+    # Only get 2 weeks of game previews either way
+    preview_start = (today - timedelta(days=14)).isoformat()
+    preview_end = (today + timedelta(days=14)).isoformat()
+
     print("DEBUG: NEW WARM_CACHE VERSION RUNNING", flush=True)
     print(f"DEBUG: API URL = {base_url}", flush=True)
     print(f"DEBUG: DATE RANGE = {start} to {end}", flush=True)
@@ -151,6 +155,7 @@ def warm_cache(version: int):
     # ---------------------------------
 
     all_games = []
+    all_games_success = False
 
     try:
         log(f"START all-games request: {start} to {end}")
@@ -171,45 +176,55 @@ def warm_cache(version: int):
         response.raise_for_status()
 
         all_games = response.json()
+        all_games_success = True
 
         log(f"SUCCESS all-games request: {len(all_games)} games")
 
     except Exception as e:
-        success = False
         log(f"FAILED all-games request: {repr(e)}")
 
     # ---------------------------------
-    # WARM GAMES FOR EVERY LEAGUE
+    # FALLBACK: WARM GAMES PER LEAGUE
     # ---------------------------------
 
-    for league in SPORT_CONFIG:
-        try:
-            log(f"START {league} games request")
+    if not all_games_success:
 
-            response = requests.get(
-                f"{base_url}/api/games",
-                params={
-                    "league": league,
-                    "start": start,
-                    "end": end,
-                    "version": version,
-                },
-                headers=headers,
-                timeout=(15, 300),
-            )
+        log("All-games request failed. Falling back to individual leagues.")
 
-            log(f"{league} games HTTP response: {response.status_code}")
+        fallback_success = True
 
-            response.raise_for_status()
+        for league in SPORT_CONFIG:
+            try:
+                log(f"START {league} games fallback request")
 
-            league_games = response.json()
-            all_games.extend(league_games)
+                response = requests.get(
+                    f"{base_url}/api/games",
+                    params={
+                        "league": league,
+                        "start": start,
+                        "end": end,
+                        "version": version,
+                    },
+                    headers=headers,
+                    timeout=(15, 300),
+                )
 
-            log(f"SUCCESS {league} games: {len(league_games)} games")
+                log(f"{league} games HTTP response: {response.status_code}")
 
-        except Exception as e:
+                response.raise_for_status()
+
+                league_games = response.json()
+                all_games.extend(league_games)
+
+                log(f"SUCCESS {league} games: {len(league_games)} games")
+
+            except Exception as e:
+                fallback_success = False
+
+                log(f"FAILED {league} games fallback: {repr(e)}")
+
+        if not fallback_success:
             success = False
-            log(f"FAILED {league} games: {repr(e)}")
 
     # Remove duplicates
     unique_games = {}
@@ -270,13 +285,16 @@ def warm_cache(version: int):
         if not league:
             continue
 
-        # Collect game details
+        # Collect game details within preview date range
         if game_id is not None and game_date:
-            games_to_warm.add((
-                str(game_id),
-                league,
-                str(game_date),
-            ))
+            game_date_str = str(game_date)[:10]
+
+            if preview_start <= game_date_str <= preview_end:
+                games_to_warm.add((
+                    str(game_id),
+                    league,
+                    game_date_str,
+                ))
 
         # Collect home and away teams
         for side in ("home", "away"):

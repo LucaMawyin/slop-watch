@@ -467,9 +467,26 @@ export default function TeamPage({ params }: Props) {
                                                     sm:left-1/2 
                                                     sm:-translate-x-1/2
                                                 ">
-                                                    <p className="text-md mb-4 font-semibold text-green-400!">
-                                                        LIVE
-                                                    </p>
+                                                    <div className="
+                                                        mb-4 
+                                                        flex 
+                                                        items-center 
+                                                        justify-center
+                                                        gap-2
+                                                    ">
+                                                        <span className="
+                                                            inline-block
+                                                            h-1.5
+                                                            w-1.5
+                                                            animate-pulse
+                                                            rounded-full
+                                                            bg-green-400
+                                                        " />
+
+                                                        <p className="text-md font-semibold text-green-400!">
+                                                            LIVE
+                                                        </p>
+                                                    </div>
 
                                                     <p className="text-4xl font-bold text-white!">
                                                         {game.home_score} - {game.away_score}
