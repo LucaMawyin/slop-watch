@@ -78,7 +78,6 @@ export default function useSwipeNavigation({
             onSwipeRight();
         }
 
-        // Fallback in case onTransitionEnd doesn't fire.
         transitionTimeout.current = setTimeout(() => {
             finishTransition();
         }, 300);
@@ -217,9 +216,6 @@ export default function useSwipeNavigation({
             onSwipeRight();
         }
 
-        transitionTimeout.current = setTimeout(() => {
-            finishTransition();
-        }, 300);
     };
 
     const handleTouchCancel = (e: React.TouchEvent<HTMLElement>) => {
