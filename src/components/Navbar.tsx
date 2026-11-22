@@ -74,13 +74,13 @@ export default function Navbar() {
                 {/* Desktop */}
                 <div className="hidden md:flex flex-1 justify-evenly items-center gap-4">
 
-                    <Link
+                    <a
                         href="/games"
                         onClick={handleNavigation}
                         className="text-sm text-zinc-300 hover:text-white"
                     >
                         All Games
-                    </Link>
+                    </a>
 
                     {sports.map((sport) => {
 

@@ -109,20 +109,8 @@ function GamesContent() {
         : (start ? start : formatDate(new Date()));
 
     const getShiftedDateUrl = (days: number) => {
-        const startDate = new Date(
-            `${navigationDates.current.start}T00:00:00`
-        );
-
-        const endDate = new Date(
-            `${navigationDates.current.end}T00:00:00`
-        );
-
-        if (
-            isNaN(startDate.getTime()) ||
-            isNaN(endDate.getTime())
-        ) {
-            return gamesBaseUrl;
-        }
+        const startDate = new Date(`${navigationDates.current.start}T00:00:00`);
+        const endDate = new Date(`${navigationDates.current.end}T00:00:00`);
 
         startDate.setDate(startDate.getDate() + days);
         endDate.setDate(endDate.getDate() + days);
@@ -130,18 +118,17 @@ function GamesContent() {
         const nextStart = formatDate(startDate);
         const nextEnd = formatDate(endDate);
 
-        // Update immediately, before router.push completes.
         navigationDates.current = {
             start: nextStart,
             end: nextEnd,
         };
 
-        const params = new URLSearchParams(searchParams.toString());
+        const params = new URLSearchParams(window.location.search);
 
         params.set("start", nextStart);
         params.set("end", nextEnd);
 
-        return `${gamesBaseUrl}?${params.toString()}`;
+        return `${window.location.pathname}?${params.toString()}`;
     };
 
     const {
