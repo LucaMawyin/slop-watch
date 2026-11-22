@@ -575,8 +575,14 @@ function GamesContent() {
         }
 
         else if (sortBy === "watchable-slop") {
-            const aScore = (a.slop_percentile ?? 0) * (a.watchability_percentile ?? 0);
-            const bScore = (b.slop_percentile ?? 0) * (b.watchability_percentile ?? 0);
+            const watchable_slop_split = 0.5;
+            const aScore =
+                (a.watchability_percentile ?? 0) * watchable_slop_split +
+                (a.slop_percentile ?? 0) * (1 - watchable_slop_split);
+
+            const bScore =
+                (b.watchability_percentile ?? 0) * watchable_slop_split +
+                (b.slop_percentile ?? 0) * (1 - watchable_slop_split);
 
             comparison = aScore - bScore;
         }
@@ -754,8 +760,8 @@ function GamesContent() {
                             >
                                 <option value="live">Live</option>
                                 <option value="date">Date</option>
-                                <option value="slop">Best Slop</option>
-                                <option value="watchability">Best Watchability</option>
+                                <option value="slop">Slop</option>
+                                <option value="watchability">Watchability</option>
                                 <option value="watchable-slop">Watchable Slop</option>
                                 <option value="overall">Overall</option>
 
