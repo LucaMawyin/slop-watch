@@ -1,8 +1,11 @@
 
 import pandas as pd
+from pandas.errors import DtypeWarning
 from config.sports import SPORT_CONFIG
-
 import time
+import warnings
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 pd.set_option("display.max_rows", None)
 

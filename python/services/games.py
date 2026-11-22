@@ -1,7 +1,11 @@
 import pandas as pd
+from pandas.errors import DtypeWarning
 from config.sports import SPORT_CONFIG, DATA_RANGE_YEARS
-
 import time
+import warnings
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
+
 
 def get_games(league="mlb", start_date=None, days_ahead=7):
 

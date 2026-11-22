@@ -1,7 +1,9 @@
 import pandas as pd
-
+from pandas.errors import DtypeWarning
 from config.sports import SPORT_CONFIG
+import warnings
 
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def get_teams(league):
     df = pd.read_csv(SPORT_CONFIG[league]["output"])

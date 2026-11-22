@@ -3,12 +3,15 @@ from pathlib import Path
 import os
 import time
 import shutil
-
+from pandas.errors import DtypeWarning
+import warnings
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
 from services.slop import get_slop
 from config.sports import SPORT_CONFIG, MODEL_FEATURES
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def train_model(league="nba"):
 

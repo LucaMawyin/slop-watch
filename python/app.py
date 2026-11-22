@@ -275,6 +275,8 @@ def warm_cache(version: int):
 
     teams_to_warm = set()
     games_to_warm = set()
+    teams_cached = 0
+    games_cached = 0
 
     for game in all_games:
 
@@ -290,11 +292,25 @@ def warm_cache(version: int):
             game_date_str = str(game_date)[:10]
 
             if preview_start <= game_date_str <= preview_end:
-                games_to_warm.add((
-                    str(game_id),
-                    league,
-                    game_date_str,
-                ))
+
+                game_cache_key = make_cache_key(
+                    "game",
+                    version,
+                    {
+                        "game_id": str(game_id),
+                        "league": league,
+                        "date": pd.Timestamp(game_date_str).normalize().isoformat(),
+                    },
+                )
+
+                if get_cached(game_cache_key) is None:
+                    games_to_warm.add((
+                        str(game_id),
+                        league,
+                        game_date_str,
+                    ))
+                else:
+                    games_cached += 1
 
         # Collect home and away teams
         for side in ("home", "away"):
@@ -305,16 +321,33 @@ def warm_cache(version: int):
             if not team_name:
                 continue
 
-            teams_to_warm.add((
-                league,
-                str(team_name),
-                str(team_id) if team_id is not None else None,
-            ))
+            slug = slugify(team_name)
+
+            team_cache_key = make_cache_key(
+                "team",
+                version,
+                {
+                    "league": league,
+                    "team_slug": slug,
+                    "id": str(team_id) if team_id is not None else None,
+                },
+            )
+
+            if get_cached(team_cache_key) is None:
+                teams_to_warm.add((
+                    league,
+                    str(team_name),
+                    str(team_id) if team_id is not None else None,
+                ))
+            else:
+                teams_cached += 1
 
     log(
         f"Collection complete: "
-        f"{len(teams_to_warm)} teams, "
-        f"{len(games_to_warm)} games"
+        f"{teams_cached} team hits, "
+        f"{len(teams_to_warm)} team misses, "
+        f"{games_cached} game hits, "
+        f"{len(games_to_warm)} game misses"
     )
 
     # ---------------------------------

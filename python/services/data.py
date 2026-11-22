@@ -1,8 +1,12 @@
 from datetime import date, timedelta
 from pathlib import Path
 import pandas as pd
+from pandas.errors import DtypeWarning
+import warnings
 import os
 from config.sports import SPORT_CONFIG, SPORT_LEAGUES, DATA_RANGE_YEARS
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 # 5 years of data
 END_DATE = date.today()

@@ -3,7 +3,10 @@ import os
 
 from services.slop import get_slop
 from config.sports import SPORT_CONFIG
+from pandas.errors import DtypeWarning
+import warnings
 
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def process_league(league):
     config = SPORT_CONFIG[league]

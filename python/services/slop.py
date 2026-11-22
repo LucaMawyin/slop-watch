@@ -1,6 +1,10 @@
 import numpy as np
 from services.games_old import get_games, get_performance
 from config.sports import SPORT_CONFIG
+from pandas.errors import DtypeWarning
+import warnings
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def normalize_badness(value, min_value, max_value):
     normalized = (

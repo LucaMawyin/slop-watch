@@ -3,9 +3,13 @@ from pathlib import Path
 import pandas as pd
 from datetime import date, timedelta
 import os
+import warnings
+from pandas.errors import DtypeWarning
 
 from services.process_league import process_league
 from services.model import train_model
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 previous_game_days = 10
 

@@ -1,7 +1,10 @@
 import numpy as np
 import pandas as pd
-
+from pandas.errors import DtypeWarning
 from config.sports import SPORT_CONFIG
+import warnings
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 from services.cache import (
     make_cache_key,

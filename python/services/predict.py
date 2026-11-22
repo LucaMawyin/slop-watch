@@ -1,8 +1,9 @@
 import time
 import joblib
 import pandas as pd
+from pandas.errors import DtypeWarning
 import numpy as np
-
+import warnings
 from pathlib import Path
 
 from config.sports import (
@@ -10,6 +11,8 @@ from config.sports import (
     MODEL_FEATURES,
 )
 from services.games import get_games
+
+warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def predict(
     start_date=None, 
