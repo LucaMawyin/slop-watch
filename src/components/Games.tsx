@@ -33,7 +33,7 @@ function GamesContent() {
     >("live");
 
     const [visibleCount, setVisibleCount] = useState(9);
-    const [ sortDirection, setSortDirection ] = useState("asc");
+    const [ sortDirection, setSortDirection ] = useState("desc");
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -99,17 +99,22 @@ function GamesContent() {
         ];
     }
 
+    const navigationDates = useRef({
+        start: effectiveStart!,
+        end: effectiveEnd!,
+    });
+
     const ref = start && end
         ? `${start}_${end}`
         : (start ? start : formatDate(new Date()));
 
     const getShiftedDateUrl = (days: number) => {
         const startDate = new Date(
-            `${effectiveStart ?? formatDate(new Date())}T00:00:00`
+            `${navigationDates.current.start}T00:00:00`
         );
 
         const endDate = new Date(
-            `${effectiveEnd ?? effectiveStart ?? formatDate(new Date())}T00:00:00`
+            `${navigationDates.current.end}T00:00:00`
         );
 
         if (
@@ -119,23 +124,33 @@ function GamesContent() {
             return gamesBaseUrl;
         }
 
-        // Shift both dates while preserving selected range
         startDate.setDate(startDate.getDate() + days);
         endDate.setDate(endDate.getDate() + days);
 
+        const nextStart = formatDate(startDate);
+        const nextEnd = formatDate(endDate);
+
+        // Update immediately, before router.push completes.
+        navigationDates.current = {
+            start: nextStart,
+            end: nextEnd,
+        };
+
         const params = new URLSearchParams(searchParams.toString());
 
-        params.set("start", formatDate(startDate));
-        params.set("end", formatDate(endDate));
+        params.set("start", nextStart);
+        params.set("end", nextEnd);
 
         return `${gamesBaseUrl}?${params.toString()}`;
     };
 
     const {
+        offset,
         dragging,
         direction,
         transitioning,
         transitionKey,
+        resetting,
         finishTransition,
         navigate,
         ...swipeHandlers
@@ -148,6 +163,18 @@ function GamesContent() {
 
     const dateKey = `${league ?? sport ?? "all"}:${effectiveStart}:${effectiveEnd}`;
 
+    useEffect(() => {
+        navigationDates.current = {
+            start: effectiveStart!,
+            end: effectiveEnd!,
+        };
+    }, [dateKey]);
+
+    const currentVersion = useRef<{
+        key: string;
+        version: string;
+    } | null>(null);
+
     // Reset filters on reload
     useEffect(() => {
         setSortBy("live");
@@ -157,12 +184,9 @@ function GamesContent() {
     useEffect(() => {
         const controller = new AbortController();
 
-        let currentVersion: string | null = null;
         let initialLoad = true;
 
-        if (!hasLoadedOnce.current) {
-            setLoading(true);
-        }
+        setLoading(true);
 
         setVisibleCount(9);
         setError(null);
@@ -185,13 +209,14 @@ function GamesContent() {
                 const { version } = await versionResponse.json() as any;
                 const newVersion = String(version);
 
-                console.log("VERSION CHECK:", {
-                    currentVersion,
-                    newVersion,
-                    changed: currentVersion !== newVersion,
-                });
-
-                if (currentVersion === newVersion) return;
+                if (
+                    currentVersion.current?.key === dateKey &&
+                    currentVersion.current.version === newVersion
+                ) {
+                    setLoading(false);
+                    setLoadedDateKey(dateKey);
+                    return;
+                }
 
                 const params = new URLSearchParams();
 
@@ -254,7 +279,10 @@ function GamesContent() {
                 });
 
                 // Display all games immediately
-                currentVersion = newVersion;
+                currentVersion.current = {
+                    key: dateKey,
+                    version: newVersion,
+                };
 
                 setGames(filteredGames);
                 setError(null);
@@ -506,22 +534,6 @@ function GamesContent() {
         return () => clearInterval(interval);
     }, []);
 
-    const [animationDoneKey, setAnimationDoneKey] = useState<number | null>(null);
-
-    const dateLoaded = loadedDateKey === dateKey;
-    const animationDone = animationDoneKey === transitionKey;
-
-    useEffect(() => {
-        if (transitioning && dateLoaded && animationDone) {
-            finishTransition();
-        }
-    }, [
-        transitioning,
-        dateLoaded,
-        animationDone,
-        finishTransition,
-    ]);
-
     const sortedGames = [...games].sort((a, b) => {
         let comparison: number;
 
@@ -611,6 +623,88 @@ function GamesContent() {
             : -comparison
     });
 
+    const currentContent = (
+        <>
+            {loading ? (
+                <GamesSkeleton showLeague={!!sport}/>
+            ) : error && games.length === 0 ? (
+                <p className="mt-4 text-red-400!">{error}</p>
+            ) : games.length === 0 ? (
+                <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+                    <h2 className="text-lg font-semibold">
+                        No games found
+                    </h2>
+
+                    <p className="mt-2 text-sm text-zinc-500">
+                        There are no upcoming games for this league.
+                    </p>
+
+                    <Link
+                        className="mt-2 inline-block"
+                        href="/"
+                    >
+                        &lt; Return to Home
+                    </Link>
+                </div>
+            ) : ( 
+                <>
+                    <div className="
+                        mt-8 
+                        grid 
+                        auto-rows-fr
+                        grid-cols-1 
+                        gap-4 
+                        sm:grid-cols-2 
+                        lg:grid-cols-3
+                    ">
+                        {sortedGames.slice(0, visibleCount).map((game) => {
+
+                            return (
+                                <FeaturedGameCard
+                                    key={game.game_id}
+                                    game={game}
+                                    now={now}
+                                />
+                            );
+                        })}
+                    </div>
+                    {visibleCount < sortedGames.length && (
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                onClick={() => setVisibleCount((count) => count + 9)}
+                                className="
+                                    rounded-lg
+                                    border
+                                    border-zinc-800
+                                    bg-zinc-900
+                                    px-5
+                                    py-2.5
+                                    text-sm
+                                    font-medium
+                                    text-zinc-200
+                                    transition
+                                    hover:border-zinc-700
+                                    hover:bg-zinc-800
+                                "
+                            >
+                                Show More
+                            </button>
+                        </div>
+                    )}
+                </>
+            )}
+        </>
+    );
+
+    const swipeContainerRef = useRef<HTMLDivElement>(null);
+    const navigateByDate = (direction: "left" | "right") => {
+        const width = swipeContainerRef.current?.clientWidth;
+
+        if (!width) return;
+
+        navigate(direction, width + 16);
+    };
+
     return (
         <main className="p-6 text-white">
 
@@ -659,7 +753,7 @@ function GamesContent() {
                     >
                         <button
                             type="button"
-                            onClick={() => navigate("right")}
+                            onClick={() => navigateByDate("right")}
                             aria-label="Previous day"
                             className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
                         >
@@ -702,7 +796,7 @@ function GamesContent() {
 
                         <button
                             type="button"
-                            onClick={() => navigate("left")}
+                            onClick={() => navigateByDate("left")}
                             aria-label="Next day"
                             className="flex items-center justify-center rounded-lg border border-gray-300 p-2 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
                         >
@@ -825,96 +919,46 @@ function GamesContent() {
             </div>
             
             <div
+                ref={swipeContainerRef}
                 className="relative overflow-hidden"
+                style={{ touchAction: "pan-y" }}
                 {...swipeHandlers}
             >
-                {transitioning ? (
-                    <div
-                        key={transitionKey}
-                        className="mt-8 w-full"
-                        onAnimationEnd={(e) => {
-                            if (e.target === e.currentTarget) {
-                                setAnimationDoneKey(transitionKey);
-                            }
-                        }}
-                        style={{
-                            animation: `slide-in-${direction} 250ms ease-out both`,
-                        }}
-                    >
+                {/* Three-panel swipe track */}
+                <div
+                    data-swipe-track
+                    className="grid"
+                    style={{
+                        width: "calc(300% + 2rem)",
+                        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                        columnGap: "1rem",
+                        transform: `translateX(calc(-33.333333% - 0.333333rem + var(--swipe-offset, ${offset}px)))`,
+                        transition: dragging || resetting
+                            ? "none"
+                            : "transform 250ms ease-out",
+                        willChange: "transform",
+                    }}
+                    onTransitionEnd={(e) => {
+                        if (
+                            e.target === e.currentTarget &&
+                            transitioning
+                        ) {
+                            finishTransition();
+                        }
+                    }}
+                >
+                    <div className="min-w-0 pointer-events-none">
                         <GamesSkeleton showLeague={!!sport} />
                     </div>
-                ) : (
-                    <div>
-                        {loading && !hasLoadedOnce.current ? (
-                            <GamesSkeleton showLeague={!!sport}/>
-                        ) : error && games.length === 0 ? (
-                            <p className="mt-4 text-red-400!">{error}</p>
-                        ) : games.length === 0 ? (
-                            <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
-                                <h2 className="text-lg font-semibold">
-                                    No games found
-                                </h2>
 
-                                <p className="mt-2 text-sm text-zinc-500">
-                                    There are no upcoming games for this league.
-                                </p>
+                    <div className="min-w-0">
+                        {currentContent}
+                    </div>
 
-                                <Link
-                                    className="mt-2 inline-block"
-                                    href="/"
-                                >
-                                    &lt; Return to Home
-                                </Link>
-                            </div>
-                        ) : ( 
-                            <>
-                                <div className="
-                                    mt-8 
-                                    grid 
-                                    auto-rows-fr
-                                    grid-cols-1 
-                                    gap-4 
-                                    sm:grid-cols-2 
-                                    lg:grid-cols-3
-                                ">
-                                    {sortedGames.slice(0, visibleCount).map((game) => {
-
-                                        return (
-                                            <FeaturedGameCard
-                                                key={game.game_id}
-                                                game={game}
-                                                now={now}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                                {visibleCount < sortedGames.length && (
-                                    <div className="mt-6 flex justify-center">
-                                        <button
-                                            onClick={() => setVisibleCount((count) => count + 9)}
-                                            className="
-                                                rounded-lg
-                                                border
-                                                border-zinc-800
-                                                bg-zinc-900
-                                                px-5
-                                                py-2.5
-                                                text-sm
-                                                font-medium
-                                                text-zinc-200
-                                                transition
-                                                hover:border-zinc-700
-                                                hover:bg-zinc-800
-                                            "
-                                        >
-                                            Show More
-                                        </button>
-                                    </div>
-                                )}
-                            </>
-                        )}
-                    </div>                    
-                )}
+                    <div className="min-w-0 pointer-events-none">
+                        <GamesSkeleton showLeague={!!sport} />
+                    </div>
+                </div>
             </div>
 
         </main>
