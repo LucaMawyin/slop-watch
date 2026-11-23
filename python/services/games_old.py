@@ -1,5 +1,6 @@
 
 import pandas as pd
+from pathlib import Path
 from pandas.errors import DtypeWarning
 from config.sports import SPORT_CONFIG
 import time
@@ -9,9 +10,14 @@ warnings.filterwarnings("ignore", category=DtypeWarning)
 
 pd.set_option("display.max_rows", None)
 
-def get_games(league="nba"):
+def get_games(
+    league="nba", 
+    raw_path=None
+):
 
-    df = pd.read_csv(f"data/raw/{league}_games.csv")
+    raw_path = Path(raw_path or SPORT_CONFIG[league]["output"])
+
+    df = pd.read_csv(raw_path)
 
     # Convert the date column to datetime and ensure scores are numeric
     df["date"] = pd.to_datetime(df["date"], utc=True)
@@ -64,7 +70,8 @@ def get_games(league="nba"):
 
     # Remove duplicates
     df = df.drop_duplicates(
-        subset=["game_id"]
+        subset=["game_id"],
+        keep="last",
     )
     
     df = df.dropna(subset=["home_score", "away_score"])
@@ -104,9 +111,15 @@ def get_games(league="nba"):
 
     return games
 
-def get_performance(league="nba"):
+def get_performance(
+    league="nba", 
+    raw_path=None
+):
 
-    games = get_games(league=league)
+    games = get_games(
+        league=league,
+        raw_path=raw_path,
+    )
     window = SPORT_CONFIG[league]["performance_window"]
 
     # Performance per team per game
@@ -311,7 +324,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     # REGULAR VS POSTSEASON
     # ---------------------------------
 
-    if league in ["nba", "wnba", "nfl", "nhl", "mlb"]:
+    if league in ["nba", "wnba", "nfl", "cfb", "nhl", "mlb"]:
         df["is_postseason"] = (
             df["season_type"] == 3
         ).astype(int)

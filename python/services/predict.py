@@ -15,10 +15,11 @@ from services.games import get_games
 warnings.filterwarnings("ignore", category=DtypeWarning)
 
 def predict(
-    start_date=None, 
-    days_ahead=100, 
+    start_date=None,
+    days_ahead=100,
     league="mlb",
     model_version=None,
+    processed_path=None,
 ):
 
     start_time = time.perf_counter()
@@ -43,7 +44,8 @@ def predict(
     games = get_games(
         start_date=start_date,
         days_ahead=days_ahead,
-        league=league
+        league=league,
+        processed_path=processed_path,
     )
 
     # Return if no games
@@ -55,9 +57,10 @@ def predict(
     # LOAD PROCESSED DATA
     # ---------------------------------
 
-    processed = pd.read_csv(
-        SPORT_CONFIG[league]["processed_output"]
-    )
+    if processed_path is None:
+        processed_path = SPORT_CONFIG[league]["processed_output"]
+
+    processed = pd.read_csv(processed_path)
 
     processed["game_id"] = (
         processed["game_id"]

@@ -17,6 +17,7 @@ import requests
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import traceback
 
 from config.sports import (
     SPORT_CONFIG,
@@ -35,6 +36,8 @@ from services.cache import (
     set_cached,
     get_active_version,
     set_active_version,
+    get_dataset_slot,
+    set_dataset_slot,
     set_model_versions,
     get_model_versions,
     get_model_version,
@@ -42,6 +45,13 @@ from services.cache import (
 from services.model import (
     promote_all_models,
     discard_model_candidates,
+)
+from services.dataset import (
+    get_dataset_paths,
+    acquire_dataset_reader,
+    release_dataset_reader,
+    begin_dataset_write,
+    end_dataset_write,
 )
 
 LIVE_SCORE_CACHE_SECONDS = 30
@@ -108,6 +118,65 @@ def get_request_cache_version(request: Request):
 
     return version
 
+def is_authorized_cache_warm(request: Request):
+    expected_secret = os.environ.get("CACHE_WARM_KEY")
+    provided_secret = request.headers.get("X-Cache-Warm-Key")
+    candidate_version = request.query_params.get("version")
+
+    if not expected_secret or provided_secret != expected_secret:
+        return False
+
+    try:
+        int(candidate_version)
+        return True
+    except (TypeError, ValueError):
+        return False
+
+@app.middleware("http")
+async def dataset_reader_middleware(request: Request, call_next):
+
+    is_cache_warm = is_authorized_cache_warm(request)
+
+    while True:
+
+        if request.url.path.endswith("/score"):
+            version = get_data_version()
+        else:
+            version = get_request_cache_version(request)
+
+        slot = get_dataset_slot(version)
+
+        await run_in_threadpool(
+            acquire_dataset_reader,
+            slot,
+        )
+
+        # Candidate cache-warming requests intentionally use
+        # a version that is not active yet.
+        if is_cache_warm or get_data_version() == version:
+            break
+
+        # The active version changed while we were acquiring
+        # the reader lease. Release and resolve it again.
+        await run_in_threadpool(
+            release_dataset_reader,
+            slot,
+        )
+
+    request.state.cache_version = version
+    request.state.dataset_slot = slot
+
+    try:
+        response = await call_next(request)
+        return response
+
+    finally:
+        await run_in_threadpool(
+            release_dataset_reader,
+            slot,
+        )
+
+
 def cached_response(content):
     return JSONResponse(
         content=jsonable_encoder(content),
@@ -116,6 +185,32 @@ def cached_response(content):
             "Cloudflare-CDN-Cache-Control": "no-store",
         }
     )
+
+
+def cache_result(
+    request: Request,
+    key: str,
+    content,
+    ttl: int = 86400,
+):
+    saved = set_cached(key, content, ttl)
+
+    expected_secret = os.environ.get("CACHE_WARM_KEY")
+    provided_secret = request.headers.get("X-Cache-Warm-Key")
+
+    is_cache_warm = (
+        expected_secret
+        and provided_secret == expected_secret
+        and request.query_params.get("version") is not None
+    )
+
+    if is_cache_warm and not saved:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Failed to write cache key: {key}",
+        )
+
+    return saved
 
 
 def warm_cache(version: int):
@@ -582,16 +677,49 @@ def update_data_route(request: Request):
         with lock:
             print("UPDATE DATA: Starting", flush=True)
 
-            # Refresh source and processed data
-            update_all_data()
+            # Get the currently active dataset slot
+            active_version = get_data_version()
+            source_slot = get_dataset_slot(active_version)
 
-            print("UPDATE DATA: Finished", flush=True)
+            # Select the other physical slot
+            target_slot = (
+                "candidate"
+                if source_slot == "primary"
+                else "primary"
+            )
 
-            # Create a new cache generation
-            candidate_version = generate_data_version()
+            # Wait until no requests are still reading the target slot
+            print(
+                f"UPDATE DATA: Waiting to reserve {target_slot} for writing",
+                flush=True,
+            )
+
+            begin_dataset_write(target_slot)
+
+            try:
+                print(
+                    f"UPDATE DATA: Building {target_slot} from {source_slot}",
+                    flush=True,
+                )
+
+                changes = update_all_data(
+                    source_slot=source_slot,
+                    target_slot=target_slot,
+                )
+
+                print("UPDATE DATA: Finished", flush=True)
+
+                candidate_version = generate_data_version()
+
+                set_dataset_slot(
+                    candidate_version,
+                    target_slot,
+                )
+
+            finally:
+                end_dataset_write(target_slot)
 
             # Preserve the existing model generations
-            active_version = get_data_version()
             model_versions = get_model_versions(active_version)
 
             if not model_versions:
@@ -644,14 +772,14 @@ def update_data_route(request: Request):
             }
 
     except Exception as e:
-        print(f"Data update failed: {e}", flush=True)
+        traceback.print_exc()
 
         return JSONResponse(
             status_code=500,
             content={
                 "success": False,
                 "error": str(e),
-            },
+            }
         )
     
 @router.post("/api/update/model")
@@ -677,6 +805,14 @@ def update_model_route(request: Request):
 
             # Create a new cache generation
             candidate_version = generate_data_version()
+
+            active_version = get_data_version()
+            active_slot = get_dataset_slot(active_version)
+
+            set_dataset_slot(
+                candidate_version,
+                active_slot,
+            )
 
             # Associate this cache generation with its model generations
             set_model_versions(
@@ -802,7 +938,7 @@ async def games(request: Request):
             content={"error": f"Invalid timezone: {timezone}"},
         )
 
-    version = get_request_cache_version(request)
+    version = request.state.cache_version
 
     # ---------------------------------
     # GETTING SPORT OR LEAGUE
@@ -977,12 +1113,18 @@ async def games(request: Request):
                 (group_end - prediction_start).days + 2
             )
 
+            _, processed_path = get_dataset_paths(
+                current_league,
+                request.state.dataset_slot,
+            )
+
             predictions = await run_in_threadpool(
                 predict,
                 start_date=prediction_start,
                 days_ahead=days_ahead,
                 league=current_league,
                 model_version=get_model_version(version, current_league),
+                processed_path=processed_path,
             )
 
             # Make sure prediction columns exist
@@ -1054,7 +1196,8 @@ async def games(request: Request):
                     }
                 )
 
-                set_cached(
+                cache_result(
+                    request,
                     date_cache_key,
                     date_result,
                 )
@@ -1177,7 +1320,7 @@ async def team(league: str, team_slug: str, request: Request):
     # CHECKING IF CACHED
     # ---------------------------------
 
-    version = get_request_cache_version(request)
+    version = request.state.cache_version
 
     cache_key = make_cache_key(
         "team",
@@ -1200,10 +1343,15 @@ async def team(league: str, team_slug: str, request: Request):
             content={"error": f"Unknown league: {league}"}
         )
 
+    _, processed_path = get_dataset_paths(
+        league,
+        request.state.dataset_slot,
+    )
+
     processed = await run_in_threadpool(
         pd.read_csv,
-        SPORT_CONFIG[league]["processed_output"],
-)
+        processed_path,
+    )
 
     processed["game_id"] = processed["game_id"].astype(str).str.replace(
         r"\.0$",
@@ -1441,6 +1589,7 @@ async def team(league: str, team_slug: str, request: Request):
         start_date=now,
         days_ahead=14,
         model_version=get_model_version(version, league),
+        processed_path=processed_path,
     )
 
     upcoming_games = []
@@ -1532,7 +1681,7 @@ async def team(league: str, team_slug: str, request: Request):
         "upcoming_games": upcoming_games,
     }
 
-    set_cached(cache_key, result)
+    cache_result(request, cache_key, result)
 
     return cached_response(result)
 
@@ -1563,6 +1712,11 @@ async def game(game_id: str, request: Request):
             content={"error": f"Unknown league: {league}"}
         )
 
+    _, processed_path = get_dataset_paths(
+        league,
+        request.state.dataset_slot,
+    )
+
     # ---------------------------------
     # GET GAME DATE
     # ---------------------------------
@@ -1579,7 +1733,7 @@ async def game(game_id: str, request: Request):
     # CHECKING IF CACHED
     # ---------------------------------
 
-    version = get_request_cache_version(request)
+    version = request.state.cache_version
 
     cache_key = make_cache_key(
         "game",
@@ -1634,6 +1788,7 @@ async def game(game_id: str, request: Request):
         start_date=prediction_start,
         days_ahead=days_ahead,
         model_version=get_model_version(version, league),
+        processed_path=processed_path,
     )
 
     if games.empty:
@@ -1665,7 +1820,7 @@ async def game(game_id: str, request: Request):
 
     processed = await run_in_threadpool(
         pd.read_csv,
-        SPORT_CONFIG[league]["processed_output"],
+        processed_path,
     )
 
     processed["date"] = pd.to_datetime(
@@ -1798,7 +1953,7 @@ async def game(game_id: str, request: Request):
     print(f"Game {game_id} took {elapsed:.3f}s")
 
     # Cache the original prediction response
-    set_cached(cache_key, result)
+    cache_result(request, cache_key, result)
 
     # Overlay the latest independently cached score
     apply_live_score(
@@ -1862,7 +2017,7 @@ async def game_score(game_id: str, request: Request):
         },
     )
 
-    version = get_data_version()
+    version = request.state.cache_version
 
     score_start = time.perf_counter()
 
@@ -1907,9 +2062,14 @@ async def game_score(game_id: str, request: Request):
     # CHECK PROCESSED CSV FOR COMPLETED GAME
     # ---------------------------------
 
+    _, processed_path = get_dataset_paths(
+        league,
+        request.state.dataset_slot,
+    )
+
     processed = await run_in_threadpool(
         pd.read_csv,
-        SPORT_CONFIG[league]["processed_output"],
+        processed_path,
         usecols=[
             "game_id",
             "actual_slop",
@@ -2264,7 +2424,7 @@ def teams(request: Request):
             content={"error": "Invalid league"}
         )
 
-    version = get_request_cache_version(request)
+    version = request.state.cache_version
 
     cache_key = make_cache_key(
         "teams",
@@ -2279,9 +2439,17 @@ def teams(request: Request):
     if cached is not None:
         return cached_response(cached)
 
-    result = get_teams(league)
+    raw_path, _ = get_dataset_paths(
+        league,
+        request.state.dataset_slot,
+    )
 
-    set_cached(cache_key, result)
+    result = get_teams(
+        league,
+        raw_path=raw_path,
+    )
+
+    cache_result(request, cache_key, result)
 
     return cached_response(result)
 

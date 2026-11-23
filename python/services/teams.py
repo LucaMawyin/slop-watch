@@ -5,8 +5,13 @@ import warnings
 
 warnings.filterwarnings("ignore", category=DtypeWarning)
 
-def get_teams(league):
-    df = pd.read_csv(SPORT_CONFIG[league]["output"])
+def get_teams(
+    league, 
+    raw_path=None
+):
+    
+    raw_path = raw_path or SPORT_CONFIG[league]["output"]
+    df = pd.read_csv(raw_path)
 
     # Only use regular season games
     if "season_type" in df.columns:

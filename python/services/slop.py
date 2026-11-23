@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from services.games_old import get_games, get_performance
 from config.sports import SPORT_CONFIG
 from pandas.errors import DtypeWarning
@@ -14,9 +15,12 @@ def normalize_badness(value, min_value, max_value):
 
     return 1 - normalized.clip(0, 1)
 
-def get_slop(league="nba"):
+def get_slop(league="nba", raw_path=None):
 
-    games = get_games(league=league)
+    games = get_games(
+        league=league,
+        raw_path=raw_path,
+    )
     games = games.rename(
         columns={
             "home_display_name": "home_full_name",
@@ -30,7 +34,10 @@ def get_slop(league="nba"):
     if "away_full_name" not in games.columns:
         games["away_full_name"] = games["away_name"]
         
-    performance = get_performance(league=league)
+    performance = get_performance(
+        league=league,
+        raw_path=raw_path,
+    )
     config=SPORT_CONFIG[league]
 
     # ---------------------------------
@@ -119,7 +126,12 @@ def get_slop(league="nba"):
         home_playoff_wins.append(home_wins)
         away_playoff_wins.append(away_wins)
 
-        if game["is_postseason"] == 1:
+        game_completed = (
+            pd.notna(game["home_score"]) and
+            pd.notna(game["away_score"])
+        )
+
+        if game_completed and game["is_postseason"] == 1:
 
             if game["home_score"] > game["away_score"]:
                 team_playoff_wins[home] = home_wins + 1
@@ -269,35 +281,41 @@ def get_slop(league="nba"):
         )
 
         # ---------------------------------
-        # ONLY UPDATE AFTER REGULAR-SEASON
-        # GAME
+        # UPDATE ONLY AFTER COMPLETED GAMES
         # ---------------------------------
 
-        if regular_season.loc[index]:
+        home_score = game["home_score"]
+        away_score = game["away_score"]
 
-            home_score = game["home_score"]
-            away_score = game["away_score"]
+        game_completed = (
+            pd.notna(home_score) and
+            pd.notna(away_score)
+        )
 
-            if home_score > away_score:
-                home_stats["wins"] += 1
-                away_stats["losses"] += 1
+        if game_completed:
 
-            elif away_score > home_score:
-                away_stats["wins"] += 1
-                home_stats["losses"] += 1
+            if regular_season.loc[index]:
 
-            home_stats["points_for"] += home_score
-            home_stats["points_against"] += away_score
+                if home_score > away_score:
+                    home_stats["wins"] += 1
+                    away_stats["losses"] += 1
 
-            away_stats["points_for"] += away_score
-            away_stats["points_against"] += home_score
+                elif away_score > home_score:
+                    away_stats["wins"] += 1
+                    home_stats["losses"] += 1
 
-            team_season_stats[home] = home_stats
-            team_season_stats[away] = away_stats
+                home_stats["points_for"] += home_score
+                home_stats["points_against"] += away_score
 
-        # Update regardless of regular/postseason
-        last_game_by_team[home] = game["game_id"]
-        last_game_by_team[away] = game["game_id"]
+                away_stats["points_for"] += away_score
+                away_stats["points_against"] += home_score
+
+                team_season_stats[home] = home_stats
+                team_season_stats[away] = away_stats
+
+            # Only completed games count as previous games
+            last_game_by_team[home] = game["game_id"]
+            last_game_by_team[away] = game["game_id"]
 
     games["home_last_game_id"] = home_last_game_id
     games["away_last_game_id"] = away_last_game_id

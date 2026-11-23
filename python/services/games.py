@@ -7,8 +7,13 @@ import warnings
 warnings.filterwarnings("ignore", category=DtypeWarning)
 
 
-def get_games(league="mlb", start_date=None, days_ahead=7):
-
+def get_games(
+    league="mlb",
+    start_date=None,
+    days_ahead=7,
+    processed_path=None,
+):
+    
     start_time = time.perf_counter()
 
     if league not in SPORT_CONFIG:
@@ -43,9 +48,10 @@ def get_games(league="mlb", start_date=None, days_ahead=7):
     # LOAD PROCESSED CSV
     # ---------------------------------
 
-    processed = pd.read_csv(
-        SPORT_CONFIG[league]["processed_output"]
-    )
+    if processed_path is None:
+        processed_path = SPORT_CONFIG[league]["processed_output"]
+
+    processed = pd.read_csv(processed_path)
 
     processed["date"] = pd.to_datetime(
         processed["date"],
