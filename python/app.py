@@ -142,9 +142,9 @@ def warm_cache(version: int):
     start = (today - timedelta(days=30)).isoformat()
     end = (today + timedelta(days=30)).isoformat()
 
-    # Only get 2 weeks of game previews either way
-    preview_start = (today - timedelta(days=14)).isoformat()
-    preview_end = (today + timedelta(days=14)).isoformat()
+    # Only get first week of game previews either way
+    preview_start = (today - timedelta(days=7)).isoformat()
+    preview_end = (today + timedelta(days=7)).isoformat()
 
     print("DEBUG: NEW WARM_CACHE VERSION RUNNING", flush=True)
     print(f"DEBUG: API URL = {base_url}", flush=True)
