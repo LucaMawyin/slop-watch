@@ -568,8 +568,8 @@ export default function TeamPage({ params }: Props) {
 
                                         const isHome = game.home_full_name === team.team.full_name;
                                         const opponent = isHome
-                                            ? game.away_name
-                                            : game.home_name;
+                                            ? game.away_full_name
+                                            : game.home_full_name;
                                         
                                         return (
 
@@ -610,7 +610,7 @@ export default function TeamPage({ params }: Props) {
 
                                                     <h1 className="font-medium">
                                                         <span className="font-bold">
-                                                            {team.team.name}
+                                                            {team.team.full_name}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}
@@ -699,8 +699,8 @@ export default function TeamPage({ params }: Props) {
 
                                         const isHome = game.home_full_name === team.team.full_name;
                                         const opponent = isHome
-                                            ? game.away_name
-                                            : game.home_name;
+                                            ? game.away_full_name
+                                            : game.home_full_name;
 
                                         const teamScore = isHome
                                             ? game.home_score
@@ -753,7 +753,7 @@ export default function TeamPage({ params }: Props) {
 
                                                     <h1 className="font-medium">
                                                         <span className="font-bold">
-                                                            {team.team.name}
+                                                            {team.team.full_name}
                                                         </span>
                                                         {isHome ? " vs " : " @ "}
                                                         {opponent}
