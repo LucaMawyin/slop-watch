@@ -16,34 +16,14 @@ export default function DayPickerClient({
     initialRange,
     initialMonth,
 }: DayPickerClientProps) {
+    const [appliedRange, setAppliedRange] = useState<DateRange | undefined>(initialRange);
     const [range, setRange] = useState<DateRange | undefined>(initialRange);
+
     const [month, setMonth] = useState<Date>(
-        initialMonth ?? new Date()
+        initialMonth ?? initialRange?.from ?? new Date()
     );
+
     const [open, setOpen] = useState(false);
-
-    const initialFrom = initialRange?.from?.getTime();
-    const initialTo = initialRange?.to?.getTime();
-    const initialMonthTime = initialMonth?.getTime();
-
-    useEffect(() => {
-        setRange(
-            initialFrom !== undefined
-                ? {
-                    from: new Date(initialFrom),
-                    to: initialTo !== undefined
-                        ? new Date(initialTo)
-                        : undefined,
-                }
-                : undefined
-        );
-    }, [initialFrom, initialTo]);
-
-    useEffect(() => {
-        if (initialMonthTime !== undefined) {
-            setMonth(new Date(initialMonthTime));
-        }
-    }, [initialMonthTime]);
 
     const formatDate = (date: Date) =>
         `${String(date.getMonth() + 1).padStart(2, "0")}/${String(
@@ -56,9 +36,20 @@ export default function DayPickerClient({
             : formatDate(range.from)
         : "Select dates";
 
+    const handleOpen = () => {
+        setRange(appliedRange);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setRange(appliedRange);
+        setOpen(false);
+    };
+
     const handleApply = () => {
         if (!range?.from || !range?.to) return;
 
+        setAppliedRange(range);
         onChange(range);
         setOpen(false);
     };
@@ -69,7 +60,7 @@ export default function DayPickerClient({
         <div className="relative">
             <button
                 type="button"
-                onClick={() => setOpen(true)}
+                onClick={handleOpen}
                 className="
                     rounded-lg border border-zinc-700
                     bg-zinc-900 px-3 py-2 text-sm
@@ -84,7 +75,7 @@ export default function DayPickerClient({
                 <>
                     <div
                         className="fixed inset-0 z-40 bg-black/60"
-                        onClick={() => setOpen(false)}
+                        onClick={handleClose}
                     />
 
                     <div

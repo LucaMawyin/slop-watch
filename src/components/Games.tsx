@@ -749,9 +749,10 @@ function GamesContent() {
 
                         {/* DATE RANGE */}
                         <DayPickerClient
+                            key={`${start ?? "default"}-${end ?? "default"}`}
                             initialMonth={
-                                start 
-                                    ? new Date(`${start}T00:00:00`) 
+                                start
+                                    ? new Date(`${start}T00:00:00`)
                                     : new Date()
                             }
                             initialRange={
