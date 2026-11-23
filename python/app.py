@@ -234,8 +234,8 @@ def warm_cache(version: int):
         print(f"[WARM +{elapsed:.2f}s] {message}", flush=True)
 
     today = datetime.now(ZoneInfo("America/Toronto")).date()
-    start = (today - timedelta(days=30)).isoformat()
-    end = (today + timedelta(days=30)).isoformat()
+    start = (today - timedelta(days=60)).isoformat()
+    end = (today + timedelta(days=60)).isoformat()
 
     # Only get first week of game previews either way
     preview_start = (today - timedelta(days=7)).isoformat()
