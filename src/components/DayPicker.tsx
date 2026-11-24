@@ -54,6 +54,14 @@ export default function DayPickerClient({
         setOpen(false);
     };
 
+    const handleToday = () => {
+        const today = new Date();
+        const todayRange = { from: today, to: today };
+
+        setRange(todayRange);
+        setMonth(today);
+    };
+
     const today = new Date();
 
     return (
@@ -113,20 +121,35 @@ export default function DayPickerClient({
                             }}
                         />
 
-                        <button
-                            type="button"
-                            disabled={!range?.from || !range?.to}
-                            onClick={handleApply}
-                            className="
-                                mt-2 w-full rounded-lg bg-white
-                                px-4 py-2 text-sm font-semibold
-                                text-black transition hover:bg-zinc-200
-                                disabled:cursor-not-allowed
-                                disabled:opacity-40
-                            "
-                        >
-                            Apply dates
-                        </button>
+                        <div className="mt-3 flex gap-2">
+
+                            <button
+                                type="button"
+                                onClick={handleToday}
+                                className="
+                                    flex-1 rounded-lg border border-zinc-700
+                                    px-3 py-2 text-sm text-zinc-300
+                                    transition hover:bg-zinc-800
+                                "
+                            >
+                                Today
+                            </button>
+
+                            <button
+                                type="button"
+                                disabled={!range?.from || !range?.to}
+                                onClick={handleApply}
+                                className="
+                                    flex-1 rounded-lg bg-white
+                                    px-3 py-2 text-sm font-semibold
+                                    text-black transition hover:bg-zinc-200
+                                    disabled:cursor-not-allowed
+                                    disabled:opacity-40
+                                "
+                            >
+                                Apply
+                            </button>
+                        </div>
                     </div>
                 </>
             )}

@@ -1370,6 +1370,11 @@ async def team(league: str, team_slug: str, request: Request):
         regex=True
     )
 
+    processed = processed.drop_duplicates(
+        subset=["game_id"],
+        keep="last",
+    ).copy()
+
     processed["home_last_game_id"] = (
         processed["home_last_game_id"]
         .astype(str)
@@ -1432,7 +1437,12 @@ async def team(league: str, team_slug: str, request: Request):
     # Only completed games
     team_games = team_games[
         team_games["actual_slop"].notna()
-    ]
+    ].copy()
+
+    team_games = team_games.drop_duplicates(
+        subset=["game_id"],
+        keep="last",
+    )
 
     season = None
     team_badness = None
@@ -1523,10 +1533,21 @@ async def team(league: str, team_slug: str, request: Request):
             for _, row in processed.iterrows()
         }
 
+        # Track visited games to prevent duplicates
+        seen_game_ids = set()
+
         # Start from the most recent completed game
         current_game = team_games.iloc[-1]
 
         for _ in range(15):
+
+            current_game_id = str(current_game["game_id"])
+
+            # Stop if this game was already visited
+            if current_game_id in seen_game_ids:
+                break
+
+            seen_game_ids.add(current_game_id)
 
             if team_id:
                 is_home = (
