@@ -56,6 +56,7 @@ from services.dataset import (
 
 LIVE_SCORE_CACHE_SECONDS = 30
 LIVE_SCORE_SEMAPHORE = asyncio.Semaphore(4)
+PREDICTION_SEMAPHORE = asyncio.Semaphore(4)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -913,6 +914,163 @@ def apply_live_score(game: dict, league: str, game_date: str):
     return game
 
 
+async def process_league_games(
+    current_league,
+    dates,
+    cache_lookup,
+    request,
+    version,
+    local_tz,
+    timezone,
+):
+    cached_by_date = {}
+    missing_dates = []
+
+    for current_date in dates:
+        cached_date = cache_lookup[(current_league, current_date)]
+
+        if cached_date is not None:
+            cached_by_date[current_date] = cached_date
+        else:
+            missing_dates.append(current_date)
+
+    print(
+        f"{current_league}: "
+        f"{len(cached_by_date)} cached dates, "
+        f"{len(missing_dates)} missing dates",
+        flush=True,
+    )
+
+    # Group consecutive missing dates
+    missing_groups = []
+
+    for current_date in missing_dates:
+        if not missing_groups:
+            missing_groups.append([current_date])
+            continue
+
+        previous_date = pd.Timestamp(missing_groups[-1][-1])
+        current_timestamp = pd.Timestamp(current_date)
+
+        if (current_timestamp - previous_date).days == 1:
+            missing_groups[-1].append(current_date)
+        else:
+            missing_groups.append([current_date])
+
+    # Fetch missing date ranges
+    for date_group in missing_groups:
+
+        group_start = pd.Timestamp(date_group[0])
+        group_end = pd.Timestamp(date_group[-1])
+
+        prediction_start = group_start - pd.Timedelta(days=1)
+
+        days_ahead = (
+            (group_end - prediction_start).days + 2
+        )
+
+        _, processed_path = get_dataset_paths(
+            current_league,
+            request.state.dataset_slot,
+        )
+
+        async with PREDICTION_SEMAPHORE:
+            predictions = await run_in_threadpool(
+                predict,
+                start_date=prediction_start,
+                days_ahead=days_ahead,
+                league=current_league,
+                model_version=get_model_version(version, current_league),
+                processed_path=processed_path,
+            )
+
+        if predictions.empty:
+            predictions = pd.DataFrame(
+                columns=PREDICTION_FEATURES
+            )
+        else:
+            predictions["game_id"] = (
+                predictions["game_id"].astype(str)
+            )
+
+            predictions["date"] = pd.to_datetime(
+                predictions["date"],
+                utc=True,
+                errors="coerce",
+            )
+
+        for column in PREDICTION_FEATURES:
+            if column not in predictions.columns:
+                predictions[column] = None
+
+        # Cache each date separately
+        local_dates = None
+
+        if not predictions.empty:
+            local_dates = (
+                predictions["date"]
+                .dt.tz_convert(local_tz)
+                .dt.strftime("%Y-%m-%d")
+            )
+
+        for current_date in date_group:
+
+            if predictions.empty:
+                date_games = pd.DataFrame(
+                    columns=PREDICTION_FEATURES
+                )
+            else:
+                date_games = predictions[
+                    local_dates == current_date
+                ].copy()
+
+            date_games = date_games[
+                PREDICTION_FEATURES
+            ].copy()
+
+            date_games["league"] = current_league
+
+            date_games = date_games.astype(
+                object
+            ).where(
+                pd.notna(date_games),
+                None,
+            )
+
+            date_result = date_games.to_dict(
+                orient="records"
+            )
+
+            date_cache_key = make_cache_key(
+                "games",
+                version,
+                {
+                    "league": current_league,
+                    "date": current_date,
+                    "timezone": timezone,
+                },
+            )
+
+            cache_result(
+                request,
+                date_cache_key,
+                date_result,
+            )
+
+            cached_by_date[current_date] = date_result
+
+    # Return league games
+    league_games = []
+
+    for current_date in dates:
+        league_games.extend(
+            cached_by_date.get(current_date, [])
+        )
+
+    return league_games
+
+
+
 @router.get("/api/games")
 async def games(request: Request):
 
@@ -1042,176 +1200,29 @@ async def games(request: Request):
     }
 
     # ---------------------------------
-    # PROCESS EACH LEAGUE
+    # PROCESS ALL LEAGUES CONCURRENTLY
     # ---------------------------------
 
-    for current_league in leagues:
-
-        cached_by_date = {}
-        missing_dates = []
-
-        for date in dates:
-
-            cached_date = cache_lookup[(current_league, date)]
-
-            if cached_date is not None:
-                cached_by_date[date] = cached_date
-            else:
-                missing_dates.append(date)
-
-        print(
-            f"{current_league}: "
-            f"{len(cached_by_date)} cached dates, "
-            f"{len(missing_dates)} missing dates",
-            flush=True,
-        )
-
-        # ---------------------------------
-        # GROUP CONSECUTIVE MISSING DATES
-        # ---------------------------------
-
-        missing_groups = []
-
-        for date in missing_dates:
-
-            if not missing_groups:
-                missing_groups.append([date])
-                continue
-
-            previous_date = pd.Timestamp(
-                missing_groups[-1][-1]
+    league_results = await asyncio.gather(
+        *[
+            process_league_games(
+                current_league=current_league,
+                dates=dates,
+                cache_lookup=cache_lookup,
+                request=request,
+                version=version,
+                local_tz=local_tz,
+                timezone=timezone,
             )
+            for current_league in leagues
+        ]
+    )
 
-            current_date = pd.Timestamp(date)
-
-            if (current_date - previous_date).days == 1:
-                missing_groups[-1].append(date)
-            else:
-                missing_groups.append([date])
-
-        # ---------------------------------
-        # FETCH MISSING DATE RANGES
-        # ---------------------------------
-
-        for date_group in missing_groups:
-
-            group_start = pd.Timestamp(
-                date_group[0]
-            )
-
-            group_end = pd.Timestamp(
-                date_group[-1]
-            )
-
-            # Start one day before requested date
-            prediction_start = (
-                group_start - pd.Timedelta(days=1)
-            )
-
-            # Headroom to account for timezone differences
-            days_ahead = (
-                (group_end - prediction_start).days + 2
-            )
-
-            _, processed_path = get_dataset_paths(
-                current_league,
-                request.state.dataset_slot,
-            )
-
-            predictions = await run_in_threadpool(
-                predict,
-                start_date=prediction_start,
-                days_ahead=days_ahead,
-                league=current_league,
-                model_version=get_model_version(version, current_league),
-                processed_path=processed_path,
-            )
-
-            # Make sure prediction columns exist
-            if predictions.empty:
-                predictions = pd.DataFrame(
-                    columns=PREDICTION_FEATURES
-                )
-            else:
-                predictions["game_id"] = (
-                    predictions["game_id"]
-                    .astype(str)
-                )
-
-                predictions["date"] = pd.to_datetime(
-                    predictions["date"],
-                    utc=True,
-                    errors="coerce",
-                )
-
-            for column in PREDICTION_FEATURES:
-                if column not in predictions.columns:
-                    predictions[column] = None
-
-            # ---------------------------------
-            # CACHE EACH DATE SEPARATELY
-            # ---------------------------------
-
-            for date in date_group:
-
-                if predictions.empty:
-                    date_games = pd.DataFrame(
-                        columns=PREDICTION_FEATURES
-                    )
-                else:
-                    local_dates = (
-                        predictions["date"]
-                        .dt.tz_convert(local_tz)
-                        .dt.strftime("%Y-%m-%d")
-                    )
-
-                    date_games = predictions[
-                        local_dates == date
-                    ].copy()
-
-                date_games = date_games[
-                    PREDICTION_FEATURES
-                ].copy()
-
-                date_games["league"] = current_league
-
-                date_games = date_games.astype(
-                    object
-                ).where(
-                    pd.notna(date_games),
-                    None,
-                )
-
-                date_result = date_games.to_dict(
-                    orient="records"
-                )
-
-                date_cache_key = make_cache_key(
-                    "games",
-                    version,
-                    {
-                        "league": current_league,
-                        "date": date,
-                        "timezone": timezone,
-                    }
-                )
-
-                cache_result(
-                    request,
-                    date_cache_key,
-                    date_result,
-                )
-
-                cached_by_date[date] = date_result
-
-        # ---------------------------------
-        # COMBINE DATES FOR LEAGUE
-        # ---------------------------------
-
-        for date in dates:
-            all_games.extend(
-                cached_by_date.get(date, [])
-            )
+    all_games = [
+        game
+        for league_games in league_results
+        for game in league_games
+    ]
 
     # ---------------------------------
     # APPLY REQUEST FILTERS
