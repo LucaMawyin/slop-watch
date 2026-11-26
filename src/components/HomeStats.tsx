@@ -120,6 +120,7 @@ export default function HomeStats({ games, now }: HomeStatsProps) {
             href: stats.highestSlop
                 ? `/${stats.highestSlop.league}/preview/${stats.highestSlop.game_id}?date=${getLocalDate(stats.highestSlop.date)}`
                 : undefined,
+            target: "_blank",
         },
         {
             label: "Most Watchable",
@@ -133,6 +134,7 @@ export default function HomeStats({ games, now }: HomeStatsProps) {
             href: stats.mostWatchable
                 ? `/${stats.mostWatchable.league}/preview/${stats.mostWatchable.game_id}?date=${getLocalDate(stats.mostWatchable.date)}`
                 : undefined,
+            target: "_blank",
         },
         {
             label: "Live Games",
@@ -212,7 +214,7 @@ export default function HomeStats({ games, now }: HomeStatsProps) {
                             key={card.label}
                             href={card.href}
                             className={className}
-                            target="_blank"
+                            target={card.target}
                         >
                             {content}
                         </Link>

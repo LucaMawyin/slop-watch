@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface UseSwipeNavigationOptions {
     onSwipeLeft: () => void;
@@ -9,6 +9,9 @@ interface UseSwipeNavigationOptions {
     minSwipeDistance?: number;
     minSwipeVelocity?: number;
 }
+
+export const TRANSITION_DURATION = 250;
+const TRANSITION_FALLBACK = TRANSITION_DURATION + 100;
 
 export default function useSwipeNavigation({
     onSwipeLeft,
@@ -25,6 +28,8 @@ export default function useSwipeNavigation({
 
     const gesture = useRef<"pending" | "horizontal" | "vertical">("pending");
     const isNavigating = useRef(false);
+    const pendingDirection = useRef<"left" | "right" | null>(null);
+    const navigationRequested = useRef(false);
 
     const [offset, setOffset] = useState(0);
     const [dragging, setDragging] = useState(false);
@@ -34,8 +39,41 @@ export default function useSwipeNavigation({
     const [resetting, setResetting] = useState(false);
 
     const transitionTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+    useEffect(() => {
+        return () => {
+            if (transitionTimeout.current) {
+                clearTimeout(transitionTimeout.current);
+            }
+        };
+    }, []);
 
+    // Called when slide animation finishes
+    // Change url but dont reset track yet
     const finishTransition = useCallback(() => {
+        if (
+            !isNavigating.current ||
+            !pendingDirection.current ||
+            navigationRequested.current
+        ) return;
+
+        if (transitionTimeout.current) {
+            clearTimeout(transitionTimeout.current);
+            transitionTimeout.current = null;
+        }
+
+        navigationRequested.current = true;
+
+        if (pendingDirection.current === "left") {
+            onSwipeLeft();
+        } else {
+            onSwipeRight();
+        }
+    }, [onSwipeLeft, onSwipeRight]);
+
+    // Called after url has changed and new panels have rendered
+    const completeTransition = useCallback(() => {
+        if (!isNavigating.current) return;
+
         if (transitionTimeout.current) {
             clearTimeout(transitionTimeout.current);
             transitionTimeout.current = null;
@@ -44,7 +82,10 @@ export default function useSwipeNavigation({
         setResetting(true);
         setOffset(0);
         setTransitioning(false);
+
         isNavigating.current = false;
+        pendingDirection.current = null;
+        navigationRequested.current = false;
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -53,13 +94,12 @@ export default function useSwipeNavigation({
         });
     }, []);
 
-    const navigate = useCallback((
-        swipeDirection: "left" | "right",
-        distance: number
-    ) => {
+    const startNavigation = useCallback((swipeDirection: "left" | "right", distance: number) => {
         if (isNavigating.current) return;
 
         isNavigating.current = true;
+        pendingDirection.current = swipeDirection;
+        navigationRequested.current = false;
 
         setDirection(swipeDirection);
         setTransitioning(true);
@@ -67,22 +107,21 @@ export default function useSwipeNavigation({
         setDragging(false);
 
         setOffset(
-            swipeDirection === "left"
-                ? -distance
-                : distance
+            swipeDirection === "left" ? -distance : distance
         );
 
-        if (swipeDirection === "left") {
-            onSwipeLeft();
-        } else {
-            onSwipeRight();
-        }
-
+        // Fallback in case transitionend doesnt run
         transitionTimeout.current = setTimeout(() => {
             finishTransition();
-        }, 300);
+        }, TRANSITION_FALLBACK);
+    }, [finishTransition]);
 
-    }, [onSwipeLeft, onSwipeRight, finishTransition]);
+    const navigate = useCallback((
+        swipeDirection: "left" | "right",
+        distance: number
+    ) => {
+        startNavigation(swipeDirection, distance);
+    }, [startNavigation]);
 
     const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
         if (isNavigating.current || transitioning) return;
@@ -189,33 +228,15 @@ export default function useSwipeNavigation({
         const distance = e.currentTarget.clientWidth + 16;
         const swipeDirection = deltaX < 0 ? "left" : "right";
 
-        isNavigating.current = true;
+        const track = e.currentTarget.querySelector<HTMLElement>(
+            "[data-swipe-track]"
+        );
 
-        setDirection(swipeDirection);
-        setTransitioning(true);
-        setDragging(false);
+        startNavigation(swipeDirection, distance);
 
-        // Keep the drag offset until the final offset is applied.
         requestAnimationFrame(() => {
-            const track = document.querySelector<HTMLElement>(
-                "[data-swipe-track]"
-            );
-
             track?.style.removeProperty("--swipe-offset");
-
-            setOffset(
-                swipeDirection === "left"
-                    ? -distance
-                    : distance
-            );
         });
-
-        if (swipeDirection === "left") {
-            onSwipeLeft();
-        } else {
-            onSwipeRight();
-        }
-
     };
 
     const handleTouchCancel = (e: React.TouchEvent<HTMLElement>) => {
@@ -242,6 +263,7 @@ export default function useSwipeNavigation({
         resetting,
         navigate,
         finishTransition,
+        completeTransition,
         onTouchStart: handleTouchStart,
         onTouchMove: handleTouchMove,
         onTouchEnd: handleTouchEnd,

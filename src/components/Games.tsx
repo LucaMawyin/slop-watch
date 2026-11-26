@@ -2,7 +2,7 @@
 
 import { Game, LiveScore } from "@/lib/types";
 import Link from "next/link";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import GamesSkeleton from "@/components/GamesSkeleton";
@@ -18,6 +18,23 @@ function GamesContent() {
         `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
     const [games, setGames] = useState<Game[]>([]);
+
+    const [previousGames, setPreviousGames] = useState<Game[]>([]);
+    const [nextGames, setNextGames] = useState<Game[]>([]);
+
+    const [previousGamesKey, setPreviousGamesKey] = useState<string | null>(null);
+    const [nextGamesKey, setNextGamesKey] = useState<string | null>(null);
+
+    const [previousLoading, setPreviousLoading] = useState(true);
+    const [nextLoading, setNextLoading] = useState(true);
+
+    const gamesCache = useRef(
+        new Map<string, { games: Game[]; version: string }>()
+    );
+
+    const makeDateKey = (start: string, end: string) =>
+        `${league ?? sport ?? "all"}:${start}:${end}`;
+
     const [loading, setLoading] = useState(true);
     const hasLoadedOnce = useRef(false);
     const [error, setError] = useState<string | null>(null);
@@ -139,6 +156,7 @@ function GamesContent() {
         transitionKey,
         resetting,
         finishTransition,
+        completeTransition,
         navigate,
         ...swipeHandlers
     } = useSwipeNavigation({
@@ -148,7 +166,7 @@ function GamesContent() {
 
     const [loadedDateKey, setLoadedDateKey] = useState<string | null>(null);
 
-    const dateKey = `${league ?? sport ?? "all"}:${effectiveStart}:${effectiveEnd}`;
+    const dateKey = makeDateKey(effectiveStart!, effectiveEnd!);
 
     useEffect(() => {
         navigationDates.current = {
@@ -157,10 +175,190 @@ function GamesContent() {
         };
     }, [dateKey]);
 
+    const previousDateKey = useRef(dateKey);
+
+    useLayoutEffect(() => {
+        if (previousDateKey.current !== dateKey) {
+            previousDateKey.current = dateKey;
+            completeTransition();
+        }
+    }, [dateKey, completeTransition]);
+
     const currentVersion = useRef<{
         key: string;
         version: string;
     } | null>(null);
+
+    const shiftDateRange = (days: number) => {
+        const startDate = new Date(`${effectiveStart}T00:00:00`);
+        const endDate = new Date(`${effectiveEnd}T00:00:00`);
+
+        startDate.setDate(startDate.getDate() + days);
+        endDate.setDate(endDate.getDate() + days);
+
+        return {
+            start: formatDate(startDate),
+            end: formatDate(endDate),
+        };
+    };
+
+    const previousRange = shiftDateRange(-1);
+    const nextRange = shiftDateRange(1);
+
+    const previousKey = makeDateKey(
+        previousRange.start,
+        previousRange.end
+    );
+
+    const nextKey = makeDateKey(
+        nextRange.start,
+        nextRange.end
+    );
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const loadAdjacentGames = async () => {
+            const previousRange = shiftDateRange(-1);
+            const nextRange = shiftDateRange(1);
+
+            const previousKey = makeDateKey(
+                previousRange.start,
+                previousRange.end
+            );
+
+            const nextKey = makeDateKey(
+                nextRange.start,
+                nextRange.end
+            );
+
+            // Immediately display cached games if available
+            const cachedPrevious = gamesCache.current.get(previousKey);
+            const cachedNext = gamesCache.current.get(nextKey);
+
+            if (cachedPrevious) {
+                setPreviousGames(cachedPrevious.games);
+                setPreviousGamesKey(previousKey);
+                setPreviousLoading(false);
+            } else {
+                setPreviousGames([]);
+                setPreviousGamesKey(null);
+                setPreviousLoading(true);
+            }
+
+            if (cachedNext) {
+                setNextGames(cachedNext.games);
+                setNextGamesKey(nextKey);
+                setNextLoading(false);
+            } else {
+                setNextGames([]);
+                setNextGamesKey(null);
+                setNextLoading(true);
+            }
+
+            try {
+                const versionResponse = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/version`,
+                    {
+                        cache: "no-store",
+                        signal: controller.signal,
+                    }
+                );
+
+                if (!versionResponse.ok) {
+                    throw new Error("Failed to get version");
+                }
+
+                const { version } = await versionResponse.json() as any;
+                const versionString = String(version);
+
+                const fetchRange = async (
+                    range: { start: string; end: string },
+                    key: string
+                ) => {
+                    const cached = gamesCache.current.get(key);
+
+                    if (cached?.version === versionString) {
+                        return cached.games;
+                    }
+
+                    const params = new URLSearchParams();
+
+                    if (sport) {
+                        params.set("sport", slugify(sport));
+                    } else if (league) {
+                        params.set("league", league);
+                    }
+
+                    params.set("start", range.start);
+                    params.set("end", range.end);
+                    params.set("version", versionString);
+
+                    const response = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_URL}/api/games?${params}`,
+                        {
+                            cache: "no-store",
+                            signal: controller.signal,
+                        }
+                    );
+
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch adjacent games");
+                    }
+
+                    const data: Game[] = await response.json();
+
+                    const filteredGames = data.filter((game) => {
+                        const localDate = formatDate(new Date(game.date));
+
+                        return (
+                            localDate >= range.start &&
+                            localDate <= range.end
+                        );
+                    });
+
+                    gamesCache.current.set(key, {
+                        games: filteredGames,
+                        version: versionString,
+                    });
+
+                    return filteredGames;
+                };
+
+                const [previous, next] = await Promise.all([
+                    fetchRange(previousRange, previousKey),
+                    fetchRange(nextRange, nextKey),
+                ]);
+
+                if (controller.signal.aborted) return;
+
+                setPreviousGames(previous);
+                setPreviousGamesKey(previousKey);
+
+                setNextGames(next);
+                setNextGamesKey(nextKey);
+
+            } catch (error) {
+                if (
+                    error instanceof Error &&
+                    error.name !== "AbortError"
+                ) {
+                    console.error("Failed to preload adjacent games:", error);
+                }
+            } finally {
+                if (!controller.signal.aborted) {
+                    setPreviousLoading(false);
+                    setNextLoading(false);
+                }
+            }
+        };
+
+        loadAdjacentGames();
+
+        return () => controller.abort();
+
+    }, [dateKey, league, sport]);
+
 
     // Reset filters on reload
     useEffect(() => {
@@ -173,7 +371,20 @@ function GamesContent() {
 
         let initialLoad = true;
 
-        setLoading(true);
+        const cached = gamesCache.current.get(dateKey);
+
+        if (cached) {
+            setGames(cached.games);
+            setLoading(false);
+            setLoadedDateKey(dateKey);
+
+            currentVersion.current = {
+                key: dateKey,
+                version: cached.version,
+            };
+        } else {
+            setLoading(true);
+        }
 
         setVisibleCount(9);
         setError(null);
@@ -241,12 +452,6 @@ function GamesContent() {
 
                 const data: Game[] = await response.json();
 
-                console.log("NEW GAMES DATA:", data.slice(0, 3).map(game => ({
-                    game_id: game.game_id,
-                    slop_percentile: game.slop_percentile,
-                    watchability_percentile: game.watchability_percentile,
-                })));
-
                 if (controller.signal.aborted) return;
 
                 const filteredGames = data.filter((game) => {
@@ -263,6 +468,11 @@ function GamesContent() {
                         (!effectiveStart || localGameDate >= effectiveStart) &&
                         (!effectiveEnd || localGameDate <= effectiveEnd)
                     );
+                });
+
+                gamesCache.current.set(dateKey, {
+                    games: filteredGames,
+                    version: newVersion,
                 });
 
                 // Display all games immediately
@@ -511,7 +721,20 @@ function GamesContent() {
             controller.abort();
             clearInterval(interval);
         };
-    }, [games.length, loading]);
+    }, [dateKey, games.length, loading]);
+
+    useEffect(() => {
+        if (loading || loadedDateKey !== dateKey) return;
+
+        const cached = gamesCache.current.get(dateKey);
+
+        if (!cached) return;
+
+        gamesCache.current.set(dateKey, {
+            ...cached,
+            games,
+        });
+    }, [games, dateKey, loadedDateKey, loading]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -521,102 +744,110 @@ function GamesContent() {
         return () => clearInterval(interval);
     }, []);
 
-    const sortedGames = [...games].sort((a, b) => {
-        let comparison: number;
+    const sortGames = (items: Game[]) => {
+        return [...items].sort((a, b) => {
+            let comparison: number;
 
-        if (sortBy === "live") {
-            const currentTime = now;
+            if (sortBy === "live") {
+                const aTime = new Date(a.date).getTime();
+                const bTime = new Date(b.date).getTime();
 
-            const aTime = new Date(a.date).getTime();
-            const bTime = new Date(b.date).getTime();
+                const aLive = aTime <= now && a.actual_slop == null;
+                const bLive = bTime <= now && b.actual_slop == null;
 
-            const aLive = aTime <= currentTime && a.actual_slop == null;
-            const bLive = bTime <= currentTime && b.actual_slop == null;
+                const aCompleted = a.actual_slop != null;
+                const bCompleted = b.actual_slop != null;
 
-            const aCompleted = a.actual_slop != null;
-            const bCompleted = b.actual_slop != null;
+                const aGroup = aLive ? 0 : aCompleted ? 2 : 1;
+                const bGroup = bLive ? 0 : bCompleted ? 2 : 1;
 
-            // Desc: Live -> Upcoming -> Completed
-            // Asc: Completed -> Upcoming -> Live
-            const aGroup = aLive ? 0 : aCompleted ? 2 : 1;
-            const bGroup = bLive ? 0 : bCompleted ? 2 : 1;
+                if (aGroup !== bGroup) {
+                    return sortDirection === "desc"
+                        ? aGroup - bGroup
+                        : bGroup - aGroup;
+                }
 
-            if (aGroup !== bGroup) {
+                if (aGroup === 1 || aGroup === 2) {
+                    return aTime - bTime;
+                }
+
+                comparison = aTime - bTime;
+
                 return sortDirection === "desc"
-                    ? aGroup - bGroup
-                    : bGroup - aGroup;
+                    ? -comparison
+                    : comparison;
             }
 
-            // Upcoming and completed - earliest first
-            if (aGroup === 1 || aGroup === 2) {
-                return aTime - bTime;
+            else if (sortBy === "slop") {
+                comparison =
+                    (a.slop_percentile ?? 0) -
+                    (b.slop_percentile ?? 0);
             }
 
-            const comparison = aTime - bTime;
+            else if (sortBy === "watchability") {
+                comparison =
+                    (a.watchability_percentile ?? 0) -
+                    (b.watchability_percentile ?? 0);
+            }
 
-            return sortDirection === "desc"
-                ? -comparison
-                : comparison;
-        }
+            else if (sortBy === "watchable-slop") {
+                const split = 0.5;
 
-        else if (sortBy === "slop") {
-            const aSlop = a.slop_percentile ?? 0;
-            const bSlop = b.slop_percentile ?? 0;
+                const aScore =
+                    (a.watchability_percentile ?? 0) * split +
+                    (a.slop_percentile ?? 0) * (1 - split);
 
-            comparison = aSlop - bSlop;
-        }
+                const bScore =
+                    (b.watchability_percentile ?? 0) * split +
+                    (b.slop_percentile ?? 0) * (1 - split);
 
-        else if (sortBy === "watchability") {
-            const aWatchability = a.watchability_percentile ?? 0;
-            const bWatchability = b.watchability_percentile ?? 0;
+                comparison = aScore - bScore;
+            }
 
-            comparison = aWatchability - bWatchability;
-        }
+            else if (sortBy === "overall") {
+                const aOverall =
+                    1 - ((a.slop_percentile ?? 0) *
+                    (1 - (a.watchability_percentile ?? 0)));
 
-        else if (sortBy === "watchable-slop") {
-            const watchable_slop_split = 0.5;
-            const aScore =
-                (a.watchability_percentile ?? 0) * watchable_slop_split +
-                (a.slop_percentile ?? 0) * (1 - watchable_slop_split);
+                const bOverall =
+                    1 - ((b.slop_percentile ?? 0) *
+                    (1 - (b.watchability_percentile ?? 0)));
 
-            const bScore =
-                (b.watchability_percentile ?? 0) * watchable_slop_split +
-                (b.slop_percentile ?? 0) * (1 - watchable_slop_split);
+                comparison = aOverall - bOverall;
+            }
 
-            comparison = aScore - bScore;
-        }
+            else {
+                comparison =
+                    new Date(a.date).getTime() -
+                    new Date(b.date).getTime();
+            }
 
-        else if (sortBy === "overall") {
-            const aSlop = a.slop_percentile ?? 0;
-            const bSlop = b.slop_percentile ?? 0;
+            return sortDirection === "asc"
+                ? comparison
+                : -comparison;
+        });
+    };
 
-            const aWatchability = a.watchability_percentile ?? 0;
-            const bWatchability = b.watchability_percentile ?? 0;
+    const cachedCurrent = gamesCache.current.get(dateKey);
 
-            const aOverall = 1 - (aSlop * (1 - aWatchability));
-            const bOverall = 1 - (bSlop * (1 - bWatchability));
+    const displayGames =
+        loadedDateKey === dateKey
+            ? games
+            : cachedCurrent?.games ?? [];
 
-            comparison = aOverall - bOverall;
-        }
+    const displayLoading =
+        loadedDateKey !== dateKey &&
+        !cachedCurrent;
 
-        else {
-            comparison = 
-                new Date(a.date).getTime() - 
-                new Date(b.date).getTime();
-        }
-
-        return sortDirection === "asc" 
-            ? comparison
-            : -comparison
-    });
+    const sortedGames = sortGames(displayGames);
 
     const currentContent = (
         <>
-            {loading ? (
+            {displayLoading ? (
                 <GamesSkeleton showLeague={!!sport}/>
-            ) : error && games.length === 0 ? (
+            ) : error && displayGames.length === 0 ? (
                 <p className="mt-4 text-red-400!">{error}</p>
-            ) : games.length === 0 ? (
+            ) : displayGames.length === 0 ? (
                 <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
                     <h2 className="text-lg font-semibold">
                         No games found
@@ -634,6 +865,7 @@ function GamesContent() {
                     </Link>
                 </div>
             ) : ( 
+                
                 <>
                     <div className="
                         mt-8 
@@ -690,6 +922,38 @@ function GamesContent() {
         if (!width) return;
 
         navigate(direction, width + 16);
+    };
+
+    const renderGames = (items: Game[]) => {
+        const sorted = sortGames(items);
+
+        if (sorted.length === 0) {
+            return (
+                <div className="mt-8 text-center text-zinc-500">
+                    No games found
+                </div>
+            );
+        }
+
+        return (
+            <div className="
+                mt-8
+                grid
+                auto-rows-fr
+                grid-cols-1
+                gap-4
+                sm:grid-cols-2
+                lg:grid-cols-3
+            ">
+                {sorted.slice(0, visibleCount).map((game) => (
+                    <FeaturedGameCard
+                        key={`${game.league}-${game.game_id}`}
+                        game={game}
+                        now={now}
+                    />
+                ))}
+            </div>
+        );
     };
 
     return (
@@ -929,22 +1193,36 @@ function GamesContent() {
                     onTransitionEnd={(e) => {
                         if (
                             e.target === e.currentTarget &&
+                            e.propertyName === "transform" &&
                             transitioning
                         ) {
                             finishTransition();
                         }
                     }}
                 >
+                    {/* Previous date */}
                     <div className="min-w-0 pointer-events-none">
-                        <GamesSkeleton showLeague={!!sport} />
+                        {previousGamesKey !== previousKey || previousLoading
+                            ? gamesCache.current.has(previousKey)
+                                ? renderGames(gamesCache.current.get(previousKey)!.games)
+                                : <GamesSkeleton showLeague={!!sport} />
+                            : renderGames(previousGames)
+                        }
                     </div>
 
+                    {/* Current date */}
                     <div className="min-w-0">
                         {currentContent}
                     </div>
 
+                    {/* Next date */}
                     <div className="min-w-0 pointer-events-none">
-                        <GamesSkeleton showLeague={!!sport} />
+                        {nextGamesKey !== nextKey || nextLoading
+                            ? gamesCache.current.has(nextKey)
+                                ? renderGames(gamesCache.current.get(nextKey)!.games)
+                                : <GamesSkeleton showLeague={!!sport} />
+                            : renderGames(nextGames)
+                        }
                     </div>
                 </div>
             </div>
