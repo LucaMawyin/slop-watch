@@ -2,7 +2,14 @@
 
 import { Game, LiveScore } from "@/lib/types";
 import Link from "next/link";
-import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+    Suspense,
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import DayPickerClient from "@/components/DayPicker";
 import GamesSkeleton from "@/components/GamesSkeleton";
@@ -148,6 +155,57 @@ function GamesContent() {
         return `${window.location.pathname}?${params.toString()}`;
     };
 
+    const swipeContainerRef = useRef<HTMLDivElement>(null);
+    const previousPanelRef = useRef<HTMLDivElement>(null);
+    const currentPanelRef = useRef<HTMLDivElement>(null);
+    const nextPanelRef = useRef<HTMLDivElement>(null);
+
+    const panelHeightsRef = useRef({
+        previous: 0,
+        current: 0,
+        next: 0,
+    });
+
+    const swipeProgressRef = useRef(0);
+
+    const updateSwipeHeight = useCallback(
+        (progress: number, animate = false) => {
+            swipeProgressRef.current = progress;
+
+            const heights = {
+                previous: previousPanelRef.current?.offsetHeight ?? 0,
+                current: currentPanelRef.current?.offsetHeight ?? 0,
+                next: nextPanelRef.current?.offsetHeight ?? 0,
+            };
+
+            panelHeightsRef.current = heights;
+
+            if (heights.current === 0) return;
+
+            const targetHeight =
+                progress > 0
+                    ? heights.next
+                    : heights.previous;
+
+            const clampedProgress = Math.min(1, Math.abs(progress));
+
+            const height =
+                heights.current +
+                (targetHeight - heights.current) * clampedProgress;
+
+            const container = swipeContainerRef.current;
+
+            if (!container || height <= 0) return;
+
+            container.style.transition = animate
+                ? "height 250ms ease-out"
+                : "none";
+
+            container.style.height = `${height}px`;
+        },
+        []
+    );
+
     const {
         offset,
         dragging,
@@ -162,6 +220,7 @@ function GamesContent() {
     } = useSwipeNavigation({
         onSwipeLeft: () => router.push(getShiftedDateUrl(1)),
         onSwipeRight: () => router.push(getShiftedDateUrl(-1)),
+        onSwipeProgress: updateSwipeHeight,
     });
 
     const [loadedDateKey, setLoadedDateKey] = useState<string | null>(null);
@@ -183,6 +242,25 @@ function GamesContent() {
             completeTransition();
         }
     }, [dateKey, completeTransition]);
+
+    useLayoutEffect(() => {
+        const panels = [
+            previousPanelRef.current,
+            currentPanelRef.current,
+            nextPanelRef.current,
+        ].filter((panel): panel is HTMLDivElement => panel !== null);
+
+        const observer = new ResizeObserver(() => {
+            updateSwipeHeight(swipeProgressRef.current);
+        });
+
+        panels.forEach((panel) => observer.observe(panel));
+
+        // Set the initial container height.
+        updateSwipeHeight(0);
+
+        return () => observer.disconnect();
+    }, [updateSwipeHeight]);
 
     const currentVersion = useRef<{
         key: string;
@@ -915,7 +993,6 @@ function GamesContent() {
         </>
     );
 
-    const swipeContainerRef = useRef<HTMLDivElement>(null);
     const navigateByDate = (direction: "left" | "right") => {
         const width = swipeContainerRef.current?.clientWidth;
 
@@ -1185,57 +1262,77 @@ function GamesContent() {
             
             <div
                 ref={swipeContainerRef}
-                className="relative overflow-hidden"
+                className="relative"
                 style={{ touchAction: "pan-y" }}
                 {...swipeHandlers}
             >
-                {/* Three-panel swipe track */}
                 <div
-                    data-swipe-track
-                    className="grid"
-                    style={{
-                        width: "calc(300% + 2rem)",
-                        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                        columnGap: "1rem",
-                        transform: `translateX(calc(-33.333333% - 0.333333rem + var(--swipe-offset, ${offset}px)))`,
-                        transition: dragging || resetting
-                            ? "none"
-                            : "transform 250ms ease-out",
-                        willChange: "transform",
-                    }}
-                    onTransitionEnd={(e) => {
-                        if (
-                            e.target === e.currentTarget &&
-                            e.propertyName === "transform" &&
-                            transitioning
-                        ) {
-                            finishTransition();
-                        }
-                    }}
+                    className="relative overflow-hidden"
+                    style={{ height: "100%" }}
                 >
-                    {/* Previous date */}
-                    <div className="min-w-0 pointer-events-none">
-                        {previousGamesKey !== previousKey || previousLoading
-                            ? gamesCache.current.has(previousKey)
-                                ? renderGames(gamesCache.current.get(previousKey)!.games)
-                                : <GamesSkeleton showLeague={!!sport} />
-                            : renderGames(previousGames)
-                        }
-                    </div>
+                    <div
+                        data-swipe-track
+                        className="absolute inset-0"
+                        style={{
+                            width: "calc(300% + 2rem)",
+                            transform: `translate3d(calc(-33.333333% - 0.333333rem + var(--swipe-offset, ${offset}px)), 0, 0)`,
+                            transition: dragging || resetting
+                                ? "none"
+                                : "transform 250ms ease-out",
+                            willChange: "transform",
+                        }}
+                        onTransitionEnd={(e) => {
+                            if (
+                                e.target === e.currentTarget &&
+                                e.propertyName === "transform" &&
+                                transitioning
+                            ) {
+                                finishTransition();
+                            }
+                        }}
+                    >
+                        {/* Previous date */}
+                        <div
+                            ref={previousPanelRef}
+                            className="absolute left-0 top-0 min-w-0 pointer-events-none flow-root"
+                            style={{
+                                width: "calc((100% - 2rem) / 3)",
+                            }}
+                        >
+                            {previousGamesKey !== previousKey || previousLoading
+                                ? gamesCache.current.has(previousKey)
+                                    ? renderGames(gamesCache.current.get(previousKey)!.games)
+                                    : <GamesSkeleton showLeague={!!sport} />
+                                : renderGames(previousGames)}
+                        </div>
 
-                    {/* Current date */}
-                    <div className="min-w-0">
-                        {currentContent}
-                    </div>
+                        {/* Current date */}
+                        <div
+                            ref={currentPanelRef}
+                            className="absolute top-0 min-w-0 flow-root"
+                            style={{
+                                left: "calc((100% - 2rem) / 3 + 1rem)",
+                                width: "calc((100% - 2rem) / 3)",
+                            }}
+                        >
+                            {currentContent}
+                        </div>
 
-                    {/* Next date */}
-                    <div className="min-w-0 pointer-events-none">
-                        {nextGamesKey !== nextKey || nextLoading
-                            ? gamesCache.current.has(nextKey)
-                                ? renderGames(gamesCache.current.get(nextKey)!.games)
-                                : <GamesSkeleton showLeague={!!sport} />
-                            : renderGames(nextGames)
-                        }
+                        {/* Next date */}
+                        <div
+                            ref={nextPanelRef}
+                            className="absolute top-0 min-w-0 pointer-events-none flow-root"
+                            style={{
+                                left: "calc(2 * ((100% - 2rem) / 3 + 1rem))",
+                                width: "calc((100% - 2rem) / 3)",
+                            }}
+                        >
+                            {nextGamesKey !== nextKey || nextLoading
+                                ? gamesCache.current.has(nextKey)
+                                    ? renderGames(gamesCache.current.get(nextKey)!.games)
+                                    : <GamesSkeleton showLeague={!!sport} />
+                                : renderGames(nextGames)}
+                        </div>
                     </div>
                 </div>
             </div>
