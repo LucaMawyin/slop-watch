@@ -929,8 +929,21 @@ function GamesContent() {
 
         if (sorted.length === 0) {
             return (
-                <div className="mt-8 text-center text-zinc-500">
-                    No games found
+                <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+                    <h2 className="text-lg font-semibold">
+                        No games found
+                    </h2>
+
+                    <p className="mt-2 text-sm text-zinc-500">
+                        There are no upcoming games for this league.
+                    </p>
+
+                    <Link
+                        className="mt-2 inline-block"
+                        href="/"
+                    >
+                        &lt; Return to Home
+                    </Link>
                 </div>
             );
         }
