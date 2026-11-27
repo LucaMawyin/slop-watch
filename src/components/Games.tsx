@@ -919,6 +919,42 @@ function GamesContent() {
 
     const sortedGames = sortGames(displayGames);
 
+    const loadMoreRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const sentinel = loadMoreRef.current;
+
+        if (!sentinel || visibleCount >= sortedGames.length) return;
+
+        let timeout: NodeJS.Timeout;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    observer.unobserve(sentinel);
+
+                    timeout = setTimeout(() => {
+                        setVisibleCount((count) =>
+                            Math.min(count + 9, sortedGames.length)
+                        );
+                    }, 150);
+                }
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0,
+            }
+        );
+
+        observer.observe(sentinel);
+
+        return () => {
+            observer.disconnect();
+            clearTimeout(timeout);
+        };
+    }, [visibleCount, sortedGames.length]);
+
     const currentContent = (
         <>
             {displayLoading ? (
@@ -954,39 +990,27 @@ function GamesContent() {
                         sm:grid-cols-2 
                         lg:grid-cols-3
                     ">
-                        {sortedGames.slice(0, visibleCount).map((game) => {
+                        {sortedGames.slice(0, visibleCount).map((game, index) => {
 
                             return (
                                 <FeaturedGameCard
                                     key={game.game_id}
                                     game={game}
                                     now={now}
+                                    className="game-fade-up"
+                                    style={{
+                                        animationDelay: `${(index % 9) * 50}ms`,
+                                    }}
                                 />
                             );
                         })}
                     </div>
                     {visibleCount < sortedGames.length && (
-                        <div className="mt-6 flex justify-center">
-                            <button
-                                onClick={() => setVisibleCount((count) => count + 9)}
-                                className="
-                                    rounded-lg
-                                    border
-                                    border-zinc-800
-                                    bg-zinc-900
-                                    px-5
-                                    py-2.5
-                                    text-sm
-                                    font-medium
-                                    text-zinc-200
-                                    transition
-                                    hover:border-zinc-700
-                                    hover:bg-zinc-800
-                                "
-                            >
-                                Show More
-                            </button>
-                        </div>
+                        <div
+                            ref={loadMoreRef}
+                            className="h-10"
+                            aria-hidden="true"
+                        />
                     )}
                 </>
             )}
@@ -1035,11 +1059,15 @@ function GamesContent() {
                 sm:grid-cols-2
                 lg:grid-cols-3
             ">
-                {sorted.slice(0, visibleCount).map((game) => (
+                {sorted.slice(0, visibleCount).map((game, index) => (
                     <FeaturedGameCard
                         key={`${game.league}-${game.game_id}`}
                         game={game}
                         now={now}
+                        className="game-fade-up"
+                        style={{
+                            animationDelay: `${(index % 9) * 50}ms`,
+                        }}
                     />
                 ))}
             </div>

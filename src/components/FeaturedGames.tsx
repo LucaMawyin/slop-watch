@@ -65,11 +65,15 @@ export default function FeaturedGames({
                     gap-4
                     lg:grid-cols-3
                 ">
-                    {featuredGames.map((game) => (
+                    {featuredGames.map((game, index) => (
                         <FeaturedGameCard
                             key={`${game.league}-${game.game_id}`}
                             game={game}
                             now={now}
+                            className="game-fade-up"
+                            style={{
+                                animationDelay: `${Math.min(index * 50, 400)}ms`,
+                            }}
                         />
                     ))}
                 </div>

@@ -16,11 +16,15 @@ import { getLocalDate } from "@/lib/getLocalDate";
 interface FeaturedGameCardProps {
     game: Game;
     now: number;
+    className?: string;
+    style?: React.CSSProperties;
 }
 
 export default function FeaturedGameCard({
     game,
     now,
+    className = "",
+    style,
 }: FeaturedGameCardProps) {
     const router = useRouter();
 
@@ -71,7 +75,8 @@ export default function FeaturedGameCard({
                     router.push(gameUrl);
                 }
             }}
-            className="
+            style={style}
+            className={`
                 flex
                 flex-col
                 rounded-xl
@@ -82,8 +87,11 @@ export default function FeaturedGameCard({
                 transition
                 hover:border-zinc-700
                 hover:bg-zinc-800/70
+                hover:-translate-y-1
+                duration-250
                 cursor-pointer
-            "
+                ${className}
+            `}
         >
             {/* Header */}
             <div className="flex items-center justify-between pb-2">

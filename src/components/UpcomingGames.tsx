@@ -91,11 +91,15 @@ export default function UpcomingGames({
                     md:grid-cols-2
                     lg:grid-cols-3
                 ">
-                    {upcomingGames.map((game) => (
+                    {upcomingGames.map((game, index) => (
                         <FeaturedGameCard
                             key={`${game.league}-${game.game_id}`}
                             game={game}
                             now={now}
+                            className="game-fade-up"
+                            style={{
+                                animationDelay: `${Math.min(index * 50, 400)}ms`,
+                            }}
                         />
                     ))}
                 </div>
