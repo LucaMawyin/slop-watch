@@ -48,7 +48,7 @@ export default function LeagueGrid() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                                {sportLeagues.map((league) => (
+                                {sportLeagues.map((league, index) => (
                                     <Link
                                         key={league.id}
                                         href={`/${encodeURIComponent(league.id)}`}
@@ -72,7 +72,11 @@ export default function LeagueGrid() {
                                             focus-visible:outline-none
                                             focus-visible:ring-2
                                             focus-visible:ring-emerald-400
+                                            game-fade-up
                                         "
+                                        style={{
+                                            animationDelay: `${Math.min(index * 50, 400)}ms`,
+                                        }}
                                     >
                                         <div className="min-w-0 space-y-1">
                                             <h4 className="font-semibold text-white transition-colors group-hover:text-emerald-400">

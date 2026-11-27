@@ -166,7 +166,7 @@ export default function HomeStats({ games, now }: HomeStatsProps) {
                 gap-3 
                 xl:grid-cols-4
             ">
-                {cards.map((card) => {
+                {cards.map((card, index) => {
                     const content = (
                         <>
                             <p className="text-sm text-zinc-400">
@@ -213,13 +213,22 @@ export default function HomeStats({ games, now }: HomeStatsProps) {
                         <Link
                             key={card.label}
                             href={card.href}
-                            className={className}
+                            className={`${className} game-fade-up`}
                             target={card.target}
+                            style={{
+                                animationDelay: `${Math.min(index * 50, 400)}ms`,
+                            }}
                         >
                             {content}
                         </Link>
                     ) : (
-                        <div key={card.label} className={className}>
+                        <div 
+                            key={card.label} 
+                            className={`${className} game-fade-up`}
+                            style={{
+                                animationDelay: `${Math.min(index * 50, 400)}ms`,
+                            }}
+                        >
                             {content}
                         </div>
                     );

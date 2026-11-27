@@ -243,6 +243,27 @@ export default function TeamPage({ params }: Props) {
         (game) => new Date(game.date).getTime() > now
     );
 
+    const teamStats = team
+        ? [
+            {
+                label: "RECORD",
+                value: `${team.record.wins} - ${team.record.losses}`,
+            },
+            {
+                label: "WIN %",
+                value: `${(team.win_pct * 100).toFixed(1)}%`,
+            },
+            {
+                label: "BADNESS",
+                value: `${(team.team_badness * 100).toFixed(1)}%`,
+            },
+            {
+                label: "POINT DIFF",
+                value: team.point_diff >= 0 ? `+${team.point_diff}` : team.point_diff,
+            },
+        ]
+        : [];
+
 
     return (
         <div className="w-full p-6 text-white">
@@ -287,43 +308,29 @@ export default function TeamPage({ params }: Props) {
 
                         {/* TEAM STATS */}
                         <section className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                                <div className="text-xs text-zinc-500">
-                                    RECORD
-                                </div>
-                                <div className="mt-2 text-2xl font-semibold">
-                                    {team.record.wins} - {team.record.losses}
-                                </div>
-                            </div>
+                            {teamStats.map((stat, index) => (
+                                <div
+                                    key={stat.label}
+                                    className="
+                                        rounded-xl 
+                                        border 
+                                        border-zinc-800
+                                        bg-zinc-900 p-5
+                                        game-fade-up
+                                    "
+                                    style={{
+                                        animationDelay: `${Math.min(index * 50, 400)}ms`,
+                                    }}
+                                >
+                                    <div className="text-xs text-zinc-500">
+                                        {stat.label}
+                                    </div>
 
-                            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                                <div className="text-xs text-zinc-500">
-                                    WIN %
+                                    <div className="mt-2 text-2xl font-semibold">
+                                        {stat.value}
+                                    </div>
                                 </div>
-                                <div className="mt-2 text-2xl font-semibold">
-                                    {(team.win_pct * 100).toFixed(1)}%
-                                </div>
-                            </div>
-
-                            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                                <div className="text-xs text-zinc-500">
-                                    BADNESS
-                                </div>
-                                <div className="mt-2 text-2xl font-semibold">
-                                    {(team.team_badness * 100).toFixed(1)}%
-                                </div>
-                            </div>
-
-                            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                                <div className="text-xs text-zinc-500">
-                                    POINT DIFF
-                                </div>
-                                <div className="mt-2 text-2xl font-semibold">
-                                    {team.point_diff >= 0 ? `+${team.point_diff}` : team.point_diff}
-                                </div>
-                            </div>
-
-
+                            ))}
                         </section>
                         
                         {liveGames && liveGames.length > 0 && (
@@ -333,7 +340,7 @@ export default function TeamPage({ params }: Props) {
                                 </h2>
 
                                 <div className="rounded-xl border border-zinc-800 bg-zinc-900">
-                                    {liveGames.map((game) => {
+                                    {liveGames.map((game, index) => {
 
                                         const isHome =
                                             game.home_full_name === team.team.full_name;
@@ -352,7 +359,11 @@ export default function TeamPage({ params }: Props) {
                                                 href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
                                                 target="_blank"
                                                 key={game.game_id}
+                                                style={{
+                                                    animationDelay: `${(index % 3) * 50}ms`,
+                                                }}
                                                 className="
+                                                    game-fade-up
                                                     relative
                                                     flex
                                                     flex-col
@@ -556,9 +567,14 @@ export default function TeamPage({ params }: Props) {
                                 Upcoming Games
                             </h2>
 
-                            <div className="rounded-xl border border-zinc-800 bg-zinc-900">
+                            <div className="
+                                rounded-xl 
+                                border 
+                                border-zinc-800 
+                                bg-zinc-900 
+                            ">
                                 {upcomingGames && upcomingGames.length > 0 ? (
-                                    upcomingGames.slice(0, upcomingGamesCount).map((game) => {
+                                    upcomingGames.slice(0, upcomingGamesCount).map((game, index) => {
 
                                         const slop = game.slop_percentile;
                                         const watchability = game.watchability_percentile;
@@ -589,7 +605,11 @@ export default function TeamPage({ params }: Props) {
                                                     no-underline!
                                                     transition
                                                     hover:bg-zinc-800/50
+                                                    game-fade-up
                                                 "
+                                                style={{
+                                                    animationDelay: `${(index % 3) * 50}ms`,
+                                                }}
                                             >
 
                                                 {/* Game Info */}
@@ -690,7 +710,7 @@ export default function TeamPage({ params }: Props) {
 
                             <div className="divide-y divide-zinc-800 rounded-xl border border-zinc-800 bg-zinc-900">
                                 {team.recent_games.length > 0 ? (
-                                    team.recent_games.slice(0, recentGamesCount).map((game) => {
+                                    team.recent_games.slice(0, recentGamesCount).map((game, index) => {
 
                                         const slop = game.slop_percentile;
                                         const watchability = game.watchability_percentile;
@@ -722,15 +742,19 @@ export default function TeamPage({ params }: Props) {
                                                 href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
                                                 target="_blank"
                                                 key={game.game_id}
+                                                style={{
+                                                    animationDelay: `${(index % 3) * 50}ms`,
+                                                }}
                                                 className="
-                                                    flex 
-                                                    [&>div]:max-w-[50%] 
-                                                    items-center 
-                                                    justify-between 
-                                                    p-5 
-                                                    border-b 
-                                                    border-zinc-800 
-                                                    last:border-b-0 
+                                                    game-fade-up
+                                                    flex
+                                                    [&>div]:max-w-[50%]
+                                                    items-center
+                                                    justify-between
+                                                    p-5
+                                                    border-b
+                                                    border-zinc-800
+                                                    last:border-b-0
                                                     no-underline!
                                                     transition
                                                     hover:bg-zinc-800/50
