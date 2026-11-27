@@ -1525,40 +1525,14 @@ async def team(league: str, team_slug: str, request: Request):
 
     if not team_games.empty:
 
-        team_games = team_games.sort_values("date")
+        recent_games = (
+            team_games
+            .sort_values("date", ascending=False)
+            .head(15)
+        )
 
-        # Lookup games by ID
-        game_lookup = {
-            str(row["game_id"]): row
-            for _, row in processed.iterrows()
-        }
+        for _, current_game in recent_games.iterrows():
 
-        # Track visited games to prevent duplicates
-        seen_game_ids = set()
-
-        # Start from the most recent completed game
-        current_game = team_games.iloc[-1]
-
-        for _ in range(15):
-
-            current_game_id = str(current_game["game_id"])
-
-            # Stop if this game was already visited
-            if current_game_id in seen_game_ids:
-                break
-
-            seen_game_ids.add(current_game_id)
-
-            if team_id:
-                is_home = (
-                    str(current_game["home_id"]) == str(team_id)
-                )
-            else:
-                is_home = (
-                    current_game["home_full_name"] == team_full_name
-                )
-
-            # Add the CURRENT game first
             previous_games.append({
                 "game_id": int(float(current_game["game_id"])),
                 "date": pd.to_datetime(
@@ -1580,7 +1554,17 @@ async def team(league: str, team_slug: str, request: Request):
                     if pd.notna(current_game["away_score"])
                     else None
                 ),
-                "is_postseason": int(current_game["is_postseason"]),
+                "season_type": (
+                    int(current_game["season_type"])
+                    if "season_type" in current_game.index
+                    and pd.notna(current_game["season_type"])
+                    else None
+                ),
+                "is_postseason": (
+                    int(current_game["is_postseason"])
+                    if pd.notna(current_game["is_postseason"])
+                    else 0
+                ),
                 "slop_percentile": (
                     float(current_game["slop_percentile"])
                     if pd.notna(current_game["slop_percentile"])
@@ -1592,24 +1576,6 @@ async def team(league: str, team_slug: str, request: Request):
                     else None
                 ),
             })
-
-            # Find the previous game
-            last_game_id = (
-                current_game["home_last_game_id"]
-                if is_home
-                else current_game["away_last_game_id"]
-            )
-
-            if pd.isna(last_game_id):
-                break
-
-            previous = game_lookup.get(str(last_game_id))
-
-            if previous is None:
-                break
-
-            # Follow the chain backwards
-            current_game = previous
 
     # ---------------------------------
     # LIVE & UPCOMING GAMES
@@ -1892,6 +1858,11 @@ async def game(game_id: str, request: Request):
             "home_score": int(row["home_score"]),
             "away_score": int(row["away_score"]),
             "is_postseason": int(row["is_postseason"]),
+            "season_type": (
+                int(row["season_type"])
+                if pd.notna(row["season_type"])
+                else None
+            ),
             "slop_percentile": (
                 float(row["slop_percentile"])
                 if pd.notna(row["slop_percentile"])
@@ -1938,6 +1909,11 @@ async def game(game_id: str, request: Request):
             "home_score": int(row["home_score"]),
             "away_score": int(row["away_score"]),
             "is_postseason": int(row["is_postseason"]),
+            "season_type": (
+                int(row["season_type"])
+                if pd.notna(row["season_type"])
+                else None
+            ),
             "slop_percentile": (
                 float(row["slop_percentile"])
                 if pd.notna(row["slop_percentile"])

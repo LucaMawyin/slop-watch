@@ -403,6 +403,12 @@ export default function TeamPage({ params }: Props) {
                                                             />
                                                         )}
 
+                                                        {game.season_type === 1 && (
+                                                            <div className="mb-1 text-xs text-zinc-500 tracking-wide">
+                                                                PRESEASON
+                                                            </div>
+                                                        )}
+
                                                         <p className="text-sm">
                                                             {new Date(game.date).toLocaleDateString()}
                                                         </p>
@@ -624,6 +630,12 @@ export default function TeamPage({ params }: Props) {
                                                         />
                                                     )}
 
+                                                    {game.season_type === 1 && (
+                                                        <div className="mb-1 text-xs text-zinc-500 tracking-wide">
+                                                            PRESEASON
+                                                        </div>
+                                                    )}
+
                                                     <p className="text-sm">
                                                         {new Date(game.date).toLocaleDateString()}
                                                     </p>
@@ -737,6 +749,8 @@ export default function TeamPage({ params }: Props) {
                                         const won = teamScore > opponentScore; 
                                         const tie = teamScore === opponentScore;
 
+                                        console.log(game.season_type);
+
                                         return (
                                             <Link
                                                 href={`/${league}/preview/${game.game_id}?date=${getLocalDate(game.date)}`}
@@ -769,6 +783,12 @@ export default function TeamPage({ params }: Props) {
                                                             colour={badge.colour}
                                                             className="w-fit mb-1"
                                                         />
+                                                    )}
+
+                                                    {game.season_type === 1 && (
+                                                        <div className="mb-1 text-xs text-zinc-500 tracking-wide">
+                                                            PRESEASON
+                                                        </div>
                                                     )}
 
                                                     <p className="text-sm">

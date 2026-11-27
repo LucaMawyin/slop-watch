@@ -28,6 +28,23 @@ def get_slop(league="nba", raw_path=None):
         }
     )
 
+    # ---------------------------------
+    # SEASON TYPE
+    # ---------------------------------
+
+    games["season_type"] = pd.to_numeric(
+        games["season_type"],
+        errors="coerce"
+    ).fillna(2).astype(int)
+
+    games["is_postseason"] = (
+        games["season_type"] == 3
+    ).astype(int)
+
+    # ---------------------------------
+    # TEAM NAMES
+    # ---------------------------------
+
     if "home_full_name" not in games.columns:
         games["home_full_name"] = games["home_name"]
 
@@ -155,17 +172,7 @@ def get_slop(league="nba", raw_path=None):
     # ---------------------------------
 
     # Determine which games are regular season
-    if "season_type" in games.columns:
-
-        regular_season = games["season_type"] == 2
-
-    elif "season_id" in games.columns:
-
-        regular_season = games["season_id"] % 3 == 2
-
-    else:
-
-        regular_season = games["is_postseason"] == 0
+    regular_season = games["season_type"] == 2
 
 
     team_season_stats = {}

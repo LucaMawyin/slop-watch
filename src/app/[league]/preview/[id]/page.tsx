@@ -374,146 +374,163 @@ export default function PreviewPage({ params }: Props) {
                             minute: "2-digit",
                         })}
                     </div>
-
+                    
                     <div className="
-                        mx-auto 
+                        flex
+                        flex-col
+                        w-full
+                        justify-center
+                        items-center
                         mt-6 
-                        flex 
-                        w-full 
-                        max-w-3xl 
-                        flex-wrap
-                        items-center 
-                        justify-between 
-                        gap-4 
-                        sm:gap-8
-                        sm:flex-nowrap
                     ">
 
-                        {/* HOME */}
-                        <div className="w-0 flex-1 text-center">
-                            <div className="text-zinc-500">
-                                HOME
+                        {game.season_type === 1 && (
+                            <div className="mb-1 text-xs text-zinc-500 tracking-wide">
+                                PRESEASON
                             </div>
-                            <Link
-                                href={`/${league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
-                                target="_blank"
-                                className="
-                                    flex
-                                    flex-col
-                                    w-full
-                                    justify-center
-                                    items-center
-                                    wrap-break-words 
-                                    text-[clamp(1.25rem,4vw,2.25rem)]
-                                    font-bold 
-                                    hover:underline 
-                                "
-                            >
-                                {game.home_full_name}
-                                <TeamLogo
-                                    league={game.league}
-                                    teamId={game.home_id}
-                                    teamName={game.home_name}
-                                />
-                            </Link>
-                        </div>
+                        )}
 
-                        {/* VS / DESKTOP SCORE */}
                         <div className="
-                            flex
-                            shrink-0
-                            flex-col
-                            items-center
-                            justify-center
-                            text-center
+                            mx-auto 
+                            flex 
+                            w-full 
+                            max-w-3xl 
+                            flex-wrap
+                            items-center 
+                            justify-between 
+                            gap-4 
+                            sm:gap-8
+                            sm:flex-nowrap
                         ">
+
+                            {/* HOME */}
+                            <div className="w-0 flex-1 text-center">
+                                <div className="text-zinc-500">
+                                    HOME
+                                </div>
+                                <Link
+                                    href={`/${league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
+                                    target="_blank"
+                                    className="
+                                        flex
+                                        flex-col
+                                        w-full
+                                        justify-center
+                                        items-center
+                                        wrap-break-words 
+                                        text-[clamp(1.25rem,4vw,2.25rem)]
+                                        font-bold 
+                                        hover:underline 
+                                    "
+                                >
+                                    {game.home_full_name}
+                                    <TeamLogo
+                                        league={game.league}
+                                        teamId={game.home_id}
+                                        teamName={game.home_name}
+                                    />
+                                </Link>
+                            </div>
+
+                            {/* VS / DESKTOP SCORE */}
                             <div className="
-                                text-lg
-                                font-semibold
-                                text-zinc-500
-                                sm:hidden
-                                px-1
+                                flex
+                                shrink-0
+                                flex-col
+                                items-center
+                                justify-center
+                                text-center
                             ">
-                                VS
-                            </div>
+                                <div className="
+                                    text-lg
+                                    font-semibold
+                                    text-zinc-500
+                                    sm:hidden
+                                    px-1
+                                ">
+                                    VS
+                                </div>
 
-                            <div className="hidden sm:block">
-                                {(
-                                    game.actual_slop !== null ||
-                                    (
-                                        new Date(game.date).getTime() <= now &&
-                                        game.home_score !== null &&
-                                        game.away_score !== null
-                                    )
-                                ) ? (
-                                    <>
-                                        {game.actual_slop === null && (
-                                            <div className="mb-1 flex items-center justify-center text-xs font-semibold text-green-400">
-                                                <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
-                                                LIVE
-                                            </div>
-                                        )}
-                                        <div className="
-                                            flex
-                                            flex-col
-                                            items-center
-                                            gap-2
-                                            text-4xl 
-                                            font-bold 
-                                            text-white
-                                        ">
-                                            {isFinal && (
-                                                <Badge
-                                                    title={"FINAL"}
-                                                    x={3}
-                                                    y={1}
-                                                    className="border-none w-fit"
-                                                    bgColour={"bg-sky-950"}
-                                                    textColour={"text-sky-400"}
-                                                />                                                
+                                <div className="hidden sm:block">
+                                    {(
+                                        game.actual_slop !== null ||
+                                        (
+                                            new Date(game.date).getTime() <= now &&
+                                            game.home_score !== null &&
+                                            game.away_score !== null
+                                        )
+                                    ) ? (
+                                        <>
+                                            {game.actual_slop === null && (
+                                                <div className="mb-1 flex items-center justify-center text-xs font-semibold text-green-400">
+                                                    <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
+                                                    LIVE
+                                                </div>
                                             )}
+                                            <div className="
+                                                flex
+                                                flex-col
+                                                items-center
+                                                gap-2
+                                                text-4xl 
+                                                font-bold 
+                                                text-white
+                                            ">
+                                                {isFinal && (
+                                                    <Badge
+                                                        title={"FINAL"}
+                                                        x={3}
+                                                        y={1}
+                                                        className="border-none w-fit"
+                                                        bgColour={"bg-sky-950"}
+                                                        textColour={"text-sky-400"}
+                                                    />                                                
+                                                )}
 
-                                            {game.home_score} - {game.away_score}
+                                                {game.home_score} - {game.away_score}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className="text-lg font-semibold text-zinc-500">
+                                            VS
                                         </div>
-                                    </>
-                                ) : (
-                                    <div className="text-lg font-semibold text-zinc-500">
-                                        VS
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* AWAY */}
-                        <div className="w-0 flex-1 text-center">
-                            <div className="text-zinc-500">
-                                AWAY
+                            {/* AWAY */}
+                            <div className="w-0 flex-1 text-center">
+                                <div className="text-zinc-500">
+                                    AWAY
+                                </div>
+                                <Link
+                                    href={`/${league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
+                                    target="_blank"
+                                    className="
+                                        flex
+                                        flex-col
+                                        w-full
+                                        justify-center
+                                        items-center
+                                        wrap-break-words 
+                                        text-[clamp(1.25rem,4vw,2.25rem)]
+                                        font-bold 
+                                        hover:underline 
+                                    "
+                                >
+                                    {game.away_full_name}
+                                    <TeamLogo
+                                        league={game.league}
+                                        teamId={game.away_id}
+                                        teamName={game.away_name}
+                                    />
+                                </Link>
                             </div>
-                            <Link
-                                href={`/${league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
-                                target="_blank"
-                                className="
-                                    flex
-                                    flex-col
-                                    w-full
-                                    justify-center
-                                    items-center
-                                    wrap-break-words 
-                                    text-[clamp(1.25rem,4vw,2.25rem)]
-                                    font-bold 
-                                    hover:underline 
-                                "
-                            >
-                                {game.away_full_name}
-                                <TeamLogo
-                                    league={game.league}
-                                    teamId={game.away_id}
-                                    teamName={game.away_name}
-                                />
-                            </Link>
-                        </div>
 
+                        </div>                        
                     </div>
+
+
 
                     {/* MOBILE SCORE */}
                     {(

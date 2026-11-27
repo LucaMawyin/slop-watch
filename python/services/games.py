@@ -147,8 +147,18 @@ def get_games(
                     errors="coerce"
                 )
 
+                df["season_type"] = (
+                    df["season_id"]
+                    .mod(3)
+                    .replace({
+                        1: 1,  # Preseason
+                        2: 2,  # Regular season
+                        0: 3,  # Postseason
+                    })
+                )
+
                 df["is_postseason"] = (
-                    df["season_id"] % 3 == 0
+                    df["season_type"] == 3
                 ).astype(int)
 
                 games.append(df)
@@ -191,6 +201,7 @@ def get_games(
                 df["day"] = df["date"].dt.day
                 df["year"] = df["date"].dt.year
 
+                df["season_type"] = 2
                 df["is_postseason"] = 0
 
                 games.append(df)
@@ -224,6 +235,11 @@ def get_games(
                 df["month"] = df["date"].dt.month
                 df["day"] = df["date"].dt.day
                 df["year"] = df["date"].dt.year
+
+                df["season_type"] = pd.to_numeric(
+                    df["season_type"],
+                    errors="coerce"
+                )
 
                 df["is_postseason"] = (
                     df["season_type"] == 3
@@ -454,29 +470,12 @@ def get_games(
         ].copy()
 
         # Determine which games are regular season
-        if "season_type" in season_games.columns:
-
-            regular_season = (
-                pd.to_numeric(
-                    season_games["season_type"],
-                    errors="coerce"
-                ) == 2
-            )
-
-        elif "season_id" in season_games.columns:
-
-            regular_season = (
-                pd.to_numeric(
-                    season_games["season_id"],
-                    errors="coerce"
-                ).mod(3) == 2
-            )
-
-        else:
-
-            regular_season = (
-                season_games["is_postseason"] == 0
-            )
+        regular_season = (
+            pd.to_numeric(
+                season_games["season_type"],
+                errors="coerce"
+            ) == 2
+        )
 
         season_games = season_games[
             regular_season

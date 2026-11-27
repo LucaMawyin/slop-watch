@@ -78,6 +78,7 @@ GAME_FEATURES = [
     "away_full_name",
     "venue_full_name",
     "is_postseason",
+    "season_type",
     "season",
 
     # Score
@@ -164,6 +165,7 @@ MODEL_FEATURES = [
     "month",
     "day",
     "year",
+    "season_type",
     "is_postseason",
     "home_id",
     "away_id",

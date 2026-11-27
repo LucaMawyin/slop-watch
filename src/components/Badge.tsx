@@ -31,6 +31,7 @@ export default function Badge(props: {
                 h-fit
                 justify-center
                 items-center
+                text-center
                 gap-2
                 ${props.borderColour ?? "border-zinc-700"}
                 ${props.bgColour ?? "bg-zinc-800"}

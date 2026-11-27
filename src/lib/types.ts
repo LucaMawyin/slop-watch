@@ -21,6 +21,7 @@ export type Game = {
 
     venue_full_name: string;
 
+    season_type: number;
     is_postseason: number;
     season: string;
 

@@ -324,6 +324,7 @@ def update_data(
             ].copy()
 
             new_games["is_postseason"] = 0
+            new_games["season_type"] = 2
 
         # ---------------------------------
         # PWHL
@@ -367,11 +368,26 @@ def update_data(
                 .astype(int)
             )
 
+            new_games["season_type"] = (
+                pd.to_numeric(new_games["season_id"], errors="coerce")
+                .mod(3)
+                .replace({
+                    1: 1,  # Preseason
+                    2: 2,  # Regular season
+                    0: 3,  # Postseason
+                })
+            )
+
         else:
             new_games["is_postseason"] = (
                 pd.to_numeric(new_games["season_type"], errors="coerce")
                 .eq(3)
                 .astype(int)
+            )
+
+            new_games["season_type"] = pd.to_numeric(
+                new_games["season_type"],
+                errors="coerce",
             )
 
         # ---------------------------------
@@ -476,6 +492,12 @@ def update_data(
     df["year"] = df["date"].dt.year
 
     df["is_postseason"] = df["is_postseason"].fillna(0).astype(int)
+
+    df["season_type"] = (
+        pd.to_numeric(df["season_type"], errors="coerce")
+        .fillna(2)
+        .astype(int)
+    )
 
     # Write target raw dataset
     temp_path = target_raw_path.with_suffix(".tmp")

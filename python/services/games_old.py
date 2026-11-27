@@ -19,6 +19,48 @@ def get_games(
 
     df = pd.read_csv(raw_path)
 
+    # ---------------------------------
+    # REGULAR VS POSTSEASON
+    # ---------------------------------
+
+    # PWHL
+    if league == "pwhl":
+
+        df["season_id"] = pd.to_numeric(
+            df["season_id"],
+            errors="coerce",
+        )
+
+        df["season_type"] = (
+            df["season_id"]
+            .mod(3)
+            .map({
+                1: 1,  # Preseason
+                2: 2,  # Regular season
+                0: 3,  # Postseason
+            })
+        )
+
+    # ESPN leagues
+    elif league in ["nba", "wnba", "nfl", "cfb", "nhl", "mlb"]:
+
+        if "season_type" not in df.columns:
+            df["season_type"] = 2
+
+        df["season_type"] = pd.to_numeric(
+            df["season_type"],
+            errors="coerce",
+        ).fillna(2)
+
+    # Soccer leagues
+    else:
+        df["season_type"] = 2
+
+    # Postseason indicator
+    df["is_postseason"] = (
+        df["season_type"] == 3
+    ).astype(int)
+
     # Convert the date column to datetime and ensure scores are numeric
     df["date"] = pd.to_datetime(df["date"], utc=True)
     df["month"] = df["date"].dt.month
@@ -90,6 +132,7 @@ def get_games(
         "away_name",
         "away_score",
         "venue_full_name",
+        "season_type",
         "is_postseason",
         "season",
     ]
@@ -103,9 +146,6 @@ def get_games(
 
     if league == "pwhl":
         columns.append("season_id")
-
-    elif "league" not in SPORT_CONFIG[league]:
-        columns.append("season_type")
 
     games = df[columns].copy()
 
@@ -324,25 +364,28 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     # REGULAR VS POSTSEASON
     # ---------------------------------
 
+    # ESPN
     if league in ["nba", "wnba", "nfl", "cfb", "nhl", "mlb"]:
-        df["is_postseason"] = (
-            df["season_type"] == 3
-        ).astype(int)
 
-    elif league == "pwhl":
-        df["is_postseason"] = (
-            df["season_id"]
-            .apply(
-                lambda x: (
-                    1
-                    if pd.notna(x)
-                    and str(x).isdigit()
-                    and int(x) % 3 == 0
-                    else 0
-                )
-            )
+        df["season_type"] = pd.to_numeric(
+            df["season_type"],
+            errors="coerce"
         )
 
+    # PWHL
+    elif league == "pwhl":
+
+        df["season_type"] = (
+            pd.to_numeric(df["season_id"], errors="coerce")
+            .mod(3)
+            .replace({
+                1: 1,  # Preseason
+                2: 2,  # Regular season
+                0: 3,  # Postseason
+            })
+        )
+
+    # Soccer
     elif league in [
         "mls",
         "epl",
@@ -351,7 +394,13 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
         "bundesliga",
         "ligue_1",
     ]:
-        df["is_postseason"] = 0
+
+        df["season_type"] = 2
+
+    # Binary postseason indicator
+    df["is_postseason"] = (
+        df["season_type"] == 3
+    ).astype(int)
 
     df["date"] = pd.to_datetime(df["date"], utc=True)
 
@@ -370,7 +419,7 @@ def get_future_games(prediction_date=None, days_ahead=30, league="nba"):
     # Remove duplicates
     future_games = future_games.drop_duplicates(
         subset=["game_id"]
-    )
+    ).copy()
 
     print(
         f"get_games took "

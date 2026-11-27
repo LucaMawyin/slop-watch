@@ -129,163 +129,181 @@ export default function FeaturedGameCard({
                 </div>
             )}
 
-            {/* Teams */}
             <div className="
-                flex 
-                justify-between
-                gap-4
+                flex
+                flex-col
+                justify-center
+                items-center
                 max-w-full
+                text-center
             ">
-                <div className="
-                    w-1/2 
-                    min-w-0
-                    flex
-                    flex-col
-                    items-center
-                    gap-1
-                ">
-                    <div className="mb-1 text-xs text-zinc-500">
-                        HOME
-                    </div>
 
-                    <Link
-                        href={`/${game.league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
-                        target="_blank"
-                        onClick={(e) => e.stopPropagation()}
-                        className="
-                            min-w-0
-                            w-full
-                            flex
-                            flex-1
-                            flex-col
-                            items-center
-                            justify-center
-                            gap-1
-                            text-center
-                            text-xl
-                            font-semibold
-                            link
-                        "
-                    >
-                        <span className="
-                            block 
-                            w-full 
-                            min-w-0 
-                            whitespace-normal 
-                            wrap-break-word
-                        ">
-                            {game.home_name}
-                        </span>
-                        
-                        <TeamLogo
-                            league={game.league}
-                            teamId={game.home_id}
-                            teamName={game.home_name}
-                        />
-                    </Link>
-
-                    {showScores && (
-                        <div className="text-3xl font-semibold">
-                            {game.home_score ?? "-"}
-                        </div>
-                    )}
-                </div>
-
-                {/* Scores */}
-                {showScores && (
-                    <div className="
-                        mt-4
-                        flex
-                        py-4
-                        justify-evenly
-                        items-center
-                    ">
-
-                        <Badge
-                            title={isFinal ? "FINAL" : "LIVE"}
-                            x={3}
-                            y={1}
-                            className="border-none"
-                            bgColour={
-                                isFinal
-                                    ? "bg-sky-950"
-                                    : "bg-green-950"
-                            }
-                            textColour={
-                                isFinal
-                                    ? "text-sky-400"
-                                    : "text-green-400"
-                            }
-                        >
-                            {isLive && (
-                                <span className="
-                                    h-1.5
-                                    w-1.5
-                                    animate-pulse
-                                    rounded-full
-                                    bg-green-400
-                                " />
-                            )}
-                        </Badge>
-
+                {game.season_type === 1 && (
+                    <div className="mb-1 text-xs text-zinc-500 tracking-wide">
+                        PRESEASON
                     </div>
                 )}
-
+                
+                {/* Teams */}
                 <div className="
-                    w-1/2 
-                    min-w-0
-                    flex
-                    flex-col
-                    items-center
-                    gap-1
+                    flex 
+                    justify-between
+                    gap-4
+                    w-full
                 ">
-                    <div className="mb-1 text-xs text-zinc-500">
-                        AWAY
+                    <div className="
+                        w-1/2 
+                        min-w-0
+                        flex
+                        flex-col
+                        items-center
+                        gap-1
+                    ">
+                        <div className="mb-1 text-xs text-zinc-500">
+                            HOME
+                        </div>
+
+                        <Link
+                            href={`/${game.league}/teams/${slugify(game.home_name)}?id=${game.home_id}`}
+                            target="_blank"
+                            onClick={(e) => e.stopPropagation()}
+                            className="
+                                min-w-0
+                                w-full
+                                flex
+                                flex-1
+                                flex-col
+                                items-center
+                                justify-center
+                                gap-1
+                                text-center
+                                text-xl
+                                font-semibold
+                                link
+                            "
+                        >
+                            <span className="
+                                block 
+                                w-full 
+                                min-w-0 
+                                whitespace-normal 
+                                wrap-break-word
+                            ">
+                                {game.home_name}
+                            </span>
+                            
+                            <TeamLogo
+                                league={game.league}
+                                teamId={game.home_id}
+                                teamName={game.home_name}
+                            />
+                        </Link>
+
+                        {showScores && (
+                            <div className="text-3xl font-semibold">
+                                {game.home_score ?? "-"}
+                            </div>
+                        )}
                     </div>
 
-                    <Link
-                        href={`/${game.league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
-                        target="_blank"
-                        onClick={(e) => e.stopPropagation()}
-                        className="
-                            min-w-0
-                            w-full
-                            flex
-                            flex-1
-                            flex-col
-                            items-center
-                            justify-center
-                            gap-1
-                            text-center
-                            text-xl
-                            font-semibold
-                            link
-                        "
-                    >
-                        <span className="
-                            block 
-                            w-full 
-                            min-w-0 
-                            whitespace-normal 
-                            wrap-break-word
-                        ">
-                            {game.away_name}
-                        </span>
-
-                        <TeamLogo
-                            league={game.league}
-                            teamId={game.away_id}
-                            teamName={game.away_name}
-                        />
-                    </Link>
-
+                    {/* Scores */}
                     {showScores && (
-                        <div className="text-3xl font-semibold">
-                            {game.away_score ?? "-"}
+                        <div className="
+                            mt-4
+                            flex
+                            py-4
+                            justify-evenly
+                            items-center
+                        ">
+
+                            <Badge
+                                title={isFinal ? "FINAL" : "LIVE"}
+                                x={3}
+                                y={1}
+                                className="border-none"
+                                bgColour={
+                                    isFinal
+                                        ? "bg-sky-950"
+                                        : "bg-green-950"
+                                }
+                                textColour={
+                                    isFinal
+                                        ? "text-sky-400"
+                                        : "text-green-400"
+                                }
+                            >
+                                {isLive && (
+                                    <span className="
+                                        h-1.5
+                                        w-1.5
+                                        animate-pulse
+                                        rounded-full
+                                        bg-green-400
+                                    " />
+                                )}
+                            </Badge>
+
                         </div>
                     )}
+
+                    <div className="
+                        w-1/2 
+                        min-w-0
+                        flex
+                        flex-col
+                        items-center
+                        gap-1
+                    ">
+                        <div className="mb-1 text-xs text-zinc-500">
+                            AWAY
+                        </div>
+
+                        <Link
+                            href={`/${game.league}/teams/${slugify(game.away_name)}?id=${game.away_id}`}
+                            target="_blank"
+                            onClick={(e) => e.stopPropagation()}
+                            className="
+                                min-w-0
+                                w-full
+                                flex
+                                flex-1
+                                flex-col
+                                items-center
+                                justify-center
+                                gap-1
+                                text-center
+                                text-xl
+                                font-semibold
+                                link
+                            "
+                        >
+                            <span className="
+                                block 
+                                w-full 
+                                min-w-0 
+                                whitespace-normal 
+                                wrap-break-word
+                            ">
+                                {game.away_name}
+                            </span>
+
+                            <TeamLogo
+                                league={game.league}
+                                teamId={game.away_id}
+                                teamName={game.away_name}
+                            />
+                        </Link>
+
+                        {showScores && (
+                            <div className="text-3xl font-semibold">
+                                {game.away_score ?? "-"}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
+
+
 
             {/* Venue and Statistics */}
             <div className="my-auto">
